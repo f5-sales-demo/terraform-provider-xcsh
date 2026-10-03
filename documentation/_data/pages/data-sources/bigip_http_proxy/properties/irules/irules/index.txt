@@ -2,7 +2,7 @@
 page_title: "irules.irules"
 subcategory: ""
 description: "OPTIONS for attaching iRules to BIG-IP HTTP Proxy."
-xcsh_docs: {"aliases": ["irules irules"], "body_bytes": 5598, "body_sha256": "sha256:1c1cc3840f8246fdea02b8a5e8e3f0bb6869b646c51f0420551248bdf8341674", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:bigip_http_proxy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bigip_http_proxy:properties:irules:irules", "parent_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:irules", "path": "documentation/data-sources/bigip_http_proxy/properties/irules/irules/index.md", "product": "distributed-cloud", "provider_name": "bigip_http_proxy", "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f", "provider_type": "data-sources", "registry_anchor": "canonical-1022101011310213-0320013022123112-2100010030302303-2313022310001031-1321030200213230-3312020110313211-0033100322332103-0011111101230233", "registry_path": "docs/guides/data-sources--bigip_http_proxy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["irules", "irules"], "schema_version": 1, "sections": [{"aliases": ["name"], "anchor": "schema-irules--irules--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:irules:irules", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["irules", "irules", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["namespace"], "anchor": "schema-irules--irules--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:irules:irules", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["irules", "irules", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["tenant"], "anchor": "schema-irules--irules--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:irules:irules", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["irules", "irules", "tenant"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bigip_http_proxy/properties/irules/irules/index.txt", "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27", "summary": "OPTIONS for attaching iRules to BIG-IP HTTP Proxy.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v9.0.1", "schema_components": ["bigip_http_proxyCreateRequest"], "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"}}
+xcsh_docs: {"aliases": ["irules irules"], "body_bytes": 5598, "body_sha256": "sha256:9d6f44b4846e2a167abda01e9b3890f6782e33e9ccb935371100fc10e93c48ac", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:bigip_http_proxy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bigip_http_proxy:properties:irules:irules", "parent_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:irules", "path": "documentation/data-sources/bigip_http_proxy/properties/irules/irules/index.md", "product": "distributed-cloud", "provider_name": "bigip_http_proxy", "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f", "provider_type": "data-sources", "registry_anchor": "canonical-1022101011310213-0320013022123112-2100010030302303-2313022310001031-1321030200213230-3312020110313211-0033100322332103-0011111101230233", "registry_path": "docs/guides/data-sources--bigip_http_proxy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["irules", "irules"], "schema_version": 1, "sections": [{"aliases": ["irules irules name"], "anchor": "schema-irules--irules--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:irules:irules", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["irules", "irules", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["irules irules namespace"], "anchor": "schema-irules--irules--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:irules:irules", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["irules", "irules", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["irules irules tenant"], "anchor": "schema-irules--irules--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:irules:irules", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["irules", "irules", "tenant"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bigip_http_proxy/properties/irules/irules/index.txt", "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e", "summary": "OPTIONS for attaching iRules to BIG-IP HTTP Proxy.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v9.0.2", "schema_components": ["bigip_http_proxyCreateRequest"], "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -37,7 +37,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "uniqueItems": true
   },
@@ -92,7 +92,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1
   },
@@ -153,7 +153,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -207,7 +207,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {

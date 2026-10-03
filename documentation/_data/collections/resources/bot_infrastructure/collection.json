@@ -122,7 +122,7 @@
         "xcsh-docs:resources:bot_infrastructure:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -144,21 +144,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_infrastructure/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Manages Bot Infrastructure in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_bot_infrastructure",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["bot infrastructure"],
       "body_bytes": 12279,
-      "body_sha256": "sha256:7070fb5b03b11c5a2332002a410567e2b275588d842f6b7b4bce2447918fcfd3",
+      "body_sha256": "sha256:cdcffd1d2a27069bed38c5ff511a7b1657c11a380674490039b8a9db68d5235a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -166,7 +166,7 @@
         "xcsh-docs:resources:bot_infrastructure:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -317,7 +317,7 @@
           "type": "string"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:timeouts",
@@ -346,14 +346,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_infrastructure/properties/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Property reference for xcsh_bot_infrastructure.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -367,7 +367,7 @@
         "xcsh-docs:resources:bot_infrastructure:properties:create_cloud_hosted:testing"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -406,7 +406,7 @@
       "schema_path": ["create_cloud_hosted"],
       "sections": [
         {
-          "aliases": ["ip addresses"],
+          "aliases": ["create cloud hosted ip addresses"],
           "anchor": "schema-create_cloud_hosted--ip_addresses",
           "description": "Only traffic from these IP addresses is allowed to access this Bot Defense infrastructure.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:create_cloud_hosted",
@@ -420,7 +420,7 @@
           "type": "list"
         },
         {
-          "aliases": ["production"],
+          "aliases": ["create cloud hosted production"],
           "anchor": "section",
           "description": "Production.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:create_cloud_hosted:production",
@@ -451,7 +451,7 @@
           "type": "object"
         },
         {
-          "aliases": ["testing"],
+          "aliases": ["create cloud hosted testing"],
           "anchor": "section",
           "description": "Testing",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:create_cloud_hosted:testing",
@@ -475,25 +475,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_infrastructure/properties/create_cloud_hosted/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "F5 Cloud Hosted.",
       "tasks": ["configuration"],
       "title": "create_cloud_hosted",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["create cloud hosted production"],
       "body_bytes": 3238,
-      "body_sha256": "sha256:aca2127c533817be619a32e7ed6ce1645d702afcdcd40ef7434b47d348d0669f",
+      "body_sha256": "sha256:b6e0a9f856fc380cff7623ed3e210033fca5e09d3f66f4af5d0172d371e5633c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -532,7 +532,7 @@
       "schema_path": ["create_cloud_hosted", "production"],
       "sections": [
         {
-          "aliases": ["region 1"],
+          "aliases": ["create cloud hosted production region 1"],
           "anchor": "schema-create_cloud_hosted--production--region_1",
           "description": "This is an Active-Active Infrastructure configuration where traffic is routed equally between the two regions.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:create_cloud_hosted:production",
@@ -546,7 +546,7 @@
           "type": "string"
         },
         {
-          "aliases": ["region 2"],
+          "aliases": ["create cloud hosted production region 2"],
           "anchor": "schema-create_cloud_hosted--production--region_2",
           "description": "This is an Active-Active Infrastructure configuration where traffic is routed equally between the two regions.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:create_cloud_hosted:production",
@@ -561,25 +561,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_infrastructure/properties/create_cloud_hosted/production/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Production.",
       "tasks": ["configuration"],
       "title": "create_cloud_hosted.production",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["create cloud hosted testing"],
       "body_bytes": 2250,
-      "body_sha256": "sha256:c2a1ba3819ceebc35846d7f6b6b3a8917194d991cfd5a6528a7557c7d269d111",
+      "body_sha256": "sha256:8ae1dd42e202704424691e7c140015a895397b9e8e43df9b478643a5a12a0111",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -610,7 +610,7 @@
       "schema_path": ["create_cloud_hosted", "testing"],
       "sections": [
         {
-          "aliases": ["region 1"],
+          "aliases": ["create cloud hosted testing region 1"],
           "anchor": "schema-create_cloud_hosted--testing--region_1",
           "description": "This is an Active-Passive Infrastructure configuration where traffic is routed to a single region.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:create_cloud_hosted:testing",
@@ -625,25 +625,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_infrastructure/properties/create_cloud_hosted/testing/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Testing",
       "tasks": ["configuration"],
       "title": "create_cloud_hosted.testing",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2267,
       "body_sha256": "sha256:cd45a1d03372926c20018489400d7b7b0116fc480e1b6c2911d7cbcf03df7f9c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -665,9 +665,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -679,9 +687,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -693,9 +710,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -707,9 +733,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -722,14 +757,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_infrastructure/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "timeouts for xcsh_bot_infrastructure.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -740,7 +775,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:resources:bot_infrastructure:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -762,14 +797,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_infrastructure/examples/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Examples for xcsh_bot_infrastructure.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -780,7 +815,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -809,14 +844,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_infrastructure/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Resource for xcsh_bot_infrastructure.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -827,7 +862,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -850,14 +885,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_infrastructure/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Import for xcsh_bot_infrastructure.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -868,7 +903,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -890,14 +925,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_infrastructure/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Timeouts for xcsh_bot_infrastructure.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     }
   ],

@@ -147,7 +147,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "pattern": ".*::/64$"
   },
@@ -308,7 +308,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -419,7 +419,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -642,6 +642,16 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "object",
+    "maxProperties": 128,
+    "metadata": {
+      "confidence": 0.75,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -837,7 +847,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -892,7 +902,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1003,7 +1013,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -1058,7 +1068,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1105,7 +1115,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1194,6 +1204,16 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "object",
+    "maxProperties": 64,
+    "metadata": {
+      "confidence": 0.75,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -1806,7 +1826,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1858,7 +1878,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 7,
     "pattern": "^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$"
@@ -2006,6 +2026,16 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "object",
+    "maxProperties": 128,
+    "metadata": {
+      "confidence": 0.75,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -2103,7 +2133,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2155,7 +2185,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 7,
     "pattern": "^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$"
@@ -2251,7 +2281,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1
   },
@@ -2296,7 +2326,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minimum": 1,
     "multipleOf": 1
@@ -2478,7 +2508,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "uniqueItems": true
   },
@@ -2531,7 +2561,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1,
     "pattern": "^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\\.)*[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$",
@@ -2583,7 +2613,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2631,7 +2661,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2695,7 +2725,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "uniqueItems": true
   },
@@ -2774,6 +2804,16 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "object",
+    "maxProperties": 16,
+    "metadata": {
+      "confidence": 0.75,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -2829,7 +2869,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2882,7 +2922,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -2942,7 +2982,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minimum": 0,
     "multipleOf": 1
@@ -3070,7 +3110,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -3126,7 +3166,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minimum": 500
   },
@@ -3171,7 +3211,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minimum": 0
   },
@@ -3229,7 +3269,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -3391,7 +3431,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minimum": 1
   },
@@ -3547,6 +3587,16 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "object",
+    "maxProperties": 128,
+    "metadata": {
+      "confidence": 0.75,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -3736,7 +3786,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -3795,7 +3845,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3842,7 +3892,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3889,7 +3939,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4119,7 +4169,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -4174,7 +4224,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4231,7 +4281,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4300,9 +4350,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-<a id="canonical-3323322211132210-3112213221001111-2331230321202230-3103223322211003-3332131121312301-1103230310200121-1013131032332220-1330021113010320"></a>
-
-## Direct properties — same_as_dgw / 220302102331 / 3
-
-This is an empty object or choice marker. It has no direct properties.

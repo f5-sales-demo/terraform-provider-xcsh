@@ -405,7 +405,7 @@
         "xcsh-docs:data-sources:network_policy:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -427,21 +427,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Manages new network policy with configured parameters in specified namespace in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_network_policy",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["network policy"],
       "body_bytes": 24206,
-      "body_sha256": "sha256:e0807dc700f3307825339094378b3a9c9a16d36e5dcb84a3b7e14e006615cd31",
+      "body_sha256": "sha256:8755ead87171e24c27d978b980842357db14cfe8eae8d3d8403e9806693c49f2",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -449,7 +449,7 @@
         "xcsh-docs:data-sources:network_policy:properties:rules"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -584,14 +584,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Property reference for xcsh_network_policy.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -608,7 +608,7 @@
         "xcsh-docs:data-sources:network_policy:properties:endpoint:prefix_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -630,7 +630,7 @@
       "schema_path": ["endpoint"],
       "sections": [
         {
-          "aliases": ["any"],
+          "aliases": ["endpoint any"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:any",
@@ -644,7 +644,7 @@
           "type": "object"
         },
         {
-          "aliases": ["inside endpoints"],
+          "aliases": ["endpoint inside endpoints"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:inside_endpoints",
@@ -658,7 +658,7 @@
           "type": "object"
         },
         {
-          "aliases": ["label selector"],
+          "aliases": ["endpoint label selector"],
           "anchor": "section",
           "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:label_selector",
@@ -672,7 +672,7 @@
           "type": "object"
         },
         {
-          "aliases": ["outside endpoints"],
+          "aliases": ["endpoint outside endpoints"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:outside_endpoints",
@@ -686,7 +686,7 @@
           "type": "object"
         },
         {
-          "aliases": ["prefix list"],
+          "aliases": ["endpoint prefix list"],
           "anchor": "section",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:prefix_list",
@@ -701,14 +701,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/endpoint/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Shape of the endpoint choices for a view.",
       "tasks": ["configuration"],
       "title": "endpoint",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -719,7 +719,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -741,14 +741,14 @@
       "schema_path": ["endpoint", "any"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/endpoint/any/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "endpoint.any",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -759,7 +759,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -781,25 +781,25 @@
       "schema_path": ["endpoint", "inside_endpoints"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/endpoint/inside_endpoints/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "endpoint.inside_endpoints",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["endpoint label selector"],
       "body_bytes": 3734,
-      "body_sha256": "sha256:054313b8d6e5dd2e980226f6f4455018f9e3252feefc94ceadda3432b3ed5d88",
+      "body_sha256": "sha256:e91007cbc4013b9899585e58498e0234a4388b72f2d0d1a0c9d02a69c8124d38",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -821,7 +821,7 @@
       "schema_path": ["endpoint", "label_selector"],
       "sections": [
         {
-          "aliases": ["expressions"],
+          "aliases": ["endpoint label selector expressions"],
           "anchor": "schema-endpoint--label_selector--expressions",
           "description": "Expressions contains the Kubernetes style label expression for selections.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:label_selector",
@@ -836,14 +836,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/endpoint/label_selector/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "endpoint.label_selector",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -854,7 +854,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -876,25 +876,25 @@
       "schema_path": ["endpoint", "outside_endpoints"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/endpoint/outside_endpoints/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "endpoint.outside_endpoints",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["endpoint prefix list"],
       "body_bytes": 2115,
-      "body_sha256": "sha256:6a30b58a140e737afdf0f985f9b14845a9a264d52de2f7557bc4073a491c0e6a",
+      "body_sha256": "sha256:23d82be2399194cd677a63474f610db91e93acb0e93ae5e361b5964eb29747bc",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -916,7 +916,7 @@
       "schema_path": ["endpoint", "prefix_list"],
       "sections": [
         {
-          "aliases": ["prefixes"],
+          "aliases": ["endpoint prefix list prefixes"],
           "anchor": "schema-endpoint--prefix_list--prefixes",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:prefix_list",
@@ -931,14 +931,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/endpoint/prefix_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of IPv4 prefixes that represent an endpoint.",
       "tasks": ["configuration"],
       "title": "endpoint.prefix_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -952,7 +952,7 @@
         "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -974,7 +974,7 @@
       "schema_path": ["rules"],
       "sections": [
         {
-          "aliases": ["egress rules"],
+          "aliases": ["rules egress rules"],
           "anchor": "section",
           "description": "Ordered list of rules applied to connections from policy endpoints.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules",
@@ -988,7 +988,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ingress rules"],
+          "aliases": ["rules ingress rules"],
           "anchor": "section",
           "description": "Ordered list of rules applied to connections to policy endpoints.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules",
@@ -1003,20 +1003,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Shape of Rule Choice.",
       "tasks": ["configuration"],
       "title": "rules",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules egress rules"],
       "body_bytes": 7219,
-      "body_sha256": "sha256:9d09f9879af9cac755e0f8edd95cbbb55cf03eec8f0c060719552eff3380203c",
+      "body_sha256": "sha256:27ade01a2250e15e2908f9ec2d34d95e0a0f0fd8d6994e27b2adcce011c9ff98",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -1036,7 +1036,7 @@
         "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:protocol_port_range"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1058,7 +1058,7 @@
       "schema_path": ["rules", "egress_rules"],
       "sections": [
         {
-          "aliases": ["action"],
+          "aliases": ["rules egress rules action"],
           "anchor": "schema-rules--egress_rules--action",
           "description": "Network policy rule action configures the action to be taken on rule match Apply deny action on rule match Apply allow action on rule match.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules",
@@ -1072,7 +1072,7 @@
           "type": "string"
         },
         {
-          "aliases": ["adv action"],
+          "aliases": ["rules egress rules adv action"],
           "anchor": "section",
           "description": "Network Policy Rule Advanced Action provides additional OPTIONS along with RuleAction and PBRRuleAction.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:adv_action",
@@ -1086,7 +1086,7 @@
           "type": "object"
         },
         {
-          "aliases": ["all tcp traffic"],
+          "aliases": ["rules egress rules all tcp traffic"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:all_tcp_traffic",
@@ -1100,7 +1100,7 @@
           "type": "object"
         },
         {
-          "aliases": ["all traffic"],
+          "aliases": ["rules egress rules all traffic"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:all_traffic",
@@ -1114,7 +1114,7 @@
           "type": "object"
         },
         {
-          "aliases": ["all udp traffic"],
+          "aliases": ["rules egress rules all udp traffic"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:all_udp_traffic",
@@ -1128,7 +1128,7 @@
           "type": "object"
         },
         {
-          "aliases": ["any"],
+          "aliases": ["rules egress rules any"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:any",
@@ -1142,7 +1142,7 @@
           "type": "object"
         },
         {
-          "aliases": ["applications"],
+          "aliases": ["rules egress rules applications"],
           "anchor": "section",
           "description": "Application protocols like HTTP, SNMP.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:applications",
@@ -1156,7 +1156,7 @@
           "type": "object"
         },
         {
-          "aliases": ["inside endpoints"],
+          "aliases": ["rules egress rules inside endpoints"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:inside_endpoints",
@@ -1170,7 +1170,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip prefix set"],
+          "aliases": ["rules egress rules ip prefix set"],
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:ip_prefix_set",
@@ -1184,7 +1184,7 @@
           "type": "object"
         },
         {
-          "aliases": ["label matcher"],
+          "aliases": ["rules egress rules label matcher"],
           "anchor": "section",
           "description": "A label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:label_matcher",
@@ -1198,7 +1198,7 @@
           "type": "object"
         },
         {
-          "aliases": ["label selector"],
+          "aliases": ["rules egress rules label selector"],
           "anchor": "section",
           "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:label_selector",
@@ -1212,7 +1212,7 @@
           "type": "object"
         },
         {
-          "aliases": ["metadata"],
+          "aliases": ["rules egress rules metadata"],
           "anchor": "section",
           "description": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:metadata",
@@ -1226,7 +1226,7 @@
           "type": "object"
         },
         {
-          "aliases": ["outside endpoints"],
+          "aliases": ["rules egress rules outside endpoints"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:outside_endpoints",
@@ -1240,7 +1240,7 @@
           "type": "object"
         },
         {
-          "aliases": ["prefix list"],
+          "aliases": ["rules egress rules prefix list"],
           "anchor": "section",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:prefix_list",
@@ -1254,7 +1254,7 @@
           "type": "object"
         },
         {
-          "aliases": ["protocol port range"],
+          "aliases": ["rules egress rules protocol port range"],
           "anchor": "section",
           "description": "Protocol and Port ranges.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:protocol_port_range",
@@ -1269,14 +1269,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Ordered list of rules applied to connections from policy endpoints.",
       "tasks": ["configuration"],
       "title": "rules.egress_rules",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1287,7 +1287,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1309,7 +1309,7 @@
       "schema_path": ["rules", "egress_rules", "adv_action"],
       "sections": [
         {
-          "aliases": ["action"],
+          "aliases": ["rules egress rules adv action action"],
           "anchor": "schema-rules--egress_rules--adv_action--action",
           "description": "Choice to choose logging or no logging This works together with option selected via NetworkPolicyRuleAction or any other action specified x-example: (No Selection in NetworkPolicyRuleAction + AdvancedAction as LOG) = LOG Only, (ALLOW/DENY in NetworkPolicyRuleAction + AdvancedAction as LOG) = Log and Allow/Deny,",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:adv_action",
@@ -1324,14 +1324,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/adv_action/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Network Policy Rule Advanced Action provides additional OPTIONS along with RuleAction and PBRRuleAction.",
       "tasks": ["configuration"],
       "title": "rules.egress_rules.adv_action",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1342,7 +1342,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1364,14 +1364,14 @@
       "schema_path": ["rules", "egress_rules", "all_tcp_traffic"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/all_tcp_traffic/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.egress_rules.all_tcp_traffic",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1382,7 +1382,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1404,14 +1404,14 @@
       "schema_path": ["rules", "egress_rules", "all_traffic"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/all_traffic/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.egress_rules.all_traffic",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1422,7 +1422,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1444,14 +1444,14 @@
       "schema_path": ["rules", "egress_rules", "all_udp_traffic"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/all_udp_traffic/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.egress_rules.all_udp_traffic",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1462,7 +1462,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1484,14 +1484,14 @@
       "schema_path": ["rules", "egress_rules", "any"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/any/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.egress_rules.any",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1502,7 +1502,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1524,7 +1524,7 @@
       "schema_path": ["rules", "egress_rules", "applications"],
       "sections": [
         {
-          "aliases": ["applications"],
+          "aliases": ["rules egress rules applications applications"],
           "anchor": "schema-rules--egress_rules--applications--applications",
           "description": "Application protocols like HTTP, SNMP.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:applications",
@@ -1539,14 +1539,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/applications/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Application protocols like HTTP, SNMP.",
       "tasks": ["configuration"],
       "title": "rules.egress_rules.applications",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1557,7 +1557,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1579,14 +1579,14 @@
       "schema_path": ["rules", "egress_rules", "inside_endpoints"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/inside_endpoints/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.egress_rules.inside_endpoints",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1597,7 +1597,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:ip_prefix_set:ref"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1619,7 +1619,7 @@
       "schema_path": ["rules", "egress_rules", "ip_prefix_set"],
       "sections": [
         {
-          "aliases": ["ref"],
+          "aliases": ["rules egress rules ip prefix set ref"],
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:ip_prefix_set:ref",
@@ -1634,25 +1634,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/ip_prefix_set/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A list of references to ip_prefix_set objects.",
       "tasks": ["configuration"],
       "title": "rules.egress_rules.ip_prefix_set",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules egress rules ip prefix set ref"],
       "body_bytes": 6663,
-      "body_sha256": "sha256:54b86ab9d6bb20804ed08418bc0007a908ddb921a557f01b5a12873b98a49066",
+      "body_sha256": "sha256:ba7d48472583c023b7636eeca6db48f1c9d63cd5ca6d6fc9c451060c59ce0e4c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1674,7 +1674,7 @@
       "schema_path": ["rules", "egress_rules", "ip_prefix_set", "ref"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["rules egress rules ip prefix set ref kind"],
           "anchor": "schema-rules--egress_rules--ip_prefix_set--ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:ip_prefix_set:ref",
@@ -1688,7 +1688,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rules egress rules ip prefix set ref name"],
           "anchor": "schema-rules--egress_rules--ip_prefix_set--ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:ip_prefix_set:ref",
@@ -1702,7 +1702,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rules egress rules ip prefix set ref namespace"],
           "anchor": "schema-rules--egress_rules--ip_prefix_set--ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:ip_prefix_set:ref",
@@ -1716,7 +1716,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rules egress rules ip prefix set ref tenant"],
           "anchor": "schema-rules--egress_rules--ip_prefix_set--ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:ip_prefix_set:ref",
@@ -1730,7 +1730,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["rules egress rules ip prefix set ref uid"],
           "anchor": "schema-rules--egress_rules--ip_prefix_set--ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:ip_prefix_set:ref",
@@ -1745,25 +1745,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/ip_prefix_set/ref/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A list of references to ip_prefix_set objects.",
       "tasks": ["configuration"],
       "title": "rules.egress_rules.ip_prefix_set.ref",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules egress rules label matcher"],
       "body_bytes": 2877,
-      "body_sha256": "sha256:611c18d8fdae6d3959015943c685684ef83218314391763760f1a90056144aa2",
+      "body_sha256": "sha256:ea208186d5f49b2efba9f105d4d3ba442acbc3f885461415793e94a8dcad49f7",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1785,7 +1785,7 @@
       "schema_path": ["rules", "egress_rules", "label_matcher"],
       "sections": [
         {
-          "aliases": ["keys"],
+          "aliases": ["rules egress rules label matcher keys"],
           "anchor": "schema-rules--egress_rules--label_matcher--keys",
           "description": "The list of label key names that have to match.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:label_matcher",
@@ -1800,25 +1800,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/label_matcher/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name.",
       "tasks": ["configuration"],
       "title": "rules.egress_rules.label_matcher",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules egress rules label selector"],
       "body_bytes": 3918,
-      "body_sha256": "sha256:6e3e53a97a4c45d5457dc88b050c44e8d8b7aa5f75557e1178c18ddd81052a0f",
+      "body_sha256": "sha256:d4a98ed2ee9396f0d8355cfc1a9ccbc2fecf08f38c04968ff55299cf9ab22187",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1840,7 +1840,7 @@
       "schema_path": ["rules", "egress_rules", "label_selector"],
       "sections": [
         {
-          "aliases": ["expressions"],
+          "aliases": ["rules egress rules label selector expressions"],
           "anchor": "schema-rules--egress_rules--label_selector--expressions",
           "description": "Expressions contains the Kubernetes style label expression for selections.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:label_selector",
@@ -1855,25 +1855,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/label_selector/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "rules.egress_rules.label_selector",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules egress rules metadata"],
       "body_bytes": 3662,
-      "body_sha256": "sha256:f4518d496da02e91672a3be56ec37d9353c468f896247439fa37a841afc30e4b",
+      "body_sha256": "sha256:aaaf1cf5ee85bd800fc7b16671efcc05d4a87c4956b8d71504f5570d457e48be",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1895,7 +1895,7 @@
       "schema_path": ["rules", "egress_rules", "metadata"],
       "sections": [
         {
-          "aliases": ["description spec"],
+          "aliases": ["rules egress rules metadata description spec"],
           "anchor": "schema-rules--egress_rules--metadata--description_spec",
           "description": "Description. Human readable description.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:metadata",
@@ -1909,7 +1909,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rules egress rules metadata name"],
           "anchor": "schema-rules--egress_rules--metadata--name",
           "description": "This is the name of the message. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:metadata",
@@ -1924,14 +1924,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/metadata/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "rules.egress_rules.metadata",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1942,7 +1942,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1964,25 +1964,25 @@
       "schema_path": ["rules", "egress_rules", "outside_endpoints"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/outside_endpoints/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.egress_rules.outside_endpoints",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules egress rules prefix list"],
       "body_bytes": 2299,
-      "body_sha256": "sha256:2224c62ea8857f2f6d557600d4aedd69cece16236e3013790577ab8f7716677d",
+      "body_sha256": "sha256:33ae166277d3850cfe61c741e2d09e2f4cb355f886387a5e6f1788d2840c4144",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2004,7 +2004,7 @@
       "schema_path": ["rules", "egress_rules", "prefix_list"],
       "sections": [
         {
-          "aliases": ["prefixes"],
+          "aliases": ["rules egress rules prefix list prefixes"],
           "anchor": "schema-rules--egress_rules--prefix_list--prefixes",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:prefix_list",
@@ -2019,25 +2019,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/prefix_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of IPv4 prefixes that represent an endpoint.",
       "tasks": ["configuration"],
       "title": "rules.egress_rules.prefix_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules egress rules protocol port range"],
       "body_bytes": 3412,
-      "body_sha256": "sha256:7fa78a07b0ed7c7fc6f22182c46b305bbfc2730b1d334ef16fa527c23818e33b",
+      "body_sha256": "sha256:0dab3b6d4a926f82505e2c3bd64f4df3dc88cb1db38d208a45a6bdf294ca4bcb",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2059,7 +2059,7 @@
       "schema_path": ["rules", "egress_rules", "protocol_port_range"],
       "sections": [
         {
-          "aliases": ["port ranges"],
+          "aliases": ["rules egress rules protocol port range port ranges"],
           "anchor": "schema-rules--egress_rules--protocol_port_range--port_ranges",
           "description": "List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:protocol_port_range",
@@ -2073,7 +2073,7 @@
           "type": "list"
         },
         {
-          "aliases": ["protocol"],
+          "aliases": ["rules egress rules protocol port range protocol"],
           "anchor": "schema-rules--egress_rules--protocol_port_range--protocol",
           "description": "Protocol in IP packet to be used as match criteria Values are TCP, UDP, and icmp.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:protocol_port_range",
@@ -2088,20 +2088,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/protocol_port_range/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Protocol and Port ranges.",
       "tasks": ["configuration"],
       "title": "rules.egress_rules.protocol_port_range",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules ingress rules"],
       "body_bytes": 7262,
-      "body_sha256": "sha256:7fcb4d968c33e5361c42d625827278ceb977555621eb39071c1c82901d5c4196",
+      "body_sha256": "sha256:17be03aa992adb03fdd3574bbfa9a58b49a8a4b7b5cdc6ff11b19586d74bf896",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -2121,7 +2121,7 @@
         "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:protocol_port_range"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2143,7 +2143,7 @@
       "schema_path": ["rules", "ingress_rules"],
       "sections": [
         {
-          "aliases": ["action"],
+          "aliases": ["rules ingress rules action"],
           "anchor": "schema-rules--ingress_rules--action",
           "description": "Network policy rule action configures the action to be taken on rule match Apply deny action on rule match Apply allow action on rule match.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules",
@@ -2157,7 +2157,7 @@
           "type": "string"
         },
         {
-          "aliases": ["adv action"],
+          "aliases": ["rules ingress rules adv action"],
           "anchor": "section",
           "description": "Network Policy Rule Advanced Action provides additional OPTIONS along with RuleAction and PBRRuleAction.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:adv_action",
@@ -2171,7 +2171,7 @@
           "type": "object"
         },
         {
-          "aliases": ["all tcp traffic"],
+          "aliases": ["rules ingress rules all tcp traffic"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:all_tcp_traffic",
@@ -2185,7 +2185,7 @@
           "type": "object"
         },
         {
-          "aliases": ["all traffic"],
+          "aliases": ["rules ingress rules all traffic"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:all_traffic",
@@ -2199,7 +2199,7 @@
           "type": "object"
         },
         {
-          "aliases": ["all udp traffic"],
+          "aliases": ["rules ingress rules all udp traffic"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:all_udp_traffic",
@@ -2213,7 +2213,7 @@
           "type": "object"
         },
         {
-          "aliases": ["any"],
+          "aliases": ["rules ingress rules any"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:any",
@@ -2227,7 +2227,7 @@
           "type": "object"
         },
         {
-          "aliases": ["applications"],
+          "aliases": ["rules ingress rules applications"],
           "anchor": "section",
           "description": "Application protocols like HTTP, SNMP.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:applications",
@@ -2241,7 +2241,7 @@
           "type": "object"
         },
         {
-          "aliases": ["inside endpoints"],
+          "aliases": ["rules ingress rules inside endpoints"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:inside_endpoints",
@@ -2255,7 +2255,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip prefix set"],
+          "aliases": ["rules ingress rules ip prefix set"],
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:ip_prefix_set",
@@ -2269,7 +2269,7 @@
           "type": "object"
         },
         {
-          "aliases": ["label matcher"],
+          "aliases": ["rules ingress rules label matcher"],
           "anchor": "section",
           "description": "A label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:label_matcher",
@@ -2283,7 +2283,7 @@
           "type": "object"
         },
         {
-          "aliases": ["label selector"],
+          "aliases": ["rules ingress rules label selector"],
           "anchor": "section",
           "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:label_selector",
@@ -2297,7 +2297,7 @@
           "type": "object"
         },
         {
-          "aliases": ["metadata"],
+          "aliases": ["rules ingress rules metadata"],
           "anchor": "section",
           "description": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:metadata",
@@ -2311,7 +2311,7 @@
           "type": "object"
         },
         {
-          "aliases": ["outside endpoints"],
+          "aliases": ["rules ingress rules outside endpoints"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:outside_endpoints",
@@ -2325,7 +2325,7 @@
           "type": "object"
         },
         {
-          "aliases": ["prefix list"],
+          "aliases": ["rules ingress rules prefix list"],
           "anchor": "section",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:prefix_list",
@@ -2339,7 +2339,7 @@
           "type": "object"
         },
         {
-          "aliases": ["protocol port range"],
+          "aliases": ["rules ingress rules protocol port range"],
           "anchor": "section",
           "description": "Protocol and Port ranges.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:protocol_port_range",
@@ -2354,14 +2354,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Ordered list of rules applied to connections to policy endpoints.",
       "tasks": ["configuration"],
       "title": "rules.ingress_rules",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2372,7 +2372,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2394,7 +2394,7 @@
       "schema_path": ["rules", "ingress_rules", "adv_action"],
       "sections": [
         {
-          "aliases": ["action"],
+          "aliases": ["rules ingress rules adv action action"],
           "anchor": "schema-rules--ingress_rules--adv_action--action",
           "description": "Choice to choose logging or no logging This works together with option selected via NetworkPolicyRuleAction or any other action specified x-example: (No Selection in NetworkPolicyRuleAction + AdvancedAction as LOG) = LOG Only, (ALLOW/DENY in NetworkPolicyRuleAction + AdvancedAction as LOG) = Log and Allow/Deny,",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:adv_action",
@@ -2409,14 +2409,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/adv_action/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Network Policy Rule Advanced Action provides additional OPTIONS along with RuleAction and PBRRuleAction.",
       "tasks": ["configuration"],
       "title": "rules.ingress_rules.adv_action",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2427,7 +2427,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2449,14 +2449,14 @@
       "schema_path": ["rules", "ingress_rules", "all_tcp_traffic"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/all_tcp_traffic/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.ingress_rules.all_tcp_traffic",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2467,7 +2467,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2489,14 +2489,14 @@
       "schema_path": ["rules", "ingress_rules", "all_traffic"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/all_traffic/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.ingress_rules.all_traffic",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2507,7 +2507,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2529,14 +2529,14 @@
       "schema_path": ["rules", "ingress_rules", "all_udp_traffic"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/all_udp_traffic/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.ingress_rules.all_udp_traffic",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2547,7 +2547,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2569,14 +2569,14 @@
       "schema_path": ["rules", "ingress_rules", "any"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/any/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.ingress_rules.any",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2587,7 +2587,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2609,7 +2609,7 @@
       "schema_path": ["rules", "ingress_rules", "applications"],
       "sections": [
         {
-          "aliases": ["applications"],
+          "aliases": ["rules ingress rules applications applications"],
           "anchor": "schema-rules--ingress_rules--applications--applications",
           "description": "Application protocols like HTTP, SNMP.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:applications",
@@ -2624,14 +2624,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/applications/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Application protocols like HTTP, SNMP.",
       "tasks": ["configuration"],
       "title": "rules.ingress_rules.applications",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2642,7 +2642,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2664,14 +2664,14 @@
       "schema_path": ["rules", "ingress_rules", "inside_endpoints"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/inside_endpoints/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.ingress_rules.inside_endpoints",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2682,7 +2682,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:ip_prefix_set:ref"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2704,7 +2704,7 @@
       "schema_path": ["rules", "ingress_rules", "ip_prefix_set"],
       "sections": [
         {
-          "aliases": ["ref"],
+          "aliases": ["rules ingress rules ip prefix set ref"],
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:ip_prefix_set:ref",
@@ -2719,25 +2719,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/ip_prefix_set/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A list of references to ip_prefix_set objects.",
       "tasks": ["configuration"],
       "title": "rules.ingress_rules.ip_prefix_set",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules ingress rules ip prefix set ref"],
       "body_bytes": 6676,
-      "body_sha256": "sha256:514028d126e390f7158b123771f5c8c80a6e7ac109249c47f87df61b28aa0714",
+      "body_sha256": "sha256:760bad6fefc72b35877c5c6456fb288a72a150e7eded4cb173043b356b4272e2",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2759,7 +2759,7 @@
       "schema_path": ["rules", "ingress_rules", "ip_prefix_set", "ref"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["rules ingress rules ip prefix set ref kind"],
           "anchor": "schema-rules--ingress_rules--ip_prefix_set--ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:ip_prefix_set:ref",
@@ -2773,7 +2773,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rules ingress rules ip prefix set ref name"],
           "anchor": "schema-rules--ingress_rules--ip_prefix_set--ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:ip_prefix_set:ref",
@@ -2787,7 +2787,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rules ingress rules ip prefix set ref namespace"],
           "anchor": "schema-rules--ingress_rules--ip_prefix_set--ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:ip_prefix_set:ref",
@@ -2801,7 +2801,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rules ingress rules ip prefix set ref tenant"],
           "anchor": "schema-rules--ingress_rules--ip_prefix_set--ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:ip_prefix_set:ref",
@@ -2815,7 +2815,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["rules ingress rules ip prefix set ref uid"],
           "anchor": "schema-rules--ingress_rules--ip_prefix_set--ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:ip_prefix_set:ref",
@@ -2830,25 +2830,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/ip_prefix_set/ref/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A list of references to ip_prefix_set objects.",
       "tasks": ["configuration"],
       "title": "rules.ingress_rules.ip_prefix_set.ref",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules ingress rules label matcher"],
       "body_bytes": 2884,
-      "body_sha256": "sha256:00174d89ac657155bb022eeaa21649106a582e48f2a648931140b469a9d9944e",
+      "body_sha256": "sha256:bcd1b363f21c46876e716df7c0699e7e530c17f99162a51ff95800325be15c6a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2870,7 +2870,7 @@
       "schema_path": ["rules", "ingress_rules", "label_matcher"],
       "sections": [
         {
-          "aliases": ["keys"],
+          "aliases": ["rules ingress rules label matcher keys"],
           "anchor": "schema-rules--ingress_rules--label_matcher--keys",
           "description": "The list of label key names that have to match.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:label_matcher",
@@ -2885,25 +2885,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/label_matcher/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name.",
       "tasks": ["configuration"],
       "title": "rules.ingress_rules.label_matcher",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules ingress rules label selector"],
       "body_bytes": 3925,
-      "body_sha256": "sha256:df882cbceb751a71dd372ad1b8bfd421c57178ce7198284c2a40cc5d81b0bf5e",
+      "body_sha256": "sha256:d3021420eb3028de6c4ebff436760da7e0cab4fbd8d0f5a5b14e51379bfa685a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2925,7 +2925,7 @@
       "schema_path": ["rules", "ingress_rules", "label_selector"],
       "sections": [
         {
-          "aliases": ["expressions"],
+          "aliases": ["rules ingress rules label selector expressions"],
           "anchor": "schema-rules--ingress_rules--label_selector--expressions",
           "description": "Expressions contains the Kubernetes style label expression for selections.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:label_selector",
@@ -2940,25 +2940,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/label_selector/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "rules.ingress_rules.label_selector",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules ingress rules metadata"],
       "body_bytes": 3670,
-      "body_sha256": "sha256:e0e4d400e3ff0a6b96b7984f6ca938d70b315c8ab4944933ca31fb3ffe4132c1",
+      "body_sha256": "sha256:ef6b4ce1ef3baa6c17be2a693a72d03a9bc68580a7eb0bf42d23aaae79683793",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2980,7 +2980,7 @@
       "schema_path": ["rules", "ingress_rules", "metadata"],
       "sections": [
         {
-          "aliases": ["description spec"],
+          "aliases": ["rules ingress rules metadata description spec"],
           "anchor": "schema-rules--ingress_rules--metadata--description_spec",
           "description": "Description. Human readable description.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:metadata",
@@ -2994,7 +2994,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rules ingress rules metadata name"],
           "anchor": "schema-rules--ingress_rules--metadata--name",
           "description": "This is the name of the message. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:metadata",
@@ -3009,14 +3009,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/metadata/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "rules.ingress_rules.metadata",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3027,7 +3027,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3049,25 +3049,25 @@
       "schema_path": ["rules", "ingress_rules", "outside_endpoints"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/outside_endpoints/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.ingress_rules.outside_endpoints",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules ingress rules prefix list"],
       "body_bytes": 2306,
-      "body_sha256": "sha256:8fa3219ec21cb079c3b628877489eef68e8373434a7b8b57157fc1591f40e279",
+      "body_sha256": "sha256:2dcffb5f378dae633e9c6067cafbb5c1e1f433a0ebac72c94ce6e2e6b655c5ef",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3089,7 +3089,7 @@
       "schema_path": ["rules", "ingress_rules", "prefix_list"],
       "sections": [
         {
-          "aliases": ["prefixes"],
+          "aliases": ["rules ingress rules prefix list prefixes"],
           "anchor": "schema-rules--ingress_rules--prefix_list--prefixes",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:prefix_list",
@@ -3104,25 +3104,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/prefix_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of IPv4 prefixes that represent an endpoint.",
       "tasks": ["configuration"],
       "title": "rules.ingress_rules.prefix_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules ingress rules protocol port range"],
       "body_bytes": 3420,
-      "body_sha256": "sha256:952b34a8d45fac6c48beabef2398b2bbbbf1676593366556e3f35e5b39c8ce27",
+      "body_sha256": "sha256:e0c47af94ef3d806b78fe0859db2e42eb90293e3af7a29bcffe2ce1e15289008",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3144,7 +3144,7 @@
       "schema_path": ["rules", "ingress_rules", "protocol_port_range"],
       "sections": [
         {
-          "aliases": ["port ranges"],
+          "aliases": ["rules ingress rules protocol port range port ranges"],
           "anchor": "schema-rules--ingress_rules--protocol_port_range--port_ranges",
           "description": "List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:protocol_port_range",
@@ -3158,7 +3158,7 @@
           "type": "list"
         },
         {
-          "aliases": ["protocol"],
+          "aliases": ["rules ingress rules protocol port range protocol"],
           "anchor": "schema-rules--ingress_rules--protocol_port_range--protocol",
           "description": "Protocol in IP packet to be used as match criteria Values are TCP, UDP, and icmp.",
           "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:protocol_port_range",
@@ -3173,14 +3173,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/protocol_port_range/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Protocol and Port ranges.",
       "tasks": ["configuration"],
       "title": "rules.ingress_rules.protocol_port_range",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3191,7 +3191,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:network_policy:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3213,14 +3213,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/examples/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Examples for xcsh_network_policy.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3231,7 +3231,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3260,14 +3260,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Data source for xcsh_network_policy.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     }
   ],

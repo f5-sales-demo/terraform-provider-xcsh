@@ -160,7 +160,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -217,7 +217,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -281,7 +281,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -338,7 +338,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -377,7 +377,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -435,7 +435,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -480,7 +480,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -519,7 +519,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -656,7 +656,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "uniqueItems": true
   },
@@ -707,6 +707,16 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "object",
+    "maxProperties": 64,
+    "metadata": {
+      "confidence": 0.75,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -841,7 +851,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -890,7 +900,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$"
   },
@@ -947,7 +957,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1
   },
@@ -1069,7 +1079,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1,
     "validation": {
@@ -1181,7 +1191,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1234,7 +1244,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1372,7 +1382,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1416,7 +1426,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1454,7 +1464,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1501,7 +1511,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1550,7 +1560,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1599,7 +1609,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1649,7 +1659,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1698,7 +1708,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1854,7 +1864,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2034,7 +2044,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2091,7 +2101,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2143,7 +2153,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2285,7 +2295,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "uniqueItems": true
   },
@@ -2336,6 +2346,16 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "object",
+    "maxProperties": 64,
+    "metadata": {
+      "confidence": 0.75,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -2402,7 +2422,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2589,7 +2609,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minimum": 1
   },
@@ -2643,7 +2663,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2699,7 +2719,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2752,7 +2772,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2806,7 +2826,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-zA-Z0-9_.-]+$"
@@ -2991,7 +3011,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3042,7 +3062,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 4
   },
@@ -3091,7 +3111,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3223,7 +3243,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
@@ -3410,7 +3430,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3461,7 +3481,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 4
   },
@@ -3510,7 +3530,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3642,7 +3662,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
@@ -3877,7 +3897,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1
   },
@@ -3929,7 +3949,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3987,7 +4007,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4045,7 +4065,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4077,6 +4097,16 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "object",
+    "maxProperties": 20,
+    "metadata": {
+      "confidence": 0.75,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -4121,7 +4151,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4154,7 +4184,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4204,7 +4234,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4262,7 +4292,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4301,7 +4331,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4340,7 +4370,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4395,7 +4425,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4436,7 +4466,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4480,7 +4510,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1
   },
@@ -4538,7 +4568,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4596,7 +4626,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-zA-Z0-9_.-]+$"
@@ -4717,7 +4747,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "uniqueItems": true
   },
@@ -4901,7 +4931,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4952,7 +4982,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 4
   },
@@ -5001,7 +5031,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -5134,7 +5164,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
@@ -5323,7 +5353,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -5374,7 +5404,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 4
   },
@@ -5423,7 +5453,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -5556,7 +5586,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
@@ -5632,7 +5662,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "uniqueItems": true
   },
@@ -5680,6 +5710,16 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "object",
+    "maxProperties": 20,
+    "metadata": {
+      "confidence": 0.75,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -5730,7 +5770,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -5852,7 +5892,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1
   },
@@ -5925,7 +5965,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -5975,7 +6015,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1
   },
@@ -6021,7 +6061,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -6085,7 +6125,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -6122,7 +6162,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -6173,7 +6213,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -6239,7 +6279,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -6448,7 +6488,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1
   },
@@ -6521,7 +6561,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -6571,7 +6611,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1
   },
@@ -6617,7 +6657,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -6681,7 +6721,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -6718,7 +6758,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -6769,7 +6809,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -6835,7 +6875,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -7010,54 +7050,3 @@ netapp_backend_ontap_san {
 ## Direct properties — netapp_backend_ontap_san / 222032030112 / 3
 
 <a id="canonical-1012303302332232-2322332110003202-3131020313131212-0011030331302113-0012333233310131-1021222121203212-2002012110330120-0030110332223302"></a>
-
-<a id="canonical-1003010011001303-3201233200302322-0022221310310310-0221330320030111-3321310032010103-1021033130021222-2302113133222112-1022310203123210"></a>
-
-## client_certificate property — netapp_backend_ontap_san / 222032030112 / 4
-
-Type: `"string"`. Optional.
-
-Please Enter base64-encoded value of client certificate. Used for certificate-based auth.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(8192),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 8192,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 8192,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "8192"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "8192"
-  }
-}
-```
-
-- [client_private_key](resources--voltstack_site--reference--group-007.md#canonical-2330200031312131-1002311220021131-0032301231013212-1100130321323122-2210200011122022-1300012033011022-1320010332203010-1131002203123322): complete subsection reference.
-
-<a id="canonical-3100111130110311-0323330111020212-2030032003322212-1322310322012313-3212112111233221-0120312210022300-3313221233122002-1103233231202132"></a>

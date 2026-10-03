@@ -2,7 +2,7 @@
 page_title: "where.virtual_network.ref"
 subcategory: ""
 description: "A virtual network direct reference."
-xcsh_docs: {"aliases": ["where virtual network ref"], "body_bytes": 6904, "body_sha256": "sha256:4f64629fcc1d25e08f9849fa956153636ce0f103b3bfaec2285777b2efc65392", "capabilities": ["identity"], "category": "identity", "child_ids": [], "classification": {"rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:secret_management_access:collection", "completeness": "complete", "id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_network:ref", "parent_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_network", "path": "documentation/resources/secret_management_access/properties/where/virtual_network/ref/index.md", "product": "distributed-cloud", "provider_name": "secret_management_access", "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f", "provider_type": "resources", "registry_anchor": "canonical-1322320232230321-2221100023313112-0322010332122300-2132310232223001-1323302332210030-1120322130000210-3212301112310200-2022220030200321", "registry_path": "docs/guides/resources--secret_management_access--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["where", "virtual_network", "ref"], "schema_version": 1, "sections": [{"aliases": ["kind"], "anchor": "schema-where--virtual_network--ref--kind", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")", "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_network:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_network", "ref", "kind"], "syntax": "attribute", "type": "string"}, {"aliases": ["name"], "anchor": "schema-where--virtual_network--ref--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_network:ref", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_network", "ref", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["namespace"], "anchor": "schema-where--virtual_network--ref--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_network:ref", "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_network", "ref", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["tenant"], "anchor": "schema-where--virtual_network--ref--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_network:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_network", "ref", "tenant"], "syntax": "attribute", "type": "string"}, {"aliases": ["uid"], "anchor": "schema-where--virtual_network--ref--uid", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.", "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_network:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_network", "ref", "uid"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/where/virtual_network/ref/index.txt", "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27", "summary": "A virtual network direct reference.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v9.0.1", "schema_components": ["secret_management_accessCreateRequest"], "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"}}
+xcsh_docs: {"aliases": ["where virtual network ref"], "body_bytes": 6904, "body_sha256": "sha256:479c971b8fbed7d37df09bcee9d0ea5dd4153c690a92f8e679cf27b24153aa83", "capabilities": ["identity"], "category": "identity", "child_ids": [], "classification": {"rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:secret_management_access:collection", "completeness": "complete", "id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_network:ref", "parent_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_network", "path": "documentation/resources/secret_management_access/properties/where/virtual_network/ref/index.md", "product": "distributed-cloud", "provider_name": "secret_management_access", "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f", "provider_type": "resources", "registry_anchor": "canonical-1322320232230321-2221100023313112-0322010332122300-2132310232223001-1323302332210030-1120322130000210-3212301112310200-2022220030200321", "registry_path": "docs/guides/resources--secret_management_access--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["where", "virtual_network", "ref"], "schema_version": 1, "sections": [{"aliases": ["where virtual network ref kind"], "anchor": "schema-where--virtual_network--ref--kind", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")", "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_network:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_network", "ref", "kind"], "syntax": "attribute", "type": "string"}, {"aliases": ["where virtual network ref name"], "anchor": "schema-where--virtual_network--ref--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_network:ref", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_network", "ref", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["where virtual network ref namespace"], "anchor": "schema-where--virtual_network--ref--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_network:ref", "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_network", "ref", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["where virtual network ref tenant"], "anchor": "schema-where--virtual_network--ref--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_network:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_network", "ref", "tenant"], "syntax": "attribute", "type": "string"}, {"aliases": ["where virtual network ref uid"], "anchor": "schema-where--virtual_network--ref--uid", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.", "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_network:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_network", "ref", "uid"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/where/virtual_network/ref/index.txt", "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e", "summary": "A virtual network direct reference.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v9.0.2", "schema_components": ["secret_management_accessCreateRequest"], "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -42,7 +42,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -97,7 +97,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -134,7 +134,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -190,7 +190,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -233,7 +233,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -270,7 +270,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {

@@ -2,7 +2,7 @@
 page_title: "infra.hw_info.storage"
 subcategory: ""
 description: "List of storage devices in server."
-xcsh_docs: {"aliases": ["infra hw info storage"], "body_bytes": 5448, "body_sha256": "sha256:52315cf2c7505009d7417087500b39e0efc20566e5ec5048598e4bd3184c97e4", "capabilities": ["infrastructure"], "category": "infrastructure", "child_ids": [], "classification": {"rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:registration:collection", "completeness": "complete", "id": "xcsh-docs:resources:registration:properties:infra:hw_info:storage", "parent_id": "xcsh-docs:resources:registration:properties:infra:hw_info", "path": "documentation/resources/registration/properties/infra/hw_info/storage/index.md", "product": "distributed-cloud", "provider_name": "registration", "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f", "provider_type": "resources", "registry_anchor": "canonical-3313133121200132-3301001210013020-0000211123132303-3331332012323121-0112110122022030-3033200103123122-0100332030330030-2332130132231120", "registry_path": "docs/guides/resources--registration--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["infra", "hw_info", "storage"], "schema_version": 1, "sections": [{"aliases": ["driver"], "anchor": "schema-infra--hw_info--storage--driver", "description": "Driver of device.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:storage", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "storage", "driver"], "syntax": "attribute", "type": "string"}, {"aliases": ["model"], "anchor": "schema-infra--hw_info--storage--model", "description": "Model of device.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:storage", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "storage", "model"], "syntax": "attribute", "type": "string"}, {"aliases": ["name"], "anchor": "schema-infra--hw_info--storage--name", "description": "Name of device, eg. Nvme0n1.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:storage", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "storage", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["serial"], "anchor": "schema-infra--hw_info--storage--serial", "description": "Serial of device.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:storage", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "storage", "serial"], "syntax": "attribute", "type": "string"}, {"aliases": ["size gb"], "anchor": "schema-infra--hw_info--storage--size_gb", "description": "Device size in GB.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:storage", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "storage", "size_gb"], "syntax": "attribute", "type": "number"}, {"aliases": ["vendor"], "anchor": "schema-infra--hw_info--storage--vendor", "description": "Vendor of device.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:storage", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "storage", "vendor"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/registration/properties/infra/hw_info/storage/index.txt", "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27", "summary": "List of storage devices in server.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v9.0.1", "schema_components": ["registrationCreateRequest"], "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"}}
+xcsh_docs: {"aliases": ["infra hw info storage"], "body_bytes": 5448, "body_sha256": "sha256:ceb2af4a7fc70b92963ba4607442852c938a1418883320d8079715d0cbfa70b0", "capabilities": ["infrastructure"], "category": "infrastructure", "child_ids": [], "classification": {"rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:registration:collection", "completeness": "complete", "id": "xcsh-docs:resources:registration:properties:infra:hw_info:storage", "parent_id": "xcsh-docs:resources:registration:properties:infra:hw_info", "path": "documentation/resources/registration/properties/infra/hw_info/storage/index.md", "product": "distributed-cloud", "provider_name": "registration", "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f", "provider_type": "resources", "registry_anchor": "canonical-3313133121200132-3301001210013020-0000211123132303-3331332012323121-0112110122022030-3033200103123122-0100332030330030-2332130132231120", "registry_path": "docs/guides/resources--registration--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["infra", "hw_info", "storage"], "schema_version": 1, "sections": [{"aliases": ["infra hw info storage driver"], "anchor": "schema-infra--hw_info--storage--driver", "description": "Driver of device.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:storage", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "storage", "driver"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info storage model"], "anchor": "schema-infra--hw_info--storage--model", "description": "Model of device.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:storage", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "storage", "model"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info storage name"], "anchor": "schema-infra--hw_info--storage--name", "description": "Name of device, eg. Nvme0n1.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:storage", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "storage", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info storage serial"], "anchor": "schema-infra--hw_info--storage--serial", "description": "Serial of device.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:storage", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "storage", "serial"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info storage size gb"], "anchor": "schema-infra--hw_info--storage--size_gb", "description": "Device size in GB.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:storage", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "storage", "size_gb"], "syntax": "attribute", "type": "number"}, {"aliases": ["infra hw info storage vendor"], "anchor": "schema-infra--hw_info--storage--vendor", "description": "Vendor of device.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:storage", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "storage", "vendor"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/registration/properties/infra/hw_info/storage/index.txt", "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e", "summary": "List of storage devices in server.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v9.0.2", "schema_components": ["registrationCreateRequest"], "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -75,7 +75,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -110,7 +110,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -164,7 +164,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -205,7 +205,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -265,7 +265,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {

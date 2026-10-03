@@ -6,6 +6,13 @@ description: "Complete grouped canonical reference for xcsh_udp_loadbalancer ref
 
 # xcsh_udp_loadbalancer reference
 
+<a id="canonical-1331322333231012-1200331233010001-2221123022032231-3113231330321320-2102102013021100-2311121333223022-3102321212013102-2331012310102321"></a>
+
+## Next pages — endpoint_subsets / 301002021322 / 4
+
+- [origin_pools_weights](resources--udp_loadbalancer--reference--group-001.md#canonical-0032213313100301-3212011112101330-1011333321321000-2333033310333031-2321102233211130-2001102232222211-1021030023313221-2023031320303303)
+- [xcsh_udp_loadbalancer](../resources/udp_loadbalancer.md#canonical-2031002110012331-0223121021210130-3122111031231033-0102213100033031-3300120332233213-0233003311303232-0311110113213220-1211333320223212)
+
 <a id="canonical-0322213321213202-3202110231110133-2321001131201301-2332103312001133-1123013211012223-2302321130233000-0320333322330213-0013310000232022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -108,7 +115,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1
   },
@@ -179,7 +186,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -243,7 +250,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {

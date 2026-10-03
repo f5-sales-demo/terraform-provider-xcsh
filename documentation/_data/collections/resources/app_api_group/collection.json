@@ -172,7 +172,7 @@
         "xcsh-docs:resources:app_api_group:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -194,21 +194,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_api_group/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Manages app_api_group creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_app_api_group",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["app_api_groupCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["app api group"],
       "body_bytes": 14250,
-      "body_sha256": "sha256:6e7db576bb577969c6d4c7f9abe00a2696710f49d7128fa2d631be977b552ebe",
+      "body_sha256": "sha256:1deca7c0162502fbb7190e05ca9c89d3d28bb17bade0735c98fcb140e9af63b9",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [
@@ -219,7 +219,7 @@
         "xcsh-docs:resources:app_api_group:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -412,7 +412,7 @@
           "type": "string"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:app_api_group:properties:timeouts",
@@ -427,14 +427,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_api_group/properties/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Property reference for xcsh_app_api_group.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["app_api_groupCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -445,7 +445,7 @@
       "category": "api-management",
       "child_ids": ["xcsh-docs:resources:app_api_group:properties:bigip_virtual_server:bigip_virtual_server"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -467,7 +467,7 @@
       "schema_path": ["bigip_virtual_server"],
       "sections": [
         {
-          "aliases": ["bigip virtual server"],
+          "aliases": ["bigip virtual server bigip virtual server"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:app_api_group:properties:bigip_virtual_server:bigip_virtual_server",
@@ -491,25 +491,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_api_group/properties/bigip_virtual_server/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Set the scope of the API Group to a specific BIG-IP Virtual Server.",
       "tasks": ["configuration"],
       "title": "bigip_virtual_server",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["app_api_groupCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["bigip virtual server bigip virtual server"],
       "body_bytes": 6153,
-      "body_sha256": "sha256:dc455912d7aa0ed1200626011d68a093bd24bd94002eeb813c5cf49aa6871f85",
+      "body_sha256": "sha256:7befdcf236a29964212862f2d1e46be75c003af11ba8593e16fe20e494108ddb",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -540,7 +540,7 @@
       "schema_path": ["bigip_virtual_server", "bigip_virtual_server"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["bigip virtual server bigip virtual server name"],
           "anchor": "schema-bigip_virtual_server--bigip_virtual_server--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:app_api_group:properties:bigip_virtual_server:bigip_virtual_server",
@@ -554,7 +554,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["bigip virtual server bigip virtual server namespace"],
           "anchor": "schema-bigip_virtual_server--bigip_virtual_server--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:app_api_group:properties:bigip_virtual_server:bigip_virtual_server",
@@ -568,7 +568,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["bigip virtual server bigip virtual server tenant"],
           "anchor": "schema-bigip_virtual_server--bigip_virtual_server--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:app_api_group:properties:bigip_virtual_server:bigip_virtual_server",
@@ -583,14 +583,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_api_group/properties/bigip_virtual_server/bigip_virtual_server/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "bigip_virtual_server.bigip_virtual_server",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["app_api_groupCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -601,7 +601,7 @@
       "category": "api-management",
       "child_ids": ["xcsh-docs:resources:app_api_group:properties:cdn_loadbalancer:cdn_loadbalancer"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -623,7 +623,7 @@
       "schema_path": ["cdn_loadbalancer"],
       "sections": [
         {
-          "aliases": ["cdn loadbalancer"],
+          "aliases": ["cdn loadbalancer cdn loadbalancer"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:app_api_group:properties:cdn_loadbalancer:cdn_loadbalancer",
@@ -647,25 +647,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_api_group/properties/cdn_loadbalancer/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Set the scope of the API Group to a specific CDN Loadbalancer.",
       "tasks": ["configuration"],
       "title": "cdn_loadbalancer",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["app_api_groupCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["cdn loadbalancer cdn loadbalancer"],
       "body_bytes": 6093,
-      "body_sha256": "sha256:5311f841cb3a7cceb437650be514bf0f94193937aaa3e3bdde8044b8fdade677",
+      "body_sha256": "sha256:2f79626714d008217a7832f01a695532af5320c2df54c99bda771633da0f23e4",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -696,7 +696,7 @@
       "schema_path": ["cdn_loadbalancer", "cdn_loadbalancer"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["cdn loadbalancer cdn loadbalancer name"],
           "anchor": "schema-cdn_loadbalancer--cdn_loadbalancer--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:app_api_group:properties:cdn_loadbalancer:cdn_loadbalancer",
@@ -710,7 +710,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["cdn loadbalancer cdn loadbalancer namespace"],
           "anchor": "schema-cdn_loadbalancer--cdn_loadbalancer--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:app_api_group:properties:cdn_loadbalancer:cdn_loadbalancer",
@@ -724,7 +724,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["cdn loadbalancer cdn loadbalancer tenant"],
           "anchor": "schema-cdn_loadbalancer--cdn_loadbalancer--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:app_api_group:properties:cdn_loadbalancer:cdn_loadbalancer",
@@ -739,25 +739,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_api_group/properties/cdn_loadbalancer/cdn_loadbalancer/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "cdn_loadbalancer.cdn_loadbalancer",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["app_api_groupCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["elements"],
       "body_bytes": 5342,
-      "body_sha256": "sha256:2bf820d0a562d4f75f79fbba6f5de5792312790b3b8cc26ea56fcde93523922e",
+      "body_sha256": "sha256:269e615d1016827eefc729c9ed329b9af7b45c150d7f64498056dc84ad0429cc",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -796,7 +796,7 @@
       "schema_path": ["elements"],
       "sections": [
         {
-          "aliases": ["methods"],
+          "aliases": ["elements methods"],
           "anchor": "schema-elements--methods",
           "description": "List of method values to match the input request API method against. The match is considered to succeed if the input request API method is a member of the list.",
           "document_id": "xcsh-docs:resources:app_api_group:properties:elements",
@@ -810,7 +810,7 @@
           "type": "list"
         },
         {
-          "aliases": ["path regex"],
+          "aliases": ["elements path regex"],
           "anchor": "schema-elements--path_regex",
           "description": "Regular expression to match the input request API path against. The match is considered to succeed if the input request API path matches the specified path regex.",
           "document_id": "xcsh-docs:resources:app_api_group:properties:elements",
@@ -825,14 +825,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_api_group/properties/elements/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of API group elements with methods and path regex for matching requests.",
       "tasks": ["configuration"],
       "title": "elements",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["app_api_groupCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -843,7 +843,7 @@
       "category": "api-management",
       "child_ids": ["xcsh-docs:resources:app_api_group:properties:http_loadbalancer:http_loadbalancer"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -865,7 +865,7 @@
       "schema_path": ["http_loadbalancer"],
       "sections": [
         {
-          "aliases": ["http loadbalancer"],
+          "aliases": ["http loadbalancer http loadbalancer"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:app_api_group:properties:http_loadbalancer:http_loadbalancer",
@@ -889,25 +889,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_api_group/properties/http_loadbalancer/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Set the scope of the API Group to a specific HTTP Loadbalancer.",
       "tasks": ["configuration"],
       "title": "http_loadbalancer",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["app_api_groupCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["http loadbalancer http loadbalancer"],
       "body_bytes": 6108,
-      "body_sha256": "sha256:beeed0bb74906db99e736cd46255f708895ccfbb5d4cd90a7efee5b73050cfd3",
+      "body_sha256": "sha256:04a461a70f6625a3b479074c6986ffc8f4b6fbe0ceecc20d6aae8e4136dbf630",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -938,7 +938,7 @@
       "schema_path": ["http_loadbalancer", "http_loadbalancer"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["http loadbalancer http loadbalancer name"],
           "anchor": "schema-http_loadbalancer--http_loadbalancer--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:app_api_group:properties:http_loadbalancer:http_loadbalancer",
@@ -952,7 +952,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["http loadbalancer http loadbalancer namespace"],
           "anchor": "schema-http_loadbalancer--http_loadbalancer--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:app_api_group:properties:http_loadbalancer:http_loadbalancer",
@@ -966,7 +966,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["http loadbalancer http loadbalancer tenant"],
           "anchor": "schema-http_loadbalancer--http_loadbalancer--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:app_api_group:properties:http_loadbalancer:http_loadbalancer",
@@ -981,25 +981,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_api_group/properties/http_loadbalancer/http_loadbalancer/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "http_loadbalancer.http_loadbalancer",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["app_api_groupCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2237,
       "body_sha256": "sha256:5d40e3f3f1b90211241b1ed2e64744702784d91997f48414237cd6c76ecdf8ed",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1021,9 +1021,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:app_api_group:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1035,9 +1043,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:app_api_group:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1049,9 +1066,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:app_api_group:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1063,9 +1089,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:app_api_group:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1078,14 +1113,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_api_group/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "timeouts for xcsh_app_api_group.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["app_api_groupCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1096,7 +1131,7 @@
       "category": "api-management",
       "child_ids": ["xcsh-docs:resources:app_api_group:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1118,14 +1153,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_api_group/examples/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Examples for xcsh_app_api_group.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["app_api_groupCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1136,7 +1171,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1165,14 +1200,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_api_group/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Resource for xcsh_app_api_group.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["app_api_groupCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1183,7 +1218,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1206,14 +1241,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_api_group/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Import for xcsh_app_api_group.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["app_api_groupCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1224,7 +1259,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1246,14 +1281,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_api_group/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Timeouts for xcsh_app_api_group.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["app_api_groupCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     }
   ],

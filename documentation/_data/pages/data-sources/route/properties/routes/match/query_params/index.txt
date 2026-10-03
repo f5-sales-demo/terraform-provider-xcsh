@@ -2,7 +2,7 @@
 page_title: "routes.match.query_params"
 subcategory: ""
 description: "List of (key, value) query parameters."
-xcsh_docs: {"aliases": ["routes match query params"], "body_bytes": 4854, "body_sha256": "sha256:858abffbbcac57fa3c283f626659849fa897b55dd9541241050562e203acb3a9", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:route:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:route:properties:routes:match:query_params", "parent_id": "xcsh-docs:data-sources:route:properties:routes:match", "path": "documentation/data-sources/route/properties/routes/match/query_params/index.md", "product": "distributed-cloud", "provider_name": "route", "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f", "provider_type": "data-sources", "registry_anchor": "canonical-0213023313013322-0311023222011020-1120220323022332-3230323100313320-3202111122112100-2322331010113121-1301202323012023-3233012302120223", "registry_path": "docs/guides/data-sources--route--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["routes", "match", "query_params"], "schema_version": 1, "sections": [{"aliases": ["exact"], "anchor": "schema-routes--match--query_params--exact", "description": "Exclusive with Exact match value for the query parameter key.", "document_id": "xcsh-docs:data-sources:route:properties:routes:match:query_params", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "match", "query_params", "exact"], "syntax": "attribute", "type": "string"}, {"aliases": ["key"], "anchor": "schema-routes--match--query_params--key", "description": "Query parameter key In the above example, assignee_username is the key.", "document_id": "xcsh-docs:data-sources:route:properties:routes:match:query_params", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "match", "query_params", "key"], "syntax": "attribute", "type": "string"}, {"aliases": ["regex"], "anchor": "schema-routes--match--query_params--regex", "description": "Exclusive with Regex match value for the query parameter key.", "document_id": "xcsh-docs:data-sources:route:properties:routes:match:query_params", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "match", "query_params", "regex"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/match/query_params/index.txt", "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27", "summary": "List of (key, value) query parameters.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v9.0.1", "schema_components": ["routeCreateRequest"], "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"}}
+xcsh_docs: {"aliases": ["routes match query params"], "body_bytes": 4854, "body_sha256": "sha256:b01144fc32e12a56dd92dc445f0014ba33472d6948a60eb1161bb9173dadd27d", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:route:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:route:properties:routes:match:query_params", "parent_id": "xcsh-docs:data-sources:route:properties:routes:match", "path": "documentation/data-sources/route/properties/routes/match/query_params/index.md", "product": "distributed-cloud", "provider_name": "route", "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f", "provider_type": "data-sources", "registry_anchor": "canonical-0213023313013322-0311023222011020-1120220323022332-3230323100313320-3202111122112100-2322331010113121-1301202323012023-3233012302120223", "registry_path": "docs/guides/data-sources--route--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["routes", "match", "query_params"], "schema_version": 1, "sections": [{"aliases": ["routes match query params exact"], "anchor": "schema-routes--match--query_params--exact", "description": "Exclusive with Exact match value for the query parameter key.", "document_id": "xcsh-docs:data-sources:route:properties:routes:match:query_params", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "match", "query_params", "exact"], "syntax": "attribute", "type": "string"}, {"aliases": ["routes match query params key"], "anchor": "schema-routes--match--query_params--key", "description": "Query parameter key In the above example, assignee_username is the key.", "document_id": "xcsh-docs:data-sources:route:properties:routes:match:query_params", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "match", "query_params", "key"], "syntax": "attribute", "type": "string"}, {"aliases": ["routes match query params regex"], "anchor": "schema-routes--match--query_params--regex", "description": "Exclusive with Regex match value for the query parameter key.", "document_id": "xcsh-docs:data-sources:route:properties:routes:match:query_params", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "match", "query_params", "regex"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/match/query_params/index.txt", "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e", "summary": "List of (key, value) query parameters.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v9.0.2", "schema_components": ["routeCreateRequest"], "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -42,7 +42,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "uniqueItems": true
   },
@@ -88,7 +88,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -130,7 +130,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1
   },
@@ -183,7 +183,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1
   },

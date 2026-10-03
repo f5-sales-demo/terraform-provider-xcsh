@@ -371,7 +371,7 @@
         "xcsh-docs:resources:cloud_connect:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -393,21 +393,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Manages a Cloud Connect resource in F5 Distributed Cloud for establishing connectivity to cloud provider networks.",
       "tasks": ["configuration"],
       "title": "xcsh_cloud_connect",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["cloud connect"],
       "body_bytes": 22791,
-      "body_sha256": "sha256:45f37e1a814bc9ceed48d836f02eff78b692f7f0ac01d9a8a522548b66535512",
+      "body_sha256": "sha256:bfb859ae998bf4cf1d33d71f88e417cfa978ee46417a93446bf32668565bb34a",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -417,7 +417,7 @@
         "xcsh-docs:resources:cloud_connect:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -588,7 +588,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:timeouts",
@@ -603,14 +603,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Property reference for xcsh_cloud_connect.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -621,7 +621,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -643,7 +643,7 @@
       "schema_path": ["aws_provider"],
       "sections": [
         {
-          "aliases": ["aws tgw site"],
+          "aliases": ["aws provider aws tgw site"],
           "anchor": "section",
           "description": "Cloud Connect AWS TGW Site Type.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site",
@@ -658,14 +658,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Cloud Connect with AWS.",
       "tasks": ["configuration"],
       "title": "aws_provider",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -680,7 +680,7 @@
         "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -702,7 +702,7 @@
       "schema_path": ["aws_provider", "aws_tgw_site"],
       "sections": [
         {
-          "aliases": ["cred"],
+          "aliases": ["aws provider aws tgw site cred"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:cred",
@@ -725,7 +725,7 @@
           "type": "object"
         },
         {
-          "aliases": ["site"],
+          "aliases": ["aws provider aws tgw site site"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:site",
@@ -748,7 +748,7 @@
           "type": "object"
         },
         {
-          "aliases": ["vpc attachments"],
+          "aliases": ["aws provider aws tgw site vpc attachments"],
           "anchor": "section",
           "description": "Configuration parameter for vpc attachments.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments",
@@ -763,25 +763,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Cloud Connect AWS TGW Site Type.",
       "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["aws provider aws tgw site cred"],
       "body_bytes": 6228,
-      "body_sha256": "sha256:401696d28d6308b489d98d664c0d70ffbf452bbec15711f614f7d5ff724fff7c",
+      "body_sha256": "sha256:32d2064fbeaf7ece8dcabd65bd28de386b8bd466275b1a4030b378a75125f209",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -812,7 +812,7 @@
       "schema_path": ["aws_provider", "aws_tgw_site", "cred"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["aws provider aws tgw site cred name"],
           "anchor": "schema-aws_provider--aws_tgw_site--cred--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:cred",
@@ -826,7 +826,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["aws provider aws tgw site cred namespace"],
           "anchor": "schema-aws_provider--aws_tgw_site--cred--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:cred",
@@ -840,7 +840,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["aws provider aws tgw site cred tenant"],
           "anchor": "schema-aws_provider--aws_tgw_site--cred--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:cred",
@@ -855,25 +855,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/cred/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site.cred",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["aws provider aws tgw site site"],
       "body_bytes": 6228,
-      "body_sha256": "sha256:3bd0704e350bac54dd202d80a11de3f8cfd63528a5ccb06b6c8b8bd8b7fa5176",
+      "body_sha256": "sha256:04089edc744aced206231ce4e37233a3e79df5fdd9d3c861779779445119335e",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -904,7 +904,7 @@
       "schema_path": ["aws_provider", "aws_tgw_site", "site"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["aws provider aws tgw site site name"],
           "anchor": "schema-aws_provider--aws_tgw_site--site--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:site",
@@ -918,7 +918,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["aws provider aws tgw site site namespace"],
           "anchor": "schema-aws_provider--aws_tgw_site--site--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:site",
@@ -932,7 +932,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["aws provider aws tgw site site tenant"],
           "anchor": "schema-aws_provider--aws_tgw_site--site--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:site",
@@ -947,14 +947,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/site/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site.site",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -965,7 +965,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -987,7 +987,7 @@
       "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments"],
       "sections": [
         {
-          "aliases": ["vpc list"],
+          "aliases": ["aws provider aws tgw site vpc attachments vpc list"],
           "anchor": "section",
           "description": "Collection of items or values",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list",
@@ -1059,20 +1059,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configuration parameter for vpc attachments.",
       "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site.vpc_attachments",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["aws provider aws tgw site vpc attachments vpc list"],
       "body_bytes": 5489,
-      "body_sha256": "sha256:6d07b15106aeda6495991376d7e94612b3313c30e56ba71cfac358559673bb9f",
+      "body_sha256": "sha256:f4be4c2cd597c364bdafb04ef5fef7dd24b75519572e95e1e233ab29c4a2baa6",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -1082,7 +1082,7 @@
         "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:manual_routing"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1161,7 +1161,7 @@
       "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments", "vpc_list"],
       "sections": [
         {
-          "aliases": ["custom routing"],
+          "aliases": ["aws provider aws tgw site vpc attachments vpc list custom routing"],
           "anchor": "section",
           "description": "AWS Route Table List.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing",
@@ -1184,7 +1184,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default route"],
+          "aliases": ["aws provider aws tgw site vpc attachments vpc list default route"],
           "anchor": "section",
           "description": "Select Override Default Route Choice.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route",
@@ -1215,7 +1215,7 @@
           "type": "object"
         },
         {
-          "aliases": ["labels"],
+          "aliases": ["aws provider aws tgw site vpc attachments vpc list labels"],
           "anchor": "section",
           "description": "Add labels for the VPC attachment. These labels can then be used in policies such as enhanced firewall.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:labels",
@@ -1229,7 +1229,7 @@
           "type": "object"
         },
         {
-          "aliases": ["manual routing"],
+          "aliases": ["aws provider aws tgw site vpc attachments vpc list manual routing"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:manual_routing",
@@ -1243,7 +1243,7 @@
           "type": "object"
         },
         {
-          "aliases": ["vpc id"],
+          "aliases": ["aws provider aws tgw site vpc attachments vpc list vpc id"],
           "anchor": "schema-aws_provider--aws_tgw_site--vpc_attachments--vpc_list--vpc_id",
           "description": "Enter the VPC ID of the VPC to be attached.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list",
@@ -1258,14 +1258,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Collection of items or values",
       "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1278,7 +1278,7 @@
         "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing:route_tables"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1309,7 +1309,7 @@
       "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments", "vpc_list", "custom_routing"],
       "sections": [
         {
-          "aliases": ["route tables"],
+          "aliases": ["aws provider aws tgw site vpc attachments vpc list custom routing route tables"],
           "anchor": "section",
           "description": "Route Tables.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing:route_tables",
@@ -1340,25 +1340,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/custom_routing/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "AWS Route Table List.",
       "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.custom_routing",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["aws provider aws tgw site vpc attachments vpc list custom routing route tables"],
       "body_bytes": 5911,
-      "body_sha256": "sha256:5fd6324ad2d483c3b06ea496ca1371ae47921d4e36233edbfe47b9182cdf22b3",
+      "body_sha256": "sha256:cf51a531e16f03f7e72a959b2f9ae3edd693ab88efca869712f51dc06fedc616",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1389,7 +1389,7 @@
       "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments", "vpc_list", "custom_routing", "route_tables"],
       "sections": [
         {
-          "aliases": ["route table id"],
+          "aliases": ["aws provider aws tgw site vpc attachments vpc list custom routing route tables route table id"],
           "anchor": "schema-aws_provider--aws_tgw_site--vpc_attachments--vpc_list--custom_routing--route_tables--route_table_id",
           "description": "Route table ID.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing:route_tables",
@@ -1411,7 +1411,7 @@
           "type": "string"
         },
         {
-          "aliases": ["static routes"],
+          "aliases": ["aws provider aws tgw site vpc attachments vpc list custom routing route tables static routes"],
           "anchor": "schema-aws_provider--aws_tgw_site--vpc_attachments--vpc_list--custom_routing--route_tables--static_routes",
           "description": "List of Static Routes.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing:route_tables",
@@ -1434,14 +1434,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/custom_routing/route_tables/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Route Tables.",
       "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.custom_routing.route_tables",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1455,7 +1455,7 @@
         "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route:selective_route_tables"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1494,7 +1494,7 @@
       "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments", "vpc_list", "default_route"],
       "sections": [
         {
-          "aliases": ["all route tables"],
+          "aliases": ["aws provider aws tgw site vpc attachments vpc list default route all route tables"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route:all_route_tables",
@@ -1515,7 +1515,7 @@
           "type": "object"
         },
         {
-          "aliases": ["selective route tables"],
+          "aliases": ["aws provider aws tgw site vpc attachments vpc list default route selective route tables"],
           "anchor": "section",
           "description": "AWS Route Table.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route:selective_route_tables",
@@ -1537,14 +1537,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/default_route/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Select Override Default Route Choice.",
       "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.default_route",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1555,7 +1555,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1584,25 +1584,25 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/default_route/all_route_tables/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.default_route.all_route_tables",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["aws provider aws tgw site vpc attachments vpc list default route selective route tables"],
       "body_bytes": 3414,
-      "body_sha256": "sha256:d8b18cd2b659f7dd8158c90e2a9525ad6054ec50df9d71bd0c3bd3665cec67bc",
+      "body_sha256": "sha256:340dee7c9151ef60f60238b1ba6c342d6c64750b6002151e8516d63c085233e6",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1631,7 +1631,9 @@
       ],
       "sections": [
         {
-          "aliases": ["route table id"],
+          "aliases": [
+            "aws provider aws tgw site vpc attachments vpc list default route selective route tables route table id"
+          ],
           "anchor": "schema-aws_provider--aws_tgw_site--vpc_attachments--vpc_list--default_route--selective_route_tables--route_table_id",
           "description": "Route table ID.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route:selective_route_tables",
@@ -1654,14 +1656,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/default_route/selective_route_tables/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "AWS Route Table.",
       "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.default_route.selective_route_tables",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1672,7 +1674,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1694,14 +1696,14 @@
       "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments", "vpc_list", "labels"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/labels/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Add labels for the VPC attachment. These labels can then be used in policies such as enhanced firewall.",
       "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.labels",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1712,7 +1714,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1734,14 +1736,14 @@
       "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments", "vpc_list", "manual_routing"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/manual_routing/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.manual_routing",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1755,7 +1757,7 @@
         "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1777,7 +1779,7 @@
       "schema_path": ["azure_vnet_site"],
       "sections": [
         {
-          "aliases": ["site"],
+          "aliases": ["azure vnet site site"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:site",
@@ -1800,7 +1802,7 @@
           "type": "object"
         },
         {
-          "aliases": ["vnet attachments"],
+          "aliases": ["azure vnet site vnet attachments"],
           "anchor": "section",
           "description": "Configuration parameter for vnet attachments.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments",
@@ -1815,25 +1817,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/azure_vnet_site/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Cloud Connect Azure VNet Site Type.",
       "tasks": ["configuration"],
       "title": "azure_vnet_site",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["azure vnet site site"],
       "body_bytes": 6012,
-      "body_sha256": "sha256:dc21d8b8a5c1834b4ee1f520f4e77a237706f3954f1a43d22ffef40efb72dd53",
+      "body_sha256": "sha256:5c7758d5d45ae1ca57ed2540e9a47f6de647283aa4e0f4b1455a1eb0f12fc84c",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1864,7 +1866,7 @@
       "schema_path": ["azure_vnet_site", "site"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["azure vnet site site name"],
           "anchor": "schema-azure_vnet_site--site--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:site",
@@ -1878,7 +1880,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["azure vnet site site namespace"],
           "anchor": "schema-azure_vnet_site--site--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:site",
@@ -1892,7 +1894,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["azure vnet site site tenant"],
           "anchor": "schema-azure_vnet_site--site--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:site",
@@ -1907,14 +1909,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/azure_vnet_site/site/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "azure_vnet_site.site",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1925,7 +1927,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1947,7 +1949,7 @@
       "schema_path": ["azure_vnet_site", "vnet_attachments"],
       "sections": [
         {
-          "aliases": ["vnet list"],
+          "aliases": ["azure vnet site vnet attachments vnet list"],
           "anchor": "section",
           "description": "Collection of items or values",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list",
@@ -2027,20 +2029,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configuration parameter for vnet attachments.",
       "tasks": ["configuration"],
       "title": "azure_vnet_site.vnet_attachments",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["azure vnet site vnet attachments vnet list"],
       "body_bytes": 6252,
-      "body_sha256": "sha256:fc91f68935c18708f517ec947745177b3b60f60cde54a73dbaf2bc2e533267d5",
+      "body_sha256": "sha256:e80dd5e095e6e79372dbddb90b36e62b252a9390f5905fe55f5a5f9ca984c349",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -2050,7 +2052,7 @@
         "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:manual_routing"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2137,7 +2139,7 @@
       "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list"],
       "sections": [
         {
-          "aliases": ["custom routing"],
+          "aliases": ["azure vnet site vnet attachments vnet list custom routing"],
           "anchor": "section",
           "description": "List Azure Route Table with Static Route.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing",
@@ -2160,7 +2162,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default route"],
+          "aliases": ["azure vnet site vnet attachments vnet list default route"],
           "anchor": "section",
           "description": "Select Override Default Route Choice.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route",
@@ -2191,7 +2193,7 @@
           "type": "object"
         },
         {
-          "aliases": ["labels"],
+          "aliases": ["azure vnet site vnet attachments vnet list labels"],
           "anchor": "section",
           "description": "Add labels for the VNet attachments. These labels can then be used in policies such as enhanced firewall policies.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:labels",
@@ -2205,7 +2207,7 @@
           "type": "object"
         },
         {
-          "aliases": ["manual routing"],
+          "aliases": ["azure vnet site vnet attachments vnet list manual routing"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:manual_routing",
@@ -2219,7 +2221,7 @@
           "type": "object"
         },
         {
-          "aliases": ["subscription id"],
+          "aliases": ["azure vnet site vnet attachments vnet list subscription id"],
           "anchor": "schema-azure_vnet_site--vnet_attachments--vnet_list--subscription_id",
           "description": "Enter the Subscription ID of the VNet to be attached.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list",
@@ -2233,7 +2235,7 @@
           "type": "string"
         },
         {
-          "aliases": ["vnet id"],
+          "aliases": ["azure vnet site vnet attachments vnet list vnet id"],
           "anchor": "schema-azure_vnet_site--vnet_attachments--vnet_list--vnet_id",
           "description": "Enter the VNet ID of the VNet to be attached in format /<resource-group-name>/<VNet-name>",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list",
@@ -2248,14 +2250,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Collection of items or values",
       "tasks": ["configuration"],
       "title": "azure_vnet_site.vnet_attachments.vnet_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2268,7 +2270,7 @@
         "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing:route_tables"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2299,7 +2301,7 @@
       "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "custom_routing"],
       "sections": [
         {
-          "aliases": ["route tables"],
+          "aliases": ["azure vnet site vnet attachments vnet list custom routing route tables"],
           "anchor": "section",
           "description": "Route Tables with static routes.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing:route_tables",
@@ -2323,25 +2325,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/custom_routing/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List Azure Route Table with Static Route.",
       "tasks": ["configuration"],
       "title": "azure_vnet_site.vnet_attachments.vnet_list.custom_routing",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["azure vnet site vnet attachments vnet list custom routing route tables"],
       "body_bytes": 5972,
-      "body_sha256": "sha256:f9036d48847fb9802bb8a65d48a34fb92ed1636302ca1875c4db610c3c865ad9",
+      "body_sha256": "sha256:b58d9fb0bd6b1a149827a001beb803d53ae5d9ef1e7e6f8bce941196a449b761",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2372,7 +2374,7 @@
       "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "custom_routing", "route_tables"],
       "sections": [
         {
-          "aliases": ["route table id"],
+          "aliases": ["azure vnet site vnet attachments vnet list custom routing route tables route table id"],
           "anchor": "schema-azure_vnet_site--vnet_attachments--vnet_list--custom_routing--route_tables--route_table_id",
           "description": "Route table ID in the format /<resource-group-name>/<route-table-name>",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing:route_tables",
@@ -2393,7 +2395,7 @@
           "type": "string"
         },
         {
-          "aliases": ["static routes"],
+          "aliases": ["azure vnet site vnet attachments vnet list custom routing route tables static routes"],
           "anchor": "schema-azure_vnet_site--vnet_attachments--vnet_list--custom_routing--route_tables--static_routes",
           "description": "List of Static Routes.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing:route_tables",
@@ -2415,14 +2417,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/custom_routing/route_tables/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Route Tables with static routes.",
       "tasks": ["configuration"],
       "title": "azure_vnet_site.vnet_attachments.vnet_list.custom_routing.route_tables",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2436,7 +2438,7 @@
         "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route:selective_route_tables"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2475,9 +2477,9 @@
       "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "default_route"],
       "sections": [
         {
-          "aliases": ["all route tables"],
+          "aliases": ["all route tables", "azure vnet site vnet attachments vnet list default route all route tables"],
           "anchor": "section",
-          "description": "This can be used for messages where no values are needed.",
+          "description": "Applies the default route to all route tables in the Azure VNet attachment.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route:all_route_tables",
           "flags": ["optional"],
           "max_items": null,
@@ -2489,7 +2491,7 @@
           "type": "object"
         },
         {
-          "aliases": ["selective route tables"],
+          "aliases": ["azure vnet site vnet attachments vnet list default route selective route tables"],
           "anchor": "section",
           "description": "Azure Route Table.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route:selective_route_tables",
@@ -2510,26 +2512,26 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/default_route/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Select Override Default Route Choice.",
       "tasks": ["configuration"],
       "title": "azure_vnet_site.vnet_attachments.vnet_list.default_route",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
-      "aliases": ["azure vnet site vnet attachments vnet list default route all route tables"],
+      "aliases": ["all route tables", "azure vnet site vnet attachments vnet list default route all route tables"],
       "body_bytes": 2019,
       "body_sha256": "sha256:4cbfa4d144e1f9db119dbf3e022b75a6bd434c72ca593ec7826449860db71d82",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
-        "sources": ["reviewed-rule"],
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "sources": ["reviewed-rule", "reviewed-summary"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
       },
@@ -2550,25 +2552,25 @@
       "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "default_route", "all_route_tables"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/default_route/all_route_tables/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
-      "summary": "This can be used for messages where no values are needed.",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "summary": "Applies the default route to all route tables in the Azure VNet attachment.",
       "tasks": ["configuration"],
       "title": "azure_vnet_site.vnet_attachments.vnet_list.default_route.all_route_tables",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["azure vnet site vnet attachments vnet list default route selective route tables"],
       "body_bytes": 3113,
-      "body_sha256": "sha256:de537b9dd318ea603976daa6e2ff5ed2dd0da51b504c1992733d5f61c45ac87e",
+      "body_sha256": "sha256:e683893defb9d5167b71c3dcbb2758d2c8d166e3af3eeee76ac3ba83622a81d6",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2590,7 +2592,7 @@
       "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "default_route", "selective_route_tables"],
       "sections": [
         {
-          "aliases": ["route table id"],
+          "aliases": ["azure vnet site vnet attachments vnet list default route selective route tables route table id"],
           "anchor": "schema-azure_vnet_site--vnet_attachments--vnet_list--default_route--selective_route_tables--route_table_id",
           "description": "Route table ID in the format /<resource-group-name>/<route-table-name>",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route:selective_route_tables",
@@ -2612,14 +2614,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/default_route/selective_route_tables/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Azure Route Table.",
       "tasks": ["configuration"],
       "title": "azure_vnet_site.vnet_attachments.vnet_list.default_route.selective_route_tables",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2630,7 +2632,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2652,14 +2654,14 @@
       "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "labels"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/labels/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Add labels for the VNet attachments. These labels can then be used in policies such as enhanced firewall policies.",
       "tasks": ["configuration"],
       "title": "azure_vnet_site.vnet_attachments.vnet_list.labels",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2670,7 +2672,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2692,25 +2694,25 @@
       "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "manual_routing"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/manual_routing/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "azure_vnet_site.vnet_attachments.vnet_list.manual_routing",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["segment"],
       "body_bytes": 5805,
-      "body_sha256": "sha256:04778679ff912ef76a90d0cbafb78d06511cd18e9286979f18dbb252a2b3b95e",
+      "body_sha256": "sha256:55b14235d9ae0d60749c03f7a0c88675b6066b1e2d34e7656968c266c9632e6c",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2741,7 +2743,7 @@
       "schema_path": ["segment"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["segment name"],
           "anchor": "schema-segment--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:segment",
@@ -2755,7 +2757,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["segment namespace"],
           "anchor": "schema-segment--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:segment",
@@ -2769,7 +2771,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["segment tenant"],
           "anchor": "schema-segment--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:segment",
@@ -2784,25 +2786,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/segment/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "segment",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2237,
       "body_sha256": "sha256:a38d0891a7c34553841b3a73fbbea624a130f18f91ea9ebbefde4de775a9a142",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2824,9 +2826,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -2838,9 +2848,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -2852,9 +2871,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -2866,9 +2894,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:cloud_connect:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -2881,14 +2918,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "timeouts for xcsh_cloud_connect.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2899,7 +2936,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_connect:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2921,14 +2958,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/examples/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Examples for xcsh_cloud_connect.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2939,7 +2976,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2968,14 +3005,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Resource for xcsh_cloud_connect.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2986,7 +3023,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3009,14 +3046,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Import for xcsh_cloud_connect.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3027,7 +3064,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3049,14 +3086,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Timeouts for xcsh_cloud_connect.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     }
   ],

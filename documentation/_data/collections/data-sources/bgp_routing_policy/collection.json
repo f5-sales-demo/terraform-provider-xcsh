@@ -145,7 +145,7 @@
         "xcsh-docs:data-sources:bgp_routing_policy:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -167,26 +167,26 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Manages a BGP Routing Policy resource in F5 Distributed Cloud for bgp routing policy is a list of rules containing match criteria and action to be applied. these rules help control routes which are imported or exported to bgp peers. configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_bgp_routing_policy",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgp_routing_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["bgp routing policy"],
       "body_bytes": 11150,
-      "body_sha256": "sha256:40e36cc602619a2701e0de483ab8e1c628c60de531e434c3711200ba83243fe4",
+      "body_sha256": "sha256:212a2520056450d98bf82ed97252c51d3f5f5f1cfbcdfbc3d484a9179d8c11cf",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:bgp_routing_policy:properties:rules"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -307,20 +307,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Property reference for xcsh_bgp_routing_policy.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgp_routing_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules"],
       "body_bytes": 2455,
-      "body_sha256": "sha256:7c0b00e2618ce32420787c866ca27ab972926fd3aebcf35e2b34960431f83843",
+      "body_sha256": "sha256:59e5ebb23389be7a2d2af3491d762d34900bd1a3f120c7b37cd14f356b3196e4",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -328,7 +328,7 @@
         "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -350,7 +350,7 @@
       "schema_path": ["rules"],
       "sections": [
         {
-          "aliases": ["action"],
+          "aliases": ["rules action"],
           "anchor": "section",
           "description": "Action to be enforced if the BGP route matches the rule.",
           "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action",
@@ -364,7 +364,7 @@
           "type": "object"
         },
         {
-          "aliases": ["match"],
+          "aliases": ["rules match"],
           "anchor": "section",
           "description": "Predicates which have to match information in route for action to be applied.",
           "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match",
@@ -379,20 +379,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A BGP Routing policy is composed of one or more rules. Note that the order of rules is critical as rules are applied top to bottom.",
       "tasks": ["configuration"],
       "title": "rules",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgp_routing_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules action"],
       "body_bytes": 4048,
-      "body_sha256": "sha256:29731177e789273f492fb77f8268e7db2bf7a8a9d4c8f36984db6a33a8e74360",
+      "body_sha256": "sha256:3235eee63ea3e9f7d27070c27da2264d9983856f78855c5dddd7e5a5c2baa280",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -401,7 +401,7 @@
         "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action:deny"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -423,7 +423,7 @@
       "schema_path": ["rules", "action"],
       "sections": [
         {
-          "aliases": ["allow"],
+          "aliases": ["rules action allow"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action:allow",
@@ -437,7 +437,7 @@
           "type": "object"
         },
         {
-          "aliases": ["as path"],
+          "aliases": ["rules action as path"],
           "anchor": "schema-rules--action--as_path",
           "description": "Exclusive with AS-Path Prepending is generally used to influence incoming traffic.",
           "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action",
@@ -451,7 +451,7 @@
           "type": "string"
         },
         {
-          "aliases": ["community"],
+          "aliases": ["rules action community"],
           "anchor": "section",
           "description": "List of BGP communities.",
           "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action:community",
@@ -465,7 +465,7 @@
           "type": "object"
         },
         {
-          "aliases": ["deny"],
+          "aliases": ["rules action deny"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action:deny",
@@ -479,7 +479,7 @@
           "type": "object"
         },
         {
-          "aliases": ["local preference"],
+          "aliases": ["rules action local preference"],
           "anchor": "schema-rules--action--local_preference",
           "description": "Exclusive with BGP Local Preference is generally used to influence outgoing traffic.",
           "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action",
@@ -493,7 +493,7 @@
           "type": "number"
         },
         {
-          "aliases": ["metric"],
+          "aliases": ["rules action metric"],
           "anchor": "schema-rules--action--metric",
           "description": "Exclusive with The Multi-Exit Discriminator metric to indicate the preferred path to AS.",
           "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action",
@@ -508,14 +508,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/action/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Action to be enforced if the BGP route matches the rule.",
       "tasks": ["configuration"],
       "title": "rules.action",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgp_routing_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -526,7 +526,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -548,25 +548,25 @@
       "schema_path": ["rules", "action", "allow"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/action/allow/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.action.allow",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgp_routing_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules action community"],
       "body_bytes": 2782,
-      "body_sha256": "sha256:aacb793470ed707d8404eabbe927bd45103747d40837720155268186d904036a",
+      "body_sha256": "sha256:891fb172cb3b1cf94f1594470e70124bda513f47dfdde1c9e5fdb73384580057",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -588,7 +588,7 @@
       "schema_path": ["rules", "action", "community"],
       "sections": [
         {
-          "aliases": ["community"],
+          "aliases": ["rules action community community"],
           "anchor": "schema-rules--action--community--community",
           "description": "An unordered set of RFC 1997 defined 4-byte community, first 16 bits being ASN and lower 16 bits being value.",
           "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action:community",
@@ -603,14 +603,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/action/community/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of BGP communities.",
       "tasks": ["configuration"],
       "title": "rules.action.community",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgp_routing_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -621,7 +621,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -643,20 +643,20 @@
       "schema_path": ["rules", "action", "deny"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/action/deny/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.action.deny",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgp_routing_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules match"],
       "body_bytes": 2583,
-      "body_sha256": "sha256:17f3e7ef55a4438b39ec86230f3372ace914b4b496026a9bedb113bfc789b333",
+      "body_sha256": "sha256:07fdcf37f6d595436ef7beb57856057a18ea6b74d09d68b24eabc7d486b95068",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -664,7 +664,7 @@
         "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -686,7 +686,7 @@
       "schema_path": ["rules", "match"],
       "sections": [
         {
-          "aliases": ["as path"],
+          "aliases": ["rules match as path"],
           "anchor": "schema-rules--match--as_path",
           "description": "Exclusive with AS path can also be a regex, which will be matched against route information.",
           "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match",
@@ -700,7 +700,7 @@
           "type": "string"
         },
         {
-          "aliases": ["community"],
+          "aliases": ["rules match community"],
           "anchor": "section",
           "description": "List of BGP communities.",
           "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:community",
@@ -714,7 +714,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip prefixes"],
+          "aliases": ["rules match ip prefixes"],
           "anchor": "section",
           "description": "List of IP prefix and prefix length range match condition.",
           "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes",
@@ -729,25 +729,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/match/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Predicates which have to match information in route for action to be applied.",
       "tasks": ["configuration"],
       "title": "rules.match",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgp_routing_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules match community"],
       "body_bytes": 2775,
-      "body_sha256": "sha256:347942d6a649f43918b39700a6a21bfd778edb2fb23c821e64cde26e15f9e033",
+      "body_sha256": "sha256:7d6dbedfb65bb5512ea2affae7e939daadfcc3c06817ae79615c1c825ee942ed",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -769,7 +769,7 @@
       "schema_path": ["rules", "match", "community"],
       "sections": [
         {
-          "aliases": ["community"],
+          "aliases": ["rules match community community"],
           "anchor": "schema-rules--match--community--community",
           "description": "An unordered set of RFC 1997 defined 4-byte community, first 16 bits being ASN and lower 16 bits being value.",
           "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:community",
@@ -784,14 +784,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/match/community/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of BGP communities.",
       "tasks": ["configuration"],
       "title": "rules.match.community",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgp_routing_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -802,7 +802,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -824,7 +824,7 @@
       "schema_path": ["rules", "match", "ip_prefixes"],
       "sections": [
         {
-          "aliases": ["prefixes"],
+          "aliases": ["rules match ip prefixes prefixes"],
           "anchor": "section",
           "description": "List of IP prefix.",
           "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes",
@@ -839,20 +839,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/match/ip_prefixes/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of IP prefix and prefix length range match condition.",
       "tasks": ["configuration"],
       "title": "rules.match.ip_prefixes",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgp_routing_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules match ip prefixes prefixes"],
       "body_bytes": 4190,
-      "body_sha256": "sha256:18c1d1ef3de7810382a4044c1236ec3fd55566c91d054b77a9ca69b28e9f87ea",
+      "body_sha256": "sha256:ead15211944927c7b12d8370051c923bda8a67efa541ee5ba7a977e12aa6bffa",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -861,7 +861,7 @@
         "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes:longer_than"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -883,7 +883,7 @@
       "schema_path": ["rules", "match", "ip_prefixes", "prefixes"],
       "sections": [
         {
-          "aliases": ["equal or longer than"],
+          "aliases": ["rules match ip prefixes prefixes equal or longer than"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes:equal_or_longer_than",
@@ -897,7 +897,7 @@
           "type": "object"
         },
         {
-          "aliases": ["exact match"],
+          "aliases": ["rules match ip prefixes prefixes exact match"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes:exact_match",
@@ -911,7 +911,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip prefixes"],
+          "aliases": ["rules match ip prefixes prefixes ip prefixes"],
           "anchor": "schema-rules--match--ip_prefixes--prefixes--ip_prefixes",
           "description": "IP prefix to match on BGP route.",
           "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes",
@@ -925,7 +925,7 @@
           "type": "string"
         },
         {
-          "aliases": ["longer than"],
+          "aliases": ["rules match ip prefixes prefixes longer than"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes:longer_than",
@@ -940,14 +940,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/match/ip_prefixes/prefixes/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of IP prefix.",
       "tasks": ["configuration"],
       "title": "rules.match.ip_prefixes.prefixes",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgp_routing_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -958,7 +958,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -980,14 +980,14 @@
       "schema_path": ["rules", "match", "ip_prefixes", "prefixes", "equal_or_longer_than"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/match/ip_prefixes/prefixes/equal_or_longer_than/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.match.ip_prefixes.prefixes.equal_or_longer_than",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgp_routing_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -998,7 +998,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1020,14 +1020,14 @@
       "schema_path": ["rules", "match", "ip_prefixes", "prefixes", "exact_match"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/match/ip_prefixes/prefixes/exact_match/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.match.ip_prefixes.prefixes.exact_match",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgp_routing_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1038,7 +1038,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1060,14 +1060,14 @@
       "schema_path": ["rules", "match", "ip_prefixes", "prefixes", "longer_than"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/match/ip_prefixes/prefixes/longer_than/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.match.ip_prefixes.prefixes.longer_than",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgp_routing_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1078,7 +1078,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:bgp_routing_policy:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1100,14 +1100,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/examples/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Examples for xcsh_bgp_routing_policy.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgp_routing_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1118,7 +1118,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1147,14 +1147,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Data source for xcsh_bgp_routing_policy.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgp_routing_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     }
   ],

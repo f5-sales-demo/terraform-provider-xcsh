@@ -245,7 +245,7 @@
         "xcsh-docs:data-sources:authentication:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -267,21 +267,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Manages a Authentication resource in F5 Distributed Cloud.",
       "tasks": ["authentication", "configuration"],
       "title": "xcsh_authentication",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["authentication", "credential setup", "credentials"],
       "body_bytes": 18335,
-      "body_sha256": "sha256:994275472cf71c4cd3336335a05dd6060da80918b7f239d9a245103fbc093b3b",
+      "body_sha256": "sha256:0e9aabed099bf63e6420505d1527821811281c00aad9c3c652c8acbfa8fc9151",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -289,7 +289,7 @@
         "xcsh-docs:data-sources:authentication:properties:oidc_auth"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -424,20 +424,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Property reference for xcsh_authentication.",
       "tasks": ["authentication", "configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["cookie params"],
       "body_bytes": 5405,
-      "body_sha256": "sha256:f431bfc7ba63f4008480406687b0c40931d56d2407d8c708c23b7b732ed97d5c",
+      "body_sha256": "sha256:fba7af3d155a4151e921f209479deaef6298e655221363c454f702aa4c3e89ff",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -445,7 +445,7 @@
         "xcsh-docs:data-sources:authentication:properties:cookie_params:kms_key_hmac"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -467,7 +467,7 @@
       "schema_path": ["cookie_params"],
       "sections": [
         {
-          "aliases": ["auth hmac"],
+          "aliases": ["cookie params auth hmac"],
           "anchor": "section",
           "description": "HMAC primary and secondary keys to be used for hashing the Cookie. Each key also have an associated expiry timestamp, beyond which key is invalid.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac",
@@ -481,7 +481,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cookie expiry"],
+          "aliases": ["cookie params cookie expiry"],
           "anchor": "schema-cookie_params--cookie_expiry",
           "description": "Specifies in seconds max duration of the allocated cookie. This maps to “Max-Age” attribute in the session cookie. This will act as an expiry duration on the client side after which client will not be setting the cookie as part of the request. Default cookie expiry is 3600 seconds.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params",
@@ -495,7 +495,7 @@
           "type": "number"
         },
         {
-          "aliases": ["cookie refresh interval", "login", "login result", "sign in"],
+          "aliases": ["cookie params cookie refresh interval", "login", "login result", "sign in"],
           "anchor": "schema-cookie_params--cookie_refresh_interval",
           "description": "Specifies in seconds refresh interval for session cookie. This is used to keep the active user active and reduce RE-login. When an incoming cookie's session expiry is still valid, and time to expire falls behind this interval, RE-issue a cookie with new expiry and with the same original session expiry. Default refresh",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params",
@@ -509,7 +509,7 @@
           "type": "number"
         },
         {
-          "aliases": ["kms key hmac"],
+          "aliases": ["cookie params kms key hmac"],
           "anchor": "section",
           "description": "Reference to KMS Key Object.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params:kms_key_hmac",
@@ -523,7 +523,7 @@
           "type": "object"
         },
         {
-          "aliases": ["login", "login result", "session expiry", "sign in"],
+          "aliases": ["cookie params session expiry", "login", "login result", "sign in"],
           "anchor": "schema-cookie_params--session_expiry",
           "description": "Specifies in seconds max lifetime of an authenticated session after which the user will be forced to login again. Default session expiry is 86400 seconds(24 hours).",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params",
@@ -538,20 +538,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/cookie_params/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Specifies different cookie related config parameters for authentication.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["cookie params auth hmac"],
       "body_bytes": 3713,
-      "body_sha256": "sha256:fba8117474fcec4266feb317024d6bae46db52b2bfc1961df6b6c5880034cf87",
+      "body_sha256": "sha256:c129c5eb6b604846a6782082fe571f5cf790597033d886be4d6d3f09838c176e",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -559,7 +559,7 @@
         "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:sec_key"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -581,7 +581,7 @@
       "schema_path": ["cookie_params", "auth_hmac"],
       "sections": [
         {
-          "aliases": ["prim key"],
+          "aliases": ["cookie params auth hmac prim key"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:prim_key",
@@ -595,7 +595,7 @@
           "type": "object"
         },
         {
-          "aliases": ["prim key expiry"],
+          "aliases": ["cookie params auth hmac prim key expiry"],
           "anchor": "schema-cookie_params--auth_hmac--prim_key_expiry",
           "description": "Primary HMAC Key Expiry time.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac",
@@ -609,7 +609,7 @@
           "type": "string"
         },
         {
-          "aliases": ["sec key"],
+          "aliases": ["cookie params auth hmac sec key"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:sec_key",
@@ -623,7 +623,7 @@
           "type": "object"
         },
         {
-          "aliases": ["sec key expiry"],
+          "aliases": ["cookie params auth hmac sec key expiry"],
           "anchor": "schema-cookie_params--auth_hmac--sec_key_expiry",
           "description": "Secondary HMAC Key Expiry time.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac",
@@ -638,14 +638,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/cookie_params/auth_hmac/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "HMAC primary and secondary keys to be used for hashing the Cookie. Each key also have an associated expiry timestamp, beyond which key is invalid.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.auth_hmac",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -659,7 +659,7 @@
         "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:prim_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -681,7 +681,7 @@
       "schema_path": ["cookie_params", "auth_hmac", "prim_key"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["cookie params auth hmac prim key blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:prim_key:blindfold_secret_info",
@@ -695,7 +695,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["cookie params auth hmac prim key clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:prim_key:clear_secret_info",
@@ -710,25 +710,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/cookie_params/auth_hmac/prim_key/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.auth_hmac.prim_key",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["cookie params auth hmac prim key blindfold secret info"],
       "body_bytes": 4685,
-      "body_sha256": "sha256:b155896172c5b33ae7e104b211480cd548ff9057df9bb18b03bcb7c8588b7503",
+      "body_sha256": "sha256:3de9aede47b595acc652a411e6948020c7bd9ee0b4c04b89a2c5c91de4595222",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -750,7 +750,7 @@
       "schema_path": ["cookie_params", "auth_hmac", "prim_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["cookie params auth hmac prim key blindfold secret info decryption provider"],
           "anchor": "schema-cookie_params--auth_hmac--prim_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:prim_key:blindfold_secret_info",
@@ -764,7 +764,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["cookie params auth hmac prim key blindfold secret info location"],
           "anchor": "schema-cookie_params--auth_hmac--prim_key--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:prim_key:blindfold_secret_info",
@@ -778,7 +778,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["cookie params auth hmac prim key blindfold secret info store provider"],
           "anchor": "schema-cookie_params--auth_hmac--prim_key--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:prim_key:blindfold_secret_info",
@@ -793,25 +793,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/cookie_params/auth_hmac/prim_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.auth_hmac.prim_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["cookie params auth hmac prim key clear secret info"],
       "body_bytes": 3571,
-      "body_sha256": "sha256:29b84308f2693f1849376444b20bc9fe0738e6c5cad1d09c4c5bb4e8e36ebf41",
+      "body_sha256": "sha256:5b592d52a1c1c151b452bbd79f5eea2bf4db64bdd4d5ee5a2281d962ec50f276",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -833,7 +833,7 @@
       "schema_path": ["cookie_params", "auth_hmac", "prim_key", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["cookie params auth hmac prim key clear secret info provider ref"],
           "anchor": "schema-cookie_params--auth_hmac--prim_key--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:prim_key:clear_secret_info",
@@ -847,7 +847,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["cookie params auth hmac prim key clear secret info url"],
           "anchor": "schema-cookie_params--auth_hmac--prim_key--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:prim_key:clear_secret_info",
@@ -862,14 +862,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/cookie_params/auth_hmac/prim_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.auth_hmac.prim_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -883,7 +883,7 @@
         "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:sec_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -905,7 +905,7 @@
       "schema_path": ["cookie_params", "auth_hmac", "sec_key"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["cookie params auth hmac sec key blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:sec_key:blindfold_secret_info",
@@ -919,7 +919,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["cookie params auth hmac sec key clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:sec_key:clear_secret_info",
@@ -934,25 +934,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/cookie_params/auth_hmac/sec_key/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.auth_hmac.sec_key",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["cookie params auth hmac sec key blindfold secret info"],
       "body_bytes": 4676,
-      "body_sha256": "sha256:93bf39c8c854f1c6373e807f9632c00cca837ed7c8dfa369c02c7ab3a4197bab",
+      "body_sha256": "sha256:24ce520f6e00b34b9ea36de738abc9fa79da5c849ba1acf2c0bbcc4c189bac3f",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -974,7 +974,7 @@
       "schema_path": ["cookie_params", "auth_hmac", "sec_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["cookie params auth hmac sec key blindfold secret info decryption provider"],
           "anchor": "schema-cookie_params--auth_hmac--sec_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:sec_key:blindfold_secret_info",
@@ -988,7 +988,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["cookie params auth hmac sec key blindfold secret info location"],
           "anchor": "schema-cookie_params--auth_hmac--sec_key--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:sec_key:blindfold_secret_info",
@@ -1002,7 +1002,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["cookie params auth hmac sec key blindfold secret info store provider"],
           "anchor": "schema-cookie_params--auth_hmac--sec_key--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:sec_key:blindfold_secret_info",
@@ -1017,25 +1017,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/cookie_params/auth_hmac/sec_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.auth_hmac.sec_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["cookie params auth hmac sec key clear secret info"],
       "body_bytes": 3563,
-      "body_sha256": "sha256:00683c580b9672d1c456e87881a51c4d4727335f12033c8c1d015fd7e7f1a584",
+      "body_sha256": "sha256:6153e4e9bed09796ee913e23fde2f3f844ddbcde23304ba433390bc9bb29de6a",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1057,7 +1057,7 @@
       "schema_path": ["cookie_params", "auth_hmac", "sec_key", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["cookie params auth hmac sec key clear secret info provider ref"],
           "anchor": "schema-cookie_params--auth_hmac--sec_key--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:sec_key:clear_secret_info",
@@ -1071,7 +1071,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["cookie params auth hmac sec key clear secret info url"],
           "anchor": "schema-cookie_params--auth_hmac--sec_key--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:sec_key:clear_secret_info",
@@ -1086,14 +1086,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/cookie_params/auth_hmac/sec_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.auth_hmac.sec_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1104,7 +1104,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1126,20 +1126,20 @@
       "schema_path": ["cookie_params", "kms_key_hmac"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/cookie_params/kms_key_hmac/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Reference to KMS Key Object.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.kms_key_hmac",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["oidc auth"],
       "body_bytes": 3972,
-      "body_sha256": "sha256:730b393804d2370d6938a14e718b76a0dc6844406bf5a0a4899cf64368535a91",
+      "body_sha256": "sha256:b2c08c568f10002918f9385545342a517afd726784a956ea14ddbd82fd61a696",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -1147,7 +1147,7 @@
         "xcsh-docs:data-sources:authentication:properties:oidc_auth:oidc_auth_params"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1169,7 +1169,7 @@
       "schema_path": ["oidc_auth"],
       "sections": [
         {
-          "aliases": ["client secret"],
+          "aliases": ["oidc auth client secret"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:oidc_auth:client_secret",
@@ -1183,7 +1183,7 @@
           "type": "object"
         },
         {
-          "aliases": ["oidc auth params"],
+          "aliases": ["oidc auth oidc auth params"],
           "anchor": "section",
           "description": "Configuration parameter for oidc auth params.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:oidc_auth:oidc_auth_params",
@@ -1197,7 +1197,7 @@
           "type": "object"
         },
         {
-          "aliases": ["oidc client id"],
+          "aliases": ["oidc auth oidc client id"],
           "anchor": "schema-oidc_auth--oidc_client_id",
           "description": "Client ID used while sending the Authorization Request to OIDC server.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:oidc_auth",
@@ -1211,7 +1211,7 @@
           "type": "string"
         },
         {
-          "aliases": ["oidc well known config url"],
+          "aliases": ["oidc auth oidc well known config url"],
           "anchor": "schema-oidc_auth--oidc_well_known_config_url",
           "description": "Exclusive with An OIDC well-known configuration URL that will be used to fetch authentication related endpoints.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:oidc_auth",
@@ -1226,14 +1226,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/oidc_auth/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "OIDCAuthType.",
       "tasks": ["authentication", "configuration"],
       "title": "oidc_auth",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1247,7 +1247,7 @@
         "xcsh-docs:data-sources:authentication:properties:oidc_auth:client_secret:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1269,7 +1269,7 @@
       "schema_path": ["oidc_auth", "client_secret"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["oidc auth client secret blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:oidc_auth:client_secret:blindfold_secret_info",
@@ -1283,7 +1283,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["oidc auth client secret clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:oidc_auth:client_secret:clear_secret_info",
@@ -1298,25 +1298,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/oidc_auth/client_secret/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["authentication", "configuration"],
       "title": "oidc_auth.client_secret",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["oidc auth client secret blindfold secret info"],
       "body_bytes": 4444,
-      "body_sha256": "sha256:2ccaa17c00845ed201fdebe5e5d1b9ff46783fd79d519078be99f5b9222575aa",
+      "body_sha256": "sha256:0cb817ce31b27277025d04c6c2465523091c9464d2312f9acc5b6ecabd8a8f3d",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1338,7 +1338,7 @@
       "schema_path": ["oidc_auth", "client_secret", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["oidc auth client secret blindfold secret info decryption provider"],
           "anchor": "schema-oidc_auth--client_secret--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:oidc_auth:client_secret:blindfold_secret_info",
@@ -1352,7 +1352,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["oidc auth client secret blindfold secret info location"],
           "anchor": "schema-oidc_auth--client_secret--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:oidc_auth:client_secret:blindfold_secret_info",
@@ -1366,7 +1366,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["oidc auth client secret blindfold secret info store provider"],
           "anchor": "schema-oidc_auth--client_secret--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:oidc_auth:client_secret:blindfold_secret_info",
@@ -1381,25 +1381,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/oidc_auth/client_secret/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["authentication", "configuration"],
       "title": "oidc_auth.client_secret.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["oidc auth client secret clear secret info"],
       "body_bytes": 3340,
-      "body_sha256": "sha256:f0753e3988d9f8af6d2d51fa702994e424d150519f728c70f29e41dc4be60f2b",
+      "body_sha256": "sha256:f8e590be2b531c3b25f408d02f3cebabc8db0c87bfae4c1f9a23ea11b0d7b794",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1421,7 +1421,7 @@
       "schema_path": ["oidc_auth", "client_secret", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["oidc auth client secret clear secret info provider ref"],
           "anchor": "schema-oidc_auth--client_secret--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:oidc_auth:client_secret:clear_secret_info",
@@ -1435,7 +1435,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["oidc auth client secret clear secret info url"],
           "anchor": "schema-oidc_auth--client_secret--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:oidc_auth:client_secret:clear_secret_info",
@@ -1450,25 +1450,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/oidc_auth/client_secret/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["authentication", "configuration"],
       "title": "oidc_auth.client_secret.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["oidc auth oidc auth params"],
       "body_bytes": 4573,
-      "body_sha256": "sha256:d15400ed2980bad0171a0a8906157d840b920978f279125f37e406f792b8b459",
+      "body_sha256": "sha256:945114f6e2be5790d3001ea190721a165dc8015004900cf83843cb4fb2d9d503",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1490,7 +1490,7 @@
       "schema_path": ["oidc_auth", "oidc_auth_params"],
       "sections": [
         {
-          "aliases": ["auth endpoint url"],
+          "aliases": ["oidc auth oidc auth params auth endpoint url"],
           "anchor": "schema-oidc_auth--oidc_auth_params--auth_endpoint_url",
           "description": "URL of the authorization server's authorization endpoint.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:oidc_auth:oidc_auth_params",
@@ -1504,7 +1504,7 @@
           "type": "string"
         },
         {
-          "aliases": ["end session endpoint url"],
+          "aliases": ["oidc auth oidc auth params end session endpoint url"],
           "anchor": "schema-oidc_auth--oidc_auth_params--end_session_endpoint_url",
           "description": "URL of the authorization server's Logout endpoint.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:oidc_auth:oidc_auth_params",
@@ -1518,7 +1518,7 @@
           "type": "string"
         },
         {
-          "aliases": ["token endpoint url"],
+          "aliases": ["oidc auth oidc auth params token endpoint url"],
           "anchor": "schema-oidc_auth--oidc_auth_params--token_endpoint_url",
           "description": "URL of the authorization server's Token endpoint.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:oidc_auth:oidc_auth_params",
@@ -1533,14 +1533,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/oidc_auth/oidc_auth_params/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configuration parameter for oidc auth params.",
       "tasks": ["authentication", "configuration"],
       "title": "oidc_auth.oidc_auth_params",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1551,7 +1551,7 @@
       "category": "identity",
       "child_ids": ["xcsh-docs:data-sources:authentication:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1573,14 +1573,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/examples/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Examples for xcsh_authentication.",
       "tasks": ["authentication", "configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1591,7 +1591,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1620,14 +1620,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Data source for xcsh_authentication.",
       "tasks": ["authentication", "configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     }
   ],

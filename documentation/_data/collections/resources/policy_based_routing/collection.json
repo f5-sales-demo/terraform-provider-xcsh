@@ -432,7 +432,7 @@
         "xcsh-docs:resources:policy_based_routing:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -454,21 +454,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Manages a Policy Based Routing resource in F5 Distributed Cloud for network policy based routing create specification. configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_policy_based_routing",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["policy based routing"],
       "body_bytes": 31264,
-      "body_sha256": "sha256:1db883f1fe9beeb3925b6cf25cf7bad5d4cf979ccf47c4c561ba444a0879d5e7",
+      "body_sha256": "sha256:30fcd611e808518e7beabb8d4efc4b31f8b0b72e0c66b55d7559f4a6960a9bba",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -478,7 +478,7 @@
         "xcsh-docs:resources:policy_based_routing:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -698,7 +698,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:timeouts",
@@ -713,14 +713,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Property reference for xcsh_policy_based_routing.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -731,7 +731,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -753,7 +753,7 @@
       "schema_path": ["forward_proxy_pbr"],
       "sections": [
         {
-          "aliases": ["forward proxy pbr rules"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules"],
           "anchor": "section",
           "description": "Network(L3/L4) routing policy rules.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules",
@@ -921,20 +921,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Network(L3/L4) routing policy rule.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules"],
       "body_bytes": 6623,
-      "body_sha256": "sha256:921cf30677e8c4296548bd6fc69e7687aa8269519e53768f689fd208c79a7130",
+      "body_sha256": "sha256:d0a5bbdc2954b5f9266308f45350e68274265d2e97f6cd7e012a80771b1af493",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -949,7 +949,7 @@
         "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1124,7 +1124,7 @@
       "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules"],
       "sections": [
         {
-          "aliases": ["all destinations"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules all destinations"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:all_destinations",
@@ -1138,7 +1138,7 @@
           "type": "object"
         },
         {
-          "aliases": ["all sources"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules all sources"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:all_sources",
@@ -1152,7 +1152,7 @@
           "type": "object"
         },
         {
-          "aliases": ["forwarding class list"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules forwarding class list"],
           "anchor": "section",
           "description": "Ordered list of forwarding Class to be used if no rule match.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:forwarding_class_list",
@@ -1175,7 +1175,7 @@
           "type": "object"
         },
         {
-          "aliases": ["http list"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules http list"],
           "anchor": "section",
           "description": "URLListType.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list",
@@ -1189,7 +1189,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip prefix set"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules ip prefix set"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:ip_prefix_set",
@@ -1212,7 +1212,7 @@
           "type": "object"
         },
         {
-          "aliases": ["label selector"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules label selector"],
           "anchor": "section",
           "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:label_selector",
@@ -1235,7 +1235,7 @@
           "type": "object"
         },
         {
-          "aliases": ["metadata"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules metadata"],
           "anchor": "section",
           "description": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:metadata",
@@ -1258,7 +1258,7 @@
           "type": "object"
         },
         {
-          "aliases": ["prefix list"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules prefix list"],
           "anchor": "section",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:prefix_list",
@@ -1272,7 +1272,7 @@
           "type": "object"
         },
         {
-          "aliases": ["tls list"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules tls list"],
           "anchor": "section",
           "description": "DomainListType.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list",
@@ -1287,14 +1287,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Network(L3/L4) routing policy rules.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1305,7 +1305,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1327,14 +1327,14 @@
       "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "all_destinations"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/all_destinations/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.all_destinations",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1345,7 +1345,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1367,25 +1367,25 @@
       "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "all_sources"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/all_sources/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.all_sources",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules forwarding class list"],
       "body_bytes": 6969,
-      "body_sha256": "sha256:afab2b1dc1d5513ac511db3833fe192d5efae6d7dbf5ff18fec035011a2786e1",
+      "body_sha256": "sha256:77ee5f7e746ac65adaf0f973e5d89d93c7db2242e35a52b74e5ff1c8ed63f96b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1416,7 +1416,7 @@
       "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "forwarding_class_list"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules forwarding class list name"],
           "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--forwarding_class_list--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:forwarding_class_list",
@@ -1430,7 +1430,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules forwarding class list namespace"],
           "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--forwarding_class_list--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:forwarding_class_list",
@@ -1444,7 +1444,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules forwarding class list tenant"],
           "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--forwarding_class_list--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:forwarding_class_list",
@@ -1459,14 +1459,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/forwarding_class_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Ordered list of forwarding Class to be used if no rule match.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1479,7 +1479,7 @@
         "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1501,7 +1501,7 @@
       "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "http_list"],
       "sections": [
         {
-          "aliases": ["http list"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules http list http list"],
           "anchor": "section",
           "description": "URLs for HTTP connections.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
@@ -1661,27 +1661,27 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/http_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "URLListType.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules http list http list"],
       "body_bytes": 12062,
-      "body_sha256": "sha256:182f07c733ccf956670238166ca87479ca2beea97fa28d3e666b618bf84e0eff",
+      "body_sha256": "sha256:1ac1de1c2fd7e2011bc0863521b1f9741d1e975dad9ae4b0598f2f22e59c7e66",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list:any_path"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1848,7 +1848,7 @@
       "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "http_list", "http_list"],
       "sections": [
         {
-          "aliases": ["any path"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules http list http list any path"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list:any_path",
@@ -1862,7 +1862,7 @@
           "type": "object"
         },
         {
-          "aliases": ["exact value"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules http list http list exact value"],
           "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--exact_value",
           "description": "Exclusive with Exact domain name.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
@@ -1876,7 +1876,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path exact value"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules http list http list path exact value"],
           "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_exact_value",
           "description": "Exclusive with Exact Path to match.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
@@ -1890,7 +1890,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path prefix value"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules http list http list path prefix value"],
           "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_prefix_value",
           "description": "Exclusive with Prefix of Path e.g \"/abc/xyz\" will match \"/abc/xyz/.*\"",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
@@ -1910,7 +1910,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path regex value"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules http list http list path regex value"],
           "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_regex_value",
           "description": "Exclusive with Regular Expression value for the Path to match.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
@@ -1924,7 +1924,7 @@
           "type": "string"
         },
         {
-          "aliases": ["regex value"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules http list http list regex value"],
           "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--regex_value",
           "description": "Exclusive with Regular Expression value for the domain name.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
@@ -1938,7 +1938,7 @@
           "type": "string"
         },
         {
-          "aliases": ["suffix value"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules http list http list suffix value"],
           "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--suffix_value",
           "description": "Exclusive with Suffix of domain names e.g \"xyz.com\" will match \"*.xyz.com\"",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
@@ -1953,14 +1953,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/http_list/http_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "URLs for HTTP connections.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1971,7 +1971,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1993,25 +1993,25 @@
       "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "http_list", "http_list", "any_path"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/http_list/http_list/any_path/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.any_path",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules ip prefix set"],
       "body_bytes": 6492,
-      "body_sha256": "sha256:37744a5e1096ba09a4db07d2e795d66a5c1c807b2d46b8328ef1be2b1901456e",
+      "body_sha256": "sha256:4f775ec5b4d0890b02bfb8a83f7b9bdd6060398fb001c5fa6d0a4ee9677d40bc",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2042,7 +2042,7 @@
       "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "ip_prefix_set"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules ip prefix set name"],
           "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--ip_prefix_set--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:ip_prefix_set",
@@ -2056,7 +2056,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules ip prefix set namespace"],
           "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--ip_prefix_set--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:ip_prefix_set",
@@ -2070,7 +2070,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules ip prefix set tenant"],
           "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--ip_prefix_set--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:ip_prefix_set",
@@ -2085,25 +2085,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/ip_prefix_set/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules label selector"],
       "body_bytes": 4536,
-      "body_sha256": "sha256:8faa61e5a420226b7a52561c9081b61174ae2df808b60866742be86e2ce2a6f8",
+      "body_sha256": "sha256:aac7b5e44f1bc883fca25c3acb9ca3470e4b4d5a085c70c8602af2a8999c38e7",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2134,7 +2134,7 @@
       "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "label_selector"],
       "sections": [
         {
-          "aliases": ["expressions"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules label selector expressions"],
           "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--label_selector--expressions",
           "description": "Expressions contains the Kubernetes style label expression for selections.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:label_selector",
@@ -2149,25 +2149,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/label_selector/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.label_selector",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules metadata"],
       "body_bytes": 4439,
-      "body_sha256": "sha256:23307211ac611968e17add7e95327214a7bdade550c1e41124b2f34b4c149046",
+      "body_sha256": "sha256:4986c210804d032fc2e75452bff2bb87694bde4d5e982718e13341ebd8fbca2b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2198,7 +2198,7 @@
       "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "metadata"],
       "sections": [
         {
-          "aliases": ["description spec"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules metadata description spec"],
           "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--metadata--description_spec",
           "description": "Description. Human readable description.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:metadata",
@@ -2212,7 +2212,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules metadata name"],
           "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--metadata--name",
           "description": "This is the name of the message. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:metadata",
@@ -2227,25 +2227,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/metadata/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.metadata",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules prefix list"],
       "body_bytes": 2766,
-      "body_sha256": "sha256:3a6f11199c548b5b1eb5117a659699c0ba785765bb41ea791f0a4d5468c39a8a",
+      "body_sha256": "sha256:c5c7a060cba15f8295cba2da575f4cdea5ddffc1e5f153ce7f828e9f31debd67",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2267,7 +2267,7 @@
       "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "prefix_list"],
       "sections": [
         {
-          "aliases": ["prefixes"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules prefix list prefixes"],
           "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--prefix_list--prefixes",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:prefix_list",
@@ -2282,14 +2282,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/prefix_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of IPv4 prefixes that represent an endpoint.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2302,7 +2302,7 @@
         "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2324,7 +2324,7 @@
       "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "tls_list"],
       "sections": [
         {
-          "aliases": ["tls list"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules tls list tls list"],
           "anchor": "section",
           "description": "Domains in SNI for TLS connections.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list",
@@ -2388,25 +2388,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/tls_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "DomainListType.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules tls list tls list"],
       "body_bytes": 6881,
-      "body_sha256": "sha256:30904ea2afef157588a1b096ad38ae18915f572101dad418144ccece15e7b654",
+      "body_sha256": "sha256:5195f0790386d063053e2f7687d6a3fc3521d0ceee3e2a87145caced01dd675c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2477,7 +2477,7 @@
       "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "tls_list", "tls_list"],
       "sections": [
         {
-          "aliases": ["exact value"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules tls list tls list exact value"],
           "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--tls_list--tls_list--exact_value",
           "description": "Exclusive with Exact domain name.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list",
@@ -2491,7 +2491,7 @@
           "type": "string"
         },
         {
-          "aliases": ["regex value"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules tls list tls list regex value"],
           "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--tls_list--tls_list--regex_value",
           "description": "Exclusive with Regular Expression value for the domain name.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list",
@@ -2505,7 +2505,7 @@
           "type": "string"
         },
         {
-          "aliases": ["suffix value"],
+          "aliases": ["forward proxy pbr forward proxy pbr rules tls list tls list suffix value"],
           "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--tls_list--tls_list--suffix_value",
           "description": "Exclusive with Suffix of domain name e.g \"xyz.com\" will match \"*.xyz.com\" and \"xyz.com\"",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list",
@@ -2520,25 +2520,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/tls_list/tls_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Domains in SNI for TLS connections.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["forwarding class list"],
       "body_bytes": 6389,
-      "body_sha256": "sha256:5bd9c105cf632b83ab84c23cf0e33bf1a330cff6f60349f613355511375a40a0",
+      "body_sha256": "sha256:b948544b72d403515389a6b5946982007ef55e8c0d4596cc68050aa0917ed7b6",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2569,7 +2569,7 @@
       "schema_path": ["forwarding_class_list"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["forwarding class list name"],
           "anchor": "schema-forwarding_class_list--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forwarding_class_list",
@@ -2583,7 +2583,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["forwarding class list namespace"],
           "anchor": "schema-forwarding_class_list--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forwarding_class_list",
@@ -2597,7 +2597,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["forwarding class list tenant"],
           "anchor": "schema-forwarding_class_list--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forwarding_class_list",
@@ -2612,14 +2612,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forwarding_class_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Ordered list of forwarding Class to be used if source application match and no rule match.",
       "tasks": ["configuration"],
       "title": "forwarding_class_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2635,7 +2635,7 @@
         "xcsh-docs:resources:policy_based_routing:properties:network_pbr:prefix_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2706,7 +2706,7 @@
       "schema_path": ["network_pbr"],
       "sections": [
         {
-          "aliases": ["any"],
+          "aliases": ["network pbr any"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:any",
@@ -2720,7 +2720,7 @@
           "type": "object"
         },
         {
-          "aliases": ["label selector"],
+          "aliases": ["network pbr label selector"],
           "anchor": "section",
           "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:label_selector",
@@ -2743,7 +2743,7 @@
           "type": "object"
         },
         {
-          "aliases": ["network pbr rules"],
+          "aliases": ["network pbr network pbr rules"],
           "anchor": "section",
           "description": "Network(L3/L4) routing policy rule.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules",
@@ -3022,7 +3022,7 @@
           "type": "object"
         },
         {
-          "aliases": ["prefix list"],
+          "aliases": ["network pbr prefix list"],
           "anchor": "section",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:prefix_list",
@@ -3037,14 +3037,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Network(L3/L4) routing policy rule.",
       "tasks": ["configuration"],
       "title": "network_pbr",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3055,7 +3055,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3077,25 +3077,25 @@
       "schema_path": ["network_pbr", "any"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/any/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "network_pbr.any",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["network pbr label selector"],
       "body_bytes": 4185,
-      "body_sha256": "sha256:1efb59d193260c041823669c9b12f41d70287abb285f65db8bb1294e66de9b80",
+      "body_sha256": "sha256:847118e6ba2cad4222137ef0baa59b65edbf68bcc2e8cf574cc08b029fac1b23",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3126,7 +3126,7 @@
       "schema_path": ["network_pbr", "label_selector"],
       "sections": [
         {
-          "aliases": ["expressions"],
+          "aliases": ["network pbr label selector expressions"],
           "anchor": "schema-network_pbr--label_selector--expressions",
           "description": "Expressions contains the Kubernetes style label expression for selections.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:label_selector",
@@ -3141,20 +3141,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/label_selector/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "network_pbr.label_selector",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["network pbr network pbr rules"],
       "body_bytes": 8701,
-      "body_sha256": "sha256:6537a3eb79cfc7139912b2ce978b7b523d3b23dfc7c74b2d4021c20d963e51b5",
+      "body_sha256": "sha256:0252c5b9cb4c771222b1b94cfc860a982e4bc51849030a063e8159b446ca9b41",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -3170,7 +3170,7 @@
         "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:protocol_port_range"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3457,7 +3457,7 @@
       "schema_path": ["network_pbr", "network_pbr_rules"],
       "sections": [
         {
-          "aliases": ["all tcp traffic"],
+          "aliases": ["network pbr network pbr rules all tcp traffic"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_tcp_traffic",
@@ -3471,7 +3471,7 @@
           "type": "object"
         },
         {
-          "aliases": ["all traffic"],
+          "aliases": ["network pbr network pbr rules all traffic"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_traffic",
@@ -3485,7 +3485,7 @@
           "type": "object"
         },
         {
-          "aliases": ["all udp traffic"],
+          "aliases": ["network pbr network pbr rules all udp traffic"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_udp_traffic",
@@ -3499,7 +3499,7 @@
           "type": "object"
         },
         {
-          "aliases": ["any"],
+          "aliases": ["network pbr network pbr rules any"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:any",
@@ -3513,7 +3513,7 @@
           "type": "object"
         },
         {
-          "aliases": ["applications"],
+          "aliases": ["network pbr network pbr rules applications"],
           "anchor": "section",
           "description": "Application protocols like HTTP, SNMP.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:applications",
@@ -3527,7 +3527,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dns name"],
+          "aliases": ["network pbr network pbr rules dns name"],
           "anchor": "schema-network_pbr--network_pbr_rules--dns_name",
           "description": "Exclusive with Resolve hostname to GET the IP.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules",
@@ -3541,7 +3541,7 @@
           "type": "string"
         },
         {
-          "aliases": ["forwarding class list"],
+          "aliases": ["network pbr network pbr rules forwarding class list"],
           "anchor": "section",
           "description": "Ordered list of forwarding Class to be used if rule match.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:forwarding_class_list",
@@ -3564,7 +3564,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip prefix set"],
+          "aliases": ["network pbr network pbr rules ip prefix set"],
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set",
@@ -3578,7 +3578,7 @@
           "type": "object"
         },
         {
-          "aliases": ["metadata"],
+          "aliases": ["network pbr network pbr rules metadata"],
           "anchor": "section",
           "description": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:metadata",
@@ -3601,7 +3601,7 @@
           "type": "object"
         },
         {
-          "aliases": ["prefix list"],
+          "aliases": ["network pbr network pbr rules prefix list"],
           "anchor": "section",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:prefix_list",
@@ -3615,7 +3615,7 @@
           "type": "object"
         },
         {
-          "aliases": ["protocol port range"],
+          "aliases": ["network pbr network pbr rules protocol port range"],
           "anchor": "section",
           "description": "Protocol and Port ranges.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:protocol_port_range",
@@ -3630,14 +3630,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Network(L3/L4) routing policy rule.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3648,7 +3648,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3670,14 +3670,14 @@
       "schema_path": ["network_pbr", "network_pbr_rules", "all_tcp_traffic"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/all_tcp_traffic/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules.all_tcp_traffic",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3688,7 +3688,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3710,14 +3710,14 @@
       "schema_path": ["network_pbr", "network_pbr_rules", "all_traffic"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/all_traffic/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules.all_traffic",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3728,7 +3728,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3750,14 +3750,14 @@
       "schema_path": ["network_pbr", "network_pbr_rules", "all_udp_traffic"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/all_udp_traffic/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules.all_udp_traffic",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3768,7 +3768,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3790,14 +3790,14 @@
       "schema_path": ["network_pbr", "network_pbr_rules", "any"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/any/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules.any",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3808,7 +3808,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3830,7 +3830,7 @@
       "schema_path": ["network_pbr", "network_pbr_rules", "applications"],
       "sections": [
         {
-          "aliases": ["applications"],
+          "aliases": ["network pbr network pbr rules applications applications"],
           "anchor": "schema-network_pbr--network_pbr_rules--applications--applications",
           "description": "Application protocols like HTTP, SNMP.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:applications",
@@ -3845,25 +3845,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/applications/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Application protocols like HTTP, SNMP.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules.applications",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["network pbr network pbr rules forwarding class list"],
       "body_bytes": 6846,
-      "body_sha256": "sha256:f166221c30df5eb50708702310a704dba7bd9adf6e3b2767f7eef69570cd6933",
+      "body_sha256": "sha256:7749c96fb25e5e18c28328c033d41b9d8b87c31baf5b5aa2cff4f734fdfc9e1e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3894,7 +3894,7 @@
       "schema_path": ["network_pbr", "network_pbr_rules", "forwarding_class_list"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["network pbr network pbr rules forwarding class list name"],
           "anchor": "schema-network_pbr--network_pbr_rules--forwarding_class_list--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:forwarding_class_list",
@@ -3908,7 +3908,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["network pbr network pbr rules forwarding class list namespace"],
           "anchor": "schema-network_pbr--network_pbr_rules--forwarding_class_list--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:forwarding_class_list",
@@ -3922,7 +3922,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["network pbr network pbr rules forwarding class list tenant"],
           "anchor": "schema-network_pbr--network_pbr_rules--forwarding_class_list--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:forwarding_class_list",
@@ -3937,14 +3937,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/forwarding_class_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Ordered list of forwarding Class to be used if rule match.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules.forwarding_class_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3957,7 +3957,7 @@
         "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set:ref"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3979,7 +3979,7 @@
       "schema_path": ["network_pbr", "network_pbr_rules", "ip_prefix_set"],
       "sections": [
         {
-          "aliases": ["ref"],
+          "aliases": ["network pbr network pbr rules ip prefix set ref"],
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set:ref",
@@ -3994,25 +3994,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/ip_prefix_set/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A list of references to ip_prefix_set objects.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules.ip_prefix_set",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["network pbr network pbr rules ip prefix set ref"],
       "body_bytes": 7206,
-      "body_sha256": "sha256:ab2e7bd48d7b41ca8a5eeeb56a2802203e15fbf709aea0cee16723c3fbbb5ef4",
+      "body_sha256": "sha256:01e33d0a915a840fc2005454388c296505729549bd84b5ad93ecc39860984b77",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4034,7 +4034,7 @@
       "schema_path": ["network_pbr", "network_pbr_rules", "ip_prefix_set", "ref"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["network pbr network pbr rules ip prefix set ref kind"],
           "anchor": "schema-network_pbr--network_pbr_rules--ip_prefix_set--ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set:ref",
@@ -4048,7 +4048,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["network pbr network pbr rules ip prefix set ref name"],
           "anchor": "schema-network_pbr--network_pbr_rules--ip_prefix_set--ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set:ref",
@@ -4062,7 +4062,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["network pbr network pbr rules ip prefix set ref namespace"],
           "anchor": "schema-network_pbr--network_pbr_rules--ip_prefix_set--ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set:ref",
@@ -4076,7 +4076,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["network pbr network pbr rules ip prefix set ref tenant"],
           "anchor": "schema-network_pbr--network_pbr_rules--ip_prefix_set--ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set:ref",
@@ -4090,7 +4090,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["network pbr network pbr rules ip prefix set ref uid"],
           "anchor": "schema-network_pbr--network_pbr_rules--ip_prefix_set--ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set:ref",
@@ -4105,25 +4105,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/ip_prefix_set/ref/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A list of references to ip_prefix_set objects.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules.ip_prefix_set.ref",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["network pbr network pbr rules metadata"],
       "body_bytes": 4331,
-      "body_sha256": "sha256:d020266302ad23c007f31955ce34f229cbe08b4d4306734f6f93835d11836d24",
+      "body_sha256": "sha256:133ce9b7fefba364a0d059139ab3c94ad5b4e47fc3af4d7eb8ad01815fc6b2c9",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4154,7 +4154,7 @@
       "schema_path": ["network_pbr", "network_pbr_rules", "metadata"],
       "sections": [
         {
-          "aliases": ["description spec"],
+          "aliases": ["network pbr network pbr rules metadata description spec"],
           "anchor": "schema-network_pbr--network_pbr_rules--metadata--description_spec",
           "description": "Description. Human readable description.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:metadata",
@@ -4168,7 +4168,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["network pbr network pbr rules metadata name"],
           "anchor": "schema-network_pbr--network_pbr_rules--metadata--name",
           "description": "This is the name of the message. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:metadata",
@@ -4183,25 +4183,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/metadata/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules.metadata",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["network pbr network pbr rules prefix list"],
       "body_bytes": 2670,
-      "body_sha256": "sha256:72d54dcc13183d1d505c219ebd34d99258616de1d43339dde61fb825c0150401",
+      "body_sha256": "sha256:61550bfb74591ea881fba42e76ff04f5916c2ddbce492016ee70089ea8d577c3",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4223,7 +4223,7 @@
       "schema_path": ["network_pbr", "network_pbr_rules", "prefix_list"],
       "sections": [
         {
-          "aliases": ["prefixes"],
+          "aliases": ["network pbr network pbr rules prefix list prefixes"],
           "anchor": "schema-network_pbr--network_pbr_rules--prefix_list--prefixes",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:prefix_list",
@@ -4238,25 +4238,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/prefix_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of IPv4 prefixes that represent an endpoint.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules.prefix_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["network pbr network pbr rules protocol port range"],
       "body_bytes": 3969,
-      "body_sha256": "sha256:9136a145123d26cfff2fbe1c05479e1a1c0547baa6fbdc87c3011e5f0866104b",
+      "body_sha256": "sha256:a5302f2828d76e22b53d8b76d5d01e947fb9364ff4cbac1e63e7e36d3e5deee5",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4278,7 +4278,7 @@
       "schema_path": ["network_pbr", "network_pbr_rules", "protocol_port_range"],
       "sections": [
         {
-          "aliases": ["port ranges"],
+          "aliases": ["network pbr network pbr rules protocol port range port ranges"],
           "anchor": "schema-network_pbr--network_pbr_rules--protocol_port_range--port_ranges",
           "description": "List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:protocol_port_range",
@@ -4292,7 +4292,7 @@
           "type": "list"
         },
         {
-          "aliases": ["protocol"],
+          "aliases": ["network pbr network pbr rules protocol port range protocol"],
           "anchor": "schema-network_pbr--network_pbr_rules--protocol_port_range--protocol",
           "description": "Protocol in IP packet to be used as match criteria Values are TCP, UDP, and icmp.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:protocol_port_range",
@@ -4307,25 +4307,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/protocol_port_range/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Protocol and Port ranges.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules.protocol_port_range",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["network pbr prefix list"],
       "body_bytes": 2415,
-      "body_sha256": "sha256:672978987cf999fd654cf122dd71e95918bec5f124c58390f1ba3ae75dc1f0b0",
+      "body_sha256": "sha256:4bd52f622e3a657a8b3db4597bb2f3d8667c3f7c4d3c0b286007ca68dfe6dbb2",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4347,7 +4347,7 @@
       "schema_path": ["network_pbr", "prefix_list"],
       "sections": [
         {
-          "aliases": ["prefixes"],
+          "aliases": ["network pbr prefix list prefixes"],
           "anchor": "schema-network_pbr--prefix_list--prefixes",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:prefix_list",
@@ -4362,25 +4362,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/prefix_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of IPv4 prefixes that represent an endpoint.",
       "tasks": ["configuration"],
       "title": "network_pbr.prefix_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2279,
       "body_sha256": "sha256:15a032ad718bbafe7db8caf0556ea79211d57c1081963fa7becd4500b1d9c14c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4402,9 +4402,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -4416,9 +4424,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -4430,9 +4447,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -4444,9 +4470,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -4459,14 +4494,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "timeouts for xcsh_policy_based_routing.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4477,7 +4512,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:policy_based_routing:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4499,14 +4534,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/examples/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Examples for xcsh_policy_based_routing.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4517,7 +4552,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4546,14 +4581,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Resource for xcsh_policy_based_routing.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4564,7 +4599,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4587,14 +4622,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Import for xcsh_policy_based_routing.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4605,7 +4640,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4627,14 +4662,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Timeouts for xcsh_policy_based_routing.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     }
   ],

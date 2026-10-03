@@ -370,7 +370,7 @@
         "xcsh-docs:resources:api_testing:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -392,21 +392,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Manages a API Testing resource in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_api_testing",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["api testing"],
       "body_bytes": 25990,
-      "body_sha256": "sha256:365d2c1210fb3a39b39b0f612c58971e142f92f1c1d9adf7ae3273f10359d1e3",
+      "body_sha256": "sha256:b96aa6693017d7f596801166ac9bca44b23fb4a4f830f2c6c359cde8cac163b3",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [
@@ -417,7 +417,7 @@
         "xcsh-docs:resources:api_testing:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -624,7 +624,7 @@
           "type": "string"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:api_testing:properties:timeouts",
@@ -639,25 +639,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Property reference for xcsh_api_testing.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["domains"],
       "body_bytes": 3750,
-      "body_sha256": "sha256:066b521f3cb46000fe13a1c679898766defd9419697700a957b87b4ed491042a",
+      "body_sha256": "sha256:4a0bfd137e0b3da47e38ca62fd822888697f8ccef78a68154f2fd0b066827bdf",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:resources:api_testing:properties:domains:credentials"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -696,7 +696,7 @@
       "schema_path": ["domains"],
       "sections": [
         {
-          "aliases": ["allow destructive methods"],
+          "aliases": ["domains allow destructive methods"],
           "anchor": "schema-domains--allow_destructive_methods",
           "description": "Enable to allow API Testing to execute against destructive methods. Use with caution as these may modify or DELETE data.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains",
@@ -710,7 +710,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["authentication", "credential setup", "credentials"],
+          "aliases": ["authentication", "credential setup", "credentials", "domains credentials"],
           "anchor": "section",
           "description": "Add credentials for API testing to use in the selected environment.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials",
@@ -845,7 +845,7 @@
           "type": "object"
         },
         {
-          "aliases": ["domain"],
+          "aliases": ["domains domain"],
           "anchor": "schema-domains--domain",
           "description": "Add your testing environment domain. Be aware that running tests on a production domain can impact live applications, as API testing cannot distinguish between production and testing environments.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains",
@@ -860,20 +860,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/domains/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Add and configure testing domains and credentials.",
       "tasks": ["configuration"],
       "title": "domains",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["authentication", "credential setup", "credentials", "domains credentials"],
       "body_bytes": 5004,
-      "body_sha256": "sha256:80bff73a2159acbdb5940e6f4260af9a081289f82d8ca48f370e1f2e1ee24601",
+      "body_sha256": "sha256:72376b6c430d9a1092489bc6e4ad0c2905c143d7af1490b41322f0cdd47dbb59",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [
@@ -885,7 +885,7 @@
         "xcsh-docs:resources:api_testing:properties:domains:credentials:standard"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1028,7 +1028,7 @@
       "schema_path": ["domains", "credentials"],
       "sections": [
         {
-          "aliases": ["admin"],
+          "aliases": ["domains credentials admin"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:admin",
@@ -1042,7 +1042,7 @@
           "type": "object"
         },
         {
-          "aliases": ["api key"],
+          "aliases": ["domains credentials api key"],
           "anchor": "section",
           "description": "API Key",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:api_key",
@@ -1065,7 +1065,7 @@
           "type": "object"
         },
         {
-          "aliases": ["basic auth"],
+          "aliases": ["domains credentials basic auth"],
           "anchor": "section",
           "description": "Basic Authentication.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:basic_auth",
@@ -1088,7 +1088,7 @@
           "type": "object"
         },
         {
-          "aliases": ["bearer token"],
+          "aliases": ["domains credentials bearer token"],
           "anchor": "section",
           "description": "Configuration parameter for bearer token.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:bearer_token",
@@ -1102,7 +1102,7 @@
           "type": "object"
         },
         {
-          "aliases": ["authentication", "credential name", "credential setup", "credentials"],
+          "aliases": ["authentication", "credential setup", "credentials", "domains credentials credential name"],
           "anchor": "schema-domains--credentials--credential_name",
           "description": "Enter a unique name for the credentials used in API testing.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials",
@@ -1116,7 +1116,7 @@
           "type": "string"
         },
         {
-          "aliases": ["login", "login endpoint", "login result", "sign in"],
+          "aliases": ["domains credentials login endpoint", "login", "login result", "sign in"],
           "anchor": "section",
           "description": "Login Endpoint.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:login_endpoint",
@@ -1147,7 +1147,7 @@
           "type": "object"
         },
         {
-          "aliases": ["standard"],
+          "aliases": ["domains credentials standard"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:standard",
@@ -1162,14 +1162,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/domains/credentials/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Add credentials for API testing to use in the selected environment.",
       "tasks": ["configuration"],
       "title": "domains.credentials",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1180,7 +1180,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1202,25 +1202,25 @@
       "schema_path": ["domains", "credentials", "admin"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/domains/credentials/admin/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "domains.credentials.admin",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["domains credentials api key"],
       "body_bytes": 2786,
-      "body_sha256": "sha256:c51b8ae8892dcd068498d9808c4e82853b53fcc591324f5ff9874086986d602a",
+      "body_sha256": "sha256:55da0967136f04be92e6cf3cd1a1ef3f6fe5cfcbbf2f92c74ac23a9a43de3623",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:resources:api_testing:properties:domains:credentials:api_key:value"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1251,7 +1251,7 @@
       "schema_path": ["domains", "credentials", "api_key"],
       "sections": [
         {
-          "aliases": ["key"],
+          "aliases": ["domains credentials api key key"],
           "anchor": "schema-domains--credentials--api_key--key",
           "description": "Cryptographic key material",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:api_key",
@@ -1265,7 +1265,7 @@
           "type": "string"
         },
         {
-          "aliases": ["value"],
+          "aliases": ["domains credentials api key value"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:api_key:value",
@@ -1297,14 +1297,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/domains/credentials/api_key/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "API Key",
       "tasks": ["configuration"],
       "title": "domains.credentials.api_key",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1318,7 +1318,7 @@
         "xcsh-docs:resources:api_testing:properties:domains:credentials:api_key:value:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1357,7 +1357,7 @@
       "schema_path": ["domains", "credentials", "api_key", "value"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["domains credentials api key value blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:api_key:value:blindfold_secret_info",
@@ -1380,7 +1380,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["domains credentials api key value clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:api_key:value:clear_secret_info",
@@ -1404,25 +1404,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/domains/credentials/api_key/value/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "domains.credentials.api_key.value",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["domains credentials api key value blindfold secret info"],
       "body_bytes": 5202,
-      "body_sha256": "sha256:b6115e502f81f19b3505f927036671927057436b84078a3223fc81b78ba77119",
+      "body_sha256": "sha256:8093a4d7db88a9a5240b0460edad6668e1aa1668b682ab70010fe85923664c6f",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1453,7 +1453,7 @@
       "schema_path": ["domains", "credentials", "api_key", "value", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["domains credentials api key value blindfold secret info decryption provider"],
           "anchor": "schema-domains--credentials--api_key--value--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:api_key:value:blindfold_secret_info",
@@ -1467,7 +1467,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["domains credentials api key value blindfold secret info location"],
           "anchor": "schema-domains--credentials--api_key--value--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:api_key:value:blindfold_secret_info",
@@ -1481,7 +1481,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["domains credentials api key value blindfold secret info store provider"],
           "anchor": "schema-domains--credentials--api_key--value--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:api_key:value:blindfold_secret_info",
@@ -1496,25 +1496,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/domains/credentials/api_key/value/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "domains.credentials.api_key.value.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["domains credentials api key value clear secret info"],
       "body_bytes": 4077,
-      "body_sha256": "sha256:3abcad1b5c3db6455bfaa7cbe93b7df9a114ba1c7cdf8df5e2eb803e22bb5efc",
+      "body_sha256": "sha256:93456c434dfc16400312508c8bc8db191385da9bea3c795f5c82c161b5d95460",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1545,7 +1545,7 @@
       "schema_path": ["domains", "credentials", "api_key", "value", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["domains credentials api key value clear secret info provider ref"],
           "anchor": "schema-domains--credentials--api_key--value--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:api_key:value:clear_secret_info",
@@ -1559,7 +1559,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["domains credentials api key value clear secret info url"],
           "anchor": "schema-domains--credentials--api_key--value--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:api_key:value:clear_secret_info",
@@ -1574,25 +1574,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/domains/credentials/api_key/value/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "domains.credentials.api_key.value.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["domains credentials basic auth"],
       "body_bytes": 3036,
-      "body_sha256": "sha256:185007337f8ef8a2d11b600a7d39bc045992341d3ac638f351d0564b1aff0b64",
+      "body_sha256": "sha256:6a76789ca8d80d0a3efb5b5cfb80eac766cfc3b56ce6b9c088940f29f787148d",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:resources:api_testing:properties:domains:credentials:basic_auth:password"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1623,7 +1623,7 @@
       "schema_path": ["domains", "credentials", "basic_auth"],
       "sections": [
         {
-          "aliases": ["password"],
+          "aliases": ["domains credentials basic auth password"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:basic_auth:password",
@@ -1654,7 +1654,7 @@
           "type": "object"
         },
         {
-          "aliases": ["user"],
+          "aliases": ["domains credentials basic auth user"],
           "anchor": "schema-domains--credentials--basic_auth--user",
           "description": "Configuration parameter for user",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:basic_auth",
@@ -1669,14 +1669,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/domains/credentials/basic_auth/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Basic Authentication.",
       "tasks": ["configuration"],
       "title": "domains.credentials.basic_auth",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1690,7 +1690,7 @@
         "xcsh-docs:resources:api_testing:properties:domains:credentials:basic_auth:password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1729,7 +1729,7 @@
       "schema_path": ["domains", "credentials", "basic_auth", "password"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["domains credentials basic auth password blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:basic_auth:password:blindfold_secret_info",
@@ -1752,7 +1752,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["domains credentials basic auth password clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:basic_auth:password:clear_secret_info",
@@ -1776,25 +1776,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/domains/credentials/basic_auth/password/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "domains.credentials.basic_auth.password",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["domains credentials basic auth password blindfold secret info"],
       "body_bytes": 5262,
-      "body_sha256": "sha256:f3aff314b2685889c9cf8e76d7e236549b3c9e98ca11dbe0862b30a006836d47",
+      "body_sha256": "sha256:199c37c584ca50d33e16c8bf119c4982a7a6753ebe055722ef7efb212b28046b",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1825,7 +1825,7 @@
       "schema_path": ["domains", "credentials", "basic_auth", "password", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["domains credentials basic auth password blindfold secret info decryption provider"],
           "anchor": "schema-domains--credentials--basic_auth--password--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:basic_auth:password:blindfold_secret_info",
@@ -1846,7 +1846,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["domains credentials basic auth password blindfold secret info location"],
           "anchor": "schema-domains--credentials--basic_auth--password--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:basic_auth:password:blindfold_secret_info",
@@ -1860,7 +1860,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["domains credentials basic auth password blindfold secret info store provider"],
           "anchor": "schema-domains--credentials--basic_auth--password--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:basic_auth:password:blindfold_secret_info",
@@ -1882,25 +1882,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/domains/credentials/basic_auth/password/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "domains.credentials.basic_auth.password.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["domains credentials basic auth password clear secret info"],
       "body_bytes": 4131,
-      "body_sha256": "sha256:ce54b6c910d6ed036d7d0d03738935a7a526290dc44a9597f9a1bda3bbd1b683",
+      "body_sha256": "sha256:ed00d5d3a6cfeb68e4c003ce6eeaf4029c8b97655f9f090c41d4ab8940bb01bb",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1931,7 +1931,7 @@
       "schema_path": ["domains", "credentials", "basic_auth", "password", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["domains credentials basic auth password clear secret info provider ref"],
           "anchor": "schema-domains--credentials--basic_auth--password--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:basic_auth:password:clear_secret_info",
@@ -1945,7 +1945,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["domains credentials basic auth password clear secret info url"],
           "anchor": "schema-domains--credentials--basic_auth--password--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:basic_auth:password:clear_secret_info",
@@ -1960,14 +1960,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/domains/credentials/basic_auth/password/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "domains.credentials.basic_auth.password.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1978,7 +1978,7 @@
       "category": "api-management",
       "child_ids": ["xcsh-docs:resources:api_testing:properties:domains:credentials:bearer_token:token"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2000,7 +2000,7 @@
       "schema_path": ["domains", "credentials", "bearer_token"],
       "sections": [
         {
-          "aliases": ["token"],
+          "aliases": ["domains credentials bearer token token"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:bearer_token:token",
@@ -2032,14 +2032,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/domains/credentials/bearer_token/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configuration parameter for bearer token.",
       "tasks": ["configuration"],
       "title": "domains.credentials.bearer_token",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2053,7 +2053,7 @@
         "xcsh-docs:resources:api_testing:properties:domains:credentials:bearer_token:token:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2092,7 +2092,7 @@
       "schema_path": ["domains", "credentials", "bearer_token", "token"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["domains credentials bearer token token blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:bearer_token:token:blindfold_secret_info",
@@ -2115,7 +2115,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["domains credentials bearer token token clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:bearer_token:token:clear_secret_info",
@@ -2139,25 +2139,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/domains/credentials/bearer_token/token/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "domains.credentials.bearer_token.token",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["domains credentials bearer token token blindfold secret info"],
       "body_bytes": 5257,
-      "body_sha256": "sha256:50e3c0705b327fda8afd0a4be8bf54acb3c8af56f99c30eb8789097fe307c093",
+      "body_sha256": "sha256:deefc6a11228b4afb8eee8a3cb8019480566507c728a92bb5f0188f5242c2d7a",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2188,7 +2188,7 @@
       "schema_path": ["domains", "credentials", "bearer_token", "token", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["domains credentials bearer token token blindfold secret info decryption provider"],
           "anchor": "schema-domains--credentials--bearer_token--token--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:bearer_token:token:blindfold_secret_info",
@@ -2209,7 +2209,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["domains credentials bearer token token blindfold secret info location"],
           "anchor": "schema-domains--credentials--bearer_token--token--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:bearer_token:token:blindfold_secret_info",
@@ -2223,7 +2223,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["domains credentials bearer token token blindfold secret info store provider"],
           "anchor": "schema-domains--credentials--bearer_token--token--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:bearer_token:token:blindfold_secret_info",
@@ -2238,25 +2238,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/domains/credentials/bearer_token/token/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "domains.credentials.bearer_token.token.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["domains credentials bearer token token clear secret info"],
       "body_bytes": 4127,
-      "body_sha256": "sha256:f2b16275c02dc3f7213fd1d5c1886c984621b426847ecb1baf7542dbe0cfe91c",
+      "body_sha256": "sha256:3412913f8f5b4251af72bb75ff5853dbcaab46cb79edd38b670ecacbc53ccc86",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2287,7 +2287,7 @@
       "schema_path": ["domains", "credentials", "bearer_token", "token", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["domains credentials bearer token token clear secret info provider ref"],
           "anchor": "schema-domains--credentials--bearer_token--token--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:bearer_token:token:clear_secret_info",
@@ -2301,7 +2301,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["domains credentials bearer token token clear secret info url"],
           "anchor": "schema-domains--credentials--bearer_token--token--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:bearer_token:token:clear_secret_info",
@@ -2316,25 +2316,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/domains/credentials/bearer_token/token/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "domains.credentials.bearer_token.token.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["domains credentials login endpoint", "login", "login result", "sign in"],
       "body_bytes": 5033,
-      "body_sha256": "sha256:c861224313a340372eb0a8d265c0d5a4bacfab9d663b815f698d31233ba7a07b",
+      "body_sha256": "sha256:99812e0d70a3dcc1527800967ff6e9e73f7a9252a21a7e9fcbf692cc1cefe30d",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:resources:api_testing:properties:domains:credentials:login_endpoint:json_payload"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2373,7 +2373,7 @@
       "schema_path": ["domains", "credentials", "login_endpoint"],
       "sections": [
         {
-          "aliases": ["json payload"],
+          "aliases": ["domains credentials login endpoint json payload", "login", "login result", "sign in"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:login_endpoint:json_payload",
@@ -2404,7 +2404,7 @@
           "type": "object"
         },
         {
-          "aliases": ["method"],
+          "aliases": ["domains credentials login endpoint method", "login", "login result", "sign in"],
           "anchor": "schema-domains--credentials--login_endpoint--method",
           "description": "Specifies the HTTP method used to access a resource. Any HTTP Method.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:login_endpoint",
@@ -2418,7 +2418,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path"],
+          "aliases": ["domains credentials login endpoint path", "login", "login result", "sign in"],
           "anchor": "schema-domains--credentials--login_endpoint--path",
           "description": "URL path for the endpoint",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:login_endpoint",
@@ -2432,7 +2432,7 @@
           "type": "string"
         },
         {
-          "aliases": ["token response key"],
+          "aliases": ["domains credentials login endpoint token response key", "login", "login result", "sign in"],
           "anchor": "schema-domains--credentials--login_endpoint--token_response_key",
           "description": "Configuration parameter for token response key",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:login_endpoint",
@@ -2447,14 +2447,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/domains/credentials/login_endpoint/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Login Endpoint.",
       "tasks": ["configuration"],
       "title": "domains.credentials.login_endpoint",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2468,7 +2468,7 @@
         "xcsh-docs:resources:api_testing:properties:domains:credentials:login_endpoint:json_payload:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2507,7 +2507,12 @@
       "schema_path": ["domains", "credentials", "login_endpoint", "json_payload"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": [
+            "domains credentials login endpoint json payload blindfold secret info",
+            "login",
+            "login result",
+            "sign in"
+          ],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:login_endpoint:json_payload:blindfold_secret_info",
@@ -2530,7 +2535,12 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": [
+            "domains credentials login endpoint json payload clear secret info",
+            "login",
+            "login result",
+            "sign in"
+          ],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:login_endpoint:json_payload:clear_secret_info",
@@ -2554,14 +2564,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/domains/credentials/login_endpoint/json_payload/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "domains.credentials.login_endpoint.json_payload",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2572,12 +2582,12 @@
         "sign in"
       ],
       "body_bytes": 5342,
-      "body_sha256": "sha256:f6800d10e002813737037041c3880398d7b9056696f068c0672a347a6d7511a7",
+      "body_sha256": "sha256:8b499af49167f01201478eab2317a8e154332caba886b1e67700d07f1fc4c828",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2608,7 +2618,12 @@
       "schema_path": ["domains", "credentials", "login_endpoint", "json_payload", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": [
+            "domains credentials login endpoint json payload blindfold secret info decryption provider",
+            "login",
+            "login result",
+            "sign in"
+          ],
           "anchor": "schema-domains--credentials--login_endpoint--json_payload--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:login_endpoint:json_payload:blindfold_secret_info",
@@ -2629,7 +2644,12 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": [
+            "domains credentials login endpoint json payload blindfold secret info location",
+            "login",
+            "login result",
+            "sign in"
+          ],
           "anchor": "schema-domains--credentials--login_endpoint--json_payload--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:login_endpoint:json_payload:blindfold_secret_info",
@@ -2650,7 +2670,12 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": [
+            "domains credentials login endpoint json payload blindfold secret info store provider",
+            "login",
+            "login result",
+            "sign in"
+          ],
           "anchor": "schema-domains--credentials--login_endpoint--json_payload--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:login_endpoint:json_payload:blindfold_secret_info",
@@ -2672,14 +2697,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/domains/credentials/login_endpoint/json_payload/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "domains.credentials.login_endpoint.json_payload.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2690,12 +2715,12 @@
         "sign in"
       ],
       "body_bytes": 4203,
-      "body_sha256": "sha256:a4310ed643e2f99963dca4ca71ddff75164c8e42605f20bd9eafb27751cabff4",
+      "body_sha256": "sha256:287a7f0e1ab13b27a5b403fce46185d9b43a2ddd3822471d9684333d60dbf763",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2726,7 +2751,12 @@
       "schema_path": ["domains", "credentials", "login_endpoint", "json_payload", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": [
+            "domains credentials login endpoint json payload clear secret info provider ref",
+            "login",
+            "login result",
+            "sign in"
+          ],
           "anchor": "schema-domains--credentials--login_endpoint--json_payload--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:login_endpoint:json_payload:clear_secret_info",
@@ -2747,7 +2777,12 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": [
+            "domains credentials login endpoint json payload clear secret info url",
+            "login",
+            "login result",
+            "sign in"
+          ],
           "anchor": "schema-domains--credentials--login_endpoint--json_payload--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:login_endpoint:json_payload:clear_secret_info",
@@ -2762,14 +2797,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/domains/credentials/login_endpoint/json_payload/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "domains.credentials.login_endpoint.json_payload.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2780,7 +2815,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2802,14 +2837,14 @@
       "schema_path": ["domains", "credentials", "standard"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/domains/credentials/standard/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "domains.credentials.standard",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2820,7 +2855,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2842,14 +2877,14 @@
       "schema_path": ["every_day"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/every_day/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "every_day",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2860,7 +2895,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2882,14 +2917,14 @@
       "schema_path": ["every_month"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/every_month/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "every_month",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2900,7 +2935,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2922,25 +2957,25 @@
       "schema_path": ["every_week"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/every_week/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "every_week",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2225,
       "body_sha256": "sha256:b679a0ad5ea833ae0a1673b4b64fd8fe5d932fd6724c7cd0e5431b6672856dd8",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2962,9 +2997,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:api_testing:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -2976,9 +3019,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:api_testing:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -2990,9 +3042,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:api_testing:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -3004,9 +3065,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:api_testing:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -3019,14 +3089,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "timeouts for xcsh_api_testing.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3037,7 +3107,7 @@
       "category": "api-management",
       "child_ids": ["xcsh-docs:resources:api_testing:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3059,14 +3129,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/examples/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Examples for xcsh_api_testing.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3077,7 +3147,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3106,14 +3176,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Resource for xcsh_api_testing.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3124,7 +3194,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3147,14 +3217,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Import for xcsh_api_testing.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3165,7 +3235,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3187,14 +3257,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_testing/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Timeouts for xcsh_api_testing.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     }
   ],

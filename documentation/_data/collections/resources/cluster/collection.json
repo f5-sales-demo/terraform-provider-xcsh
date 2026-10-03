@@ -718,7 +718,7 @@
         "xcsh-docs:resources:cluster:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -740,21 +740,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Manages cluster will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_cluster",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["cluster"],
       "body_bytes": 53646,
-      "body_sha256": "sha256:ea33ef4982ec019ee2939cff15b5cd83724d6a646e7f23ccbc4ae73857c4c139",
+      "body_sha256": "sha256:97d594dccd342ea663b715ae58109ae49eb51b4ba4e775554762a1e12e10f5bd",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -777,7 +777,7 @@
         "xcsh-docs:resources:cluster:properties:upstream_conn_pool_reuse_type"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -841,7 +841,7 @@
           "type": "object"
         },
         {
-          "aliases": ["connection timeout", "duration", "operation timeout"],
+          "aliases": ["connection timeout", "duration"],
           "anchor": "schema-connection_timeout",
           "description": "The timeout for new network connections to endpoints in the cluster. This is specified in milliseconds. The default value is 2 seconds.",
           "document_id": "xcsh-docs:resources:cluster:reference",
@@ -1018,7 +1018,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "http idle timeout", "operation timeout"],
+          "aliases": ["duration", "http idle timeout"],
           "anchor": "schema-http_idle_timeout",
           "description": "The idle timeout for upstream connection pool connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed. Note that request based timeouts mean that HTTP/2 PINGs will not keep the connection alive. This is specified in",
           "document_id": "xcsh-docs:resources:cluster:reference",
@@ -1200,7 +1200,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:cluster:properties:timeouts",
@@ -1373,14 +1373,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Property reference for xcsh_cluster.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1391,7 +1391,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1413,25 +1413,25 @@
       "schema_path": ["auto_http_config"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/auto_http_config/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "auto_http_config",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["circuit breaker"],
       "body_bytes": 8583,
-      "body_sha256": "sha256:bc4c581bdb8b005813f64b3b1a4a9a5648a8a0201a4fc55293ffdb399129f400",
+      "body_sha256": "sha256:91e35483b2e635c4c4bdb78627f13a5239099bfba2043d610c0a346017f2c39d",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1453,7 +1453,7 @@
       "schema_path": ["circuit_breaker"],
       "sections": [
         {
-          "aliases": ["connection limit"],
+          "aliases": ["circuit breaker connection limit"],
           "anchor": "schema-circuit_breaker--connection_limit",
           "description": "The maximum number of connections that loadbalancer will establish to all hosts in an upstream cluster. In practice this is only applicable to TCP and HTTP/1.1 clusters since HTTP/2 uses a single connection to each host. Remove endpoint out of load balancing decision, if number of connections reach connection limit.",
           "document_id": "xcsh-docs:resources:cluster:properties:circuit_breaker",
@@ -1467,7 +1467,7 @@
           "type": "number"
         },
         {
-          "aliases": ["max requests"],
+          "aliases": ["circuit breaker max requests"],
           "anchor": "schema-circuit_breaker--max_requests",
           "description": "The maximum number of requests that can be outstanding to all hosts in a cluster at any given time. In practice this is applicable to HTTP/2 clusters since HTTP/1.1 clusters are governed by the maximum connections (connection_limit). Remove endpoint out of load balancing decision, if requests exceed this count.",
           "document_id": "xcsh-docs:resources:cluster:properties:circuit_breaker",
@@ -1481,7 +1481,7 @@
           "type": "number"
         },
         {
-          "aliases": ["pending requests"],
+          "aliases": ["circuit breaker pending requests"],
           "anchor": "schema-circuit_breaker--pending_requests",
           "description": "The maximum number of requests that will be queued while waiting for a ready connection pool connection. Since HTTP/2 requests are sent over a single connection, this circuit breaker only comes into play as the initial connection is created, as requests will be multiplexed immediately afterwards. For HTTP/1.1,",
           "document_id": "xcsh-docs:resources:cluster:properties:circuit_breaker",
@@ -1495,7 +1495,7 @@
           "type": "number"
         },
         {
-          "aliases": ["priority"],
+          "aliases": ["circuit breaker priority"],
           "anchor": "schema-circuit_breaker--priority",
           "description": "Priority routing for each request. Different connection pools are used based on the priority selected for the request. Also, circuit-breaker configuration at destination cluster is chosen based on selected priority. Default routing mechanism High-Priority routing mechanism.",
           "document_id": "xcsh-docs:resources:cluster:properties:circuit_breaker",
@@ -1509,7 +1509,7 @@
           "type": "string"
         },
         {
-          "aliases": ["retries"],
+          "aliases": ["circuit breaker retries"],
           "anchor": "schema-circuit_breaker--retries",
           "description": "The maximum number of retries that can be outstanding to all hosts in a cluster at any given time. Remove endpoint out of load balancing decision, if retries for request exceed this count.",
           "document_id": "xcsh-docs:resources:cluster:properties:circuit_breaker",
@@ -1524,25 +1524,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/circuit_breaker/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "CircuitBreaker provides a mechanism for watching failures in upstream connections or requests and if the failures reach a certain threshold, automatically fail subsequent requests which allows to apply back pressure on downstream quickly.",
       "tasks": ["configuration"],
       "title": "circuit_breaker",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["default subset"],
-      "body_bytes": 1533,
-      "body_sha256": "sha256:16b895a1c7f15d8c724d31cec471755c55ae6de02e2b128ddb715c3322d2f74e",
+      "body_bytes": 1775,
+      "body_sha256": "sha256:e20bd801f5f32763f2feb9a62d23486ddf175aa073145f10a13a0dbb856f0fb4",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1564,14 +1564,14 @@
       "schema_path": ["default_subset"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/default_subset/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of key-value pairs that define default subset. This subset can be referred in fallback_policy which gets used when route specifies no metadata or no subset matching the metadata exists.",
       "tasks": ["configuration"],
       "title": "default_subset",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1582,7 +1582,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1604,25 +1604,25 @@
       "schema_path": ["disable_proxy_protocol"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/disable_proxy_protocol/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "disable_proxy_protocol",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["endpoint subsets"],
       "body_bytes": 4966,
-      "body_sha256": "sha256:217f34743f1e06a6aef351cd7d38991ec4caab8937a230ca944baa9897f9a597",
+      "body_sha256": "sha256:57ea070390a80fa528fdcd3db60d1925bda8c2f6d5de6c16005c0faa25700c5e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1653,7 +1653,7 @@
       "schema_path": ["endpoint_subsets"],
       "sections": [
         {
-          "aliases": ["keys"],
+          "aliases": ["endpoint subsets keys"],
           "anchor": "schema-endpoint_subsets--keys",
           "description": "List of keys that define a cluster subset class.",
           "document_id": "xcsh-docs:resources:cluster:properties:endpoint_subsets",
@@ -1668,25 +1668,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/endpoint_subsets/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer. Endpoint_subsets is list of subsets for this cluster. Each entry in this list has definition for a",
       "tasks": ["configuration"],
       "title": "endpoint_subsets",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["endpoints"],
       "body_bytes": 6361,
-      "body_sha256": "sha256:1a98ba4ca9e84f1d321ea0e62434a9c1130b30ae32dd790d5d18bd4dfb62edac",
+      "body_sha256": "sha256:8055932bdff32089ef07f2387ba96ec58495331e0deeaea7ad4e53641a8b2cc4",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1708,7 +1708,7 @@
       "schema_path": ["endpoints"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["endpoints kind"],
           "anchor": "schema-endpoints--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:cluster:properties:endpoints",
@@ -1722,7 +1722,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["endpoints name"],
           "anchor": "schema-endpoints--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:cluster:properties:endpoints",
@@ -1736,7 +1736,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["endpoints namespace"],
           "anchor": "schema-endpoints--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:cluster:properties:endpoints",
@@ -1750,7 +1750,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["endpoints tenant"],
           "anchor": "schema-endpoints--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:cluster:properties:endpoints",
@@ -1764,7 +1764,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["endpoints uid"],
           "anchor": "schema-endpoints--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:cluster:properties:endpoints",
@@ -1779,25 +1779,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/endpoints/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of references to all endpoint objects that belong to this cluster.",
       "tasks": ["configuration"],
       "title": "endpoints",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["health checks"],
       "body_bytes": 6346,
-      "body_sha256": "sha256:dde22bb388f78afe8fa9bb43c58b4ac9066d39c1fdfacf1b7c1b69b196a71d9d",
+      "body_sha256": "sha256:56ed92dd5ae86a7bd0ffbc71f0fa520c03a2d355179621f6217ac7936aa9ddba",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1819,7 +1819,7 @@
       "schema_path": ["health_checks"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["health checks kind"],
           "anchor": "schema-health_checks--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:cluster:properties:health_checks",
@@ -1833,7 +1833,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["health checks name"],
           "anchor": "schema-health_checks--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:cluster:properties:health_checks",
@@ -1847,7 +1847,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["health checks namespace"],
           "anchor": "schema-health_checks--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:cluster:properties:health_checks",
@@ -1861,7 +1861,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["health checks tenant"],
           "anchor": "schema-health_checks--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:cluster:properties:health_checks",
@@ -1875,7 +1875,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["health checks uid"],
           "anchor": "schema-health_checks--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:cluster:properties:health_checks",
@@ -1890,14 +1890,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/health_checks/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of references to healthcheck object for this cluster.",
       "tasks": ["configuration"],
       "title": "health_checks",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1908,7 +1908,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:cluster:properties:http1_config:header_transformation"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1930,7 +1930,7 @@
       "schema_path": ["http1_config"],
       "sections": [
         {
-          "aliases": ["header transformation"],
+          "aliases": ["http1 config header transformation"],
           "anchor": "section",
           "description": "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
           "document_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation",
@@ -1994,14 +1994,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/http1_config/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "HTTP/1.1 Protocol OPTIONS for upstream connections.",
       "tasks": ["configuration"],
       "title": "http1_config",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2016,7 +2016,7 @@
         "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:proper_case_header_transformation"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2087,7 +2087,7 @@
       "schema_path": ["http1_config", "header_transformation"],
       "sections": [
         {
-          "aliases": ["default header transformation"],
+          "aliases": ["http1 config header transformation default header transformation"],
           "anchor": "section",
           "description": "Use the platform's current default HTTP header transformation behavior.",
           "document_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:default_header_transformation",
@@ -2101,7 +2101,7 @@
           "type": "object"
         },
         {
-          "aliases": ["preserve case header transformation"],
+          "aliases": ["http1 config header transformation preserve case header transformation"],
           "anchor": "section",
           "description": "Preserve HTTP header-name case when upstream case must remain unchanged.",
           "document_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:preserve_case_header_transformation",
@@ -2115,7 +2115,7 @@
           "type": "object"
         },
         {
-          "aliases": ["proper case header transformation"],
+          "aliases": ["http1 config header transformation proper case header transformation"],
           "anchor": "section",
           "description": "Transform HTTP header names to proper case when explicit transformation is required.",
           "document_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:proper_case_header_transformation",
@@ -2130,14 +2130,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/http1_config/header_transformation/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
       "tasks": ["configuration"],
       "title": "http1_config.header_transformation",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2148,7 +2148,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2170,14 +2170,14 @@
       "schema_path": ["http1_config", "header_transformation", "default_header_transformation"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/http1_config/header_transformation/default_header_transformation/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Use the platform's current default HTTP header transformation behavior.",
       "tasks": ["configuration"],
       "title": "http1_config.header_transformation.default_header_transformation",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2188,7 +2188,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2210,14 +2210,14 @@
       "schema_path": ["http1_config", "header_transformation", "preserve_case_header_transformation"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/http1_config/header_transformation/preserve_case_header_transformation/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Preserve HTTP header-name case when upstream case must remain unchanged.",
       "tasks": ["configuration"],
       "title": "http1_config.header_transformation.preserve_case_header_transformation",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2228,7 +2228,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2250,14 +2250,14 @@
       "schema_path": ["http1_config", "header_transformation", "proper_case_header_transformation"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/http1_config/header_transformation/proper_case_header_transformation/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Transform HTTP header names to proper case when explicit transformation is required.",
       "tasks": ["configuration"],
       "title": "http1_config.header_transformation.proper_case_header_transformation",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2268,7 +2268,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2290,7 +2290,7 @@
       "schema_path": ["http2_options"],
       "sections": [
         {
-          "aliases": ["enabled"],
+          "aliases": ["http2 options enabled"],
           "anchor": "schema-http2_options--enabled",
           "description": "Enable/disable HTTP2 Protocol for upstream connections.",
           "document_id": "xcsh-docs:resources:cluster:properties:http2_options",
@@ -2305,14 +2305,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/http2_options/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Http2 Protocol OPTIONS for upstream connections.",
       "tasks": ["configuration"],
       "title": "http2_options",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2323,7 +2323,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2345,14 +2345,14 @@
       "schema_path": ["no_panic_threshold"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/no_panic_threshold/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "no_panic_threshold",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2363,7 +2363,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2385,25 +2385,25 @@
       "schema_path": ["no_request_limit_per_connection"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/no_request_limit_per_connection/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "no_request_limit_per_connection",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["outlier detection"],
       "body_bytes": 9453,
-      "body_sha256": "sha256:36d23933eaae472f9edb1e112b7d6ed3df13773fecf62508809a0c0de3275760",
+      "body_sha256": "sha256:4484596908460dadf945cab163ba93f5089f383539f071bc1f4112a9d837981d",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2425,7 +2425,7 @@
       "schema_path": ["outlier_detection"],
       "sections": [
         {
-          "aliases": ["base ejection time"],
+          "aliases": ["outlier detection base ejection time"],
           "anchor": "schema-outlier_detection--base_ejection_time",
           "description": "The base time that a host is ejected for. The real time is equal to the base time multiplied by the number of times the host has been ejected. This causes hosts to GET ejected for longer periods if they continue to fail. Defaults to 30000ms or 30s. Specified in milliseconds.",
           "document_id": "xcsh-docs:resources:cluster:properties:outlier_detection",
@@ -2439,7 +2439,7 @@
           "type": "number"
         },
         {
-          "aliases": ["consecutive 5xx"],
+          "aliases": ["outlier detection consecutive 5xx"],
           "anchor": "schema-outlier_detection--consecutive_5xx",
           "description": "If an upstream endpoint returns some number of consecutive 5xx, it will be ejected. Note that in this case a 5xx means an actual 5xx respond code, or an event that would cause the HTTP router to return one on the upstream’s behalf(reset, connection failure, etc.) consecutive_5xx indicates the number of consecutive 5xx",
           "document_id": "xcsh-docs:resources:cluster:properties:outlier_detection",
@@ -2453,7 +2453,7 @@
           "type": "number"
         },
         {
-          "aliases": ["consecutive gateway failure"],
+          "aliases": ["outlier detection consecutive gateway failure"],
           "anchor": "schema-outlier_detection--consecutive_gateway_failure",
           "description": "If an upstream endpoint returns some number of consecutive “gateway errors” (502, 503 or 504 status code), it will be ejected. Note that this includes events that would cause the HTTP router to return one of these status codes on the upstream’s behalf (reset, connection failure, etc.). Consecutive_gateway_failure",
           "document_id": "xcsh-docs:resources:cluster:properties:outlier_detection",
@@ -2467,7 +2467,7 @@
           "type": "number"
         },
         {
-          "aliases": ["interval"],
+          "aliases": ["outlier detection interval"],
           "anchor": "schema-outlier_detection--interval",
           "description": "The time interval between ejection analysis sweeps. This can result in both new ejections as well as endpoints being returned to service. Defaults to 10000ms or 10s. Specified in milliseconds.",
           "document_id": "xcsh-docs:resources:cluster:properties:outlier_detection",
@@ -2481,7 +2481,7 @@
           "type": "number"
         },
         {
-          "aliases": ["max ejection percent"],
+          "aliases": ["outlier detection max ejection percent"],
           "anchor": "schema-outlier_detection--max_ejection_percent",
           "description": "The maximum % of an upstream cluster that can be ejected due to outlier detection. Defaults to 10% but will eject at least one host regardless of the value.",
           "document_id": "xcsh-docs:resources:cluster:properties:outlier_detection",
@@ -2496,14 +2496,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/outlier_detection/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checking. Algorithm 1. A endpoint is determined to be an",
       "tasks": ["configuration"],
       "title": "outlier_detection",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2514,7 +2514,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2536,14 +2536,14 @@
       "schema_path": ["proxy_protocol_v1"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/proxy_protocol_v1/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_protocol_v1",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2554,7 +2554,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2576,25 +2576,25 @@
       "schema_path": ["proxy_protocol_v2"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/proxy_protocol_v2/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_protocol_v2",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2201,
       "body_sha256": "sha256:5ae7a74011582a2844ab2fa87368dbccbabc4a1c5c89ca6e1ce9dcddc10b7d05",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2616,9 +2616,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:cluster:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -2630,9 +2638,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:cluster:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -2644,9 +2661,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:cluster:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -2658,9 +2684,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:cluster:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -2673,20 +2708,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "timeouts for xcsh_cluster.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["tls parameters"],
       "body_bytes": 6409,
-      "body_sha256": "sha256:2a5fc10d46733a5c406f164b5fddcc218ccc72ba22844b56ecdda6e8efa87a9c",
+      "body_sha256": "sha256:ff25f93433cbe8a0a68ad19ca4ecfb7cd30b33a52c0466f41c79d6bdfed20006",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -2698,7 +2733,7 @@
         "xcsh-docs:resources:cluster:properties:tls_parameters:use_host_header_as_sni"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2833,7 +2868,7 @@
       "schema_path": ["tls_parameters"],
       "sections": [
         {
-          "aliases": ["cert params"],
+          "aliases": ["tls parameters cert params"],
           "anchor": "section",
           "description": "Certificate Parameters for authentication, TLS ciphers, and trust store.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params",
@@ -2904,7 +2939,7 @@
           "type": "object"
         },
         {
-          "aliases": ["common params"],
+          "aliases": ["tls parameters common params"],
           "anchor": "section",
           "description": "Information of different aspects for TLS authentication related to ciphers, certificates and trust store.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params",
@@ -2918,7 +2953,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default session key caching"],
+          "aliases": ["tls parameters default session key caching"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:default_session_key_caching",
@@ -2932,7 +2967,7 @@
           "type": "object"
         },
         {
-          "aliases": ["disable session key caching"],
+          "aliases": ["tls parameters disable session key caching"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:disable_session_key_caching",
@@ -2946,7 +2981,7 @@
           "type": "object"
         },
         {
-          "aliases": ["disable sni"],
+          "aliases": ["tls parameters disable sni"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:disable_sni",
@@ -2960,7 +2995,7 @@
           "type": "object"
         },
         {
-          "aliases": ["max session keys"],
+          "aliases": ["tls parameters max session keys"],
           "anchor": "schema-tls_parameters--max_session_keys",
           "description": "Exclusive with Number of session keys that are cached.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters",
@@ -2974,7 +3009,7 @@
           "type": "number"
         },
         {
-          "aliases": ["sni"],
+          "aliases": ["tls parameters sni"],
           "anchor": "schema-tls_parameters--sni",
           "description": "Exclusive with SNI value to be used.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters",
@@ -2988,7 +3023,7 @@
           "type": "string"
         },
         {
-          "aliases": ["use host header as sni"],
+          "aliases": ["tls parameters use host header as sni"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:use_host_header_as_sni",
@@ -3003,20 +3038,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "TLS configuration for upstream connections.",
       "tasks": ["configuration"],
       "title": "tls_parameters",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["tls parameters cert params"],
       "body_bytes": 9101,
-      "body_sha256": "sha256:d179b82348e29c4c8c83be94d0489629670d9bb054697023ec4acba7c73b12c8",
+      "body_sha256": "sha256:92ea525de22c9fe6686e2a8d128ff64bba99f1bbc93bf1b60ad81210b7055caf",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -3026,7 +3061,7 @@
         "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:volterra_trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3105,7 +3140,13 @@
       "schema_path": ["tls_parameters", "cert_params"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "certificates", "existing certificates", "tls certificates"],
+          "aliases": [
+            "cert",
+            "certificate",
+            "existing certificates",
+            "tls certificates",
+            "tls parameters cert params certificates"
+          ],
           "anchor": "section",
           "description": "Client TLS Certificate required for mTLS authentication.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:certificates",
@@ -3119,7 +3160,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cipher suites"],
+          "aliases": ["tls parameters cert params cipher suites"],
           "anchor": "schema-tls_parameters--cert_params--cipher_suites",
           "description": "The following list specifies the supported cipher suite TLS_AES_128_GCM_SHA256 TLS_AES_256_GCM_SHA384 TLS_CHACHA20_POLY1305_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params",
@@ -3133,7 +3174,7 @@
           "type": "list"
         },
         {
-          "aliases": ["maximum protocol version"],
+          "aliases": ["tls parameters cert params maximum protocol version"],
           "anchor": "schema-tls_parameters--cert_params--maximum_protocol_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params",
@@ -3147,7 +3188,7 @@
           "type": "string"
         },
         {
-          "aliases": ["minimum protocol version"],
+          "aliases": ["tls parameters cert params minimum protocol version"],
           "anchor": "schema-tls_parameters--cert_params--minimum_protocol_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params",
@@ -3161,7 +3202,7 @@
           "type": "string"
         },
         {
-          "aliases": ["skip server verification"],
+          "aliases": ["tls parameters cert params skip server verification"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:skip_server_verification",
@@ -3175,7 +3216,7 @@
           "type": "object"
         },
         {
-          "aliases": ["tls validation params"],
+          "aliases": ["tls parameters cert params tls validation params"],
           "anchor": "section",
           "description": "This includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params",
@@ -3206,7 +3247,7 @@
           "type": "object"
         },
         {
-          "aliases": ["volterra trusted ca"],
+          "aliases": ["tls parameters cert params volterra trusted ca"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:volterra_trusted_ca",
@@ -3221,14 +3262,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/cert_params/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Certificate Parameters for authentication, TLS ciphers, and trust store.",
       "tasks": ["configuration"],
       "title": "tls_parameters.cert_params",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3240,12 +3281,12 @@
         "tls parameters cert params certificates"
       ],
       "body_bytes": 6667,
-      "body_sha256": "sha256:c51437ed3b0c04d0d97d17a0320d2bb07528e874df560d726be934c40c9f6b6c",
+      "body_sha256": "sha256:b2bdbcd92234dcbaafae861792f59284ea7a26ba4cda495cf2ff48a06b4cd537",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3267,7 +3308,7 @@
       "schema_path": ["tls_parameters", "cert_params", "certificates"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["tls parameters cert params certificates kind"],
           "anchor": "schema-tls_parameters--cert_params--certificates--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:certificates",
@@ -3281,7 +3322,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["tls parameters cert params certificates name"],
           "anchor": "schema-tls_parameters--cert_params--certificates--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:certificates",
@@ -3295,7 +3336,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["tls parameters cert params certificates namespace"],
           "anchor": "schema-tls_parameters--cert_params--certificates--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:certificates",
@@ -3309,7 +3350,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["tls parameters cert params certificates tenant"],
           "anchor": "schema-tls_parameters--cert_params--certificates--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:certificates",
@@ -3323,7 +3364,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["tls parameters cert params certificates uid"],
           "anchor": "schema-tls_parameters--cert_params--certificates--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:certificates",
@@ -3338,14 +3379,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/cert_params/certificates/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Client TLS Certificate required for mTLS authentication.",
       "tasks": ["configuration"],
       "title": "tls_parameters.cert_params.certificates",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3356,7 +3397,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3378,27 +3419,27 @@
       "schema_path": ["tls_parameters", "cert_params", "skip_server_verification"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/cert_params/skip_server_verification/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.cert_params.skip_server_verification",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["tls parameters cert params tls validation params"],
       "body_bytes": 4948,
-      "body_sha256": "sha256:d9875dacf758b4ec3d6575d52dca53a12d32585f781fa3f3199959cab0ac344e",
+      "body_sha256": "sha256:cc277bee75a40b883c4e1c1a5c73c0156eab987bf19c3dd3a8283a954b2c5bbb",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
         "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3437,7 +3478,7 @@
       "schema_path": ["tls_parameters", "cert_params", "tls_validation_params"],
       "sections": [
         {
-          "aliases": ["skip hostname verification"],
+          "aliases": ["tls parameters cert params tls validation params skip hostname verification"],
           "anchor": "schema-tls_parameters--cert_params--tls_validation_params--skip_hostname_verification",
           "description": "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params",
@@ -3451,7 +3492,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["trusted ca"],
+          "aliases": ["tls parameters cert params tls validation params trusted ca"],
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca",
@@ -3465,7 +3506,7 @@
           "type": "object"
         },
         {
-          "aliases": ["trusted ca url"],
+          "aliases": ["tls parameters cert params tls validation params trusted ca url"],
           "anchor": "schema-tls_parameters--cert_params--tls_validation_params--trusted_ca_url",
           "description": "Exclusive with Inline Root CA Certificate.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params",
@@ -3479,7 +3520,7 @@
           "type": "string"
         },
         {
-          "aliases": ["verify subject alt names"],
+          "aliases": ["tls parameters cert params tls validation params verify subject alt names"],
           "anchor": "schema-tls_parameters--cert_params--tls_validation_params--verify_subject_alt_names",
           "description": "List of acceptable Subject Alt Names/CN in the peer's certificate. When skip_hostname_verification is false and verify_subject_alt_names is empty, the hostname of the peer will be used for matching against SAN/CN of peer's certificate.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params",
@@ -3494,14 +3535,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/cert_params/tls_validation_params/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
       "tasks": ["configuration"],
       "title": "tls_parameters.cert_params.tls_validation_params",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3514,7 +3555,7 @@
         "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca:trusted_ca_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3536,7 +3577,7 @@
       "schema_path": ["tls_parameters", "cert_params", "tls_validation_params", "trusted_ca"],
       "sections": [
         {
-          "aliases": ["trusted ca list"],
+          "aliases": ["tls parameters cert params tls validation params trusted ca trusted ca list"],
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
@@ -3551,25 +3592,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/cert_params/tls_validation_params/trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Reference to Root CA Certificate.",
       "tasks": ["configuration"],
       "title": "tls_parameters.cert_params.tls_validation_params.trusted_ca",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["tls parameters cert params tls validation params trusted ca trusted ca list"],
       "body_bytes": 7558,
-      "body_sha256": "sha256:2c990f13297dd79c935c3c08389d0c694bac7b79e9b8ca965c5f4f88dbec89fd",
+      "body_sha256": "sha256:f0a06b7459a3893578163a99d0ee08d088136f0a40befa0f69d93e9ddaf88969",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3591,7 +3632,7 @@
       "schema_path": ["tls_parameters", "cert_params", "tls_validation_params", "trusted_ca", "trusted_ca_list"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["tls parameters cert params tls validation params trusted ca trusted ca list kind"],
           "anchor": "schema-tls_parameters--cert_params--tls_validation_params--trusted_ca--trusted_ca_list--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
@@ -3612,7 +3653,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["tls parameters cert params tls validation params trusted ca trusted ca list name"],
           "anchor": "schema-tls_parameters--cert_params--tls_validation_params--trusted_ca--trusted_ca_list--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
@@ -3633,7 +3674,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["tls parameters cert params tls validation params trusted ca trusted ca list namespace"],
           "anchor": "schema-tls_parameters--cert_params--tls_validation_params--trusted_ca--trusted_ca_list--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
@@ -3654,7 +3695,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["tls parameters cert params tls validation params trusted ca trusted ca list tenant"],
           "anchor": "schema-tls_parameters--cert_params--tls_validation_params--trusted_ca--trusted_ca_list--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
@@ -3675,7 +3716,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["tls parameters cert params tls validation params trusted ca trusted ca list uid"],
           "anchor": "schema-tls_parameters--cert_params--tls_validation_params--trusted_ca--trusted_ca_list--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
@@ -3697,14 +3738,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/cert_params/tls_validation_params/trusted_ca/trusted_ca_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Reference to Root CA Certificate.",
       "tasks": ["configuration"],
       "title": "tls_parameters.cert_params.tls_validation_params.trusted_ca.trusted_ca_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3715,7 +3756,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3737,20 +3778,20 @@
       "schema_path": ["tls_parameters", "cert_params", "volterra_trusted_ca"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/cert_params/volterra_trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.cert_params.volterra_trusted_ca",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["tls parameters common params"],
       "body_bytes": 7943,
-      "body_sha256": "sha256:9108658231171640d4955139c08949dfbd58462d14d7545dc4589d78ac9bbbbc",
+      "body_sha256": "sha256:5e233b854cfb50e445d5305bffcb886ecee7fc9940f394448931fa5bc700c616",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -3758,7 +3799,7 @@
         "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3780,7 +3821,7 @@
       "schema_path": ["tls_parameters", "common_params"],
       "sections": [
         {
-          "aliases": ["cipher suites"],
+          "aliases": ["tls parameters common params cipher suites"],
           "anchor": "schema-tls_parameters--common_params--cipher_suites",
           "description": "The following list specifies the supported cipher suite TLS_AES_128_GCM_SHA256 TLS_AES_256_GCM_SHA384 TLS_CHACHA20_POLY1305_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params",
@@ -3794,7 +3835,7 @@
           "type": "list"
         },
         {
-          "aliases": ["maximum protocol version"],
+          "aliases": ["tls parameters common params maximum protocol version"],
           "anchor": "schema-tls_parameters--common_params--maximum_protocol_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params",
@@ -3808,7 +3849,7 @@
           "type": "string"
         },
         {
-          "aliases": ["minimum protocol version"],
+          "aliases": ["tls parameters common params minimum protocol version"],
           "anchor": "schema-tls_parameters--common_params--minimum_protocol_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params",
@@ -3822,7 +3863,13 @@
           "type": "string"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates"],
+          "aliases": [
+            "cert",
+            "certificate",
+            "existing certificates",
+            "tls certificates",
+            "tls parameters common params tls certificates"
+          ],
           "anchor": "section",
           "description": "Set of TLS certificates.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates",
@@ -3893,7 +3940,7 @@
           "type": "object"
         },
         {
-          "aliases": ["validation params"],
+          "aliases": ["tls parameters common params validation params"],
           "anchor": "section",
           "description": "This includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params",
@@ -3925,14 +3972,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Information of different aspects for TLS authentication related to ciphers, certificates and trust store.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3944,7 +3991,7 @@
         "tls parameters common params tls certificates"
       ],
       "body_bytes": 5329,
-      "body_sha256": "sha256:8ac02691562899ce5a76d3f71094f5647700c565f3eed357915827aea6c5a8f6",
+      "body_sha256": "sha256:0dcc1b176206bcef10cba48913222f5ed89da9740a3cc755f0b74e529cc133e6",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -3954,7 +4001,7 @@
         "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4033,7 +4080,13 @@
       "schema_path": ["tls_parameters", "common_params", "tls_certificates"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "certificate url", "existing certificates", "tls certificates"],
+          "aliases": [
+            "cert",
+            "certificate",
+            "existing certificates",
+            "tls certificates",
+            "tls parameters common params tls certificates certificate url"
+          ],
           "anchor": "schema-tls_parameters--common_params--tls_certificates--certificate_url",
           "description": "TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates",
@@ -4047,7 +4100,7 @@
           "type": "string"
         },
         {
-          "aliases": ["custom hash algorithms"],
+          "aliases": ["tls parameters common params tls certificates custom hash algorithms"],
           "anchor": "section",
           "description": "Specifies the hash algorithms to be used.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:custom_hash_algorithms",
@@ -4070,7 +4123,7 @@
           "type": "object"
         },
         {
-          "aliases": ["description spec"],
+          "aliases": ["tls parameters common params tls certificates description spec"],
           "anchor": "schema-tls_parameters--common_params--tls_certificates--description_spec",
           "description": "Description. Description for the certificate.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates",
@@ -4084,7 +4137,7 @@
           "type": "string"
         },
         {
-          "aliases": ["disable ocsp stapling"],
+          "aliases": ["tls parameters common params tls certificates disable ocsp stapling"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:disable_ocsp_stapling",
@@ -4098,7 +4151,7 @@
           "type": "object"
         },
         {
-          "aliases": ["private key"],
+          "aliases": ["tls parameters common params tls certificates private key"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key",
@@ -4129,7 +4182,7 @@
           "type": "object"
         },
         {
-          "aliases": ["use system defaults"],
+          "aliases": ["tls parameters common params tls certificates use system defaults"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:use_system_defaults",
@@ -4144,25 +4197,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/tls_certificates/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Set of TLS certificates.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["tls parameters common params tls certificates custom hash algorithms"],
       "body_bytes": 3357,
-      "body_sha256": "sha256:79a8570c4c1b60593534ae49fba767d2088ccc40b9cb3f7fbeb5737eac78fa2e",
+      "body_sha256": "sha256:c9ed448a6d2442bd0a8595f541203eaf84a35a2258180aa2481a4d427fc557e5",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4193,7 +4246,7 @@
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "custom_hash_algorithms"],
       "sections": [
         {
-          "aliases": ["hash algorithms"],
+          "aliases": ["tls parameters common params tls certificates custom hash algorithms hash algorithms"],
           "anchor": "schema-tls_parameters--common_params--tls_certificates--custom_hash_algorithms--hash_algorithms",
           "description": "Ordered list of hash algorithms to be used.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:custom_hash_algorithms",
@@ -4214,14 +4267,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/tls_certificates/custom_hash_algorithms/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Specifies the hash algorithms to be used.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.custom_hash_algorithms",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4232,7 +4285,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4254,14 +4307,14 @@
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "disable_ocsp_stapling"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/tls_certificates/disable_ocsp_stapling/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.disable_ocsp_stapling",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4275,7 +4328,7 @@
         "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4314,7 +4367,7 @@
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["tls parameters common params tls certificates private key blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
@@ -4343,7 +4396,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["tls parameters common params tls certificates private key clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info",
@@ -4367,25 +4420,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.private_key",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["tls parameters common params tls certificates private key blindfold secret info"],
       "body_bytes": 5446,
-      "body_sha256": "sha256:3bd30f3eca5b5f730e518b0718e49564daaf2bea165aa61e55a6023ed8a789d5",
+      "body_sha256": "sha256:f8189b071190deb9e48779f547231a5457808a721cdcc5f4f6ca918813af7e08",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4416,7 +4469,9 @@
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": [
+            "tls parameters common params tls certificates private key blindfold secret info decryption provider"
+          ],
           "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
@@ -4437,7 +4492,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["tls parameters common params tls certificates private key blindfold secret info location"],
           "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
@@ -4458,7 +4513,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["tls parameters common params tls certificates private key blindfold secret info store provider"],
           "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
@@ -4480,25 +4535,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["tls parameters common params tls certificates private key clear secret info"],
       "body_bytes": 4297,
-      "body_sha256": "sha256:740b31f8c67e8f5808505ef2109d307a4bef4e915630c6c4bba896d8bc9038af",
+      "body_sha256": "sha256:b270eb9e0045cd2f9b8aca6508b3b08f82841219aa8f6db19ddf7bd7ffdb9e40",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4529,7 +4584,7 @@
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["tls parameters common params tls certificates private key clear secret info provider ref"],
           "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info",
@@ -4550,7 +4605,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["tls parameters common params tls certificates private key clear secret info url"],
           "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info",
@@ -4572,14 +4627,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.private_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4590,7 +4645,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4612,25 +4667,25 @@
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "use_system_defaults"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/tls_certificates/use_system_defaults/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.use_system_defaults",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["tls parameters common params validation params"],
       "body_bytes": 4936,
-      "body_sha256": "sha256:808acf0ebb3b25f21a5a89c83565d92f9767f6521459b88717e640afee0e0a2e",
+      "body_sha256": "sha256:fa8d23f8e7e9b7c2fc7f92fbcf47d14ccfe5f461796b20bdb6c3a2dfd89b3017",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": ["xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4669,7 +4724,7 @@
       "schema_path": ["tls_parameters", "common_params", "validation_params"],
       "sections": [
         {
-          "aliases": ["skip hostname verification"],
+          "aliases": ["tls parameters common params validation params skip hostname verification"],
           "anchor": "schema-tls_parameters--common_params--validation_params--skip_hostname_verification",
           "description": "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params",
@@ -4683,7 +4738,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["trusted ca"],
+          "aliases": ["tls parameters common params validation params trusted ca"],
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca",
@@ -4697,7 +4752,7 @@
           "type": "object"
         },
         {
-          "aliases": ["trusted ca url"],
+          "aliases": ["tls parameters common params validation params trusted ca url"],
           "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca_url",
           "description": "Exclusive with Inline Root CA Certificate.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params",
@@ -4711,7 +4766,7 @@
           "type": "string"
         },
         {
-          "aliases": ["verify subject alt names"],
+          "aliases": ["tls parameters common params validation params verify subject alt names"],
           "anchor": "schema-tls_parameters--common_params--validation_params--verify_subject_alt_names",
           "description": "List of acceptable Subject Alt Names/CN in the peer's certificate. When skip_hostname_verification is false and verify_subject_alt_names is empty, the hostname of the peer will be used for matching against SAN/CN of peer's certificate.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params",
@@ -4726,14 +4781,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/validation_params/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.validation_params",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4746,7 +4801,7 @@
         "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4768,7 +4823,7 @@
       "schema_path": ["tls_parameters", "common_params", "validation_params", "trusted_ca"],
       "sections": [
         {
-          "aliases": ["trusted ca list"],
+          "aliases": ["tls parameters common params validation params trusted ca trusted ca list"],
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list",
@@ -4783,25 +4838,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/validation_params/trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Reference to Root CA Certificate.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.validation_params.trusted_ca",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["tls parameters common params validation params trusted ca trusted ca list"],
       "body_bytes": 7536,
-      "body_sha256": "sha256:af05f6d2578737df37990729f599a2f5b0384aa45f5110338bf93b59c28c5939",
+      "body_sha256": "sha256:1df54a218a5108ceadc84ccd1265a661f4214d502f509a60192ecf17a5c9851b",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4823,7 +4878,7 @@
       "schema_path": ["tls_parameters", "common_params", "validation_params", "trusted_ca", "trusted_ca_list"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["tls parameters common params validation params trusted ca trusted ca list kind"],
           "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca--trusted_ca_list--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list",
@@ -4844,7 +4899,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["tls parameters common params validation params trusted ca trusted ca list name"],
           "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca--trusted_ca_list--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list",
@@ -4865,7 +4920,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["tls parameters common params validation params trusted ca trusted ca list namespace"],
           "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca--trusted_ca_list--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list",
@@ -4886,7 +4941,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["tls parameters common params validation params trusted ca trusted ca list tenant"],
           "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca--trusted_ca_list--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list",
@@ -4907,7 +4962,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["tls parameters common params validation params trusted ca trusted ca list uid"],
           "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca--trusted_ca_list--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list",
@@ -4929,14 +4984,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/validation_params/trusted_ca/trusted_ca_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Reference to Root CA Certificate.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4947,7 +5002,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4969,14 +5024,14 @@
       "schema_path": ["tls_parameters", "default_session_key_caching"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/default_session_key_caching/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.default_session_key_caching",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4987,7 +5042,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5009,14 +5064,14 @@
       "schema_path": ["tls_parameters", "disable_session_key_caching"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/disable_session_key_caching/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.disable_session_key_caching",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -5027,7 +5082,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5049,14 +5104,14 @@
       "schema_path": ["tls_parameters", "disable_sni"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/disable_sni/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.disable_sni",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -5067,7 +5122,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5089,14 +5144,14 @@
       "schema_path": ["tls_parameters", "use_host_header_as_sni"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/use_host_header_as_sni/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.use_host_header_as_sni",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -5110,7 +5165,7 @@
         "xcsh-docs:resources:cluster:properties:upstream_conn_pool_reuse_type:enable_conn_pool_reuse"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5149,7 +5204,7 @@
       "schema_path": ["upstream_conn_pool_reuse_type"],
       "sections": [
         {
-          "aliases": ["disable conn pool reuse"],
+          "aliases": ["upstream conn pool reuse type disable conn pool reuse"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:cluster:properties:upstream_conn_pool_reuse_type:disable_conn_pool_reuse",
@@ -5163,7 +5218,7 @@
           "type": "object"
         },
         {
-          "aliases": ["enable conn pool reuse"],
+          "aliases": ["upstream conn pool reuse type enable conn pool reuse"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:cluster:properties:upstream_conn_pool_reuse_type:enable_conn_pool_reuse",
@@ -5178,14 +5233,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/upstream_conn_pool_reuse_type/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Select upstream connection pool reuse state for every downstream connection. This configuration choice is for HTTP(S) LB only.",
       "tasks": ["configuration"],
       "title": "upstream_conn_pool_reuse_type",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -5196,7 +5251,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5218,14 +5273,14 @@
       "schema_path": ["upstream_conn_pool_reuse_type", "disable_conn_pool_reuse"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/upstream_conn_pool_reuse_type/disable_conn_pool_reuse/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "upstream_conn_pool_reuse_type.disable_conn_pool_reuse",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -5236,7 +5291,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5258,14 +5313,14 @@
       "schema_path": ["upstream_conn_pool_reuse_type", "enable_conn_pool_reuse"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/upstream_conn_pool_reuse_type/enable_conn_pool_reuse/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "upstream_conn_pool_reuse_type.enable_conn_pool_reuse",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -5276,7 +5331,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:cluster:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5298,14 +5353,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/examples/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Examples for xcsh_cluster.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -5316,7 +5371,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5345,14 +5400,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Resource for xcsh_cluster.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -5363,7 +5418,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5386,14 +5441,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Import for xcsh_cluster.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -5404,7 +5459,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5426,14 +5481,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Timeouts for xcsh_cluster.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     }
   ],

@@ -6,6 +6,101 @@ description: "Complete grouped canonical reference for xcsh_voltstack_site refer
 
 # xcsh_voltstack_site reference
 
+<a id="canonical-2213313110020223-0011332022223020-3310200013233110-0012221031220221-1023011112213300-1203030003333122-0330220112113303-3330213112123223"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1331032331000210-3311310232022002-1221320122031213-0330302030323332-3220021101113213-1201331032221231-1331221111103333-1302320022330113"></a>
+
+## offline_survivability_mode.no_offline_survivability_mode — no_offline_survivability_mode / 233013302033 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../data-sources/voltstack_site.md#canonical-3011021120121122-1120101211211330-2030121003211010-0212132020130223-0212111100103011-3003130023302333-3021021330130133-1133312111123000)
+- [Property reference](data-sources--voltstack_site--reference--group-001.md#canonical-3210130022101001-3112232101022102-2032333031300013-3112003110021012-3222001330012233-0002330230030031-3201232233001313-3100032330211031)
+- [offline_survivability_mode](data-sources--voltstack_site--reference--group-009.md#canonical-3012201203013310-2202301221032113-3211212303232023-3001230312211120-0223122330211122-3321300212212230-1123030231222122-0310112232022022)
+- offline_survivability_mode.no_offline_survivability_mode
+
+<a id="canonical-0120003103332112-2000021230311013-0213331132302302-3211023310223133-1033223000113331-1023332100201230-3031233103003001-1231213222301010"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for no offline survivability mode.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1213023103131202-1120002222101200-1231220132033013-3120111302320233-0022121203313110-2223112302012330-1001003220210302-1012022221122200"></a>
+
+## Direct properties — no_offline_survivability_mode / 233013302033 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1331301223330230-0333033010223022-2020000333320133-2110232101122121-2312030112332103-1323222231222203-3022121320132302-2223023303130203"></a>
+
+## Next pages — no_offline_survivability_mode / 233013302033 / 4
+
+- [offline_survivability_mode](data-sources--voltstack_site--reference--group-009.md#canonical-3012201203013310-2202301221032113-3211212303232023-3001230312211120-0223122330211122-3321300212212230-1123030231222122-0310112232022022)
+- [xcsh_voltstack_site](../data-sources/voltstack_site.md#canonical-3011021120121122-1120101211211330-2030121003211010-0212132020130223-0212111100103011-3003130023302333-3021021330130133-1133312111123000)
+
+<a id="canonical-3100102213131302-3311133131010110-2212201213202300-0103003312120103-3133113233030313-2213101010303002-2212003321123131-0123323330123023"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0030001132211223-0103323133121000-0310021203031213-3211033131232102-1102030202032102-3102002000111230-1220232000132112-1031013021111112"></a>
+
+## os — os / 022013321302 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../data-sources/voltstack_site.md#canonical-3011021120121122-1120101211211330-2030121003211010-0212132020130223-0212111100103011-3003130023302333-3021021330130133-1133312111123000)
+- [Property reference](data-sources--voltstack_site--reference--group-001.md#canonical-3210130022101001-3112232101022102-2032333031300013-3112003110021012-3222001330012233-0002330230030031-3201232233001313-3100032330211031)
+- os
+
+<a id="canonical-2202230300313322-2212210010020112-3211100130102130-3033323101110121-0330103202002103-2302000132021012-3223321020332230-0133133301003110"></a>
+
+Type: `"single"`. Computed.
+
+Select the F5XC Operating System Version for the site. By default, latest available OS Version will
+be used. Refer to release notes to find required released OS versions.
+
+Upstream description:
+
+Select the F5XC Operating System Version for the site. By default, latest available OS Version will
+be used. Refer to release notes to find required released OS versions.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-operating_system_version_choice": "[\"default_os_version\",\"operating_system_version\"]"
+}
+```
+
 <a id="canonical-1011233323122331-2120132001220323-0001322231123120-2031123232113203-2111120311122333-1302110301131110-3221212302021031-3120023022012123"></a>
 
 ## Direct properties — os / 022013321302 / 3
@@ -39,7 +134,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -79,7 +174,7 @@ Breadcrumbs:
 
 - [xcsh_voltstack_site](../data-sources/voltstack_site.md#canonical-3011021120121122-1120101211211330-2030121003211010-0212132020130223-0212111100103011-3003130023302333-3021021330130133-1133312111123000)
 - [Property reference](data-sources--voltstack_site--reference--group-001.md#canonical-3210130022101001-3112232101022102-2032333031300013-3112003110021012-3222001330012233-0002330230030031-3201232233001313-3100032330211031)
-- [os](data-sources--voltstack_site--reference--group-009.md#canonical-3100102213131302-3311133131010110-2212201213202300-0103003312120103-3133113233030313-2213101010303002-2212003321123131-0123323330123023)
+- [os](data-sources--voltstack_site--reference--group-010.md#canonical-3100102213131302-3311133131010110-2212201213202300-0103003312120103-3133113233030313-2213101010303002-2212003321123131-0123323330123023)
 - os.default_os_version
 
 <a id="canonical-3322000231000230-0322213002003122-0323110111022112-0231213313301131-1030100222022130-3102223003121002-2212030321103202-2201333331033111"></a>
@@ -115,7 +210,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 ## Next pages — default_os_version / 030012111130 / 4
 
-- [os](data-sources--voltstack_site--reference--group-009.md#canonical-3100102213131302-3311133131010110-2212201213202300-0103003312120103-3133113233030313-2213101010303002-2212003321123131-0123323330123023)
+- [os](data-sources--voltstack_site--reference--group-010.md#canonical-3100102213131302-3311133131010110-2212201213202300-0103003312120103-3133113233030313-2213101010303002-2212003321123131-0123323330123023)
 - [xcsh_voltstack_site](../data-sources/voltstack_site.md#canonical-3011021120121122-1120101211211330-2030121003211010-0212132020130223-0212111100103011-3003130023302333-3021021330130133-1133312111123000)
 
 <a id="canonical-1103213303213211-0311100031033111-3302230130111311-2303232333310320-0133310202311332-2311222201011323-3120221112120033-0011312001223100"></a>
@@ -201,7 +296,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "uniqueItems": true
   },
@@ -249,7 +344,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -407,7 +502,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -565,7 +660,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1
   },
@@ -628,7 +723,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -684,7 +779,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {

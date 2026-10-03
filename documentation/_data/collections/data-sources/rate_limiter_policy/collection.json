@@ -455,7 +455,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -477,21 +477,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Manages a Rate Limiter Policy resource in F5 Distributed Cloud for rate limiter policy create specification. configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_rate_limiter_policy",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rate limiter policy"],
       "body_bytes": 28406,
-      "body_sha256": "sha256:86961517332916324ab83e70b68046a1c2675dec4d1b9af21e98bb2ae109a8e8",
+      "body_sha256": "sha256:1bca4ad1cdaea52f891b4677887cc2eba640b161f535a2888d86cca45162eadf",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -501,7 +501,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:properties:server_selector"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -678,14 +678,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Property reference for xcsh_rate_limiter_policy.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -696,7 +696,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -718,20 +718,20 @@
       "schema_path": ["any_server"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/any_server/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "any_server",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules"],
       "body_bytes": 2367,
-      "body_sha256": "sha256:d66441bfcb15b60d444cff67fc329867cf53f273fb2dab03e4280ca1452a7783",
+      "body_sha256": "sha256:a31ccdb8faa4088334010ecff352a73a4e93b8681471e2fbbd66b464a75f4358",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -739,7 +739,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -761,7 +761,7 @@
       "schema_path": ["rules"],
       "sections": [
         {
-          "aliases": ["metadata"],
+          "aliases": ["rules metadata"],
           "anchor": "section",
           "description": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:metadata",
@@ -775,7 +775,7 @@
           "type": "object"
         },
         {
-          "aliases": ["spec"],
+          "aliases": ["rules spec"],
           "anchor": "section",
           "description": "Shape of Rate Limiter Rule.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec",
@@ -790,25 +790,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A list of RateLimiterRules that are evaluated sequentially till a matching rule is identified.",
       "tasks": ["configuration"],
       "title": "rules",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules metadata"],
       "body_bytes": 3478,
-      "body_sha256": "sha256:00070fa8c2637efddcdfa4b9c8abf528f70646a550262064570a33825e423de7",
+      "body_sha256": "sha256:3c98868a73407bcda9f8e9fbbed7c538066ea91bd8a21038d01b19fa5e2dd4df",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -830,7 +830,7 @@
       "schema_path": ["rules", "metadata"],
       "sections": [
         {
-          "aliases": ["description spec"],
+          "aliases": ["rules metadata description spec"],
           "anchor": "schema-rules--metadata--description_spec",
           "description": "Description. Human readable description.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:metadata",
@@ -844,7 +844,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rules metadata name"],
           "anchor": "schema-rules--metadata--name",
           "description": "This is the name of the message. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:metadata",
@@ -859,14 +859,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/metadata/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "rules.metadata",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -894,7 +894,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -916,7 +916,7 @@
       "schema_path": ["rules", "spec"],
       "sections": [
         {
-          "aliases": ["any asn"],
+          "aliases": ["rules spec any asn"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:any_asn",
@@ -930,7 +930,7 @@
           "type": "object"
         },
         {
-          "aliases": ["any country"],
+          "aliases": ["rules spec any country"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:any_country",
@@ -944,7 +944,7 @@
           "type": "object"
         },
         {
-          "aliases": ["any ip"],
+          "aliases": ["rules spec any ip"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:any_ip",
@@ -958,7 +958,7 @@
           "type": "object"
         },
         {
-          "aliases": ["apply rate limiter"],
+          "aliases": ["rules spec apply rate limiter"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:apply_rate_limiter",
@@ -972,7 +972,7 @@
           "type": "object"
         },
         {
-          "aliases": ["asn list"],
+          "aliases": ["rules spec asn list"],
           "anchor": "section",
           "description": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_list",
@@ -986,7 +986,7 @@
           "type": "object"
         },
         {
-          "aliases": ["asn matcher"],
+          "aliases": ["rules spec asn matcher"],
           "anchor": "section",
           "description": "Match any AS number contained in the list of bgp_asn_sets.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher",
@@ -1000,7 +1000,7 @@
           "type": "object"
         },
         {
-          "aliases": ["bypass rate limiter"],
+          "aliases": ["rules spec bypass rate limiter"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:bypass_rate_limiter",
@@ -1014,7 +1014,7 @@
           "type": "object"
         },
         {
-          "aliases": ["country list"],
+          "aliases": ["rules spec country list"],
           "anchor": "section",
           "description": "List of Country Codes to match against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:country_list",
@@ -1028,7 +1028,7 @@
           "type": "object"
         },
         {
-          "aliases": ["custom rate limiter"],
+          "aliases": ["rules spec custom rate limiter"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:custom_rate_limiter",
@@ -1042,7 +1042,7 @@
           "type": "object"
         },
         {
-          "aliases": ["domain matcher", "succeeded", "success", "successful"],
+          "aliases": ["rules spec domain matcher", "succeeded", "success", "successful"],
           "anchor": "section",
           "description": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:domain_matcher",
@@ -1056,7 +1056,7 @@
           "type": "object"
         },
         {
-          "aliases": ["headers"],
+          "aliases": ["rules spec headers"],
           "anchor": "section",
           "description": "A list of predicates for various HTTP headers that need to match. The criteria for matching each HTTP header are described in individual HeaderMatcherType instances. The actual HTTP header values are extracted from the request API as a list of strings for each HTTP header type. Note that all specified header",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers",
@@ -1070,7 +1070,7 @@
           "type": "object"
         },
         {
-          "aliases": ["http method", "succeeded", "success", "successful"],
+          "aliases": ["rules spec http method", "succeeded", "success", "successful"],
           "anchor": "section",
           "description": "A HTTP method matcher specifies a list of methods to match an input HTTP method. The match is considered successful if the input method is a member of the list. The result of the match based on the method list is inverted if invert_matcher is true.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:http_method",
@@ -1084,7 +1084,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip matcher"],
+          "aliases": ["rules spec ip matcher"],
           "anchor": "section",
           "description": "Match any IP prefix contained in the list of ip_prefix_sets. The result of the match is inverted if invert_matcher is true.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher",
@@ -1098,7 +1098,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip prefix list"],
+          "aliases": ["rules spec ip prefix list"],
           "anchor": "section",
           "description": "List of IP Prefix strings to match against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_prefix_list",
@@ -1112,7 +1112,7 @@
           "type": "object"
         },
         {
-          "aliases": ["path", "succeeded", "success", "successful"],
+          "aliases": ["rules spec path", "succeeded", "success", "successful"],
           "anchor": "section",
           "description": "A path matcher specifies multiple criteria for matching an HTTP path string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of path prefixes, a list of exact path values and a list of regular expressions.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
@@ -1126,7 +1126,7 @@
           "type": "object"
         },
         {
-          "aliases": ["segment policy"],
+          "aliases": ["rules spec segment policy"],
           "anchor": "section",
           "description": "Configure source and destination segment for policy.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy",
@@ -1141,14 +1141,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Shape of Rate Limiter Rule.",
       "tasks": ["configuration"],
       "title": "rules.spec",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1159,7 +1159,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1181,14 +1181,14 @@
       "schema_path": ["rules", "spec", "any_asn"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/any_asn/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.spec.any_asn",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1199,7 +1199,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1221,14 +1221,14 @@
       "schema_path": ["rules", "spec", "any_country"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/any_country/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.spec.any_country",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1239,7 +1239,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1261,14 +1261,14 @@
       "schema_path": ["rules", "spec", "any_ip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/any_ip/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.spec.any_ip",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1279,7 +1279,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1301,25 +1301,25 @@
       "schema_path": ["rules", "spec", "apply_rate_limiter"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/apply_rate_limiter/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.spec.apply_rate_limiter",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules spec asn list"],
       "body_bytes": 3178,
-      "body_sha256": "sha256:c9b9553b8b20936633b14741165812402dde4b99960e7250f92853f5f6432dc3",
+      "body_sha256": "sha256:de52db6e5f893210730eec33bfc40b7b9cc18084f2334aacdf0a79ca2a1139af",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1341,7 +1341,7 @@
       "schema_path": ["rules", "spec", "asn_list"],
       "sections": [
         {
-          "aliases": ["as numbers"],
+          "aliases": ["rules spec asn list as numbers"],
           "anchor": "schema-rules--spec--asn_list--as_numbers",
           "description": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_list",
@@ -1356,14 +1356,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/asn_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
       "tasks": ["configuration"],
       "title": "rules.spec.asn_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1374,7 +1374,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1396,7 +1396,7 @@
       "schema_path": ["rules", "spec", "asn_matcher"],
       "sections": [
         {
-          "aliases": ["asn sets"],
+          "aliases": ["rules spec asn matcher asn sets"],
           "anchor": "section",
           "description": "A list of references to bgp_asn_set objects.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets",
@@ -1411,25 +1411,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/asn_matcher/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Match any AS number contained in the list of bgp_asn_sets.",
       "tasks": ["configuration"],
       "title": "rules.spec.asn_matcher",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules spec asn matcher asn sets"],
       "body_bytes": 6715,
-      "body_sha256": "sha256:bdf49a9ad8dcdfce2b6816ece8825cf80f46a5fb9ddf8ed5300cc55191651cf3",
+      "body_sha256": "sha256:5cf0436c8e4d94cd4f7537bbe7914d29768ca7f47970230798f26431f9dbec13",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1451,7 +1451,7 @@
       "schema_path": ["rules", "spec", "asn_matcher", "asn_sets"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["rules spec asn matcher asn sets kind"],
           "anchor": "schema-rules--spec--asn_matcher--asn_sets--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets",
@@ -1465,7 +1465,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rules spec asn matcher asn sets name"],
           "anchor": "schema-rules--spec--asn_matcher--asn_sets--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets",
@@ -1479,7 +1479,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rules spec asn matcher asn sets namespace"],
           "anchor": "schema-rules--spec--asn_matcher--asn_sets--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets",
@@ -1493,7 +1493,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rules spec asn matcher asn sets tenant"],
           "anchor": "schema-rules--spec--asn_matcher--asn_sets--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets",
@@ -1507,7 +1507,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["rules spec asn matcher asn sets uid"],
           "anchor": "schema-rules--spec--asn_matcher--asn_sets--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets",
@@ -1522,14 +1522,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/asn_matcher/asn_sets/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A list of references to bgp_asn_set objects.",
       "tasks": ["configuration"],
       "title": "rules.spec.asn_matcher.asn_sets",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1540,7 +1540,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1562,25 +1562,25 @@
       "schema_path": ["rules", "spec", "bypass_rate_limiter"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/bypass_rate_limiter/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.spec.bypass_rate_limiter",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules spec country list"],
       "body_bytes": 10325,
-      "body_sha256": "sha256:a591d1948795f0401a940c0b3693590c8aef7ce641767bcca24722f4c172d9d6",
+      "body_sha256": "sha256:78c10d6de8d66810873f3219310eafd7e2fa5094f901c40de9cc514e91074419",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1602,7 +1602,7 @@
       "schema_path": ["rules", "spec", "country_list"],
       "sections": [
         {
-          "aliases": ["country codes"],
+          "aliases": ["rules spec country list country codes"],
           "anchor": "schema-rules--spec--country_list--country_codes",
           "description": "List of Country Codes.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:country_list",
@@ -1616,7 +1616,7 @@
           "type": "list"
         },
         {
-          "aliases": ["invert match"],
+          "aliases": ["rules spec country list invert match"],
           "anchor": "schema-rules--spec--country_list--invert_match",
           "description": "Invert the match result.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:country_list",
@@ -1631,25 +1631,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/country_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of Country Codes to match against.",
       "tasks": ["configuration"],
       "title": "rules.spec.country_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules spec custom rate limiter"],
       "body_bytes": 5534,
-      "body_sha256": "sha256:bbd8e7639a982b6239a4d1be58df0e032183a1d0caed65c3c548e789f5cf032c",
+      "body_sha256": "sha256:2d578e8dcf09c3646e343362a1a45d3301fb3236d8feef38af35a6889198add0",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1671,7 +1671,7 @@
       "schema_path": ["rules", "spec", "custom_rate_limiter"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["rules spec custom rate limiter name"],
           "anchor": "schema-rules--spec--custom_rate_limiter--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:custom_rate_limiter",
@@ -1685,7 +1685,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rules spec custom rate limiter namespace"],
           "anchor": "schema-rules--spec--custom_rate_limiter--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:custom_rate_limiter",
@@ -1699,7 +1699,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rules spec custom rate limiter tenant"],
           "anchor": "schema-rules--spec--custom_rate_limiter--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:custom_rate_limiter",
@@ -1714,25 +1714,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/custom_rate_limiter/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "rules.spec.custom_rate_limiter",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules spec domain matcher", "succeeded", "success", "successful"],
       "body_bytes": 4372,
-      "body_sha256": "sha256:4fa028a816557790094b383518da3090c06dcfbaf3976af6a9855478d76b814d",
+      "body_sha256": "sha256:a18ade1df3eec119732a485b79426018b8cc6d8417746bd4335c937c8fca4620",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1754,7 +1754,7 @@
       "schema_path": ["rules", "spec", "domain_matcher"],
       "sections": [
         {
-          "aliases": ["exact values"],
+          "aliases": ["rules spec domain matcher exact values"],
           "anchor": "schema-rules--spec--domain_matcher--exact_values",
           "description": "A list of exact values to match the input against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:domain_matcher",
@@ -1768,7 +1768,7 @@
           "type": "list"
         },
         {
-          "aliases": ["regex values"],
+          "aliases": ["rules spec domain matcher regex values"],
           "anchor": "schema-rules--spec--domain_matcher--regex_values",
           "description": "A list of regular expressions to match the input against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:domain_matcher",
@@ -1783,20 +1783,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/domain_matcher/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
       "tasks": ["configuration"],
       "title": "rules.spec.domain_matcher",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules spec headers"],
       "body_bytes": 5408,
-      "body_sha256": "sha256:2805b8f42354ef1f5aa5ac0ec1cdd05251cb77a1d9ed1b570775f51ae3fe6782",
+      "body_sha256": "sha256:edfa3bf3dd88f2168a5a35778da5d1ee9505145deab33aa3cbca0d8cc60c1f0f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -1805,7 +1805,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:item"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1827,7 +1827,7 @@
       "schema_path": ["rules", "spec", "headers"],
       "sections": [
         {
-          "aliases": ["check not present"],
+          "aliases": ["rules spec headers check not present"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:check_not_present",
@@ -1841,7 +1841,7 @@
           "type": "object"
         },
         {
-          "aliases": ["check present"],
+          "aliases": ["rules spec headers check present"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:check_present",
@@ -1855,7 +1855,7 @@
           "type": "object"
         },
         {
-          "aliases": ["invert matcher"],
+          "aliases": ["rules spec headers invert matcher"],
           "anchor": "schema-rules--spec--headers--invert_matcher",
           "description": "Invert the match result.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers",
@@ -1869,7 +1869,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["item", "succeeded", "success", "successful"],
+          "aliases": ["rules spec headers item", "succeeded", "success", "successful"],
           "anchor": "section",
           "description": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:item",
@@ -1883,7 +1883,7 @@
           "type": "object"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rules spec headers name"],
           "anchor": "schema-rules--spec--headers--name",
           "description": "A case-insensitive HTTP header name.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers",
@@ -1898,14 +1898,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/headers/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A list of predicates for various HTTP headers that need to match. The criteria for matching each HTTP header are described in individual HeaderMatcherType instances. The actual HTTP header values are extracted from the request API as a list of strings for each HTTP header type. Note that all specified header",
       "tasks": ["configuration"],
       "title": "rules.spec.headers",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1916,7 +1916,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1938,14 +1938,14 @@
       "schema_path": ["rules", "spec", "headers", "check_not_present"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/headers/check_not_present/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.spec.headers.check_not_present",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1956,7 +1956,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1978,25 +1978,25 @@
       "schema_path": ["rules", "spec", "headers", "check_present"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/headers/check_present/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.spec.headers.check_present",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules spec headers item", "succeeded", "success", "successful"],
       "body_bytes": 5927,
-      "body_sha256": "sha256:4cd53c8aabcfe62fe652a38e8abd16e9b542a38686cf2b6b1dc0dd1d341b8882",
+      "body_sha256": "sha256:c508165f1318bf7f383287bf9b8601a78e130ed26a49b2b1a030e2430f1d9aa3",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2018,7 +2018,7 @@
       "schema_path": ["rules", "spec", "headers", "item"],
       "sections": [
         {
-          "aliases": ["exact values"],
+          "aliases": ["rules spec headers item exact values"],
           "anchor": "schema-rules--spec--headers--item--exact_values",
           "description": "A list of exact values to match the input against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:item",
@@ -2032,7 +2032,7 @@
           "type": "list"
         },
         {
-          "aliases": ["regex values"],
+          "aliases": ["rules spec headers item regex values"],
           "anchor": "schema-rules--spec--headers--item--regex_values",
           "description": "A list of regular expressions to match the input against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:item",
@@ -2046,7 +2046,7 @@
           "type": "list"
         },
         {
-          "aliases": ["transformers"],
+          "aliases": ["rules spec headers item transformers"],
           "anchor": "schema-rules--spec--headers--item--transformers",
           "description": "An ordered list of transformers (starting from index 0) to be applied to the path before matching.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:item",
@@ -2061,25 +2061,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/headers/item/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
       "tasks": ["configuration"],
       "title": "rules.spec.headers.item",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules spec http method", "succeeded", "success", "successful"],
       "body_bytes": 3424,
-      "body_sha256": "sha256:442ff7d49fa75f5abcbd72d711c6c0a1bf96edb016ef27b01bd48c14a9f689b2",
+      "body_sha256": "sha256:648c596d7763f23df9f5257da00d94f0b51e1e8613003ebafced4c0c2f512a7d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2101,7 +2101,7 @@
       "schema_path": ["rules", "spec", "http_method"],
       "sections": [
         {
-          "aliases": ["invert matcher"],
+          "aliases": ["rules spec http method invert matcher"],
           "anchor": "schema-rules--spec--http_method--invert_matcher",
           "description": "Invert the match result.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:http_method",
@@ -2115,7 +2115,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["methods"],
+          "aliases": ["rules spec http method methods"],
           "anchor": "schema-rules--spec--http_method--methods",
           "description": "List of methods values to match against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:http_method",
@@ -2130,14 +2130,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/http_method/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A HTTP method matcher specifies a list of methods to match an input HTTP method. The match is considered successful if the input method is a member of the list. The result of the match based on the method list is inverted if invert_matcher is true.",
       "tasks": ["configuration"],
       "title": "rules.spec.http_method",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2148,7 +2148,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2170,7 +2170,7 @@
       "schema_path": ["rules", "spec", "ip_matcher"],
       "sections": [
         {
-          "aliases": ["invert matcher"],
+          "aliases": ["rules spec ip matcher invert matcher"],
           "anchor": "schema-rules--spec--ip_matcher--invert_matcher",
           "description": "Invert the match result.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher",
@@ -2184,7 +2184,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["prefix sets"],
+          "aliases": ["rules spec ip matcher prefix sets"],
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets",
@@ -2199,25 +2199,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/ip_matcher/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Match any IP prefix contained in the list of ip_prefix_sets. The result of the match is inverted if invert_matcher is true.",
       "tasks": ["configuration"],
       "title": "rules.spec.ip_matcher",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules spec ip matcher prefix sets"],
       "body_bytes": 6729,
-      "body_sha256": "sha256:da3bc45e646063bc9ef39d67c3b953576957aeaa72b10cb2d08c6072cc8de072",
+      "body_sha256": "sha256:b771ce6cff9193bc0a84f0ad910677a85827f0a6dcf782062a3d81af665cc68f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2239,7 +2239,7 @@
       "schema_path": ["rules", "spec", "ip_matcher", "prefix_sets"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["rules spec ip matcher prefix sets kind"],
           "anchor": "schema-rules--spec--ip_matcher--prefix_sets--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets",
@@ -2253,7 +2253,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rules spec ip matcher prefix sets name"],
           "anchor": "schema-rules--spec--ip_matcher--prefix_sets--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets",
@@ -2267,7 +2267,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rules spec ip matcher prefix sets namespace"],
           "anchor": "schema-rules--spec--ip_matcher--prefix_sets--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets",
@@ -2281,7 +2281,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rules spec ip matcher prefix sets tenant"],
           "anchor": "schema-rules--spec--ip_matcher--prefix_sets--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets",
@@ -2295,7 +2295,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["rules spec ip matcher prefix sets uid"],
           "anchor": "schema-rules--spec--ip_matcher--prefix_sets--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets",
@@ -2310,25 +2310,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/ip_matcher/prefix_sets/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A list of references to ip_prefix_set objects.",
       "tasks": ["configuration"],
       "title": "rules.spec.ip_matcher.prefix_sets",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules spec ip prefix list"],
       "body_bytes": 2864,
-      "body_sha256": "sha256:af057d90dcaa096294efacd08673c15655636b2bf33d2b11e3bc97536abc161e",
+      "body_sha256": "sha256:bd316a097f533f6f8dfb88b46b1eb0ac044ff311c5057aa71675ed65199940c0",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2350,7 +2350,7 @@
       "schema_path": ["rules", "spec", "ip_prefix_list"],
       "sections": [
         {
-          "aliases": ["invert match"],
+          "aliases": ["rules spec ip prefix list invert match"],
           "anchor": "schema-rules--spec--ip_prefix_list--invert_match",
           "description": "Invert the match result.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_prefix_list",
@@ -2364,7 +2364,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["ip prefixes"],
+          "aliases": ["rules spec ip prefix list ip prefixes"],
           "anchor": "schema-rules--spec--ip_prefix_list--ip_prefixes",
           "description": "List of IPv4 prefix strings.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_prefix_list",
@@ -2379,25 +2379,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/ip_prefix_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of IP Prefix strings to match against.",
       "tasks": ["configuration"],
       "title": "rules.spec.ip_prefix_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules spec path", "succeeded", "success", "successful"],
       "body_bytes": 9436,
-      "body_sha256": "sha256:1e8fed5b1b4d14f03314b8af28918d3b4254703933222d96ae064e8e971b64c8",
+      "body_sha256": "sha256:83ff3d7f0df656f0bb1dbb42a5242ff847a4d4641feefcae0463e90e8b810958",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2419,7 +2419,7 @@
       "schema_path": ["rules", "spec", "path"],
       "sections": [
         {
-          "aliases": ["encoded path matcher"],
+          "aliases": ["rules spec path encoded path matcher"],
           "anchor": "schema-rules--spec--path--encoded_path_matcher",
           "description": "Match against the encoded, escaped path.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
@@ -2433,7 +2433,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["exact values"],
+          "aliases": ["rules spec path exact values"],
           "anchor": "schema-rules--spec--path--exact_values",
           "description": "A list of exact path values to match the input HTTP path against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
@@ -2447,7 +2447,7 @@
           "type": "list"
         },
         {
-          "aliases": ["invert matcher"],
+          "aliases": ["rules spec path invert matcher"],
           "anchor": "schema-rules--spec--path--invert_matcher",
           "description": "Invert the match result.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
@@ -2461,7 +2461,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["prefix values"],
+          "aliases": ["rules spec path prefix values"],
           "anchor": "schema-rules--spec--path--prefix_values",
           "description": "A list of path prefix values to match the input HTTP path against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
@@ -2475,7 +2475,7 @@
           "type": "list"
         },
         {
-          "aliases": ["regex values"],
+          "aliases": ["rules spec path regex values"],
           "anchor": "schema-rules--spec--path--regex_values",
           "description": "A list of regular expressions to match the input HTTP path against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
@@ -2489,7 +2489,7 @@
           "type": "list"
         },
         {
-          "aliases": ["suffix values"],
+          "aliases": ["rules spec path suffix values"],
           "anchor": "schema-rules--spec--path--suffix_values",
           "description": "A list of path suffix values to match the input HTTP path against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
@@ -2503,7 +2503,7 @@
           "type": "list"
         },
         {
-          "aliases": ["transformers"],
+          "aliases": ["rules spec path transformers"],
           "anchor": "schema-rules--spec--path--transformers",
           "description": "An ordered list of transformers (starting from index 0) to be applied to the path before matching.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
@@ -2518,14 +2518,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/path/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A path matcher specifies multiple criteria for matching an HTTP path string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of path prefixes, a list of exact path values and a list of regular expressions.",
       "tasks": ["configuration"],
       "title": "rules.spec.path",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2542,7 +2542,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2564,7 +2564,7 @@
       "schema_path": ["rules", "spec", "segment_policy"],
       "sections": [
         {
-          "aliases": ["dst any"],
+          "aliases": ["rules spec segment policy dst any"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_any",
@@ -2578,7 +2578,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dst segments"],
+          "aliases": ["rules spec segment policy dst segments"],
           "anchor": "section",
           "description": "List of references to Segments.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments",
@@ -2592,7 +2592,7 @@
           "type": "object"
         },
         {
-          "aliases": ["intra segment"],
+          "aliases": ["rules spec segment policy intra segment"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:intra_segment",
@@ -2606,7 +2606,7 @@
           "type": "object"
         },
         {
-          "aliases": ["src any"],
+          "aliases": ["rules spec segment policy src any"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_any",
@@ -2620,7 +2620,7 @@
           "type": "object"
         },
         {
-          "aliases": ["src segments"],
+          "aliases": ["rules spec segment policy src segments"],
           "anchor": "section",
           "description": "List of references to Segments.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments",
@@ -2635,14 +2635,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configure source and destination segment for policy.",
       "tasks": ["configuration"],
       "title": "rules.spec.segment_policy",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2653,7 +2653,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2675,14 +2675,14 @@
       "schema_path": ["rules", "spec", "segment_policy", "dst_any"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/dst_any/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.spec.segment_policy.dst_any",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2695,7 +2695,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments:segments"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2717,7 +2717,7 @@
       "schema_path": ["rules", "spec", "segment_policy", "dst_segments"],
       "sections": [
         {
-          "aliases": ["segments"],
+          "aliases": ["rules spec segment policy dst segments segments"],
           "anchor": "section",
           "description": "Select list of segments.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments:segments",
@@ -2732,25 +2732,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/dst_segments/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of references to Segments.",
       "tasks": ["configuration"],
       "title": "rules.spec.segment_policy.dst_segments",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules spec segment policy dst segments segments"],
       "body_bytes": 5950,
-      "body_sha256": "sha256:4f2752504eee63e3a3328aad88a5fa5668cf4e480605ea8bd1adc0c89e6848e5",
+      "body_sha256": "sha256:917392df5cad327782673f51b3de376e4bcf08f6263e13a4264c73a20e3df92e",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2772,7 +2772,7 @@
       "schema_path": ["rules", "spec", "segment_policy", "dst_segments", "segments"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["rules spec segment policy dst segments segments name"],
           "anchor": "schema-rules--spec--segment_policy--dst_segments--segments--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments:segments",
@@ -2786,7 +2786,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rules spec segment policy dst segments segments namespace"],
           "anchor": "schema-rules--spec--segment_policy--dst_segments--segments--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments:segments",
@@ -2800,7 +2800,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rules spec segment policy dst segments segments tenant"],
           "anchor": "schema-rules--spec--segment_policy--dst_segments--segments--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments:segments",
@@ -2815,14 +2815,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/dst_segments/segments/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Select list of segments.",
       "tasks": ["configuration"],
       "title": "rules.spec.segment_policy.dst_segments.segments",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2833,7 +2833,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2855,14 +2855,14 @@
       "schema_path": ["rules", "spec", "segment_policy", "intra_segment"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/intra_segment/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.spec.segment_policy.intra_segment",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2873,7 +2873,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2895,14 +2895,14 @@
       "schema_path": ["rules", "spec", "segment_policy", "src_any"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/src_any/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.spec.segment_policy.src_any",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2915,7 +2915,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments:segments"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2937,7 +2937,7 @@
       "schema_path": ["rules", "spec", "segment_policy", "src_segments"],
       "sections": [
         {
-          "aliases": ["segments"],
+          "aliases": ["rules spec segment policy src segments segments"],
           "anchor": "section",
           "description": "Select list of segments.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments:segments",
@@ -2952,25 +2952,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/src_segments/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of references to Segments.",
       "tasks": ["configuration"],
       "title": "rules.spec.segment_policy.src_segments",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rules spec segment policy src segments segments"],
       "body_bytes": 5950,
-      "body_sha256": "sha256:6e837e538925dce8b4547e451110240e42c4ead429e242daf8a1fbda86b0e28c",
+      "body_sha256": "sha256:99229001ebd0f41a7052c2a293e0801ca996fb95f39ca21c5950a33586130c99",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2992,7 +2992,7 @@
       "schema_path": ["rules", "spec", "segment_policy", "src_segments", "segments"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["rules spec segment policy src segments segments name"],
           "anchor": "schema-rules--spec--segment_policy--src_segments--segments--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments:segments",
@@ -3006,7 +3006,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rules spec segment policy src segments segments namespace"],
           "anchor": "schema-rules--spec--segment_policy--src_segments--segments--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments:segments",
@@ -3020,7 +3020,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rules spec segment policy src segments segments tenant"],
           "anchor": "schema-rules--spec--segment_policy--src_segments--segments--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments:segments",
@@ -3035,25 +3035,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/src_segments/segments/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Select list of segments.",
       "tasks": ["configuration"],
       "title": "rules.spec.segment_policy.src_segments.segments",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["server name matcher", "succeeded", "success", "successful"],
       "body_bytes": 4095,
-      "body_sha256": "sha256:f526a9317a66709baf786641478ac2b298471a79c1994feba1bc80bfd7cb252f",
+      "body_sha256": "sha256:308763d31aaf5514c07bdb868f6bde4cd2625f95edde3e19b45ec1c19466c017",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3075,7 +3075,7 @@
       "schema_path": ["server_name_matcher"],
       "sections": [
         {
-          "aliases": ["exact values"],
+          "aliases": ["server name matcher exact values"],
           "anchor": "schema-server_name_matcher--exact_values",
           "description": "A list of exact values to match the input against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:server_name_matcher",
@@ -3089,7 +3089,7 @@
           "type": "list"
         },
         {
-          "aliases": ["regex values"],
+          "aliases": ["server name matcher regex values"],
           "anchor": "schema-server_name_matcher--regex_values",
           "description": "A list of regular expressions to match the input against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:server_name_matcher",
@@ -3104,25 +3104,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/server_name_matcher/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
       "tasks": ["configuration"],
       "title": "server_name_matcher",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["server selector"],
       "body_bytes": 3621,
-      "body_sha256": "sha256:56fc2b3e4ed8043cbb3afe4b605ceb1e368bbc292e65b3815f03a594b178ff6f",
+      "body_sha256": "sha256:c61466819f2400c454075df70d929b01246c1c6feae3a44e82d23d398397131d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3144,7 +3144,7 @@
       "schema_path": ["server_selector"],
       "sections": [
         {
-          "aliases": ["expressions"],
+          "aliases": ["server selector expressions"],
           "anchor": "schema-server_selector--expressions",
           "description": "Expressions contains the Kubernetes style label expression for selections.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:server_selector",
@@ -3159,14 +3159,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/server_selector/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "server_selector",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3177,7 +3177,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:rate_limiter_policy:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3199,14 +3199,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/examples/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Examples for xcsh_rate_limiter_policy.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3217,7 +3217,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3246,14 +3246,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Data source for xcsh_rate_limiter_policy.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     }
   ],

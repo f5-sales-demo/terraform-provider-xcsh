@@ -192,7 +192,7 @@
         "xcsh-docs:resources:bot_defense_app_infrastructure:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -214,21 +214,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_defense_app_infrastructure/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Manages Bot Defense App Infrastructure in a given namespace in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_bot_defense_app_infrastructure",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["bot defense app infrastructure"],
       "body_bytes": 16235,
-      "body_sha256": "sha256:4b51d652c30c6744127a839e5c09b8865bd2889abac0bf503c16127e081df2f5",
+      "body_sha256": "sha256:49f3c92dad7951dada2291a714994f33c015d4155130e92c37c5f415c55bf8fa",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -237,7 +237,7 @@
         "xcsh-docs:resources:bot_defense_app_infrastructure:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -449,7 +449,7 @@
           "type": "string"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:timeouts",
@@ -478,20 +478,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_defense_app_infrastructure/properties/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Property reference for xcsh_bot_defense_app_infrastructure.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["cloud hosted"],
       "body_bytes": 4392,
-      "body_sha256": "sha256:aa936cfe3488273caa1047a3e07fa9d2e86360dea7e33a3c43ecee933e432e4f",
+      "body_sha256": "sha256:b2d03b13d78aa2e3492c6e61007b0a5eaf1c5d2eb4e043664cfcc333dd92ebb9",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -499,7 +499,7 @@
         "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -546,7 +546,7 @@
       "schema_path": ["cloud_hosted"],
       "sections": [
         {
-          "aliases": ["egress"],
+          "aliases": ["cloud hosted egress"],
           "anchor": "section",
           "description": "Egress",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:egress",
@@ -569,7 +569,7 @@
           "type": "object"
         },
         {
-          "aliases": ["infra host name"],
+          "aliases": ["cloud hosted infra host name"],
           "anchor": "schema-cloud_hosted--infra_host_name",
           "description": "Infra Host Name.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted",
@@ -583,7 +583,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ingress"],
+          "aliases": ["cloud hosted ingress"],
           "anchor": "section",
           "description": "Ingress",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress",
@@ -614,7 +614,7 @@
           "type": "object"
         },
         {
-          "aliases": ["region"],
+          "aliases": ["cloud hosted region"],
           "anchor": "schema-cloud_hosted--region",
           "description": "Defines a selection for Bot Defense Advanced region - US: US US region - EU: EU European Union region - ASIA: ASIA Asia region.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted",
@@ -629,25 +629,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_defense_app_infrastructure/properties/cloud_hosted/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Infra F5 Hosted.",
       "tasks": ["configuration"],
       "title": "cloud_hosted",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["cloud hosted egress"],
       "body_bytes": 8625,
-      "body_sha256": "sha256:5532702ff4b717858edf1b6dba3c16db3a5b56b37a443fe009e1b2d3d1195143",
+      "body_sha256": "sha256:c8e5aff8c8b7308958f9bf6842c7fadb79d15f5767011d8798a47969e67b5118",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -678,7 +678,7 @@
       "schema_path": ["cloud_hosted", "egress"],
       "sections": [
         {
-          "aliases": ["ip address"],
+          "aliases": ["cloud hosted egress ip address"],
           "anchor": "schema-cloud_hosted--egress--ip_address",
           "description": "Egress IP address.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:egress",
@@ -692,7 +692,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["cloud hosted egress location"],
           "anchor": "schema-cloud_hosted--egress--location",
           "description": "Region location AWS_AP_NORTHEAST_1 AWS_AP_NORTHEAST_3 AWS_AP_SOUTH_1 AWS_AP_SOUTH_2 AWS_AP_SOUTHEAST_1 AWS_AP_SOUTHEAST_2 AWS_AP_SOUTHEAST_3 AWS_EU_CENTRAL_1 AWS_EU_NORTH_1 AWS_EU_WEST_1 AWS_ME_SOUTH_1 AWS_SA_EAST_1 AWS_US_EAST_1 AWS_US_EAST_2 AWS_US_WEST_1 AWS_US_WEST_2 GCP_ASIA_EAST_1 GCP_ASIA_EAST_2",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:egress",
@@ -707,25 +707,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_defense_app_infrastructure/properties/cloud_hosted/egress/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Egress",
       "tasks": ["configuration"],
       "title": "cloud_hosted.egress",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["cloud hosted ingress"],
       "body_bytes": 9747,
-      "body_sha256": "sha256:d598e7a27f411597ded3839fa36db2c9fa306b29e3a512eae08a1a6a7f569f59",
+      "body_sha256": "sha256:75eb066e19508014fb8ec15151c437ebe4deca234aac27129c33f06ea3b01afc",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -764,7 +764,7 @@
       "schema_path": ["cloud_hosted", "ingress"],
       "sections": [
         {
-          "aliases": ["host name"],
+          "aliases": ["cloud hosted ingress host name"],
           "anchor": "schema-cloud_hosted--ingress--host_name",
           "description": "Exclusive with Ingress Host Name.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress",
@@ -778,7 +778,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ip address"],
+          "aliases": ["cloud hosted ingress ip address"],
           "anchor": "schema-cloud_hosted--ingress--ip_address",
           "description": "Exclusive with Ingress IP Address.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress",
@@ -792,7 +792,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["cloud hosted ingress location"],
           "anchor": "schema-cloud_hosted--ingress--location",
           "description": "Region location AWS_AP_NORTHEAST_1 AWS_AP_NORTHEAST_3 AWS_AP_SOUTH_1 AWS_AP_SOUTH_2 AWS_AP_SOUTHEAST_1 AWS_AP_SOUTHEAST_2 AWS_AP_SOUTHEAST_3 AWS_EU_CENTRAL_1 AWS_EU_NORTH_1 AWS_EU_WEST_1 AWS_ME_SOUTH_1 AWS_SA_EAST_1 AWS_US_EAST_1 AWS_US_EAST_2 AWS_US_WEST_1 AWS_US_WEST_2 GCP_ASIA_EAST_1 GCP_ASIA_EAST_2",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress",
@@ -807,20 +807,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_defense_app_infrastructure/properties/cloud_hosted/ingress/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Ingress",
       "tasks": ["configuration"],
       "title": "cloud_hosted.ingress",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["data center hosted"],
       "body_bytes": 3997,
-      "body_sha256": "sha256:ba864b3d217fb7bbb119d506be726343357f852eb0b4b33ce325ba60edf9b0ae",
+      "body_sha256": "sha256:e3e8de319bd2ffdebf0e1aa6ca34ac9c01daffdc1bfcfc9bd19e13f1cb8a37f8",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -828,7 +828,7 @@
         "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -875,7 +875,7 @@
       "schema_path": ["data_center_hosted"],
       "sections": [
         {
-          "aliases": ["egress"],
+          "aliases": ["data center hosted egress"],
           "anchor": "section",
           "description": "Egress",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:egress",
@@ -898,7 +898,7 @@
           "type": "object"
         },
         {
-          "aliases": ["infra host name"],
+          "aliases": ["data center hosted infra host name"],
           "anchor": "schema-data_center_hosted--infra_host_name",
           "description": "Infra Host Name.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted",
@@ -912,7 +912,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ingress"],
+          "aliases": ["data center hosted ingress"],
           "anchor": "section",
           "description": "Ingress",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress",
@@ -943,7 +943,7 @@
           "type": "object"
         },
         {
-          "aliases": ["region"],
+          "aliases": ["data center hosted region"],
           "anchor": "schema-data_center_hosted--region",
           "description": "Defines a selection for Bot Defense Advanced region - US: US US region - EU: EU European Union region - ASIA: ASIA Asia region.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted",
@@ -958,25 +958,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_defense_app_infrastructure/properties/data_center_hosted/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Infra F5 Hosted.",
       "tasks": ["configuration"],
       "title": "data_center_hosted",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["data center hosted egress"],
       "body_bytes": 8673,
-      "body_sha256": "sha256:6bb020ff6de41aa2a76b4b8e697a865befc364bcc715200087fd06008262045f",
+      "body_sha256": "sha256:99c40af53a136d92df2976bc69e11215be988261b773ba546bc68a046ab395b3",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1007,7 +1007,7 @@
       "schema_path": ["data_center_hosted", "egress"],
       "sections": [
         {
-          "aliases": ["ip address"],
+          "aliases": ["data center hosted egress ip address"],
           "anchor": "schema-data_center_hosted--egress--ip_address",
           "description": "Egress IP address.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:egress",
@@ -1021,7 +1021,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["data center hosted egress location"],
           "anchor": "schema-data_center_hosted--egress--location",
           "description": "Region location AWS_AP_NORTHEAST_1 AWS_AP_NORTHEAST_3 AWS_AP_SOUTH_1 AWS_AP_SOUTH_2 AWS_AP_SOUTHEAST_1 AWS_AP_SOUTHEAST_2 AWS_AP_SOUTHEAST_3 AWS_EU_CENTRAL_1 AWS_EU_NORTH_1 AWS_EU_WEST_1 AWS_ME_SOUTH_1 AWS_SA_EAST_1 AWS_US_EAST_1 AWS_US_EAST_2 AWS_US_WEST_1 AWS_US_WEST_2 GCP_ASIA_EAST_1 GCP_ASIA_EAST_2",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:egress",
@@ -1036,25 +1036,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_defense_app_infrastructure/properties/data_center_hosted/egress/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Egress",
       "tasks": ["configuration"],
       "title": "data_center_hosted.egress",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["data center hosted ingress"],
       "body_bytes": 9801,
-      "body_sha256": "sha256:b88d26178e83238173bca9a94a48ea287ffa16fd16436b494b9a0f5fde83611e",
+      "body_sha256": "sha256:00cfbc0dd4f4fef4b1941145c29f86766d1a07f9a4126df65ef6812b230d91dd",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1093,7 +1093,7 @@
       "schema_path": ["data_center_hosted", "ingress"],
       "sections": [
         {
-          "aliases": ["host name"],
+          "aliases": ["data center hosted ingress host name"],
           "anchor": "schema-data_center_hosted--ingress--host_name",
           "description": "Exclusive with Ingress Host Name.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress",
@@ -1107,7 +1107,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ip address"],
+          "aliases": ["data center hosted ingress ip address"],
           "anchor": "schema-data_center_hosted--ingress--ip_address",
           "description": "Exclusive with Ingress IP Address.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress",
@@ -1121,7 +1121,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["data center hosted ingress location"],
           "anchor": "schema-data_center_hosted--ingress--location",
           "description": "Region location AWS_AP_NORTHEAST_1 AWS_AP_NORTHEAST_3 AWS_AP_SOUTH_1 AWS_AP_SOUTH_2 AWS_AP_SOUTHEAST_1 AWS_AP_SOUTHEAST_2 AWS_AP_SOUTHEAST_3 AWS_EU_CENTRAL_1 AWS_EU_NORTH_1 AWS_EU_WEST_1 AWS_ME_SOUTH_1 AWS_SA_EAST_1 AWS_US_EAST_1 AWS_US_EAST_2 AWS_US_WEST_1 AWS_US_WEST_2 GCP_ASIA_EAST_1 GCP_ASIA_EAST_2",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress",
@@ -1136,25 +1136,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_defense_app_infrastructure/properties/data_center_hosted/ingress/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Ingress",
       "tasks": ["configuration"],
       "title": "data_center_hosted.ingress",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2339,
       "body_sha256": "sha256:9f9e8254a14ca31d9620064bb6758b6a8fb0bb3882c5b1e67d840dab7f156aed",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1176,9 +1176,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1190,9 +1198,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1204,9 +1221,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1218,9 +1244,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1233,14 +1268,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_defense_app_infrastructure/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "timeouts for xcsh_bot_defense_app_infrastructure.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1251,7 +1286,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:resources:bot_defense_app_infrastructure:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1273,14 +1308,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_defense_app_infrastructure/examples/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Examples for xcsh_bot_defense_app_infrastructure.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1291,7 +1326,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1320,14 +1355,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_defense_app_infrastructure/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Resource for xcsh_bot_defense_app_infrastructure.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1338,7 +1373,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1361,14 +1396,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_defense_app_infrastructure/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Import for xcsh_bot_defense_app_infrastructure.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1379,7 +1414,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1401,14 +1436,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_defense_app_infrastructure/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Timeouts for xcsh_bot_defense_app_infrastructure.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     }
   ],

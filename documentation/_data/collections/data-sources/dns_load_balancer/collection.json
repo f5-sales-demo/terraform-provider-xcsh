@@ -275,7 +275,7 @@
         "xcsh-docs:data-sources:dns_load_balancer:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -305,21 +305,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_load_balancer/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Manages DNS Load Balancer in a given namespace. If one already exist it will give a error in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_dns_load_balancer",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["dns load balancer"],
       "body_bytes": 19604,
-      "body_sha256": "sha256:a3a1ba01538dc2ecf03da3626d6a630aeea15db1b6003f5cf0993e5a2b4f193b",
+      "body_sha256": "sha256:fce876ffaa6e2fe910be36c7c3c398d2f7c8f3f0e1e8e8ca83f8793013d132b9",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -328,7 +328,7 @@
         "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -491,25 +491,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_load_balancer/properties/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Property reference for xcsh_dns_load_balancer.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["fallback pool"],
       "body_bytes": 5182,
-      "body_sha256": "sha256:f5c9970b7ad1d557bfc96a0a7b208b05ae012739629f5d2b2480e96f7ad0158c",
+      "body_sha256": "sha256:a6ed7d7b65172831f4ae61cac8bd28c664f75d1d6745d34caa5750a3d8695a87",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -531,7 +531,7 @@
       "schema_path": ["fallback_pool"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["fallback pool name"],
           "anchor": "schema-fallback_pool--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:fallback_pool",
@@ -545,7 +545,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["fallback pool namespace"],
           "anchor": "schema-fallback_pool--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:fallback_pool",
@@ -559,7 +559,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["fallback pool tenant"],
           "anchor": "schema-fallback_pool--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:fallback_pool",
@@ -574,14 +574,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_load_balancer/properties/fallback_pool/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "fallback_pool",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -596,7 +596,7 @@
         "xcsh-docs:data-sources:dns_load_balancer:properties:response_cache:response_cache_parameters"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -618,7 +618,7 @@
       "schema_path": ["response_cache"],
       "sections": [
         {
-          "aliases": ["default response cache parameters"],
+          "aliases": ["response cache default response cache parameters"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:response_cache:default_response_cache_parameters",
@@ -632,7 +632,7 @@
           "type": "object"
         },
         {
-          "aliases": ["disable spec"],
+          "aliases": ["response cache disable spec"],
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:response_cache:disable_spec",
@@ -646,7 +646,7 @@
           "type": "object"
         },
         {
-          "aliases": ["response cache parameters"],
+          "aliases": ["response cache response cache parameters"],
           "anchor": "section",
           "description": "Configuration parameter for response cache parameters.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:response_cache:response_cache_parameters",
@@ -661,14 +661,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_load_balancer/properties/response_cache/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Response Cache x-required.",
       "tasks": ["configuration"],
       "title": "response_cache",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -679,7 +679,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -701,14 +701,14 @@
       "schema_path": ["response_cache", "default_response_cache_parameters"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_load_balancer/properties/response_cache/default_response_cache_parameters/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "response_cache.default_response_cache_parameters",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -719,7 +719,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -741,25 +741,25 @@
       "schema_path": ["response_cache", "disable_spec"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_load_balancer/properties/response_cache/disable_spec/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Enable this option",
       "tasks": ["configuration"],
       "title": "response_cache.disable_spec",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["response cache response cache parameters"],
       "body_bytes": 3714,
-      "body_sha256": "sha256:6e94e32f557deb4dc771f4e212ba310d1f136e2691475ecdc89d98706a5447f0",
+      "body_sha256": "sha256:94f6438df4bcaa81040eca42f7e7349828f404b54f03d554b01c663b7c052871",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -781,7 +781,7 @@
       "schema_path": ["response_cache", "response_cache_parameters"],
       "sections": [
         {
-          "aliases": ["cache cidr ipv4"],
+          "aliases": ["response cache response cache parameters cache cidr ipv4"],
           "anchor": "schema-response_cache--response_cache_parameters--cache_cidr_ipv4",
           "description": "Length of CIDR masks used to group IPv4 clients.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:response_cache:response_cache_parameters",
@@ -795,7 +795,7 @@
           "type": "number"
         },
         {
-          "aliases": ["cache cidr ipv6"],
+          "aliases": ["response cache response cache parameters cache cidr ipv6"],
           "anchor": "schema-response_cache--response_cache_parameters--cache_cidr_ipv6",
           "description": "Length of CIDR masks used to group IPv6 clients.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:response_cache:response_cache_parameters",
@@ -809,7 +809,7 @@
           "type": "number"
         },
         {
-          "aliases": ["cache ttl"],
+          "aliases": ["response cache response cache parameters cache ttl"],
           "anchor": "schema-response_cache--response_cache_parameters--cache_ttl",
           "description": "TTL for response cache.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:response_cache:response_cache_parameters",
@@ -824,14 +824,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_load_balancer/properties/response_cache/response_cache_parameters/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configuration parameter for response cache parameters.",
       "tasks": ["configuration"],
       "title": "response_cache.response_cache_parameters",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -842,7 +842,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -864,7 +864,7 @@
       "schema_path": ["rule_list"],
       "sections": [
         {
-          "aliases": ["rules"],
+          "aliases": ["rule list rules"],
           "anchor": "section",
           "description": "Rules to perform load balancing.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules",
@@ -879,20 +879,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_load_balancer/properties/rule_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of the Load Balancing Rules.",
       "tasks": ["configuration"],
       "title": "rule_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rule list rules"],
       "body_bytes": 5262,
-      "body_sha256": "sha256:df4101003b369cdec167da760d8ae292c5de57c2864c46f02d4e3e622df45503",
+      "body_sha256": "sha256:5ec9b562a4e4c35044cdc306be09799738cfe5fd7bc612182c02d179fe087a68",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -905,7 +905,7 @@
         "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:pool"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -927,7 +927,7 @@
       "schema_path": ["rule_list", "rules"],
       "sections": [
         {
-          "aliases": ["asn list"],
+          "aliases": ["rule list rules asn list"],
           "anchor": "section",
           "description": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:asn_list",
@@ -941,7 +941,7 @@
           "type": "object"
         },
         {
-          "aliases": ["asn matcher"],
+          "aliases": ["rule list rules asn matcher"],
           "anchor": "section",
           "description": "Match any AS number contained in the list of bgp_asn_sets.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:asn_matcher",
@@ -955,7 +955,7 @@
           "type": "object"
         },
         {
-          "aliases": ["geo location label selector"],
+          "aliases": ["rule list rules geo location label selector"],
           "anchor": "section",
           "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:geo_location_label_selector",
@@ -969,7 +969,7 @@
           "type": "object"
         },
         {
-          "aliases": ["geo location set"],
+          "aliases": ["rule list rules geo location set"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:geo_location_set",
@@ -983,7 +983,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip prefix list"],
+          "aliases": ["rule list rules ip prefix list"],
           "anchor": "section",
           "description": "List of IP Prefix strings to match against.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:ip_prefix_list",
@@ -997,7 +997,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip prefix set"],
+          "aliases": ["rule list rules ip prefix set"],
           "anchor": "section",
           "description": "Match any IP prefix contained in the list of ip_prefix_sets. The result of the match is inverted if invert_matcher is true.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set",
@@ -1011,7 +1011,7 @@
           "type": "object"
         },
         {
-          "aliases": ["pool"],
+          "aliases": ["rule list rules pool"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:pool",
@@ -1025,7 +1025,7 @@
           "type": "object"
         },
         {
-          "aliases": ["score"],
+          "aliases": ["rule list rules score"],
           "anchor": "schema-rule_list--rules--score",
           "description": "When multiple load balancing rules match a query, the one with the highest score is chosen.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules",
@@ -1040,25 +1040,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_load_balancer/properties/rule_list/rules/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Rules to perform load balancing.",
       "tasks": ["configuration"],
       "title": "rule_list.rules",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rule list rules asn list"],
       "body_bytes": 3205,
-      "body_sha256": "sha256:58fa1e001bc3125fc9cae0e9d7d9d60a2930467517127d808e551cf1db7cf911",
+      "body_sha256": "sha256:3c4aa6826c052ef95aae51ddcb7343c9a96f0b3dfcef8e9dab4d0884ef6d0b9a",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1080,7 +1080,7 @@
       "schema_path": ["rule_list", "rules", "asn_list"],
       "sections": [
         {
-          "aliases": ["as numbers"],
+          "aliases": ["rule list rules asn list as numbers"],
           "anchor": "schema-rule_list--rules--asn_list--as_numbers",
           "description": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:asn_list",
@@ -1095,14 +1095,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_load_balancer/properties/rule_list/rules/asn_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.asn_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1113,7 +1113,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1135,7 +1135,7 @@
       "schema_path": ["rule_list", "rules", "asn_matcher"],
       "sections": [
         {
-          "aliases": ["asn sets"],
+          "aliases": ["rule list rules asn matcher asn sets"],
           "anchor": "section",
           "description": "A list of references to bgp_asn_set objects.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets",
@@ -1150,25 +1150,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_load_balancer/properties/rule_list/rules/asn_matcher/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Match any AS number contained in the list of bgp_asn_sets.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.asn_matcher",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rule list rules asn matcher asn sets"],
       "body_bytes": 6770,
-      "body_sha256": "sha256:4f08d983e1910a9a0745f4bb0d34b9579a0a423516c4f78ea0059d2fdae1de2c",
+      "body_sha256": "sha256:babc6572cedc1bf5a7c0994ff5cf93d47bbe7d174602f7c6ca2fda3d005ed7a4",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1190,7 +1190,7 @@
       "schema_path": ["rule_list", "rules", "asn_matcher", "asn_sets"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["rule list rules asn matcher asn sets kind"],
           "anchor": "schema-rule_list--rules--asn_matcher--asn_sets--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets",
@@ -1204,7 +1204,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rule list rules asn matcher asn sets name"],
           "anchor": "schema-rule_list--rules--asn_matcher--asn_sets--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets",
@@ -1218,7 +1218,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rule list rules asn matcher asn sets namespace"],
           "anchor": "schema-rule_list--rules--asn_matcher--asn_sets--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets",
@@ -1232,7 +1232,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rule list rules asn matcher asn sets tenant"],
           "anchor": "schema-rule_list--rules--asn_matcher--asn_sets--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets",
@@ -1246,7 +1246,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["rule list rules asn matcher asn sets uid"],
           "anchor": "schema-rule_list--rules--asn_matcher--asn_sets--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets",
@@ -1261,25 +1261,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_load_balancer/properties/rule_list/rules/asn_matcher/asn_sets/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A list of references to bgp_asn_set objects.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.asn_matcher.asn_sets",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rule list rules geo location label selector"],
       "body_bytes": 3968,
-      "body_sha256": "sha256:d05472576b6efbccfa166312ad24238f41ba70c6844df79703a862b53bb4ccd2",
+      "body_sha256": "sha256:f1c64995b7a42636ed3541126be56308fdc55389971265353c298569fa7f0d1e",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1301,7 +1301,7 @@
       "schema_path": ["rule_list", "rules", "geo_location_label_selector"],
       "sections": [
         {
-          "aliases": ["expressions"],
+          "aliases": ["rule list rules geo location label selector expressions"],
           "anchor": "schema-rule_list--rules--geo_location_label_selector--expressions",
           "description": "Expressions contains the Kubernetes style label expression for selections.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:geo_location_label_selector",
@@ -1316,25 +1316,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_load_balancer/properties/rule_list/rules/geo_location_label_selector/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.geo_location_label_selector",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rule list rules geo location set"],
       "body_bytes": 5556,
-      "body_sha256": "sha256:a8f2399ecb87c45181b78102305163681ffe9b9350dc8365df791f2a13be4b11",
+      "body_sha256": "sha256:607944dc3e65018674d8a3739d7d5d0011d0f61e94b549106bf784b97afcb10f",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1356,7 +1356,7 @@
       "schema_path": ["rule_list", "rules", "geo_location_set"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["rule list rules geo location set name"],
           "anchor": "schema-rule_list--rules--geo_location_set--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:geo_location_set",
@@ -1370,7 +1370,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rule list rules geo location set namespace"],
           "anchor": "schema-rule_list--rules--geo_location_set--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:geo_location_set",
@@ -1384,7 +1384,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rule list rules geo location set tenant"],
           "anchor": "schema-rule_list--rules--geo_location_set--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:geo_location_set",
@@ -1399,25 +1399,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_load_balancer/properties/rule_list/rules/geo_location_set/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.geo_location_set",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rule list rules ip prefix list"],
       "body_bytes": 2896,
-      "body_sha256": "sha256:6e13da5e9ccadbd268585a0b2f6d3e8b28346809bd30b6c7dbb17a07caef338c",
+      "body_sha256": "sha256:01ddddf9ad6e0bee3739adaf1ca3c52d2ea8a643907d92dbdd8fe2589c2552d6",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1439,7 +1439,7 @@
       "schema_path": ["rule_list", "rules", "ip_prefix_list"],
       "sections": [
         {
-          "aliases": ["invert match"],
+          "aliases": ["rule list rules ip prefix list invert match"],
           "anchor": "schema-rule_list--rules--ip_prefix_list--invert_match",
           "description": "Invert the match result.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:ip_prefix_list",
@@ -1453,7 +1453,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["ip prefixes"],
+          "aliases": ["rule list rules ip prefix list ip prefixes"],
           "anchor": "schema-rule_list--rules--ip_prefix_list--ip_prefixes",
           "description": "List of IPv4 prefix strings.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:ip_prefix_list",
@@ -1468,14 +1468,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_load_balancer/properties/rule_list/rules/ip_prefix_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of IP Prefix strings to match against.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.ip_prefix_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1486,7 +1486,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1508,7 +1508,7 @@
       "schema_path": ["rule_list", "rules", "ip_prefix_set"],
       "sections": [
         {
-          "aliases": ["invert matcher"],
+          "aliases": ["rule list rules ip prefix set invert matcher"],
           "anchor": "schema-rule_list--rules--ip_prefix_set--invert_matcher",
           "description": "Invert the match result.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set",
@@ -1522,7 +1522,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["prefix sets"],
+          "aliases": ["rule list rules ip prefix set prefix sets"],
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets",
@@ -1537,25 +1537,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_load_balancer/properties/rule_list/rules/ip_prefix_set/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Match any IP prefix contained in the list of ip_prefix_sets. The result of the match is inverted if invert_matcher is true.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.ip_prefix_set",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rule list rules ip prefix set prefix sets"],
       "body_bytes": 6817,
-      "body_sha256": "sha256:f8ce84fd87f25cce1d0d493b0967053639457e275c42c93c0a2f7835e29d7f1e",
+      "body_sha256": "sha256:2bae95a4387ec5b73193dafb4c6471e1a19f786d68b090239dc884f155270410",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1577,7 +1577,7 @@
       "schema_path": ["rule_list", "rules", "ip_prefix_set", "prefix_sets"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["rule list rules ip prefix set prefix sets kind"],
           "anchor": "schema-rule_list--rules--ip_prefix_set--prefix_sets--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets",
@@ -1591,7 +1591,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rule list rules ip prefix set prefix sets name"],
           "anchor": "schema-rule_list--rules--ip_prefix_set--prefix_sets--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets",
@@ -1605,7 +1605,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rule list rules ip prefix set prefix sets namespace"],
           "anchor": "schema-rule_list--rules--ip_prefix_set--prefix_sets--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets",
@@ -1619,7 +1619,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rule list rules ip prefix set prefix sets tenant"],
           "anchor": "schema-rule_list--rules--ip_prefix_set--prefix_sets--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets",
@@ -1633,7 +1633,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["rule list rules ip prefix set prefix sets uid"],
           "anchor": "schema-rule_list--rules--ip_prefix_set--prefix_sets--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets",
@@ -1648,25 +1648,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_load_balancer/properties/rule_list/rules/ip_prefix_set/prefix_sets/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A list of references to ip_prefix_set objects.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.ip_prefix_set.prefix_sets",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rule list rules pool"],
       "body_bytes": 5496,
-      "body_sha256": "sha256:5ecdd38885d7248e9f5102eeb43c25a4f93cf6aaacc24c56489ef79fe0469aa7",
+      "body_sha256": "sha256:a1d99947e34e1381bc80b1f523563845f733a5d8ba060b756cc53420e90153ed",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1688,7 +1688,7 @@
       "schema_path": ["rule_list", "rules", "pool"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["rule list rules pool name"],
           "anchor": "schema-rule_list--rules--pool--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:pool",
@@ -1702,7 +1702,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rule list rules pool namespace"],
           "anchor": "schema-rule_list--rules--pool--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:pool",
@@ -1716,7 +1716,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rule list rules pool tenant"],
           "anchor": "schema-rule_list--rules--pool--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:pool",
@@ -1731,14 +1731,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_load_balancer/properties/rule_list/rules/pool/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.pool",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1749,7 +1749,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_load_balancer:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1771,14 +1771,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_load_balancer/examples/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Examples for xcsh_dns_load_balancer.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1789,7 +1789,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1818,14 +1818,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_load_balancer/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Data source for xcsh_dns_load_balancer.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     }
   ],

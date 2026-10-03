@@ -483,7 +483,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:bgp:reference", "xcsh-docs:data-sources:bgp:examples"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -505,21 +505,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Manages a BGP resource in F5 Distributed Cloud for bgp object is the configuration for peering with external bgp servers. it is created by users in system namespace. configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_bgp",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["bgp"],
       "body_bytes": 26134,
-      "body_sha256": "sha256:8e2bc880619c426883938035422afcf7754cc534c8e16b4e52ddd584c6f3e09e",
+      "body_sha256": "sha256:c8d5f52a3dc7aa0db0e3faee9312a708a80a343afda69290a80cfc7c03917dc1",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -528,7 +528,7 @@
         "xcsh-docs:data-sources:bgp:properties:where"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -677,20 +677,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Property reference for xcsh_bgp.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["bgp parameters"],
       "body_bytes": 3574,
-      "body_sha256": "sha256:ff918e354fd2745f731e00fc83137926326226cf29f061608ebce09f7160fb55",
+      "body_sha256": "sha256:ee19039a11ecf4a8c57a98406870aa13dac6511b3f5164db0367b9d21ca881ec",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -698,7 +698,7 @@
         "xcsh-docs:data-sources:bgp:properties:bgp_parameters:local_address"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -720,7 +720,7 @@
       "schema_path": ["bgp_parameters"],
       "sections": [
         {
-          "aliases": ["asn"],
+          "aliases": ["bgp parameters asn"],
           "anchor": "schema-bgp_parameters--asn",
           "description": "Autonomous System Number.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:bgp_parameters",
@@ -734,7 +734,7 @@
           "type": "number"
         },
         {
-          "aliases": ["from site"],
+          "aliases": ["bgp parameters from site"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:bgp_parameters:from_site",
@@ -748,7 +748,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip address"],
+          "aliases": ["bgp parameters ip address"],
           "anchor": "schema-bgp_parameters--ip_address",
           "description": "Exclusive with Use the configured IPv4 Address as Router ID.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:bgp_parameters",
@@ -762,7 +762,7 @@
           "type": "string"
         },
         {
-          "aliases": ["local address"],
+          "aliases": ["bgp parameters local address"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:bgp_parameters:local_address",
@@ -777,14 +777,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/bgp_parameters/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "BGP parameters for the local site.",
       "tasks": ["configuration"],
       "title": "bgp_parameters",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -795,7 +795,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -817,14 +817,14 @@
       "schema_path": ["bgp_parameters", "from_site"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/bgp_parameters/from_site/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "bgp_parameters.from_site",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -835,7 +835,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -857,20 +857,20 @@
       "schema_path": ["bgp_parameters", "local_address"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/bgp_parameters/local_address/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "bgp_parameters.local_address",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["peers"],
       "body_bytes": 5143,
-      "body_sha256": "sha256:897b5d174d87631acbf253101468c998e408f1ef77d26139a65a7408facbbf7f",
+      "body_sha256": "sha256:ec4a71716e1fc978351236602a4f2fe6e9a12bd130facf60ccb4ebfd456bbdda",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -886,7 +886,7 @@
         "xcsh-docs:data-sources:bgp:properties:peers:routing_policies"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -908,7 +908,7 @@
       "schema_path": ["peers"],
       "sections": [
         {
-          "aliases": ["bfd disabled"],
+          "aliases": ["peers bfd disabled"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:bfd_disabled",
@@ -922,7 +922,7 @@
           "type": "object"
         },
         {
-          "aliases": ["bfd enabled"],
+          "aliases": ["peers bfd enabled"],
           "anchor": "section",
           "description": "BFD parameters.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:bfd_enabled",
@@ -936,7 +936,7 @@
           "type": "object"
         },
         {
-          "aliases": ["disable spec"],
+          "aliases": ["peers disable spec"],
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:disable_spec",
@@ -950,7 +950,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ebgp multihop disabled"],
+          "aliases": ["peers ebgp multihop disabled"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:ebgp_multihop_disabled",
@@ -964,7 +964,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ebgp multihop enabled"],
+          "aliases": ["peers ebgp multihop enabled"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:ebgp_multihop_enabled",
@@ -978,7 +978,7 @@
           "type": "object"
         },
         {
-          "aliases": ["external"],
+          "aliases": ["peers external"],
           "anchor": "section",
           "description": "External BGP Peer parameters.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external",
@@ -992,7 +992,7 @@
           "type": "object"
         },
         {
-          "aliases": ["label"],
+          "aliases": ["peers label"],
           "anchor": "schema-peers--label",
           "description": "Specify whether this peer should be.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers",
@@ -1006,7 +1006,7 @@
           "type": "string"
         },
         {
-          "aliases": ["metadata"],
+          "aliases": ["peers metadata"],
           "anchor": "section",
           "description": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:metadata",
@@ -1020,7 +1020,7 @@
           "type": "object"
         },
         {
-          "aliases": ["passive mode disabled"],
+          "aliases": ["peers passive mode disabled"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:passive_mode_disabled",
@@ -1034,7 +1034,7 @@
           "type": "object"
         },
         {
-          "aliases": ["passive mode enabled"],
+          "aliases": ["peers passive mode enabled"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:passive_mode_enabled",
@@ -1048,7 +1048,7 @@
           "type": "object"
         },
         {
-          "aliases": ["routing policies"],
+          "aliases": ["peers routing policies"],
           "anchor": "section",
           "description": "List of rules which can be applied on all or particular nodes.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:routing_policies",
@@ -1063,14 +1063,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of peers.",
       "tasks": ["configuration"],
       "title": "peers",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1081,7 +1081,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1103,25 +1103,25 @@
       "schema_path": ["peers", "bfd_disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/bfd_disabled/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "peers.bfd_disabled",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["peers bfd enabled"],
       "body_bytes": 4029,
-      "body_sha256": "sha256:bceefab7d7c0efbae8447a4455e5d5be0242d518e9a3c43b1dd5b004777a873f",
+      "body_sha256": "sha256:3707dc302d7d292c1f43fbb9cfefef3251b609f143479a50becf21905dc1fe30",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1143,7 +1143,7 @@
       "schema_path": ["peers", "bfd_enabled"],
       "sections": [
         {
-          "aliases": ["multiplier"],
+          "aliases": ["peers bfd enabled multiplier"],
           "anchor": "schema-peers--bfd_enabled--multiplier",
           "description": "Specify Number of missed packets to bring session down\"",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:bfd_enabled",
@@ -1157,7 +1157,7 @@
           "type": "number"
         },
         {
-          "aliases": ["receive interval milliseconds"],
+          "aliases": ["peers bfd enabled receive interval milliseconds"],
           "anchor": "schema-peers--bfd_enabled--receive_interval_milliseconds",
           "description": "BFD receive interval timer, in milliseconds.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:bfd_enabled",
@@ -1171,7 +1171,7 @@
           "type": "number"
         },
         {
-          "aliases": ["transmit interval milliseconds"],
+          "aliases": ["peers bfd enabled transmit interval milliseconds"],
           "anchor": "schema-peers--bfd_enabled--transmit_interval_milliseconds",
           "description": "BFD transmit interval timer, in milliseconds.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:bfd_enabled",
@@ -1186,14 +1186,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/bfd_enabled/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "BFD parameters.",
       "tasks": ["configuration"],
       "title": "peers.bfd_enabled",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1204,7 +1204,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1226,14 +1226,14 @@
       "schema_path": ["peers", "disable_spec"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/disable_spec/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Enable this option",
       "tasks": ["configuration"],
       "title": "peers.disable_spec",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1244,7 +1244,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1266,14 +1266,14 @@
       "schema_path": ["peers", "ebgp_multihop_disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/ebgp_multihop_disabled/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "peers.ebgp_multihop_disabled",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1284,7 +1284,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1306,20 +1306,20 @@
       "schema_path": ["peers", "ebgp_multihop_enabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/ebgp_multihop_enabled/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "peers.ebgp_multihop_enabled",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["peers external"],
       "body_bytes": 14305,
-      "body_sha256": "sha256:8cce7b139b70625ad6ffdaa99323ddfacd95adb26ef615cb028a6d91582d8114",
+      "body_sha256": "sha256:6b92ee6ee61e8eab8edccefc6e3c860369cc084ad5d641e0952ecd8a56411467",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1336,7 +1336,7 @@
         "xcsh-docs:data-sources:bgp:properties:peers:external:no_authentication"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1358,7 +1358,7 @@
       "schema_path": ["peers", "external"],
       "sections": [
         {
-          "aliases": ["address"],
+          "aliases": ["peers external address"],
           "anchor": "schema-peers--external--address",
           "description": "Exclusive with Specify IPv4 peer address.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external",
@@ -1372,7 +1372,7 @@
           "type": "string"
         },
         {
-          "aliases": ["address ipv6"],
+          "aliases": ["peers external address ipv6"],
           "anchor": "schema-peers--external--address_ipv6",
           "description": "Exclusive with Specify peer IPv6 address.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external",
@@ -1386,7 +1386,7 @@
           "type": "string"
         },
         {
-          "aliases": ["asn"],
+          "aliases": ["peers external asn"],
           "anchor": "schema-peers--external--asn",
           "description": "Autonomous System Number for BGP peer.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external",
@@ -1400,7 +1400,7 @@
           "type": "number"
         },
         {
-          "aliases": ["default gateway"],
+          "aliases": ["peers external default gateway"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:default_gateway",
@@ -1414,7 +1414,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default gateway v6"],
+          "aliases": ["peers external default gateway v6"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:default_gateway_v6",
@@ -1428,7 +1428,7 @@
           "type": "object"
         },
         {
-          "aliases": ["disable spec"],
+          "aliases": ["peers external disable spec"],
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:disable_spec",
@@ -1442,7 +1442,7 @@
           "type": "object"
         },
         {
-          "aliases": ["disable v6"],
+          "aliases": ["peers external disable v6"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:disable_v6",
@@ -1456,7 +1456,7 @@
           "type": "object"
         },
         {
-          "aliases": ["external connector"],
+          "aliases": ["peers external external connector"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:external_connector",
@@ -1470,7 +1470,7 @@
           "type": "object"
         },
         {
-          "aliases": ["family inet"],
+          "aliases": ["peers external family inet"],
           "anchor": "section",
           "description": "Parameters for inet family.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:family_inet",
@@ -1484,7 +1484,7 @@
           "type": "object"
         },
         {
-          "aliases": ["from site"],
+          "aliases": ["peers external from site"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:from_site",
@@ -1498,7 +1498,7 @@
           "type": "object"
         },
         {
-          "aliases": ["from site v6"],
+          "aliases": ["peers external from site v6"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:from_site_v6",
@@ -1512,7 +1512,7 @@
           "type": "object"
         },
         {
-          "aliases": ["interface"],
+          "aliases": ["peers external interface"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:interface",
@@ -1526,7 +1526,7 @@
           "type": "object"
         },
         {
-          "aliases": ["interface list"],
+          "aliases": ["peers external interface list"],
           "anchor": "section",
           "description": "List of network interfaces.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:interface_list",
@@ -1540,7 +1540,7 @@
           "type": "object"
         },
         {
-          "aliases": ["md5 auth key"],
+          "aliases": ["peers external md5 auth key"],
           "anchor": "schema-peers--external--md5_auth_key",
           "description": "Exclusive with MD5 key for protecting BGP Sessions (RFC 2385)",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external",
@@ -1554,7 +1554,7 @@
           "type": "string"
         },
         {
-          "aliases": ["authentication", "credential setup", "credentials", "no authentication"],
+          "aliases": ["authentication", "credential setup", "credentials", "peers external no authentication"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:no_authentication",
@@ -1568,7 +1568,7 @@
           "type": "object"
         },
         {
-          "aliases": ["port"],
+          "aliases": ["peers external port"],
           "anchor": "schema-peers--external--port",
           "description": "Peer TCP port number.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external",
@@ -1582,7 +1582,7 @@
           "type": "number"
         },
         {
-          "aliases": ["subnet begin offset"],
+          "aliases": ["peers external subnet begin offset"],
           "anchor": "schema-peers--external--subnet_begin_offset",
           "description": "Exclusive with Calculate peer address using offset from the beginning of the subnet.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external",
@@ -1596,7 +1596,7 @@
           "type": "number"
         },
         {
-          "aliases": ["subnet begin offset v6"],
+          "aliases": ["peers external subnet begin offset v6"],
           "anchor": "schema-peers--external--subnet_begin_offset_v6",
           "description": "Exclusive with Calculate peer address using offset from the beginning of the subnet.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external",
@@ -1610,7 +1610,7 @@
           "type": "number"
         },
         {
-          "aliases": ["subnet end offset"],
+          "aliases": ["peers external subnet end offset"],
           "anchor": "schema-peers--external--subnet_end_offset",
           "description": "Exclusive with Calculate peer address using offset from the end of the subnet.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external",
@@ -1624,7 +1624,7 @@
           "type": "number"
         },
         {
-          "aliases": ["subnet end offset v6"],
+          "aliases": ["peers external subnet end offset v6"],
           "anchor": "schema-peers--external--subnet_end_offset_v6",
           "description": "Exclusive with Calculate peer address using offset from the end of the subnet.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external",
@@ -1639,14 +1639,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/external/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "External BGP Peer parameters.",
       "tasks": ["configuration"],
       "title": "peers.external",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1657,7 +1657,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1679,14 +1679,14 @@
       "schema_path": ["peers", "external", "default_gateway"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/external/default_gateway/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "peers.external.default_gateway",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1697,7 +1697,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1719,14 +1719,14 @@
       "schema_path": ["peers", "external", "default_gateway_v6"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/external/default_gateway_v6/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "peers.external.default_gateway_v6",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1737,7 +1737,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1759,14 +1759,14 @@
       "schema_path": ["peers", "external", "disable_spec"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/external/disable_spec/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Enable this option",
       "tasks": ["configuration"],
       "title": "peers.external.disable_spec",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1777,7 +1777,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1799,14 +1799,14 @@
       "schema_path": ["peers", "external", "disable_v6"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/external/disable_v6/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "peers.external.disable_v6",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1817,7 +1817,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1839,14 +1839,14 @@
       "schema_path": ["peers", "external", "external_connector"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/external/external_connector/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "peers.external.external_connector",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1860,7 +1860,7 @@
         "xcsh-docs:data-sources:bgp:properties:peers:external:family_inet:enable"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1882,7 +1882,7 @@
       "schema_path": ["peers", "external", "family_inet"],
       "sections": [
         {
-          "aliases": ["disable spec"],
+          "aliases": ["peers external family inet disable spec"],
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:family_inet:disable_spec",
@@ -1896,7 +1896,7 @@
           "type": "object"
         },
         {
-          "aliases": ["enable"],
+          "aliases": ["peers external family inet enable"],
           "anchor": "section",
           "description": "IPv4 Unicast.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:family_inet:enable",
@@ -1911,14 +1911,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/external/family_inet/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Parameters for inet family.",
       "tasks": ["configuration"],
       "title": "peers.external.family_inet",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1929,7 +1929,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1951,14 +1951,14 @@
       "schema_path": ["peers", "external", "family_inet", "disable_spec"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/external/family_inet/disable_spec/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Enable this option",
       "tasks": ["configuration"],
       "title": "peers.external.family_inet.disable_spec",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1969,7 +1969,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:bgp:properties:peers:external:family_inet:enable:aggregation"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1991,7 +1991,7 @@
       "schema_path": ["peers", "external", "family_inet", "enable"],
       "sections": [
         {
-          "aliases": ["aggregation"],
+          "aliases": ["peers external family inet enable aggregation"],
           "anchor": "section",
           "description": "BGP aggregation prefixes are shared among all peers, aggregation configured under any peer will take effect on all peers. Aggregation in BGP occurs only when more specific routes exist in the routing table and applies to outbound advertisements.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:family_inet:enable:aggregation",
@@ -2006,25 +2006,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/external/family_inet/enable/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "IPv4 Unicast.",
       "tasks": ["configuration"],
       "title": "peers.external.family_inet.enable",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["peers external family inet enable aggregation"],
       "body_bytes": 3338,
-      "body_sha256": "sha256:4ed83c6ce2ee636c28cec450117cf4c18fdb6d591962e8e86cafcc8d97b99c77",
+      "body_sha256": "sha256:e211a99b5005468f7781a9bb97fa0c04ba5e641b3b43545de1acb86ec0862961",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:bgp:properties:peers:external:family_inet:enable:aggregation:options"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2046,7 +2046,7 @@
       "schema_path": ["peers", "external", "family_inet", "enable", "aggregation"],
       "sections": [
         {
-          "aliases": ["ip prefix"],
+          "aliases": ["peers external family inet enable aggregation ip prefix"],
           "anchor": "schema-peers--external--family_inet--enable--aggregation--ip_prefix",
           "description": "Specify IPv4 subnet for aggregation.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:family_inet:enable:aggregation",
@@ -2060,7 +2060,7 @@
           "type": "string"
         },
         {
-          "aliases": ["options"],
+          "aliases": ["peers external family inet enable aggregation options"],
           "anchor": "section",
           "description": "Configuration parameter for options",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:family_inet:enable:aggregation:options",
@@ -2075,27 +2075,27 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/external/family_inet/enable/aggregation/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "BGP aggregation prefixes are shared among all peers, aggregation configured under any peer will take effect on all peers. Aggregation in BGP occurs only when more specific routes exist in the routing table and applies to outbound advertisements.",
       "tasks": ["configuration"],
       "title": "peers.external.family_inet.enable.aggregation",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["peers external family inet enable aggregation options"],
       "body_bytes": 2643,
-      "body_sha256": "sha256:33423e36a70e5062b265e06d54db2cac8377527c2204cc3ddbb497062e0c41db",
+      "body_sha256": "sha256:a215c0885463ce72a597c2800b8bff3fd5f81c72ec5972a6e4708ebc19e3ec8e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
         "xcsh-docs:data-sources:bgp:properties:peers:external:family_inet:enable:aggregation:options:summary_only"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2117,7 +2117,7 @@
       "schema_path": ["peers", "external", "family_inet", "enable", "aggregation", "options"],
       "sections": [
         {
-          "aliases": ["summary only"],
+          "aliases": ["peers external family inet enable aggregation options summary only"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:family_inet:enable:aggregation:options:summary_only",
@@ -2132,14 +2132,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/external/family_inet/enable/aggregation/options/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configuration parameter for options",
       "tasks": ["configuration"],
       "title": "peers.external.family_inet.enable.aggregation.options",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2150,7 +2150,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2172,14 +2172,14 @@
       "schema_path": ["peers", "external", "family_inet", "enable", "aggregation", "options", "summary_only"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/external/family_inet/enable/aggregation/options/summary_only/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "peers.external.family_inet.enable.aggregation.options.summary_only",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2190,7 +2190,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2212,14 +2212,14 @@
       "schema_path": ["peers", "external", "from_site"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/external/from_site/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "peers.external.from_site",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2230,7 +2230,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2252,25 +2252,25 @@
       "schema_path": ["peers", "external", "from_site_v6"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/external/from_site_v6/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "peers.external.from_site_v6",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["peers external interface"],
       "body_bytes": 5392,
-      "body_sha256": "sha256:8a836f0bb725b2bacd5c676e59e2a03497d8335f9dc1dd3e74de6207e24b2a0a",
+      "body_sha256": "sha256:c370bb466a0d38a13ae7361e1a312c5a6acff36b43062b4c80654f23088bfe30",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2292,7 +2292,7 @@
       "schema_path": ["peers", "external", "interface"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["peers external interface name"],
           "anchor": "schema-peers--external--interface--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:interface",
@@ -2306,7 +2306,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["peers external interface namespace"],
           "anchor": "schema-peers--external--interface--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:interface",
@@ -2320,7 +2320,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["peers external interface tenant"],
           "anchor": "schema-peers--external--interface--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:interface",
@@ -2335,14 +2335,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/external/interface/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "peers.external.interface",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2353,7 +2353,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:bgp:properties:peers:external:interface_list:interfaces"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2375,7 +2375,7 @@
       "schema_path": ["peers", "external", "interface_list"],
       "sections": [
         {
-          "aliases": ["interfaces"],
+          "aliases": ["peers external interface list interfaces"],
           "anchor": "section",
           "description": "List of network interfaces.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:interface_list:interfaces",
@@ -2390,25 +2390,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/external/interface_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of network interfaces.",
       "tasks": ["configuration"],
       "title": "peers.external.interface_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["peers external interface list interfaces"],
       "body_bytes": 6247,
-      "body_sha256": "sha256:7bf91992654a987270d7cbaab039d2797d0f5c8272b99fe623ba1944c5212d84",
+      "body_sha256": "sha256:6989646034ee78bb0ac2ad8e7df94df9b9d131c0655c80f23baed84c2ab45c69",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2430,7 +2430,7 @@
       "schema_path": ["peers", "external", "interface_list", "interfaces"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["peers external interface list interfaces name"],
           "anchor": "schema-peers--external--interface_list--interfaces--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:interface_list:interfaces",
@@ -2444,7 +2444,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["peers external interface list interfaces namespace"],
           "anchor": "schema-peers--external--interface_list--interfaces--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:interface_list:interfaces",
@@ -2458,7 +2458,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["peers external interface list interfaces tenant"],
           "anchor": "schema-peers--external--interface_list--interfaces--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:interface_list:interfaces",
@@ -2473,14 +2473,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/external/interface_list/interfaces/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of network interfaces.",
       "tasks": ["configuration"],
       "title": "peers.external.interface_list.interfaces",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2491,7 +2491,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2513,25 +2513,25 @@
       "schema_path": ["peers", "external", "no_authentication"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/external/no_authentication/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "peers.external.no_authentication",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["peers metadata"],
       "body_bytes": 3366,
-      "body_sha256": "sha256:90bd5857afdbcc118b2947b1516253b10827af3c175542033966e9ed128689e7",
+      "body_sha256": "sha256:8286fbe8f31a7e3ee9ff2d515758333a0352174587d19ee718e655d2019d22bc",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2553,7 +2553,7 @@
       "schema_path": ["peers", "metadata"],
       "sections": [
         {
-          "aliases": ["description spec"],
+          "aliases": ["peers metadata description spec"],
           "anchor": "schema-peers--metadata--description_spec",
           "description": "Description. Human readable description.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:metadata",
@@ -2567,7 +2567,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["peers metadata name"],
           "anchor": "schema-peers--metadata--name",
           "description": "This is the name of the message. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:metadata",
@@ -2582,14 +2582,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/metadata/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "peers.metadata",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2600,7 +2600,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2622,14 +2622,14 @@
       "schema_path": ["peers", "passive_mode_disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/passive_mode_disabled/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "peers.passive_mode_disabled",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2640,7 +2640,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2662,14 +2662,14 @@
       "schema_path": ["peers", "passive_mode_enabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/passive_mode_enabled/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "peers.passive_mode_enabled",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2680,7 +2680,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:bgp:properties:peers:routing_policies:route_policy"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2702,7 +2702,7 @@
       "schema_path": ["peers", "routing_policies"],
       "sections": [
         {
-          "aliases": ["route policy"],
+          "aliases": ["peers routing policies route policy"],
           "anchor": "section",
           "description": "Route policy to be applied.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:routing_policies:route_policy",
@@ -2717,20 +2717,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/routing_policies/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of rules which can be applied on all or particular nodes.",
       "tasks": ["configuration"],
       "title": "peers.routing_policies",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["peers routing policies route policy"],
       "body_bytes": 3452,
-      "body_sha256": "sha256:60f2f1101bb4b5cba62671b4c15cf7e3f9074312377877454cf73d836c50cbaf",
+      "body_sha256": "sha256:455a196e3697e528bf99ca9b41b5880af32ea771cb9ba06f40a0080e6388f74c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2741,7 +2741,7 @@
         "xcsh-docs:data-sources:bgp:properties:peers:routing_policies:route_policy:outbound"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2763,7 +2763,7 @@
       "schema_path": ["peers", "routing_policies", "route_policy"],
       "sections": [
         {
-          "aliases": ["all nodes"],
+          "aliases": ["peers routing policies route policy all nodes"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:routing_policies:route_policy:all_nodes",
@@ -2777,7 +2777,7 @@
           "type": "object"
         },
         {
-          "aliases": ["inbound"],
+          "aliases": ["peers routing policies route policy inbound"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:routing_policies:route_policy:inbound",
@@ -2791,7 +2791,7 @@
           "type": "object"
         },
         {
-          "aliases": ["node name"],
+          "aliases": ["peers routing policies route policy node name"],
           "anchor": "section",
           "description": "List of nodes on which BGP routing policy has to be applied.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:routing_policies:route_policy:node_name",
@@ -2805,7 +2805,7 @@
           "type": "object"
         },
         {
-          "aliases": ["object refs"],
+          "aliases": ["peers routing policies route policy object refs"],
           "anchor": "section",
           "description": "Select route policy to apply.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:routing_policies:route_policy:object_refs",
@@ -2819,7 +2819,7 @@
           "type": "object"
         },
         {
-          "aliases": ["outbound"],
+          "aliases": ["peers routing policies route policy outbound"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:routing_policies:route_policy:outbound",
@@ -2834,14 +2834,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/routing_policies/route_policy/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Route policy to be applied.",
       "tasks": ["configuration"],
       "title": "peers.routing_policies.route_policy",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2852,7 +2852,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2874,14 +2874,14 @@
       "schema_path": ["peers", "routing_policies", "route_policy", "all_nodes"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/routing_policies/route_policy/all_nodes/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "peers.routing_policies.route_policy.all_nodes",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2892,7 +2892,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2914,14 +2914,14 @@
       "schema_path": ["peers", "routing_policies", "route_policy", "inbound"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/routing_policies/route_policy/inbound/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "peers.routing_policies.route_policy.inbound",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2932,7 +2932,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2954,7 +2954,7 @@
       "schema_path": ["peers", "routing_policies", "route_policy", "node_name"],
       "sections": [
         {
-          "aliases": ["node"],
+          "aliases": ["peers routing policies route policy node name node"],
           "anchor": "schema-peers--routing_policies--route_policy--node_name--node",
           "description": "Select BGP Session on which policy will be applied.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:routing_policies:route_policy:node_name",
@@ -2969,25 +2969,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/routing_policies/route_policy/node_name/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of nodes on which BGP routing policy has to be applied.",
       "tasks": ["configuration"],
       "title": "peers.routing_policies.route_policy.node_name",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["peers routing policies route policy object refs"],
       "body_bytes": 6885,
-      "body_sha256": "sha256:64fe5b94f97ef4fb49aa59d97c11211df07462f20d91a9901ec018f38704003f",
+      "body_sha256": "sha256:49e57a09728a59024e84fbf177079e4b8a834505dc1b2331edf6d6c88c9babe1",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3009,7 +3009,7 @@
       "schema_path": ["peers", "routing_policies", "route_policy", "object_refs"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["peers routing policies route policy object refs kind"],
           "anchor": "schema-peers--routing_policies--route_policy--object_refs--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:routing_policies:route_policy:object_refs",
@@ -3023,7 +3023,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["peers routing policies route policy object refs name"],
           "anchor": "schema-peers--routing_policies--route_policy--object_refs--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:routing_policies:route_policy:object_refs",
@@ -3037,7 +3037,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["peers routing policies route policy object refs namespace"],
           "anchor": "schema-peers--routing_policies--route_policy--object_refs--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:routing_policies:route_policy:object_refs",
@@ -3051,7 +3051,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["peers routing policies route policy object refs tenant"],
           "anchor": "schema-peers--routing_policies--route_policy--object_refs--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:routing_policies:route_policy:object_refs",
@@ -3065,7 +3065,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["peers routing policies route policy object refs uid"],
           "anchor": "schema-peers--routing_policies--route_policy--object_refs--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:peers:routing_policies:route_policy:object_refs",
@@ -3080,14 +3080,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/routing_policies/route_policy/object_refs/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Select route policy to apply.",
       "tasks": ["configuration"],
       "title": "peers.routing_policies.route_policy.object_refs",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3098,7 +3098,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3120,14 +3120,14 @@
       "schema_path": ["peers", "routing_policies", "route_policy", "outbound"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/routing_policies/route_policy/outbound/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "peers.routing_policies.route_policy.outbound",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3141,7 +3141,7 @@
         "xcsh-docs:data-sources:bgp:properties:where:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3163,7 +3163,7 @@
       "schema_path": ["where"],
       "sections": [
         {
-          "aliases": ["site"],
+          "aliases": ["where site"],
           "anchor": "section",
           "description": "This specifies a direct reference to a site configuration object.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:where:site",
@@ -3177,7 +3177,7 @@
           "type": "object"
         },
         {
-          "aliases": ["virtual site"],
+          "aliases": ["where virtual site"],
           "anchor": "section",
           "description": "A reference to virtual_site object.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:where:virtual_site",
@@ -3192,14 +3192,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/where/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "VirtualSiteSiteRefSelector defines a union of reference to site or reference to virtual_site It used to refer site or a group of sites indicated by virtual site.",
       "tasks": ["configuration"],
       "title": "where",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3214,7 +3214,7 @@
         "xcsh-docs:data-sources:bgp:properties:where:site:ref"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3236,7 +3236,7 @@
       "schema_path": ["where", "site"],
       "sections": [
         {
-          "aliases": ["disable internet vip"],
+          "aliases": ["where site disable internet vip"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:where:site:disable_internet_vip",
@@ -3250,7 +3250,7 @@
           "type": "object"
         },
         {
-          "aliases": ["enable internet vip"],
+          "aliases": ["where site enable internet vip"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:where:site:enable_internet_vip",
@@ -3264,7 +3264,7 @@
           "type": "object"
         },
         {
-          "aliases": ["network type"],
+          "aliases": ["where site network type"],
           "anchor": "schema-where--site--network_type",
           "description": "Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to every site. Two virtual",
           "document_id": "xcsh-docs:data-sources:bgp:properties:where:site",
@@ -3278,7 +3278,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ref"],
+          "aliases": ["where site ref"],
           "anchor": "section",
           "description": "A site direct reference.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:where:site:ref",
@@ -3293,14 +3293,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/where/site/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This specifies a direct reference to a site configuration object.",
       "tasks": ["configuration"],
       "title": "where.site",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3311,7 +3311,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3333,14 +3333,14 @@
       "schema_path": ["where", "site", "disable_internet_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/where/site/disable_internet_vip/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "where.site.disable_internet_vip",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3351,7 +3351,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3373,25 +3373,25 @@
       "schema_path": ["where", "site", "enable_internet_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/where/site/enable_internet_vip/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "where.site.enable_internet_vip",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["where site ref"],
       "body_bytes": 6256,
-      "body_sha256": "sha256:bd792756f74464d88c172f3f1b79dbba9f6cc43dcbb4b9ad8bffa9a87a2f6990",
+      "body_sha256": "sha256:6b2a9e151d31575bbf5cf66d11be14bbb12a8bacaa410556aca8f1ad6625ba8c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3413,7 +3413,7 @@
       "schema_path": ["where", "site", "ref"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["where site ref kind"],
           "anchor": "schema-where--site--ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:bgp:properties:where:site:ref",
@@ -3427,7 +3427,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["where site ref name"],
           "anchor": "schema-where--site--ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:where:site:ref",
@@ -3441,7 +3441,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["where site ref namespace"],
           "anchor": "schema-where--site--ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:where:site:ref",
@@ -3455,7 +3455,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["where site ref tenant"],
           "anchor": "schema-where--site--ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:where:site:ref",
@@ -3469,7 +3469,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["where site ref uid"],
           "anchor": "schema-where--site--ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:where:site:ref",
@@ -3484,14 +3484,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/where/site/ref/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A site direct reference.",
       "tasks": ["configuration"],
       "title": "where.site.ref",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3506,7 +3506,7 @@
         "xcsh-docs:data-sources:bgp:properties:where:virtual_site:ref"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3528,7 +3528,7 @@
       "schema_path": ["where", "virtual_site"],
       "sections": [
         {
-          "aliases": ["disable internet vip"],
+          "aliases": ["where virtual site disable internet vip"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:where:virtual_site:disable_internet_vip",
@@ -3542,7 +3542,7 @@
           "type": "object"
         },
         {
-          "aliases": ["enable internet vip"],
+          "aliases": ["where virtual site enable internet vip"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:where:virtual_site:enable_internet_vip",
@@ -3556,7 +3556,7 @@
           "type": "object"
         },
         {
-          "aliases": ["network type"],
+          "aliases": ["where virtual site network type"],
           "anchor": "schema-where--virtual_site--network_type",
           "description": "Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to every site. Two virtual",
           "document_id": "xcsh-docs:data-sources:bgp:properties:where:virtual_site",
@@ -3570,7 +3570,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ref"],
+          "aliases": ["where virtual site ref"],
           "anchor": "section",
           "description": "A virtual_site direct reference.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:where:virtual_site:ref",
@@ -3585,14 +3585,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/where/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A reference to virtual_site object.",
       "tasks": ["configuration"],
       "title": "where.virtual_site",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3603,7 +3603,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3625,14 +3625,14 @@
       "schema_path": ["where", "virtual_site", "disable_internet_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/where/virtual_site/disable_internet_vip/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "where.virtual_site.disable_internet_vip",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3643,7 +3643,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3665,25 +3665,25 @@
       "schema_path": ["where", "virtual_site", "enable_internet_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/where/virtual_site/enable_internet_vip/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "where.virtual_site.enable_internet_vip",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["where virtual site ref"],
       "body_bytes": 6362,
-      "body_sha256": "sha256:85d57ddd6c718dc5edab44be99ff6d8ece3fd606a79eb899d4ba3f841fd12aa7",
+      "body_sha256": "sha256:afcb13fd0dd823f92675bacb99d47cfb6ac9020e2f11864f84f9eea667359ee8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3705,7 +3705,7 @@
       "schema_path": ["where", "virtual_site", "ref"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["where virtual site ref kind"],
           "anchor": "schema-where--virtual_site--ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:bgp:properties:where:virtual_site:ref",
@@ -3719,7 +3719,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["where virtual site ref name"],
           "anchor": "schema-where--virtual_site--ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:where:virtual_site:ref",
@@ -3733,7 +3733,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["where virtual site ref namespace"],
           "anchor": "schema-where--virtual_site--ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:where:virtual_site:ref",
@@ -3747,7 +3747,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["where virtual site ref tenant"],
           "anchor": "schema-where--virtual_site--ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:where:virtual_site:ref",
@@ -3761,7 +3761,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["where virtual site ref uid"],
           "anchor": "schema-where--virtual_site--ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:bgp:properties:where:virtual_site:ref",
@@ -3776,14 +3776,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/where/virtual_site/ref/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A virtual_site direct reference.",
       "tasks": ["configuration"],
       "title": "where.virtual_site.ref",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3794,7 +3794,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:bgp:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3816,14 +3816,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/examples/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Examples for xcsh_bgp.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3834,7 +3834,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3863,14 +3863,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Data source for xcsh_bgp.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["bgpCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     }
   ],

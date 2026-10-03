@@ -307,7 +307,7 @@
         "xcsh-docs:resources:alert_policy:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -329,21 +329,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Manages new Alert Policy Object in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_alert_policy",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["alert policy"],
       "body_bytes": 18876,
-      "body_sha256": "sha256:37df70b2276d7da5317260d24ff619b8173ed483aa0582c57a4fa2fe26c180b2",
+      "body_sha256": "sha256:ab26f75b580e2bc5f94718c621d3ea969bcec3d7c45d1c7b47aabf89caecd1ed",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -353,7 +353,7 @@
         "xcsh-docs:resources:alert_policy:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -869,7 +869,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:alert_policy:properties:timeouts",
@@ -884,20 +884,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Property reference for xcsh_alert_policy.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["notification parameters"],
       "body_bytes": 7611,
-      "body_sha256": "sha256:0459da58dd2353bc2dbb059fb5b9647451f589d61933100578bb0cac2a3b13bc",
+      "body_sha256": "sha256:a3396a60521e2a5b23ca1f42ad18a9b399be5fa1f01cf5b806580baa4e0967be",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -907,7 +907,7 @@
         "xcsh-docs:resources:alert_policy:properties:notification_parameters:ves_io_group"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1026,7 +1026,7 @@
       "schema_path": ["notification_parameters"],
       "sections": [
         {
-          "aliases": ["custom"],
+          "aliases": ["notification parameters custom"],
           "anchor": "section",
           "description": "Specify list of custom labels to group/aggregate the alerts.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:custom",
@@ -1040,7 +1040,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default"],
+          "aliases": ["notification parameters default"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:default",
@@ -1054,7 +1054,7 @@
           "type": "object"
         },
         {
-          "aliases": ["group interval"],
+          "aliases": ["notification parameters group interval"],
           "anchor": "schema-notification_parameters--group_interval",
           "description": "Group Interval is used to specify how long to wait before sending a notification about new alerts that are added to the group for which an initial notification has already been sent. Format: , where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval defaults to \"1m\"",
           "document_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters",
@@ -1068,7 +1068,7 @@
           "type": "string"
         },
         {
-          "aliases": ["group wait"],
+          "aliases": ["notification parameters group wait"],
           "anchor": "schema-notification_parameters--group_wait",
           "description": "Time value used to specify how long to initially wait for an inhibiting alert to arrive or collect more alerts for the same group. Format: , where s - seconds, m - minutes, h - hours, d - days If not specified, group_wait defaults to \"30s\"",
           "document_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters",
@@ -1082,7 +1082,7 @@
           "type": "string"
         },
         {
-          "aliases": ["individual"],
+          "aliases": ["notification parameters individual"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:individual",
@@ -1096,7 +1096,7 @@
           "type": "object"
         },
         {
-          "aliases": ["repeat interval", "succeeded", "success", "successful"],
+          "aliases": ["notification parameters repeat interval", "succeeded", "success", "successful"],
           "anchor": "schema-notification_parameters--repeat_interval",
           "description": "Repeat Interval is used to specify how long to wait before sending a notification again if it has already been sent successfully. Format: , where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval defaults to \"4h\"",
           "document_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters",
@@ -1110,7 +1110,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ves io group"],
+          "aliases": ["notification parameters ves io group"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:ves_io_group",
@@ -1125,25 +1125,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/notification_parameters/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Set of notification parameters to decide how and when the alert notifications should be sent to the receivers.",
       "tasks": ["configuration"],
       "title": "notification_parameters",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["notification parameters custom"],
       "body_bytes": 2448,
-      "body_sha256": "sha256:a00391d16064cd71c8a4e0a4cf18f76e9d9f03847b527afa0e113aedbb6842ea",
+      "body_sha256": "sha256:d40136b3c59c814af97f395fb6aba02b46b0624affaad70b9fa7794f0974b0bd",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1165,7 +1165,7 @@
       "schema_path": ["notification_parameters", "custom"],
       "sections": [
         {
-          "aliases": ["labels"],
+          "aliases": ["notification parameters custom labels"],
           "anchor": "schema-notification_parameters--custom--labels",
           "description": "Name of labels to group/aggregate the alerts.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:custom",
@@ -1180,14 +1180,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/notification_parameters/custom/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Specify list of custom labels to group/aggregate the alerts.",
       "tasks": ["configuration"],
       "title": "notification_parameters.custom",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1198,7 +1198,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1220,14 +1220,14 @@
       "schema_path": ["notification_parameters", "default"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/notification_parameters/default/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "notification_parameters.default",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1238,7 +1238,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1260,14 +1260,14 @@
       "schema_path": ["notification_parameters", "individual"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/notification_parameters/individual/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "notification_parameters.individual",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1278,7 +1278,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1300,25 +1300,25 @@
       "schema_path": ["notification_parameters", "ves_io_group"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/notification_parameters/ves_io_group/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "notification_parameters.ves_io_group",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["receivers"],
       "body_bytes": 6367,
-      "body_sha256": "sha256:04896cb3a967a00972e8912d069759659256bcb937c424f43021edcc1e77ec0e",
+      "body_sha256": "sha256:176469fce590a730874e2af75c3d7508e44ef03fe629ba34da0c4bbecb5c4cb2",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1340,7 +1340,7 @@
       "schema_path": ["receivers"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["receivers kind"],
           "anchor": "schema-receivers--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:alert_policy:properties:receivers",
@@ -1354,7 +1354,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["receivers name"],
           "anchor": "schema-receivers--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:receivers",
@@ -1368,7 +1368,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["receivers namespace"],
           "anchor": "schema-receivers--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:receivers",
@@ -1382,7 +1382,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["receivers tenant"],
           "anchor": "schema-receivers--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:receivers",
@@ -1396,7 +1396,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["receivers uid"],
           "anchor": "schema-receivers--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:receivers",
@@ -1411,20 +1411,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/receivers/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of Alert Receivers where the alerts will be sent.",
       "tasks": ["configuration"],
       "title": "receivers",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["routes"],
       "body_bytes": 13768,
-      "body_sha256": "sha256:f4a5a588645af0ee97251476bd6e1325c2662d1123300a016c12c30d83c06bb6",
+      "body_sha256": "sha256:911c7c86371dfc3618067d2ad46c096573a599b72f1a7fcb28d716304bdc2465",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -1437,7 +1437,7 @@
         "xcsh-docs:resources:alert_policy:properties:routes:severity"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1716,7 +1716,7 @@
       "schema_path": ["routes"],
       "sections": [
         {
-          "aliases": ["alertname"],
+          "aliases": ["routes alertname"],
           "anchor": "schema-routes--alertname",
           "description": "List of Alert Names Customer tunnel interface down Physical Interface down Tunnel Interfaces to Customer Site Down Virtual Host server error Virtual Host client error Service Health Low Service Unavailable Virtual Host server error Virtual Host client error Endpoint Healthcheck failure Synthetic monitor health",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes",
@@ -1730,7 +1730,7 @@
           "type": "string"
         },
         {
-          "aliases": ["alertname regex"],
+          "aliases": ["routes alertname regex"],
           "anchor": "schema-routes--alertname_regex",
           "description": "Exclusive with Regular Expression match for the alertname.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes",
@@ -1744,7 +1744,7 @@
           "type": "string"
         },
         {
-          "aliases": ["any"],
+          "aliases": ["routes any"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:any",
@@ -1758,7 +1758,7 @@
           "type": "object"
         },
         {
-          "aliases": ["custom"],
+          "aliases": ["routes custom"],
           "anchor": "section",
           "description": "A set of matchers an alert has to fulfill to match the route.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:custom",
@@ -1772,7 +1772,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dont send"],
+          "aliases": ["routes dont send"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:dont_send",
@@ -1786,7 +1786,7 @@
           "type": "object"
         },
         {
-          "aliases": ["group"],
+          "aliases": ["routes group"],
           "anchor": "section",
           "description": "Select one or more known group names to match the incoming alert.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:group",
@@ -1800,7 +1800,7 @@
           "type": "object"
         },
         {
-          "aliases": ["notification parameters"],
+          "aliases": ["routes notification parameters"],
           "anchor": "section",
           "description": "Set of notification parameters to decide how and when the alert notifications should be sent to the receivers.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters",
@@ -1911,7 +1911,7 @@
           "type": "object"
         },
         {
-          "aliases": ["send"],
+          "aliases": ["routes send"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:send",
@@ -1925,7 +1925,7 @@
           "type": "object"
         },
         {
-          "aliases": ["severity"],
+          "aliases": ["routes severity"],
           "anchor": "section",
           "description": "Select one or more severity levels to match the incoming alert.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:severity",
@@ -1940,14 +1940,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Set of routes to match the incoming alert. The routes are evaluated in the specified order and terminates on the first match.",
       "tasks": ["configuration"],
       "title": "routes",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1958,7 +1958,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1980,14 +1980,14 @@
       "schema_path": ["routes", "any"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/any/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.any",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2003,7 +2003,7 @@
         "xcsh-docs:resources:alert_policy:properties:routes:custom:severity"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2025,7 +2025,7 @@
       "schema_path": ["routes", "custom"],
       "sections": [
         {
-          "aliases": ["alertlabel"],
+          "aliases": ["routes custom alertlabel"],
           "anchor": "section",
           "description": "AlertLabel to configure the alert policy rule.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:alertlabel",
@@ -2039,7 +2039,7 @@
           "type": "object"
         },
         {
-          "aliases": ["alertname"],
+          "aliases": ["routes custom alertname"],
           "anchor": "section",
           "description": "Label Matcher.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:alertname",
@@ -2070,7 +2070,7 @@
           "type": "object"
         },
         {
-          "aliases": ["group"],
+          "aliases": ["routes custom group"],
           "anchor": "section",
           "description": "Label Matcher.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:group",
@@ -2101,7 +2101,7 @@
           "type": "object"
         },
         {
-          "aliases": ["severity"],
+          "aliases": ["routes custom severity"],
           "anchor": "section",
           "description": "Label Matcher.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:severity",
@@ -2133,25 +2133,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/custom/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A set of matchers an alert has to fulfill to match the route.",
       "tasks": ["configuration"],
       "title": "routes.custom",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["routes custom alertlabel"],
-      "body_bytes": 1843,
-      "body_sha256": "sha256:b6ae8479064ffbf4ab9addd338248c561adb08728e76a164ecbeb332d71a22a3",
+      "body_bytes": 2084,
+      "body_sha256": "sha256:d299a08a235a281231932a85db98ff33ea9e6e464cb61176f2490fcc13735cdf",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2173,25 +2173,25 @@
       "schema_path": ["routes", "custom", "alertlabel"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/custom/alertlabel/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "AlertLabel to configure the alert policy rule.",
       "tasks": ["configuration"],
       "title": "routes.custom.alertlabel",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["routes custom alertname"],
       "body_bytes": 2890,
-      "body_sha256": "sha256:513d4fd648ecabcc40418b58401287170092e8408178816d7870ad5af5c0f4d5",
+      "body_sha256": "sha256:597c09e81225a30a969a4d2d1a98d13ea5922ad60e5876648406f2d98cef0238",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2230,7 +2230,7 @@
       "schema_path": ["routes", "custom", "alertname"],
       "sections": [
         {
-          "aliases": ["exact match"],
+          "aliases": ["routes custom alertname exact match"],
           "anchor": "schema-routes--custom--alertname--exact_match",
           "description": "Exclusive with Equality match value for the label.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:alertname",
@@ -2244,7 +2244,7 @@
           "type": "string"
         },
         {
-          "aliases": ["regex match"],
+          "aliases": ["routes custom alertname regex match"],
           "anchor": "schema-routes--custom--alertname--regex_match",
           "description": "Exclusive with Regular expression match value for the label.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:alertname",
@@ -2259,25 +2259,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/custom/alertname/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Label Matcher.",
       "tasks": ["configuration"],
       "title": "routes.custom.alertname",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["routes custom group"],
       "body_bytes": 2870,
-      "body_sha256": "sha256:78b053170d108f5aea898e30fc203846f09d8e287415b01d3e77d5b70b2507f4",
+      "body_sha256": "sha256:bcc270b38ea6e6da3e061a36de697a2596193838522604ad8e42e1a1b86e0a70",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2316,7 +2316,7 @@
       "schema_path": ["routes", "custom", "group"],
       "sections": [
         {
-          "aliases": ["exact match"],
+          "aliases": ["routes custom group exact match"],
           "anchor": "schema-routes--custom--group--exact_match",
           "description": "Exclusive with Equality match value for the label.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:group",
@@ -2330,7 +2330,7 @@
           "type": "string"
         },
         {
-          "aliases": ["regex match"],
+          "aliases": ["routes custom group regex match"],
           "anchor": "schema-routes--custom--group--regex_match",
           "description": "Exclusive with Regular expression match value for the label.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:group",
@@ -2345,25 +2345,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/custom/group/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Label Matcher.",
       "tasks": ["configuration"],
       "title": "routes.custom.group",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["routes custom severity"],
       "body_bytes": 2885,
-      "body_sha256": "sha256:376216c70c68ebca48770d9409783f34ce7e357449aca150349468b27eebf1f8",
+      "body_sha256": "sha256:1ded53edec7a500cbb8214e6f9b7ea0c6b5179127e1628fa808b01a41ceb3463",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2402,7 +2402,7 @@
       "schema_path": ["routes", "custom", "severity"],
       "sections": [
         {
-          "aliases": ["exact match"],
+          "aliases": ["routes custom severity exact match"],
           "anchor": "schema-routes--custom--severity--exact_match",
           "description": "Exclusive with Equality match value for the label.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:severity",
@@ -2416,7 +2416,7 @@
           "type": "string"
         },
         {
-          "aliases": ["regex match"],
+          "aliases": ["routes custom severity regex match"],
           "anchor": "schema-routes--custom--severity--regex_match",
           "description": "Exclusive with Regular expression match value for the label.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:severity",
@@ -2431,14 +2431,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/custom/severity/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Label Matcher.",
       "tasks": ["configuration"],
       "title": "routes.custom.severity",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2449,7 +2449,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2471,14 +2471,14 @@
       "schema_path": ["routes", "dont_send"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/dont_send/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.dont_send",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2489,7 +2489,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2511,7 +2511,7 @@
       "schema_path": ["routes", "group"],
       "sections": [
         {
-          "aliases": ["groups"],
+          "aliases": ["routes group groups"],
           "anchor": "schema-routes--group--groups",
           "description": "Name of groups to match the alert.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:group",
@@ -2526,20 +2526,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/group/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Select one or more known group names to match the incoming alert.",
       "tasks": ["configuration"],
       "title": "routes.group",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["routes notification parameters"],
       "body_bytes": 7838,
-      "body_sha256": "sha256:e6a3a0e55872d5ed15a77cbec123549d288088c33c63c81dbe1d903bd7daba69",
+      "body_sha256": "sha256:13eae6c72cdaf3f79b0a7a335b218ed2ac3ef0489204b506523ba23c21bcdbd5",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -2549,7 +2549,7 @@
         "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:ves_io_group"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2668,7 +2668,7 @@
       "schema_path": ["routes", "notification_parameters"],
       "sections": [
         {
-          "aliases": ["custom"],
+          "aliases": ["routes notification parameters custom"],
           "anchor": "section",
           "description": "Specify list of custom labels to group/aggregate the alerts.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:custom",
@@ -2682,7 +2682,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default"],
+          "aliases": ["routes notification parameters default"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:default",
@@ -2696,7 +2696,7 @@
           "type": "object"
         },
         {
-          "aliases": ["group interval"],
+          "aliases": ["routes notification parameters group interval"],
           "anchor": "schema-routes--notification_parameters--group_interval",
           "description": "Group Interval is used to specify how long to wait before sending a notification about new alerts that are added to the group for which an initial notification has already been sent. Format: , where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval defaults to \"1m\"",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters",
@@ -2710,7 +2710,7 @@
           "type": "string"
         },
         {
-          "aliases": ["group wait"],
+          "aliases": ["routes notification parameters group wait"],
           "anchor": "schema-routes--notification_parameters--group_wait",
           "description": "Time value used to specify how long to initially wait for an inhibiting alert to arrive or collect more alerts for the same group. Format: , where s - seconds, m - minutes, h - hours, d - days If not specified, group_wait defaults to \"30s\"",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters",
@@ -2724,7 +2724,7 @@
           "type": "string"
         },
         {
-          "aliases": ["individual"],
+          "aliases": ["routes notification parameters individual"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:individual",
@@ -2738,7 +2738,7 @@
           "type": "object"
         },
         {
-          "aliases": ["repeat interval", "succeeded", "success", "successful"],
+          "aliases": ["routes notification parameters repeat interval", "succeeded", "success", "successful"],
           "anchor": "schema-routes--notification_parameters--repeat_interval",
           "description": "Repeat Interval is used to specify how long to wait before sending a notification again if it has already been sent successfully. Format: , where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval defaults to \"4h\"",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters",
@@ -2752,7 +2752,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ves io group"],
+          "aliases": ["routes notification parameters ves io group"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:ves_io_group",
@@ -2767,25 +2767,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/notification_parameters/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Set of notification parameters to decide how and when the alert notifications should be sent to the receivers.",
       "tasks": ["configuration"],
       "title": "routes.notification_parameters",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["routes notification parameters custom"],
       "body_bytes": 2608,
-      "body_sha256": "sha256:da5d2d3ad2a92f2ad7519c0d4463dec55e8976f5c080c889388355ebc9599a94",
+      "body_sha256": "sha256:2b226d9a8c440ed6dbf373d8d6c568efb00f0f1b81a789daeae1fd2c821bc044",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2807,7 +2807,7 @@
       "schema_path": ["routes", "notification_parameters", "custom"],
       "sections": [
         {
-          "aliases": ["labels"],
+          "aliases": ["routes notification parameters custom labels"],
           "anchor": "schema-routes--notification_parameters--custom--labels",
           "description": "Name of labels to group/aggregate the alerts.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:custom",
@@ -2822,14 +2822,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/notification_parameters/custom/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Specify list of custom labels to group/aggregate the alerts.",
       "tasks": ["configuration"],
       "title": "routes.notification_parameters.custom",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2840,7 +2840,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2862,14 +2862,14 @@
       "schema_path": ["routes", "notification_parameters", "default"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/notification_parameters/default/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.notification_parameters.default",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2880,7 +2880,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2902,14 +2902,14 @@
       "schema_path": ["routes", "notification_parameters", "individual"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/notification_parameters/individual/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.notification_parameters.individual",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2920,7 +2920,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2942,14 +2942,14 @@
       "schema_path": ["routes", "notification_parameters", "ves_io_group"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/notification_parameters/ves_io_group/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.notification_parameters.ves_io_group",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2960,7 +2960,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2982,14 +2982,14 @@
       "schema_path": ["routes", "send"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/send/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.send",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3000,7 +3000,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3022,7 +3022,7 @@
       "schema_path": ["routes", "severity"],
       "sections": [
         {
-          "aliases": ["severities"],
+          "aliases": ["routes severity severities"],
           "anchor": "schema-routes--severity--severities",
           "description": "List of severity levels.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:routes:severity",
@@ -3037,25 +3037,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/severity/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Select one or more severity levels to match the incoming alert.",
       "tasks": ["configuration"],
       "title": "routes.severity",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2231,
       "body_sha256": "sha256:c2f34881f1caf103142fc40f5dbe9c191b9a7032f2dd30a43e747f053a017c17",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3077,9 +3077,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -3091,9 +3099,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -3105,9 +3122,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -3119,9 +3145,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:alert_policy:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -3134,14 +3169,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "timeouts for xcsh_alert_policy.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3152,7 +3187,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:alert_policy:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3174,14 +3209,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/examples/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Examples for xcsh_alert_policy.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3192,7 +3227,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3221,14 +3256,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Resource for xcsh_alert_policy.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3239,7 +3274,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3262,14 +3297,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Import for xcsh_alert_policy.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3280,7 +3315,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3302,14 +3337,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Timeouts for xcsh_alert_policy.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     }
   ],

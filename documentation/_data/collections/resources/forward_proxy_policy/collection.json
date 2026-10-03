@@ -577,7 +577,7 @@
         "xcsh-docs:resources:forward_proxy_policy:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -599,21 +599,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Manages a Forward Proxy Policy resource in F5 Distributed Cloud for forward proxy policy specification. configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_forward_proxy_policy",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["forward proxy policy"],
       "body_bytes": 34314,
-      "body_sha256": "sha256:792a07212f143406bfe6024f09091500147f18d26e70eb67311ca6ac606e4f07",
+      "body_sha256": "sha256:908c001aa24d9ac49b8ab3a3ab3acca67d503de5280aa9e70d6143944140278f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -628,7 +628,7 @@
         "xcsh-docs:resources:forward_proxy_policy:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -985,7 +985,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:timeouts",
@@ -1000,14 +1000,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Property reference for xcsh_forward_proxy_policy.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1018,7 +1018,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1040,14 +1040,14 @@
       "schema_path": ["allow_all"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/allow_all/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "allow_all",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1065,7 +1065,7 @@
         "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:tls_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1136,7 +1136,7 @@
       "schema_path": ["allow_list"],
       "sections": [
         {
-          "aliases": ["default action allow"],
+          "aliases": ["allow list default action allow"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:default_action_allow",
@@ -1150,7 +1150,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default action deny"],
+          "aliases": ["allow list default action deny"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:default_action_deny",
@@ -1164,7 +1164,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default action next policy"],
+          "aliases": ["allow list default action next policy"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:default_action_next_policy",
@@ -1178,7 +1178,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dest list"],
+          "aliases": ["allow list dest list"],
           "anchor": "section",
           "description": "L4 destinations for non-HTTP and non-TLS connections and TLS connections without SNI.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:dest_list",
@@ -1201,7 +1201,7 @@
           "type": "object"
         },
         {
-          "aliases": ["http list"],
+          "aliases": ["allow list http list"],
           "anchor": "section",
           "description": "URLs for HTTP connections.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
@@ -1360,7 +1360,7 @@
           "type": "object"
         },
         {
-          "aliases": ["tls list"],
+          "aliases": ["allow list tls list"],
           "anchor": "section",
           "description": "Domains in SNI for TLS connections.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:tls_list",
@@ -1424,14 +1424,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/allow_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "URL(s) and domains policy for forward proxy for a connection type (TLS or HTTP)",
       "tasks": ["configuration"],
       "title": "allow_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1442,7 +1442,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1464,14 +1464,14 @@
       "schema_path": ["allow_list", "default_action_allow"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/allow_list/default_action_allow/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "allow_list.default_action_allow",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1482,7 +1482,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1504,14 +1504,14 @@
       "schema_path": ["allow_list", "default_action_deny"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/allow_list/default_action_deny/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "allow_list.default_action_deny",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1522,7 +1522,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1544,25 +1544,25 @@
       "schema_path": ["allow_list", "default_action_next_policy"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/allow_list/default_action_next_policy/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "allow_list.default_action_next_policy",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["allow list dest list"],
       "body_bytes": 5961,
-      "body_sha256": "sha256:26ddcf03649a2e7382ce315e128d722b6364a44f35eab306c4b8748d88ed9faa",
+      "body_sha256": "sha256:11336f6b8a83c40bb5e3582648efa53b717a9bb129c9a497e591f203d78db2e3",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1593,7 +1593,7 @@
       "schema_path": ["allow_list", "dest_list"],
       "sections": [
         {
-          "aliases": ["ipv6 prefixes"],
+          "aliases": ["allow list dest list ipv6 prefixes"],
           "anchor": "schema-allow_list--dest_list--ipv6_prefixes",
           "description": "Destination IPv6 prefixes.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:dest_list",
@@ -1607,7 +1607,7 @@
           "type": "list"
         },
         {
-          "aliases": ["port ranges"],
+          "aliases": ["allow list dest list port ranges"],
           "anchor": "schema-allow_list--dest_list--port_ranges",
           "description": "A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by \"-\".",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:dest_list",
@@ -1621,7 +1621,7 @@
           "type": "string"
         },
         {
-          "aliases": ["prefixes"],
+          "aliases": ["allow list dest list prefixes"],
           "anchor": "schema-allow_list--dest_list--prefixes",
           "description": "Destination IPv4 prefixes.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:dest_list",
@@ -1636,25 +1636,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/allow_list/dest_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "L4 destinations for non-HTTP and non-TLS connections and TLS connections without SNI.",
       "tasks": ["configuration"],
       "title": "allow_list.dest_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["allow list http list"],
       "body_bytes": 11107,
-      "body_sha256": "sha256:f51ff4783994d3aeb74642bff75efe8803ccb2c1a248fb38f7f3b200f0fba85e",
+      "body_sha256": "sha256:8200ffee108360a5c63500a221768ccd0d9cf6e3219fafd244056da339db7965",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list:any_path"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1821,7 +1821,7 @@
       "schema_path": ["allow_list", "http_list"],
       "sections": [
         {
-          "aliases": ["any path"],
+          "aliases": ["allow list http list any path"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list:any_path",
@@ -1835,7 +1835,7 @@
           "type": "object"
         },
         {
-          "aliases": ["exact value"],
+          "aliases": ["allow list http list exact value"],
           "anchor": "schema-allow_list--http_list--exact_value",
           "description": "Exclusive with Exact domain name.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
@@ -1849,7 +1849,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path exact value"],
+          "aliases": ["allow list http list path exact value"],
           "anchor": "schema-allow_list--http_list--path_exact_value",
           "description": "Exclusive with Exact Path to match.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
@@ -1863,7 +1863,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path prefix value"],
+          "aliases": ["allow list http list path prefix value"],
           "anchor": "schema-allow_list--http_list--path_prefix_value",
           "description": "Exclusive with Prefix of Path e.g \"/abc/xyz\" will match \"/abc/xyz/.*\"",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
@@ -1877,7 +1877,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path regex value"],
+          "aliases": ["allow list http list path regex value"],
           "anchor": "schema-allow_list--http_list--path_regex_value",
           "description": "Exclusive with Regular Expression value for the Path to match.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
@@ -1891,7 +1891,7 @@
           "type": "string"
         },
         {
-          "aliases": ["regex value"],
+          "aliases": ["allow list http list regex value"],
           "anchor": "schema-allow_list--http_list--regex_value",
           "description": "Exclusive with Regular Expression value for the domain name.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
@@ -1905,7 +1905,7 @@
           "type": "string"
         },
         {
-          "aliases": ["suffix value"],
+          "aliases": ["allow list http list suffix value"],
           "anchor": "schema-allow_list--http_list--suffix_value",
           "description": "Exclusive with Suffix of domain names e.g \"xyz.com\" will match \"*.xyz.com\"",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
@@ -1920,14 +1920,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/allow_list/http_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "URLs for HTTP connections.",
       "tasks": ["configuration"],
       "title": "allow_list.http_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1938,7 +1938,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1960,25 +1960,25 @@
       "schema_path": ["allow_list", "http_list", "any_path"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/allow_list/http_list/any_path/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "allow_list.http_list.any_path",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["allow list tls list"],
       "body_bytes": 6187,
-      "body_sha256": "sha256:c4e1932ebbbc867b5dad977f61ca16c0e1f6161f3e456d7e8368c150cc039195",
+      "body_sha256": "sha256:7de8c266334770685b08bafc1ec4ae68302f0fcf56f8c181b42cd3fae8126335",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2049,7 +2049,7 @@
       "schema_path": ["allow_list", "tls_list"],
       "sections": [
         {
-          "aliases": ["exact value"],
+          "aliases": ["allow list tls list exact value"],
           "anchor": "schema-allow_list--tls_list--exact_value",
           "description": "Exclusive with Exact domain name.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:tls_list",
@@ -2063,7 +2063,7 @@
           "type": "string"
         },
         {
-          "aliases": ["regex value"],
+          "aliases": ["allow list tls list regex value"],
           "anchor": "schema-allow_list--tls_list--regex_value",
           "description": "Exclusive with Regular Expression value for the domain name.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:tls_list",
@@ -2077,7 +2077,7 @@
           "type": "string"
         },
         {
-          "aliases": ["suffix value"],
+          "aliases": ["allow list tls list suffix value"],
           "anchor": "schema-allow_list--tls_list--suffix_value",
           "description": "Exclusive with Suffix of domain name e.g \"xyz.com\" will match \"*.xyz.com\" and \"xyz.com\"",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:tls_list",
@@ -2092,14 +2092,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/allow_list/tls_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Domains in SNI for TLS connections.",
       "tasks": ["configuration"],
       "title": "allow_list.tls_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2110,7 +2110,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2132,14 +2132,14 @@
       "schema_path": ["any_proxy"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/any_proxy/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "any_proxy",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2157,7 +2157,7 @@
         "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:tls_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2228,7 +2228,7 @@
       "schema_path": ["deny_list"],
       "sections": [
         {
-          "aliases": ["default action allow"],
+          "aliases": ["deny list default action allow"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:default_action_allow",
@@ -2242,7 +2242,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default action deny"],
+          "aliases": ["deny list default action deny"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:default_action_deny",
@@ -2256,7 +2256,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default action next policy"],
+          "aliases": ["deny list default action next policy"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:default_action_next_policy",
@@ -2270,7 +2270,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dest list"],
+          "aliases": ["deny list dest list"],
           "anchor": "section",
           "description": "L4 destinations for non-HTTP and non-TLS connections and TLS connections without SNI.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:dest_list",
@@ -2293,7 +2293,7 @@
           "type": "object"
         },
         {
-          "aliases": ["http list"],
+          "aliases": ["deny list http list"],
           "anchor": "section",
           "description": "URLs for HTTP connections.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
@@ -2452,7 +2452,7 @@
           "type": "object"
         },
         {
-          "aliases": ["tls list"],
+          "aliases": ["deny list tls list"],
           "anchor": "section",
           "description": "Domains in SNI for TLS connections.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:tls_list",
@@ -2516,14 +2516,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/deny_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "URL(s) and domains policy for forward proxy for a connection type (TLS or HTTP)",
       "tasks": ["configuration"],
       "title": "deny_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2534,7 +2534,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2556,14 +2556,14 @@
       "schema_path": ["deny_list", "default_action_allow"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/deny_list/default_action_allow/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "deny_list.default_action_allow",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2574,7 +2574,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2596,14 +2596,14 @@
       "schema_path": ["deny_list", "default_action_deny"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/deny_list/default_action_deny/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "deny_list.default_action_deny",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2614,7 +2614,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2636,25 +2636,25 @@
       "schema_path": ["deny_list", "default_action_next_policy"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/deny_list/default_action_next_policy/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "deny_list.default_action_next_policy",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["deny list dest list"],
       "body_bytes": 5952,
-      "body_sha256": "sha256:a9f475157c8b750ee5684b7dc6b9d4a04831398be4290a8c33bc0b5e0476479a",
+      "body_sha256": "sha256:fcb64203b8db2420e17b2d026d10d1c9976a8785ce63a968604aeb162f3735c3",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2685,7 +2685,7 @@
       "schema_path": ["deny_list", "dest_list"],
       "sections": [
         {
-          "aliases": ["ipv6 prefixes"],
+          "aliases": ["deny list dest list ipv6 prefixes"],
           "anchor": "schema-deny_list--dest_list--ipv6_prefixes",
           "description": "Destination IPv6 prefixes.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:dest_list",
@@ -2699,7 +2699,7 @@
           "type": "list"
         },
         {
-          "aliases": ["port ranges"],
+          "aliases": ["deny list dest list port ranges"],
           "anchor": "schema-deny_list--dest_list--port_ranges",
           "description": "A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by \"-\".",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:dest_list",
@@ -2713,7 +2713,7 @@
           "type": "string"
         },
         {
-          "aliases": ["prefixes"],
+          "aliases": ["deny list dest list prefixes"],
           "anchor": "schema-deny_list--dest_list--prefixes",
           "description": "Destination IPv4 prefixes.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:dest_list",
@@ -2728,25 +2728,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/deny_list/dest_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "L4 destinations for non-HTTP and non-TLS connections and TLS connections without SNI.",
       "tasks": ["configuration"],
       "title": "deny_list.dest_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["deny list http list"],
       "body_bytes": 11092,
-      "body_sha256": "sha256:861bb80a8aa23ef7688a5d4e8858625b90ed23036a61634e370092688613b3fd",
+      "body_sha256": "sha256:bf5e952a427cacffcd013bee1e52fae620600d1411eeeaf259a2e426caa72f5d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list:any_path"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2913,7 +2913,7 @@
       "schema_path": ["deny_list", "http_list"],
       "sections": [
         {
-          "aliases": ["any path"],
+          "aliases": ["deny list http list any path"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list:any_path",
@@ -2927,7 +2927,7 @@
           "type": "object"
         },
         {
-          "aliases": ["exact value"],
+          "aliases": ["deny list http list exact value"],
           "anchor": "schema-deny_list--http_list--exact_value",
           "description": "Exclusive with Exact domain name.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
@@ -2941,7 +2941,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path exact value"],
+          "aliases": ["deny list http list path exact value"],
           "anchor": "schema-deny_list--http_list--path_exact_value",
           "description": "Exclusive with Exact Path to match.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
@@ -2955,7 +2955,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path prefix value"],
+          "aliases": ["deny list http list path prefix value"],
           "anchor": "schema-deny_list--http_list--path_prefix_value",
           "description": "Exclusive with Prefix of Path e.g \"/abc/xyz\" will match \"/abc/xyz/.*\"",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
@@ -2969,7 +2969,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path regex value"],
+          "aliases": ["deny list http list path regex value"],
           "anchor": "schema-deny_list--http_list--path_regex_value",
           "description": "Exclusive with Regular Expression value for the Path to match.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
@@ -2983,7 +2983,7 @@
           "type": "string"
         },
         {
-          "aliases": ["regex value"],
+          "aliases": ["deny list http list regex value"],
           "anchor": "schema-deny_list--http_list--regex_value",
           "description": "Exclusive with Regular Expression value for the domain name.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
@@ -2997,7 +2997,7 @@
           "type": "string"
         },
         {
-          "aliases": ["suffix value"],
+          "aliases": ["deny list http list suffix value"],
           "anchor": "schema-deny_list--http_list--suffix_value",
           "description": "Exclusive with Suffix of domain names e.g \"xyz.com\" will match \"*.xyz.com\"",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
@@ -3012,14 +3012,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/deny_list/http_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "URLs for HTTP connections.",
       "tasks": ["configuration"],
       "title": "deny_list.http_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3030,7 +3030,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3052,25 +3052,25 @@
       "schema_path": ["deny_list", "http_list", "any_path"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/deny_list/http_list/any_path/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "deny_list.http_list.any_path",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["deny list tls list"],
       "body_bytes": 6178,
-      "body_sha256": "sha256:0026e9bd40169d1d7ed34391a8242620e081a973f0b4dce066978b2d59e4e025",
+      "body_sha256": "sha256:cd0d60a4758364b6603ecc11b1d98f5963be2a527d27001926dcf1455835fe12",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3141,7 +3141,7 @@
       "schema_path": ["deny_list", "tls_list"],
       "sections": [
         {
-          "aliases": ["exact value"],
+          "aliases": ["deny list tls list exact value"],
           "anchor": "schema-deny_list--tls_list--exact_value",
           "description": "Exclusive with Exact domain name.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:tls_list",
@@ -3155,7 +3155,7 @@
           "type": "string"
         },
         {
-          "aliases": ["regex value"],
+          "aliases": ["deny list tls list regex value"],
           "anchor": "schema-deny_list--tls_list--regex_value",
           "description": "Exclusive with Regular Expression value for the domain name.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:tls_list",
@@ -3169,7 +3169,7 @@
           "type": "string"
         },
         {
-          "aliases": ["suffix value"],
+          "aliases": ["deny list tls list suffix value"],
           "anchor": "schema-deny_list--tls_list--suffix_value",
           "description": "Exclusive with Suffix of domain name e.g \"xyz.com\" will match \"*.xyz.com\" and \"xyz.com\"",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:tls_list",
@@ -3184,14 +3184,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/deny_list/tls_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Domains in SNI for TLS connections.",
       "tasks": ["configuration"],
       "title": "deny_list.tls_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3202,7 +3202,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3224,25 +3224,25 @@
       "schema_path": ["drp_http_connect"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/drp_http_connect/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "drp_http_connect",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["network connector"],
       "body_bytes": 5907,
-      "body_sha256": "sha256:8733d5eff562612a5c7ed7dae4b37f2bd68a05dbd6956061eac36b11edd2cbf9",
+      "body_sha256": "sha256:ed62f0c69615e176162b38e77659051353f05248f235e242f5a2909d1cb40102",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3273,7 +3273,7 @@
       "schema_path": ["network_connector"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["network connector name"],
           "anchor": "schema-network_connector--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:network_connector",
@@ -3287,7 +3287,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["network connector namespace"],
           "anchor": "schema-network_connector--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:network_connector",
@@ -3301,7 +3301,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["network connector tenant"],
           "anchor": "schema-network_connector--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:network_connector",
@@ -3316,25 +3316,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/network_connector/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "network_connector",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["proxy label selector"],
       "body_bytes": 4039,
-      "body_sha256": "sha256:f87bf243055952eaee200b7d250ea6fbd86692bbd50a9dece77a61ec9c82db23",
+      "body_sha256": "sha256:48c0416c5a1721a97d8520d495a3ab68983eb6857141f9696a7f460a4484fd2f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3365,7 +3365,7 @@
       "schema_path": ["proxy_label_selector"],
       "sections": [
         {
-          "aliases": ["expressions"],
+          "aliases": ["proxy label selector expressions"],
           "anchor": "schema-proxy_label_selector--expressions",
           "description": "Expressions contains the Kubernetes style label expression for selections.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:proxy_label_selector",
@@ -3380,14 +3380,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/proxy_label_selector/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "proxy_label_selector",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3398,7 +3398,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3429,7 +3429,7 @@
       "schema_path": ["rule_list"],
       "sections": [
         {
-          "aliases": ["rules"],
+          "aliases": ["rule list rules"],
           "anchor": "section",
           "description": "List of custom rules.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules",
@@ -4133,20 +4133,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of custom rules.",
       "tasks": ["configuration"],
       "title": "rule_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rule list rules"],
       "body_bytes": 13810,
-      "body_sha256": "sha256:fc3008cd5b32376c8374073abdf600b63449cd18a525baf89ed53926889c9c08",
+      "body_sha256": "sha256:651f7ee3e030bad3c6fe8a4d536c672c46cd96ff611af4edf3feb7c5e5ad1459",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -4168,7 +4168,7 @@
         "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:url_category_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4879,7 +4879,7 @@
       "schema_path": ["rule_list", "rules"],
       "sections": [
         {
-          "aliases": ["action"],
+          "aliases": ["rule list rules action"],
           "anchor": "schema-rule_list--rules--action",
           "description": "The rule action determines the disposition of the input request API. If a policy matches a rule with an ALLOW action, the processing of the request proceeds forward. If it matches a rule with a DENY action, the processing of the request is terminated and an appropriate message/code returned to the originator. If it",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules",
@@ -4893,7 +4893,7 @@
           "type": "string"
         },
         {
-          "aliases": ["all destinations"],
+          "aliases": ["rule list rules all destinations"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_destinations",
@@ -4907,7 +4907,7 @@
           "type": "object"
         },
         {
-          "aliases": ["all sources"],
+          "aliases": ["rule list rules all sources"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_sources",
@@ -4921,7 +4921,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dst asn list"],
+          "aliases": ["rule list rules dst asn list"],
           "anchor": "section",
           "description": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
@@ -4944,7 +4944,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dst asn set"],
+          "aliases": ["rule list rules dst asn set"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
@@ -4967,7 +4967,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dst ip prefix set"],
+          "aliases": ["rule list rules dst ip prefix set"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
@@ -4990,7 +4990,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dst label selector"],
+          "aliases": ["rule list rules dst label selector"],
           "anchor": "section",
           "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
@@ -5013,7 +5013,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dst prefix list"],
+          "aliases": ["rule list rules dst prefix list"],
           "anchor": "section",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
@@ -5027,7 +5027,7 @@
           "type": "object"
         },
         {
-          "aliases": ["http list"],
+          "aliases": ["rule list rules http list"],
           "anchor": "section",
           "description": "URLListType.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list",
@@ -5041,7 +5041,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip prefix set"],
+          "aliases": ["rule list rules ip prefix set"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:ip_prefix_set",
@@ -5064,7 +5064,7 @@
           "type": "object"
         },
         {
-          "aliases": ["label selector"],
+          "aliases": ["rule list rules label selector"],
           "anchor": "section",
           "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:label_selector",
@@ -5087,7 +5087,7 @@
           "type": "object"
         },
         {
-          "aliases": ["metadata"],
+          "aliases": ["rule list rules metadata"],
           "anchor": "section",
           "description": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:metadata",
@@ -5110,7 +5110,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no http connect port"],
+          "aliases": ["rule list rules no http connect port"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:no_http_connect_port",
@@ -5124,7 +5124,7 @@
           "type": "object"
         },
         {
-          "aliases": ["port matcher", "succeeded", "success", "successful"],
+          "aliases": ["rule list rules port matcher", "succeeded", "success", "successful"],
           "anchor": "section",
           "description": "A port matcher specifies a list of port ranges as match criteria. The match is considered successful if the input port falls within any of the port ranges. The result of the match is inverted if invert_matcher is true.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:port_matcher",
@@ -5147,7 +5147,7 @@
           "type": "object"
         },
         {
-          "aliases": ["prefix list"],
+          "aliases": ["rule list rules prefix list"],
           "anchor": "section",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:prefix_list",
@@ -5161,7 +5161,7 @@
           "type": "object"
         },
         {
-          "aliases": ["tls list"],
+          "aliases": ["rule list rules tls list"],
           "anchor": "section",
           "description": "DomainListType.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list",
@@ -5175,7 +5175,7 @@
           "type": "object"
         },
         {
-          "aliases": ["url category list"],
+          "aliases": ["rule list rules url category list"],
           "anchor": "section",
           "description": "List of URL categories.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
@@ -5199,14 +5199,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/rules/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of custom rules.",
       "tasks": ["configuration"],
       "title": "rule_list.rules",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -5217,7 +5217,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5239,14 +5239,14 @@
       "schema_path": ["rule_list", "rules", "all_destinations"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/rules/all_destinations/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.all_destinations",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -5257,7 +5257,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5279,25 +5279,25 @@
       "schema_path": ["rule_list", "rules", "all_sources"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/rules/all_sources/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.all_sources",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rule list rules dst asn list"],
       "body_bytes": 3628,
-      "body_sha256": "sha256:74d2b230b672cb3e45024188241e4d69dfe44897e6852d57ca09eb45dc7461ae",
+      "body_sha256": "sha256:a056bf7befd76562943c0d7b46f98ce1346ebe59fabbbc23cd939a5a89f982ed",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5328,7 +5328,7 @@
       "schema_path": ["rule_list", "rules", "dst_asn_list"],
       "sections": [
         {
-          "aliases": ["as numbers"],
+          "aliases": ["rule list rules dst asn list as numbers"],
           "anchor": "schema-rule_list--rules--dst_asn_list--as_numbers",
           "description": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
@@ -5343,25 +5343,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/rules/dst_asn_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.dst_asn_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rule list rules dst asn set"],
       "body_bytes": 6230,
-      "body_sha256": "sha256:7848d05fb88b82706a078b165c1f286714a020db33a5dc372b1d80031ff1f526",
+      "body_sha256": "sha256:a298be8e694ed687ae973fdd7b426a4034b2e0833ed33c3ce7d72165c44f8469",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5392,7 +5392,7 @@
       "schema_path": ["rule_list", "rules", "dst_asn_set"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["rule list rules dst asn set name"],
           "anchor": "schema-rule_list--rules--dst_asn_set--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
@@ -5406,7 +5406,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rule list rules dst asn set namespace"],
           "anchor": "schema-rule_list--rules--dst_asn_set--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
@@ -5420,7 +5420,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rule list rules dst asn set tenant"],
           "anchor": "schema-rule_list--rules--dst_asn_set--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
@@ -5435,25 +5435,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/rules/dst_asn_set/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.dst_asn_set",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rule list rules dst ip prefix set"],
       "body_bytes": 6266,
-      "body_sha256": "sha256:fb62f5eb098d25f036939d2bd5313b014a57400710e60d5c82130f1309dce4d2",
+      "body_sha256": "sha256:a4123c407b0eb3104d7e149bf083ca099a9dc19a5f23507c74c1531855132028",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5484,7 +5484,7 @@
       "schema_path": ["rule_list", "rules", "dst_ip_prefix_set"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["rule list rules dst ip prefix set name"],
           "anchor": "schema-rule_list--rules--dst_ip_prefix_set--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
@@ -5498,7 +5498,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rule list rules dst ip prefix set namespace"],
           "anchor": "schema-rule_list--rules--dst_ip_prefix_set--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
@@ -5512,7 +5512,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rule list rules dst ip prefix set tenant"],
           "anchor": "schema-rule_list--rules--dst_ip_prefix_set--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
@@ -5527,25 +5527,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/rules/dst_ip_prefix_set/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.dst_ip_prefix_set",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rule list rules dst label selector"],
       "body_bytes": 4354,
-      "body_sha256": "sha256:f7c8e2a3215b72fdd342679de7fb27f32c911111dfe21259439847a4550417bc",
+      "body_sha256": "sha256:fe7630a3016677886a3de168b32bf3c8cb52a029d6cf4c35e509c22b776aa1c6",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5576,7 +5576,7 @@
       "schema_path": ["rule_list", "rules", "dst_label_selector"],
       "sections": [
         {
-          "aliases": ["expressions"],
+          "aliases": ["rule list rules dst label selector expressions"],
           "anchor": "schema-rule_list--rules--dst_label_selector--expressions",
           "description": "Expressions contains the Kubernetes style label expression for selections.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
@@ -5591,25 +5591,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/rules/dst_label_selector/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.dst_label_selector",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rule list rules dst prefix list"],
       "body_bytes": 2584,
-      "body_sha256": "sha256:6b440df4a220fdb2a626add83745fffc792ea3f6c20da96555b24a2e9a313bac",
+      "body_sha256": "sha256:b22b33c4ccabcd048a4c05ad25b8c5afa18786ceef4f530172db8b78908fed54",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5631,7 +5631,7 @@
       "schema_path": ["rule_list", "rules", "dst_prefix_list"],
       "sections": [
         {
-          "aliases": ["prefixes"],
+          "aliases": ["rule list rules dst prefix list prefixes"],
           "anchor": "schema-rule_list--rules--dst_prefix_list--prefixes",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
@@ -5646,14 +5646,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/rules/dst_prefix_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of IPv4 prefixes that represent an endpoint.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.dst_prefix_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -5664,7 +5664,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5686,7 +5686,7 @@
       "schema_path": ["rule_list", "rules", "http_list"],
       "sections": [
         {
-          "aliases": ["http list"],
+          "aliases": ["rule list rules http list http list"],
           "anchor": "section",
           "description": "URLs for HTTP connections.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
@@ -5846,25 +5846,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/rules/http_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "URLListType.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.http_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rule list rules http list http list"],
       "body_bytes": 11604,
-      "body_sha256": "sha256:203b4a334b7a69f0b45713c1e11d093aa0f892288ec047f2ed8eca083d809f1f",
+      "body_sha256": "sha256:a99f4fa8e51f454a54c0d6a1f2760e03f20a806072c1c1398ff1308467728207",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list:any_path"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6031,7 +6031,7 @@
       "schema_path": ["rule_list", "rules", "http_list", "http_list"],
       "sections": [
         {
-          "aliases": ["any path"],
+          "aliases": ["rule list rules http list http list any path"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list:any_path",
@@ -6045,7 +6045,7 @@
           "type": "object"
         },
         {
-          "aliases": ["exact value"],
+          "aliases": ["rule list rules http list http list exact value"],
           "anchor": "schema-rule_list--rules--http_list--http_list--exact_value",
           "description": "Exclusive with Exact domain name.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
@@ -6059,7 +6059,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path exact value"],
+          "aliases": ["rule list rules http list http list path exact value"],
           "anchor": "schema-rule_list--rules--http_list--http_list--path_exact_value",
           "description": "Exclusive with Exact Path to match.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
@@ -6073,7 +6073,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path prefix value"],
+          "aliases": ["rule list rules http list http list path prefix value"],
           "anchor": "schema-rule_list--rules--http_list--http_list--path_prefix_value",
           "description": "Exclusive with Prefix of Path e.g \"/abc/xyz\" will match \"/abc/xyz/.*\"",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
@@ -6087,7 +6087,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path regex value"],
+          "aliases": ["rule list rules http list http list path regex value"],
           "anchor": "schema-rule_list--rules--http_list--http_list--path_regex_value",
           "description": "Exclusive with Regular Expression value for the Path to match.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
@@ -6101,7 +6101,7 @@
           "type": "string"
         },
         {
-          "aliases": ["regex value"],
+          "aliases": ["rule list rules http list http list regex value"],
           "anchor": "schema-rule_list--rules--http_list--http_list--regex_value",
           "description": "Exclusive with Regular Expression value for the domain name.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
@@ -6115,7 +6115,7 @@
           "type": "string"
         },
         {
-          "aliases": ["suffix value"],
+          "aliases": ["rule list rules http list http list suffix value"],
           "anchor": "schema-rule_list--rules--http_list--http_list--suffix_value",
           "description": "Exclusive with Suffix of domain names e.g \"xyz.com\" will match \"*.xyz.com\"",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
@@ -6130,14 +6130,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/rules/http_list/http_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "URLs for HTTP connections.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.http_list.http_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -6148,7 +6148,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6170,25 +6170,25 @@
       "schema_path": ["rule_list", "rules", "http_list", "http_list", "any_path"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/rules/http_list/http_list/any_path/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.http_list.http_list.any_path",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rule list rules ip prefix set"],
       "body_bytes": 6242,
-      "body_sha256": "sha256:6b46487ea3c361e96f559f5eb7e2077ec0f75d4adcf37d4751a4120f894b068a",
+      "body_sha256": "sha256:a1326c938b4ae13d95aeb4ccc0ff1737bbda507dac4e0d7148063ee701080582",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6219,7 +6219,7 @@
       "schema_path": ["rule_list", "rules", "ip_prefix_set"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["rule list rules ip prefix set name"],
           "anchor": "schema-rule_list--rules--ip_prefix_set--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:ip_prefix_set",
@@ -6233,7 +6233,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rule list rules ip prefix set namespace"],
           "anchor": "schema-rule_list--rules--ip_prefix_set--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:ip_prefix_set",
@@ -6247,7 +6247,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rule list rules ip prefix set tenant"],
           "anchor": "schema-rule_list--rules--ip_prefix_set--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:ip_prefix_set",
@@ -6262,25 +6262,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/rules/ip_prefix_set/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.ip_prefix_set",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rule list rules label selector"],
       "body_bytes": 4338,
-      "body_sha256": "sha256:7fc83b256ae976cf7d6aff1c15ca1d797e69c96f6f9994e22f4f7a62c2052390",
+      "body_sha256": "sha256:3ef92f84d3c3ddea9edddb3c048e0e411e2800afb7cd4624c6b3a0970bf14178",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6311,7 +6311,7 @@
       "schema_path": ["rule_list", "rules", "label_selector"],
       "sections": [
         {
-          "aliases": ["expressions"],
+          "aliases": ["rule list rules label selector expressions"],
           "anchor": "schema-rule_list--rules--label_selector--expressions",
           "description": "Expressions contains the Kubernetes style label expression for selections.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:label_selector",
@@ -6326,25 +6326,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/rules/label_selector/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.label_selector",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rule list rules metadata"],
       "body_bytes": 4215,
-      "body_sha256": "sha256:f9e6b2d381866af3a100fd30370b98500e75da96549345196b156c712f24ab38",
+      "body_sha256": "sha256:3a01f95ad12bfe4ef723a5fd3c5b05b457b07c09684e25e923de4b4751725cbc",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6375,7 +6375,7 @@
       "schema_path": ["rule_list", "rules", "metadata"],
       "sections": [
         {
-          "aliases": ["description spec"],
+          "aliases": ["rule list rules metadata description spec"],
           "anchor": "schema-rule_list--rules--metadata--description_spec",
           "description": "Description. Human readable description.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:metadata",
@@ -6389,7 +6389,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rule list rules metadata name"],
           "anchor": "schema-rule_list--rules--metadata--name",
           "description": "This is the name of the message. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:metadata",
@@ -6404,14 +6404,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/rules/metadata/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.metadata",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -6422,7 +6422,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6444,25 +6444,25 @@
       "schema_path": ["rule_list", "rules", "no_http_connect_port"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/rules/no_http_connect_port/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.no_http_connect_port",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rule list rules port matcher", "succeeded", "success", "successful"],
       "body_bytes": 3942,
-      "body_sha256": "sha256:d0a22b9c28575ea3b3f358d7c0e273ebde9d29d85a13028625ea5651c269921b",
+      "body_sha256": "sha256:a79b3f2fe8b869448d711eb2169f47d9e47a1fdaa0677a7ee5b6881c255876c4",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6493,7 +6493,7 @@
       "schema_path": ["rule_list", "rules", "port_matcher"],
       "sections": [
         {
-          "aliases": ["invert matcher"],
+          "aliases": ["rule list rules port matcher invert matcher"],
           "anchor": "schema-rule_list--rules--port_matcher--invert_matcher",
           "description": "Invert the match result.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:port_matcher",
@@ -6507,7 +6507,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["ports"],
+          "aliases": ["rule list rules port matcher ports"],
           "anchor": "schema-rule_list--rules--port_matcher--ports",
           "description": "A list of strings, each of which is a single port value or a tuple of start and end port values separated by \"-\". The start and end values are considered to be part of the range.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:port_matcher",
@@ -6522,25 +6522,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/rules/port_matcher/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A port matcher specifies a list of port ranges as match criteria. The match is considered successful if the input port falls within any of the port ranges. The result of the match is inverted if invert_matcher is true.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.port_matcher",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rule list rules prefix list"],
       "body_bytes": 2568,
-      "body_sha256": "sha256:a37dc9f33fa56f5d72fc059d38e399f6cfbaefde36d5e933c10b1858b3b55762",
+      "body_sha256": "sha256:d68fa790ed0c4afa322986ab713098f4af2cd4a1fa73a729b7a6e8a359c4a1c2",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6562,7 +6562,7 @@
       "schema_path": ["rule_list", "rules", "prefix_list"],
       "sections": [
         {
-          "aliases": ["prefixes"],
+          "aliases": ["rule list rules prefix list prefixes"],
           "anchor": "schema-rule_list--rules--prefix_list--prefixes",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:prefix_list",
@@ -6577,14 +6577,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/rules/prefix_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of IPv4 prefixes that represent an endpoint.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.prefix_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -6595,7 +6595,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6617,7 +6617,7 @@
       "schema_path": ["rule_list", "rules", "tls_list"],
       "sections": [
         {
-          "aliases": ["tls list"],
+          "aliases": ["rule list rules tls list tls list"],
           "anchor": "section",
           "description": "Domains in SNI for TLS connections.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
@@ -6681,25 +6681,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/rules/tls_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "DomainListType.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.tls_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rule list rules tls list tls list"],
       "body_bytes": 6579,
-      "body_sha256": "sha256:02d4399fc76f0eb673e7169995c12635cca2e60c60c7c49a7dd8ca7c642ed364",
+      "body_sha256": "sha256:0d8f3800010aa86c9fc3baae60f3fbf8529e34c283134942a40ab374207398b9",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6770,7 +6770,7 @@
       "schema_path": ["rule_list", "rules", "tls_list", "tls_list"],
       "sections": [
         {
-          "aliases": ["exact value"],
+          "aliases": ["rule list rules tls list tls list exact value"],
           "anchor": "schema-rule_list--rules--tls_list--tls_list--exact_value",
           "description": "Exclusive with Exact domain name.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
@@ -6784,7 +6784,7 @@
           "type": "string"
         },
         {
-          "aliases": ["regex value"],
+          "aliases": ["rule list rules tls list tls list regex value"],
           "anchor": "schema-rule_list--rules--tls_list--tls_list--regex_value",
           "description": "Exclusive with Regular Expression value for the domain name.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
@@ -6798,7 +6798,7 @@
           "type": "string"
         },
         {
-          "aliases": ["suffix value"],
+          "aliases": ["rule list rules tls list tls list suffix value"],
           "anchor": "schema-rule_list--rules--tls_list--tls_list--suffix_value",
           "description": "Exclusive with Suffix of domain name e.g \"xyz.com\" will match \"*.xyz.com\" and \"xyz.com\"",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
@@ -6813,25 +6813,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/rules/tls_list/tls_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Domains in SNI for TLS connections.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.tls_list.tls_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["rule list rules url category list"],
       "body_bytes": 6227,
-      "body_sha256": "sha256:b0de4a8b35d757c7244f1e950d0cb594630e0f4b0cc9ac5a8817ecfd504a0fd0",
+      "body_sha256": "sha256:478af8ba8207157b4feceeb870cdeb23f3ae21a1af28c59f6cfa45ae09726f50",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6862,7 +6862,7 @@
       "schema_path": ["rule_list", "rules", "url_category_list"],
       "sections": [
         {
-          "aliases": ["url categories"],
+          "aliases": ["rule list rules url category list url categories"],
           "anchor": "schema-rule_list--rules--url_category_list--url_categories",
           "description": "List of URL categories to be selected.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
@@ -6877,25 +6877,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/rules/url_category_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of URL categories.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.url_category_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2279,
       "body_sha256": "sha256:e9f6c375b903ed95ea03aec4ff3460994378bff306f16e3ccfd23c2038c5e1fd",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6917,9 +6917,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -6931,9 +6939,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -6945,9 +6962,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -6959,9 +6985,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -6974,14 +7009,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "timeouts for xcsh_forward_proxy_policy.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -6992,7 +7027,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:forward_proxy_policy:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7014,14 +7049,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/examples/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Examples for xcsh_forward_proxy_policy.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -7032,7 +7067,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7061,14 +7096,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Resource for xcsh_forward_proxy_policy.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -7079,7 +7114,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7102,14 +7137,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Import for xcsh_forward_proxy_policy.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -7120,7 +7155,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7142,14 +7177,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Timeouts for xcsh_forward_proxy_policy.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     }
   ],

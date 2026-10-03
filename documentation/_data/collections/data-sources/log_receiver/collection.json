@@ -189,7 +189,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:log_receiver:reference", "xcsh-docs:data-sources:log_receiver:examples"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -211,21 +211,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/log_receiver/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Manages new Log Receiver object in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_log_receiver",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["log_receiverCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["log receiver"],
       "body_bytes": 13949,
-      "body_sha256": "sha256:98d3de4a2f1353c5f287acc25d2f4653c7dc725b4e94cb1de582b0ad86c1bfb0",
+      "body_sha256": "sha256:b35d7d04dbc3b09c3ae0c9e3720ea5e8e1ff94513ae885e666ecf171012cc4ec",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -233,7 +233,7 @@
         "xcsh-docs:data-sources:log_receiver:properties:syslog"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -368,14 +368,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/log_receiver/properties/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Property reference for xcsh_log_receiver.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["log_receiverCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -386,7 +386,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -408,20 +408,20 @@
       "schema_path": ["site_local"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/log_receiver/properties/site_local/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "site_local",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["log_receiverCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["syslog"],
       "body_bytes": 3004,
-      "body_sha256": "sha256:6cfc57dcaccf2be899df28ba3418aebee1799876d9d67fc1f7cf7f8ca061a374",
+      "body_sha256": "sha256:a35479da52f19e68f5806d1951276d2308c181c884ac358f5347ec38919b5a25",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -430,7 +430,7 @@
         "xcsh-docs:data-sources:log_receiver:properties:syslog:udp_server"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -452,7 +452,7 @@
       "schema_path": ["syslog"],
       "sections": [
         {
-          "aliases": ["syslog rfc5424"],
+          "aliases": ["syslog syslog rfc5424"],
           "anchor": "schema-syslog--syslog_rfc5424",
           "description": "Exclusive with Select RFC5424 syslog format and maximum message length.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog",
@@ -466,7 +466,7 @@
           "type": "number"
         },
         {
-          "aliases": ["tcp server"],
+          "aliases": ["syslog tcp server"],
           "anchor": "section",
           "description": "Name and port number for a TCP server.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:tcp_server",
@@ -480,7 +480,7 @@
           "type": "object"
         },
         {
-          "aliases": ["tls server"],
+          "aliases": ["syslog tls server"],
           "anchor": "section",
           "description": "TLS config for client of discovery service.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:tls_server",
@@ -494,7 +494,7 @@
           "type": "object"
         },
         {
-          "aliases": ["udp server"],
+          "aliases": ["syslog udp server"],
           "anchor": "section",
           "description": "Name and port number for a UDP server.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:udp_server",
@@ -509,25 +509,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/log_receiver/properties/syslog/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configuration for syslog server.",
       "tasks": ["configuration"],
       "title": "syslog",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["log_receiverCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["syslog tcp server"],
       "body_bytes": 3167,
-      "body_sha256": "sha256:874cfefcd72db072fcca5533f7161c7561ebe392fc1309521731d8e9bf50b052",
+      "body_sha256": "sha256:9ddbf61121710139c3ed386f42d4e4002fe8b2ddf57295439cb0410a6fc0ad79",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -549,7 +549,7 @@
       "schema_path": ["syslog", "tcp_server"],
       "sections": [
         {
-          "aliases": ["port"],
+          "aliases": ["syslog tcp server port"],
           "anchor": "schema-syslog--tcp_server--port",
           "description": "Port number used for communication.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:tcp_server",
@@ -563,7 +563,7 @@
           "type": "number"
         },
         {
-          "aliases": ["server name"],
+          "aliases": ["syslog tcp server server name"],
           "anchor": "schema-syslog--tcp_server--server_name",
           "description": "Server name is fully qualified domain name or IP address of the server.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:tcp_server",
@@ -578,20 +578,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/log_receiver/properties/syslog/tcp_server/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Name and port number for a TCP server.",
       "tasks": ["configuration"],
       "title": "syslog.tcp_server",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["log_receiverCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["syslog tls server"],
       "body_bytes": 6550,
-      "body_sha256": "sha256:ea64defd576f08b051155e9c920304b9174a6156a9f712f5c202607e7a700375",
+      "body_sha256": "sha256:c7688fe01d3c7e028a25ba92ac041208c24759e8a24aadd46f6c587019fb6ea9",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -602,7 +602,7 @@
         "xcsh-docs:data-sources:log_receiver:properties:syslog:tls_server:volterra_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -624,7 +624,7 @@
       "schema_path": ["syslog", "tls_server"],
       "sections": [
         {
-          "aliases": ["default https port"],
+          "aliases": ["syslog tls server default https port"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:tls_server:default_https_port",
@@ -638,7 +638,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default syslog tls port"],
+          "aliases": ["syslog tls server default syslog tls port"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:tls_server:default_syslog_tls_port",
@@ -652,7 +652,7 @@
           "type": "object"
         },
         {
-          "aliases": ["mtls disabled"],
+          "aliases": ["syslog tls server mtls disabled"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:tls_server:mtls_disabled",
@@ -666,7 +666,7 @@
           "type": "object"
         },
         {
-          "aliases": ["mtls enable"],
+          "aliases": ["syslog tls server mtls enable"],
           "anchor": "section",
           "description": "TLS config for client.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:tls_server:mtls_enable",
@@ -680,7 +680,7 @@
           "type": "object"
         },
         {
-          "aliases": ["port"],
+          "aliases": ["syslog tls server port"],
           "anchor": "schema-syslog--tls_server--port",
           "description": "Exclusive with Custom port number used for communication.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:tls_server",
@@ -694,7 +694,7 @@
           "type": "number"
         },
         {
-          "aliases": ["server name"],
+          "aliases": ["syslog tls server server name"],
           "anchor": "schema-syslog--tls_server--server_name",
           "description": "ServerName is passed to the server for SNI and is used in the client to check server certificates against.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:tls_server",
@@ -708,7 +708,7 @@
           "type": "string"
         },
         {
-          "aliases": ["trusted ca url"],
+          "aliases": ["syslog tls server trusted ca url"],
           "anchor": "schema-syslog--tls_server--trusted_ca_url",
           "description": "Exclusive with The URL or value for trusted Server CA certificate or certificate chain Certificates in PEM format including the PEM headers.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:tls_server",
@@ -722,7 +722,7 @@
           "type": "string"
         },
         {
-          "aliases": ["volterra ca"],
+          "aliases": ["syslog tls server volterra ca"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:tls_server:volterra_ca",
@@ -737,14 +737,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/log_receiver/properties/syslog/tls_server/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "TLS config for client of discovery service.",
       "tasks": ["configuration"],
       "title": "syslog.tls_server",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["log_receiverCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -755,7 +755,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -777,14 +777,14 @@
       "schema_path": ["syslog", "tls_server", "default_https_port"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/log_receiver/properties/syslog/tls_server/default_https_port/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "syslog.tls_server.default_https_port",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["log_receiverCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -795,7 +795,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -817,14 +817,14 @@
       "schema_path": ["syslog", "tls_server", "default_syslog_tls_port"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/log_receiver/properties/syslog/tls_server/default_syslog_tls_port/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "syslog.tls_server.default_syslog_tls_port",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["log_receiverCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -835,7 +835,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -857,25 +857,25 @@
       "schema_path": ["syslog", "tls_server", "mtls_disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/log_receiver/properties/syslog/tls_server/mtls_disabled/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "syslog.tls_server.mtls_disabled",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["log_receiverCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["syslog tls server mtls enable"],
       "body_bytes": 2818,
-      "body_sha256": "sha256:503972f9a385c88391182b5bec20770400d1c6d8a8788255ec20f69bcf00c8e0",
+      "body_sha256": "sha256:51d2558bb0bb5957f0512ee72d05c145fc55065314dcc2186668bb6f7297c506",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -897,7 +897,7 @@
       "schema_path": ["syslog", "tls_server", "mtls_enable"],
       "sections": [
         {
-          "aliases": ["certificate"],
+          "aliases": ["syslog tls server mtls enable certificate"],
           "anchor": "schema-syslog--tls_server--mtls_enable--certificate",
           "description": "Client certificate is PEM-encoded certificate or certificate-chain.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:tls_server:mtls_enable",
@@ -911,7 +911,7 @@
           "type": "string"
         },
         {
-          "aliases": ["key url"],
+          "aliases": ["syslog tls server mtls enable key url"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url",
@@ -926,14 +926,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/log_receiver/properties/syslog/tls_server/mtls_enable/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "TLS config for client.",
       "tasks": ["configuration"],
       "title": "syslog.tls_server.mtls_enable",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["log_receiverCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -947,7 +947,7 @@
         "xcsh-docs:data-sources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -969,7 +969,7 @@
       "schema_path": ["syslog", "tls_server", "mtls_enable", "key_url"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["syslog tls server mtls enable key url blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url:blindfold_secret_info",
@@ -983,7 +983,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["syslog tls server mtls enable key url clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url:clear_secret_info",
@@ -998,25 +998,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/log_receiver/properties/syslog/tls_server/mtls_enable/key_url/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "syslog.tls_server.mtls_enable.key_url",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["log_receiverCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["syslog tls server mtls enable key url blindfold secret info"],
       "body_bytes": 4848,
-      "body_sha256": "sha256:ff36c32e35b936eeb57c613af697547e5fa6134d1c7e1dd4daf291accd98ca9e",
+      "body_sha256": "sha256:7d1204f0c003b19abc66988fe3180afaa32e190a4daf93561bab87ddf31c389b",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1038,7 +1038,7 @@
       "schema_path": ["syslog", "tls_server", "mtls_enable", "key_url", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["syslog tls server mtls enable key url blindfold secret info decryption provider"],
           "anchor": "schema-syslog--tls_server--mtls_enable--key_url--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url:blindfold_secret_info",
@@ -1059,7 +1059,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["syslog tls server mtls enable key url blindfold secret info location"],
           "anchor": "schema-syslog--tls_server--mtls_enable--key_url--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url:blindfold_secret_info",
@@ -1073,7 +1073,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["syslog tls server mtls enable key url blindfold secret info store provider"],
           "anchor": "schema-syslog--tls_server--mtls_enable--key_url--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url:blindfold_secret_info",
@@ -1088,25 +1088,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/log_receiver/properties/syslog/tls_server/mtls_enable/key_url/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "syslog.tls_server.mtls_enable.key_url.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["log_receiverCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["syslog tls server mtls enable key url clear secret info"],
       "body_bytes": 3728,
-      "body_sha256": "sha256:49fd25fff99b9d580d19b3c3ebbe520cf886ccc09113d17d9e5aba3e67c2fc35",
+      "body_sha256": "sha256:51868b8dc4081e94f287ebf0e3e40989ad417f46c7905d6806ad1bad6c9335fc",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1128,7 +1128,7 @@
       "schema_path": ["syslog", "tls_server", "mtls_enable", "key_url", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["syslog tls server mtls enable key url clear secret info provider ref"],
           "anchor": "schema-syslog--tls_server--mtls_enable--key_url--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url:clear_secret_info",
@@ -1142,7 +1142,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["syslog tls server mtls enable key url clear secret info url"],
           "anchor": "schema-syslog--tls_server--mtls_enable--key_url--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url:clear_secret_info",
@@ -1157,14 +1157,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/log_receiver/properties/syslog/tls_server/mtls_enable/key_url/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "syslog.tls_server.mtls_enable.key_url.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["log_receiverCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1175,7 +1175,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1197,25 +1197,25 @@
       "schema_path": ["syslog", "tls_server", "volterra_ca"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/log_receiver/properties/syslog/tls_server/volterra_ca/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "syslog.tls_server.volterra_ca",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["log_receiverCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["syslog udp server"],
       "body_bytes": 3167,
-      "body_sha256": "sha256:d39b638f0a8da6e73cc3af55a8b5ca1dbb8d4d471cbb6503867b1ba739d90e0c",
+      "body_sha256": "sha256:1aafd4bc100fd19b0405cd6855ea07ce0c227d76910f327eba246994b45986e2",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1237,7 +1237,7 @@
       "schema_path": ["syslog", "udp_server"],
       "sections": [
         {
-          "aliases": ["port"],
+          "aliases": ["syslog udp server port"],
           "anchor": "schema-syslog--udp_server--port",
           "description": "Port number used for communication.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:udp_server",
@@ -1251,7 +1251,7 @@
           "type": "number"
         },
         {
-          "aliases": ["server name"],
+          "aliases": ["syslog udp server server name"],
           "anchor": "schema-syslog--udp_server--server_name",
           "description": "Server name is fully qualified domain name or IP address of the server.",
           "document_id": "xcsh-docs:data-sources:log_receiver:properties:syslog:udp_server",
@@ -1266,14 +1266,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/log_receiver/properties/syslog/udp_server/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Name and port number for a UDP server.",
       "tasks": ["configuration"],
       "title": "syslog.udp_server",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["log_receiverCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1284,7 +1284,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:log_receiver:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1306,14 +1306,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/log_receiver/examples/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Examples for xcsh_log_receiver.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["log_receiverCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1324,7 +1324,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1353,14 +1353,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/log_receiver/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Data source for xcsh_log_receiver.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["log_receiverCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     }
   ],

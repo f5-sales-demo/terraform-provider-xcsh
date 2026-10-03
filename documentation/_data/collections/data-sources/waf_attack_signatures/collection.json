@@ -90,7 +90,7 @@
         "xcsh-docs:data-sources:waf_attack_signatures:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -112,15 +112,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_attack_signatures/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Resource retrieval operation.",
       "tasks": ["configuration"],
       "title": "xcsh_waf_attack_signatures",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": [],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -131,7 +131,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:waf_attack_signatures:properties:attack_signatures"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -210,14 +210,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_attack_signatures/properties/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Property reference for xcsh_waf_attack_signatures.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": [],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -228,7 +228,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -250,7 +250,7 @@
       "schema_path": ["attack_signatures"],
       "sections": [
         {
-          "aliases": ["accuracy"],
+          "aliases": ["attack signatures accuracy"],
           "anchor": "schema-attack_signatures--accuracy",
           "description": "Accuracy. The Signature Accuracy.",
           "document_id": "xcsh-docs:data-sources:waf_attack_signatures:properties:attack_signatures",
@@ -264,7 +264,7 @@
           "type": "string"
         },
         {
-          "aliases": ["applies to"],
+          "aliases": ["attack signatures applies to"],
           "anchor": "schema-attack_signatures--applies_to",
           "description": "Applies To. The Signature Applies to.",
           "document_id": "xcsh-docs:data-sources:waf_attack_signatures:properties:attack_signatures",
@@ -278,7 +278,7 @@
           "type": "string"
         },
         {
-          "aliases": ["attack type"],
+          "aliases": ["attack signatures attack type"],
           "anchor": "schema-attack_signatures--attack_type",
           "description": "Attack Type. The Signature Attack Type.",
           "document_id": "xcsh-docs:data-sources:waf_attack_signatures:properties:attack_signatures",
@@ -292,7 +292,7 @@
           "type": "string"
         },
         {
-          "aliases": ["description spec"],
+          "aliases": ["attack signatures description spec"],
           "anchor": "schema-attack_signatures--description_spec",
           "description": "Description. The Signature Description.",
           "document_id": "xcsh-docs:data-sources:waf_attack_signatures:properties:attack_signatures",
@@ -306,7 +306,7 @@
           "type": "string"
         },
         {
-          "aliases": ["id"],
+          "aliases": ["attack signatures id"],
           "anchor": "schema-attack_signatures--id",
           "description": "ID. The Signature ID.",
           "document_id": "xcsh-docs:data-sources:waf_attack_signatures:properties:attack_signatures",
@@ -320,7 +320,7 @@
           "type": "string"
         },
         {
-          "aliases": ["last update"],
+          "aliases": ["attack signatures last update"],
           "anchor": "schema-attack_signatures--last_update",
           "description": "Last Update. The Signature last update time.",
           "document_id": "xcsh-docs:data-sources:waf_attack_signatures:properties:attack_signatures",
@@ -334,7 +334,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["attack signatures name"],
           "anchor": "schema-attack_signatures--name",
           "description": "Name. The Signature Name.",
           "document_id": "xcsh-docs:data-sources:waf_attack_signatures:properties:attack_signatures",
@@ -348,7 +348,7 @@
           "type": "string"
         },
         {
-          "aliases": ["references"],
+          "aliases": ["attack signatures references"],
           "anchor": "schema-attack_signatures--references",
           "description": "References. The Signature References.",
           "document_id": "xcsh-docs:data-sources:waf_attack_signatures:properties:attack_signatures",
@@ -362,7 +362,7 @@
           "type": "list"
         },
         {
-          "aliases": ["risk"],
+          "aliases": ["attack signatures risk"],
           "anchor": "schema-attack_signatures--risk",
           "description": "Risk. The Signature Risk.",
           "document_id": "xcsh-docs:data-sources:waf_attack_signatures:properties:attack_signatures",
@@ -376,7 +376,7 @@
           "type": "string"
         },
         {
-          "aliases": ["systems"],
+          "aliases": ["attack signatures systems"],
           "anchor": "schema-attack_signatures--systems",
           "description": "Systems. The Signature Systems.",
           "document_id": "xcsh-docs:data-sources:waf_attack_signatures:properties:attack_signatures",
@@ -391,14 +391,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_attack_signatures/properties/attack_signatures/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of all supported attack signatures.",
       "tasks": ["configuration"],
       "title": "attack_signatures",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": [],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -409,7 +409,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:waf_attack_signatures:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -431,14 +431,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_attack_signatures/examples/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Examples for xcsh_waf_attack_signatures.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": [],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -449,7 +449,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -478,14 +478,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_attack_signatures/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Data source for xcsh_waf_attack_signatures.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": [],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     }
   ],
