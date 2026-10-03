@@ -26,6 +26,7 @@ import (
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/planmodifiers"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -227,6 +228,7 @@ func (r *NetworkFirewallResource) Schema(ctx context.Context, req resource.Schem
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("disable_fast_acl", []string{"active_fast_acls", "disable_fast_acl"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -236,6 +238,7 @@ func (r *NetworkFirewallResource) Schema(ctx context.Context, req resource.Schem
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("disable_forward_proxy_policy", []string{"active_forward_proxy_policies", "disable_forward_proxy_policy"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -245,6 +248,7 @@ func (r *NetworkFirewallResource) Schema(ctx context.Context, req resource.Schem
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("disable_network_policy", []string{"active_enhanced_firewall_policies", "active_network_policies", "disable_network_policy"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},

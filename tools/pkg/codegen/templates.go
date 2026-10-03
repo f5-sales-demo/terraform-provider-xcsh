@@ -69,7 +69,7 @@ import (
 	{{- if .HasConcurrencyToken}}
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	{{- end}}
- {{- if .ImmutableOneOfGroups}}
+ {{- if or .ImmutableOneOfGroups (hasDefaultOneOfMarker)}}
  "github.com/f5-sales-demo/terraform-provider-xcsh/internal/planmodifiers"
  {{- end}}
  inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
@@ -144,10 +144,16 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 				ElementType: {{if eq .ElementType "int64"}}types.Int64Type{{else if eq .ElementType "bool"}}types.BoolType{{else}}types.StringType{{end}},
 {{- end}}
 {{- if .EmptyObjectMarker}}
-				AttributeTypes: map[string]attr.Type{},
+                AttributeTypes: map[string]attr.Type{},
+{{- if and (defaultOneOfMarker .) (not .PlanModifier)}}
+                PlanModifiers: []planmodifier.Object{ {{defaultOneOfMarker .}} },
+{{- end}}
 {{- end}}
 {{- if .PlanModifier}}
 				PlanModifiers: []planmodifier.{{if eq .Type "string"}}String{{else if eq .Type "bool"}}Bool{{else if eq .Type "int64"}}Int64{{else if eq .Type "list"}}List{{else if eq .Type "map"}}Map{{else if eq .Type "object"}}Object{{else}}String{{end}}{
+{{- if defaultOneOfMarker .}}
+                    {{defaultOneOfMarker .}},
+{{- end}}
 {{- if eq .PlanModifier "RequiresReplace"}}
 					{{if eq .Type "string"}}stringplanmodifier{{else if eq .Type "bool"}}boolplanmodifier{{else if eq .Type "int64"}}int64planmodifier{{else if eq .Type "list"}}listplanmodifier{{else if eq .Type "map"}}mapplanmodifier{{else if eq .Type "object"}}objectplanmodifier{{else}}stringplanmodifier{{end}}.RequiresReplace(),
 {{- else if eq .PlanModifier "UseStateForUnknown"}}

@@ -29,6 +29,7 @@ import (
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/planmodifiers"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -980,6 +981,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("hash_policy_choice_round_robin", []string{"hash_policy_choice_least_active", "hash_policy_choice_random", "hash_policy_choice_round_robin", "hash_policy_choice_source_ip_stickiness"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -1011,6 +1013,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("no_sni", []string{"default_lb_with_sni", "no_sni", "sni"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -1031,6 +1034,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("retract_cluster", []string{"do_not_retract_cluster", "retract_cluster"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -1040,6 +1044,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("service_policies_from_namespace", []string{"active_service_policies", "no_service_policies", "service_policies_from_namespace"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -1049,6 +1054,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("tcp", []string{"tcp", "tls_tcp", "tls_tcp_auto_cert"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},

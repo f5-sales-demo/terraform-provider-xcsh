@@ -122,6 +122,45 @@ func GenerateResourceFile(resource *openapi.ResourceTemplate, outputDir string) 
 
 	// Create template with custom functions
 	funcMap := template.FuncMap{
+		"defaultOneOfMarker": func(attribute openapi.TerraformAttribute) string {
+			if !attribute.EmptyObjectMarker || !attribute.Computed {
+				return ""
+			}
+			members := []string{}
+			for _, group := range resource.OneOfGroups {
+				found := false
+				for _, member := range group {
+					if member == attribute.TfsdkTag {
+						found = true
+					}
+				}
+				if found {
+					for _, member := range group {
+						members = append(members, fmt.Sprintf("%q", member))
+					}
+					break
+				}
+			}
+			if len(members) == 0 {
+				for _, sibling := range resource.Attributes {
+					if attribute.OneOfGroup != "" && sibling.OneOfGroup == attribute.OneOfGroup {
+						members = append(members, fmt.Sprintf("%q", sibling.TfsdkTag))
+					}
+				}
+			}
+			if len(members) < 2 {
+				return ""
+			}
+			return fmt.Sprintf("planmodifiers.DefaultOneOfMarker(%q, []string{%s})", attribute.TfsdkTag, strings.Join(members, ","))
+		},
+		"hasDefaultOneOfMarker": func() bool {
+			for _, attribute := range resource.Attributes {
+				if attribute.EmptyObjectMarker && attribute.Computed && (attribute.OneOfGroup != "" || len(resource.OneOfGroups) > 0) {
+					return true
+				}
+			}
+			return false
+		},
 		"renderNestedAttrs":               RenderNestedAttributes,
 		"renderNestedBlocks":              RenderNestedBlocks,
 		"renderBlockPlanModifiers":        RenderBlockPlanModifiers,

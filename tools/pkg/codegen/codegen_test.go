@@ -2901,3 +2901,26 @@ func TestImmutableSelectionPlanningIsSpecDriven(t *testing.T) {
 		}
 	}
 }
+
+func TestDefaultOneOfMarkerPlanningIsSpecDriven(t *testing.T) {
+	resource := &openapi.ResourceTemplate{Name: "marker_probe", TitleCase: "MarkerProbe", Attributes: []openapi.TerraformAttribute{
+		{Name: "name", GoName: "Name", TfsdkTag: "name", Type: "string", Required: true},
+		{Name: "inherited", GoName: "Inherited", TfsdkTag: "inherited", Type: "object", Optional: true, Computed: true, EmptyObjectMarker: true, OneOfGroup: "policy"},
+		{Name: "explicit", GoName: "Explicit", TfsdkTag: "explicit", Type: "object", Optional: true, EmptyObjectMarker: true, OneOfGroup: "policy"},
+	}}
+	dir := t.TempDir()
+	if err := GenerateResourceFile(resource, dir); err != nil {
+		t.Fatal(err)
+	}
+	body, err := os.ReadFile(filepath.Join(dir, "marker_probe_resource.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	text := string(body)
+	if !strings.Contains(text, `planmodifiers.DefaultOneOfMarker("inherited", []string{"inherited", "explicit"})`) {
+		t.Fatal("missing computed default sibling modifier")
+	}
+	if strings.Contains(text, `DefaultOneOfMarker("explicit"`) {
+		t.Fatal("configured-only markers must not be rewritten")
+	}
+}

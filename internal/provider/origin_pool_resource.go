@@ -29,6 +29,7 @@ import (
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/planmodifiers"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -1040,6 +1041,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("no_tls", []string{"no_tls", "use_tls"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -1060,6 +1062,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("same_as_endpoint_port", []string{"health_check_port", "same_as_endpoint_port"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},

@@ -28,6 +28,7 @@ import (
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/planmodifiers"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -1064,6 +1065,7 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("any_server", []string{"any_server", "server_name", "server_name_matcher", "server_selector"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},

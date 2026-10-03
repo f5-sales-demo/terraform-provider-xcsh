@@ -27,6 +27,7 @@ import (
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/planmodifiers"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -169,6 +170,7 @@ func (r *APIDefinitionResource) Schema(ctx context.Context, req resource.SchemaR
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("strict_schema_origin", []string{"mixed_schema_origin", "strict_schema_origin"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
