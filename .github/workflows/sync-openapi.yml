@@ -280,6 +280,7 @@ jobs:
             exit 1
           fi
 
+          RELEASE_VERSION=${SPEC_VERSION#v}
           BUNDLE_NAME="f5xc-api-specs-${SPEC_VERSION}.zip"
           COVERAGE_ASSET=""
           if [ "${RELEASE_VERSION%%.*}" -ge 10 ]; then COVERAGE_ASSET="enrichment-coverage.json"; fi
