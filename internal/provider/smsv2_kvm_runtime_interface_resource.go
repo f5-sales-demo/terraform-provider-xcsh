@@ -284,6 +284,38 @@ func selectSMSv2KVMRuntimeInterface(
 			}
 		}
 	}
+	// A terminal predecessor and exactly one distinct, owned replacement prove
+	// that the saved adoption is obsolete. A temporary missing registration
+	// alone never permits removing state or modifying another runtime child.
+	if len(registrationMatches) == 0 && target.Name != "" && target.Hostname != "" {
+		terminalPredecessor := false
+		for _, registration := range registrations.Items {
+			if !isTerminalRegistrationState(registration.Object.Status.CurrentState) ||
+				registration.GetSpec.Passport.ClusterName != target.Site ||
+				kvmRegistrationProvider(registration.GetSpec.Infra) != "KVM" ||
+				strings.TrimSpace(registration.GetSpec.Infra.Hostname) != target.Hostname {
+				continue
+			}
+			for _, network := range registration.GetSpec.Infra.HWInfo.Network {
+				observed, normalizeErr := normalizeSMSv2MAC(network.MACAddress)
+				if normalizeErr == nil && observed == mac && strings.TrimSpace(network.Name) == target.Device {
+					terminalPredecessor = true
+				}
+			}
+		}
+		if terminalPredecessor {
+			replacementTarget := target
+			replacementTarget.Name, replacementTarget.Hostname, replacementTarget.Device = "", "", ""
+			replacement, replacementErr := selectSMSv2KVMRuntimeInterface(configuration, registrations, interfaces, replacementTarget)
+			if replacementErr == nil && replacement.Name != target.Name && replacement.Hostname != target.Hostname {
+				for _, registration := range registrations.Items {
+					if registration.Object.Status.CurrentState == "ONLINE" && strings.TrimSpace(registration.GetSpec.Infra.Hostname) == replacement.Hostname {
+						return smsv2KVMRuntimeInterfaceObject{}, errSMSv2KVMRuntimeInterfaceNotFound
+					}
+				}
+			}
+		}
+	}
 	if len(registrationMatches) != 1 {
 		return smsv2KVMRuntimeInterfaceObject{}, fmt.Errorf("expected one live KVM registration match; observed %d", len(registrationMatches))
 	}

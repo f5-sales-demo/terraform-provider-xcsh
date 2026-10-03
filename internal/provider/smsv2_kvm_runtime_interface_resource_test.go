@@ -5,6 +5,7 @@ package provider
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 	"net/http/httptest"
@@ -597,5 +598,96 @@ func TestSMSv2KVMRuntimeInterfaceDestroyAcceptsAlreadyAbsentChild(t *testing.T) 
 	defer api.mu.Unlock()
 	if api.putCount != 0 || api.postCount != 0 || api.deleteCount != 0 {
 		t.Fatalf("absent destroy mutated the API: PUT=%d POST=%d DELETE=%d", api.putCount, api.postCount, api.deleteCount)
+	}
+}
+
+func TestSMSv2KVMRuntimeInterfaceRetiredAdoptionReplacement(t *testing.T) {
+	for _, scenario := range []struct {
+		name, oldState string
+		liveCopies     int
+		foreignOwner   bool
+		removeExpected bool
+		retireBoth     bool
+	}{
+		{"proven replacement", "FAILED", 1, false, false, false},
+		{"temporary offline", "ONLINE", 1, false, false, false},
+		{"missing old status", "", 1, false, false, false},
+		{"ambiguous replacement", "FAILED", 2, false, false, false},
+		{"no replacement", "FAILED", 0, false, false, false},
+		{"foreign owner", "FAILED", 1, true, false, false},
+		{"wrong old MAC", "FAILED", 1, false, true, false},
+		{"retired replacement", "FAILED", 1, false, false, true},
+		{"admitted replacement", "FAILED", 1, false, false, false},
+	} {
+		t.Run(scenario.name, func(t *testing.T) {
+			site, registrations, interfaces := kvmRuntimeInterfaceFixture()
+			target := kvmRuntimeInterfaceTargetFixture()
+			target.OwnerUID = "site-uid-current"
+			current := registrations.Items[0]
+			current.Name = "replacement"
+			current.GetSpec.Infra.Hostname = "replacement-ce"
+			if scenario.name == "admitted replacement" {
+				current.Object.Status.CurrentState = "ADMITTED"
+			}
+			if scenario.retireBoth {
+				current.Object.Status.CurrentState = "FAILED"
+			}
+			// Deep-copy the old registration so fixture mutations cannot change the replacement.
+			oldBytes, _ := json.Marshal(registrations.Items[0])
+			_ = json.Unmarshal(oldBytes, &registrations.Items[0])
+			registrations.Items[0].Object.Status.CurrentState = scenario.oldState
+			if scenario.removeExpected {
+				registrations.Items[0].GetSpec.Infra.HWInfo.Network = nil
+			}
+			for i := 0; i < scenario.liveCopies; i++ {
+				registrations.Items = append(registrations.Items, current)
+			}
+			original := interfaces["items"].([]interface{})[0].(map[string]interface{})
+			replacement := deepCopySMSv2Map(original)
+			replacement["name"] = "replacement-ens4"
+			replacement["get_spec"].(map[string]interface{})["ethernet_interface"].(map[string]interface{})["node"] = "replacement-ce"
+			interfaces["items"] = append(interfaces["items"].([]interface{}), replacement)
+			if scenario.foreignOwner {
+				site["system_metadata"].(map[string]interface{})["uid"] = "foreign"
+			}
+			_, err := selectSMSv2KVMRuntimeInterface(site, registrations, interfaces, target)
+			if scenario.name == "proven replacement" {
+				if !errors.Is(err, errSMSv2KVMRuntimeInterfaceNotFound) {
+					t.Fatalf("stale adoption not retired: %v", err)
+				}
+			} else if isSMSv2KVMRuntimeInterfaceNotFound(err) {
+				t.Fatalf("unproven disappearance removed state: %v", err)
+			}
+		})
+	}
+}
+
+func TestSMSv2KVMRuntimeInterfaceReadRetiresProvenReplacementWithoutMutation(t *testing.T) {
+	api := newKVMRuntimeInterfaceAPIFixture(t)
+	old := api.registrations.Items[0]
+	api.registrations.Items[0].Object.Status.CurrentState = "FAILED"
+	replacement := old
+	replacement.Name = "replacement"
+	replacement.Object.Status.CurrentState = "ONLINE"
+	replacement.GetSpec.Infra.Hostname = "replacement-ce"
+	api.registrations.Items = append(api.registrations.Items, replacement)
+	api.object["metadata"].(map[string]interface{})["name"] = "replacement-ens4"
+	api.object["spec"].(map[string]interface{})["ethernet_interface"].(map[string]interface{})["node"] = "replacement-ce"
+	server := httptest.NewServer(http.HandlerFunc(api.handler))
+	defer server.Close()
+	resource := &Smsv2KVMRuntimeInterfaceResource{client: client.NewClient(server.URL, "fixture-token")}
+	schema := frameworkresource.SchemaResponse{}
+	resource.Schema(context.Background(), frameworkresource.SchemaRequest{}, &schema)
+	model := kvmRuntimeInterfaceModel()
+	model.ID = types.StringValue("system/" + longKVMRuntimeInterfaceName)
+	model.OwnerUID = types.StringValue("site-uid-current")
+	state := tfsdk.State{Schema: schema.Schema, Raw: responseOperationRaw(t, model, schema.Schema.Type())}
+	response := frameworkresource.ReadResponse{State: state}
+	resource.Read(context.Background(), frameworkresource.ReadRequest{State: state}, &response)
+	if response.Diagnostics.HasError() || !response.State.Raw.IsNull() {
+		t.Fatalf("retirement failed: %v", response.Diagnostics)
+	}
+	if api.putCount != 0 || api.postCount != 0 || api.deleteCount != 0 {
+		t.Fatal("refresh mutated runtime child")
 	}
 }
