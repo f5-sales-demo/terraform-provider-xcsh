@@ -211,6 +211,47 @@ class RetrievalMetadataTests(unittest.TestCase):
                 }
             )
 
+    def test_reviewed_summary_specificity_and_aliases_are_exact(self):
+        common = {
+            "provider_type": "resources",
+            "collection": "*",
+            "schema_path": ["timeouts", "create"],
+            "summary": "Configure creation timeout.",
+            "aliases": ["create timeout"],
+            "review_basis": "Exact lifecycle schema field.",
+        }
+        specific = {
+            **common,
+            "collection": "fixture",
+            "summary": "Configure fixture creation timeout.",
+        }
+        rules = MODULE.RetrievalRules({"version": 1, "summaries": [common, specific]})
+        self.assertEqual(
+            rules.reviewed_summary("resources", "fixture", ["timeouts", "create"]),
+            specific["summary"],
+        )
+        self.assertEqual(
+            rules.reviewed_summary("resources", "other", ["timeouts", "create"]),
+            common["summary"],
+        )
+        self.assertIsNone(
+            rules.reviewed_summary("data-sources", "fixture", ["timeouts", "create"])
+        )
+        self.assertIn(
+            "create timeout",
+            rules.reviewed_aliases("resources", "fixture", ["timeouts", "create"]),
+        )
+        self.assertEqual(
+            rules.reviewed_aliases(
+                "resources", "fixture", ["timeouts", "create", "nested"]
+            ),
+            [],
+        )
+        with self.assertRaisesRegex(ValueError, "invalid"):
+            MODULE.RetrievalRules(
+                {"version": 1, "summaries": [{**common, "aliases": [3]}]}
+            )
+
     def test_lifecycle_aliases_require_exact_timeout_schema_context(self):
         rules = MODULE.RetrievalRules.default()
         for operation in ("create", "read", "update", "delete"):
