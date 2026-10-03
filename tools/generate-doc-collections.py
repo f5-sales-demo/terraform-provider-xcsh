@@ -351,7 +351,7 @@ class Collection:
                         "anchor": target["anchor"],
                         "description": prose,
                         "aliases": self.retrieval_rules.aliases(
-                            name, upstream or description
+                            ".".join(exact), upstream or description
                         ),
                         "flags": [
                             flag
