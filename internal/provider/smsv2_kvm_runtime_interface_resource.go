@@ -51,13 +51,14 @@ type Smsv2KVMRuntimeInterfaceResourceModel struct {
 }
 
 type smsv2KVMRuntimeInterfaceTarget struct {
-	Namespace   string
-	Site        string
-	Name        string
-	ExpectedMAC string
-	Hostname    string
-	Device      string
-	OwnerUID    string
+	AllowTerminalRegistration bool
+	Namespace                 string
+	Site                      string
+	Name                      string
+	ExpectedMAC               string
+	Hostname                  string
+	Device                    string
+	OwnerUID                  string
 }
 
 type smsv2KVMRuntimeInterfaceObject struct {
@@ -245,6 +246,9 @@ func selectSMSv2KVMRuntimeInterface(
 	if target.Namespace != "system" {
 		return smsv2KVMRuntimeInterfaceObject{}, fmt.Errorf("KVM runtime interfaces are supported only in namespace system")
 	}
+	if target.AllowTerminalRegistration && (target.Name == "" || target.Hostname == "" || target.Device == "" || target.OwnerUID == "") {
+		return smsv2KVMRuntimeInterfaceObject{}, fmt.Errorf("terminal registration teardown requires exact saved child, hostname, device, and site UID")
+	}
 	if target.Name != "" {
 		if err := validateKVMRuntimeInterfaceName(target.Name); err != nil {
 			return smsv2KVMRuntimeInterfaceObject{}, err
@@ -273,7 +277,7 @@ func selectSMSv2KVMRuntimeInterface(
 	registrationMatches := []registrationMatch{}
 	for _, registration := range registrations.Items {
 		hostname := strings.TrimSpace(registration.GetSpec.Infra.Hostname)
-		if isTerminalRegistrationState(registration.Object.Status.CurrentState) || registration.GetSpec.Passport.ClusterName != target.Site || kvmRegistrationProvider(registration.GetSpec.Infra) != "KVM" || hostname == "" || (target.Hostname != "" && hostname != target.Hostname) {
+		if (isTerminalRegistrationState(registration.Object.Status.CurrentState) && !target.AllowTerminalRegistration) || registration.GetSpec.Passport.ClusterName != target.Site || kvmRegistrationProvider(registration.GetSpec.Infra) != "KVM" || hostname == "" || (target.Hostname != "" && hostname != target.Hostname) {
 			continue
 		}
 		for _, network := range registration.GetSpec.Infra.HWInfo.Network {
@@ -695,6 +699,9 @@ func (r *Smsv2KVMRuntimeInterfaceResource) Delete(ctx context.Context, req resou
 		return
 	}
 	target := runtimeInterfaceTarget(data)
+	// Destroy restores DHCP on the exact saved child, including a terminal node.
+	// Observation still verifies its site UID, MAC, device, owner and SLI role.
+	target.AllowTerminalRegistration = true
 	object, err := r.observe(ctx, target)
 	if err != nil {
 		if isSMSv2KVMRuntimeInterfaceNotFound(err) {
