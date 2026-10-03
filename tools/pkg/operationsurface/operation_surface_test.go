@@ -20,7 +20,7 @@ func TestV9OperationSurfaceIsExact(t *testing.T) {
 	manifest, err := LoadAndApply(
 		filepath.Join(root, "operation-surface.json"),
 		filepath.Join(specDir, "upstream-contract-changes.json"),
-		"v9.0.0",
+		"v10.0.0",
 		catalog,
 	)
 	if err != nil {
@@ -94,7 +94,7 @@ func TestV9OperationSurfaceRejectsIncompleteDuplicateAndMismatchedMappings(t *te
 			if err != nil {
 				t.Fatal(err)
 			}
-			if _, err := LoadAndApply(path, filepath.Join(specDir, "upstream-contract-changes.json"), "v9.0.0", catalog); err == nil {
+			if _, err := LoadAndApply(path, filepath.Join(specDir, "upstream-contract-changes.json"), "v10.0.0", catalog); err == nil {
 				t.Fatal("invalid operation surface was accepted")
 			}
 		})
