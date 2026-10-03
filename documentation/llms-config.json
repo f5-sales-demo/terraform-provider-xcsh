@@ -1,0 +1,319 @@
+{
+  "canonicalCorpus": {
+    "taxonomy": {
+      "rulesDigest": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+      "evidence": "Canonical classification metadata derived from receipt-pinned upstream descriptions and reviewed provider taxonomy rules. Unresolved collections remain Unclassified.",
+      "topics": {
+        "security": {
+          "title": "Security"
+        },
+        "networking": {
+          "title": "Networking"
+        },
+        "infrastructure": {
+          "title": "Infrastructure"
+        },
+        "container": {
+          "title": "Containers"
+        },
+        "load-balancing": {
+          "title": "Load Balancing"
+        },
+        "monitoring": {
+          "title": "Monitoring"
+        },
+        "dns": {
+          "title": "DNS"
+        },
+        "identity": {
+          "title": "Identity"
+        },
+        "api-management": {
+          "title": "API Management"
+        },
+        "cdn": {
+          "title": "CDN"
+        },
+        "administration": {
+          "title": "Administration"
+        }
+      },
+      "subcategories": [
+        {
+          "category": "load-balancing",
+          "title": "HTTP and virtual hosts",
+          "collections": ["http_loadbalancer", "virtual_host"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "load-balancing",
+          "title": "Transport load balancers",
+          "collections": ["tcp_loadbalancer", "udp_loadbalancer"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "load-balancing",
+          "title": "Origin pools and health checks",
+          "collections": ["origin_pool", "healthcheck"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "load-balancing",
+          "title": "BIG-IP proxies",
+          "collections": ["bigip_http_proxy"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "networking",
+          "title": "Routing and BGP",
+          "collections": [
+            "bgp",
+            "bgp_asn_set",
+            "bgp_routing_policy",
+            "route",
+            "policy_based_routing",
+            "advertise_policy"
+          ],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "networking",
+          "title": "Addressing and interfaces",
+          "collections": ["address_allocator", "subnet", "ip_prefix_set", "network_interface"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "networking",
+          "title": "Networks and connectivity",
+          "collections": [
+            "virtual_network",
+            "network_connector",
+            "segment",
+            "site_mesh_group",
+            "tunnel",
+            "srv6_network_slice",
+            "endpoint"
+          ],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "networking",
+          "title": "Proxies and NAT",
+          "collections": ["forward_proxy_policy", "proxy", "nat_policy"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "networking",
+          "title": "Traffic classification and policing",
+          "collections": ["forwarding_class", "policer"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "security",
+          "title": "Application and service policies",
+          "collections": ["app_firewall", "waf_exclusion_policy", "service_policy", "service_policy_rule"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "security",
+          "title": "Network firewalls and access policies",
+          "collections": [
+            "network_firewall",
+            "network_policy",
+            "network_policy_rule",
+            "enhanced_firewall_policy",
+            "fast_acl",
+            "fast_acl_rule"
+          ],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "security",
+          "title": "Bot defense and mitigation",
+          "collections": [
+            "bot_defense_app_infrastructure",
+            "bot_infrastructure",
+            "protected_application",
+            "protected_domain",
+            "malicious_user_mitigation"
+          ],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "security",
+          "title": "TLS certificates and trust",
+          "collections": ["certificate", "certificate_chain", "trusted_ca_list", "crl"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "security",
+          "title": "Rate limiting",
+          "collections": ["rate_limiter", "rate_limiter_policy"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "security",
+          "title": "Data protection and identification",
+          "collections": ["sensitive_data_policy", "user_identification"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "infrastructure",
+          "title": "AWS sites",
+          "collections": ["aws_vpc_site", "aws_tgw_site", "smsv2_aws_runtime"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "infrastructure",
+          "title": "Azure sites",
+          "collections": ["azure_vnet_site"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "infrastructure",
+          "title": "Google Cloud sites",
+          "collections": ["gcp_vpc_site"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "infrastructure",
+          "title": "Secure Mesh and virtual sites",
+          "collections": ["site", "virtual_site", "securemesh_site", "securemesh_site_v2"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "infrastructure",
+          "title": "KVM provisioning and runtime",
+          "collections": ["site_image", "site_cloud_init", "smsv2_kvm_runtime", "smsv2_kvm_runtime_interface"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "infrastructure",
+          "title": "Registration and admission",
+          "collections": ["registration", "registration_approval"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "infrastructure",
+          "title": "Cloud connectivity and credentials",
+          "collections": ["cloud_connect", "cloud_link", "cloud_credentials", "cloud_elastic_ip"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "container",
+          "title": "Kubernetes clusters and roles",
+          "collections": ["k8s_cluster", "k8s_cluster_role", "k8s_cluster_role_binding", "virtual_k8s"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "container",
+          "title": "Pod security",
+          "collections": ["k8s_pod_security_admission", "k8s_pod_security_policy"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "container",
+          "title": "Workloads and manifests",
+          "collections": ["workload", "workload_flavor", "kubernetes_manifests"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "container",
+          "title": "Container registries",
+          "collections": ["container_registry"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "dns",
+          "title": "DNS load balancing",
+          "collections": ["dns_load_balancer", "dns_lb_pool", "dns_lb_health_check"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "dns",
+          "title": "DNS zones and proxies",
+          "collections": ["dns_zone", "dns_proxy"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "dns",
+          "title": "DNS compliance",
+          "collections": ["dns_compliance_checks"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "identity",
+          "title": "Authentication and authorization",
+          "collections": ["authentication", "authorization_server", "oidc_oauth_discovery"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "identity",
+          "title": "Secrets and accounts",
+          "collections": ["secret_management_access", "cloud_user_account"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "identity",
+          "title": "Site admission tokens",
+          "collections": ["token"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "cdn",
+          "title": "CDN load balancers",
+          "collections": ["cdn_loadbalancer"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "cdn",
+          "title": "Caching and purge",
+          "collections": ["cdn_cache_rule", "cdn_purge_command"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "monitoring",
+          "title": "Log receivers",
+          "collections": ["log_receiver", "global_log_receiver"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "monitoring",
+          "title": "Alerts and notifications",
+          "collections": ["alert_template", "alert_gen_policy", "alert_policy", "alert_receiver"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "api-management",
+          "title": "API definitions and groups",
+          "collections": ["api_definition", "app_api_group"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "api-management",
+          "title": "API discovery and crawling",
+          "collections": ["api_discovery", "api_crawler"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "api-management",
+          "title": "API testing",
+          "collections": ["api_testing"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "administration",
+          "title": "Namespaces and tenants",
+          "collections": ["namespace", "tenant_configuration"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "administration",
+          "title": "Provider setup",
+          "collections": ["setup"],
+          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        }
+      ]
+    }
+  }
+}

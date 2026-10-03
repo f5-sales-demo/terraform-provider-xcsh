@@ -2,6 +2,8 @@
 """Immutable publication selection and version route contracts."""
 
 import importlib.util
+import json
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -16,6 +18,26 @@ SPEC.loader.exec_module(VERSIONS)
 
 
 class VersionTests(unittest.TestCase):
+    def test_publication_config_is_loaded_only_from_canonical_root(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            canonical = root / "documentation"
+            canonical.mkdir()
+            (canonical / "llms-config.json").write_text(
+                '{"canonicalCorpus":{"taxonomy":{}}}'
+            )
+            registry = root / "docs"
+            registry.mkdir()
+            (registry / "llms-config.json").write_text(
+                "conflicting Registry configuration"
+            )
+            destination = root / "staged"
+            destination.mkdir()
+            VERSIONS.stage_publication_config(canonical, destination)
+            assert json.loads((destination / "llms-config.json").read_text()) == {
+                "canonicalCorpus": {"taxonomy": {}}
+            }
+
     def test_stable_selection_requires_published_snapshot(self):
         releases = [
             {

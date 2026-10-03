@@ -34,6 +34,8 @@ GENERATED_PATTERNS=(
 # These data sources are not auto-generated from OpenAPI specs - they provide
 # utility functionality not available in the F5 specifications
 MANUALLY_MAINTAINED_FILES=(
+  # Authored publication policy is not a generated provider document.
+  "documentation/llms-config.json"
   "examples/data-sources/xcsh_addon_service_activation_status/data-source.tf"
   "examples/data-sources/xcsh_network_regional_edges/data-source.tf"
   "examples/data-sources/xcsh_network_cdn/data-source.tf"

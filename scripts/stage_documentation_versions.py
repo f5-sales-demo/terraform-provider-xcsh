@@ -149,6 +149,16 @@ def stage(ref: str, destination: Path, prefix: str) -> None:
     manifest_path.write_text(json.dumps(manifest, sort_keys=True) + "\n")
 
 
+def stage_publication_config(source: Path, destination: Path) -> None:
+    """Apply canonical publication policy separately from immutable source receipts."""
+    config = source / "llms-config.json"
+    value = json.loads(config.read_text())
+    if not isinstance(value.get("canonicalCorpus"), dict):
+        message = "canonical publication configuration is required"
+        raise TypeError(message)
+    shutil.copyfile(config, destination / "llms-config.json")
+
+
 def main() -> None:
     """Stage latest successfully published stable version plus immutable history."""
     parser = argparse.ArgumentParser(description=__doc__)
@@ -172,10 +182,14 @@ def main() -> None:
         msg = "no successfully published stable documentation version"
         raise ValueError(msg)
     run("git", "fetch", "--tags", "origin")
+    policy_root = Path.cwd() / "documentation"
     stage(versions[-1], args.output, "")
+    stage_publication_config(policy_root, args.output)
     for version in versions:
         stage(version, args.output / "versions" / version, "versions/" + version)
+        stage_publication_config(policy_root, args.output / "versions" / version)
     stage("HEAD", args.output / "preview/main", "preview/main")
+    stage_publication_config(policy_root, args.output / "preview/main")
     (args.output / "documentation-versions.json").write_text(
         json.dumps(
             {
