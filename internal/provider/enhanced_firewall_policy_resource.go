@@ -27,6 +27,7 @@ import (
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/planmodifiers"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -440,6 +441,7 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("allow_all", []string{"allow_all", "allowed_destinations", "allowed_sources", "denied_destinations", "denied_sources", "deny_all", "rule_list"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},

@@ -28,6 +28,7 @@ import (
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/planmodifiers"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -366,6 +367,7 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("cluster_scoped_access_deny", []string{"cluster_scoped_access_deny", "cluster_scoped_access_permit"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -375,6 +377,7 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("no_cluster_wide_apps", []string{"cluster_wide_app_list", "no_cluster_wide_apps"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -384,6 +387,7 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("no_global_access", []string{"global_access_enable", "no_global_access"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -393,6 +397,7 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("no_insecure_registries", []string{"insecure_registry_list", "no_insecure_registries"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -402,6 +407,7 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("no_local_access", []string{"local_access_config", "no_local_access"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -411,6 +417,7 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("use_default_cluster_role_bindings", []string{"use_custom_cluster_role_bindings", "use_default_cluster_role_bindings"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -420,6 +427,7 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("use_default_cluster_roles", []string{"use_custom_cluster_role_list", "use_default_cluster_roles"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -429,6 +437,7 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("use_default_psp", []string{"use_custom_psp_list", "use_default_psp"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -438,6 +447,7 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("vk8s_namespace_access_deny", []string{"vk8s_namespace_access_deny", "vk8s_namespace_access_permit"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},

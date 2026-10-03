@@ -9903,6 +9903,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("default_sensitive_data_policy", []string{"default_sensitive_data_policy", "sensitive_data_policy"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -9912,6 +9913,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("disable_api_definition", []string{"api_specification", "disable_api_definition"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -9921,6 +9923,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("disable_api_discovery", []string{"disable_api_discovery", "enable_api_discovery"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -9930,6 +9933,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("disable_api_testing", []string{"api_testing", "disable_api_testing"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -9939,6 +9943,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("disable_bot_defense", []string{"bot_defense", "bot_defense_advanced_protection", "disable_bot_defense"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -9948,6 +9953,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("disable_ip_reputation", []string{"disable_ip_reputation", "enable_ip_reputation"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -9957,6 +9963,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("disable_malicious_user_detection", []string{"disable_malicious_user_detection", "enable_malicious_user_detection"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -9966,6 +9973,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("disable_malware_protection", []string{"disable_malware_protection", "malware_protection_settings"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -9975,6 +9983,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("disable_rate_limit", []string{"api_rate_limit", "disable_rate_limit", "rate_limit"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -9984,6 +9993,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("disable_threat_mesh", []string{"disable_threat_mesh", "enable_threat_mesh"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -9993,6 +10003,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("disable_trust_client_ip_headers", []string{"disable_trust_client_ip_headers", "enable_trust_client_ip_headers"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -10002,6 +10013,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("disable_waf", []string{"app_firewall", "disable_waf"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -10011,6 +10023,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("no_challenge", []string{"captcha_challenge", "enable_challenge", "js_challenge", "no_challenge", "policy_based_challenge"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -10020,6 +10033,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("round_robin", []string{"cookie_stickiness", "least_active", "random", "ring_hash", "round_robin", "source_ip_stickiness"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -10029,6 +10043,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("service_policies_from_namespace", []string{"active_service_policies", "no_service_policies", "service_policies_from_namespace"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -10038,6 +10053,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("user_id_client_ip", []string{"user_id_client_ip", "user_identification"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},

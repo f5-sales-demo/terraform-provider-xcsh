@@ -31,6 +31,7 @@ import (
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/planmodifiers"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -3543,6 +3544,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("block_all_services", []string{"block_all_services", "blocked_services", "default_blocked_services"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -3563,6 +3565,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("logs_streaming_disabled", []string{"log_receiver", "logs_streaming_disabled"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -3572,6 +3575,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("no_worker_nodes", []string{"no_worker_nodes", "nodes_per_az", "total_nodes"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},

@@ -28,6 +28,7 @@ import (
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/planmodifiers"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -392,6 +393,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("allow_all_response_codes", []string{"allow_all_response_codes", "allowed_response_codes"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -401,6 +403,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("default_anonymization", []string{"custom_anonymization", "default_anonymization", "disable_anonymization"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -410,6 +413,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("default_bot_setting", []string{"bot_protection_setting", "default_bot_setting"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -419,6 +423,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("default_detection_settings", []string{"default_detection_settings", "detection_settings"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -428,6 +433,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("disable_ai_enhancements", []string{"disable_ai_enhancements", "enable_ai_enhancements"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -437,6 +443,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("monitoring", []string{"blocking", "monitoring"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
@@ -446,6 +453,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 				Computed:            true,
 				AttributeTypes:      map[string]attr.Type{},
 				PlanModifiers: []planmodifier.Object{
+					planmodifiers.DefaultOneOfMarker("use_default_blocking_page", []string{"blocking_page", "use_default_blocking_page"}),
 					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
