@@ -644,7 +644,7 @@
         "xcsh-docs:resources:cdn_cache_rule:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -666,21 +666,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Manages a CDN Cache Rule resource in F5 Distributed Cloud for cdn loadbalancer specification. configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_cdn_cache_rule",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["cdn cache rule"],
       "body_bytes": 34344,
-      "body_sha256": "sha256:174be8225385dd0b010d72028c99cc79c99e8962606f5f7b8d70e9fc4b4a5788",
+      "body_sha256": "sha256:ece6cb137398255bf740d7a8660ffea2f4ab9a8de60a097f1fbb5f73aa1a5f9b",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -688,7 +688,7 @@
         "xcsh-docs:resources:cdn_cache_rule:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -855,7 +855,7 @@
           "type": "string"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:timeouts",
@@ -870,20 +870,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Property reference for xcsh_cdn_cache_rule.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["cache rules"],
       "body_bytes": 3469,
-      "body_sha256": "sha256:367305d6abe9fd2612b4373cf2888201f2a5a8004c260900182729098353e97e",
+      "body_sha256": "sha256:38d53d405c8bffc9c8775642dffcb21df3147a8d732f76faa7a0519edeb906bd",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -892,7 +892,7 @@
         "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -947,9 +947,9 @@
       "schema_path": ["cache_rules"],
       "sections": [
         {
-          "aliases": ["cache bypass"],
+          "aliases": ["cache bypass", "cache rules cache bypass", "no cache"],
           "anchor": "section",
-          "description": "This can be used for messages where no values are needed.",
+          "description": "Configures matching CDN requests to bypass cache.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:cache_bypass",
           "flags": ["optional"],
           "max_items": null,
@@ -961,7 +961,7 @@
           "type": "object"
         },
         {
-          "aliases": ["eligible for cache"],
+          "aliases": ["cache rules eligible for cache"],
           "anchor": "section",
           "description": "List of OPTIONS for Cache Action.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:eligible_for_cache",
@@ -992,7 +992,7 @@
           "type": "object"
         },
         {
-          "aliases": ["rule expression list"],
+          "aliases": ["cache rules rule expression list"],
           "anchor": "section",
           "description": "Expressions are evaluated in the order in which they are specified. The evaluation stops when the first rule match occurs..",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list",
@@ -1023,7 +1023,7 @@
           "type": "object"
         },
         {
-          "aliases": ["rule name"],
+          "aliases": ["cache rules rule name"],
           "anchor": "schema-cache_rules--rule_name",
           "description": "Name of the Cache Rule.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules",
@@ -1038,26 +1038,26 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This defines a CDN Cache Rule.",
       "tasks": ["configuration"],
       "title": "cache_rules",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
-      "aliases": ["cache rules cache bypass"],
+      "aliases": ["cache bypass", "cache rules cache bypass", "no cache"],
       "body_bytes": 1265,
       "body_sha256": "sha256:3bf88beac526ef057cd0cbec718ba8656fb062ffd207c5658c547f042c362dfd",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
-        "sources": ["reviewed-rule"],
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "sources": ["reviewed-rule", "reviewed-summary"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
       },
@@ -1078,14 +1078,14 @@
       "schema_path": ["cache_rules", "cache_bypass"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/cache_bypass/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
-      "summary": "This can be used for messages where no values are needed.",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "summary": "Configures matching CDN requests to bypass cache.",
       "tasks": ["configuration"],
       "title": "cache_rules.cache_bypass",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1099,7 +1099,7 @@
         "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_uri"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1138,7 +1138,7 @@
       "schema_path": ["cache_rules", "eligible_for_cache"],
       "sections": [
         {
-          "aliases": ["scheme proxy host request uri"],
+          "aliases": ["cache rules eligible for cache scheme proxy host request uri"],
           "anchor": "section",
           "description": "Cache TTL Enable Values.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_request_uri",
@@ -1161,7 +1161,7 @@
           "type": "object"
         },
         {
-          "aliases": ["scheme proxy host uri"],
+          "aliases": ["cache rules eligible for cache scheme proxy host uri"],
           "anchor": "section",
           "description": "Cache TTL Enable Values.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_uri",
@@ -1185,25 +1185,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/eligible_for_cache/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of OPTIONS for Cache Action.",
       "tasks": ["configuration"],
       "title": "cache_rules.eligible_for_cache",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["cache rules eligible for cache scheme proxy host request uri"],
       "body_bytes": 3792,
-      "body_sha256": "sha256:52594b64547a89ebb1a6fe7fd4dbe51a9582042beee6a40f6f15d0272119ad06",
+      "body_sha256": "sha256:f4e9cbca0b7a8bfe2114b84ec74e070b4b031f7a0b46d2cb4b34ed3561f6992d",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1234,7 +1234,7 @@
       "schema_path": ["cache_rules", "eligible_for_cache", "scheme_proxy_host_request_uri"],
       "sections": [
         {
-          "aliases": ["cache override"],
+          "aliases": ["cache rules eligible for cache scheme proxy host request uri cache override"],
           "anchor": "schema-cache_rules--eligible_for_cache--scheme_proxy_host_request_uri--cache_override",
           "description": "Honour Cache Override.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_request_uri",
@@ -1248,7 +1248,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["cache ttl"],
+          "aliases": ["cache rules eligible for cache scheme proxy host request uri cache ttl"],
           "anchor": "schema-cache_rules--eligible_for_cache--scheme_proxy_host_request_uri--cache_ttl",
           "description": "Cache TTL value is used to cache the resource/content for the specified amount of time Format: , where s - seconds, m - minutes, h - hours, d - days.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_request_uri",
@@ -1262,7 +1262,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ignore response cookie"],
+          "aliases": ["cache rules eligible for cache scheme proxy host request uri ignore response cookie"],
           "anchor": "schema-cache_rules--eligible_for_cache--scheme_proxy_host_request_uri--ignore_response_cookie",
           "description": "By default, response will not be cached if set-cookie header is present. This option will override the behavior and cache response even with set-cookie header present.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_request_uri",
@@ -1282,25 +1282,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/eligible_for_cache/scheme_proxy_host_request_uri/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Cache TTL Enable Values.",
       "tasks": ["configuration"],
       "title": "cache_rules.eligible_for_cache.scheme_proxy_host_request_uri",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["cache rules eligible for cache scheme proxy host uri"],
       "body_bytes": 3744,
-      "body_sha256": "sha256:24d7d2838eddaec6805cd991d5b6ba85fc056504f13f89eb1a9960e02e133805",
+      "body_sha256": "sha256:f8344b43a66c9070bccdf8c3c6e13ed27fbb8c90427bb0245d35634abec9ba09",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1331,7 +1331,7 @@
       "schema_path": ["cache_rules", "eligible_for_cache", "scheme_proxy_host_uri"],
       "sections": [
         {
-          "aliases": ["cache override"],
+          "aliases": ["cache rules eligible for cache scheme proxy host uri cache override"],
           "anchor": "schema-cache_rules--eligible_for_cache--scheme_proxy_host_uri--cache_override",
           "description": "Honour Cache Override.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_uri",
@@ -1345,7 +1345,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["cache ttl"],
+          "aliases": ["cache rules eligible for cache scheme proxy host uri cache ttl"],
           "anchor": "schema-cache_rules--eligible_for_cache--scheme_proxy_host_uri--cache_ttl",
           "description": "Cache TTL value is used to cache the resource/content for the specified amount of time Format: , where s - seconds, m - minutes, h - hours, d - days.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_uri",
@@ -1359,7 +1359,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ignore response cookie"],
+          "aliases": ["cache rules eligible for cache scheme proxy host uri ignore response cookie"],
           "anchor": "schema-cache_rules--eligible_for_cache--scheme_proxy_host_uri--ignore_response_cookie",
           "description": "By default, response will not be cached if set-cookie header is present. This option will override the behavior and cache response even with set-cookie header present.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_uri",
@@ -1374,27 +1374,27 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/eligible_for_cache/scheme_proxy_host_uri/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Cache TTL Enable Values.",
       "tasks": ["configuration"],
       "title": "cache_rules.eligible_for_cache.scheme_proxy_host_uri",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["cache rules rule expression list"],
       "body_bytes": 3882,
-      "body_sha256": "sha256:fd7d8330e6a5c5c41988c0e46dcae1ad7c7d17c4ab38d5d07b8d32ec073b2193",
+      "body_sha256": "sha256:96fe777fc667ac9572f5df105c9eda610ca99337d1d9ec366e2d2c437bb242a7",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
         "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1433,7 +1433,7 @@
       "schema_path": ["cache_rules", "rule_expression_list"],
       "sections": [
         {
-          "aliases": ["cache rule expression"],
+          "aliases": ["cache rules rule expression list cache rule expression"],
           "anchor": "section",
           "description": "The Cache Rule Expression Terms that are ANDed.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression",
@@ -1447,7 +1447,7 @@
           "type": "object"
         },
         {
-          "aliases": ["expression name"],
+          "aliases": ["cache rules rule expression list expression name"],
           "anchor": "schema-cache_rules--rule_expression_list--expression_name",
           "description": "Name of the Expressions items that are ANDed.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list",
@@ -1462,20 +1462,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Expressions are evaluated in the order in which they are specified. The evaluation stops when the first rule match occurs..",
       "tasks": ["configuration"],
       "title": "cache_rules.rule_expression_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression"],
       "body_bytes": 4069,
-      "body_sha256": "sha256:5d6d56e8c6a736dccaa28a5817cd1093e326bd22a3d61fb449ff64c8eb6c01e5",
+      "body_sha256": "sha256:5437e5a8073fbd3f146696f88e77bd275a775b397c21c980ad029b5bf24c64f4",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -1485,7 +1485,7 @@
         "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1507,7 +1507,7 @@
       "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression"],
       "sections": [
         {
-          "aliases": ["cache headers"],
+          "aliases": ["cache rules rule expression list cache rule expression cache headers"],
           "anchor": "section",
           "description": "Configure cache rule headers to match the criteria.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers",
@@ -1521,7 +1521,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cookie matcher"],
+          "aliases": ["cache rules rule expression list cache rule expression cookie matcher"],
           "anchor": "section",
           "description": "A list of predicates for all cookies that need to be matched. The criteria for matching each cookie is described in individual instances of CookieMatcherType. The actual cookie values are extracted from the request API as a list of strings for each cookie name. Note that all specified cookie matcher predicates must",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher",
@@ -1544,7 +1544,7 @@
           "type": "object"
         },
         {
-          "aliases": ["path match"],
+          "aliases": ["cache rules rule expression list cache rule expression path match"],
           "anchor": "section",
           "description": "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match",
@@ -1558,7 +1558,7 @@
           "type": "object"
         },
         {
-          "aliases": ["query parameters"],
+          "aliases": ["cache rules rule expression list cache rule expression query parameters"],
           "anchor": "section",
           "description": "List of (key, value) query parameters.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters",
@@ -1582,27 +1582,27 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "The Cache Rule Expression Terms that are ANDed.",
       "tasks": ["configuration"],
       "title": "cache_rules.rule_expression_list.cache_rule_expression",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression cache headers"],
       "body_bytes": 4204,
-      "body_sha256": "sha256:44defb796f9cab338b4cd74ab0125d6fc994f3738adc70087970b8c60ea90fde",
+      "body_sha256": "sha256:82668d514074e02703cee40bfda6891fe2f0bf4d658a2c904144f4d1ca969206",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
         "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1624,7 +1624,7 @@
       "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "cache_headers"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["cache rules rule expression list cache rule expression cache headers name"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--name",
           "description": "- PROXY_HOST: Proxy Host Name of the proxied server - REFERER: Referer This is the address of the previous web page from which a link to the currently requested page was followed - SCHEME: Scheme The HTTP scheme used: HTTP or HTTPS - USER_AGENT: User Agent The user agent string of the user agent.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers",
@@ -1638,7 +1638,7 @@
           "type": "string"
         },
         {
-          "aliases": ["operator"],
+          "aliases": ["cache rules rule expression list cache rule expression cache headers operator"],
           "anchor": "section",
           "description": "Operator",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
@@ -2230,14 +2230,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/cache_headers/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configure cache rule headers to match the criteria.",
       "tasks": ["configuration"],
       "title": "cache_rules.rule_expression_list.cache_rule_expression.cache_headers",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2248,7 +2248,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2847,7 +2847,7 @@
       "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "cache_headers", "operator"],
       "sections": [
         {
-          "aliases": ["contains"],
+          "aliases": ["cache rules rule expression list cache rule expression cache headers operator contains"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--contains",
           "description": "Exclusive with The header value must include the specified value as a substring.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
@@ -2868,7 +2868,7 @@
           "type": "string"
         },
         {
-          "aliases": ["does not contain"],
+          "aliases": ["cache rules rule expression list cache rule expression cache headers operator does not contain"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--does_not_contain",
           "description": "Exclusive with The header value must not include the specified value as a substring.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
@@ -2889,7 +2889,9 @@
           "type": "string"
         },
         {
-          "aliases": ["does not end with"],
+          "aliases": [
+            "cache rules rule expression list cache rule expression cache headers operator does not end with"
+          ],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--does_not_end_with",
           "description": "Exclusive with The header value must not end with the specified value.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
@@ -2910,7 +2912,7 @@
           "type": "string"
         },
         {
-          "aliases": ["does not equal"],
+          "aliases": ["cache rules rule expression list cache rule expression cache headers operator does not equal"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--does_not_equal",
           "description": "Exclusive with The header value must not match the specified value.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
@@ -2931,7 +2933,9 @@
           "type": "string"
         },
         {
-          "aliases": ["does not start with"],
+          "aliases": [
+            "cache rules rule expression list cache rule expression cache headers operator does not start with"
+          ],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--does_not_start_with",
           "description": "Exclusive with The header value must not begin with the specified value.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
@@ -2952,7 +2956,7 @@
           "type": "string"
         },
         {
-          "aliases": ["endswith"],
+          "aliases": ["cache rules rule expression list cache rule expression cache headers operator endswith"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--endswith",
           "description": "Exclusive with The header value must end with the specified value.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
@@ -2973,7 +2977,7 @@
           "type": "string"
         },
         {
-          "aliases": ["equals"],
+          "aliases": ["cache rules rule expression list cache rule expression cache headers operator equals"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--equals",
           "description": "Exclusive with The header value must exactly match the specified value.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
@@ -2994,7 +2998,7 @@
           "type": "string"
         },
         {
-          "aliases": ["match regex"],
+          "aliases": ["cache rules rule expression list cache rule expression cache headers operator match regex"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--match_regex",
           "description": "Exclusive with The header value must match the specified regular expression pattern.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
@@ -3015,7 +3019,7 @@
           "type": "string"
         },
         {
-          "aliases": ["startswith"],
+          "aliases": ["cache rules rule expression list cache rule expression cache headers operator startswith"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--startswith",
           "description": "Exclusive with The header value must begin with the specified value.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
@@ -3037,27 +3041,27 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/cache_headers/operator/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Operator",
       "tasks": ["configuration"],
       "title": "cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression cookie matcher"],
       "body_bytes": 5235,
-      "body_sha256": "sha256:e3023527e73a03a5b6b66a655cf33d4973e1c80685bc1e24bfb5490d93d32b00",
+      "body_sha256": "sha256:30c9b4a21236ce3f414dd1fcb3c89056f65a83f7ae4796bf0aa651290f1f7473",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
         "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3088,7 +3092,7 @@
       "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "cookie_matcher"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["cache rules rule expression list cache rule expression cookie matcher name"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--name",
           "description": "Enter the name of the cookie to match.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher",
@@ -3102,7 +3106,7 @@
           "type": "string"
         },
         {
-          "aliases": ["operator"],
+          "aliases": ["cache rules rule expression list cache rule expression cookie matcher operator"],
           "anchor": "section",
           "description": "Operator",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
@@ -3694,14 +3698,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/cookie_matcher/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A list of predicates for all cookies that need to be matched. The criteria for matching each cookie is described in individual instances of CookieMatcherType. The actual cookie values are extracted from the request API as a list of strings for each cookie name. Note that all specified cookie matcher predicates must",
       "tasks": ["configuration"],
       "title": "cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3712,7 +3716,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4311,7 +4315,7 @@
       "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "cookie_matcher", "operator"],
       "sections": [
         {
-          "aliases": ["contains"],
+          "aliases": ["cache rules rule expression list cache rule expression cookie matcher operator contains"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--contains",
           "description": "Exclusive with The cookie value must include the specified value as a substring.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
@@ -4332,7 +4336,9 @@
           "type": "string"
         },
         {
-          "aliases": ["does not contain"],
+          "aliases": [
+            "cache rules rule expression list cache rule expression cookie matcher operator does not contain"
+          ],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--does_not_contain",
           "description": "Exclusive with The cookie value must not include the specified value as a substring.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
@@ -4353,7 +4359,9 @@
           "type": "string"
         },
         {
-          "aliases": ["does not end with"],
+          "aliases": [
+            "cache rules rule expression list cache rule expression cookie matcher operator does not end with"
+          ],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--does_not_end_with",
           "description": "Exclusive with The cookie value must not end with the specified value.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
@@ -4374,7 +4382,7 @@
           "type": "string"
         },
         {
-          "aliases": ["does not equal"],
+          "aliases": ["cache rules rule expression list cache rule expression cookie matcher operator does not equal"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--does_not_equal",
           "description": "Exclusive with The cookie value must not match the specified value.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
@@ -4395,7 +4403,9 @@
           "type": "string"
         },
         {
-          "aliases": ["does not start with"],
+          "aliases": [
+            "cache rules rule expression list cache rule expression cookie matcher operator does not start with"
+          ],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--does_not_start_with",
           "description": "Exclusive with The cookie value must not begin with the specified value.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
@@ -4416,7 +4426,7 @@
           "type": "string"
         },
         {
-          "aliases": ["endswith"],
+          "aliases": ["cache rules rule expression list cache rule expression cookie matcher operator endswith"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--endswith",
           "description": "Exclusive with The cookie value must end with the specified value.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
@@ -4437,7 +4447,7 @@
           "type": "string"
         },
         {
-          "aliases": ["equals"],
+          "aliases": ["cache rules rule expression list cache rule expression cookie matcher operator equals"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--equals",
           "description": "Exclusive with The cookie value must exactly match the specified value.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
@@ -4458,7 +4468,7 @@
           "type": "string"
         },
         {
-          "aliases": ["match regex"],
+          "aliases": ["cache rules rule expression list cache rule expression cookie matcher operator match regex"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--match_regex",
           "description": "Exclusive with The cookie value must match the specified regular expression pattern in PCRE format.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
@@ -4479,7 +4489,7 @@
           "type": "string"
         },
         {
-          "aliases": ["startswith"],
+          "aliases": ["cache rules rule expression list cache rule expression cookie matcher operator startswith"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--startswith",
           "description": "Exclusive with The cookie value must begin with the specified value.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
@@ -4501,14 +4511,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/cookie_matcher/operator/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Operator",
       "tasks": ["configuration"],
       "title": "cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4521,7 +4531,7 @@
         "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4543,7 +4553,7 @@
       "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "path_match"],
       "sections": [
         {
-          "aliases": ["operator"],
+          "aliases": ["cache rules rule expression list cache rule expression path match operator"],
           "anchor": "section",
           "description": "Operator",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
@@ -5135,14 +5145,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/path_match/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
       "tasks": ["configuration"],
       "title": "cache_rules.rule_expression_list.cache_rule_expression.path_match",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -5153,7 +5163,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5752,7 +5762,7 @@
       "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "path_match", "operator"],
       "sections": [
         {
-          "aliases": ["contains"],
+          "aliases": ["cache rules rule expression list cache rule expression path match operator contains"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--contains",
           "description": "Exclusive with The path must include the specified value as a substring, up to the filename.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
@@ -5773,7 +5783,7 @@
           "type": "string"
         },
         {
-          "aliases": ["does not contain"],
+          "aliases": ["cache rules rule expression list cache rule expression path match operator does not contain"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--does_not_contain",
           "description": "Exclusive with The path must not include the specified value as a substring, up to the filename.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
@@ -5794,7 +5804,7 @@
           "type": "string"
         },
         {
-          "aliases": ["does not end with"],
+          "aliases": ["cache rules rule expression list cache rule expression path match operator does not end with"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--does_not_end_with",
           "description": "Exclusive with The path must not end with the specified value, up to the filename.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
@@ -5815,7 +5825,7 @@
           "type": "string"
         },
         {
-          "aliases": ["does not equal"],
+          "aliases": ["cache rules rule expression list cache rule expression path match operator does not equal"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--does_not_equal",
           "description": "Exclusive with The path must not match the specified value, up to the filename.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
@@ -5836,7 +5846,7 @@
           "type": "string"
         },
         {
-          "aliases": ["does not start with"],
+          "aliases": ["cache rules rule expression list cache rule expression path match operator does not start with"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--does_not_start_with",
           "description": "Exclusive with The path must not begin with the specified value, up to the filename.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
@@ -5857,7 +5867,7 @@
           "type": "string"
         },
         {
-          "aliases": ["endswith"],
+          "aliases": ["cache rules rule expression list cache rule expression path match operator endswith"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--endswith",
           "description": "Exclusive with The path must end with the specified value, up to the filename.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
@@ -5878,7 +5888,7 @@
           "type": "string"
         },
         {
-          "aliases": ["equals"],
+          "aliases": ["cache rules rule expression list cache rule expression path match operator equals"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--equals",
           "description": "Exclusive with The path must exactly match the specified value, up to the filename.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
@@ -5899,7 +5909,7 @@
           "type": "string"
         },
         {
-          "aliases": ["match regex"],
+          "aliases": ["cache rules rule expression list cache rule expression path match operator match regex"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--match_regex",
           "description": "Exclusive with The path must match the specified regular expression pattern in PCRE format.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
@@ -5920,7 +5930,7 @@
           "type": "string"
         },
         {
-          "aliases": ["startswith"],
+          "aliases": ["cache rules rule expression list cache rule expression path match operator startswith"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--startswith",
           "description": "Exclusive with The path must begin with the specified value, up to the filename.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
@@ -5942,27 +5952,27 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/path_match/operator/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Operator",
       "tasks": ["configuration"],
       "title": "cache_rules.rule_expression_list.cache_rule_expression.path_match.operator",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression query parameters"],
       "body_bytes": 4264,
-      "body_sha256": "sha256:eee68e5b244dc481825d787e21306d8869a3ae359c2a82220dc35227ab3ad224",
+      "body_sha256": "sha256:22eae4b04aa19675a6ea8c84aef754217c618d29b26946a0a56f31966d250769",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
         "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5993,7 +6003,7 @@
       "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "query_parameters"],
       "sections": [
         {
-          "aliases": ["key"],
+          "aliases": ["cache rules rule expression list cache rule expression query parameters key"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--key",
           "description": "The name of the query parameter to match.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters",
@@ -6007,7 +6017,7 @@
           "type": "string"
         },
         {
-          "aliases": ["operator"],
+          "aliases": ["cache rules rule expression list cache rule expression query parameters operator"],
           "anchor": "section",
           "description": "Operator",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
@@ -6605,14 +6615,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/query_parameters/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of (key, value) query parameters.",
       "tasks": ["configuration"],
       "title": "cache_rules.rule_expression_list.cache_rule_expression.query_parameters",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -6623,7 +6633,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7222,7 +7232,7 @@
       "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "query_parameters", "operator"],
       "sections": [
         {
-          "aliases": ["contains"],
+          "aliases": ["cache rules rule expression list cache rule expression query parameters operator contains"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--contains",
           "description": "Exclusive with The query parameter value must include the specified value as a substring.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
@@ -7243,7 +7253,9 @@
           "type": "string"
         },
         {
-          "aliases": ["does not contain"],
+          "aliases": [
+            "cache rules rule expression list cache rule expression query parameters operator does not contain"
+          ],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--does_not_contain",
           "description": "Exclusive with The query parameter value must not include the specified value as a substring.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
@@ -7264,7 +7276,9 @@
           "type": "string"
         },
         {
-          "aliases": ["does not end with"],
+          "aliases": [
+            "cache rules rule expression list cache rule expression query parameters operator does not end with"
+          ],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--does_not_end_with",
           "description": "Exclusive with The query parameter value must not end with the specified value.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
@@ -7285,7 +7299,9 @@
           "type": "string"
         },
         {
-          "aliases": ["does not equal"],
+          "aliases": [
+            "cache rules rule expression list cache rule expression query parameters operator does not equal"
+          ],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--does_not_equal",
           "description": "Exclusive with The query parameter value must not match the specified value.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
@@ -7306,7 +7322,9 @@
           "type": "string"
         },
         {
-          "aliases": ["does not start with"],
+          "aliases": [
+            "cache rules rule expression list cache rule expression query parameters operator does not start with"
+          ],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--does_not_start_with",
           "description": "Exclusive with The query parameter value must not begin with the specified value.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
@@ -7327,7 +7345,7 @@
           "type": "string"
         },
         {
-          "aliases": ["endswith"],
+          "aliases": ["cache rules rule expression list cache rule expression query parameters operator endswith"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--endswith",
           "description": "Exclusive with The query parameter value must end with the specified value.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
@@ -7348,7 +7366,7 @@
           "type": "string"
         },
         {
-          "aliases": ["equals"],
+          "aliases": ["cache rules rule expression list cache rule expression query parameters operator equals"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--equals",
           "description": "Exclusive with The query parameter value must exactly match the specified value.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
@@ -7369,7 +7387,7 @@
           "type": "string"
         },
         {
-          "aliases": ["match regex"],
+          "aliases": ["cache rules rule expression list cache rule expression query parameters operator match regex"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--match_regex",
           "description": "Exclusive with The query parameter value must match the specified regular expression pattern in PCRE format.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
@@ -7390,7 +7408,7 @@
           "type": "string"
         },
         {
-          "aliases": ["startswith"],
+          "aliases": ["cache rules rule expression list cache rule expression query parameters operator startswith"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--startswith",
           "description": "Exclusive with The query parameter value must begin with the specified value.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
@@ -7412,25 +7430,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/query_parameters/operator/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Operator",
       "tasks": ["configuration"],
       "title": "cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2243,
       "body_sha256": "sha256:07066dacc8bfd9bba1fae166d8f2a28ef9b57068a402b3d855158165be19f0cd",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7452,9 +7470,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -7466,9 +7492,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -7480,9 +7515,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -7494,9 +7538,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:cdn_cache_rule:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -7509,14 +7562,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "timeouts for xcsh_cdn_cache_rule.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -7527,7 +7580,7 @@
       "category": "cdn",
       "child_ids": ["xcsh-docs:resources:cdn_cache_rule:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7549,14 +7602,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/examples/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Examples for xcsh_cdn_cache_rule.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -7567,7 +7620,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7596,14 +7649,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Resource for xcsh_cdn_cache_rule.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -7614,7 +7667,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7637,14 +7690,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Import for xcsh_cdn_cache_rule.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -7655,7 +7708,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7677,14 +7730,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Timeouts for xcsh_cdn_cache_rule.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     }
   ],

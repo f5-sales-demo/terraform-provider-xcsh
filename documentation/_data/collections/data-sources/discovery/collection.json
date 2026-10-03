@@ -685,7 +685,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:discovery:reference", "xcsh-docs:data-sources:discovery:examples"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -707,21 +707,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Manages a Discovery resource in F5 Distributed Cloud for api to create discovery object for a site or virtual site in system namespace. configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_discovery",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["discovery"],
       "body_bytes": 37765,
-      "body_sha256": "sha256:04779ced1dcd4404efe067636f2ac0b06e32b291b05f00f608778e1f59f3619a",
+      "body_sha256": "sha256:f999a7057c1f12080be950ff6d5df869b0dd8d8d92d38f27efca0fea3ef71165",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -731,7 +731,7 @@
         "xcsh-docs:data-sources:discovery:properties:where"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -908,14 +908,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Property reference for xcsh_discovery.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -929,7 +929,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_consul:publish_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -951,7 +951,7 @@
       "schema_path": ["discovery_consul"],
       "sections": [
         {
-          "aliases": ["access info"],
+          "aliases": ["discovery consul access info"],
           "anchor": "section",
           "description": "Hashicorp Consul API server information.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info",
@@ -965,7 +965,7 @@
           "type": "object"
         },
         {
-          "aliases": ["publish info"],
+          "aliases": ["discovery consul publish info"],
           "anchor": "section",
           "description": "Consul Configuration to publish VIPs.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:publish_info",
@@ -980,14 +980,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Discovery configuration for Hashicorp Consul.",
       "tasks": ["configuration"],
       "title": "discovery_consul",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1001,7 +1001,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1023,7 +1023,7 @@
       "schema_path": ["discovery_consul", "access_info"],
       "sections": [
         {
-          "aliases": ["connection info"],
+          "aliases": ["discovery consul access info connection info"],
           "anchor": "section",
           "description": "Configuration details to access discovery service REST API.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info",
@@ -1037,7 +1037,7 @@
           "type": "object"
         },
         {
-          "aliases": ["http basic auth info"],
+          "aliases": ["discovery consul access info http basic auth info"],
           "anchor": "section",
           "description": "Authentication parameters to access Hashicorp Consul.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info",
@@ -1052,27 +1052,27 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Hashicorp Consul API server information.",
       "tasks": ["configuration"],
       "title": "discovery_consul.access_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["discovery consul access info connection info"],
       "body_bytes": 2736,
-      "body_sha256": "sha256:e2be57cd4a06ae3bbe83d1c618c690681fb6e509abcae78d964cb2d673a955cf",
+      "body_sha256": "sha256:c267af36922f7373699ebf8d46d604e4e464f827d1d90e58a75c1efb98076582",
       "capabilities": [],
       "category": null,
       "child_ids": [
         "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1094,7 +1094,7 @@
       "schema_path": ["discovery_consul", "access_info", "connection_info"],
       "sections": [
         {
-          "aliases": ["api server"],
+          "aliases": ["discovery consul access info connection info api server"],
           "anchor": "schema-discovery_consul--access_info--connection_info--api_server",
           "description": "API server must be a fully qualified domain string and port specified as host:port pair.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info",
@@ -1108,7 +1108,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tls info"],
+          "aliases": ["discovery consul access info connection info tls info"],
           "anchor": "section",
           "description": "TLS config for client of discovery service.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info",
@@ -1123,27 +1123,27 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/connection_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configuration details to access discovery service REST API.",
       "tasks": ["configuration"],
       "title": "discovery_consul.access_info.connection_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["discovery consul access info connection info tls info"],
       "body_bytes": 5695,
-      "body_sha256": "sha256:ba98fba563224a6f8286768f2be3a869c1a65d47a971f5f4fd47ecf837bef04d",
+      "body_sha256": "sha256:3bfc62afba92da927c8c87fd88c87b5097f20acc43958106245ca40ffe351d16",
       "capabilities": [],
       "category": null,
       "child_ids": [
         "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1165,7 +1165,7 @@
       "schema_path": ["discovery_consul", "access_info", "connection_info", "tls_info"],
       "sections": [
         {
-          "aliases": ["certificate"],
+          "aliases": ["discovery consul access info connection info tls info certificate"],
           "anchor": "schema-discovery_consul--access_info--connection_info--tls_info--certificate",
           "description": "Client certificate is PEM-encoded certificate or certificate-chain.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info",
@@ -1179,7 +1179,7 @@
           "type": "string"
         },
         {
-          "aliases": ["key url"],
+          "aliases": ["discovery consul access info connection info tls info key url"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url",
@@ -1193,7 +1193,7 @@
           "type": "object"
         },
         {
-          "aliases": ["server name"],
+          "aliases": ["discovery consul access info connection info tls info server name"],
           "anchor": "schema-discovery_consul--access_info--connection_info--tls_info--server_name",
           "description": "ServerName is passed to the server for SNI and is used in the client to check server certificates against. If ServerName is empty, the hostname used to contact the server is used.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info",
@@ -1207,7 +1207,7 @@
           "type": "string"
         },
         {
-          "aliases": ["trusted ca url"],
+          "aliases": ["discovery consul access info connection info tls info trusted ca url"],
           "anchor": "schema-discovery_consul--access_info--connection_info--tls_info--trusted_ca_url",
           "description": "The URL or value for trusted Server CA certificate or certificate chain Certificates in PEM format including the PEM headers.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info",
@@ -1222,14 +1222,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/connection_info/tls_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "TLS config for client of discovery service.",
       "tasks": ["configuration"],
       "title": "discovery_consul.access_info.connection_info.tls_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1243,7 +1243,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1265,7 +1265,7 @@
       "schema_path": ["discovery_consul", "access_info", "connection_info", "tls_info", "key_url"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["discovery consul access info connection info tls info key url blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url:blindfold_secret_info",
@@ -1286,7 +1286,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["discovery consul access info connection info tls info key url clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url:clear_secret_info",
@@ -1308,25 +1308,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/connection_info/tls_info/key_url/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "discovery_consul.access_info.connection_info.tls_info.key_url",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["discovery consul access info connection info tls info key url blindfold secret info"],
       "body_bytes": 5313,
-      "body_sha256": "sha256:d271a4a87900c0a2a4d10a17745816ee08e96ac0af3d36a80d2a53f4ab333e2a",
+      "body_sha256": "sha256:925172be039ab96d6b66ff97dba3d363ab7bacec2a935f6ddf1e817cf57d2c78",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1355,7 +1355,9 @@
       ],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": [
+            "discovery consul access info connection info tls info key url blindfold secret info decryption provider"
+          ],
           "anchor": "schema-discovery_consul--access_info--connection_info--tls_info--key_url--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url:blindfold_secret_info",
@@ -1377,7 +1379,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["discovery consul access info connection info tls info key url blindfold secret info location"],
           "anchor": "schema-discovery_consul--access_info--connection_info--tls_info--key_url--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url:blindfold_secret_info",
@@ -1399,7 +1401,9 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": [
+            "discovery consul access info connection info tls info key url blindfold secret info store provider"
+          ],
           "anchor": "schema-discovery_consul--access_info--connection_info--tls_info--key_url--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url:blindfold_secret_info",
@@ -1422,25 +1426,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/connection_info/tls_info/key_url/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "discovery_consul.access_info.connection_info.tls_info.key_url.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["discovery consul access info connection info tls info key url clear secret info"],
       "body_bytes": 4168,
-      "body_sha256": "sha256:b252314a2128739b501aa77c98a1d4e080f721c91e38f2e0a70f2c4e1de0bd37",
+      "body_sha256": "sha256:6b6c8d9ef39cd0e3f1362988994c451eb9d58c5a5a2d72466629bf368fc8c36b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1462,7 +1466,7 @@
       "schema_path": ["discovery_consul", "access_info", "connection_info", "tls_info", "key_url", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["discovery consul access info connection info tls info key url clear secret info provider ref"],
           "anchor": "schema-discovery_consul--access_info--connection_info--tls_info--key_url--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url:clear_secret_info",
@@ -1484,7 +1488,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["discovery consul access info connection info tls info key url clear secret info url"],
           "anchor": "schema-discovery_consul--access_info--connection_info--tls_info--key_url--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url:clear_secret_info",
@@ -1507,27 +1511,27 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/connection_info/tls_info/key_url/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "discovery_consul.access_info.connection_info.tls_info.key_url.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["discovery consul access info http basic auth info"],
       "body_bytes": 2544,
-      "body_sha256": "sha256:2d82c0c098407ab629a15fb9ecfceaa4352e9681692ead12ca71d4c26b571e15",
+      "body_sha256": "sha256:e7b36bdbb4146271cf9b2ccf79271ecfb8240029c82fc2c6503ebd322f03d0d4",
       "capabilities": [],
       "category": null,
       "child_ids": [
         "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1549,7 +1553,7 @@
       "schema_path": ["discovery_consul", "access_info", "http_basic_auth_info"],
       "sections": [
         {
-          "aliases": ["passwd url"],
+          "aliases": ["discovery consul access info http basic auth info passwd url"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url",
@@ -1563,7 +1567,7 @@
           "type": "object"
         },
         {
-          "aliases": ["user name"],
+          "aliases": ["discovery consul access info http basic auth info user name"],
           "anchor": "schema-discovery_consul--access_info--http_basic_auth_info--user_name",
           "description": "Username in consul.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info",
@@ -1578,14 +1582,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/http_basic_auth_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Authentication parameters to access Hashicorp Consul.",
       "tasks": ["configuration"],
       "title": "discovery_consul.access_info.http_basic_auth_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1599,7 +1603,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1621,7 +1625,7 @@
       "schema_path": ["discovery_consul", "access_info", "http_basic_auth_info", "passwd_url"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["discovery consul access info http basic auth info passwd url blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url:blindfold_secret_info",
@@ -1641,7 +1645,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["discovery consul access info http basic auth info passwd url clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url:clear_secret_info",
@@ -1656,25 +1660,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/http_basic_auth_info/passwd_url/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "discovery_consul.access_info.http_basic_auth_info.passwd_url",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["discovery consul access info http basic auth info passwd url blindfold secret info"],
       "body_bytes": 5107,
-      "body_sha256": "sha256:2e893143709f111b303186efbed121051f7f36de3a63ad124fe21d37e18479f5",
+      "body_sha256": "sha256:b6b321fa8a7ce89e3f7d799fc221361919f43c6bfbcac1e431da4b414f2b9df9",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1696,7 +1700,9 @@
       "schema_path": ["discovery_consul", "access_info", "http_basic_auth_info", "passwd_url", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": [
+            "discovery consul access info http basic auth info passwd url blindfold secret info decryption provider"
+          ],
           "anchor": "schema-discovery_consul--access_info--http_basic_auth_info--passwd_url--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url:blindfold_secret_info",
@@ -1717,7 +1723,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["discovery consul access info http basic auth info passwd url blindfold secret info location"],
           "anchor": "schema-discovery_consul--access_info--http_basic_auth_info--passwd_url--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url:blindfold_secret_info",
@@ -1738,7 +1744,9 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": [
+            "discovery consul access info http basic auth info passwd url blindfold secret info store provider"
+          ],
           "anchor": "schema-discovery_consul--access_info--http_basic_auth_info--passwd_url--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url:blindfold_secret_info",
@@ -1760,25 +1768,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/http_basic_auth_info/passwd_url/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "discovery_consul.access_info.http_basic_auth_info.passwd_url.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["discovery consul access info http basic auth info passwd url clear secret info"],
       "body_bytes": 3964,
-      "body_sha256": "sha256:7e85e9ff819292f63c3f61ac40909eadebdbe0fa8ad6d97631e26e6ff5fd3d58",
+      "body_sha256": "sha256:f74abf6314697ab406a04300710954c06177f1e2a64344f5a546f3173fc0d740",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1800,7 +1808,7 @@
       "schema_path": ["discovery_consul", "access_info", "http_basic_auth_info", "passwd_url", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["discovery consul access info http basic auth info passwd url clear secret info provider ref"],
           "anchor": "schema-discovery_consul--access_info--http_basic_auth_info--passwd_url--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url:clear_secret_info",
@@ -1821,7 +1829,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["discovery consul access info http basic auth info passwd url clear secret info url"],
           "anchor": "schema-discovery_consul--access_info--http_basic_auth_info--passwd_url--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url:clear_secret_info",
@@ -1843,14 +1851,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/http_basic_auth_info/passwd_url/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "discovery_consul.access_info.http_basic_auth_info.passwd_url.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1864,7 +1872,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_consul:publish_info:publish"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1886,7 +1894,7 @@
       "schema_path": ["discovery_consul", "publish_info"],
       "sections": [
         {
-          "aliases": ["disable spec"],
+          "aliases": ["discovery consul publish info disable spec"],
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:publish_info:disable_spec",
@@ -1900,7 +1908,7 @@
           "type": "object"
         },
         {
-          "aliases": ["publish"],
+          "aliases": ["discovery consul publish info publish"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:publish_info:publish",
@@ -1915,14 +1923,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/publish_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Consul Configuration to publish VIPs.",
       "tasks": ["configuration"],
       "title": "discovery_consul.publish_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1933,7 +1941,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1955,14 +1963,14 @@
       "schema_path": ["discovery_consul", "publish_info", "disable_spec"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/publish_info/disable_spec/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Enable this option",
       "tasks": ["configuration"],
       "title": "discovery_consul.publish_info.disable_spec",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1973,7 +1981,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1995,14 +2003,14 @@
       "schema_path": ["discovery_consul", "publish_info", "publish"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/publish_info/publish/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "discovery_consul.publish_info.publish",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2018,7 +2026,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2040,7 +2048,7 @@
       "schema_path": ["discovery_k8s"],
       "sections": [
         {
-          "aliases": ["access info"],
+          "aliases": ["discovery k8s access info"],
           "anchor": "section",
           "description": "K8s API server access.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info",
@@ -2054,7 +2062,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default all"],
+          "aliases": ["discovery k8s default all"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:default_all",
@@ -2068,7 +2076,7 @@
           "type": "object"
         },
         {
-          "aliases": ["namespace mapping"],
+          "aliases": ["discovery k8s namespace mapping"],
           "anchor": "section",
           "description": "Select the mapping between K8s namespaces from which services will be discovered and App Namespace to which the discovered services will be shared.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:namespace_mapping",
@@ -2082,7 +2090,7 @@
           "type": "object"
         },
         {
-          "aliases": ["publish info"],
+          "aliases": ["discovery k8s publish info"],
           "anchor": "section",
           "description": "K8s Configuration to publish VIPs.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info",
@@ -2097,14 +2105,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Discovery configuration for K8s.",
       "tasks": ["configuration"],
       "title": "discovery_k8s",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2120,7 +2128,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:reachable"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2142,7 +2150,7 @@
       "schema_path": ["discovery_k8s", "access_info"],
       "sections": [
         {
-          "aliases": ["connection info"],
+          "aliases": ["discovery k8s access info connection info"],
           "anchor": "section",
           "description": "Configuration details to access discovery service REST API.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info",
@@ -2156,7 +2164,7 @@
           "type": "object"
         },
         {
-          "aliases": ["isolated"],
+          "aliases": ["discovery k8s access info isolated"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:isolated",
@@ -2170,7 +2178,7 @@
           "type": "object"
         },
         {
-          "aliases": ["kubeconfig url"],
+          "aliases": ["discovery k8s access info kubeconfig url"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url",
@@ -2184,7 +2192,7 @@
           "type": "object"
         },
         {
-          "aliases": ["reachable"],
+          "aliases": ["discovery k8s access info reachable"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:reachable",
@@ -2199,25 +2207,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "K8s API server access.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.access_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["discovery k8s access info connection info"],
       "body_bytes": 2700,
-      "body_sha256": "sha256:afc377b26cfa06dbe7cd2fa1bea20b7134f797d176bc8cd83248fe12953f2fdb",
+      "body_sha256": "sha256:2206065f2dad463ef01faa479d26fb86ecc9b97280a7006cd0d8f317f3c1d244",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2239,7 +2247,7 @@
       "schema_path": ["discovery_k8s", "access_info", "connection_info"],
       "sections": [
         {
-          "aliases": ["api server"],
+          "aliases": ["discovery k8s access info connection info api server"],
           "anchor": "schema-discovery_k8s--access_info--connection_info--api_server",
           "description": "API server must be a fully qualified domain string and port specified as host:port pair.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info",
@@ -2253,7 +2261,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tls info"],
+          "aliases": ["discovery k8s access info connection info tls info"],
           "anchor": "section",
           "description": "TLS config for client of discovery service.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info",
@@ -2268,27 +2276,27 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configuration details to access discovery service REST API.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.access_info.connection_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["discovery k8s access info connection info tls info"],
       "body_bytes": 5647,
-      "body_sha256": "sha256:4febfb6c27bf377fff073eaab05f45665c22342fda0a34c74aaeafa91d781cc1",
+      "body_sha256": "sha256:1fd9b00a9f763b8ec2e4904988463ff91ccfea2895d126042fc5a113dd065adf",
       "capabilities": [],
       "category": null,
       "child_ids": [
         "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2310,7 +2318,7 @@
       "schema_path": ["discovery_k8s", "access_info", "connection_info", "tls_info"],
       "sections": [
         {
-          "aliases": ["certificate"],
+          "aliases": ["discovery k8s access info connection info tls info certificate"],
           "anchor": "schema-discovery_k8s--access_info--connection_info--tls_info--certificate",
           "description": "Client certificate is PEM-encoded certificate or certificate-chain.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info",
@@ -2324,7 +2332,7 @@
           "type": "string"
         },
         {
-          "aliases": ["key url"],
+          "aliases": ["discovery k8s access info connection info tls info key url"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url",
@@ -2338,7 +2346,7 @@
           "type": "object"
         },
         {
-          "aliases": ["server name"],
+          "aliases": ["discovery k8s access info connection info tls info server name"],
           "anchor": "schema-discovery_k8s--access_info--connection_info--tls_info--server_name",
           "description": "ServerName is passed to the server for SNI and is used in the client to check server certificates against. If ServerName is empty, the hostname used to contact the server is used.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info",
@@ -2352,7 +2360,7 @@
           "type": "string"
         },
         {
-          "aliases": ["trusted ca url"],
+          "aliases": ["discovery k8s access info connection info tls info trusted ca url"],
           "anchor": "schema-discovery_k8s--access_info--connection_info--tls_info--trusted_ca_url",
           "description": "The URL or value for trusted Server CA certificate or certificate chain Certificates in PEM format including the PEM headers.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info",
@@ -2367,14 +2375,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/tls_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "TLS config for client of discovery service.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.access_info.connection_info.tls_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2388,7 +2396,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2410,7 +2418,7 @@
       "schema_path": ["discovery_k8s", "access_info", "connection_info", "tls_info", "key_url"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["discovery k8s access info connection info tls info key url blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url:blindfold_secret_info",
@@ -2431,7 +2439,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["discovery k8s access info connection info tls info key url clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url:clear_secret_info",
@@ -2453,25 +2461,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/tls_info/key_url/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.access_info.connection_info.tls_info.key_url",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["discovery k8s access info connection info tls info key url blindfold secret info"],
       "body_bytes": 5262,
-      "body_sha256": "sha256:e337d4b43b94a626a5b99e28f0b883d4357e880dbc3d32eda7e639ce53b80783",
+      "body_sha256": "sha256:816506fd3a82daa22c13b4f27a6e9b6ccacdf9b9c9831e61140bf391e65c4631",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2500,7 +2508,9 @@
       ],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": [
+            "discovery k8s access info connection info tls info key url blindfold secret info decryption provider"
+          ],
           "anchor": "schema-discovery_k8s--access_info--connection_info--tls_info--key_url--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url:blindfold_secret_info",
@@ -2522,7 +2532,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["discovery k8s access info connection info tls info key url blindfold secret info location"],
           "anchor": "schema-discovery_k8s--access_info--connection_info--tls_info--key_url--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url:blindfold_secret_info",
@@ -2544,7 +2554,9 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": [
+            "discovery k8s access info connection info tls info key url blindfold secret info store provider"
+          ],
           "anchor": "schema-discovery_k8s--access_info--connection_info--tls_info--key_url--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url:blindfold_secret_info",
@@ -2567,25 +2579,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/tls_info/key_url/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.access_info.connection_info.tls_info.key_url.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["discovery k8s access info connection info tls info key url clear secret info"],
       "body_bytes": 4120,
-      "body_sha256": "sha256:d0e9089bd78616b25de868b55827e12920c3f59e3e0632edb799c8ca30696862",
+      "body_sha256": "sha256:8667fc796774a4be459e54523a32fd6ad129dc3283621531d51c1dc20b85fd04",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2607,7 +2619,7 @@
       "schema_path": ["discovery_k8s", "access_info", "connection_info", "tls_info", "key_url", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["discovery k8s access info connection info tls info key url clear secret info provider ref"],
           "anchor": "schema-discovery_k8s--access_info--connection_info--tls_info--key_url--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url:clear_secret_info",
@@ -2629,7 +2641,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["discovery k8s access info connection info tls info key url clear secret info url"],
           "anchor": "schema-discovery_k8s--access_info--connection_info--tls_info--key_url--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url:clear_secret_info",
@@ -2652,14 +2664,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/tls_info/key_url/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.access_info.connection_info.tls_info.key_url.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2670,7 +2682,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2692,14 +2704,14 @@
       "schema_path": ["discovery_k8s", "access_info", "isolated"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/isolated/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.access_info.isolated",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2713,7 +2725,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2735,7 +2747,7 @@
       "schema_path": ["discovery_k8s", "access_info", "kubeconfig_url"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["discovery k8s access info kubeconfig url blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url:blindfold_secret_info",
@@ -2749,7 +2761,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["discovery k8s access info kubeconfig url clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url:clear_secret_info",
@@ -2764,25 +2776,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/kubeconfig_url/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.access_info.kubeconfig_url",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["discovery k8s access info kubeconfig url blindfold secret info"],
       "body_bytes": 4716,
-      "body_sha256": "sha256:29679e12c46cb418441a95ca250da51dbb55e30eaff49e1ee66b9640f8820b38",
+      "body_sha256": "sha256:4c7a5572690647e2c107530e5c23507e909f337b533325af44961fc05ad19ab2",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2804,7 +2816,7 @@
       "schema_path": ["discovery_k8s", "access_info", "kubeconfig_url", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["discovery k8s access info kubeconfig url blindfold secret info decryption provider"],
           "anchor": "schema-discovery_k8s--access_info--kubeconfig_url--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url:blindfold_secret_info",
@@ -2824,7 +2836,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["discovery k8s access info kubeconfig url blindfold secret info location"],
           "anchor": "schema-discovery_k8s--access_info--kubeconfig_url--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url:blindfold_secret_info",
@@ -2838,7 +2850,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["discovery k8s access info kubeconfig url blindfold secret info store provider"],
           "anchor": "schema-discovery_k8s--access_info--kubeconfig_url--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url:blindfold_secret_info",
@@ -2853,25 +2865,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/kubeconfig_url/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.access_info.kubeconfig_url.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["discovery k8s access info kubeconfig url clear secret info"],
       "body_bytes": 3594,
-      "body_sha256": "sha256:1f94c35a3ec0152f3b497ece7afde70cfb76422376fb7494c51d23322b520dc8",
+      "body_sha256": "sha256:25479db232252590f2bd5a2ba833c11af96845428669ebc7ebb20184a39e99b4",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2893,7 +2905,7 @@
       "schema_path": ["discovery_k8s", "access_info", "kubeconfig_url", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["discovery k8s access info kubeconfig url clear secret info provider ref"],
           "anchor": "schema-discovery_k8s--access_info--kubeconfig_url--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url:clear_secret_info",
@@ -2907,7 +2919,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["discovery k8s access info kubeconfig url clear secret info url"],
           "anchor": "schema-discovery_k8s--access_info--kubeconfig_url--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url:clear_secret_info",
@@ -2922,14 +2934,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/kubeconfig_url/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.access_info.kubeconfig_url.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2940,7 +2952,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2962,14 +2974,14 @@
       "schema_path": ["discovery_k8s", "access_info", "reachable"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/reachable/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.access_info.reachable",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2980,7 +2992,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3002,14 +3014,14 @@
       "schema_path": ["discovery_k8s", "default_all"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/default_all/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.default_all",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3020,7 +3032,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:discovery:properties:discovery_k8s:namespace_mapping:items"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3042,7 +3054,7 @@
       "schema_path": ["discovery_k8s", "namespace_mapping"],
       "sections": [
         {
-          "aliases": ["items"],
+          "aliases": ["discovery k8s namespace mapping items"],
           "anchor": "section",
           "description": "Map K8s namespace(s) to App Namespaces. In Shared Configuration, Discovered Services can only be mapped to a single App Namespace, which is determined by the first matched regex.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:namespace_mapping:items",
@@ -3057,25 +3069,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/namespace_mapping/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Select the mapping between K8s namespaces from which services will be discovered and App Namespace to which the discovered services will be shared.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.namespace_mapping",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["discovery k8s namespace mapping items"],
       "body_bytes": 4275,
-      "body_sha256": "sha256:c6ee74de9631beaca3b8030fc4c90dc057226bc27ad0b44290eb9a9ad0b50157",
+      "body_sha256": "sha256:ab7f68e132a80e7164152ce9f06e0d1f27d80208458d62a0cda7ebd634307be5",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3097,7 +3109,7 @@
       "schema_path": ["discovery_k8s", "namespace_mapping", "items"],
       "sections": [
         {
-          "aliases": ["namespace"],
+          "aliases": ["discovery k8s namespace mapping items namespace"],
           "anchor": "schema-discovery_k8s--namespace_mapping--items--namespace",
           "description": "Select a namespace.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:namespace_mapping:items",
@@ -3111,7 +3123,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace regex"],
+          "aliases": ["discovery k8s namespace mapping items namespace regex"],
           "anchor": "schema-discovery_k8s--namespace_mapping--items--namespace_regex",
           "description": "The regex here will be used to match K8s namespace(s).",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:namespace_mapping:items",
@@ -3126,14 +3138,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/namespace_mapping/items/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Map K8s namespace(s) to App Namespaces. In Shared Configuration, Discovered Services can only be mapped to a single App Namespace, which is determined by the first matched regex.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.namespace_mapping.items",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3149,7 +3161,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:publish_fqdns"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3171,7 +3183,7 @@
       "schema_path": ["discovery_k8s", "publish_info"],
       "sections": [
         {
-          "aliases": ["disable spec"],
+          "aliases": ["discovery k8s publish info disable spec"],
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:disable_spec",
@@ -3185,7 +3197,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dns delegation"],
+          "aliases": ["discovery k8s publish info dns delegation"],
           "anchor": "section",
           "description": "Configuration parameter for dns delegation.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:dns_delegation",
@@ -3199,7 +3211,7 @@
           "type": "object"
         },
         {
-          "aliases": ["publish"],
+          "aliases": ["discovery k8s publish info publish"],
           "anchor": "section",
           "description": "K8SPublishType.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:publish",
@@ -3213,7 +3225,7 @@
           "type": "object"
         },
         {
-          "aliases": ["publish fqdns"],
+          "aliases": ["discovery k8s publish info publish fqdns"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:publish_fqdns",
@@ -3228,14 +3240,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/publish_info/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "K8s Configuration to publish VIPs.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.publish_info",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3246,7 +3258,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3268,25 +3280,25 @@
       "schema_path": ["discovery_k8s", "publish_info", "disable_spec"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/publish_info/disable_spec/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Enable this option",
       "tasks": ["configuration"],
       "title": "discovery_k8s.publish_info.disable_spec",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["discovery k8s publish info dns delegation"],
       "body_bytes": 2942,
-      "body_sha256": "sha256:282d51f41e26081629845daa9a65f7d0d1387ff82d96ae925b618fa7fb577434",
+      "body_sha256": "sha256:171f83d75e865aae316e58b66db72cd89718cbcb8cd933e2b0dfcbbc12ba8b33",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3308,7 +3320,7 @@
       "schema_path": ["discovery_k8s", "publish_info", "dns_delegation"],
       "sections": [
         {
-          "aliases": ["dns mode"],
+          "aliases": ["discovery k8s publish info dns delegation dns mode"],
           "anchor": "schema-discovery_k8s--publish_info--dns_delegation--dns_mode",
           "description": "Two modes are possible CoreDNS: Whether external K8s cluster is running core-DNS KubeDNS: External K8s cluster is running kube-DNS.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:dns_delegation",
@@ -3322,7 +3334,7 @@
           "type": "string"
         },
         {
-          "aliases": ["subdomain"],
+          "aliases": ["discovery k8s publish info dns delegation subdomain"],
           "anchor": "schema-discovery_k8s--publish_info--dns_delegation--subdomain",
           "description": "The DNS subdomain for which F5XC will respond to DNS queries.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:dns_delegation",
@@ -3337,25 +3349,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/publish_info/dns_delegation/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configuration parameter for dns delegation.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.publish_info.dns_delegation",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["discovery k8s publish info publish"],
       "body_bytes": 2909,
-      "body_sha256": "sha256:861e3af974c2b4eb365f195eafcedcfa6cc85fcf6794b858dbd121534d5761ec",
+      "body_sha256": "sha256:964f66ab34297c155db5fcaef33bc8deac8d04d125f7fa3783fd0c3e9ccbbae6",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3377,7 +3389,7 @@
       "schema_path": ["discovery_k8s", "publish_info", "publish"],
       "sections": [
         {
-          "aliases": ["namespace"],
+          "aliases": ["discovery k8s publish info publish namespace"],
           "anchor": "schema-discovery_k8s--publish_info--publish--namespace",
           "description": "The namespace where the service/endpoints need to be created if it's not included in the domain. The external K8s administrator needs to ensure that the namespace exists.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:publish",
@@ -3392,14 +3404,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/publish_info/publish/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "K8SPublishType.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.publish_info.publish",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3410,7 +3422,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3432,14 +3444,14 @@
       "schema_path": ["discovery_k8s", "publish_info", "publish_fqdns"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/publish_info/publish_fqdns/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.publish_info.publish_fqdns",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3450,7 +3462,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3472,14 +3484,14 @@
       "schema_path": ["no_cluster_id"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/no_cluster_id/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "no_cluster_id",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3494,7 +3506,7 @@
         "xcsh-docs:data-sources:discovery:properties:where:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3516,7 +3528,7 @@
       "schema_path": ["where"],
       "sections": [
         {
-          "aliases": ["site"],
+          "aliases": ["where site"],
           "anchor": "section",
           "description": "This specifies a direct reference to a site configuration object.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:site",
@@ -3530,7 +3542,7 @@
           "type": "object"
         },
         {
-          "aliases": ["virtual network"],
+          "aliases": ["where virtual network"],
           "anchor": "section",
           "description": "This specifies a direct reference to a network configuration object.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_network",
@@ -3544,7 +3556,7 @@
           "type": "object"
         },
         {
-          "aliases": ["virtual site"],
+          "aliases": ["where virtual site"],
           "anchor": "section",
           "description": "A reference to virtual_site object.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site",
@@ -3559,14 +3571,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules * Direct reference to virtual_network object * Site local network when referring to site object * All site local networks for sites",
       "tasks": ["configuration"],
       "title": "where",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3581,7 +3593,7 @@
         "xcsh-docs:data-sources:discovery:properties:where:site:ref"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3603,7 +3615,7 @@
       "schema_path": ["where", "site"],
       "sections": [
         {
-          "aliases": ["disable internet vip"],
+          "aliases": ["where site disable internet vip"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:site:disable_internet_vip",
@@ -3617,7 +3629,7 @@
           "type": "object"
         },
         {
-          "aliases": ["enable internet vip"],
+          "aliases": ["where site enable internet vip"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:site:enable_internet_vip",
@@ -3631,7 +3643,7 @@
           "type": "object"
         },
         {
-          "aliases": ["network type"],
+          "aliases": ["where site network type"],
           "anchor": "schema-where--site--network_type",
           "description": "Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to every site. Two virtual",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:site",
@@ -3645,7 +3657,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ref"],
+          "aliases": ["where site ref"],
           "anchor": "section",
           "description": "A site direct reference.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:site:ref",
@@ -3660,14 +3672,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/site/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This specifies a direct reference to a site configuration object.",
       "tasks": ["configuration"],
       "title": "where.site",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3678,7 +3690,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3700,14 +3712,14 @@
       "schema_path": ["where", "site", "disable_internet_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/site/disable_internet_vip/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "where.site.disable_internet_vip",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3718,7 +3730,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3740,25 +3752,25 @@
       "schema_path": ["where", "site", "enable_internet_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/site/enable_internet_vip/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "where.site.enable_internet_vip",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["where site ref"],
       "body_bytes": 6304,
-      "body_sha256": "sha256:3951201e5ad1bcf2d584ec1304627133cd96be365c1c0e569a4556a67bc7c7ad",
+      "body_sha256": "sha256:3b87f3b0d9f77f45002c70c8e859e58536de066703725cc6bc976fd2173bec75",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3780,7 +3792,7 @@
       "schema_path": ["where", "site", "ref"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["where site ref kind"],
           "anchor": "schema-where--site--ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:site:ref",
@@ -3794,7 +3806,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["where site ref name"],
           "anchor": "schema-where--site--ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:site:ref",
@@ -3808,7 +3820,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["where site ref namespace"],
           "anchor": "schema-where--site--ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:site:ref",
@@ -3822,7 +3834,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["where site ref tenant"],
           "anchor": "schema-where--site--ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:site:ref",
@@ -3836,7 +3848,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["where site ref uid"],
           "anchor": "schema-where--site--ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:site:ref",
@@ -3851,14 +3863,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/site/ref/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A site direct reference.",
       "tasks": ["configuration"],
       "title": "where.site.ref",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3869,7 +3881,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:discovery:properties:where:virtual_network:ref"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3891,7 +3903,7 @@
       "schema_path": ["where", "virtual_network"],
       "sections": [
         {
-          "aliases": ["ref"],
+          "aliases": ["where virtual network ref"],
           "anchor": "section",
           "description": "A virtual network direct reference.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_network:ref",
@@ -3906,25 +3918,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/virtual_network/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This specifies a direct reference to a network configuration object.",
       "tasks": ["configuration"],
       "title": "where.virtual_network",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["where virtual network ref"],
       "body_bytes": 6447,
-      "body_sha256": "sha256:611fa2a2c07bee3fc620142a6018faaef78f62b9a7eaeb28163591d35a8ffeed",
+      "body_sha256": "sha256:69536f5ef4a5e5df5ee55b83969221f94300302c36a7323a5c1121881b8e4b3f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3946,7 +3958,7 @@
       "schema_path": ["where", "virtual_network", "ref"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["where virtual network ref kind"],
           "anchor": "schema-where--virtual_network--ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_network:ref",
@@ -3960,7 +3972,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["where virtual network ref name"],
           "anchor": "schema-where--virtual_network--ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_network:ref",
@@ -3974,7 +3986,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["where virtual network ref namespace"],
           "anchor": "schema-where--virtual_network--ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_network:ref",
@@ -3988,7 +4000,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["where virtual network ref tenant"],
           "anchor": "schema-where--virtual_network--ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_network:ref",
@@ -4002,7 +4014,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["where virtual network ref uid"],
           "anchor": "schema-where--virtual_network--ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_network:ref",
@@ -4017,14 +4029,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/virtual_network/ref/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A virtual network direct reference.",
       "tasks": ["configuration"],
       "title": "where.virtual_network.ref",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4039,7 +4051,7 @@
         "xcsh-docs:data-sources:discovery:properties:where:virtual_site:ref"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4061,7 +4073,7 @@
       "schema_path": ["where", "virtual_site"],
       "sections": [
         {
-          "aliases": ["disable internet vip"],
+          "aliases": ["where virtual site disable internet vip"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site:disable_internet_vip",
@@ -4075,7 +4087,7 @@
           "type": "object"
         },
         {
-          "aliases": ["enable internet vip"],
+          "aliases": ["where virtual site enable internet vip"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site:enable_internet_vip",
@@ -4089,7 +4101,7 @@
           "type": "object"
         },
         {
-          "aliases": ["network type"],
+          "aliases": ["where virtual site network type"],
           "anchor": "schema-where--virtual_site--network_type",
           "description": "Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to every site. Two virtual",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site",
@@ -4103,7 +4115,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ref"],
+          "aliases": ["where virtual site ref"],
           "anchor": "section",
           "description": "A virtual_site direct reference.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site:ref",
@@ -4118,14 +4130,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A reference to virtual_site object.",
       "tasks": ["configuration"],
       "title": "where.virtual_site",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4136,7 +4148,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4158,14 +4170,14 @@
       "schema_path": ["where", "virtual_site", "disable_internet_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/virtual_site/disable_internet_vip/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "where.virtual_site.disable_internet_vip",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4176,7 +4188,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4198,25 +4210,25 @@
       "schema_path": ["where", "virtual_site", "enable_internet_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/virtual_site/enable_internet_vip/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "where.virtual_site.enable_internet_vip",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["where virtual site ref"],
       "body_bytes": 6410,
-      "body_sha256": "sha256:695a8e9185d3001a3646b42061b6f2cb273a0e0cbb68f1005531d39fe97001c5",
+      "body_sha256": "sha256:9a80d1b3d2cbac4f06723e9e26b0b93440f5ab443e7f54b456e81068ab887d2e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4238,7 +4250,7 @@
       "schema_path": ["where", "virtual_site", "ref"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["where virtual site ref kind"],
           "anchor": "schema-where--virtual_site--ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site:ref",
@@ -4252,7 +4264,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["where virtual site ref name"],
           "anchor": "schema-where--virtual_site--ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site:ref",
@@ -4266,7 +4278,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["where virtual site ref namespace"],
           "anchor": "schema-where--virtual_site--ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site:ref",
@@ -4280,7 +4292,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["where virtual site ref tenant"],
           "anchor": "schema-where--virtual_site--ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site:ref",
@@ -4294,7 +4306,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["where virtual site ref uid"],
           "anchor": "schema-where--virtual_site--ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site:ref",
@@ -4309,14 +4321,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/virtual_site/ref/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "A virtual_site direct reference.",
       "tasks": ["configuration"],
       "title": "where.virtual_site.ref",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4327,7 +4339,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:discovery:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4349,14 +4361,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/examples/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Examples for xcsh_discovery.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4367,7 +4379,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4396,14 +4408,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Data source for xcsh_discovery.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     }
   ],

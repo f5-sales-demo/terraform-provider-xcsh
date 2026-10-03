@@ -77,8 +77,8 @@ Each exact path has one authoritative reference destination. Collection element 
 | `upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode` | [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode](resources--securemesh_site_v2--reference--group-017.md#canonical-1013033301121202-1312030331131013-1222303323220300-0002030002232133-0131001133211203-0322110002310211-3132322030130112-1233320312203302) |
 | `vmware` | [vmware](resources--securemesh_site_v2--reference--group-017.md#canonical-0013121331333101-0110031232203120-1332123300101323-0213331300203303-3102322233201100-0101131220111322-2213230000203031-1133112232132230) |
 | `vmware.not_managed` | [vmware.not_managed](resources--securemesh_site_v2--reference--group-017.md#canonical-3212320032322213-2211221212101101-0030112233232122-3121231223331210-1111233221202320-1300010012113133-0321233132100213-3211203131021331) |
-| `vmware.not_managed.node_list` | [vmware.not_managed.node_list](resources--securemesh_site_v2--reference--group-017.md#canonical-3111310102022223-1121023200313030-3113003033112012-3021002310213101-1321121112301203-1213322213010122-2133023122331111-2323112331313313) |
-| `vmware.not_managed.node_list.hostname` | [vmware.not_managed.node_list.hostname](resources--securemesh_site_v2--reference--group-017.md#canonical-2132130101123001-0023330122030000-2322203231332312-2033102312011221-1232332201123013-3110223221201131-3210300302102203-3200111313003101) |
+| `vmware.not_managed.node_list` | [vmware.not_managed.node_list](resources--securemesh_site_v2--reference--group-018.md#canonical-3111310102022223-1121023200313030-3113003033112012-3021002310213101-1321121112301203-1213322213010122-2133023122331111-2323112331313313) |
+| `vmware.not_managed.node_list.hostname` | [vmware.not_managed.node_list.hostname](resources--securemesh_site_v2--reference--group-018.md#canonical-2132130101123001-0023330122030000-2322203231332312-2033102312011221-1232332201123013-3110223221201131-3210300302102203-3200111313003101) |
 | `vmware.not_managed.node_list.interface_list` | [vmware.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-018.md#canonical-0310021211332003-0313231311233220-2031032300012221-0202032331000311-1203001010000022-0103323123002001-3123133100310310-0203301322211133) |
 | `vmware.not_managed.node_list.interface_list.bond_interface` | [vmware.not_managed.node_list.interface_list.bond_interface](resources--securemesh_site_v2--reference--group-018.md#canonical-3111200033322213-2211012132301320-0110011311302321-1120301223032321-0103332211010303-3000003232132123-2021033131031320-1200223003132320) |
 | `vmware.not_managed.node_list.interface_list.bond_interface.active_backup` | [vmware.not_managed.node_list.interface_list.bond_interface.active_backup](resources--securemesh_site_v2--reference--group-018.md#canonical-3023223301230030-3032111130021220-2203223220123333-1211223310022000-0123313232113113-0212023003310110-3320122133103301-3021130221002103) |
@@ -155,8 +155,8 @@ Each exact path has one authoritative reference destination. Collection element 
 | `vmware.not_managed.node_list.interface_list.static_ip.dns_server` | [vmware.not_managed.node_list.interface_list.static_ip.dns_server](resources--securemesh_site_v2--reference--group-018.md#canonical-0121013012310121-2300301231320211-0320221222301012-2123033311122032-1030000132302333-0001333311332210-1100310322011113-1000011300032223) |
 | `vmware.not_managed.node_list.interface_list.static_ip.ip_address` | [vmware.not_managed.node_list.interface_list.static_ip.ip_address](resources--securemesh_site_v2--reference--group-018.md#canonical-0313222311032030-1133332203322010-0333122321002000-3313231221323320-1322101102300223-0131110201101322-1032032022031302-0232020012300003) |
 | `vmware.not_managed.node_list.interface_list.static_ipv6_address` | [vmware.not_managed.node_list.interface_list.static_ipv6_address](resources--securemesh_site_v2--reference--group-018.md#canonical-1210012201220010-1122313132100032-3202000232113200-0210133321320020-0111132302331030-0100202232322131-0201213310210013-2302130010302031) |
-| `vmware.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip` | [vmware.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip](resources--securemesh_site_v2--reference--group-018.md#canonical-1121020030103121-0011012302201011-0111110121000002-1301032122120020-0011211213122232-3002130330100323-1203330320313330-2330321030310112) |
-| `vmware.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip.interface_ip_map` | [vmware.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip.interface_ip_map](resources--securemesh_site_v2--reference--group-018.md#canonical-3133311110032300-3111020202211223-3120312131311010-3301112333301000-3310102011113310-0033311002112321-2101221321231211-0131020321033023) |
+| `vmware.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip` | [vmware.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip](resources--securemesh_site_v2--reference--group-019.md#canonical-1121020030103121-0011012302201011-0111110121000002-1301032122120020-0011211213122232-3002130330100323-1203330320313330-2330321030310112) |
+| `vmware.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip.interface_ip_map` | [vmware.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip.interface_ip_map](resources--securemesh_site_v2--reference--group-019.md#canonical-3133311110032300-3111020202211223-3120312131311010-3301112333301000-3310102011113310-0033311002112321-2101221321231211-0131020321033023) |
 | `vmware.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip` | [vmware.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip](resources--securemesh_site_v2--reference--group-019.md#canonical-2001232022213220-0212320021003220-1203212311232032-3331333302023320-3013312331222210-0230301110301220-0020102332002012-0103133331321300) |
 | `vmware.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip.default_gw` | [vmware.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip.default_gw](resources--securemesh_site_v2--reference--group-019.md#canonical-0030203311312021-0001330230101023-1202113101002013-1000213002121332-0220220310010013-2002202200132300-3330310200023330-3223132000113212) |
 | `vmware.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip.dns_server` | [vmware.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip.dns_server](resources--securemesh_site_v2--reference--group-019.md#canonical-3313302212131223-3112000233130233-0232223220221122-0100301223301231-3021130220301232-1321021120133331-0302012100000002-2213010320012123) |
@@ -164,8 +164,8 @@ Each exact path has one authoritative reference destination. Collection element 
 | `vmware.not_managed.node_list.interface_list.vlan_interface` | [vmware.not_managed.node_list.interface_list.vlan_interface](resources--securemesh_site_v2--reference--group-019.md#canonical-0033222112000013-1313333033331201-1321221321001220-1300120210320313-1102331313112030-2330301122321300-3131213121232031-2123332010230223) |
 | `vmware.not_managed.node_list.interface_list.vlan_interface.device` | [vmware.not_managed.node_list.interface_list.vlan_interface.device](resources--securemesh_site_v2--reference--group-019.md#canonical-2303302012110113-2333301121032223-2320122233000101-1303001300222130-1313323001111112-1110010330123211-2130122000102120-2232022122331221) |
 | `vmware.not_managed.node_list.interface_list.vlan_interface.vlan_id` | [vmware.not_managed.node_list.interface_list.vlan_interface.vlan_id](resources--securemesh_site_v2--reference--group-019.md#canonical-0011123311231110-1321322012202231-3103330130320202-0103102112022032-3211031113223300-2312213213001221-1222333000332331-0332221221001030) |
-| `vmware.not_managed.node_list.public_ip` | [vmware.not_managed.node_list.public_ip](resources--securemesh_site_v2--reference--group-017.md#canonical-1031301103231332-1300021332002120-2211112222112200-3211301303232010-2031111331131012-1031232111232200-1222223100130023-1020112002232133) |
-| `vmware.not_managed.node_list.type` | [vmware.not_managed.node_list.type](resources--securemesh_site_v2--reference--group-017.md#canonical-3320022320303031-1303032012321333-1031010231022102-2110303222211121-2311331002022102-0102123021123223-0122103132022212-1300222021000020) |
+| `vmware.not_managed.node_list.public_ip` | [vmware.not_managed.node_list.public_ip](resources--securemesh_site_v2--reference--group-018.md#canonical-1031301103231332-1300021332002120-2211112222112200-3211301303232010-2031111331131012-1031232111232200-1222223100130023-1020112002232133) |
+| `vmware.not_managed.node_list.type` | [vmware.not_managed.node_list.type](resources--securemesh_site_v2--reference--group-018.md#canonical-3320022320303031-1303032012321333-1031010231022102-2110303222211121-2311331002022102-0102123021123223-0122103132022212-1300222021000020) |
 
 <a id="canonical-3002320233312210-3103101111123020-0110122303202330-3202101011010100-3113011122203300-1003123013122030-3020231102013301-1202010001003230"></a>
 
@@ -214,7 +214,7 @@ Each exact path has one authoritative reference destination. Collection element 
 - [oci](resources--securemesh_site_v2--reference--group-013.md#canonical-1332211122203232-2032213012031311-0312131000222131-0313233003113010-1010303203211031-2310121002301201-0221000203033232-3212021221312311)
 - [offline_survivability_mode](resources--securemesh_site_v2--reference--group-014.md#canonical-2001312130230101-3132012012311122-0230112101013213-1333302011302001-3223331311230002-0320013221303203-3122311112320113-1320320233110001)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openstack](resources--securemesh_site_v2--reference--group-015.md#canonical-3103330221113213-1101002321121001-1323321202302031-0033322000331021-3233221231330113-2212103122303202-3302221330110020-0111211323131322)
+- [openstack](resources--securemesh_site_v2--reference--group-016.md#canonical-3103330221113213-1101002321121001-1323321202302031-0033322000331021-3233221231330113-2212103122303202-3302221330110020-0111211323131322)
 - [performance_enhancement_mode](resources--securemesh_site_v2--reference--group-017.md#canonical-2130013131033231-3232223210311301-1121020200130212-1011012213303102-1120012133331003-0202331032111120-2302012123333131-0300312001101100)
 - [private_adn](resources--securemesh_site_v2--reference--group-017.md#canonical-1132333020000033-3121313020113130-1113011323131231-1303130201313202-3331202201110330-3232030020101012-0011123211010231-1301321320123330)
 - [re_select](resources--securemesh_site_v2--reference--group-017.md#canonical-3302000210133302-2333120223333302-1211202010321103-0020233023121312-3323122111210033-0120212210023120-0333102200010203-3320002122220132)
@@ -346,7 +346,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minItems": 1
   },
@@ -423,7 +423,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1
   },
@@ -494,7 +494,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -558,7 +558,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -701,7 +701,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minItems": 1
   },
@@ -778,7 +778,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1
   },
@@ -849,7 +849,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -913,7 +913,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1032,7 +1032,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1204,7 +1204,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1255,7 +1255,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 4
   },
@@ -1304,7 +1304,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1433,7 +1433,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
@@ -1521,7 +1521,7 @@ OneOf alternatives in this subsection:
 - [nutanix](resources--securemesh_site_v2--reference--group-012.md#canonical-1210012123223033-3213322002010300-1021212010202320-1123300232210200-2332210120200203-3222221311223100-3020212001233310-2032320102120102)
 - [oci](resources--securemesh_site_v2--reference--group-013.md#canonical-2201132123330101-1202132101032121-3211232123013100-2201213331013122-1203112031100031-2310320333103212-3013300202203221-0202021112102331)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-3003123030210310-0301231331323231-0021331202123232-3303321030311102-3012130232302131-0202020101313000-2300110212321333-3123322121330230)
-- [openstack](resources--securemesh_site_v2--reference--group-015.md#canonical-2201321203200030-2221013332323000-2322311113130010-2100020321100012-2121310021131033-1123013102021223-1310301202122112-3313312103100001)
+- [openstack](resources--securemesh_site_v2--reference--group-016.md#canonical-2201321203200030-2221013332323000-2322311113130010-2100020321100012-2121310021131033-1123013102021223-1310301202122112-3313312103100001)
 - [vmware](resources--securemesh_site_v2--reference--group-017.md#canonical-0013121331333101-0110031232203120-1332123300101323-0213331300203303-3102322233201100-0101131220111322-2213230000203031-1133112232132230)
 
 Select alternatives according to the provider validators above.
@@ -1655,7 +1655,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "uniqueItems": true
   },
@@ -1724,7 +1724,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1,
     "pattern": "^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\\.)*[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$",
@@ -1784,7 +1784,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1841,7 +1841,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1938,7 +1938,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "uniqueItems": true
   },
@@ -2033,6 +2033,16 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "object",
+    "maxProperties": 16,
+    "metadata": {
+      "confidence": 0.75,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -2099,7 +2109,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2160,7 +2170,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -2228,7 +2238,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minimum": 0,
     "multipleOf": 1
@@ -2383,7 +2393,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -2447,7 +2457,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minimum": 500
   },
@@ -2500,7 +2510,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minimum": 0
   },
@@ -2566,7 +2576,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -2756,7 +2766,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minimum": 1
   },
@@ -2938,6 +2948,16 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "object",
+    "maxProperties": 128,
+    "metadata": {
+      "confidence": 0.75,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -3152,7 +3172,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -3228,7 +3248,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3284,7 +3304,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3331,7 +3351,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3582,7 +3602,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -3654,7 +3674,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3720,7 +3740,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
+      "validatedAt": "2026-10-03T05:10:26+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3879,6 +3899,16 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "object",
+    "maxProperties": 64,
+    "metadata": {
+      "confidence": 0.75,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,

@@ -265,7 +265,7 @@
         "xcsh-docs:data-sources:certified_hardware:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -287,15 +287,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Manages a Certified Hardware resource in F5 Distributed Cloud for get certified hardware object. configuration. (read-only data source)",
       "tasks": ["configuration"],
       "title": "xcsh_certified_hardware",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": [],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -312,7 +312,7 @@
         "xcsh-docs:data-sources:certified_hardware:properties:vendor_model_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -545,14 +545,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Property reference for xcsh_certified_hardware.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": [],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -563,7 +563,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -585,7 +585,7 @@
       "schema_path": ["devices"],
       "sections": [
         {
-          "aliases": ["device list"],
+          "aliases": ["devices device list"],
           "anchor": "schema-devices--device_list",
           "description": "In case of logical boot strap devices like LACP Link aggregation or RAID.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:devices",
@@ -599,7 +599,7 @@
           "type": "list"
         },
         {
-          "aliases": ["max unit"],
+          "aliases": ["devices max unit"],
           "anchor": "schema-devices--max_unit",
           "description": "Last unit number of the device supported in this certified hardware.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:devices",
@@ -613,7 +613,7 @@
           "type": "number"
         },
         {
-          "aliases": ["min unit"],
+          "aliases": ["devices min unit"],
           "anchor": "schema-devices--min_unit",
           "description": "First unit number of the device supported in this certified hardware.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:devices",
@@ -627,7 +627,7 @@
           "type": "number"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["devices name"],
           "anchor": "schema-devices--name",
           "description": "Device. Name of the device.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:devices",
@@ -641,7 +641,7 @@
           "type": "string"
         },
         {
-          "aliases": ["type"],
+          "aliases": ["devices type"],
           "anchor": "schema-devices--type",
           "description": "Different type of devices supported Invalid device or device that's not supported Ethernet device VIRTIO device TUNTAP device LACP based bond interface External iSCSI devices supported Nvidia GPU device used for machine learning. Possible values are `HARDWARE_DEVICE_INVALID`, `HARDWARE_DEVICE_ETHERNET`,",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:devices",
@@ -655,7 +655,7 @@
           "type": "string"
         },
         {
-          "aliases": ["use"],
+          "aliases": ["devices use"],
           "anchor": "schema-devices--use",
           "description": "Defines how the device instance must be used If the device is owned by F5 Distributed Cloud software, it is available for users to configure as required Device reserved for internal use by F5 Distributed Cloud Node If the Network device is owned by VER, it is available for users to configure as.. Possible values are",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:devices",
@@ -670,14 +670,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/devices/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of supported devices in this model.",
       "tasks": ["configuration"],
       "title": "devices",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": [],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -692,7 +692,7 @@
         "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -714,7 +714,7 @@
       "schema_path": ["image_list"],
       "sections": [
         {
-          "aliases": ["aws"],
+          "aliases": ["image list aws"],
           "anchor": "section",
           "description": "AWS. AWS specific information.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:aws",
@@ -728,7 +728,7 @@
           "type": "object"
         },
         {
-          "aliases": ["azure"],
+          "aliases": ["image list azure"],
           "anchor": "section",
           "description": "Azure. Azure specific information.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure",
@@ -742,7 +742,7 @@
           "type": "object"
         },
         {
-          "aliases": ["gcp"],
+          "aliases": ["image list gcp"],
           "anchor": "section",
           "description": "GCP. GCP specific information.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp",
@@ -756,7 +756,7 @@
           "type": "object"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["image list name"],
           "anchor": "schema-image_list--name",
           "description": "Name. Image name to use for this hardware.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list",
@@ -770,7 +770,7 @@
           "type": "string"
         },
         {
-          "aliases": ["provider ref"],
+          "aliases": ["image list provider ref"],
           "anchor": "schema-image_list--provider_ref",
           "description": "Image provider F5 Distributed Cloud, Cloud provider like AWS or Azure.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list",
@@ -785,14 +785,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of image names with providers for this certified hardware, e.g. AWS ami-0f99d090261d2acd5.",
       "tasks": ["configuration"],
       "title": "image_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": [],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -803,7 +803,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:certified_hardware:properties:image_list:aws:image_id"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -825,7 +825,7 @@
       "schema_path": ["image_list", "aws"],
       "sections": [
         {
-          "aliases": ["image id"],
+          "aliases": ["image list aws image id"],
           "anchor": "section",
           "description": "Configuration for image_id.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:aws:image_id",
@@ -840,14 +840,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/aws/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "AWS. AWS specific information.",
       "tasks": ["configuration"],
       "title": "image_list.aws",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": [],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -858,7 +858,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -880,7 +880,7 @@
       "schema_path": ["image_list", "aws", "image_id"],
       "sections": [
         {
-          "aliases": ["image id"],
+          "aliases": ["image list aws image id image id"],
           "anchor": "schema-image_list--aws--image_id--image_id",
           "description": "AWS ami image name. AWS ami image.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:aws:image_id",
@@ -894,7 +894,7 @@
           "type": "string"
         },
         {
-          "aliases": ["region"],
+          "aliases": ["image list aws image id region"],
           "anchor": "schema-image_list--aws--image_id--region",
           "description": "AWS ami image region. AWS ami image region.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:aws:image_id",
@@ -909,14 +909,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/aws/image_id/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configuration for image_id.",
       "tasks": ["configuration"],
       "title": "image_list.aws.image_id",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": [],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -930,7 +930,7 @@
         "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure:marketplace"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -952,7 +952,7 @@
       "schema_path": ["image_list", "azure"],
       "sections": [
         {
-          "aliases": ["image id"],
+          "aliases": ["image list azure image id"],
           "anchor": "section",
           "description": "Configuration for image_id.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure:image_id",
@@ -966,7 +966,7 @@
           "type": "object"
         },
         {
-          "aliases": ["marketplace"],
+          "aliases": ["image list azure marketplace"],
           "anchor": "section",
           "description": "Configuration parameter for marketplace.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure:marketplace",
@@ -981,14 +981,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/azure/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Azure. Azure specific information.",
       "tasks": ["configuration"],
       "title": "image_list.azure",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": [],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -999,7 +999,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1021,7 +1021,7 @@
       "schema_path": ["image_list", "azure", "image_id"],
       "sections": [
         {
-          "aliases": ["image id"],
+          "aliases": ["image list azure image id image id"],
           "anchor": "schema-image_list--azure--image_id--image_id",
           "description": "Azure image ID info. Azure image ID.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure:image_id",
@@ -1036,14 +1036,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/azure/image_id/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configuration for image_id.",
       "tasks": ["configuration"],
       "title": "image_list.azure.image_id",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": [],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1054,7 +1054,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1076,7 +1076,7 @@
       "schema_path": ["image_list", "azure", "marketplace"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["image list azure marketplace name"],
           "anchor": "schema-image_list--azure--marketplace--name",
           "description": "Azure Marketplace Name. Azure Marketplace Name.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure:marketplace",
@@ -1090,7 +1090,7 @@
           "type": "string"
         },
         {
-          "aliases": ["offer"],
+          "aliases": ["image list azure marketplace offer"],
           "anchor": "schema-image_list--azure--marketplace--offer",
           "description": "Azure Marketplace offer. Azure Marketplace offer.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure:marketplace",
@@ -1104,7 +1104,7 @@
           "type": "string"
         },
         {
-          "aliases": ["publisher"],
+          "aliases": ["image list azure marketplace publisher"],
           "anchor": "schema-image_list--azure--marketplace--publisher",
           "description": "Azure Marketplace Publisher. Azure Marketplace Publisher.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure:marketplace",
@@ -1118,7 +1118,7 @@
           "type": "string"
         },
         {
-          "aliases": ["sku"],
+          "aliases": ["image list azure marketplace sku"],
           "anchor": "schema-image_list--azure--marketplace--sku",
           "description": "Azure Marketplace SKU. Azure Marketplace SKU.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure:marketplace",
@@ -1132,7 +1132,7 @@
           "type": "string"
         },
         {
-          "aliases": ["version"],
+          "aliases": ["image list azure marketplace version"],
           "anchor": "schema-image_list--azure--marketplace--version",
           "description": "Azure Marketplace Version. Azure Marketplace Version.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure:marketplace",
@@ -1147,14 +1147,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/azure/marketplace/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configuration parameter for marketplace.",
       "tasks": ["configuration"],
       "title": "image_list.azure.marketplace",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": [],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1165,7 +1165,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:image_id"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1187,7 +1187,7 @@
       "schema_path": ["image_list", "gcp"],
       "sections": [
         {
-          "aliases": ["image id"],
+          "aliases": ["image list gcp image id"],
           "anchor": "section",
           "description": "Configuration for image_id.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:image_id",
@@ -1202,14 +1202,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/gcp/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "GCP. GCP specific information.",
       "tasks": ["configuration"],
       "title": "image_list.gcp",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": [],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1220,7 +1220,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1242,7 +1242,7 @@
       "schema_path": ["image_list", "gcp", "image_id"],
       "sections": [
         {
-          "aliases": ["image id"],
+          "aliases": ["image list gcp image id image id"],
           "anchor": "schema-image_list--gcp--image_id--image_id",
           "description": "GCP image name. GCP image",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:image_id",
@@ -1257,14 +1257,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/gcp/image_id/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configuration for image_id.",
       "tasks": ["configuration"],
       "title": "image_list.gcp.image_id",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": [],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1275,7 +1275,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1297,7 +1297,7 @@
       "schema_path": ["internal_usb_device_rule"],
       "sections": [
         {
-          "aliases": ["b device class"],
+          "aliases": ["internal usb device rule b device class"],
           "anchor": "schema-internal_usb_device_rule--b_device_class",
           "description": "Class. The class of this device.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
@@ -1311,7 +1311,7 @@
           "type": "string"
         },
         {
-          "aliases": ["b device protocol"],
+          "aliases": ["internal usb device rule b device protocol"],
           "anchor": "schema-internal_usb_device_rule--b_device_protocol",
           "description": "The protocol (within the sub-class) of this device.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
@@ -1325,7 +1325,7 @@
           "type": "string"
         },
         {
-          "aliases": ["b device sub class"],
+          "aliases": ["internal usb device rule b device sub class"],
           "anchor": "schema-internal_usb_device_rule--b_device_sub_class",
           "description": "The sub-class (within the class) of this device.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
@@ -1339,7 +1339,7 @@
           "type": "string"
         },
         {
-          "aliases": ["i serial"],
+          "aliases": ["internal usb device rule i serial"],
           "anchor": "schema-internal_usb_device_rule--i_serial",
           "description": "Index of Serial Number String Descriptor.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
@@ -1353,7 +1353,7 @@
           "type": "string"
         },
         {
-          "aliases": ["id product"],
+          "aliases": ["internal usb device rule id product"],
           "anchor": "schema-internal_usb_device_rule--id_product",
           "description": "Product ID (Assigned by Manufacturer) in hex.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
@@ -1367,7 +1367,7 @@
           "type": "string"
         },
         {
-          "aliases": ["id vendor"],
+          "aliases": ["internal usb device rule id vendor"],
           "anchor": "schema-internal_usb_device_rule--id_vendor",
           "description": "Vendor ID. Vendor ID (Assigned by USB Org) in hex.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
@@ -1382,14 +1382,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/internal_usb_device_rule/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of internal USB device rules for server.",
       "tasks": ["configuration"],
       "title": "internal_usb_device_rule",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": [],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1400,7 +1400,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1422,7 +1422,7 @@
       "schema_path": ["numa_mem"],
       "sections": [
         {
-          "aliases": ["memory"],
+          "aliases": ["numa mem memory"],
           "anchor": "schema-numa_mem--memory",
           "description": "The number of MB of instance memory to map to instance NUMA node N.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:numa_mem",
@@ -1436,7 +1436,7 @@
           "type": "number"
         },
         {
-          "aliases": ["node"],
+          "aliases": ["numa mem node"],
           "anchor": "schema-numa_mem--node",
           "description": "Node. NUMA node instance with mapped memory.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:numa_mem",
@@ -1451,14 +1451,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/numa_mem/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of Numa nodes with the number of MB of instance memory to map to node instance If not specified, memory is evenly divided among available NUMA nodes.",
       "tasks": ["configuration"],
       "title": "numa_mem",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": [],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1469,7 +1469,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1491,7 +1491,7 @@
       "schema_path": ["vendor_model_list"],
       "sections": [
         {
-          "aliases": ["model"],
+          "aliases": ["vendor model list model"],
           "anchor": "schema-vendor_model_list--model",
           "description": "Hw Model or instance type from cloud provider like number of interfaces, vCPUs, memory.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:vendor_model_list",
@@ -1505,7 +1505,7 @@
           "type": "string"
         },
         {
-          "aliases": ["vendor"],
+          "aliases": ["vendor model list vendor"],
           "anchor": "schema-vendor_model_list--vendor",
           "description": "Vendor could be F5 Distributed Cloud, Dell, Cloud provider like AWS or Azure.",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:vendor_model_list",
@@ -1520,14 +1520,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/vendor_model_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of supported hardware vendor and model for this certified hardware.",
       "tasks": ["configuration"],
       "title": "vendor_model_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": [],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1538,7 +1538,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:certified_hardware:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1560,14 +1560,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/examples/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Examples for xcsh_certified_hardware.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": [],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1578,7 +1578,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1607,14 +1607,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Data source for xcsh_certified_hardware.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": [],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     }
   ],

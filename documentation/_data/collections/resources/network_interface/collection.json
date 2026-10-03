@@ -701,7 +701,7 @@
         "xcsh-docs:resources:network_interface:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -723,21 +723,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Manages a Network Interface resource in F5 Distributed Cloud for network interface represents configuration of a network device. it is created by users in system namespace. configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_network_interface",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["network interface"],
       "body_bytes": 41955,
-      "body_sha256": "sha256:112dab2dd89c64903bc39ff9c0e39e7634569411cec388097cf5e5053f2dd73c",
+      "body_sha256": "sha256:9f713046647c50696c89d39010505f6442747e1004ce8e2e8ae9f12007c3e815",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -749,7 +749,7 @@
         "xcsh-docs:resources:network_interface:properties:tunnel_interface"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1273,7 +1273,7 @@
           "type": "string"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:network_interface:properties:timeouts",
@@ -1319,20 +1319,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Property reference for xcsh_network_interface.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["dedicated interface"],
       "body_bytes": 9231,
-      "body_sha256": "sha256:f05eb44c4fcb5b48ca11d4fb8c82bb73dfc5714bf2c1395bcd8b6683107d2934",
+      "body_sha256": "sha256:891d1b03aac56375f5b4cfae7e1957fe5a8c408f4e4ebacce504fd20c570b8e2",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1343,7 +1343,7 @@
         "xcsh-docs:resources:network_interface:properties:dedicated_interface:not_primary"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1422,9 +1422,9 @@
       "schema_path": ["dedicated_interface"],
       "sections": [
         {
-          "aliases": ["cluster"],
+          "aliases": ["cluster scope", "cluster wide interface", "dedicated interface cluster"],
           "anchor": "section",
-          "description": "This can be used for messages where no values are needed.",
+          "description": "Applies dedicated interface configuration cluster-wide across the site rather than to a specific node.",
           "document_id": "xcsh-docs:resources:network_interface:properties:dedicated_interface:cluster",
           "flags": ["optional"],
           "max_items": null,
@@ -1436,7 +1436,7 @@
           "type": "object"
         },
         {
-          "aliases": ["device"],
+          "aliases": ["dedicated interface device"],
           "anchor": "schema-dedicated_interface--device",
           "description": "Name of the device for which interface is configured. Use wwan0 for 4G/LTE.",
           "document_id": "xcsh-docs:resources:network_interface:properties:dedicated_interface",
@@ -1450,9 +1450,9 @@
           "type": "string"
         },
         {
-          "aliases": ["is primary"],
+          "aliases": ["dedicated interface is primary", "primary interface", "set primary"],
           "anchor": "section",
-          "description": "This can be used for messages where no values are needed.",
+          "description": "Designates this dedicated network interface as the primary interface.",
           "document_id": "xcsh-docs:resources:network_interface:properties:dedicated_interface:is_primary",
           "flags": ["optional"],
           "max_items": null,
@@ -1464,7 +1464,7 @@
           "type": "object"
         },
         {
-          "aliases": ["monitor"],
+          "aliases": ["dedicated interface monitor"],
           "anchor": "section",
           "description": "Link Quality Monitoring configuration for a network interface.",
           "document_id": "xcsh-docs:resources:network_interface:properties:dedicated_interface:monitor",
@@ -1478,9 +1478,14 @@
           "type": "object"
         },
         {
-          "aliases": ["monitor disabled"],
+          "aliases": [
+            "dedicated interface monitor disabled",
+            "disable interface monitoring",
+            "disable link quality monitoring",
+            "monitoring disabled"
+          ],
           "anchor": "section",
-          "description": "This can be used for messages where no values are needed.",
+          "description": "Disables link quality monitoring on the dedicated network interface.",
           "document_id": "xcsh-docs:resources:network_interface:properties:dedicated_interface:monitor_disabled",
           "flags": ["optional"],
           "max_items": null,
@@ -1492,7 +1497,7 @@
           "type": "object"
         },
         {
-          "aliases": ["mtu"],
+          "aliases": ["dedicated interface mtu"],
           "anchor": "schema-dedicated_interface--mtu",
           "description": "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
           "document_id": "xcsh-docs:resources:network_interface:properties:dedicated_interface",
@@ -1506,7 +1511,7 @@
           "type": "number"
         },
         {
-          "aliases": ["node"],
+          "aliases": ["dedicated interface node"],
           "anchor": "schema-dedicated_interface--node",
           "description": "Exclusive with Configuration will apply to a device on the given node of the site.",
           "document_id": "xcsh-docs:resources:network_interface:properties:dedicated_interface",
@@ -1520,7 +1525,7 @@
           "type": "string"
         },
         {
-          "aliases": ["not primary"],
+          "aliases": ["dedicated interface not primary"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:dedicated_interface:not_primary",
@@ -1534,7 +1539,7 @@
           "type": "object"
         },
         {
-          "aliases": ["priority"],
+          "aliases": ["dedicated interface priority"],
           "anchor": "schema-dedicated_interface--priority",
           "description": "Priority of the network interface when multiple network interfaces are present in outside network Greater the value, higher the priority.",
           "document_id": "xcsh-docs:resources:network_interface:properties:dedicated_interface",
@@ -1549,26 +1554,26 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/dedicated_interface/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Dedicated Interface Configuration.",
       "tasks": ["configuration"],
       "title": "dedicated_interface",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
-      "aliases": ["dedicated interface cluster"],
+      "aliases": ["cluster scope", "cluster wide interface", "dedicated interface cluster"],
       "body_bytes": 1296,
       "body_sha256": "sha256:b140a304bedd45987f3fb56c54b4a7709f883385bc50f276c42d6deb91ed2682",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
-        "sources": ["reviewed-rule"],
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "sources": ["reviewed-rule", "reviewed-summary"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
       },
@@ -1589,26 +1594,26 @@
       "schema_path": ["dedicated_interface", "cluster"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/dedicated_interface/cluster/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
-      "summary": "This can be used for messages where no values are needed.",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "summary": "Applies dedicated interface configuration cluster-wide across the site rather than to a specific node.",
       "tasks": ["configuration"],
       "title": "dedicated_interface.cluster",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
-      "aliases": ["dedicated interface is primary"],
+      "aliases": ["dedicated interface is primary", "primary interface", "set primary"],
       "body_bytes": 1305,
       "body_sha256": "sha256:b69f47ccb9cce8806c44ff9e998cef551e06be85af3f2c195c0de2f8dfa7eab1",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
-        "sources": ["reviewed-rule"],
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "sources": ["reviewed-rule", "reviewed-summary"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
       },
@@ -1629,14 +1634,14 @@
       "schema_path": ["dedicated_interface", "is_primary"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/dedicated_interface/is_primary/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
-      "summary": "This can be used for messages where no values are needed.",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "summary": "Designates this dedicated network interface as the primary interface.",
       "tasks": ["configuration"],
       "title": "dedicated_interface.is_primary",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1647,7 +1652,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1669,26 +1674,31 @@
       "schema_path": ["dedicated_interface", "monitor"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/dedicated_interface/monitor/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Link Quality Monitoring configuration for a network interface.",
       "tasks": ["configuration"],
       "title": "dedicated_interface.monitor",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
-      "aliases": ["dedicated interface monitor disabled"],
+      "aliases": [
+        "dedicated interface monitor disabled",
+        "disable interface monitoring",
+        "disable link quality monitoring",
+        "monitoring disabled"
+      ],
       "body_bytes": 1323,
       "body_sha256": "sha256:6f04241ef46289c94a009bc7f9ee3a8b684d06d84c1fc3e7d440c635eab60486",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
-        "sources": ["reviewed-rule"],
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "sources": ["reviewed-rule", "reviewed-summary"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
       },
@@ -1709,14 +1719,14 @@
       "schema_path": ["dedicated_interface", "monitor_disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/dedicated_interface/monitor_disabled/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
-      "summary": "This can be used for messages where no values are needed.",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "summary": "Disables link quality monitoring on the dedicated network interface.",
       "tasks": ["configuration"],
       "title": "dedicated_interface.monitor_disabled",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1727,7 +1737,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1749,25 +1759,25 @@
       "schema_path": ["dedicated_interface", "not_primary"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/dedicated_interface/not_primary/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "dedicated_interface.not_primary",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["dedicated management interface"],
       "body_bytes": 5398,
-      "body_sha256": "sha256:e8ebd7963e82b6f040451058f33e27a850361942b0be364491961a469c6b28f6",
+      "body_sha256": "sha256:65b89e02ac95ddedcde1f364cd810084f42e03d6697064897d95d854151d8c37",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:network_interface:properties:dedicated_management_interface:cluster"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1814,7 +1824,7 @@
       "schema_path": ["dedicated_management_interface"],
       "sections": [
         {
-          "aliases": ["cluster"],
+          "aliases": ["dedicated management interface cluster"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:dedicated_management_interface:cluster",
@@ -1828,7 +1838,7 @@
           "type": "object"
         },
         {
-          "aliases": ["device"],
+          "aliases": ["dedicated management interface device"],
           "anchor": "schema-dedicated_management_interface--device",
           "description": "Name of the device for which interface is configured.",
           "document_id": "xcsh-docs:resources:network_interface:properties:dedicated_management_interface",
@@ -1842,7 +1852,7 @@
           "type": "string"
         },
         {
-          "aliases": ["mtu"],
+          "aliases": ["dedicated management interface mtu"],
           "anchor": "schema-dedicated_management_interface--mtu",
           "description": "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
           "document_id": "xcsh-docs:resources:network_interface:properties:dedicated_management_interface",
@@ -1856,7 +1866,7 @@
           "type": "number"
         },
         {
-          "aliases": ["node"],
+          "aliases": ["dedicated management interface node"],
           "anchor": "schema-dedicated_management_interface--node",
           "description": "Exclusive with Configuration will apply to a device on the given node of the site.",
           "document_id": "xcsh-docs:resources:network_interface:properties:dedicated_management_interface",
@@ -1871,14 +1881,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/dedicated_management_interface/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Dedicated Interface Configuration.",
       "tasks": ["configuration"],
       "title": "dedicated_management_interface",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -1889,7 +1899,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1911,20 +1921,20 @@
       "schema_path": ["dedicated_management_interface", "cluster"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/dedicated_management_interface/cluster/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "dedicated_management_interface.cluster",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["ethernet interface"],
       "body_bytes": 14085,
-      "body_sha256": "sha256:d20a6dec2113fe2141ddd8f16448e54d81ba69f03fc9c2b9f1e6a1d0ca373f7f",
+      "body_sha256": "sha256:c25f7f234e801dffae87d9fa74f5c396f9744e98ef73188f610b9b03cd586bfa",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1945,7 +1955,7 @@
         "xcsh-docs:resources:network_interface:properties:ethernet_interface:untagged"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2184,7 +2194,7 @@
       "schema_path": ["ethernet_interface"],
       "sections": [
         {
-          "aliases": ["cluster"],
+          "aliases": ["ethernet interface cluster"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:cluster",
@@ -2198,7 +2208,7 @@
           "type": "object"
         },
         {
-          "aliases": ["device"],
+          "aliases": ["ethernet interface device"],
           "anchor": "schema-ethernet_interface--device",
           "description": "Interface configuration for the ethernet device.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface",
@@ -2212,7 +2222,7 @@
           "type": "string"
         },
         {
-          "aliases": ["dhcp client"],
+          "aliases": ["ethernet interface dhcp client"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:dhcp_client",
@@ -2226,7 +2236,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dhcp server"],
+          "aliases": ["ethernet interface dhcp server"],
           "anchor": "section",
           "description": "Configuration parameter for dhcp server.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:dhcp_server",
@@ -2297,7 +2307,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ipv6 auto config"],
+          "aliases": ["ethernet interface ipv6 auto config"],
           "anchor": "section",
           "description": "IPV6AutoConfigType.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config",
@@ -2328,7 +2338,7 @@
           "type": "object"
         },
         {
-          "aliases": ["is primary"],
+          "aliases": ["ethernet interface is primary"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:is_primary",
@@ -2342,7 +2352,7 @@
           "type": "object"
         },
         {
-          "aliases": ["monitor"],
+          "aliases": ["ethernet interface monitor"],
           "anchor": "section",
           "description": "Link Quality Monitoring configuration for a network interface.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:monitor",
@@ -2356,7 +2366,7 @@
           "type": "object"
         },
         {
-          "aliases": ["monitor disabled"],
+          "aliases": ["ethernet interface monitor disabled"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:monitor_disabled",
@@ -2370,7 +2380,7 @@
           "type": "object"
         },
         {
-          "aliases": ["mtu"],
+          "aliases": ["ethernet interface mtu"],
           "anchor": "schema-ethernet_interface--mtu",
           "description": "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface",
@@ -2384,7 +2394,7 @@
           "type": "number"
         },
         {
-          "aliases": ["no ipv6 address"],
+          "aliases": ["ethernet interface no ipv6 address"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:no_ipv6_address",
@@ -2398,7 +2408,7 @@
           "type": "object"
         },
         {
-          "aliases": ["node"],
+          "aliases": ["ethernet interface node"],
           "anchor": "schema-ethernet_interface--node",
           "description": "Exclusive with Configuration will apply to a device on the given node.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface",
@@ -2412,7 +2422,7 @@
           "type": "string"
         },
         {
-          "aliases": ["not primary"],
+          "aliases": ["ethernet interface not primary"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:not_primary",
@@ -2426,7 +2436,7 @@
           "type": "object"
         },
         {
-          "aliases": ["priority"],
+          "aliases": ["ethernet interface priority"],
           "anchor": "schema-ethernet_interface--priority",
           "description": "Priority of the network interface when multiple network interfaces are present in outside network Greater the value, higher the priority.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface",
@@ -2440,7 +2450,7 @@
           "type": "number"
         },
         {
-          "aliases": ["site local inside network"],
+          "aliases": ["ethernet interface site local inside network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:site_local_inside_network",
@@ -2454,7 +2464,7 @@
           "type": "object"
         },
         {
-          "aliases": ["site local network"],
+          "aliases": ["ethernet interface site local network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:site_local_network",
@@ -2468,7 +2478,7 @@
           "type": "object"
         },
         {
-          "aliases": ["static ip"],
+          "aliases": ["ethernet interface static ip"],
           "anchor": "section",
           "description": "Configure Static IP parameters.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:static_ip",
@@ -2499,7 +2509,7 @@
           "type": "object"
         },
         {
-          "aliases": ["static ipv6 address"],
+          "aliases": ["ethernet interface static ipv6 address"],
           "anchor": "section",
           "description": "Configure Static IP parameters.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:static_ipv6_address",
@@ -2530,7 +2540,7 @@
           "type": "object"
         },
         {
-          "aliases": ["storage network"],
+          "aliases": ["ethernet interface storage network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:storage_network",
@@ -2544,7 +2554,7 @@
           "type": "object"
         },
         {
-          "aliases": ["untagged"],
+          "aliases": ["ethernet interface untagged"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:untagged",
@@ -2558,7 +2568,7 @@
           "type": "object"
         },
         {
-          "aliases": ["vlan id"],
+          "aliases": ["ethernet interface vlan id"],
           "anchor": "schema-ethernet_interface--vlan_id",
           "description": "Exclusive with Configure a VLAN tagged ethernet interface.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface",
@@ -2573,14 +2583,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Ethernet Interface Configuration.",
       "tasks": ["configuration"],
       "title": "ethernet_interface",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2591,7 +2601,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2613,14 +2623,14 @@
       "schema_path": ["ethernet_interface", "cluster"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/cluster/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.cluster",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2631,7 +2641,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2653,20 +2663,20 @@
       "schema_path": ["ethernet_interface", "dhcp_client"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/dhcp_client/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.dhcp_client",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["ethernet interface dhcp server"],
-      "body_bytes": 4401,
-      "body_sha256": "sha256:52f3658dd750273dc0bef712383a02844c6c15855ccdd70b38308b924d28e720",
+      "body_bytes": 4644,
+      "body_sha256": "sha256:2866b0343fd7d1186559a92945ce0397ef84ac178e53ce4a019e0fc0be5bb23e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2676,7 +2686,7 @@
         "xcsh-docs:resources:network_interface:properties:ethernet_interface:dhcp_server:interface_ip_map"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2755,7 +2765,7 @@
       "schema_path": ["ethernet_interface", "dhcp_server"],
       "sections": [
         {
-          "aliases": ["automatic from end"],
+          "aliases": ["ethernet interface dhcp server automatic from end"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:dhcp_server:automatic_from_end",
@@ -2769,7 +2779,7 @@
           "type": "object"
         },
         {
-          "aliases": ["automatic from start"],
+          "aliases": ["ethernet interface dhcp server automatic from start"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:dhcp_server:automatic_from_start",
@@ -2783,7 +2793,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dhcp networks"],
+          "aliases": ["ethernet interface dhcp server dhcp networks"],
           "anchor": "section",
           "description": "List of networks from which DHCP Server can allocate IPv4 Addresses.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks",
@@ -2862,7 +2872,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dhcp option82 tag"],
+          "aliases": ["ethernet interface dhcp server dhcp option82 tag"],
           "anchor": "schema-ethernet_interface--dhcp_server--dhcp_option82_tag",
           "description": "DHCP option 82 tag.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:dhcp_server",
@@ -2876,7 +2886,7 @@
           "type": "string"
         },
         {
-          "aliases": ["fixed ip map"],
+          "aliases": ["ethernet interface dhcp server fixed ip map"],
           "anchor": "schema-ethernet_interface--dhcp_server--fixed_ip_map",
           "description": "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:dhcp_server",
@@ -2890,7 +2900,7 @@
           "type": "map"
         },
         {
-          "aliases": ["interface ip map"],
+          "aliases": ["ethernet interface dhcp server interface ip map"],
           "anchor": "section",
           "description": "Specify static IPv4 addresses per node.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:dhcp_server:interface_ip_map",
@@ -2905,14 +2915,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/dhcp_server/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configuration parameter for dhcp server.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.dhcp_server",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2923,7 +2933,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2945,14 +2955,14 @@
       "schema_path": ["ethernet_interface", "dhcp_server", "automatic_from_end"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/dhcp_server/automatic_from_end/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.dhcp_server.automatic_from_end",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -2963,7 +2973,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2985,20 +2995,20 @@
       "schema_path": ["ethernet_interface", "dhcp_server", "automatic_from_start"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/dhcp_server/automatic_from_start/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.dhcp_server.automatic_from_start",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["ethernet interface dhcp server dhcp networks"],
       "body_bytes": 9021,
-      "body_sha256": "sha256:e2a0a8980a799058935f944cfa801d7914239cafdced0caa0c0c59bbb4c0af69",
+      "body_sha256": "sha256:727d586c253f2cbdc26e311750e1f3732b07eb431f56513a3185280b23dfc5c4",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -3008,7 +3018,7 @@
         "xcsh-docs:resources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks:same_as_dgw"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3095,7 +3105,7 @@
       "schema_path": ["ethernet_interface", "dhcp_server", "dhcp_networks"],
       "sections": [
         {
-          "aliases": ["dgw address"],
+          "aliases": ["ethernet interface dhcp server dhcp networks dgw address"],
           "anchor": "schema-ethernet_interface--dhcp_server--dhcp_networks--dgw_address",
           "description": "Exclusive with Enter a IPv4 address from the network prefix to be used as the default gateway.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks",
@@ -3109,7 +3119,7 @@
           "type": "string"
         },
         {
-          "aliases": ["dns address"],
+          "aliases": ["ethernet interface dhcp server dhcp networks dns address"],
           "anchor": "schema-ethernet_interface--dhcp_server--dhcp_networks--dns_address",
           "description": "Exclusive with Enter a IPv4 address from the network prefix to be used as the DNS server.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks",
@@ -3123,7 +3133,7 @@
           "type": "string"
         },
         {
-          "aliases": ["first address"],
+          "aliases": ["ethernet interface dhcp server dhcp networks first address"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks:first_address",
@@ -3137,7 +3147,7 @@
           "type": "object"
         },
         {
-          "aliases": ["last address"],
+          "aliases": ["ethernet interface dhcp server dhcp networks last address"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks:last_address",
@@ -3151,7 +3161,7 @@
           "type": "object"
         },
         {
-          "aliases": ["network prefix"],
+          "aliases": ["ethernet interface dhcp server dhcp networks network prefix"],
           "anchor": "schema-ethernet_interface--dhcp_server--dhcp_networks--network_prefix",
           "description": "Exclusive with Set the network prefix for the site. Ex: 192.0.2.0/24.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks",
@@ -3165,7 +3175,7 @@
           "type": "string"
         },
         {
-          "aliases": ["pool settings"],
+          "aliases": ["ethernet interface dhcp server dhcp networks pool settings"],
           "anchor": "schema-ethernet_interface--dhcp_server--dhcp_networks--pool_settings",
           "description": "Identifies the how to pick the network for Interface. Address ranges in DHCP pool list are used for IP Address allocation Address ranges in DHCP pool list are excluded from IP Address allocation.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks",
@@ -3179,7 +3189,7 @@
           "type": "string"
         },
         {
-          "aliases": ["pools"],
+          "aliases": ["ethernet interface dhcp server dhcp networks pools"],
           "anchor": "section",
           "description": "List of non overlapping IP address ranges.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks:pools",
@@ -3193,7 +3203,7 @@
           "type": "object"
         },
         {
-          "aliases": ["same as dgw"],
+          "aliases": ["ethernet interface dhcp server dhcp networks same as dgw"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks:same_as_dgw",
@@ -3208,14 +3218,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/dhcp_server/dhcp_networks/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of networks from which DHCP Server can allocate IPv4 Addresses.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.dhcp_server.dhcp_networks",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3226,7 +3236,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3248,14 +3258,14 @@
       "schema_path": ["ethernet_interface", "dhcp_server", "dhcp_networks", "first_address"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/dhcp_server/dhcp_networks/first_address/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.dhcp_server.dhcp_networks.first_address",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3266,7 +3276,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3288,25 +3298,25 @@
       "schema_path": ["ethernet_interface", "dhcp_server", "dhcp_networks", "last_address"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/dhcp_server/dhcp_networks/last_address/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.dhcp_server.dhcp_networks.last_address",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["ethernet interface dhcp server dhcp networks pools"],
       "body_bytes": 5031,
-      "body_sha256": "sha256:ff472cf69e8cdf10cbede673195dd5aa8d7840b2c1aa07e826503d6a8ac648c0",
+      "body_sha256": "sha256:38be791beb8be43a59d342b16910d90a553be4db70ced88186ced969d91778ed",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3328,7 +3338,7 @@
       "schema_path": ["ethernet_interface", "dhcp_server", "dhcp_networks", "pools"],
       "sections": [
         {
-          "aliases": ["end ip"],
+          "aliases": ["ethernet interface dhcp server dhcp networks pools end ip"],
           "anchor": "schema-ethernet_interface--dhcp_server--dhcp_networks--pools--end_ip",
           "description": "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks:pools",
@@ -3342,7 +3352,7 @@
           "type": "string"
         },
         {
-          "aliases": ["exclude"],
+          "aliases": ["ethernet interface dhcp server dhcp networks pools exclude"],
           "anchor": "schema-ethernet_interface--dhcp_server--dhcp_networks--pools--exclude",
           "description": "Exclude this address range from DHCP allocation.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks:pools",
@@ -3356,7 +3366,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["start ip"],
+          "aliases": ["ethernet interface dhcp server dhcp networks pools start ip"],
           "anchor": "schema-ethernet_interface--dhcp_server--dhcp_networks--pools--start_ip",
           "description": "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks:pools",
@@ -3371,14 +3381,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/dhcp_server/dhcp_networks/pools/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of non overlapping IP address ranges.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.dhcp_server.dhcp_networks.pools",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3389,7 +3399,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3411,25 +3421,25 @@
       "schema_path": ["ethernet_interface", "dhcp_server", "dhcp_networks", "same_as_dgw"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/dhcp_server/dhcp_networks/same_as_dgw/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.dhcp_server.dhcp_networks.same_as_dgw",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["ethernet interface dhcp server interface ip map"],
-      "body_bytes": 2428,
-      "body_sha256": "sha256:3caed2bcc41e7b2fc0953db46da8343d7159d5c4a3456e42081361af876b3022",
+      "body_bytes": 2670,
+      "body_sha256": "sha256:9e57f8d4daf048b2c9e5eaa182d79b394772f191145d648e8005188e1627df3f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3451,7 +3461,7 @@
       "schema_path": ["ethernet_interface", "dhcp_server", "interface_ip_map"],
       "sections": [
         {
-          "aliases": ["interface ip map"],
+          "aliases": ["ethernet interface dhcp server interface ip map interface ip map"],
           "anchor": "schema-ethernet_interface--dhcp_server--interface_ip_map--interface_ip_map",
           "description": "Specify static IPv4 addresses per site:node.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:dhcp_server:interface_ip_map",
@@ -3466,14 +3476,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/dhcp_server/interface_ip_map/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Specify static IPv4 addresses per node.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.dhcp_server.interface_ip_map",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3487,7 +3497,7 @@
         "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3526,7 +3536,7 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config"],
       "sections": [
         {
-          "aliases": ["host"],
+          "aliases": ["ethernet interface ipv6 auto config host"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:host",
@@ -3540,7 +3550,7 @@
           "type": "object"
         },
         {
-          "aliases": ["router"],
+          "aliases": ["ethernet interface ipv6 auto config router"],
           "anchor": "section",
           "description": "IPV6AutoConfigRouterType.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router",
@@ -3572,14 +3582,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/ipv6_auto_config/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "IPV6AutoConfigType.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3590,7 +3600,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3612,20 +3622,20 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "host"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/ipv6_auto_config/host/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.host",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router"],
       "body_bytes": 3804,
-      "body_sha256": "sha256:45a10990116d85ccc2bc492f15bc6d2d57f3451b781d1aff814430d43de4bf9d",
+      "body_sha256": "sha256:7409520b1be028c5d064620980990e40104ab95758ed113307e9e91dedb58454",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -3633,7 +3643,7 @@
         "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3672,7 +3682,7 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router"],
       "sections": [
         {
-          "aliases": ["dns config"],
+          "aliases": ["ethernet interface ipv6 auto config router dns config"],
           "anchor": "section",
           "description": "IPV6DnsConfig.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:dns_config",
@@ -3703,7 +3713,7 @@
           "type": "object"
         },
         {
-          "aliases": ["network prefix"],
+          "aliases": ["ethernet interface ipv6 auto config router network prefix"],
           "anchor": "schema-ethernet_interface--ipv6_auto_config--router--network_prefix",
           "description": "Exclusive with Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router",
@@ -3717,7 +3727,7 @@
           "type": "string"
         },
         {
-          "aliases": ["stateful"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful"],
           "anchor": "section",
           "description": "DHCPIPV6 Stateful Server.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful",
@@ -3789,14 +3799,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "IPV6AutoConfigRouterType.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -3810,7 +3820,7 @@
         "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:dns_config:local_dns"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3849,7 +3859,7 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router", "dns_config"],
       "sections": [
         {
-          "aliases": ["configured list"],
+          "aliases": ["ethernet interface ipv6 auto config router dns config configured list"],
           "anchor": "section",
           "description": "IPV6DnsList.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:dns_config:configured_list",
@@ -3872,7 +3882,7 @@
           "type": "object"
         },
         {
-          "aliases": ["local dns"],
+          "aliases": ["ethernet interface ipv6 auto config router dns config local dns"],
           "anchor": "section",
           "description": "IPV6LocalDnsAddress.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:dns_config:local_dns",
@@ -3936,25 +3946,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/dns_config/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "IPV6DnsConfig.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router.dns_config",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router dns config configured list"],
       "body_bytes": 3532,
-      "body_sha256": "sha256:6a7415d740b19d0fe175b778f0fbffaad0be1298b1bd5fa0ac83c30b5992943b",
+      "body_sha256": "sha256:f273e8bc43c2ba4c7a225756f8a42a92a30e61768fbfd5404f54e1398d767c29",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3985,7 +3995,7 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router", "dns_config", "configured_list"],
       "sections": [
         {
-          "aliases": ["dns list"],
+          "aliases": ["ethernet interface ipv6 auto config router dns config configured list dns list"],
           "anchor": "schema-ethernet_interface--ipv6_auto_config--router--dns_config--configured_list--dns_list",
           "description": "List of IPv6 Addresses acting as DNS servers.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:dns_config:configured_list",
@@ -4007,20 +4017,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/dns_config/configured_list/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "IPV6DnsList.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router.dns_config.configured_list",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router dns config local dns"],
       "body_bytes": 4544,
-      "body_sha256": "sha256:29235027edca82b5113ee4571fce5e672060b313a5ca458150342b8921913349",
+      "body_sha256": "sha256:ed0c1498c546d1cefcf82b7badc7c49fab80246a34c27d96813c5d61b133b57a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -4028,7 +4038,7 @@
         "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:dns_config:local_dns:last_address"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4099,7 +4109,7 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router", "dns_config", "local_dns"],
       "sections": [
         {
-          "aliases": ["configured address"],
+          "aliases": ["ethernet interface ipv6 auto config router dns config local dns configured address"],
           "anchor": "schema-ethernet_interface--ipv6_auto_config--router--dns_config--local_dns--configured_address",
           "description": "Exclusive with Configured address from the network prefix is chosen as DNS server.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:dns_config:local_dns",
@@ -4120,7 +4130,7 @@
           "type": "string"
         },
         {
-          "aliases": ["first address"],
+          "aliases": ["ethernet interface ipv6 auto config router dns config local dns first address"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:dns_config:local_dns:first_address",
@@ -4141,7 +4151,7 @@
           "type": "object"
         },
         {
-          "aliases": ["last address"],
+          "aliases": ["ethernet interface ipv6 auto config router dns config local dns last address"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:dns_config:local_dns:last_address",
@@ -4163,14 +4173,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/dns_config/local_dns/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "IPV6LocalDnsAddress.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router.dns_config.local_dns",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4181,7 +4191,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4203,14 +4213,14 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router", "dns_config", "local_dns", "first_address"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/dns_config/local_dns/first_address/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.first_address",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4221,7 +4231,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4243,20 +4253,20 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router", "dns_config", "local_dns", "last_address"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/dns_config/local_dns/last_address/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.last_address",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router stateful"],
-      "body_bytes": 5205,
-      "body_sha256": "sha256:f782fa7e5ef3cff400cd2bbc3d414b625bff81acf860abece8489997ea29f736",
+      "body_bytes": 5448,
+      "body_sha256": "sha256:9f4b387b4e0b2f37fb8fa82c15c6425d690a3cb7fc332f33b11a7b6f6f6d3ac2",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -4266,7 +4276,7 @@
         "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:interface_ip_map"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4345,7 +4355,7 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router", "stateful"],
       "sections": [
         {
-          "aliases": ["automatic from end"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful automatic from end"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:automatic_from_end",
@@ -4359,7 +4369,7 @@
           "type": "object"
         },
         {
-          "aliases": ["automatic from start"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful automatic from start"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:automatic_from_start",
@@ -4373,7 +4383,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dhcp networks"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful dhcp networks"],
           "anchor": "section",
           "description": "List of networks from which DHCP server can allocate IP addresses.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:dhcp_networks",
@@ -4387,7 +4397,7 @@
           "type": "object"
         },
         {
-          "aliases": ["fixed ip map"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful fixed ip map"],
           "anchor": "schema-ethernet_interface--ipv6_auto_config--router--stateful--fixed_ip_map",
           "description": "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful",
@@ -4401,7 +4411,7 @@
           "type": "map"
         },
         {
-          "aliases": ["interface ip map"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful interface ip map"],
           "anchor": "section",
           "description": "Map of Interface IPv6 assignments per node.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:interface_ip_map",
@@ -4416,14 +4426,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/stateful/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "DHCPIPV6 Stateful Server.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router.stateful",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4434,7 +4444,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4456,14 +4466,14 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router", "stateful", "automatic_from_end"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/stateful/automatic_from_end/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_end",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4474,7 +4484,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4496,27 +4506,27 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router", "stateful", "automatic_from_start"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/stateful/automatic_from_start/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_start",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router stateful dhcp networks"],
       "body_bytes": 5562,
-      "body_sha256": "sha256:1bed29d6d70dda9be55af0e7dac80bcd87c68abf83cd19892e1c68505b5ebcc3",
+      "body_sha256": "sha256:82cb37d63c74c2ffe394bfe5738bb725ca927c1c000ac17666a49df88fbaa853",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:dhcp_networks:pools"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4538,7 +4548,7 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router", "stateful", "dhcp_networks"],
       "sections": [
         {
-          "aliases": ["network prefix"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful dhcp networks network prefix"],
           "anchor": "schema-ethernet_interface--ipv6_auto_config--router--stateful--dhcp_networks--network_prefix",
           "description": "Exclusive with Network Prefix to be used for IPv6 address auto configuration.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:dhcp_networks",
@@ -4559,7 +4569,7 @@
           "type": "string"
         },
         {
-          "aliases": ["pool settings"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful dhcp networks pool settings"],
           "anchor": "schema-ethernet_interface--ipv6_auto_config--router--stateful--dhcp_networks--pool_settings",
           "description": "Identifies the how to pick the network for Interface. Address ranges in DHCP pool list are used for IP Address allocation Address ranges in DHCP pool list are excluded from IP Address allocation.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:dhcp_networks",
@@ -4580,7 +4590,7 @@
           "type": "string"
         },
         {
-          "aliases": ["pools"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful dhcp networks pools"],
           "anchor": "section",
           "description": "List of non overlapping IP address ranges.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:dhcp_networks:pools",
@@ -4595,25 +4605,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/stateful/dhcp_networks/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of networks from which DHCP server can allocate IP addresses.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router stateful dhcp networks pools"],
       "body_bytes": 5308,
-      "body_sha256": "sha256:ff5e546f0d051780af082b44a0f005f78ce522f49c452dbea4fe20f62f9e71c3",
+      "body_sha256": "sha256:59ccb14499f79e414444b3dfefbbc278067a5f22b31734245309db608a379797",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4635,7 +4645,7 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router", "stateful", "dhcp_networks", "pools"],
       "sections": [
         {
-          "aliases": ["end ip"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful dhcp networks pools end ip"],
           "anchor": "schema-ethernet_interface--ipv6_auto_config--router--stateful--dhcp_networks--pools--end_ip",
           "description": "Ending IPv6 address of the pool range. In case of address allocator, offset is derived based on network prefix.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:dhcp_networks:pools",
@@ -4657,7 +4667,7 @@
           "type": "string"
         },
         {
-          "aliases": ["start ip"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful dhcp networks pools start ip"],
           "anchor": "schema-ethernet_interface--ipv6_auto_config--router--stateful--dhcp_networks--pools--start_ip",
           "description": "Starting IPv6 address of the pool range. In case of address allocator, offset is derived based on network prefix. 2001::1 with prefix length of 64, start offset is 5.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:dhcp_networks:pools",
@@ -4680,25 +4690,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/stateful/dhcp_networks/pools/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "List of non overlapping IP address ranges.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router stateful interface ip map"],
-      "body_bytes": 2923,
-      "body_sha256": "sha256:584c2ca2dcb88137d0a98404a292ef16c9489c70f08e6b7e6fc9a658ba208648",
+      "body_bytes": 3165,
+      "body_sha256": "sha256:0e8a300e20e5f73dbb22f93d41921149f5ca8f736c2dae7b5371e3ae8836cd17",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4720,7 +4730,7 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router", "stateful", "interface_ip_map"],
       "sections": [
         {
-          "aliases": ["interface ip map"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful interface ip map interface ip map"],
           "anchor": "schema-ethernet_interface--ipv6_auto_config--router--stateful--interface_ip_map--interface_ip_map",
           "description": "Map of Site:Node to IPv6 address.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:interface_ip_map",
@@ -4742,14 +4752,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/stateful/interface_ip_map/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Map of Interface IPv6 assignments per node.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router.stateful.interface_ip_map",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4760,7 +4770,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4782,14 +4792,14 @@
       "schema_path": ["ethernet_interface", "is_primary"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/is_primary/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.is_primary",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4800,7 +4810,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4822,14 +4832,14 @@
       "schema_path": ["ethernet_interface", "monitor"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/monitor/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Link Quality Monitoring configuration for a network interface.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.monitor",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4840,7 +4850,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4862,14 +4872,14 @@
       "schema_path": ["ethernet_interface", "monitor_disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/monitor_disabled/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.monitor_disabled",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4880,7 +4890,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4902,14 +4912,14 @@
       "schema_path": ["ethernet_interface", "no_ipv6_address"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/no_ipv6_address/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.no_ipv6_address",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4920,7 +4930,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4942,14 +4952,14 @@
       "schema_path": ["ethernet_interface", "not_primary"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/not_primary/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.not_primary",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -4960,7 +4970,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4982,14 +4992,14 @@
       "schema_path": ["ethernet_interface", "site_local_inside_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/site_local_inside_network/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.site_local_inside_network",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -5000,7 +5010,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5022,14 +5032,14 @@
       "schema_path": ["ethernet_interface", "site_local_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/site_local_network/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.site_local_network",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -5043,7 +5053,7 @@
         "xcsh-docs:resources:network_interface:properties:ethernet_interface:static_ip:node_static_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5082,7 +5092,7 @@
       "schema_path": ["ethernet_interface", "static_ip"],
       "sections": [
         {
-          "aliases": ["cluster static ip"],
+          "aliases": ["ethernet interface static ip cluster static ip"],
           "anchor": "section",
           "description": "Configure Static IP parameters for cluster.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:static_ip:cluster_static_ip",
@@ -5096,7 +5106,7 @@
           "type": "object"
         },
         {
-          "aliases": ["node static ip"],
+          "aliases": ["ethernet interface static ip node static ip"],
           "anchor": "section",
           "description": "Configure Static IP parameters for a node.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:static_ip:node_static_ip",
@@ -5120,25 +5130,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/static_ip/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configure Static IP parameters.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.static_ip",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["ethernet interface static ip cluster static ip"],
-      "body_bytes": 2245,
-      "body_sha256": "sha256:dfefd1ec0f72387d5d471538c7d6ead39e84a9784e8284c97048068af828c05a",
+      "body_bytes": 2488,
+      "body_sha256": "sha256:d04e9caece561ff54a38d95fb7c237bfe7981526ed0f64b9592936bf582317cd",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5160,7 +5170,7 @@
       "schema_path": ["ethernet_interface", "static_ip", "cluster_static_ip"],
       "sections": [
         {
-          "aliases": ["interface ip map"],
+          "aliases": ["ethernet interface static ip cluster static ip interface ip map"],
           "anchor": "schema-ethernet_interface--static_ip--cluster_static_ip--interface_ip_map",
           "description": "Map of Node to Static IP configuration value, Key:Node, Value:IP Address.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:static_ip:cluster_static_ip",
@@ -5175,25 +5185,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/static_ip/cluster_static_ip/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configure Static IP parameters for cluster.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.static_ip.cluster_static_ip",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["ethernet interface static ip node static ip"],
       "body_bytes": 4067,
-      "body_sha256": "sha256:179d7c37a054b61f22ebcc53c18f40d684ebb909f4a9be652daeb7ba21d77f7f",
+      "body_sha256": "sha256:a6386c0ad53cbb0c1363177ac58c50610a4c80abcd1658b9941b7ad094b24c6b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5224,7 +5234,7 @@
       "schema_path": ["ethernet_interface", "static_ip", "node_static_ip"],
       "sections": [
         {
-          "aliases": ["default gw"],
+          "aliases": ["ethernet interface static ip node static ip default gw"],
           "anchor": "schema-ethernet_interface--static_ip--node_static_ip--default_gw",
           "description": "IP address of the default gateway.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:static_ip:node_static_ip",
@@ -5238,7 +5248,7 @@
           "type": "string"
         },
         {
-          "aliases": ["dns server"],
+          "aliases": ["ethernet interface static ip node static ip dns server"],
           "anchor": "schema-ethernet_interface--static_ip--node_static_ip--dns_server",
           "description": "DNS server address for the static interface configuration.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:static_ip:node_static_ip",
@@ -5252,7 +5262,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ip address"],
+          "aliases": ["ethernet interface static ip node static ip ip address"],
           "anchor": "schema-ethernet_interface--static_ip--node_static_ip--ip_address",
           "description": "IP address of the interface and prefix length.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:static_ip:node_static_ip",
@@ -5267,14 +5277,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/static_ip/node_static_ip/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configure Static IP parameters for a node.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.static_ip.node_static_ip",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -5288,7 +5298,7 @@
         "xcsh-docs:resources:network_interface:properties:ethernet_interface:static_ipv6_address:node_static_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5327,7 +5337,7 @@
       "schema_path": ["ethernet_interface", "static_ipv6_address"],
       "sections": [
         {
-          "aliases": ["cluster static ip"],
+          "aliases": ["ethernet interface static ipv6 address cluster static ip"],
           "anchor": "section",
           "description": "Configure Static IP parameters for cluster.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:static_ipv6_address:cluster_static_ip",
@@ -5341,7 +5351,7 @@
           "type": "object"
         },
         {
-          "aliases": ["node static ip"],
+          "aliases": ["ethernet interface static ipv6 address node static ip"],
           "anchor": "section",
           "description": "Configure Static IP parameters for a node.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:static_ipv6_address:node_static_ip",
@@ -5365,25 +5375,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/static_ipv6_address/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configure Static IP parameters.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.static_ipv6_address",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["ethernet interface static ipv6 address cluster static ip"],
-      "body_bytes": 2315,
-      "body_sha256": "sha256:29b8f452602e78d5c1b78552ad37c9e50062b74bdff3a6643dd8a679ec3c3328",
+      "body_bytes": 2558,
+      "body_sha256": "sha256:8d3a634fd61bd614add48257a17cddb17919fbbe1a6a1e49c6a5c03340c0e717",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5405,7 +5415,7 @@
       "schema_path": ["ethernet_interface", "static_ipv6_address", "cluster_static_ip"],
       "sections": [
         {
-          "aliases": ["interface ip map"],
+          "aliases": ["ethernet interface static ipv6 address cluster static ip interface ip map"],
           "anchor": "schema-ethernet_interface--static_ipv6_address--cluster_static_ip--interface_ip_map",
           "description": "Map of Node to Static IP configuration value, Key:Node, Value:IP Address.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:static_ipv6_address:cluster_static_ip",
@@ -5420,25 +5430,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/static_ipv6_address/cluster_static_ip/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configure Static IP parameters for cluster.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.static_ipv6_address.cluster_static_ip",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["ethernet interface static ipv6 address node static ip"],
       "body_bytes": 4157,
-      "body_sha256": "sha256:bde4705c80b550d8ff0e550da1d7124aab08a79e8ca1afa1057d79fc502cf539",
+      "body_sha256": "sha256:aad6403cc60a846adaecd628586986ffb11a272dab500687fbc7d3acbd3e5d6a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5469,7 +5479,7 @@
       "schema_path": ["ethernet_interface", "static_ipv6_address", "node_static_ip"],
       "sections": [
         {
-          "aliases": ["default gw"],
+          "aliases": ["ethernet interface static ipv6 address node static ip default gw"],
           "anchor": "schema-ethernet_interface--static_ipv6_address--node_static_ip--default_gw",
           "description": "IP address of the default gateway.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:static_ipv6_address:node_static_ip",
@@ -5483,7 +5493,7 @@
           "type": "string"
         },
         {
-          "aliases": ["dns server"],
+          "aliases": ["ethernet interface static ipv6 address node static ip dns server"],
           "anchor": "schema-ethernet_interface--static_ipv6_address--node_static_ip--dns_server",
           "description": "DNS server address for the static interface configuration.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:static_ipv6_address:node_static_ip",
@@ -5497,7 +5507,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ip address"],
+          "aliases": ["ethernet interface static ipv6 address node static ip ip address"],
           "anchor": "schema-ethernet_interface--static_ipv6_address--node_static_ip--ip_address",
           "description": "IP address of the interface and prefix length.",
           "document_id": "xcsh-docs:resources:network_interface:properties:ethernet_interface:static_ipv6_address:node_static_ip",
@@ -5512,14 +5522,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/static_ipv6_address/node_static_ip/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configure Static IP parameters for a node.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.static_ipv6_address.node_static_ip",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -5530,7 +5540,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5552,14 +5562,14 @@
       "schema_path": ["ethernet_interface", "storage_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/storage_network/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.storage_network",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -5570,7 +5580,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5592,14 +5602,14 @@
       "schema_path": ["ethernet_interface", "untagged"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/ethernet_interface/untagged/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.untagged",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -5614,7 +5624,7 @@
         "xcsh-docs:resources:network_interface:properties:layer2_interface:l2vlan_slo_interface"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5685,7 +5695,7 @@
       "schema_path": ["layer2_interface"],
       "sections": [
         {
-          "aliases": ["l2sriov interface"],
+          "aliases": ["layer2 interface l2sriov interface"],
           "anchor": "section",
           "description": "Layer2 SR-IOV Interface Configuration.",
           "document_id": "xcsh-docs:resources:network_interface:properties:layer2_interface:l2sriov_interface",
@@ -5724,7 +5734,7 @@
           "type": "object"
         },
         {
-          "aliases": ["l2vlan interface"],
+          "aliases": ["layer2 interface l2vlan interface"],
           "anchor": "section",
           "description": "Layer2 VLAN Interface Configuration.",
           "document_id": "xcsh-docs:resources:network_interface:properties:layer2_interface:l2vlan_interface",
@@ -5755,7 +5765,7 @@
           "type": "object"
         },
         {
-          "aliases": ["l2vlan slo interface"],
+          "aliases": ["layer2 interface l2vlan slo interface"],
           "anchor": "section",
           "description": "Layer2 Site Local Outside VLAN Interface Configuration.",
           "document_id": "xcsh-docs:resources:network_interface:properties:layer2_interface:l2vlan_slo_interface",
@@ -5779,25 +5789,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/layer2_interface/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Layer2 Interface Configuration.",
       "tasks": ["configuration"],
       "title": "layer2_interface",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["layer2 interface l2sriov interface"],
       "body_bytes": 4300,
-      "body_sha256": "sha256:6c768586cc0272cfd040ce76564c6f386453f6e18c8a7e9db3465fe7b7753828",
+      "body_sha256": "sha256:938192f6cbcc6e2237eec81fd457c5087019b5b5c81f412eb8c80828c271995e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:network_interface:properties:layer2_interface:l2sriov_interface:untagged"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5844,7 +5854,7 @@
       "schema_path": ["layer2_interface", "l2sriov_interface"],
       "sections": [
         {
-          "aliases": ["device"],
+          "aliases": ["layer2 interface l2sriov interface device"],
           "anchor": "schema-layer2_interface--l2sriov_interface--device",
           "description": "Physical ethernet interface.",
           "document_id": "xcsh-docs:resources:network_interface:properties:layer2_interface:l2sriov_interface",
@@ -5858,7 +5868,7 @@
           "type": "string"
         },
         {
-          "aliases": ["untagged"],
+          "aliases": ["layer2 interface l2sriov interface untagged"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:layer2_interface:l2sriov_interface:untagged",
@@ -5872,7 +5882,7 @@
           "type": "object"
         },
         {
-          "aliases": ["vlan id"],
+          "aliases": ["layer2 interface l2sriov interface vlan id"],
           "anchor": "schema-layer2_interface--l2sriov_interface--vlan_id",
           "description": "Exclusive with Configure a VLAN tagged interface.",
           "document_id": "xcsh-docs:resources:network_interface:properties:layer2_interface:l2sriov_interface",
@@ -5887,14 +5897,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/layer2_interface/l2sriov_interface/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Layer2 SR-IOV Interface Configuration.",
       "tasks": ["configuration"],
       "title": "layer2_interface.l2sriov_interface",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -5905,7 +5915,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5927,25 +5937,25 @@
       "schema_path": ["layer2_interface", "l2sriov_interface", "untagged"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/layer2_interface/l2sriov_interface/untagged/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "layer2_interface.l2sriov_interface.untagged",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["layer2 interface l2vlan interface"],
       "body_bytes": 3798,
-      "body_sha256": "sha256:a0cd4eff4054e4e3f331908e372364e9ee492d1eba5a926534801cd4afc4398e",
+      "body_sha256": "sha256:20db87536f1117d0fc38503821a0eccd57a1badd222ab5913ec2e2c31ba149be",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5984,7 +5994,7 @@
       "schema_path": ["layer2_interface", "l2vlan_interface"],
       "sections": [
         {
-          "aliases": ["device"],
+          "aliases": ["layer2 interface l2vlan interface device"],
           "anchor": "schema-layer2_interface--l2vlan_interface--device",
           "description": "Physical ethernet interface.",
           "document_id": "xcsh-docs:resources:network_interface:properties:layer2_interface:l2vlan_interface",
@@ -5998,7 +6008,7 @@
           "type": "string"
         },
         {
-          "aliases": ["vlan id"],
+          "aliases": ["layer2 interface l2vlan interface vlan id"],
           "anchor": "schema-layer2_interface--l2vlan_interface--vlan_id",
           "description": "VLAN ID",
           "document_id": "xcsh-docs:resources:network_interface:properties:layer2_interface:l2vlan_interface",
@@ -6013,25 +6023,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/layer2_interface/l2vlan_interface/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Layer2 VLAN Interface Configuration.",
       "tasks": ["configuration"],
       "title": "layer2_interface.l2vlan_interface",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["layer2 interface l2vlan slo interface"],
       "body_bytes": 2538,
-      "body_sha256": "sha256:09b5f7172699a2f98e7f02d4dfe5f70d216fa09e7969c857d284406f89c3c3b0",
+      "body_sha256": "sha256:f11f2400f70b10da98031f7da0fe9aaf35ad32bfed6a82fe18fbd85d3f808b8b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6062,7 +6072,7 @@
       "schema_path": ["layer2_interface", "l2vlan_slo_interface"],
       "sections": [
         {
-          "aliases": ["vlan id"],
+          "aliases": ["layer2 interface l2vlan slo interface vlan id"],
           "anchor": "schema-layer2_interface--l2vlan_slo_interface--vlan_id",
           "description": "VLAN ID",
           "document_id": "xcsh-docs:resources:network_interface:properties:layer2_interface:l2vlan_slo_interface",
@@ -6077,25 +6087,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/layer2_interface/l2vlan_slo_interface/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Layer2 Site Local Outside VLAN Interface Configuration.",
       "tasks": ["configuration"],
       "title": "layer2_interface.l2vlan_slo_interface",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2261,
       "body_sha256": "sha256:127cedf2c19fecd2dcb1d15056c8f0665d0b1d93a3c86351957d16ba420b71ea",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6117,9 +6127,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:network_interface:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -6131,9 +6149,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:network_interface:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -6145,9 +6172,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:network_interface:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -6159,9 +6195,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:network_interface:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -6174,20 +6219,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "timeouts for xcsh_network_interface.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["tunnel interface"],
       "body_bytes": 6479,
-      "body_sha256": "sha256:c62faa8a82a8cc1f3a7a39725e65ca0b16143315aabd615f8f9a272397dcd754",
+      "body_sha256": "sha256:efd9c228720d1ea03beb4ddf1ae9b9aac98a011e375e4002161a2c1b724c7752",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -6197,7 +6242,7 @@
         "xcsh-docs:resources:network_interface:properties:tunnel_interface:tunnel"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6236,7 +6281,7 @@
       "schema_path": ["tunnel_interface"],
       "sections": [
         {
-          "aliases": ["mtu"],
+          "aliases": ["tunnel interface mtu"],
           "anchor": "schema-tunnel_interface--mtu",
           "description": "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
           "document_id": "xcsh-docs:resources:network_interface:properties:tunnel_interface",
@@ -6250,7 +6295,7 @@
           "type": "number"
         },
         {
-          "aliases": ["node"],
+          "aliases": ["tunnel interface node"],
           "anchor": "schema-tunnel_interface--node",
           "description": "Exclusive with Configuration will apply to a given device on the given node.",
           "document_id": "xcsh-docs:resources:network_interface:properties:tunnel_interface",
@@ -6264,7 +6309,7 @@
           "type": "string"
         },
         {
-          "aliases": ["priority"],
+          "aliases": ["tunnel interface priority"],
           "anchor": "schema-tunnel_interface--priority",
           "description": "Priority of the network interface when multiple network interfaces are present in outside network Greater the value, higher the priority.",
           "document_id": "xcsh-docs:resources:network_interface:properties:tunnel_interface",
@@ -6278,7 +6323,7 @@
           "type": "number"
         },
         {
-          "aliases": ["site local inside network"],
+          "aliases": ["tunnel interface site local inside network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:tunnel_interface:site_local_inside_network",
@@ -6292,7 +6337,7 @@
           "type": "object"
         },
         {
-          "aliases": ["site local network"],
+          "aliases": ["tunnel interface site local network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_interface:properties:tunnel_interface:site_local_network",
@@ -6306,7 +6351,7 @@
           "type": "object"
         },
         {
-          "aliases": ["static ip"],
+          "aliases": ["tunnel interface static ip"],
           "anchor": "section",
           "description": "Configure Static IP parameters.",
           "document_id": "xcsh-docs:resources:network_interface:properties:tunnel_interface:static_ip",
@@ -6337,7 +6382,7 @@
           "type": "object"
         },
         {
-          "aliases": ["tunnel"],
+          "aliases": ["tunnel interface tunnel"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:network_interface:properties:tunnel_interface:tunnel",
@@ -6361,14 +6406,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/tunnel_interface/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Tunnel Interface Configuration.",
       "tasks": ["configuration"],
       "title": "tunnel_interface",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -6379,7 +6424,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6401,14 +6446,14 @@
       "schema_path": ["tunnel_interface", "site_local_inside_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/tunnel_interface/site_local_inside_network/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tunnel_interface.site_local_inside_network",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -6419,7 +6464,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6441,14 +6486,14 @@
       "schema_path": ["tunnel_interface", "site_local_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/tunnel_interface/site_local_network/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tunnel_interface.site_local_network",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -6462,7 +6507,7 @@
         "xcsh-docs:resources:network_interface:properties:tunnel_interface:static_ip:node_static_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6501,7 +6546,7 @@
       "schema_path": ["tunnel_interface", "static_ip"],
       "sections": [
         {
-          "aliases": ["cluster static ip"],
+          "aliases": ["tunnel interface static ip cluster static ip"],
           "anchor": "section",
           "description": "Configure Static IP parameters for cluster.",
           "document_id": "xcsh-docs:resources:network_interface:properties:tunnel_interface:static_ip:cluster_static_ip",
@@ -6515,7 +6560,7 @@
           "type": "object"
         },
         {
-          "aliases": ["node static ip"],
+          "aliases": ["tunnel interface static ip node static ip"],
           "anchor": "section",
           "description": "Configure Static IP parameters for a node.",
           "document_id": "xcsh-docs:resources:network_interface:properties:tunnel_interface:static_ip:node_static_ip",
@@ -6539,25 +6584,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/tunnel_interface/static_ip/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configure Static IP parameters.",
       "tasks": ["configuration"],
       "title": "tunnel_interface.static_ip",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["tunnel interface static ip cluster static ip"],
-      "body_bytes": 2227,
-      "body_sha256": "sha256:cc2c0d9ca44973ae601fe5af5a5273d721aac0b0529af97197557bcbfb37fba7",
+      "body_bytes": 2470,
+      "body_sha256": "sha256:acbbcc01e06bed3fbfdb6df54bca2b01832bed85883147c6f1a1a3c968764c9b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6579,7 +6624,7 @@
       "schema_path": ["tunnel_interface", "static_ip", "cluster_static_ip"],
       "sections": [
         {
-          "aliases": ["interface ip map"],
+          "aliases": ["tunnel interface static ip cluster static ip interface ip map"],
           "anchor": "schema-tunnel_interface--static_ip--cluster_static_ip--interface_ip_map",
           "description": "Map of Node to Static IP configuration value, Key:Node, Value:IP Address.",
           "document_id": "xcsh-docs:resources:network_interface:properties:tunnel_interface:static_ip:cluster_static_ip",
@@ -6594,25 +6639,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/tunnel_interface/static_ip/cluster_static_ip/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configure Static IP parameters for cluster.",
       "tasks": ["configuration"],
       "title": "tunnel_interface.static_ip.cluster_static_ip",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["tunnel interface static ip node static ip"],
       "body_bytes": 4045,
-      "body_sha256": "sha256:ad6ea88ed44de3fea480fb9158c27e53c822f377b02a9f3d98f9d4a198e83eb9",
+      "body_sha256": "sha256:847d9555cc7d37b4d82714b5117a5c3077ce3eb5f738bb630eb2b4eeb318d76b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6643,7 +6688,7 @@
       "schema_path": ["tunnel_interface", "static_ip", "node_static_ip"],
       "sections": [
         {
-          "aliases": ["default gw"],
+          "aliases": ["tunnel interface static ip node static ip default gw"],
           "anchor": "schema-tunnel_interface--static_ip--node_static_ip--default_gw",
           "description": "IP address of the default gateway.",
           "document_id": "xcsh-docs:resources:network_interface:properties:tunnel_interface:static_ip:node_static_ip",
@@ -6657,7 +6702,7 @@
           "type": "string"
         },
         {
-          "aliases": ["dns server"],
+          "aliases": ["tunnel interface static ip node static ip dns server"],
           "anchor": "schema-tunnel_interface--static_ip--node_static_ip--dns_server",
           "description": "DNS server address for the static interface configuration.",
           "document_id": "xcsh-docs:resources:network_interface:properties:tunnel_interface:static_ip:node_static_ip",
@@ -6671,7 +6716,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ip address"],
+          "aliases": ["tunnel interface static ip node static ip ip address"],
           "anchor": "schema-tunnel_interface--static_ip--node_static_ip--ip_address",
           "description": "IP address of the interface and prefix length.",
           "document_id": "xcsh-docs:resources:network_interface:properties:tunnel_interface:static_ip:node_static_ip",
@@ -6686,25 +6731,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/tunnel_interface/static_ip/node_static_ip/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configure Static IP parameters for a node.",
       "tasks": ["configuration"],
       "title": "tunnel_interface.static_ip.node_static_ip",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["tunnel interface tunnel"],
       "body_bytes": 6061,
-      "body_sha256": "sha256:2963c0f6e1a6b020f7981be289d77cab9008fefdedd9190137aa2c0b0365716f",
+      "body_sha256": "sha256:fc2f9ddc21b0b4ea836af4b15d9eea4037ba6dd87eada964b8e627fdb2639931",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6735,7 +6780,7 @@
       "schema_path": ["tunnel_interface", "tunnel"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["tunnel interface tunnel name"],
           "anchor": "schema-tunnel_interface--tunnel--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:network_interface:properties:tunnel_interface:tunnel",
@@ -6749,7 +6794,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["tunnel interface tunnel namespace"],
           "anchor": "schema-tunnel_interface--tunnel--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:network_interface:properties:tunnel_interface:tunnel",
@@ -6763,7 +6808,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["tunnel interface tunnel tenant"],
           "anchor": "schema-tunnel_interface--tunnel--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:network_interface:properties:tunnel_interface:tunnel",
@@ -6778,14 +6823,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/properties/tunnel_interface/tunnel/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "tunnel_interface.tunnel",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -6796,7 +6841,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:network_interface:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6818,14 +6863,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/examples/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Examples for xcsh_network_interface.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -6836,7 +6881,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6865,14 +6910,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Resource for xcsh_network_interface.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -6883,7 +6928,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6906,14 +6951,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Import for xcsh_network_interface.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -6924,7 +6969,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6946,14 +6991,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Timeouts for xcsh_network_interface.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     }
   ],

@@ -140,7 +140,7 @@
         "xcsh-docs:data-sources:nginx_service_discovery:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -162,21 +162,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_service_discovery/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Manages a Nginx Service Discovery resource in F5 Distributed Cloud for api to create nginx service discovery object for a site or virtual site in system namespace. configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_nginx_service_discovery",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["nginx_service_discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["nginx service discovery"],
       "body_bytes": 12950,
-      "body_sha256": "sha256:befbb0d15803493bdbbc0726df2dd92fca3a06fc40084ac4bfb96968b6525a23",
+      "body_sha256": "sha256:c61d4645c2aee67e838c515d8f607b1eb758395d802aac7dcb01394ff77b6c42",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -184,7 +184,7 @@
         "xcsh-docs:data-sources:nginx_service_discovery:properties:server_block_filters"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -319,14 +319,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_service_discovery/properties/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Property reference for xcsh_nginx_service_discovery.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["nginx_service_discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -340,7 +340,7 @@
         "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:nginx_instance"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -362,7 +362,7 @@
       "schema_path": ["discovery_target"],
       "sections": [
         {
-          "aliases": ["config sync group"],
+          "aliases": ["discovery target config sync group"],
           "anchor": "section",
           "description": "Select new ConfigSyncGroup.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:config_sync_group",
@@ -376,7 +376,7 @@
           "type": "object"
         },
         {
-          "aliases": ["nginx instance"],
+          "aliases": ["discovery target nginx instance"],
           "anchor": "section",
           "description": "Select new NGINX Instance.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:nginx_instance",
@@ -391,14 +391,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_service_discovery/properties/discovery_target/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Configuration parameter for discovery target.",
       "tasks": ["configuration"],
       "title": "discovery_target",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["nginx_service_discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -411,7 +411,7 @@
         "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:config_sync_group:config_sync_group"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -433,7 +433,7 @@
       "schema_path": ["discovery_target", "config_sync_group"],
       "sections": [
         {
-          "aliases": ["config sync group"],
+          "aliases": ["discovery target config sync group config sync group"],
           "anchor": "section",
           "description": "Select new ConfigSyncGroup.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:config_sync_group:config_sync_group",
@@ -448,25 +448,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_service_discovery/properties/discovery_target/config_sync_group/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Select new ConfigSyncGroup.",
       "tasks": ["configuration"],
       "title": "discovery_target.config_sync_group",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["nginx_service_discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["discovery target config sync group config sync group"],
       "body_bytes": 6806,
-      "body_sha256": "sha256:d1c68f4b39d518249c0a76b4cb722cb3cbb789fd20c90c1d656d7ce112a62888",
+      "body_sha256": "sha256:f360f462a2982c3b35962391b854b9a227ad653e6c115a19408d6bfcd201a5ed",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -488,7 +488,7 @@
       "schema_path": ["discovery_target", "config_sync_group", "config_sync_group"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["discovery target config sync group config sync group kind"],
           "anchor": "schema-discovery_target--config_sync_group--config_sync_group--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:config_sync_group:config_sync_group",
@@ -502,7 +502,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["discovery target config sync group config sync group name"],
           "anchor": "schema-discovery_target--config_sync_group--config_sync_group--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:config_sync_group:config_sync_group",
@@ -516,7 +516,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["discovery target config sync group config sync group namespace"],
           "anchor": "schema-discovery_target--config_sync_group--config_sync_group--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:config_sync_group:config_sync_group",
@@ -530,7 +530,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["discovery target config sync group config sync group tenant"],
           "anchor": "schema-discovery_target--config_sync_group--config_sync_group--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:config_sync_group:config_sync_group",
@@ -544,7 +544,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["discovery target config sync group config sync group uid"],
           "anchor": "schema-discovery_target--config_sync_group--config_sync_group--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:config_sync_group:config_sync_group",
@@ -559,14 +559,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_service_discovery/properties/discovery_target/config_sync_group/config_sync_group/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Select new ConfigSyncGroup.",
       "tasks": ["configuration"],
       "title": "discovery_target.config_sync_group.config_sync_group",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["nginx_service_discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -579,7 +579,7 @@
         "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:nginx_instance:nginx_instance"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -601,7 +601,7 @@
       "schema_path": ["discovery_target", "nginx_instance"],
       "sections": [
         {
-          "aliases": ["nginx instance"],
+          "aliases": ["discovery target nginx instance nginx instance"],
           "anchor": "section",
           "description": "Select new NGINX Instance.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:nginx_instance:nginx_instance",
@@ -616,25 +616,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_service_discovery/properties/discovery_target/nginx_instance/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Select new NGINX Instance.",
       "tasks": ["configuration"],
       "title": "discovery_target.nginx_instance",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["nginx_service_discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["discovery target nginx instance nginx instance"],
       "body_bytes": 6750,
-      "body_sha256": "sha256:e7e90026920e5f9264ddf643cf70e9520597b3cb0ee664d1de2c6b8b4c842a69",
+      "body_sha256": "sha256:f3bfb3ddc7ea2479559ba57284a7dba2ce2e5351512bca14696a17e14745f00c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -656,7 +656,7 @@
       "schema_path": ["discovery_target", "nginx_instance", "nginx_instance"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["discovery target nginx instance nginx instance kind"],
           "anchor": "schema-discovery_target--nginx_instance--nginx_instance--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:nginx_instance:nginx_instance",
@@ -670,7 +670,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["discovery target nginx instance nginx instance name"],
           "anchor": "schema-discovery_target--nginx_instance--nginx_instance--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:nginx_instance:nginx_instance",
@@ -684,7 +684,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["discovery target nginx instance nginx instance namespace"],
           "anchor": "schema-discovery_target--nginx_instance--nginx_instance--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:nginx_instance:nginx_instance",
@@ -698,7 +698,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["discovery target nginx instance nginx instance tenant"],
           "anchor": "schema-discovery_target--nginx_instance--nginx_instance--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:nginx_instance:nginx_instance",
@@ -712,7 +712,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["discovery target nginx instance nginx instance uid"],
           "anchor": "schema-discovery_target--nginx_instance--nginx_instance--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:nginx_instance:nginx_instance",
@@ -727,25 +727,25 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_service_discovery/properties/discovery_target/nginx_instance/nginx_instance/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Select new NGINX Instance.",
       "tasks": ["configuration"],
       "title": "discovery_target.nginx_instance.nginx_instance",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["nginx_service_discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
       "aliases": ["server block filters"],
       "body_bytes": 4307,
-      "body_sha256": "sha256:292870d40c48409e48f7614c5f1709d6e4f4458937f47442346f094f2547f49e",
+      "body_sha256": "sha256:283dd063175160de7c24353c1d4d139437a9ce218a7590b1ff382677000a2ca4",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -767,7 +767,7 @@
       "schema_path": ["server_block_filters"],
       "sections": [
         {
-          "aliases": ["name regex"],
+          "aliases": ["server block filters name regex"],
           "anchor": "schema-server_block_filters--name_regex",
           "description": "Regular expression to match the server name or domain that must be discovered.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:server_block_filters",
@@ -781,7 +781,7 @@
           "type": "string"
         },
         {
-          "aliases": ["port ranges"],
+          "aliases": ["server block filters port ranges"],
           "anchor": "schema-server_block_filters--port_ranges",
           "description": "A string containing a comma separated list of individual service ports or port ranges. Each port range consists of a single port or two ports separated by \"-\". For example, 8000-8191. Maximum number of ports allowed is 1024.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:server_block_filters",
@@ -796,14 +796,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_service_discovery/properties/server_block_filters/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Filters discovered server blocks based on server name, domain and ports. Atleast, one field should be populated for each filter. X-textBlockContent: If no filters are specified, all server blocks will be discovered by default.",
       "tasks": ["configuration"],
       "title": "server_block_filters",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["nginx_service_discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -814,7 +814,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:nginx_service_discovery:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -836,14 +836,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_service_discovery/examples/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Examples for xcsh_nginx_service_discovery.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["nginx_service_discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     },
     {
@@ -854,7 +854,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -883,14 +883,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_service_discovery/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
       "summary": "Data source for xcsh_nginx_service_discovery.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v9.0.1",
+        "release_tag": "v9.0.2",
         "schema_components": ["nginx_service_discoveryCreateRequest"],
-        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
+        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
       }
     }
   ],
