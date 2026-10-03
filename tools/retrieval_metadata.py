@@ -65,6 +65,11 @@ class RetrievalRules:
                 )
             ):
                 raise ValueError("invalid reviewed retrieval summary")
+            if not isinstance(rule.get("aliases", []), list) or not all(
+                isinstance(alias, str) and alias.strip()
+                for alias in rule.get("aliases", [])
+            ):
+                raise ValueError("invalid reviewed retrieval aliases")
             key = (
                 rule["provider_type"],
                 rule["collection"],
@@ -163,17 +168,29 @@ class RetrievalRules:
             },
         }
 
-    def reviewed_summary(self, provider_type, collection, schema_path):
+    def reviewed_rule(self, provider_type, collection, schema_path):
         matches = [
-            rule["summary"]
+            rule
             for rule in self.summaries
             if rule["provider_type"] == provider_type
-            and rule["collection"] == collection
+            and rule["collection"] in ("*", collection)
             and rule["schema_path"] == schema_path
         ]
-        if len(set(matches)) > 1:
+        if not matches:
+            return None
+        specific = [rule for rule in matches if rule["collection"] == collection]
+        preferred = specific or matches
+        if any(rule != preferred[0] for rule in preferred[1:]):
             raise ValueError("conflicting reviewed retrieval summaries")
-        return matches[0] if matches else None
+        return preferred[0]
+
+    def reviewed_summary(self, provider_type, collection, schema_path):
+        rule = self.reviewed_rule(provider_type, collection, schema_path)
+        return rule["summary"] if rule else None
+
+    def reviewed_aliases(self, provider_type, collection, schema_path):
+        rule = self.reviewed_rule(provider_type, collection, schema_path)
+        return sorted(set(rule.get("aliases", []))) if rule else []
 
     def aliases(self, identifier, description=""):
         prose = re.sub(r"[_\.]+", " ", identifier).lower()
