@@ -252,6 +252,26 @@ class RetrievalMetadataTests(unittest.TestCase):
                 {"version": 1, "summaries": [{**common, "aliases": [3]}]}
             )
 
+    def test_lifecycle_aliases_require_exact_timeout_schema_context(self):
+        rules = MODULE.RetrievalRules.default()
+        for operation in ("create", "read", "update", "delete"):
+            aliases = rules.aliases("timeouts." + operation, "Duration syntax.")
+            self.assertIn("operation timeout", aliases)
+            self.assertIn(operation + " timeout", aliases)
+        self.assertNotIn(
+            "operation timeout",
+            rules.aliases("blocking_page.response_code", "Response code on timeout."),
+        )
+        self.assertNotIn(
+            "operation timeout",
+            rules.aliases(
+                "user_session_expiration.idle_timeout.hours", "Cookie duration."
+            ),
+        )
+        self.assertIn(
+            "duration", rules.aliases("connection_timeout", "Timeout duration.")
+        )
+
     def test_summary_preserves_complete_words(self):
         text = "complete " * 40
         result = MODULE.summary(text, "fallback")

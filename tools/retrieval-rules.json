@@ -1006,7 +1006,6 @@
     {
       "pattern": "\\btimeout",
       "aliases": [
-        "operation timeout",
         "duration"
       ]
     },
@@ -1040,6 +1039,46 @@
         "login success"
       ],
       "match_source": "schema_path"
+    },
+    {
+      "pattern": "^timeouts(?: (?:create|read|update|delete))?$",
+      "match_source": "schema_path",
+      "aliases": [
+        "operation timeout",
+        "lifecycle timeout"
+      ]
+    },
+    {
+      "pattern": "^timeouts create$",
+      "match_source": "schema_path",
+      "aliases": [
+        "create timeout",
+        "create operation timeout"
+      ]
+    },
+    {
+      "pattern": "^timeouts read$",
+      "match_source": "schema_path",
+      "aliases": [
+        "read timeout",
+        "read operation timeout"
+      ]
+    },
+    {
+      "pattern": "^timeouts update$",
+      "match_source": "schema_path",
+      "aliases": [
+        "update timeout",
+        "update operation timeout"
+      ]
+    },
+    {
+      "pattern": "^timeouts delete$",
+      "match_source": "schema_path",
+      "aliases": [
+        "delete timeout",
+        "delete operation timeout"
+      ]
     }
   ],
   "summaries": [

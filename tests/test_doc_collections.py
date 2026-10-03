@@ -102,6 +102,52 @@ class CollectionTests(unittest.TestCase):
             self.assertEqual(section["anchor"], "schema-timeouts--create")
             self.assertIn("Duration syntax.", collection.body(page))
 
+    def test_direct_section_aliases_preserve_timeout_path_context(self):
+        block = {
+            "block_types": {
+                "timeouts": {
+                    "nesting_mode": "single",
+                    "block": {
+                        "attributes": {
+                            "create": {
+                                "type": "string",
+                                "optional": True,
+                                "description": "Duration syntax.",
+                            }
+                        }
+                    },
+                },
+                "unrelated": {
+                    "nesting_mode": "single",
+                    "block": {
+                        "attributes": {
+                            "create": {
+                                "type": "string",
+                                "optional": True,
+                                "description": "Duration syntax.",
+                            }
+                        }
+                    },
+                },
+            }
+        }
+        with tempfile.TemporaryDirectory() as temporary:
+            collection = self.collection(Path(temporary), block)
+            timeout = collection.pages[
+                DOCS.stable_id("resources", "fixture", "properties", ("timeouts",))
+            ]
+            unrelated = collection.pages[
+                DOCS.stable_id("resources", "fixture", "properties", ("unrelated",))
+            ]
+            self.assertIn("create timeout", timeout["sections"][0]["aliases"])
+            self.assertNotIn("create timeout", unrelated["sections"][0]["aliases"])
+            self.assertEqual(
+                timeout["sections"][0]["anchor"], "schema-timeouts--create"
+            )
+            self.assertEqual(
+                timeout["sections"][0]["schema_path"], ["timeouts", "create"]
+            )
+
     def test_namespace_import_contract(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
