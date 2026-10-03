@@ -96,6 +96,14 @@ assert_passes "hand-written public IP binding source" "$repo"
 repo=$(new_repo no-files)
 assert_passes "repository with no staged changes" "$repo"
 
+repo=$(new_repo canonical-publication-policy)
+stage_file "$repo" documentation/llms-config.json
+assert_passes "hand-authored canonical publication policy" "$repo"
+
+repo=$(new_repo canonical-generated-page)
+stage_file "$repo" documentation/resources/example/index.md
+assert_rejected "canonical generated page remains protected" "$repo"
+
 if [ "$FAIL" -ne 0 ]; then
   echo "generated-file check tests FAILED"
   exit 1
