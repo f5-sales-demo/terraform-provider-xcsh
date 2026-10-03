@@ -1,0 +1,15 @@
+{
+  "source_only": true,
+  "files": [
+    {
+      "file": "property-intent-verification.json.gz",
+      "raw_sha256": "d1a09b98986d0e34b4ad7d3ebea6aae02f53482b4b15798e8894165b5944b1c9",
+      "gzip_sha256": "cc1be9add64218bbf9c6a2c2cfea8a5d7c7ae98ef51a2b29697de1ac3ecd0f5e"
+    },
+    {
+      "file": "property-intent-candidate.json.gz",
+      "raw_sha256": "67c0f90069909181b427a3e26668eae899f99246d8bd751fccea7940b88828d5",
+      "gzip_sha256": "aae685f3bcfaaa5c21f1900731ae15af57f3c363b1981a2a927cb19af1e76b78"
+    }
+  ]
+}
