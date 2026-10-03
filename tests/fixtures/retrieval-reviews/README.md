@@ -10,3 +10,6 @@ resource properties. Two summaries are narrowed further to disable outlier
 detection and select disabled syslog mTLS, avoiding extra operational claims.
 Guidance entries and unresolved meanings are not applied. Existing Markdown,
 schema anchors, field types and validation relationships remain authoritative.
+
+Raw review bytes are stored in deterministic gzip files; evidence-digests.json
+binds both raw and compressed hashes. Formatting does not rewrite review evidence.
