@@ -141,9 +141,7 @@ def rewrite_prose(body: str, callback: Callable) -> str:
     )
 
 
-def collect_sections(
-    pages: list[dict[str, Any]], site: str, version: str | None
-) -> tuple[dict, list]:
+def collect_sections(pages: list[dict[str, Any]], site: str) -> tuple[dict, list]:
     """Resolve coherent canonical sections and explicit oversized exceptions."""
     buckets, records = defaultdict(list), []
     for page in pages:
@@ -173,10 +171,6 @@ def collect_sections(
 
             body = ANCHOR.sub(replace_anchor, original)
             canonical = canonical_url(page, site)
-            if version:
-                canonical = canonical.replace(
-                    site + "/", site + "/versions/" + version + "/", 1
-                )
             record = {
                 "canonical_id": page["id"],
                 "section_id": identifier,
@@ -189,9 +183,6 @@ def collect_sections(
                 "mode": "embedded",
             }
             if len(body.encode()) > LIMIT - 16_384:
-                if not version:
-                    msg = "oversized exceptions require an immutable canonical version"
-                    raise ValueError(msg)
                 record.update(
                     mode="canonical-link",
                     reason="Indivisible coherent section exceeds the 500,000-byte document limit.",
@@ -202,9 +193,7 @@ def collect_sections(
                 )
                 body = (
                     "## Oversized canonical section\n\nThis indivisible section exceeds the Registry document limit. "
-                    "[Complete versioned canonical section]("
-                    + record["canonical_url"]
-                    + ").\n\n"
+                    "[Complete canonical section](" + record["canonical_url"] + ").\n\n"
                 )
             buckets[bucket].append(
                 {
@@ -355,16 +344,17 @@ def project(
     pages: list[dict[str, Any]],
     categories: dict[str, str],
     site: str,
-    version: str | None = None,
 ) -> tuple[dict[str, str], dict[str, Any]]:
     """Emit grouped pages and a complete section/destination publication receipt."""
     by_url = {canonical_url(page, site): page["id"] for page in pages}
-    buckets, records = collect_sections(pages, site, version)
+    buckets, records = collect_sections(pages, site)
     outputs, destinations = assign_groups(buckets, categories)
     for path, (header, items) in list(outputs.items()):
 
         def rewrite(match: re.Match, current_path: str = path) -> str:
             label, href = match.groups()
+            if label == "Complete canonical section":
+                return match.group(0)
             url, _, anchor = href.partition("#")
             identifier = by_url.get(url)
             if identifier is None:

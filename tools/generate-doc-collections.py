@@ -1069,9 +1069,7 @@ def generate(root, schema_path, constraints_path):
                 )
                 outputs[page["path"]] = frontmatter(page, body, collection.category)
                 pages.append(page)
-    registry_outputs, projection = grouped_project(
-        pages, categories, SITE, version=os.environ.get("DOCUMENTATION_VERSION")
-    )
+    registry_outputs, projection = grouped_project(pages, categories, SITE)
     outputs.update(registry_outputs)
     outputs["documentation/registry-projection-manifest.json"] = (
         json.dumps(projection, indent=2, sort_keys=True) + "\n"

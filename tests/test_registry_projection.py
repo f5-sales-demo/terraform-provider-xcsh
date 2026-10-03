@@ -69,11 +69,13 @@ class ProjectionTests(unittest.TestCase):
     def test_oversized_exact_canonical_exception(self):
         page = self.page("huge", "```hcl\n" + "x" * 510000 + "\n```\n")
         outputs, manifest = projection.project(
-            [page], {"fixture": ""}, "https://example.test", version="v12.0.7"
+            [page],
+            {"fixture": ""},
+            "https://example.test",
         )
         record = manifest["sections"][0]
         assert record["mode"] == "canonical-link"
-        assert "/versions/v12.0.7/" in record["canonical_url"]
+        assert "/versions/" not in record["canonical_url"]
         assert record["canonical_url"] in next(iter(outputs.values()))
         assert record["reason"]
         assert max(len(text.encode()) for text in outputs.values()) <= 500000

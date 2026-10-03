@@ -468,7 +468,7 @@ class CollectionTests(unittest.TestCase):
             self.assertEqual(section["canonical_source_sha256"], page["body_sha256"])
             self.assertIn(section["mode"], ("embedded", "canonical-link"))
             if section["mode"] == "canonical-link":
-                self.assertIn("/versions/", section["canonical_url"])
+                self.assertNotIn("/versions/", section["canonical_url"])
                 self.assertTrue(section["reason"])
         texts = {}
         for path, evidence in projection["files"].items():
