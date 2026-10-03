@@ -156,6 +156,8 @@ type Int64RangeSpan struct {
 
 // TerraformAttribute represents an attribute in a Terraform resource schema.
 type TerraformAttribute struct {
+	MapConstraintsJSON string
+
 	Name               string
 	GoName             string
 	TfsdkTag           string

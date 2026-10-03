@@ -133,7 +133,12 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 				Default: stringdefault.StaticString("{{.StringDefault}}"),
 {{- end}}
 {{- if eq .Type "map"}}
-				ElementType: types.StringType,
+                ElementType: types.StringType,
+{{- if ne .MapConstraintsJSON ""}}
+                Validators: []validator.Map{
+                    validators.MapConstraintsValidator({{printf "%q" .MapConstraintsJSON}}),
+                },
+{{- end}}
 {{- end}}
 {{- if eq .Type "list"}}
 				ElementType: {{if eq .ElementType "int64"}}types.Int64Type{{else if eq .ElementType "bool"}}types.BoolType{{else}}types.StringType{{end}},

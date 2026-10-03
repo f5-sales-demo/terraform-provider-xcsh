@@ -3,6 +3,7 @@
 package constraints
 
 import (
+	"encoding/json"
 	"fmt"
 	"regexp"
 	"sort"
@@ -21,6 +22,8 @@ type Int64RangeSpan struct {
 
 // Parsed represents extracted x-f5xc-constraints data.
 type Parsed struct {
+	MapJSON string
+
 	MinLength int
 	MaxLength int
 	Pattern   string
@@ -65,6 +68,13 @@ func Parse(raw map[string]interface{}) *Parsed {
 	}
 
 	p := &Parsed{}
+	if raw["constraintType"] == "map" {
+		encoded, err := json.Marshal(raw)
+		if err == nil {
+			p.MapJSON = string(encoded)
+		}
+		return p
+	}
 
 	// String constraints
 	if v, ok := raw["minLength"].(float64); ok {

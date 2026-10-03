@@ -361,6 +361,7 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 
 	// Apply x-f5xc-constraints when confidence/determinism thresholds are met
 	if c := constraints.Parse(schema.XF5XCConstraints); c != nil {
+		attr.MapConstraintsJSON = c.MapJSON
 		if c.MinLength > 0 {
 			attr.MinLength = c.MinLength
 		}
