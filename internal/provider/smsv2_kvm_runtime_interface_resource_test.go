@@ -112,7 +112,7 @@ func TestSelectSMSv2KVMRuntimeInterfaceRejectsIdentityAndOwnershipDrift(t *testi
 			target.Name = "invalid/name"
 		},
 		"wrong namespace": func(_ client.SMSv2Observation, _ *client.RegistrationListResponse, _ client.SMSv2Observation, target *smsv2KVMRuntimeInterfaceTarget) {
-			target.Namespace = "other"
+			target.Namespace = "example-namespace"
 		},
 		"wrong site": func(_ client.SMSv2Observation, _ *client.RegistrationListResponse, _ client.SMSv2Observation, target *smsv2KVMRuntimeInterfaceTarget) {
 			target.Site = "other"
@@ -689,5 +689,89 @@ func TestSMSv2KVMRuntimeInterfaceReadRetiresProvenReplacementWithoutMutation(t *
 	}
 	if api.putCount != 0 || api.postCount != 0 || api.deleteCount != 0 {
 		t.Fatal("refresh mutated runtime child")
+	}
+}
+
+func TestSMSv2KVMRuntimeInterfaceDestroyTerminalRegistration(t *testing.T) {
+	for _, scenario := range []struct {
+		name   string
+		mutate func(*kvmRuntimeInterfaceAPIFixture)
+		reject bool
+	}{
+		{"FAILED", func(api *kvmRuntimeInterfaceAPIFixture) {
+			api.registrations.Items[0].Object.Status.CurrentState = "FAILED"
+		}, false},
+		{"RETIRED", func(api *kvmRuntimeInterfaceAPIFixture) {
+			api.registrations.Items[0].Object.Status.CurrentState = "RETIRED"
+		}, false},
+		{"missing registration", func(api *kvmRuntimeInterfaceAPIFixture) { api.registrations.Items = nil }, true},
+		{"wrong MAC", func(api *kvmRuntimeInterfaceAPIFixture) {
+			api.registrations.Items[0].GetSpec.Infra.HWInfo.Network[1].MACAddress = "52:54:00:20:00:99"
+		}, true},
+		{"wrong device", func(api *kvmRuntimeInterfaceAPIFixture) {
+			api.registrations.Items[0].GetSpec.Infra.HWInfo.Network[1].Name = "ens9"
+		}, true},
+		{"wrong site", func(api *kvmRuntimeInterfaceAPIFixture) {
+			api.registrations.Items[0].GetSpec.Passport.ClusterName = "foreign-site"
+		}, true},
+		{"duplicate exact registration", func(api *kvmRuntimeInterfaceAPIFixture) {
+			api.registrations.Items = append(api.registrations.Items, api.registrations.Items[0])
+		}, true},
+		{"wrong owner", func(api *kvmRuntimeInterfaceAPIFixture) {
+			api.object["system_metadata"].(map[string]interface{})["owner_view"].(map[string]interface{})["uid"] = "foreign-owner"
+		}, true},
+		{"address drift", func(api *kvmRuntimeInterfaceAPIFixture) {
+			api.object["spec"].(map[string]interface{})["ethernet_interface"].(map[string]interface{})["static_ip"] = map[string]interface{}{"node_static_ip": map[string]interface{}{"ip_address": "192.0.2.99/24"}}
+		}, true},
+	} {
+		t.Run(scenario.name, func(t *testing.T) {
+			api := newKVMRuntimeInterfaceAPIFixture(t)
+			api.registrations.Items[0].Object.Status.CurrentState = "FAILED"
+			ethernet := api.object["spec"].(map[string]interface{})["ethernet_interface"].(map[string]interface{})
+			delete(ethernet, "dhcp_client")
+			ethernet["static_ip"] = map[string]interface{}{"node_static_ip": map[string]interface{}{"ip_address": "10.201.0.11/24"}}
+			nodes := api.configuration["spec"].(map[string]interface{})["kvm"].(map[string]interface{})["not_managed"].(map[string]interface{})["node_list"].([]interface{})
+			interfaces := nodes[0].(map[string]interface{})["interface_list"].([]interface{})
+			originalSLO := deepCopySMSv2Map(interfaces[0].(map[string]interface{}))
+			scenario.mutate(api)
+			server := httptest.NewServer(http.HandlerFunc(api.handler))
+			defer server.Close()
+			providerResource := &Smsv2KVMRuntimeInterfaceResource{client: client.NewClient(server.URL, "test-token", client.WithMaxRetries(0))}
+			ctx := context.Background()
+			schemaResponse := &frameworkresource.SchemaResponse{}
+			providerResource.Schema(ctx, frameworkresource.SchemaRequest{}, schemaResponse)
+			model := kvmRuntimeInterfaceModel()
+			model.ID = types.StringValue("system/" + longKVMRuntimeInterfaceName)
+			model.OwnerUID = types.StringValue("site-uid-current")
+			model.Configured = types.BoolValue(true)
+			state := tfsdk.State{Schema: schemaResponse.Schema, Raw: responseOperationRaw(t, model, schemaResponse.Schema.Type())}
+			response := &frameworkresource.DeleteResponse{}
+			providerResource.Delete(ctx, frameworkresource.DeleteRequest{State: state}, response)
+			if response.Diagnostics.HasError() != scenario.reject {
+				t.Fatalf("unexpected Delete diagnostics: %v", response.Diagnostics)
+			}
+			api.mu.Lock()
+			defer api.mu.Unlock()
+			expected := 1
+			if scenario.reject {
+				expected = 0
+			}
+			if api.putCount != expected || api.parentPutCount != expected || api.postCount != 0 || api.deleteCount != 0 {
+				t.Fatalf("unexpected mutations: PUT=%d parent=%d POST=%d DELETE=%d", api.putCount, api.parentPutCount, api.postCount, api.deleteCount)
+			}
+			if !scenario.reject {
+				if _, static := ethernet["static_ip"]; static {
+					t.Fatal("static SLI remained after destroy")
+				}
+				if _, dhcp := ethernet["dhcp_client"]; !dhcp {
+					t.Fatal("DHCP not restored")
+				}
+				nodes = api.configuration["spec"].(map[string]interface{})["kvm"].(map[string]interface{})["not_managed"].(map[string]interface{})["node_list"].([]interface{})
+				interfaces = nodes[0].(map[string]interface{})["interface_list"].([]interface{})
+				if !reflect.DeepEqual(originalSLO, interfaces[0]) {
+					t.Fatal("destroy changed SLO")
+				}
+			}
+		})
 	}
 }
