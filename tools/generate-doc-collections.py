@@ -317,8 +317,15 @@ class Collection:
             )
             if reviewed:
                 page["classification"]["sources"].append("reviewed-summary")
-            page["aliases"] = self.retrieval_rules.aliases(
-                ".".join(schema_path) or self.name, description
+            page["aliases"] = sorted(
+                set(
+                    self.retrieval_rules.aliases(
+                        ".".join(schema_path) or self.name, description
+                    )
+                    + self.retrieval_rules.reviewed_aliases(
+                        self.kind, self.name, schema_path
+                    )
+                )
             )
             page["relationships"] = constraint_relationships(
                 schema_path,
@@ -350,8 +357,15 @@ class Collection:
                         "document_id": target["document_id"],
                         "anchor": target["anchor"],
                         "description": prose,
-                        "aliases": self.retrieval_rules.aliases(
-                            name, upstream or description
+                        "aliases": sorted(
+                            set(
+                                self.retrieval_rules.aliases(
+                                    ".".join(exact), upstream or description
+                                )
+                                + self.retrieval_rules.reviewed_aliases(
+                                    self.kind, self.name, exact
+                                )
+                            )
                         ),
                         "flags": [
                             flag

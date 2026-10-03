@@ -71,6 +71,37 @@ class CollectionTests(unittest.TestCase):
             self.schema_paths(block), {"new_attribute", "nested", "nested.leaf"}
         )
 
+    def test_reviewed_lifecycle_summary_and_aliases_reach_exact_sections(self):
+        block = {
+            "block_types": {
+                "timeouts": {
+                    "nesting_mode": "single",
+                    "block": {
+                        "attributes": {
+                            "create": {
+                                "type": "string",
+                                "optional": True,
+                                "description": "Duration syntax.",
+                            }
+                        }
+                    },
+                }
+            }
+        }
+        with tempfile.TemporaryDirectory() as temporary:
+            collection = self.collection(Path(temporary), block)
+            page = collection.pages[
+                DOCS.stable_id("resources", "fixture", "properties", ("timeouts",))
+            ]
+            section = page["sections"][0]
+            self.assertEqual(
+                section["description"],
+                "Configures the timeout duration for resource creation.",
+            )
+            self.assertIn("create timeout", section["aliases"])
+            self.assertEqual(section["anchor"], "schema-timeouts--create")
+            self.assertIn("Duration syntax.", collection.body(page))
+
     def test_namespace_import_contract(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
