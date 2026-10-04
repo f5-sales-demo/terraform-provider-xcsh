@@ -10,12 +10,7 @@
   "metadata_destination_identity": true,
   "duplicate_schema_owners_rejected": true,
   "runtime_provider_selection_verified": false,
-  "checks": [
-    "Go race tests",
-    "Go vet",
-    "two identical exports",
-    "Ubuntu ChatGPT-authenticated static review"
-  ],
+  "checks": ["Go race tests", "Go vet", "two identical exports", "Ubuntu ChatGPT-authenticated static review"],
   "installed_schema_surface": {
     "resources": 131,
     "data_sources": 198,
