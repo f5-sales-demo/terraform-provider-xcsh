@@ -24,5 +24,8 @@
     "unresolved_fields": 35464,
     "version": 1
   },
-  "determinism_second_run": "in progress"
+  "deterministic_generation": true,
+  "manifest_sha256": "sha256:03d3958bf00f3a63c6484f10a72af9f57e7566f6513f6e66d138c94a221ff1cb",
+  "development_archive_sha256": "sha256:bef6e8ec093a52599f951830e687c51368fbf78da699a66eba2452345e3fcceb",
+  "development_archive_bytes": 56138016
 }
