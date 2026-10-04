@@ -1,0 +1,28 @@
+{
+  "draft_only": true,
+  "qualification_passed": false,
+  "provider_binary_sha256": "sha256:fbbb11a7823d3f106f2316ec3d340f26cf7601cbbc23c4036a22288dbfbed236",
+  "schema_sha256": "sha256:acaaa8b5145be3bafa00bd3d836e265ab50e350a06b8ec7c8c904a707c8ca9f6",
+  "exact_surface_match": true,
+  "resource_count": 131,
+  "data_source_count": 198,
+  "action_count": 11,
+  "ephemeral_count": 2,
+  "terraform_execution": "local provider schema inspection only",
+  "no_live_apply": true,
+  "generated_collections": 342,
+  "generated_pages": 18958,
+  "generated_destinations": 39565,
+  "generated_corpus_tests": 52,
+  "enum_inventory": {
+    "complete": false,
+    "complete_fields": 4101,
+    "enum_fields": 628,
+    "installed_fields": 39565,
+    "runtime_registration_verified": false,
+    "schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+    "unresolved_fields": 35464,
+    "version": 1
+  },
+  "determinism_second_run": "in progress"
+}

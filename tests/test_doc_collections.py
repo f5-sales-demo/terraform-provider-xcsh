@@ -685,3 +685,43 @@ class ImmutableSelectionLifecycleTests(unittest.TestCase):
                     ),
                     body,
                 )
+
+
+class GeneratedEnumCoverageTests(unittest.TestCase):
+    def test_generated_enum_inventory_is_manifest_owned_and_matches_sections(self):
+        inventory_path = ROOT / "documentation/retrieval-enum-coverage.json"
+        if not inventory_path.exists():
+            self.skipTest("enum inventory requires canonical generation")
+        inventory = json.loads(inventory_path.read_text())
+        index = json.loads(
+            (ROOT / "documentation/terraform-llms-index.json").read_text()
+        )
+        manifest = json.loads(
+            (ROOT / "documentation/generated-manifest.json").read_text()
+        )
+        self.assertIn("documentation/retrieval-enum-coverage.json", manifest["files"])
+        self.assertEqual(inventory["schema_digest"], index["provider_schema_digest"])
+        destinations = {
+            (c["provider_type"], c["provider_name"], path)
+            for c in index["collections"]
+            for path in c["properties"]
+        }
+        self.assertEqual(inventory["installed_fields"], len(destinations))
+        self.assertEqual(
+            inventory["complete_fields"] + inventory["unresolved_fields"],
+            inventory["installed_fields"],
+        )
+        self.assertEqual(len(inventory["unresolved"]), inventory["unresolved_fields"])
+        self.assertFalse(inventory["runtime_registration_verified"])
+        enum_paths = {
+            (
+                page["provider_type"],
+                page["provider_name"],
+                ".".join(section["schema_path"]),
+            )
+            for page in index["pages"]
+            for section in page.get("sections", [])
+            if section.get("enum_validators")
+        }
+        self.assertTrue(enum_paths.issubset(destinations))
+        self.assertEqual(inventory["enum_fields"], len(enum_paths))
