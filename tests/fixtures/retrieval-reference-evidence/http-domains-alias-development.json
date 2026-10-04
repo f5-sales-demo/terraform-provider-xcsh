@@ -7,26 +7,14 @@
     {
       "provider_type": "resources",
       "collection": "http_loadbalancer",
-      "schema_path": [
-        "domains"
-      ],
-      "aliases": [
-        "hostnames",
-        "host header domains",
-        "authority header domains"
-      ]
+      "schema_path": ["domains"],
+      "aliases": ["hostnames", "host header domains", "authority header domains"]
     },
     {
       "provider_type": "data-sources",
       "collection": "http_loadbalancer",
-      "schema_path": [
-        "domains"
-      ],
-      "aliases": [
-        "hostnames",
-        "host header domains",
-        "authority header domains"
-      ]
+      "schema_path": ["domains"],
+      "aliases": ["hostnames", "host header domains", "authority header domains"]
     }
   ],
   "before_correct": 97,

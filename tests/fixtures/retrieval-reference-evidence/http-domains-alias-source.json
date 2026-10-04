@@ -4,19 +4,13 @@
   "installed_schema_sha256": "acaaa8b5145be3bafa00bd3d836e265ab50e350a06b8ec7c8c904a707c8ca9f6",
   "source_fields": {
     "resources": {
-      "type": [
-        "list",
-        "string"
-      ],
+      "type": ["list", "string"],
       "description": "List of Domains (host/authority header) that will be matched to load balancer. Supported Domains and search order: 1. Exact Domain names: www.example.com. 2.",
       "description_kind": "markdown",
       "required": true
     },
     "data-sources": {
-      "type": [
-        "list",
-        "string"
-      ],
+      "type": ["list", "string"],
       "description": "List of Domains (host/authority header) that will be matched to load balancer. Supported Domains and search order: 1. Exact Domain names: www.example.com. 2.",
       "description_kind": "markdown",
       "computed": true
@@ -24,9 +18,7 @@
   },
   "scope": {
     "collection": "http_loadbalancer",
-    "schema_path": [
-      "domains"
-    ]
+    "schema_path": ["domains"]
   },
   "no_validation_or_apply_inference": true
 }
