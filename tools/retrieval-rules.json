@@ -1431,6 +1431,34 @@
       ],
       "summary": "Inspect the autonomous system number (ASN) for the external BGP peer.",
       "review_basis": "Receipt-pinned schema ves.io.schema.bgp.BgpParameters description: BGP parameters for the local site; ves.io.schema.bgp.PeerExternal description: External BGP Peer parameters. Direct asn properties declare Autonomous System Number; peer asn explicitly names BGP peer."
+    },
+    {
+      "provider_type": "resources",
+      "collection": "http_loadbalancer",
+      "schema_path": [
+        "domains"
+      ],
+      "summary": "Configure the domain names matched against the HTTP host/authority header by the load balancer.",
+      "aliases": [
+        "hostnames",
+        "host header domains",
+        "authority header domains"
+      ],
+      "review_basis": "Installed source-matched xcsh_http_loadbalancer schema domains attribute is list(string), described as Domains (host/authority header) matched to load balancer. Resource requires the list; data source computes it. Exact root domains only; no DNS-zone or nested-property inference."
+    },
+    {
+      "provider_type": "data-sources",
+      "collection": "http_loadbalancer",
+      "schema_path": [
+        "domains"
+      ],
+      "summary": "Inspect the domain names matched against the HTTP host/authority header by the load balancer.",
+      "aliases": [
+        "hostnames",
+        "host header domains",
+        "authority header domains"
+      ],
+      "review_basis": "Installed source-matched xcsh_http_loadbalancer schema domains attribute is list(string), described as Domains (host/authority header) matched to load balancer. Resource requires the list; data source computes it. Exact root domains only; no DNS-zone or nested-property inference."
     }
   ]
 }

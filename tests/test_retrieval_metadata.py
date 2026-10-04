@@ -128,6 +128,31 @@ class RetrievalMetadataTests(unittest.TestCase):
             rules.reviewed_summary("resources", "origin_pool", ["https_auto_cert"])
         )
 
+    def test_http_hostnames_aliases_remain_exact_and_role_qualified(self):
+        rules = MODULE.RetrievalRules.default()
+        for role in ["resources", "data-sources"]:
+            aliases = rules.reviewed_aliases(role, "http_loadbalancer", ["domains"])
+            self.assertIn("hostnames", aliases)
+            self.assertIn("host header domains", aliases)
+            self.assertIn("authority header domains", aliases)
+            self.assertEqual(
+                rules.reviewed_aliases(
+                    role, "http_loadbalancer", ["routes", "domains"]
+                ),
+                [],
+            )
+            self.assertEqual(rules.reviewed_aliases(role, "dns_zone", ["domains"]), [])
+        self.assertTrue(
+            rules.reviewed_summary(
+                "resources", "http_loadbalancer", ["domains"]
+            ).startswith("Configure")
+        )
+        self.assertTrue(
+            rules.reviewed_summary(
+                "data-sources", "http_loadbalancer", ["domains"]
+            ).startswith("Inspect")
+        )
+
     def test_invalid_reviewed_summary_rules_fail_before_generation(self):
         rule = {
             "provider_type": "resources",
