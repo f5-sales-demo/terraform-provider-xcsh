@@ -316,3 +316,48 @@ def validate_enum_targets(constraints, covered_sources):
                 raise ValueError(
                     "unmatched enum evidence target: " + source + ":" + schema_path
                 )
+
+
+def enum_coverage_inventory(constraints, covered_sources):
+    """Account for every installed field without claiming runtime registration."""
+    validate_enum_targets(constraints, covered_sources)
+    unresolved = []
+    installed_fields = complete_fields = enum_fields = 0
+    for source, paths in sorted(covered_sources.items()):
+        exported = constraints.get(source, {})
+        for schema_path in sorted(paths):
+            installed_fields += 1
+            metadata = exported.get(schema_path)
+            if metadata is None:
+                reason = "field-not-exported"
+            else:
+                evidence = literal_enum_evidence(metadata)
+                enum_fields += bool(evidence)
+                coverage = enum_extraction_complete(metadata)
+                if coverage and any(not item["complete"] for item in evidence):
+                    raise ValueError("unresolved enum record with complete coverage")
+                if coverage:
+                    complete_fields += 1
+                    continue
+                reason = (
+                    "bounded-extraction-unresolved"
+                    if "EnumExtractionComplete" in metadata
+                    else "coverage-not-exported"
+                )
+            unresolved.append(
+                {
+                    "source": source,
+                    "schema_path": schema_path,
+                    "reason": reason,
+                }
+            )
+    return {
+        "version": 1,
+        "installed_fields": installed_fields,
+        "complete_fields": complete_fields,
+        "unresolved_fields": len(unresolved),
+        "enum_fields": enum_fields,
+        "complete": bool(installed_fields) and not unresolved,
+        "runtime_registration_verified": False,
+        "unresolved": unresolved,
+    }

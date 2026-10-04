@@ -1,0 +1,11 @@
+Approved **only the narrow inventory change**. No concrete bugs found in the pending diff against HEAD.
+
+- [Inventory logic](tools/retrieval_metadata.py:321) accounts for every supplied field exactly once; missing fields or coverage remain unresolved. Complete enum records alone cannot establish field completeness. Partial records paired with complete coverage fail, as does orphaned enum evidence.
+- Ordering is deterministic by source and schema path. Empty inventories cannot claim completeness.
+- [Generator integration](tools/generate-doc-collections.py:1085) attaches the schema digest and registers the output for [manifest ownership](tools/generate-doc-collections.py:1479). Existing schema-destination validation checks coverage before writing.
+
+Verification: all **26 metadata tests passed**, additional in-memory completeness and ordering checks passed, and `git diff --check` passed.
+
+Independently confirmed **39,565 checked-in destinations**. The supplied **4,101 complete / 35,464 unresolved / 628 enum-bearing** figures remain development evidence; I did not independently reproduce those three counts or run full generation. Enum-bearing counts do not imply field completeness.
+
+This approves no newly installed-schema qualification. **Runtime registration remains unverified.** No files changed; benchmark prompts were not inspected.

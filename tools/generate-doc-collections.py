@@ -27,10 +27,10 @@ from registry_projection import project as grouped_project
 from retrieval_metadata import (
     RetrievalRules,
     constraint_relationships,
+    enum_coverage_inventory,
     enum_extraction_complete,
     literal_enum_evidence,
     summary as retrieval_summary,
-    validate_enum_targets,
 )
 
 PROVIDER = "registry.terraform.io/f5-sales-demo/xcsh"
@@ -1082,7 +1082,11 @@ def generate(root, schema_path, constraints_path):
                 )
                 outputs[page["path"]] = frontmatter(page, body, collection.category)
                 pages.append(page)
-    validate_enum_targets(constraints, covered_sources)
+    enum_inventory = enum_coverage_inventory(constraints, covered_sources)
+    enum_inventory["schema_digest"] = schema_digest
+    outputs["documentation/retrieval-enum-coverage.json"] = (
+        json.dumps(enum_inventory, indent=2, sort_keys=True) + "\n"
+    )
     registry_outputs, projection = grouped_project(pages, categories, SITE)
     outputs.update(registry_outputs)
     outputs["documentation/registry-projection-manifest.json"] = (

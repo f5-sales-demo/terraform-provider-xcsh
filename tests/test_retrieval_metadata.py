@@ -396,3 +396,72 @@ class EnumTargetCoverageTests(LiteralEnumEvidenceTests):
         for coverage in [{}, {"fixture_resource.go": {"protocol"}}]:
             with self.assertRaisesRegex(ValueError, "unmatched enum"):
                 MODULE.validate_enum_targets(fields, coverage)
+
+
+class EnumCoverageInventoryTests(LiteralEnumEvidenceTests):
+    def test_inventory_accounts_for_every_installed_field(self):
+        sources = {
+            "fixture_resource.go": {
+                "known": {
+                    "EnumExtractionComplete": "true",
+                    "EnumValidators": json.dumps([self.evidence()]),
+                },
+                "dynamic": {"EnumExtractionComplete": "false"},
+                "absent": {},
+            }
+        }
+        result = MODULE.enum_coverage_inventory(
+            sources, {"fixture_resource.go": {"known", "dynamic", "absent", "missing"}}
+        )
+        self.assertEqual(result["installed_fields"], 4)
+        self.assertEqual(result["complete_fields"], 1)
+        self.assertEqual(result["unresolved_fields"], 3)
+        self.assertEqual(result["enum_fields"], 1)
+        self.assertEqual(
+            result["unresolved"],
+            [
+                {
+                    "source": "fixture_resource.go",
+                    "schema_path": "absent",
+                    "reason": "coverage-not-exported",
+                },
+                {
+                    "source": "fixture_resource.go",
+                    "schema_path": "dynamic",
+                    "reason": "bounded-extraction-unresolved",
+                },
+                {
+                    "source": "fixture_resource.go",
+                    "schema_path": "missing",
+                    "reason": "field-not-exported",
+                },
+            ],
+        )
+        self.assertFalse(result["complete"])
+        self.assertFalse(result["runtime_registration_verified"])
+
+    def test_partial_enum_record_cannot_be_complete_inventory(self):
+        item = {**self.evidence(), "complete": False, "values": []}
+        with self.assertRaisesRegex(ValueError, "unresolved enum"):
+            MODULE.enum_coverage_inventory(
+                {
+                    "fixture_resource.go": {
+                        "field": {
+                            "EnumExtractionComplete": "true",
+                            "EnumValidators": json.dumps([item]),
+                        }
+                    }
+                },
+                {"fixture_resource.go": {"field"}},
+            )
+
+    def test_orphaned_enum_evidence_still_fails_inventory(self):
+        with self.assertRaisesRegex(ValueError, "unmatched enum"):
+            MODULE.enum_coverage_inventory(
+                {
+                    "fixture_resource.go": {
+                        "field": {"EnumValidators": json.dumps([self.evidence()])}
+                    }
+                },
+                {},
+            )
