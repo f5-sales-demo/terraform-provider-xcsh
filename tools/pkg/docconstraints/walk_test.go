@@ -13,6 +13,7 @@ func TestWalkFollowsOnlySchemaBearingMembers(t *testing.T) {
 	source := `package fixture
  import r "github.com/hashicorp/terraform-plugin-framework/resource"
  import s "github.com/hashicorp/terraform-plugin-framework/resource/schema"
+ var _ r.Resource = &Thing{}
  func (x *Thing) Schema(resp *r.SchemaResponse){resp.Schema=s.Schema{
  Attributes:map[string]s.Attribute{
  "choice":s.StringAttribute{Validators:[]any{helper(map[string]s.Attribute{"fake":s.StringAttribute{}})}},
@@ -45,6 +46,7 @@ func TestWalkDoesNotInspectIndirectSchemaArguments(t *testing.T) {
 	source := `package fixture
  import r "github.com/hashicorp/terraform-plugin-framework/resource"
  import s "github.com/hashicorp/terraform-plugin-framework/resource/schema"
+ var _ r.Resource = &Thing{}
  func (x *Thing) Schema(resp *r.SchemaResponse){resp.Schema=s.Schema{Attributes:helper(map[string]s.Attribute{"argument":s.StringAttribute{}})}}`
 	file, err := parser.ParseFile(token.NewFileSet(), "fixture.go", source, 0)
 	if err != nil {

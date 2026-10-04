@@ -136,9 +136,14 @@ func FrameworkSelector(file *ast.File, expression ast.Expr, suffix string) bool 
 // SchemaRoots finds framework Schema literals assigned to a typed SchemaResponse.
 func SchemaRoots(file *ast.File) []*ast.CompositeLit {
 	roots := []*ast.CompositeLit{}
+	contracts := ReceiverContracts(file)
 	for _, decl := range file.Decls {
 		fn, ok := decl.(*ast.FuncDecl)
 		if !ok || fn.Name.Name != "Schema" || fn.Body == nil || fn.Type.Params == nil || fn.Recv == nil {
+			continue
+		}
+		contract := contracts[receiverName(fn)]
+		if contract == "" {
 			continue
 		}
 		responseNames := map[string]*ast.Object{}
@@ -165,7 +170,7 @@ func SchemaRoots(file *ast.File) []*ast.CompositeLit {
 				if spec.Name != nil {
 					alias = spec.Name.Name
 				}
-				if alias == qualifier.Name && strings.HasPrefix(path, "github.com/hashicorp/terraform-plugin-framework/") {
+				if alias == qualifier.Name && path == contract {
 					owned = true
 				}
 			}
@@ -270,7 +275,7 @@ func SchemaRoots(file *ast.File) []*ast.CompositeLit {
 					continue
 				}
 				literal, ok := assignment.Rhs[i].(*ast.CompositeLit)
-				if ok && FrameworkSelector(file, literal.Type, "Schema") {
+				if ok && frameworkSchemaRole(file, literal.Type) == contract {
 					methodRoots = append(methodRoots, literal)
 				}
 			}

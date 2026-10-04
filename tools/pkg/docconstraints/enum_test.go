@@ -86,6 +86,7 @@ func TestSchemaRootsRequireTypedResponseAndFrameworkAttachment(t *testing.T) {
  import r "github.com/hashicorp/terraform-plugin-framework/resource"
  import schema "github.com/hashicorp/terraform-plugin-framework/resource/schema"
  import fake "example.com/schema"
+ var _ r.Resource = &Thing{}
  func (x *Thing) Schema(resp *r.SchemaResponse){
  local:=map[string]fake.StringAttribute{"wrong":{}}; _=local
  resp.Schema=schema.Schema{Attributes:map[string]schema.Attribute{"right":schema.StringAttribute{}}}
@@ -121,6 +122,7 @@ func TestUncalledClosureCannotAttachSchema(t *testing.T) {
 	source := `package fixture
  import r "github.com/hashicorp/terraform-plugin-framework/resource"
  import s "github.com/hashicorp/terraform-plugin-framework/resource/schema"
+ var _ r.Resource = &Thing{}
  func (x *Thing) Schema(resp *r.SchemaResponse){unused:=func(){resp.Schema=s.Schema{}};_=unused}`
 	file, err := parser.ParseFile(token.NewFileSet(), "fixture.go", source, 0)
 	if err != nil {
@@ -153,6 +155,7 @@ func TestConditionalAndSupersededSchemaAssignmentsRemainUnresolved(t *testing.T)
 		source := `package fixture
  import r "github.com/hashicorp/terraform-plugin-framework/resource"
  import s "github.com/hashicorp/terraform-plugin-framework/resource/schema"
+ var _ r.Resource = &Thing{}
  func (x *Thing) Schema(resp *r.SchemaResponse){` + body + `}`
 		file, err := parser.ParseFile(token.NewFileSet(), "fixture.go", source, 0)
 		if err != nil {
