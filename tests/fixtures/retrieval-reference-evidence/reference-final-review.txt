@@ -1,0 +1,7 @@
+Approved the narrow producer source. No findings within the requested scope.
+
+- `oneOf`/`anyOf` rejection applies at every recursive resolution step.
+- Identity binds only to the exact resolved parent and its declared direct member.
+- Four filesystem-free tests and 43 additional in-memory checks passed, plus resolver-to-section emission verification.
+
+The fifth test’s temporary-file fixture was not rerun under read-only constraints. No edits or external contacts. This is source approval only, not qualification or release approval.

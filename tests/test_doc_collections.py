@@ -725,3 +725,174 @@ class GeneratedEnumCoverageTests(unittest.TestCase):
         }
         self.assertTrue(enum_paths.issubset(destinations))
         self.assertEqual(inventory["enum_fields"], len(enum_paths))
+
+
+class ReferenceIdentityTests(unittest.TestCase):
+    def specs(self):
+        return DOCS.Specs.__new__(DOCS.Specs)
+
+    def test_verified_reference_member_is_bound_to_exact_parent_identity(self):
+        schemas = {
+            "Ref": {
+                "type": "object",
+                "x-ves-proto-message": "ves.io.schema.views.ObjectRefType",
+                "properties": {
+                    "name": {"type": "string"},
+                    "namespace": {"type": "string"},
+                },
+            }
+        }
+        roots = {
+            "namespace": {"type": "string"},
+            "backend": {"$ref": "#/components/schemas/Ref"},
+        }
+        result = self.specs().reference_member(roots, schemas, ["backend", "namespace"])
+        self.assertEqual(
+            result,
+            {
+                "version": 1,
+                "scope_path": ["backend"],
+                "member": "namespace",
+                "upstream_message": "ves.io.schema.views.ObjectRefType",
+                "source": "receipt-pinned-schema-identity",
+            },
+        )
+        self.assertIsNone(self.specs().reference_member(roots, schemas, ["namespace"]))
+        self.assertIsNone(
+            self.specs().reference_member(roots, schemas, ["backend", "missing"])
+        )
+
+    def test_array_reference_identity_and_known_message_allowlist(self):
+        schemas = {
+            "Ref": {
+                "type": "object",
+                "x-ves-proto-message": "ves.io.schema.ObjectRefType",
+                "properties": {"name": {"type": "string"}},
+            }
+        }
+        roots = {
+            "backends": {"type": "array", "items": {"$ref": "#/components/schemas/Ref"}}
+        }
+        result = self.specs().reference_member(roots, schemas, ["backends", "name"])
+        self.assertEqual(result["scope_path"], ["backends"])
+        schemas["Ref"]["x-ves-proto-message"] = "example.ObjectRefType"
+        self.assertIsNone(
+            self.specs().reference_member(roots, schemas, ["backends", "name"])
+        )
+        schemas["Ref"].pop("x-ves-proto-message")
+        schemas["Ref"]["description"] = "Object reference"
+        self.assertIsNone(
+            self.specs().reference_member(roots, schemas, ["backends", "name"])
+        )
+
+    def test_reference_evidence_is_emitted_on_exact_direct_section(self):
+        class ReferenceSpecs(FixtureSpecs):
+            def reference_member(self, roots, schemas, path):
+                if path == ["backend", "namespace"]:
+                    return {
+                        "version": 1,
+                        "scope_path": ["backend"],
+                        "member": "namespace",
+                        "upstream_message": "ves.io.schema.ObjectRefType",
+                        "source": "receipt-pinned-schema-identity",
+                    }
+                return None
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            example = root / "examples/resources/xcsh_fixture/resource.tf"
+            example.parent.mkdir(parents=True)
+            example.write_text('resource "xcsh_fixture" "example" {}\n')
+            collection = DOCS.Collection(
+                "resources",
+                "fixture",
+                {
+                    "block": {
+                        "attributes": {
+                            "namespace": {"type": "string", "optional": True},
+                            "backend": {
+                                "nested_type": {
+                                    "nesting_mode": "single",
+                                    "attributes": {
+                                        "namespace": {
+                                            "type": "string",
+                                            "optional": True,
+                                        }
+                                    },
+                                },
+                                "optional": True,
+                            },
+                        }
+                    }
+                },
+                ReferenceSpecs(),
+                {},
+                root,
+                "sha256:" + "c" * 64,
+            )
+            sections = {
+                ".".join(s["schema_path"]): s
+                for page in collection.pages.values()
+                for s in page.get("sections", [])
+            }
+            self.assertNotIn("reference_identity", sections["namespace"])
+            self.assertEqual(
+                sections["backend.namespace"]["reference_identity"]["scope_path"],
+                ["backend"],
+            )
+            self.assertEqual(sections["backend.namespace"]["relationships"], [])
+
+    def test_reference_identity_rejects_ambiguous_composition_and_pointer_collisions(
+        self,
+    ):
+        ref = {
+            "type": "object",
+            "x-ves-proto-message": "ves.io.schema.views.ObjectRefType",
+            "properties": {"name": {"type": "string"}},
+        }
+        schemas = {"Ref": ref}
+        cases = [
+            {
+                "allOf": [
+                    {"$ref": "#/components/schemas/Ref"},
+                    {"properties": {"uid": {"type": "string"}}},
+                ]
+            },
+            {"$ref": "https://example.com/schema.json#/components/schemas/Ref"},
+            {"$ref": "#/components/parameters/Ref"},
+            {"$ref": "#/components/schemas/Missing", **ref},
+            {
+                "$ref": "#/components/schemas/Ref",
+                "properties": {"name": {"type": "string"}},
+            },
+        ]
+        for parent in cases:
+            self.assertIsNone(
+                self.specs().reference_member(
+                    {"backend": parent}, schemas, ["backend", "name"]
+                )
+            )
+        wrapper = {"allOf": [{"$ref": "#/components/schemas/Ref"}]}
+        self.assertIsNotNone(
+            self.specs().reference_member(
+                {"backend": wrapper}, schemas, ["backend", "name"]
+            )
+        )
+
+    def test_reference_identity_rejects_alternative_composition(self):
+        ref = {
+            "type": "object",
+            "x-ves-proto-message": "ves.io.schema.ObjectRefType",
+            "properties": {"name": {"type": "string"}},
+        }
+        schemas = {"Ref": ref}
+        for parent in [
+            {**ref, "oneOf": [{}, {}]},
+            {"allOf": [{"$ref": "#/components/schemas/Ref"}], "anyOf": [{}, {}]},
+            {"$ref": "#/components/schemas/Ref", "oneOf": [{}]},
+        ]:
+            self.assertIsNone(
+                self.specs().reference_member(
+                    {"backend": parent}, schemas, ["backend", "name"]
+                )
+            )

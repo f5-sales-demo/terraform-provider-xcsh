@@ -1,0 +1,12 @@
+Found two concrete ownership bugs in the resolver used by [`reference_member`](/data/robin-GIT/worktrees/terraform-provider-xcsh-2421-retrieval-enums/tools/generate-doc-collections.py:268):
+
+- **P2 — `allOf` can fabricate direct ownership.** [`resolve()`](/data/robin-GIT/worktrees/terraform-provider-xcsh-2421-retrieval-enums/tools/generate-doc-collections.py:205) merges dictionaries independently. Combining a views `ObjectRefType` reference with a separate `properties.uid` branch produces metadata claiming that message directly owns `uid`. I reproduced this; identity and child came from different branches. Ambiguous composition must fail closed.
+- **P2 — reference resolution ignores the full pointer.** [`resolve()`](/data/robin-GIT/worktrees/terraform-provider-xcsh-2421-retrieval-enums/tools/generate-doc-collections.py:200) uses only the final component name. Both an external URL ending in `/Ref` and `#/components/parameters/Ref` incorrectly resolve to local schema `Ref`, emitting “receipt-pinned” ownership. Require an exact supported local schema pointer.
+
+Neither trigger occurs in the current pinned aggregate. Both asset digests verified; its references resolve locally and its `allOf` wrappers have single members.
+
+The ordinary path is sound: two read-only unit tests and an in-memory collection integration passed. Nested array traversal, exact parent/child binding, section destinations, root exclusions, and descriptive-hint exclusions checked out. Across the existing generated inventory, 4,688 matching sections had no leaf-type mismatches. No target-kind or prerequisite inference was added.
+
+[`ReferenceIdentityTests`](/data/robin-GIT/worktrees/terraform-provider-xcsh-2421-retrieval-enums/tests/test_doc_collections.py:730) misses both failures; its section test stubs `reference_member`. I did not run that filesystem-writing test.
+
+**Producer-source approval withheld pending these two resolution guards.** No qualification or release assessment. No files changed.
