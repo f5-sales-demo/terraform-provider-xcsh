@@ -42,15 +42,31 @@ func main() {
 		positions[name] = fset
 	}
 	registrations := docconstraints.DeclaredRegistrations(parsed)
+	contracts := docconstraints.PackageReceiverContracts(parsed)
+	sources := docconstraints.DeclaredDocumentSources(parsed, contracts)
+	owners := docconstraints.UniqueSchemaOwners(parsed, contracts)
 	for _, name := range files {
 		if strings.HasSuffix(name, "_test.go") {
 			continue
 		}
 		fset := positions[name]
 		file := parsed[name]
-		fields := map[string]map[string]string{}
-
-		for _, root := range docconstraints.RegisteredSchemaRoots(file, registrations) {
+		for _, root := range docconstraints.RegisteredSchemaRootsWithContracts(file, registrations, contracts) {
+			receiver := docconstraints.SchemaRootReceiver(file, root)
+			if !owners[receiver] {
+				continue
+			}
+			source := sources[receiver]
+			if contracts[receiver] == "github.com/hashicorp/terraform-plugin-framework/provider" {
+				source = "provider.go"
+			}
+			if source == "" {
+				continue
+			}
+			fields := result[source]
+			if fields == nil {
+				fields = map[string]map[string]string{}
+			}
 			err := docconstraints.WalkSchemaFields(file, root, func(child []string, value *ast.CompositeLit) error {
 				metadata := map[string]string{}
 				for _, element := range value.Elts {
@@ -92,10 +108,9 @@ func main() {
 			if err != nil {
 				log.Fatal(err)
 			}
-		}
-
-		if len(fields) > 0 {
-			result[filepath.Base(name)] = fields
+			if len(fields) > 0 {
+				result[source] = fields
+			}
 		}
 	}
 	encoder := json.NewEncoder(os.Stdout)

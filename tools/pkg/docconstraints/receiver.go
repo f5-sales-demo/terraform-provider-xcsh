@@ -116,3 +116,19 @@ func frameworkSchemaRole(file *ast.File, expression ast.Expr) string {
 	}
 	return ""
 }
+
+// PackageReceiverContracts combines assertions without depending on file placement.
+func PackageReceiverContracts(files map[string]*ast.File) map[string]string {
+	contracts := map[string]string{}
+	for _, file := range files {
+		for receiver, role := range ReceiverContracts(file) {
+			previous, exists := contracts[receiver]
+			if exists && previous != role {
+				contracts[receiver] = ""
+			} else {
+				contracts[receiver] = role
+			}
+		}
+	}
+	return contracts
+}

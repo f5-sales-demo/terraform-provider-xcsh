@@ -186,3 +186,36 @@ func(x *Provider)Schema(resp *p.SchemaResponse){resp.Schema=s.Schema{}}
 		t.Fatal("provider schema lost")
 	}
 }
+
+func TestSplitAssertionsRetainResourceAndProviderSchemaRoots(t *testing.T) {
+	sources := map[string]string{
+		"assertions.go": `package fixture
+import p "github.com/hashicorp/terraform-plugin-framework/provider"
+import r "github.com/hashicorp/terraform-plugin-framework/resource"
+var _ p.Provider=&Provider{}
+var _ r.Resource=&Thing{}
+`,
+		"methods.go": `package fixture
+import p "github.com/hashicorp/terraform-plugin-framework/provider"
+import r "github.com/hashicorp/terraform-plugin-framework/resource"
+import s "github.com/hashicorp/terraform-plugin-framework/resource/schema"
+import ps "github.com/hashicorp/terraform-plugin-framework/provider/schema"
+func(x *Provider)Resources() []func() r.Resource {return []func() r.Resource{NewThing}}
+func NewThing() r.Resource {return &Thing{}}
+func(x *Thing)Schema(resp *r.SchemaResponse){resp.Schema=s.Schema{}}
+func(x *Provider)Schema(resp *p.SchemaResponse){resp.Schema=ps.Schema{}}
+`,
+	}
+	files := map[string]*ast.File{}
+	for name, source := range sources {
+		file, err := parser.ParseFile(token.NewFileSet(), name, source, 0)
+		if err != nil {
+			t.Fatal(err)
+		}
+		files[name] = file
+	}
+	roots := RegisteredSchemaRootsWithContracts(files["methods.go"], DeclaredRegistrations(files), PackageReceiverContracts(files))
+	if len(roots) != 2 {
+		t.Fatalf("split assertion roots=%d", len(roots))
+	}
+}

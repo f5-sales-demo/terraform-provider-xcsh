@@ -1,0 +1,15 @@
+**Approve the narrow source mapping on static review against HEAD `4ca9113cf3b`. No concrete blocking defect found in the pending changes.**
+
+- Package assertions now feed schema selection across split assertion, registration, factory, Metadata, and Schema files. The split fixture covers all four roles.
+- Metadata identity requires the matching role’s value request and pointer response, exact parameter-object ownership, and one direct literal-suffix assignment. Conditional writes, shadowed identifiers, duplicate Metadata receivers, and duplicate destinations remain unresolved.
+- Exporter mapping retains receiver identity. `UniqueSchemaOwners` rejects duplicate Schema declarations and ambiguous provider schema ownership.
+- Canonical keys match the collection consumer. Missing evidence remains unresolved rather than becoming a completeness claim.
+
+Remaining proof limits:
+
+- `go test ./tools/pkg/docconstraints` could not run: the read-only sandbox rejected creation of `/tmp/go-build…`. `git diff --check` passed.
+- Fixtures are parser-level evidence, not compiled framework-conformance proof. Explicit regression cases remain missing for Metadata request mismatch, response-by-value, Metadata shadowing, duplicate Metadata receivers, and conflicting assertions across files.
+- I did not independently reproduce the reported SHA-256 `43f7fbdf81e00b10052078ba036b5fbac8c51d6a8f8c336f8cf672174571ddec331` or the **331 files / 38,859 fields / 628 enums** totals.
+- Ambiguous-provider rejection protects provider schema output; registration discovery still aggregates declared lists. Runtime provider selection/registration, qualification, and release remain unverified.
+
+No files were changed.

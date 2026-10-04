@@ -135,8 +135,11 @@ func FrameworkSelector(file *ast.File, expression ast.Expr, suffix string) bool 
 
 // SchemaRoots finds framework Schema literals assigned to a typed SchemaResponse.
 func SchemaRoots(file *ast.File) []*ast.CompositeLit {
+	return schemaRootsWithContracts(file, ReceiverContracts(file))
+}
+
+func schemaRootsWithContracts(file *ast.File, contracts map[string]string) []*ast.CompositeLit {
 	roots := []*ast.CompositeLit{}
-	contracts := ReceiverContracts(file)
 	for _, decl := range file.Decls {
 		fn, ok := decl.(*ast.FuncDecl)
 		if !ok || fn.Name.Name != "Schema" || fn.Body == nil || fn.Type.Params == nil || fn.Recv == nil {

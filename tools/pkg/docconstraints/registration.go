@@ -43,17 +43,7 @@ func DeclaredRegistrations(files map[string]*ast.File) map[string]string {
 		}
 	}
 	result := map[string]string{}
-	packageContracts := map[string]string{}
-	for _, file := range files {
-		for receiver, role := range ReceiverContracts(file) {
-			previous, exists := packageContracts[receiver]
-			if exists && previous != role {
-				packageContracts[receiver] = ""
-			} else {
-				packageContracts[receiver] = role
-			}
-		}
-	}
+	packageContracts := PackageReceiverContracts(files)
 	conflicts := map[string]bool{}
 	for _, file := range files {
 		for _, decl := range file.Decls {
@@ -142,9 +132,13 @@ func frameworkInterface(file *ast.File, expression ast.Expr, role string) bool {
 // RegisteredSchemaRoots retains only directly registered receivers, plus the
 // provider's own declared schema. Runtime provider selection remains unverified.
 func RegisteredSchemaRoots(file *ast.File, registrations map[string]string) []*ast.CompositeLit {
-	roots := SchemaRoots(file)
+	return RegisteredSchemaRootsWithContracts(file, registrations, ReceiverContracts(file))
+}
+
+// RegisteredSchemaRootsWithContracts uses verified package declarations across files.
+func RegisteredSchemaRootsWithContracts(file *ast.File, registrations, contracts map[string]string) []*ast.CompositeLit {
+	roots := schemaRootsWithContracts(file, contracts)
 	result := []*ast.CompositeLit{}
-	contracts := ReceiverContracts(file)
 	for _, root := range roots {
 		for _, decl := range file.Decls {
 			fn, ok := decl.(*ast.FuncDecl)
