@@ -274,6 +274,18 @@ class RetrievalMetadataTests(unittest.TestCase):
             "duration", rules.aliases("connection_timeout", "Timeout duration.")
         )
 
+    def test_bgp_asn_reviewed_summaries_preserve_local_and_peer_ownership(self):
+        rules = MODULE.RetrievalRules.default()
+        for role in ("resources", "data-sources"):
+            local = rules.reviewed_summary(role, "bgp", ["bgp_parameters", "asn"])
+            peer = rules.reviewed_summary(role, "bgp", ["peers", "external", "asn"])
+            self.assertIn("local site", local)
+            self.assertIn("external BGP peer", peer)
+            self.assertIsNone(rules.reviewed_summary(role, "bgp", ["other", "asn"]))
+            self.assertIsNone(
+                rules.reviewed_summary(role, "other", ["bgp_parameters", "asn"])
+            )
+
     def test_summary_preserves_complete_words(self):
         text = "complete " * 40
         result = MODULE.summary(text, "fallback")

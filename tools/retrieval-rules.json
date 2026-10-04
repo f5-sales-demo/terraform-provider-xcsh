@@ -1389,6 +1389,48 @@
         "all route tables"
       ],
       "review_basis": "Choice marker mutually exclusive with selective_route_tables; narrowed to eliminate unentailed propagation wording and informal aliases. Verified canonical v12.3.1 destination: https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/default_route/all_route_tables/"
+    },
+    {
+      "provider_type": "resources",
+      "collection": "bgp",
+      "schema_path": [
+        "bgp_parameters",
+        "asn"
+      ],
+      "summary": "Configure the autonomous system number (ASN) for the local site.",
+      "review_basis": "Receipt-pinned schema ves.io.schema.bgp.BgpParameters description: BGP parameters for the local site; ves.io.schema.bgp.PeerExternal description: External BGP Peer parameters. Direct asn properties declare Autonomous System Number; peer asn explicitly names BGP peer."
+    },
+    {
+      "provider_type": "resources",
+      "collection": "bgp",
+      "schema_path": [
+        "peers",
+        "external",
+        "asn"
+      ],
+      "summary": "Configure the autonomous system number (ASN) for the external BGP peer.",
+      "review_basis": "Receipt-pinned schema ves.io.schema.bgp.BgpParameters description: BGP parameters for the local site; ves.io.schema.bgp.PeerExternal description: External BGP Peer parameters. Direct asn properties declare Autonomous System Number; peer asn explicitly names BGP peer."
+    },
+    {
+      "provider_type": "data-sources",
+      "collection": "bgp",
+      "schema_path": [
+        "bgp_parameters",
+        "asn"
+      ],
+      "summary": "Inspect the autonomous system number (ASN) for the local site.",
+      "review_basis": "Receipt-pinned schema ves.io.schema.bgp.BgpParameters description: BGP parameters for the local site; ves.io.schema.bgp.PeerExternal description: External BGP Peer parameters. Direct asn properties declare Autonomous System Number; peer asn explicitly names BGP peer."
+    },
+    {
+      "provider_type": "data-sources",
+      "collection": "bgp",
+      "schema_path": [
+        "peers",
+        "external",
+        "asn"
+      ],
+      "summary": "Inspect the autonomous system number (ASN) for the external BGP peer.",
+      "review_basis": "Receipt-pinned schema ves.io.schema.bgp.BgpParameters description: BGP parameters for the local site; ves.io.schema.bgp.PeerExternal description: External BGP Peer parameters. Direct asn properties declare Autonomous System Number; peer asn explicitly names BGP peer."
     }
   ]
 }
