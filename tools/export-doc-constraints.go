@@ -6,6 +6,7 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"go/ast"
 	"go/parser"
 	"go/printer"
@@ -36,74 +37,51 @@ func main() {
 			log.Fatal(err)
 		}
 		fields := map[string]map[string]string{}
-		var walk func(ast.Node, []string)
-		walk = func(node ast.Node, path []string) {
-			ast.Inspect(node, func(n ast.Node) bool {
-				if _, closure := n.(*ast.FuncLit); closure {
-					return false
-				}
-				kv, ok := n.(*ast.KeyValueExpr)
-				if !ok {
-					return true
-				}
-				key, ok := kv.Key.(*ast.BasicLit)
-				if !ok || key.Kind != token.STRING {
-					return true
-				}
-				value, ok := kv.Value.(*ast.CompositeLit)
-				if !ok {
-					return true
-				}
-				typ, ok := value.Type.(*ast.SelectorExpr)
-				if !ok || !(docconstraints.FrameworkSelector(file, typ, "Attribute") || docconstraints.FrameworkSelector(file, typ, "Block")) {
-					return true
-				}
-				field, err := strconv.Unquote(key.Value)
-				if err != nil {
-					log.Fatal(err)
-				}
-				child := append(append([]string{}, path...), field)
+
+		for _, root := range docconstraints.SchemaRoots(file) {
+			err := docconstraints.WalkSchemaFields(file, root, func(child []string, value *ast.CompositeLit) error {
 				metadata := map[string]string{}
-				for _, elt := range value.Elts {
-					item, ok := elt.(*ast.KeyValueExpr)
+				for _, element := range value.Elts {
+					item, ok := element.(*ast.KeyValueExpr)
 					if !ok {
 						continue
 					}
-					id, ok := item.Key.(*ast.Ident)
+					key, ok := item.Key.(*ast.Ident)
 					if !ok {
 						continue
 					}
-					if id.Name == "Validators" || id.Name == "Default" {
-						var buf bytes.Buffer
-						if err := printer.Fprint(&buf, fset, item.Value); err != nil {
-							log.Fatal(err)
-						}
-						metadata[id.Name] = buf.String()
-						if id.Name == "Validators" {
-							metadata["EnumExtractionComplete"] = strconv.FormatBool(docconstraints.EnumCoverage(file, item.Value))
-							enums := docconstraints.LiteralEnums(file, item.Value)
-							if len(enums) > 0 {
-								encoded, err := json.Marshal(enums)
-								if err != nil {
-									log.Fatal(err)
-								}
-								metadata["EnumValidators"] = string(encoded)
+					if key.Name != "Validators" && key.Name != "Default" {
+						continue
+					}
+					var buffer bytes.Buffer
+					if err := printer.Fprint(&buffer, fset, item.Value); err != nil {
+						return err
+					}
+					metadata[key.Name] = buffer.String()
+					if key.Name == "Validators" {
+						metadata["EnumExtractionComplete"] = strconv.FormatBool(docconstraints.EnumCoverage(file, item.Value))
+						enums := docconstraints.LiteralEnums(file, item.Value)
+						if len(enums) > 0 {
+							encoded, err := json.Marshal(enums)
+							if err != nil {
+								return err
 							}
+							metadata["EnumValidators"] = string(encoded)
 						}
 					}
 				}
 				schemaKey := strings.Join(child, ".")
 				if previous, exists := fields[schemaKey]; exists && !reflect.DeepEqual(previous, metadata) {
-					log.Fatalf("conflicting schema constraint evidence for %s in %s", schemaKey, name)
+					return fmt.Errorf("conflicting schema constraint evidence for %s in %s", schemaKey, name)
 				}
 				fields[schemaKey] = metadata
-				walk(value, child)
-				return false
+				return nil
 			})
+			if err != nil {
+				log.Fatal(err)
+			}
 		}
-		for _, root := range docconstraints.SchemaRoots(file) {
-			walk(root, nil)
-		}
+
 		if len(fields) > 0 {
 			result[filepath.Base(name)] = fields
 		}

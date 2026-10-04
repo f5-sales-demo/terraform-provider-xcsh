@@ -130,3 +130,36 @@ func TestUncalledClosureCannotAttachSchema(t *testing.T) {
 		t.Fatal("uncalled closure schema accepted")
 	}
 }
+
+func TestConditionalAndSupersededSchemaAssignmentsRemainUnresolved(t *testing.T) {
+	for _, body := range []string{
+		`if condition {resp.Schema=s.Schema{}}`,
+		`if condition {return};resp.Schema=s.Schema{}`,
+		`return;resp.Schema=s.Schema{}`,
+		`goto done;resp.Schema=s.Schema{};done: return`,
+		`resp.Schema=s.Schema{};resp.Schema=s.Schema{}`,
+		`resp.Schema=s.Schema{};resp.Schema=helper()`,
+		`resp.Schema=s.Schema{};if condition {resp.Schema=s.Schema{}}`,
+		`resp.Schema=s.Schema{};var n int;n,resp.Schema=replacement()`,
+		`resp.Schema=s.Schema{};if condition {*resp=r.SchemaResponse{Schema:s.Schema{}}}`,
+		`resp.Schema=s.Schema{};alias:=resp;alias.Schema=s.Schema{}`,
+		`resp.Schema=s.Schema{};var alias = resp;alias.Schema=s.Schema{}`,
+		`resp.Schema=s.Schema{};replace(resp)`,
+		`resp.Schema=s.Schema{};replace(&resp.Schema)`,
+		`resp.Schema=s.Schema{};resp.Schema.Attributes=map[string]s.Attribute{}`,
+		`resp.Schema=s.Schema{};if condition {resp.Schema.Attributes=map[string]s.Attribute{}}`,
+		`resp.Schema=s.Schema{};func(){resp.Schema=s.Schema{}}()`,
+	} {
+		source := `package fixture
+ import r "github.com/hashicorp/terraform-plugin-framework/resource"
+ import s "github.com/hashicorp/terraform-plugin-framework/resource/schema"
+ func (x *Thing) Schema(resp *r.SchemaResponse){` + body + `}`
+		file, err := parser.ParseFile(token.NewFileSet(), "fixture.go", source, 0)
+		if err != nil {
+			t.Fatal(err)
+		}
+		if len(SchemaRoots(file)) != 0 {
+			t.Fatalf("ambiguous assignments accepted: %s", body)
+		}
+	}
+}

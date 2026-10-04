@@ -1,0 +1,17 @@
+{
+  "draft_only": true,
+  "qualification_passed": false,
+  "base_source_commit": "74079e7ed8c3a6203375b474a28a9a0e9f921ad6",
+  "export_sha256": "sha256:43f7fbdf81e00b10052078ba036b5fbac8c51d6a8f8c336f8cf672174571ddec",
+  "source_files": 331,
+  "enum_fields": 628,
+  "deterministic_export": true,
+  "schema_member_walking": true,
+  "unresolved_roots": [
+    "indirect schema expressions",
+    "response-pointer escape or member mutation",
+    "conditional or superseded attachment",
+    "early return or branch before attachment"
+  ],
+  "remaining": "Registered target ownership and full source-to-schema coverage remain unverified; do not merge or publish."
+}

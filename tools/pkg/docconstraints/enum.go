@@ -138,7 +138,7 @@ func SchemaRoots(file *ast.File) []*ast.CompositeLit {
 	roots := []*ast.CompositeLit{}
 	for _, decl := range file.Decls {
 		fn, ok := decl.(*ast.FuncDecl)
-		if !ok || fn.Name.Name != "Schema" || fn.Body == nil || fn.Type.Params == nil {
+		if !ok || fn.Name.Name != "Schema" || fn.Body == nil || fn.Type.Params == nil || fn.Recv == nil {
 			continue
 		}
 		responseNames := map[string]*ast.Object{}
@@ -175,6 +175,15 @@ func SchemaRoots(file *ast.File) []*ast.CompositeLit {
 				}
 			}
 		}
+		methodRoots := []*ast.CompositeLit{}
+		assignments := 0
+		conditionalAssignment := false
+		responseEscapes := false
+		// A bounded source export cannot prove arbitrary pointer mutation safe.
+		// Permit only the response occurrence used by a direct Schema assignment;
+		// all other references (aliases, member mutations, pointers and calls)
+		// make this method unresolved.
+		permitted := map[*ast.Ident]bool{}
 		ast.Inspect(fn.Body, func(node ast.Node) bool {
 			if _, closure := node.(*ast.FuncLit); closure {
 				return false
@@ -183,9 +192,69 @@ func SchemaRoots(file *ast.File) []*ast.CompositeLit {
 			if !ok {
 				return true
 			}
+			for _, lhs := range assignment.Lhs {
+				member, ok := lhs.(*ast.SelectorExpr)
+				if !ok || member.Sel.Name != "Schema" {
+					continue
+				}
+				id, ok := member.X.(*ast.Ident)
+				if !ok {
+					continue
+				}
+				if object, exists := responseNames[id.Name]; exists && object == id.Obj {
+					permitted[id] = true
+				}
+			}
+			return true
+		})
+		ast.Inspect(fn.Body, func(node ast.Node) bool {
+			id, ok := node.(*ast.Ident)
+			if !ok {
+				return true
+			}
+			if object, exists := responseNames[id.Name]; exists && object == id.Obj && !permitted[id] {
+				responseEscapes = true
+			}
+			return true
+		})
+
+		ast.Inspect(fn.Body, func(node ast.Node) bool {
+			switch node.(type) {
+			case *ast.FuncLit:
+				return false
+			case *ast.IfStmt, *ast.ForStmt, *ast.RangeStmt, *ast.SwitchStmt, *ast.TypeSwitchStmt, *ast.SelectStmt:
+				ast.Inspect(node, func(inner ast.Node) bool {
+					if _, closure := inner.(*ast.FuncLit); closure {
+						return false
+					}
+					statement, ok := inner.(*ast.AssignStmt)
+					if !ok {
+						return true
+					}
+					for _, lhs := range statement.Lhs {
+						field, ok := lhs.(*ast.SelectorExpr)
+						if !ok || field.Sel.Name != "Schema" {
+							continue
+						}
+						receiver, ok := field.X.(*ast.Ident)
+						if !ok {
+							continue
+						}
+						if object, exists := responseNames[receiver.Name]; exists && object == receiver.Obj {
+							conditionalAssignment = true
+						}
+					}
+					return true
+				})
+				return false
+			}
+			assignment, ok := node.(*ast.AssignStmt)
+			if !ok {
+				return true
+			}
 			for i, lhs := range assignment.Lhs {
 				selector, ok := lhs.(*ast.SelectorExpr)
-				if !ok || selector.Sel.Name != "Schema" || i >= len(assignment.Rhs) {
+				if !ok || selector.Sel.Name != "Schema" {
 					continue
 				}
 				receiver, ok := selector.X.(*ast.Ident)
@@ -196,13 +265,37 @@ func SchemaRoots(file *ast.File) []*ast.CompositeLit {
 				if !exists || object != receiver.Obj {
 					continue
 				}
+				assignments++
+				if i >= len(assignment.Rhs) {
+					continue
+				}
 				literal, ok := assignment.Rhs[i].(*ast.CompositeLit)
 				if ok && FrameworkSelector(file, literal.Type, "Schema") {
-					roots = append(roots, literal)
+					methodRoots = append(methodRoots, literal)
 				}
 			}
 			return true
 		})
+		bypassable := false
+		if len(methodRoots) == 1 {
+			attachment := methodRoots[0].Pos()
+			ast.Inspect(fn.Body, func(node ast.Node) bool {
+				if _, closure := node.(*ast.FuncLit); closure {
+					return false
+				}
+				if jump, ok := node.(*ast.ReturnStmt); ok && jump.Pos() < attachment {
+					bypassable = true
+				}
+				if jump, ok := node.(*ast.BranchStmt); ok && jump.Pos() < attachment {
+					bypassable = true
+				}
+				return true
+			})
+		}
+		// Superseded or bypassable assignments remain unresolved.
+		if !bypassable && !responseEscapes && !conditionalAssignment && assignments == 1 && len(methodRoots) == 1 {
+			roots = append(roots, methodRoots[0])
+		}
 	}
 	return roots
 }
