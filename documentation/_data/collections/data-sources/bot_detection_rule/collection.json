@@ -194,15 +194,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_detection_rule/index.txt",
-      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
+      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
       "summary": "Manages a Bot Detection Rule resource in F5 Distributed Cloud for get bot detection rule. configuration. (read-only data source)",
       "tasks": ["configuration"],
       "title": "xcsh_bot_detection_rule",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v10.0.0",
+        "release_tag": "v10.0.1",
         "schema_components": [],
-        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
+        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
       }
     },
     {
@@ -460,14 +460,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_detection_rule/properties/index.txt",
-      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
+      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
       "summary": "Property reference for xcsh_bot_detection_rule.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v10.0.0",
+        "release_tag": "v10.0.1",
         "schema_components": [],
-        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
+        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
       }
     },
     {
@@ -603,14 +603,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_detection_rule/properties/bot_detection_rule_configs_per_bot_infras/index.txt",
-      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
+      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
       "summary": "Rule configurations per Bot-Infras. Rule or policy definition",
       "tasks": ["configuration"],
       "title": "bot_detection_rule_configs_per_bot_infras",
       "upstream_identity": {
-        "release_tag": "v10.0.0",
+        "release_tag": "v10.0.1",
         "schema_components": [],
-        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
+        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
       }
     },
     {
@@ -658,14 +658,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_detection_rule/properties/bot_detection_rule_configs_per_bot_infras/bot_detection_rule_config/index.txt",
-      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
+      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
       "summary": "Rule configuration. Rule configuration.",
       "tasks": ["configuration"],
       "title": "bot_detection_rule_configs_per_bot_infras.bot_detection_rule_config",
       "upstream_identity": {
-        "release_tag": "v10.0.0",
+        "release_tag": "v10.0.1",
         "schema_components": [],
-        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
+        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
       }
     },
     {
@@ -761,14 +761,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_detection_rule/properties/bot_detection_rule_configs_per_bot_infras/k8s_cluster_rule_config/index.txt",
-      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
+      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
       "summary": "Kubernetes Cluster Rule Config. Kubernetes cluster rule config.",
       "tasks": ["configuration"],
       "title": "bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config",
       "upstream_identity": {
-        "release_tag": "v10.0.0",
+        "release_tag": "v10.0.1",
         "schema_components": [],
-        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
+        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
       }
     },
     {
@@ -805,14 +805,14 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_detection_rule/properties/bot_detection_rule_configs_per_bot_infras/k8s_cluster_rule_config/in_used_k8s_cluster_rule_config/index.txt",
-      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
+      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
       "summary": "In-Used Kubernetes Cluster Rule Config. Cluster or grouping configuration",
       "tasks": ["configuration"],
       "title": "bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.in_used_k8s_cluster_rule_config",
       "upstream_identity": {
-        "release_tag": "v10.0.0",
+        "release_tag": "v10.0.1",
         "schema_components": [],
-        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
+        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
       }
     },
     {
@@ -849,14 +849,14 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_detection_rule/properties/bot_detection_rule_configs_per_bot_infras/k8s_cluster_rule_config/sync_status_per_k8s_cluster/index.txt",
-      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
+      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
       "summary": "Sync Status. Cluster or grouping configuration",
       "tasks": ["configuration"],
       "title": "bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.sync_status_per_k8s_cluster",
       "upstream_identity": {
-        "release_tag": "v10.0.0",
+        "release_tag": "v10.0.1",
         "schema_components": [],
-        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
+        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
       }
     },
     {
@@ -893,14 +893,14 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_detection_rule/properties/bot_detection_rule_configs_per_bot_infras/k8s_cluster_rule_config/target_k8s_cluster_rule_config/index.txt",
-      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
+      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
       "summary": "Target Kubernetes Cluster Rule Config. Cluster or grouping configuration",
       "tasks": ["configuration"],
       "title": "bot_detection_rule_configs_per_bot_infras.k8s_cluster_rule_config.target_k8s_cluster_rule_config",
       "upstream_identity": {
-        "release_tag": "v10.0.0",
+        "release_tag": "v10.0.1",
         "schema_components": [],
-        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
+        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
       }
     },
     {
@@ -950,14 +950,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_detection_rule/properties/bot_detection_rule_configs_per_bot_infras/region_rule_config/index.txt",
-      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
+      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
       "summary": "Rule Config Per Region. Rule config per region.",
       "tasks": ["configuration"],
       "title": "bot_detection_rule_configs_per_bot_infras.region_rule_config",
       "upstream_identity": {
-        "release_tag": "v10.0.0",
+        "release_tag": "v10.0.1",
         "schema_components": [],
-        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
+        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
       }
     },
     {
@@ -990,14 +990,14 @@
       "schema_path": ["bot_detection_rule_configs_per_bot_infras", "region_rule_config", "region_config"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_detection_rule/properties/bot_detection_rule_configs_per_bot_infras/region_rule_config/region_config/index.txt",
-      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
+      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
       "summary": "Rule Config Per Region. Configuration settings and parameters",
       "tasks": ["configuration"],
       "title": "bot_detection_rule_configs_per_bot_infras.region_rule_config.region_config",
       "upstream_identity": {
-        "release_tag": "v10.0.0",
+        "release_tag": "v10.0.1",
         "schema_components": [],
-        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
+        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
       }
     },
     {
@@ -1030,14 +1030,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_detection_rule/examples/index.txt",
-      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
+      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
       "summary": "Examples for xcsh_bot_detection_rule.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v10.0.0",
+        "release_tag": "v10.0.1",
         "schema_components": [],
-        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
+        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
       }
     },
     {
@@ -1077,14 +1077,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_detection_rule/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
+      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
       "summary": "Data source for xcsh_bot_detection_rule.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v10.0.0",
+        "release_tag": "v10.0.1",
         "schema_components": [],
-        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
+        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
       }
     }
   ],

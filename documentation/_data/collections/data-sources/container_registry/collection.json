@@ -127,15 +127,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/container_registry/index.txt",
-      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
+      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
       "summary": "Manages a Container Registry resource in F5 Distributed Cloud for container image registry configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_container_registry",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v10.0.0",
+        "release_tag": "v10.0.1",
         "schema_components": ["container_registryCreateRequest"],
-        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
+        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
       }
     },
     {
@@ -309,14 +309,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/container_registry/properties/index.txt",
-      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
+      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
       "summary": "Property reference for xcsh_container_registry.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v10.0.0",
+        "release_tag": "v10.0.1",
         "schema_components": ["container_registryCreateRequest"],
-        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
+        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
       }
     },
     {
@@ -381,14 +381,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/container_registry/properties/password/index.txt",
-      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
+      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "password",
       "upstream_identity": {
-        "release_tag": "v10.0.0",
+        "release_tag": "v10.0.1",
         "schema_components": ["container_registryCreateRequest"],
-        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
+        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
       }
     },
     {
@@ -464,14 +464,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/container_registry/properties/password/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
+      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "password.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v10.0.0",
+        "release_tag": "v10.0.1",
         "schema_components": ["container_registryCreateRequest"],
-        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
+        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
       }
     },
     {
@@ -533,14 +533,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/container_registry/properties/password/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
+      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "password.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v10.0.0",
+        "release_tag": "v10.0.1",
         "schema_components": ["container_registryCreateRequest"],
-        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
+        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
       }
     },
     {
@@ -573,14 +573,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/container_registry/examples/index.txt",
-      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
+      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
       "summary": "Examples for xcsh_container_registry.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v10.0.0",
+        "release_tag": "v10.0.1",
         "schema_components": ["container_registryCreateRequest"],
-        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
+        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
       }
     },
     {
@@ -620,14 +620,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/container_registry/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
+      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
       "summary": "Data source for xcsh_container_registry.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v10.0.0",
+        "release_tag": "v10.0.1",
         "schema_components": ["container_registryCreateRequest"],
-        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
+        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
       }
     }
   ],
