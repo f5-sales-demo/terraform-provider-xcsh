@@ -56,6 +56,60 @@ class CollectionTests(unittest.TestCase):
                 paths.update(CollectionTests.schema_paths(shape, exact))
         return paths
 
+    def test_enum_evidence_reaches_exact_direct_property_section(self):
+        block = {
+            "attributes": {
+                "protocol": {
+                    "type": "string",
+                    "optional": True,
+                    "description": "Tunnel protocol.",
+                }
+            }
+        }
+        evidence = {
+            "version": 1,
+            "validator": "OneOf",
+            "values": ["GRE", "IPSEC"],
+            "complete": True,
+            "case_sensitive": True,
+            "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+        }
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            example = root / "examples/resources/xcsh_fixture/resource.tf"
+            example.parent.mkdir(parents=True)
+            example.write_text('resource "xcsh_fixture" "example" {}\n')
+            collection = DOCS.Collection(
+                "resources",
+                "fixture",
+                {"block": block},
+                FixtureSpecs(),
+                {"protocol": {"EnumValidators": json.dumps([evidence])}},
+                root,
+                "sha256:" + "c" * 64,
+            )
+            page = next(
+                p
+                for p in collection.pages.values()
+                if any(s["schema_path"] == ["protocol"] for s in p.get("sections", []))
+            )
+            section = page["sections"][0]
+            self.assertEqual(section["schema_path"], ["protocol"])
+            self.assertEqual(section["anchor"], "schema-protocol")
+            self.assertEqual(section["enum_validators"], [evidence])
+            body = collection.body(page)
+            rendered = DOCS.frontmatter(page, body)
+            metadata = json.loads(
+                next(
+                    line.removeprefix("xcsh_docs: ")
+                    for line in rendered.splitlines()
+                    if line.startswith("xcsh_docs: ")
+                )
+            )
+            self.assertEqual(metadata["sections"][0]["enum_validators"], [evidence])
+            self.assertTrue(rendered.endswith(body))
+            self.assertEqual(section["anchor"], "schema-protocol")
+
     def test_schema_paths_include_new_and_nested_attributes(self):
         block = {
             "attributes": {"new_attribute": {"type": "string", "required": True}},

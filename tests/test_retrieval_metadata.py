@@ -2,8 +2,10 @@
 """Retrieval metadata contracts independent of generated corpora."""
 
 import importlib.util
+import json
 import unittest
 from pathlib import Path
+from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location(
@@ -320,3 +322,77 @@ class RetrievalMetadataTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class LiteralEnumEvidenceTests(unittest.TestCase):
+    def evidence(self) -> dict[str, Any]:
+        return {
+            "version": 1,
+            "validator": "OneOf",
+            "values": ["GRE", "IPSEC"],
+            "complete": True,
+            "case_sensitive": True,
+            "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+        }
+
+    def test_literal_enum_preserves_exact_values_and_unresolved_state(self):
+        item = self.evidence()
+        self.assertEqual(
+            MODULE.literal_enum_evidence({"EnumValidators": json.dumps([item])}), [item]
+        )
+        unresolved = {**item, "complete": False, "values": []}
+        self.assertEqual(
+            MODULE.literal_enum_evidence({"EnumValidators": json.dumps([unresolved])}),
+            [unresolved],
+        )
+        self.assertEqual(
+            MODULE.literal_enum_evidence(
+                {"Validators": 'stringvalidator.OneOf("GRE")'}
+            ),
+            [],
+        )
+
+    def test_malformed_or_partial_evidence_rejects(self):
+        changes: list[dict[str, Any]] = [
+            {"version": True},
+            {"complete": "true"},
+            {"case_sensitive": False},
+            {"source": "description"},
+            {"values": ["IPSEC", "GRE"]},
+            {"complete": False},
+            {"values": []},
+            {"values": [1]},
+        ]
+        for change in changes:
+            with self.assertRaisesRegex(ValueError, "invalid enum"):
+                MODULE.literal_enum_evidence(
+                    {"EnumValidators": json.dumps([{**self.evidence(), **change}])}
+                )
+
+
+class EnumExtractionCoverageTests(unittest.TestCase):
+    def test_absent_and_unresolved_coverage_never_assert_no_restriction(self):
+        self.assertFalse(MODULE.enum_extraction_complete({}))
+        self.assertFalse(
+            MODULE.enum_extraction_complete({"EnumExtractionComplete": "false"})
+        )
+        self.assertTrue(
+            MODULE.enum_extraction_complete({"EnumExtractionComplete": "true"})
+        )
+        with self.assertRaises(ValueError):
+            MODULE.enum_extraction_complete({"EnumExtractionComplete": "yes"})
+
+
+class EnumTargetCoverageTests(LiteralEnumEvidenceTests):
+    def test_every_enum_record_requires_a_verified_exact_schema_destination(self):
+        fields = {
+            "fixture_resource.go": {
+                "nested.protocol": {"EnumValidators": json.dumps([self.evidence()])}
+            }
+        }
+        MODULE.validate_enum_targets(
+            fields, {"fixture_resource.go": {"nested.protocol"}}
+        )
+        for coverage in [{}, {"fixture_resource.go": {"protocol"}}]:
+            with self.assertRaisesRegex(ValueError, "unmatched enum"):
+                MODULE.validate_enum_targets(fields, coverage)

@@ -1,0 +1,12 @@
+{
+  "source_commit": "25ed5cd266483f0a0ac450508e50b6dc59dc2ed5",
+  "draft_only": true,
+  "qualification_passed": false,
+  "deterministic": true,
+  "constraints_sha256": "43f7fbdf81e00b10052078ba036b5fbac8c51d6a8f8c336f8cf672174571ddec",
+  "source_files": 331,
+  "source_fields": 38859,
+  "enum_fields": 628,
+  "unresolved_validator_collections": 6320,
+  "generated_artifact": false
+}

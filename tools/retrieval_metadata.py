@@ -253,3 +253,66 @@ def constraint_relationships(schema_path, constraints, coverage):
         relationships,
         key=lambda r: (r["type"], r["target_id"], r["anchor"], r["group"]),
     )
+
+
+def literal_enum_evidence(constraints):
+    """Consume import-qualified AST evidence; never parse Markdown or dynamic values."""
+    raw = constraints.get("EnumValidators")
+    if raw is None:
+        return []
+    evidence = json.loads(raw)
+    if not isinstance(evidence, list):
+        raise TypeError("invalid enum validator evidence")
+    for item in evidence:
+        if not isinstance(item, dict):
+            raise TypeError("invalid enum validator evidence")
+        validator = item.get("validator")
+        expected_source = (
+            "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator."
+            + str(validator)
+        )
+        values = item.get("values")
+        if not isinstance(values, list) or any(
+            not isinstance(value, str) for value in values
+        ):
+            raise ValueError("invalid enum validator evidence")
+        valid = [
+            isinstance(item.get("version"), int)
+            and not isinstance(item.get("version"), bool),
+            item.get("version") == 1,
+            validator in {"OneOf", "OneOfCaseInsensitive"},
+            isinstance(item.get("complete"), bool),
+            isinstance(item.get("case_sensitive"), bool),
+            item.get("case_sensitive") == (validator == "OneOf"),
+            item.get("source") == expected_source,
+            values == sorted(set(values)),
+            bool(values) if item.get("complete") else not values,
+        ]
+        if not all(valid):
+            raise ValueError("invalid enum validator evidence")
+
+    return evidence
+
+
+def enum_extraction_complete(constraints):
+    """False means bounded AST extraction could not establish complete enum coverage."""
+    raw = constraints.get("EnumExtractionComplete")
+    if raw is None:
+        return False
+    if raw not in {"true", "false"}:
+        raise ValueError("invalid enum extraction coverage")
+    return raw == "true"
+
+
+def validate_enum_targets(constraints, covered_sources):
+    """Every exported enum record must resolve to an installed-schema destination."""
+    for source, fields in constraints.items():
+        coverage = covered_sources.get(source, set())
+        for schema_path, metadata in fields.items():
+            if "EnumValidators" not in metadata:
+                continue
+            literal_enum_evidence(metadata)
+            if schema_path not in coverage:
+                raise ValueError(
+                    "unmatched enum evidence target: " + source + ":" + schema_path
+                )

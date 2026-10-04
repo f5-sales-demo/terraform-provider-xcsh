@@ -13,8 +13,11 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"reflect"
 	"strconv"
 	"strings"
+
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/docconstraints"
 )
 
 func main() {
@@ -36,6 +39,9 @@ func main() {
 		var walk func(ast.Node, []string)
 		walk = func(node ast.Node, path []string) {
 			ast.Inspect(node, func(n ast.Node) bool {
+				if _, closure := n.(*ast.FuncLit); closure {
+					return false
+				}
 				kv, ok := n.(*ast.KeyValueExpr)
 				if !ok {
 					return true
@@ -49,7 +55,7 @@ func main() {
 					return true
 				}
 				typ, ok := value.Type.(*ast.SelectorExpr)
-				if !ok || !(strings.HasSuffix(typ.Sel.Name, "Attribute") || strings.HasSuffix(typ.Sel.Name, "Block")) {
+				if !ok || !(docconstraints.FrameworkSelector(file, typ, "Attribute") || docconstraints.FrameworkSelector(file, typ, "Block")) {
 					return true
 				}
 				field, err := strconv.Unquote(key.Value)
@@ -73,19 +79,30 @@ func main() {
 							log.Fatal(err)
 						}
 						metadata[id.Name] = buf.String()
+						if id.Name == "Validators" {
+							metadata["EnumExtractionComplete"] = strconv.FormatBool(docconstraints.EnumCoverage(file, item.Value))
+							enums := docconstraints.LiteralEnums(file, item.Value)
+							if len(enums) > 0 {
+								encoded, err := json.Marshal(enums)
+								if err != nil {
+									log.Fatal(err)
+								}
+								metadata["EnumValidators"] = string(encoded)
+							}
+						}
 					}
 				}
-				fields[strings.Join(child, ".")] = metadata
+				schemaKey := strings.Join(child, ".")
+				if previous, exists := fields[schemaKey]; exists && !reflect.DeepEqual(previous, metadata) {
+					log.Fatalf("conflicting schema constraint evidence for %s in %s", schemaKey, name)
+				}
+				fields[schemaKey] = metadata
 				walk(value, child)
 				return false
 			})
 		}
-		// Schema literals occur in the Schema method; exclude model attr type maps.
-		for _, decl := range file.Decls {
-			fn, ok := decl.(*ast.FuncDecl)
-			if ok && fn.Name.Name == "Schema" && fn.Body != nil {
-				walk(fn.Body, nil)
-			}
+		for _, root := range docconstraints.SchemaRoots(file) {
+			walk(root, nil)
 		}
 		if len(fields) > 0 {
 			result[filepath.Base(name)] = fields

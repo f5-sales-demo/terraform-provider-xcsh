@@ -27,7 +27,10 @@ from registry_projection import project as grouped_project
 from retrieval_metadata import (
     RetrievalRules,
     constraint_relationships,
+    enum_extraction_complete,
+    literal_enum_evidence,
     summary as retrieval_summary,
+    validate_enum_targets,
 )
 
 PROVIDER = "registry.terraform.io/f5-sales-demo/xcsh"
@@ -386,6 +389,12 @@ class Collection:
                         "min_items": field.get("min_items"),
                         "max_items": field.get("max_items"),
                         "syntax": syntax,
+                        "enum_extraction_complete": enum_extraction_complete(
+                            self.constraints.get(".".join(exact), {})
+                        ),
+                        "enum_validators": literal_enum_evidence(
+                            self.constraints.get(".".join(exact), {})
+                        ),
                         "type": field.get("type", "object")[0]
                         if isinstance(field.get("type"), list)
                         else field.get("type", "object"),
@@ -1041,6 +1050,7 @@ def generate(root, schema_path, constraints_path):
     specs = Specs(root)
     surface = read_json(root / "provider-release-surface.json")
     collections, pages, outputs, categories = [], [], {}, {}
+    covered_sources: dict[str, set[str]] = {}
     for kind, (schema_key, surface_key, _, source_suffix) in TYPES.items():
         schemas = provider.get(schema_key, {})
         expected = {"xcsh_" + name for name in surface[surface_key]}
@@ -1053,6 +1063,9 @@ def generate(root, schema_path, constraints_path):
                 kind, name, schema, specs, source_fields, root, schema_digest
             )
             collections.append(collection)
+            covered_sources.setdefault(f"{name}_{source_suffix}.go", set()).update(
+                collection.coverage
+            )
             categories[stable_id(kind, name, "collection")] = collection.category
             for page in collection.pages.values():
                 page["source_url"] = (
@@ -1069,6 +1082,7 @@ def generate(root, schema_path, constraints_path):
                 )
                 outputs[page["path"]] = frontmatter(page, body, collection.category)
                 pages.append(page)
+    validate_enum_targets(constraints, covered_sources)
     registry_outputs, projection = grouped_project(pages, categories, SITE)
     outputs.update(registry_outputs)
     outputs["documentation/registry-projection-manifest.json"] = (
