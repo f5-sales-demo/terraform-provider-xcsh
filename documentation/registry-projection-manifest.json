@@ -6308,6 +6308,6 @@
     { "path": "documentation/registry-projection/sections-0197.json", "section_count": 572 },
     { "path": "documentation/registry-projection/sections-0198.json", "section_count": 5 }
   ],
-  "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
+  "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
   "target_bytes": 450000
 }
