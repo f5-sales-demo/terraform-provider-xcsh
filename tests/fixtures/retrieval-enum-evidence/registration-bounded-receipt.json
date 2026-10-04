@@ -1,0 +1,20 @@
+{
+  "draft_only": true,
+  "qualification_passed": false,
+  "base_source_commit": "06923acfa13cbb19cc6d6067fdabbab5b18e9326",
+  "export_sha256": "sha256:43f7fbdf81e00b10052078ba036b5fbac8c51d6a8f8c336f8cf672174571ddec",
+  "files": 331,
+  "fields": 38859,
+  "enum_fields": 628,
+  "export_unchanged": true,
+  "checks": [
+    "go test -race ./tools/pkg/docconstraints",
+    "go vet ./tools/pkg/docconstraints",
+    "42 Python tests",
+    "two identical real exports",
+    "Ubuntu ChatGPT-authenticated read-only review"
+  ],
+  "declared_direct_constructor_binding": true,
+  "runtime_registration_verified": false,
+  "remaining": "Split assertion placement and filename-based exported identities remain unresolved. Bounded source evidence only; no qualification or release."
+}

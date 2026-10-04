@@ -311,6 +311,11 @@ func EnumCoverage(file *ast.File, expression ast.Expr) bool {
 	if !ok {
 		return false
 	}
+	for _, evidence := range LiteralEnums(file, expression) {
+		if !evidence.Complete {
+			return false
+		}
+	}
 	for _, element := range literal.Elts {
 		call, ok := element.(*ast.CallExpr)
 		if !ok {
@@ -339,6 +344,11 @@ func EnumCoverage(file *ast.File, expression ast.Expr) bool {
 			}
 		}
 		if !official {
+			return false
+		}
+		// Combinators may reference validators stored outside this collection.
+		// Their composition cannot establish complete bounded enum coverage.
+		if selector.Sel.Name == "Any" || selector.Sel.Name == "All" || selector.Sel.Name == "AnyWithAllWarnings" {
 			return false
 		}
 		for _, arg := range call.Args {

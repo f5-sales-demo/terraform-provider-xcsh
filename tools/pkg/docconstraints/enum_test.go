@@ -166,3 +166,26 @@ func TestConditionalAndSupersededSchemaAssignmentsRemainUnresolved(t *testing.T)
 		}
 	}
 }
+
+func TestEnumCoverageRejectsIncompleteDirectEnumArguments(t *testing.T) {
+	for _, expression := range []string{
+		`[]any{sv.OneOf("GRE", dynamic)}`,
+		`[]any{sv.OneOf(values...)}`,
+		`[]any{sv.OneOf()}`,
+		`[]any{sv.OneOf("GRE"+"IPSEC")}`,
+		`[]any{sv.OneOfCaseInsensitive(dynamic)}`,
+		`[]any{sv.Any(savedValidator)}`,
+		`[]any{sv.All(savedValidators...)}`,
+		`[]any{sv.AnyWithAllWarnings(savedValidator)}`,
+		`[]any{sv.AnyWithAllWarnings(savedValidators...)}`,
+	} {
+		file, err := parser.ParseFile(token.NewFileSet(), "fixture.go", "package fixture\n"+officialImport+"\nvar values="+expression, 0)
+		if err != nil {
+			t.Fatal(err)
+		}
+		value := file.Decls[len(file.Decls)-1].(*ast.GenDecl).Specs[0].(*ast.ValueSpec).Values[0]
+		if EnumCoverage(file, value) {
+			t.Fatalf("incomplete enum marked covered: %s", expression)
+		}
+	}
+}

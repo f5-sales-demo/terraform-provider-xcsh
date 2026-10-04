@@ -27,6 +27,8 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	parsed := map[string]*ast.File{}
+	positions := map[string]*token.FileSet{}
 	for _, name := range files {
 		if strings.HasSuffix(name, "_test.go") {
 			continue
@@ -36,9 +38,19 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
+		parsed[name] = file
+		positions[name] = fset
+	}
+	registrations := docconstraints.DeclaredRegistrations(parsed)
+	for _, name := range files {
+		if strings.HasSuffix(name, "_test.go") {
+			continue
+		}
+		fset := positions[name]
+		file := parsed[name]
 		fields := map[string]map[string]string{}
 
-		for _, root := range docconstraints.SchemaRoots(file) {
+		for _, root := range docconstraints.RegisteredSchemaRoots(file, registrations) {
 			err := docconstraints.WalkSchemaFields(file, root, func(child []string, value *ast.CompositeLit) error {
 				metadata := map[string]string{}
 				for _, element := range value.Elts {
