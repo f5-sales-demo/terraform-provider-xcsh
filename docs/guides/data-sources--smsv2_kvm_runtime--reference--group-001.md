@@ -48,6 +48,7 @@ Terraform-owned KVM CE MAC used to select one registration device.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{stringvalidator.LengthAtLeast(1)}
 ```
 
@@ -104,6 +105,8 @@ Namespace containing the site and realized interface. Defaults to \`system\`.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["system"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{stringvalidator.OneOf("system")}
 ```
 
@@ -130,6 +133,7 @@ Polling interval. Defaults to 10 seconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{int64validator.Between(1, 60)}
 ```
 
@@ -156,6 +160,7 @@ Secure Mesh Site v2 configuration name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{stringvalidator.LengthAtLeast(1)}
 ```
 
@@ -172,6 +177,7 @@ Bounded runtime discovery timeout. Defaults to 7200 seconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{int64validator.Between(1, 7200)}
 ```
 

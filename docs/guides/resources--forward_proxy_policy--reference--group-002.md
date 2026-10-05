@@ -6,6 +6,12 @@ description: "Complete grouped canonical reference for xcsh_forward_proxy_policy
 
 # xcsh_forward_proxy_policy reference
 
+<a id="canonical-1310001202000220-0222212030212031-3110301233213311-0331231201211302-1222330112030113-0332221131200032-0000000110301303-1000000231020321"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-3201330013320233-3223133011203333-1331020110112323-3020203211003321-0001311333032023-0322321300132231-2322113222302212-0311032223032301"></a>
 
 ## rule_list.rules.port_matcher — port_matcher / 312223331202 / 2
@@ -35,6 +41,7 @@ invert\_matcher is true.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("ports")}
 ```
 
@@ -109,6 +116,7 @@ separated by "-". The start and end values are considered to be part of the rang
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -221,6 +229,7 @@ List of IPv4 prefixes that represent an endpoint.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(128),
 }
@@ -360,6 +369,7 @@ Domains in SNI for TLS connections.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("exact_value",
     "regex_value"),
   validators.ConflictingListObjectAttributes("exact_value",
@@ -431,6 +441,7 @@ Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -491,6 +502,7 @@ Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the d
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -552,6 +564,7 @@ Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -633,6 +646,7 @@ List of URL categories.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url_categories")}
 ```
 
@@ -702,6 +716,7 @@ List of URL categories to be selected.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(128),
 }

@@ -6,6 +6,277 @@ description: "Complete grouped canonical reference for xcsh_protected_applicatio
 
 # xcsh_protected_application reference
 
+<a id="canonical-0222213223121312-0101331332213331-3323111000132032-0230002122000103-3132201003323032-0022012113303002-0221033000211011-3231320332102203"></a>
+
+## Next pages — any_domain / 132321301100 / 4
+
+- [cloudfront.js_insertion_rules.rules](resources--protected_application--reference--group-002.md#canonical-1111120223012133-1010232232112011-0002033223202121-2202200003200333-0330223310201233-0110011213302203-0110111123233202-0232200123131110)
+- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
+
+<a id="canonical-0023212320322203-0213121232200112-2220021122213223-3223312330031332-2202130332023231-1020232012200112-3022013203103133-1303001233321310"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2232120221130201-2200211330131212-1303120203212332-1000022000021101-3010031303220310-1002201330212012-3032033201331102-1332302203132031"></a>
+
+## CloudFront.js_insertion_rules.rules.domain — domain / 032022231101 / 2
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
+- [Property reference](resources--protected_application--reference--group-001.md#canonical-1112011310232010-1130212322220320-1323121033211100-0313202312023232-3332212122311300-1331303332321012-0100301021312031-1320300331013311)
+- [CloudFront](resources--protected_application--reference--group-002.md#canonical-3023230230223213-0113310010212111-0023030201111012-2212202220232211-0013230310132300-3132331133230002-2331013021302322-2211302231010320)
+- [cloudfront.js_insertion_rules](resources--protected_application--reference--group-002.md#canonical-0231330302202122-3333330110232010-0233303200130220-0301122123331132-2200201002333200-2020222112331210-1313021231112202-3002213230012210)
+- [cloudfront.js_insertion_rules.rules](resources--protected_application--reference--group-002.md#canonical-1111120223012133-1010232232112011-0002033223202121-2202200003200333-0330223310201233-0110011213302203-0110111123233202-0232200123131110)
+- CloudFront.js_insertion_rules.rules.domain
+
+<a id="canonical-0013100022002003-0302333331023221-2001211133322011-3033012111230113-0122131231331000-2302133312331300-1210000301330103-0112000111012303"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Domain name for routing and identification.
+
+Upstream description:
+
+Domains names.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.ConflictingObjectAttributes("exact_value",
+    "regex_value"),
+  validators.ConflictingObjectAttributes("exact_value",
+    "suffix_value"),
+  validators.ConflictingObjectAttributes("regex_value",
+    "suffix_value")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-domain_choice": "[\"exact_value\",\"regex_value\",\"suffix_value\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+domain {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3200120210133203-0020033003232021-3101032001333032-1333122332110000-1111011201012222-1020110200210320-2223103210222223-3021013003203202"></a>
+
+## Direct properties — domain / 032022231101 / 3
+
+<a id="canonical-0313103222213221-2320320302100212-1203013322231112-1203012021312131-1020203233213233-3002120033100003-2130303013103211-1310320113202121"></a>
+
+<a id="canonical-3033012322020302-0020210230003300-2310202001122020-2000322313122322-1230013022123102-0102001302201332-2111301300033231-1103120101122110"></a>
+
+## exact_value property — domain / 032022231101 / 4
+
+Type: `"string"`. Optional.
+
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
+
+Upstream description:
+
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "hostname",
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.hostname": "true",
+    "ves.io.schema.rules.string.max_len": "256",
+    "ves.io.schema.rules.string.min_len": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.hostname": "true",
+    "ves.io.schema.rules.string.max_len": "256",
+    "ves.io.schema.rules.string.min_len": "1"
+  }
+}
+```
+
+<a id="canonical-1200233221202121-0322022332012233-1123223020103322-3223110021030232-1113113123120113-2112030201033010-3310211110332131-3133120321230221"></a>
+
+<a id="canonical-3032001122020111-2311010220110301-3303003332123320-3113112212020231-0333310202010003-2223201003322333-3222323001133113-1311313333033121"></a>
+
+## regex_value property — domain / 032022231101 / 5
+
+Type: `"string"`. Optional.
+
+Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
+
+Upstream description:
+
+Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256",
+    "ves.io.schema.rules.string.min_len": "1",
+    "ves.io.schema.rules.string.regex": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256",
+    "ves.io.schema.rules.string.min_len": "1",
+    "ves.io.schema.rules.string.regex": "true"
+  }
+}
+```
+
+<a id="canonical-3210320010130001-0220111310231323-3000133310023222-0133103323012132-1122323030322200-1030012132302010-1020122231303030-2323210032031102"></a>
+
+<a id="canonical-3322202130012122-2303101302133220-0130302132211113-2230312210033301-1303202003231212-3322021222232301-0030200201230122-0221200202013000"></a>
+
+## suffix_value property — domain / 032022231101 / 6
+
+Type: `"string"`. Optional.
+
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g 'xyz.com' will match
+'\*.xyz.com' and 'xyz.com'.
+
+Upstream description:
+
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
+"\*.xyz.com" and "xyz.com"
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "hostname",
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.hostname": "true",
+    "ves.io.schema.rules.string.max_len": "256",
+    "ves.io.schema.rules.string.min_len": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.hostname": "true",
+    "ves.io.schema.rules.string.max_len": "256",
+    "ves.io.schema.rules.string.min_len": "1"
+  }
+}
+```
+
+<a id="canonical-3231003010111032-2111322202233203-0223301320021101-2310113331231020-0320120330223323-1330303232221313-2231022331011012-2220102111311311"></a>
+
+## Next pages — domain / 032022231101 / 7
+
+- [cloudfront.js_insertion_rules.rules](resources--protected_application--reference--group-002.md#canonical-1111120223012133-1010232232112011-0002033223202121-2202200003200333-0330223310201233-0110011213302203-0110111123233202-0232200123131110)
+- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
+
+<a id="canonical-1223022223311200-0231213311321001-3003302023112203-3232220111011133-3011123103101123-0333000231303333-3023031110022220-2000201223130122"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-3301101000223210-0020112331320221-0130300032302213-0313333133101000-0332311210112011-3003323031010020-2311313212101113-0111203200223100"></a>
 
 ## CloudFront.js_insertion_rules.rules.metadata — metadata / 223202103302 / 2
@@ -38,6 +309,7 @@ and replace APIs.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -79,6 +351,7 @@ Description. Human readable description.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -101,6 +374,7 @@ This is the name of the message. The value of name has to follow DNS-1035 format
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -241,6 +515,8 @@ Defense JavaScript for telemetry collection is requested synchronously, and it i
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ASYNC_JS_CACHING","ASYNC_JS_NO_CACHING","SYNC_JS_CACHING","SYNC_JS_NO_CACHING"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("ASYNC_JS_NO_CACHING",
     "ASYNC_JS_CACHING",
@@ -480,6 +756,7 @@ A list of headers that can be used to identify mobile traffic.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("exact",
     "regex")}
@@ -547,6 +824,7 @@ Exclusive with \[regular expression\] Header value to match exactly.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -605,6 +883,7 @@ Name of the header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -683,6 +962,7 @@ Exclusive with \[exact\] regular expression match of the header value in re2 for
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -764,6 +1044,7 @@ List of protected endpoints (max 128 items)
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("http_methods",
     "path"),
   validators.ConflictingListObjectAttributes("any_domain",
@@ -857,6 +1138,7 @@ List of HTTP methods.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 4),
 }
@@ -923,6 +1205,7 @@ Accepts wildcards \* to match multiple characters or ? To match a single charact
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -985,6 +1268,7 @@ Enter a regular expression to match your query parameters of interest.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -1139,6 +1423,7 @@ Domains names.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("exact_value",
     "regex_value"),
   validators.ConflictingObjectAttributes("exact_value",
@@ -1190,6 +1475,7 @@ Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -1250,6 +1536,7 @@ Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the d
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -1311,6 +1598,7 @@ Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -1388,6 +1676,7 @@ Bot Defense Flow Label Category allows to associate traffic with selected catego
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("account_management",
     "authentication"),
   validators.ConflictingObjectAttributes("account_management",
@@ -1514,6 +1803,7 @@ Bot Defense Flow Label Account Management Category.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("create",
     "password_reset")}
 ```
@@ -1709,6 +1999,7 @@ Bot Defense Flow Label Authentication Category.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("login",
     "login_mfa"),
   validators.ConflictingObjectAttributes("login",
@@ -1812,6 +2103,7 @@ Bot Defense Transaction Result.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_transaction_result",
     "transaction_result")}
 ```
@@ -2082,6 +2374,7 @@ A case-insensitive HTTP header name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2154,6 +2447,7 @@ A list of regular expressions to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -2250,6 +2544,8 @@ Extended status code Network Authentication Required status code.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["Accepted","AlreadyReported","BadGateway","BadRequest","Conflict","Continue","Created","EmptyStatusCode","ExpectationFailed","FailedDependency","Forbidden","Found","GatewayTimeout","Gone","HTTPVersionNotSupported","IMUsed","InsufficientStorage","InternalServerError","LengthRequired","Locked","LoopDetected","MethodNotAllowed","MisdirectedRequest","MovedPermanently","MultiStatus","MultipleChoices","NetworkAuthenticationRequired","NoContent","NonAuthoritativeInformation","NotAcceptable","NotExtended","NotFound","NotImplemented","NotModified","OK","PartialContent","PayloadTooLarge","PaymentRequired","PermanentRedirect","PreconditionFailed","PreconditionRequired","ProxyAuthenticationRequired","RangeNotSatisfiable","RequestHeaderFieldsTooLarge","RequestTimeout","ResetContent","SeeOther","ServiceUnavailable","TemporaryRedirect","TooManyRequests","URITooLong","Unauthorized","UnprocessableEntity","UnsupportedMediaType","UpgradeRequired","UseProxy","VariantAlsoNegotiates"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("EmptyStatusCode",
     "Continue",
@@ -2486,6 +2782,7 @@ A case-insensitive HTTP header name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2558,6 +2855,7 @@ A list of regular expressions to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -2654,6 +2952,8 @@ Extended status code Network Authentication Required status code.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["Accepted","AlreadyReported","BadGateway","BadRequest","Conflict","Continue","Created","EmptyStatusCode","ExpectationFailed","FailedDependency","Forbidden","Found","GatewayTimeout","Gone","HTTPVersionNotSupported","IMUsed","InsufficientStorage","InternalServerError","LengthRequired","Locked","LoopDetected","MethodNotAllowed","MisdirectedRequest","MovedPermanently","MultiStatus","MultipleChoices","NetworkAuthenticationRequired","NoContent","NonAuthoritativeInformation","NotAcceptable","NotExtended","NotFound","NotImplemented","NotModified","OK","PartialContent","PayloadTooLarge","PaymentRequired","PermanentRedirect","PreconditionFailed","PreconditionRequired","ProxyAuthenticationRequired","RangeNotSatisfiable","RequestHeaderFieldsTooLarge","RequestTimeout","ResetContent","SeeOther","ServiceUnavailable","TemporaryRedirect","TooManyRequests","URITooLong","Unauthorized","UnprocessableEntity","UnsupportedMediaType","UpgradeRequired","UseProxy","VariantAlsoNegotiates"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("EmptyStatusCode",
     "Continue",
@@ -3071,6 +3371,7 @@ Bot Defense Flow Label Financial Services Category.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("apply",
     "money_transfer")}
 ```
@@ -3393,6 +3694,7 @@ Bot Defense Flow Label Profile Management Category.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("create",
     "update"),
   validators.ConflictingObjectAttributes("create",
@@ -3661,6 +3963,7 @@ Bot Defense Flow Label Search Category.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("flight_search",
     "product_search"),
   validators.ConflictingObjectAttributes("flight_search",
@@ -3996,6 +4299,7 @@ Bot Defense Flow Label Shopping &amp; Gift Cards Category.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card",
     "gift_card_validation"),
   validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card",
@@ -4172,9 +4476,9 @@ shopping_gift_cards {
 
 - [shop_order](resources--protected_application--reference--group-003.md#canonical-0011213111221013-2100013223312023-3020012303323230-2220033102001002-1331103022210111-1221001020032200-1233110301023232-3113330322021100): complete subsection reference.
 
-- [shop_price_inquiry](resources--protected_application--reference--group-003.md#canonical-1110300023112033-1013101033311200-1311322021330322-2012200323001223-2300000312031120-0310022301323221-3311223311300022-1012311111122002): complete subsection reference.
+- [shop_price_inquiry](resources--protected_application--reference--group-004.md#canonical-1110300023112033-1013101033311200-1311322021330322-2012200323001223-2300000312031120-0310022301323221-3311223311300022-1012311111122002): complete subsection reference.
 
-- [shop_promo_code_validation](resources--protected_application--reference--group-003.md#canonical-1130100110130001-1312332013300100-0211030011002200-2202102212232001-0131102320020033-2010311230213022-3102113133113010-1023212100303111): complete subsection reference.
+- [shop_promo_code_validation](resources--protected_application--reference--group-004.md#canonical-1130100110130001-1312332013300100-0211030011002200-2202102212232001-0131102320020033-2010311230213022-3102113133113010-1023212100303111): complete subsection reference.
 
 - [shop_purchase_gift_card](resources--protected_application--reference--group-004.md#canonical-0023110333210212-1012020102233112-1311311023032233-2020213001333003-2030012213031301-3203002203030133-1001311010222330-0302110102302201): complete subsection reference.
 
@@ -4192,8 +4496,8 @@ shopping_gift_cards {
 - [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_enter_drawing_submission](resources--protected_application--reference--group-003.md#canonical-1122201233020223-0123123102301002-2032003312331213-2000032030330122-1322100021333303-3313030000100110-3020220333031310-2323203301123323)
 - [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_make_payment](resources--protected_application--reference--group-003.md#canonical-1012102320222231-0230000030130332-0220311102022112-2203013110323333-2000320030132232-3233013121232111-2120131001302000-2131323333311300)
 - [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_order](resources--protected_application--reference--group-003.md#canonical-0011213111221013-2100013223312023-3020012303323230-2220033102001002-1331103022210111-1221001020032200-1233110301023232-3113330322021100)
-- [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_price_inquiry](resources--protected_application--reference--group-003.md#canonical-1110300023112033-1013101033311200-1311322021330322-2012200323001223-2300000312031120-0310022301323221-3311223311300022-1012311111122002)
-- [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_promo_code_validation](resources--protected_application--reference--group-003.md#canonical-1130100110130001-1312332013300100-0211030011002200-2202102212232001-0131102320020033-2010311230213022-3102113133113010-1023212100303111)
+- [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_price_inquiry](resources--protected_application--reference--group-004.md#canonical-1110300023112033-1013101033311200-1311322021330322-2012200323001223-2300000312031120-0310022301323221-3311223311300022-1012311111122002)
+- [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_promo_code_validation](resources--protected_application--reference--group-004.md#canonical-1130100110130001-1312332013300100-0211030011002200-2202102212232001-0131102320020033-2010311230213022-3102113133113010-1023212100303111)
 - [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_purchase_gift_card](resources--protected_application--reference--group-004.md#canonical-0023110333210212-1012020102233112-1311311023032233-2020213001333003-2030012213031301-3203002203030133-1001311010222330-0302110102302201)
 - [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_update_quantity](resources--protected_application--reference--group-004.md#canonical-2312112312301300-0313211201121023-2222332212221230-2122020003310213-2122033101132113-2020320021120032-2201312120300031-3011303213113303)
 - [cloudfront.protected_endpoints.flow_label](resources--protected_application--reference--group-003.md#canonical-2003301112323021-1003101203221303-3200130031112010-1113223021202211-0112323031302303-0233032001012210-3211303300322001-1101322113022321)
@@ -4638,170 +4942,3 @@ This is an empty object or choice marker. It has no direct properties.
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-2323012200023030-2020020300231112-2123333102120103-1003210112021001-0200012100331132-2321303102102222-0231002203211011-1300111032032231"></a>
-
-## CloudFront.protected_endpoints.flow_label.shopping_gift_cards.shop_order — shop_order / 111033123003 / 2
-
-Breadcrumbs:
-
-- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
-- [Property reference](resources--protected_application--reference--group-001.md#canonical-1112011310232010-1130212322220320-1323121033211100-0313202312023232-3332212122311300-1331303332321012-0100301021312031-1320300331013311)
-- [CloudFront](resources--protected_application--reference--group-002.md#canonical-3023230230223213-0113310010212111-0023030201111012-2212202220232211-0013230310132300-3132331133230002-2331013021302322-2211302231010320)
-- [cloudfront.protected_endpoints](resources--protected_application--reference--group-003.md#canonical-2331031331211001-2203303321110110-3203202010032323-1311020101113303-1331221311131220-0322003310233220-3231300302101310-1323132122212232)
-- [cloudfront.protected_endpoints.flow_label](resources--protected_application--reference--group-003.md#canonical-2003301112323021-1003101203221303-3200130031112010-1113223021202211-0112323031302303-0233032001012210-3211303300322001-1101322113022321)
-- [cloudfront.protected_endpoints.flow_label.shopping_gift_cards](resources--protected_application--reference--group-003.md#canonical-0303211230231300-2003111202022220-3313000233300133-0120313112201012-1221202223231121-0123123120133032-1312011231322232-1111310130000223)
-- CloudFront.protected_endpoints.flow_label.shopping_gift_cards.shop_order
-
-<a id="canonical-0202312022130002-3322132233123022-3010013302333211-2131202101222120-3123333311311130-1122021230303322-2001200122113202-3021011031212120"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-shop_order = {}
-```
-
-<a id="canonical-0232302102332300-3212211031222302-3220312001123323-0021320222303212-2220110313101020-0000202312233112-3102023130221033-1221230001021030"></a>
-
-## Direct properties — shop_order / 111033123003 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0100212112131210-3210202322123121-2032001000211112-2031110121013133-2223200233002130-1221301300332230-1100302210231323-3311130031033112"></a>
-
-## Next pages — shop_order / 111033123003 / 4
-
-- [cloudfront.protected_endpoints.flow_label.shopping_gift_cards](resources--protected_application--reference--group-003.md#canonical-0303211230231300-2003111202022220-3313000233300133-0120313112201012-1221202223231121-0123123120133032-1312011231322232-1111310130000223)
-- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
-
-<a id="canonical-1110300023112033-1013101033311200-1311322021330322-2012200323001223-2300000312031120-0310022301323221-3311223311300022-1012311111122002"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-3323320120310031-2230313221320131-3001111332120100-2030222201331313-2101220131032111-1132011131100103-3223330323102310-2132210211211212"></a>
-
-## CloudFront.protected_endpoints.flow_label.shopping_gift_cards.shop_price_inquiry — shop_price_inquiry / 031130101022 / 2
-
-Breadcrumbs:
-
-- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
-- [Property reference](resources--protected_application--reference--group-001.md#canonical-1112011310232010-1130212322220320-1323121033211100-0313202312023232-3332212122311300-1331303332321012-0100301021312031-1320300331013311)
-- [CloudFront](resources--protected_application--reference--group-002.md#canonical-3023230230223213-0113310010212111-0023030201111012-2212202220232211-0013230310132300-3132331133230002-2331013021302322-2211302231010320)
-- [cloudfront.protected_endpoints](resources--protected_application--reference--group-003.md#canonical-2331031331211001-2203303321110110-3203202010032323-1311020101113303-1331221311131220-0322003310233220-3231300302101310-1323132122212232)
-- [cloudfront.protected_endpoints.flow_label](resources--protected_application--reference--group-003.md#canonical-2003301112323021-1003101203221303-3200130031112010-1113223021202211-0112323031302303-0233032001012210-3211303300322001-1101322113022321)
-- [cloudfront.protected_endpoints.flow_label.shopping_gift_cards](resources--protected_application--reference--group-003.md#canonical-0303211230231300-2003111202022220-3313000233300133-0120313112201012-1221202223231121-0123123120133032-1312011231322232-1111310130000223)
-- CloudFront.protected_endpoints.flow_label.shopping_gift_cards.shop_price_inquiry
-
-<a id="canonical-1033333122321133-0102111123210322-0220002122232303-1321301303223032-1111132110012323-1313303120031032-0312212001133112-1102301301011000"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for shop price inquiry.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-shop_price_inquiry = {}
-```
-
-<a id="canonical-2103101223213212-3211002131102211-2033113033211132-0220132311321220-1231230101033231-3220301002022022-0220102112221200-3002100333221123"></a>
-
-## Direct properties — shop_price_inquiry / 031130101022 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0210311312120302-2233120320220110-3130301030020011-0120331111020020-1110322201111213-1103330323122000-0111232220212202-0323130232001123"></a>
-
-## Next pages — shop_price_inquiry / 031130101022 / 4
-
-- [cloudfront.protected_endpoints.flow_label.shopping_gift_cards](resources--protected_application--reference--group-003.md#canonical-0303211230231300-2003111202022220-3313000233300133-0120313112201012-1221202223231121-0123123120133032-1312011231322232-1111310130000223)
-- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
-
-<a id="canonical-1130100110130001-1312332013300100-0211030011002200-2202102212232001-0131102320020033-2010311230213022-3102113133113010-1023212100303111"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2202130213022133-0332020133231221-1031120320320200-1120131132230201-0333322322113302-3200010231112132-0300202332232230-0013323231032133"></a>
-
-## CloudFront.protected_endpoints.flow_label.shopping_gift_cards.shop_promo_code_validation — shop_promo_code_validation / 021121120113 / 2
-
-Breadcrumbs:
-
-- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
-- [Property reference](resources--protected_application--reference--group-001.md#canonical-1112011310232010-1130212322220320-1323121033211100-0313202312023232-3332212122311300-1331303332321012-0100301021312031-1320300331013311)
-- [CloudFront](resources--protected_application--reference--group-002.md#canonical-3023230230223213-0113310010212111-0023030201111012-2212202220232211-0013230310132300-3132331133230002-2331013021302322-2211302231010320)
-- [cloudfront.protected_endpoints](resources--protected_application--reference--group-003.md#canonical-2331031331211001-2203303321110110-3203202010032323-1311020101113303-1331221311131220-0322003310233220-3231300302101310-1323132122212232)
-- [cloudfront.protected_endpoints.flow_label](resources--protected_application--reference--group-003.md#canonical-2003301112323021-1003101203221303-3200130031112010-1113223021202211-0112323031302303-0233032001012210-3211303300322001-1101322113022321)
-- [cloudfront.protected_endpoints.flow_label.shopping_gift_cards](resources--protected_application--reference--group-003.md#canonical-0303211230231300-2003111202022220-3313000233300133-0120313112201012-1221202223231121-0123123120133032-1312011231322232-1111310130000223)
-- CloudFront.protected_endpoints.flow_label.shopping_gift_cards.shop_promo_code_validation
-
-<a id="canonical-3003231110112122-0001210302023011-3233230030321310-1310123230121101-0310230231133223-0212123021300103-3022301313213123-2111210200311202"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for shop promo code validation.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-shop_promo_code_validation = {}
-```

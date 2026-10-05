@@ -6,6 +6,82 @@ description: "Complete grouped canonical reference for xcsh_origin_pool referenc
 
 # xcsh_origin_pool reference
 
+<a id="canonical-3222033010120310-0112013213211130-1311130211110030-1001312102332212-1210033102013201-1102332001012213-1211213131200033-0211013102003032"></a>
+
+## timeouts — timeouts / 321233111120 / 2
+
+Breadcrumbs:
+
+- [xcsh_origin_pool](../resources/origin_pool.md#canonical-1300222123211010-0221103312033303-3103220201011310-0312202100212232-2132331032032202-3102123303123231-2302302300131121-2101021333132222)
+- [Property reference](resources--origin_pool--reference--group-001.md#canonical-3212012302103133-0133102110013031-2131221222021021-2000212221110230-2323033002013033-2112321312312211-0213033122012333-3133112201301013)
+- timeouts
+
+<a id="canonical-0000231121303330-2003202121011221-0020300020231001-1223302100322112-1221333321301112-3331212200332003-2111332002333011-3211101330111331"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Terraform syntax:
+
+```terraform
+timeouts {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1033323101210003-0330031130031231-1220133032102130-3330202302223232-3011223311212223-3323012303020112-2301212100130213-3123313001310010"></a>
+
+## Direct properties — timeouts / 321233111120 / 3
+
+<a id="canonical-0322021132111321-3112303003031330-0130110311120000-2323112211313121-2012101131003231-2310330113310310-0320302320102011-2221132032313132"></a>
+
+<a id="canonical-0200310130121112-1303133311330033-3120301030230323-3123012032013021-0202232101001212-3021321100201000-3200101222010201-2003022222232221"></a>
+
+## create property — timeouts / 321233111120 / 4
+
+Type: `"string"`. Optional.
+
+A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#ParseDuration) consisting
+of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
+(minutes), "h" (hours).
+
+<a id="canonical-1123132211211221-0212322301210311-3001010203232213-1212101120321000-2222310231130132-1231023213030003-0031133032232203-3212022030111323"></a>
+
+<a id="canonical-0102012122130023-2202211032033233-3011000210113033-3111223021201001-3121123211130323-3132211320121101-1231121030320331-1322313120233131"></a>
+
+## delete property — timeouts / 321233111120 / 5
+
+Type: `"string"`. Optional.
+
+A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#ParseDuration) consisting
+of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
+(minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are
+saved into state before the destroy operation occurs.
+
+<a id="canonical-0112102231203010-1002213233010322-3013322001331311-1200201112200033-3200131003022301-2112112000322322-2232133101312103-0233312112020123"></a>
+
+<a id="canonical-2211222321132112-0313333032101021-1113201002123221-0131030303123313-3110010301220202-3013130211011231-0330110210101013-0021310312201103"></a>
+
+## read property — timeouts / 321233111120 / 6
+
+Type: `"string"`. Optional.
+
+A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#ParseDuration) consisting
+of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
+(minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh
+is enabled.
+
+<a id="canonical-0110313103330301-1331101223223003-0022300330300231-0323203311011100-3322001332200002-3310012203101213-2201112330320131-0311333030233120"></a>
+
+<a id="canonical-0110312301112020-1223321002122223-3101030222213002-1230222013221230-1022203323302020-1211010300103000-1133203203313213-0112211203201323"></a>
+
+## update property — timeouts / 321233111120 / 7
+
+Type: `"string"`. Optional.
+
+A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#ParseDuration) consisting
+of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
+(minutes), "h" (hours).
+
 <a id="canonical-0013023223022220-2123102012330222-1303111232221330-1132212122132321-0033302310122232-3202312332011201-1102233003122121-0013023202131123"></a>
 
 ## Next pages — timeouts / 321233111120 / 8
@@ -39,6 +115,7 @@ choice is for HTTP(S) LB only.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_conn_pool_reuse",
     "enable_conn_pool_reuse")}
 ```
@@ -229,6 +306,7 @@ Upstream TLS Parameters.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("default_session_key_caching",
     "disable_session_key_caching"),
   validators.ConflictingObjectAttributes("default_session_key_caching",
@@ -310,6 +388,7 @@ Number of session keys that are cached.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(2, 64),
 }
@@ -369,6 +448,7 @@ Exclusive with \[disable\_sni use\_host\_header\_as\_sni\] SNI value to be used.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -764,6 +844,7 @@ This defines various OPTIONS to configure TLS configuration parameters.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("custom_security",
     "default_security"),
   validators.ConflictingObjectAttributes("custom_security",
@@ -866,6 +947,7 @@ This defines TLS protocol config including min/max versions and allowed ciphers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("cipher_suites")}
 ```
 
@@ -959,6 +1041,8 @@ F5 Distributed Cloud will choose the optimal TLS version.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("TLS_AUTO",
     "TLSv1_0",
@@ -1010,6 +1094,8 @@ F5 Distributed Cloud will choose the optimal TLS version.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("TLS_AUTO",
     "TLSv1_0",
@@ -1316,6 +1402,7 @@ MTLS Client Certificate.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("tls_certificates")}
 ```
 
@@ -1385,6 +1472,7 @@ MTLS Client Certificate.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("certificate_url"),
   validators.ConflictingListObjectAttributes("custom_hash_algorithms",
     "disable_ocsp_stapling"),
@@ -1460,6 +1548,7 @@ TLS certificate. Certificate or certificate chain in PEM format including the PE
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -1565,6 +1654,7 @@ Specifies the hash algorithms to be used.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")}
 ```
 
@@ -1612,6 +1702,7 @@ Ordered list of hash algorithms to be used.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 4),
 }
@@ -1753,6 +1844,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -1825,6 +1917,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -1906,6 +1999,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -2023,6 +2117,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -2083,6 +2178,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -2234,6 +2330,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -2281,6 +2378,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -2346,6 +2444,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2418,6 +2517,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -2494,6 +2594,7 @@ Upstream TLS Validation Context.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("trusted_ca",
     "trusted_ca_url")}
 ```
@@ -2545,6 +2646,7 @@ verification of server's certificate.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -2632,6 +2734,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -2679,6 +2782,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -2744,6 +2848,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2816,6 +2921,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }

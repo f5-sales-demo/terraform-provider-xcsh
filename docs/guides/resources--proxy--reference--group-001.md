@@ -109,6 +109,7 @@ default value is 2000 (2 seconds)
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(1800000),
 }
@@ -283,6 +284,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -350,6 +352,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -399,7 +402,7 @@ Receipt-pinned upstream constraints:
 
 - [site_local_inside_network](resources--proxy--reference--group-004.md#canonical-2300220130222220-0321012100023110-3312120100301031-2332310123110321-0222103331130303-0122320111223322-2100122213201320-3222032202331000): complete subsection reference.
 
-- [site_local_network](resources--proxy--reference--group-004.md#canonical-1303132001322003-3222233301002011-1312320023221130-0032320032223121-2231221200221010-2211212211123222-1202133222332122-0032211113003013): complete subsection reference.
+- [site_local_network](resources--proxy--reference--group-005.md#canonical-1303132001322003-3222233301002011-1312320023221130-0032320032223121-2231221200221010-2211212211123222-1202133222332122-0032211113003013): complete subsection reference.
 
 - [site_virtual_sites](resources--proxy--reference--group-005.md#canonical-2231031213302012-1012133303113311-3002123232030330-2111023130330233-3022330222131101-1133112003113022-3202002122210211-1311102012032302): complete subsection reference.
 
@@ -433,7 +436,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `dynamic_proxy.http_proxy.more_option` | [dynamic_proxy.http_proxy.more_option](resources--proxy--reference--group-001.md#canonical-2012331230003322-1110102322230203-3230302030120130-0300223100313302-1332013220321120-2203020012201113-2022121111103102-1302030003300030) |
 | `dynamic_proxy.http_proxy.more_option.buffer_policy` | [dynamic_proxy.http_proxy.more_option.buffer_policy](resources--proxy--reference--group-001.md#canonical-2100310220321112-3301211120113113-2022003303013332-2211132133233021-1131001132202222-1003212130210031-2013010200012030-3003232333302203) |
 | `dynamic_proxy.http_proxy.more_option.buffer_policy.disabled` | [dynamic_proxy.http_proxy.more_option.buffer_policy.disabled](resources--proxy--reference--group-001.md#canonical-1312211323203300-2303101221313033-3103113102032222-2300100300131210-2101201221320213-1232032220000002-1113232200202032-3132210311103211) |
-| `dynamic_proxy.http_proxy.more_option.buffer_policy.max_request_bytes` | [dynamic_proxy.http_proxy.more_option.buffer_policy.max_request_bytes](resources--proxy--reference--group-001.md#canonical-2221131131333130-2222313200030313-0313031123032023-3012102102113210-3002201023322331-2320211013330232-0301110121110113-1213030100003233) |
+| `dynamic_proxy.http_proxy.more_option.buffer_policy.max_request_bytes` | [dynamic_proxy.http_proxy.more_option.buffer_policy.max_request_bytes](resources--proxy--reference--group-002.md#canonical-2221131131333130-2222313200030313-0313031123032023-3012102102113210-3002201023322331-2320211013330232-0301110121110113-1213030100003233) |
 | `dynamic_proxy.http_proxy.more_option.compression_params` | [dynamic_proxy.http_proxy.more_option.compression_params](resources--proxy--reference--group-002.md#canonical-0201033213231220-3001033300230203-3311012231233221-1001310312300023-3201210022303231-1331122112113032-2310333221020101-2313320231022123) |
 | `dynamic_proxy.http_proxy.more_option.compression_params.content_length` | [dynamic_proxy.http_proxy.more_option.compression_params.content_length](resources--proxy--reference--group-002.md#canonical-0122313201213300-1103023220101303-0230023313000303-2232130120122300-2230302030122132-1210022313113323-0011210130110323-3231003203212022) |
 | `dynamic_proxy.http_proxy.more_option.compression_params.content_type` | [dynamic_proxy.http_proxy.more_option.compression_params.content_type](resources--proxy--reference--group-002.md#canonical-3111221020223312-1031303020101233-2313233320203312-3311303100331003-3100000212011003-1101300321200312-2312223000023103-0212232031022232) |
@@ -745,7 +748,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `namespace` | [namespace](resources--proxy--reference--group-001.md#canonical-0011102331302022-0032213200233212-3102011000121310-3011130113223113-3032031001100002-0102222132032110-3111010021020033-3123112122111210) |
 | `no_forward_proxy_policy` | [no_forward_proxy_policy](resources--proxy--reference--group-004.md#canonical-1302311121130102-2131203200103320-1303323313202210-0113023213112321-0121211321110201-2311112312303120-1201103232201010-1112001213313132) |
 | `no_interception` | [no_interception](resources--proxy--reference--group-004.md#canonical-3332023313312012-3012310221032321-3101200211301200-2222112211033303-1033311031230203-0102333033323201-3101321210231120-3233331221000130) |
-| `site_local_inside_network` | [site_local_inside_network](resources--proxy--reference--group-004.md#canonical-3121123313321101-0001303002003321-2112130332133322-1102033212123313-1303202113031023-1012333112101221-2212211032231111-0323301233320300) |
+| `site_local_inside_network` | [site_local_inside_network](resources--proxy--reference--group-005.md#canonical-3121123313321101-0001303002003321-2112130332133322-1102033212123313-1303202113031023-1012333112101221-2212211032231111-0323301233320300) |
 | `site_local_network` | [site_local_network](resources--proxy--reference--group-005.md#canonical-3220322333321001-2032010012232201-0231323320030211-1123130120121020-2021030112012033-2213000303013330-0001000213111211-3213131133222023) |
 | `site_virtual_sites` | [site_virtual_sites](resources--proxy--reference--group-005.md#canonical-0333011221000001-0111132130112111-0231020012230322-3301122013323311-0123011330302122-0120213032111302-3301221321211312-3112303021033110) |
 | `site_virtual_sites.advertise_where` | [site_virtual_sites.advertise_where](resources--proxy--reference--group-005.md#canonical-2100110201320221-3330213111022300-3111200010313311-0331110213021031-2123233022023023-3121012211012322-3222213131320121-0203133310233020) |
@@ -809,7 +812,7 @@ Each exact path has one authoritative reference destination. Collection element 
 - [no_forward_proxy_policy](resources--proxy--reference--group-004.md#canonical-3333131321121110-3221311322032300-1111103312333233-0321012201211000-1102333201111020-0020303330301101-2313211321302213-0221203120310222)
 - [no_interception](resources--proxy--reference--group-004.md#canonical-3001311021210113-1203322120301211-2003112333102203-1131010301220310-1212123211110331-3201330202033133-1001002102301300-0023323331213323)
 - [site_local_inside_network](resources--proxy--reference--group-004.md#canonical-2300220130222220-0321012100023110-3312120100301031-2332310123110321-0222103331130303-0122320111223322-2100122213201320-3222032202331000)
-- [site_local_network](resources--proxy--reference--group-004.md#canonical-1303132001322003-3222233301002011-1312320023221130-0032320032223121-2231221200221010-2211212211123222-1202133222332122-0032211113003013)
+- [site_local_network](resources--proxy--reference--group-005.md#canonical-1303132001322003-3222233301002011-1312320023221130-0032320032223121-2231221200221010-2211212211123222-1202133222332122-0032211113003013)
 - [site_virtual_sites](resources--proxy--reference--group-005.md#canonical-2231031213302012-1012133303113311-3002123232030330-2111023130330233-3022330222131101-1133112003113022-3202002122210211-1311102012032302)
 - [timeouts](resources--proxy--reference--group-005.md#canonical-2113110122012210-0300103202002221-2012320121222331-2230022312003312-3203002101213002-1312002203112032-1202231032011220-3312233322001132)
 - [tls_intercept](resources--proxy--reference--group-005.md#canonical-1012032132320210-0010122100332331-0000321130320013-3133303110113120-0200133111003231-2120031011211003-1123012303313320-0010122102231031)
@@ -845,6 +848,7 @@ Ordered List of Forward Proxy Policies active.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("forward_proxy_policies")}
 ```
 
@@ -916,6 +920,7 @@ Ordered List of Forward Proxy Policies active.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -987,6 +992,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1052,6 +1058,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1124,6 +1131,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1260,6 +1268,7 @@ Type: `"object"`. single nested block, Optional.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("domains"),
   validators.ConflictingObjectAttributes("disable_dns_masquerade",
     "enable_dns_masquerade"),
@@ -1338,6 +1347,7 @@ unique across all virtual hosts within an advertise policy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 32),
 }
@@ -1620,6 +1630,7 @@ This defines various OPTIONS to define a route.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_path_normalize",
     "enable_path_normalize"),
   validators.ConflictingObjectAttributes("max_requests_per_connection",
@@ -1682,6 +1693,7 @@ matches for a request.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"ranges\":[[3,3],[4,4],[5,5],[300,599]],\"type\":\"uint32-string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.uint32.ranges\":\"3,4,5,300-599\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"65536\",\"ves.io.schema.rules.map.values.string.uri_ref\":\"true\"},\"values\":{\"format\":\"uri-reference\",\"maxLength\":65536,\"type\":\"string\"}}")}
 ```
 
@@ -1798,6 +1810,7 @@ has been received, otherwise the stream is reset.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(3600000),
 }
@@ -1857,6 +1870,7 @@ such load balancers is used for all the load balancers in question.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(96),
 }
@@ -1913,6 +1927,7 @@ request limit per connection.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(1),
 }
@@ -1965,6 +1980,7 @@ List of keys of Cookies to be removed from the HTTP request being sent towards u
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -2023,6 +2039,7 @@ List of keys of Headers to be removed from the HTTP request being sent towards u
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -2082,6 +2099,7 @@ set-cookie header will be removed.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -2140,6 +2158,7 @@ List of keys of Headers to be removed from the HTTP response being sent towards 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -2261,32 +2280,3 @@ buffer_policy {
 ## Direct properties — buffer_policy / 320321103313 / 3
 
 <a id="canonical-1312211323203300-2303101221313033-3103113102032222-2300100300131210-2101201221320213-1232032220000002-1113232200202032-3132210311103211"></a>
-
-<a id="canonical-3021222210010113-0130221120202010-2131213030331012-0310022303212111-2200212010130120-1123130031312001-0002112222213203-1300122231010202"></a>
-
-## disabled property — buffer_policy / 320321103313 / 4
-
-Type: `"bool"`. Optional.
-
-Disable buffering for a particular route. This is useful when virtual-host has buffering, but we
-need to disable it on a specific route. The value of this field is ignored for virtual-host.
-
-Upstream description:
-
-Disable buffering for a particular route. This is useful when virtual-host has buffering, but we
-need to disable it on a specific route. The value of this field is ignored for virtual-host.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-2221131131333130-2222313200030313-0313031123032023-3012102102113210-3002201023322331-2320211013330232-0301110121110113-1213030100003233"></a>

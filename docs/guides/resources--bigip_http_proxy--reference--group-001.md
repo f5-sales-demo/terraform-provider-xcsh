@@ -229,6 +229,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -296,6 +297,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -486,8 +488,8 @@ Each exact path has one authoritative reference destination. Collection element 
 | `proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip](resources--bigip_http_proxy--reference--group-002.md#canonical-0220300231313210-3332311301321130-3030320113320313-3300310102103031-3003312001331100-2123113302222023-2000113330300331-1312213033101121) |
 | `proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.ip` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.ip](resources--bigip_http_proxy--reference--group-002.md#canonical-3023233110110223-0112012031033223-3122313322000200-3122102330023132-2330112123322313-0012021000302000-0231330203303003-0310121300110223) |
 | `proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.network` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.network](resources--bigip_http_proxy--reference--group-002.md#canonical-2011101021100212-2333221011113000-2233212112220011-0302312103123032-1220002131021311-2003010303300233-0231033033200223-0211103031323101) |
-| `proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site](resources--bigip_http_proxy--reference--group-002.md#canonical-1002001211210232-2213230213230221-2112321102310310-1203230222110311-3133303313213330-2000222130200222-2330233033132232-2002002311111123) |
-| `proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.name` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.name](resources--bigip_http_proxy--reference--group-002.md#canonical-3322203021211320-0032023300311101-2101202110112303-1223302233203113-1031331302200130-3311330303220332-1302111321000000-0303100123112311) |
+| `proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site](resources--bigip_http_proxy--reference--group-003.md#canonical-1002001211210232-2213230213230221-2112321102310310-1203230222110311-3133303313213330-2000222130200222-2330233033132232-2002002311111123) |
+| `proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.name` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.name](resources--bigip_http_proxy--reference--group-003.md#canonical-3322203021211320-0032023300311101-2101202110112303-1223302233203113-1031331302200130-3311330303220332-1302111321000000-0303100123112311) |
 | `proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.namespace` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.namespace](resources--bigip_http_proxy--reference--group-003.md#canonical-2011132310020120-0103301113032110-2233212221323013-1030022200322211-1100120121130111-2100302221021131-3233201230301322-3123332120032111) |
 | `proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.tenant` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.tenant](resources--bigip_http_proxy--reference--group-003.md#canonical-2103301231100202-2331001223133322-3110313310200333-2212021103313101-0102333210223031-2210313310233021-1212221121221320-3101100333231030) |
 | `proxy_advertisement.advertise_custom.advertise_where.vk8s_service` | [proxy_advertisement.advertise_custom.advertise_where.vk8s_service](resources--bigip_http_proxy--reference--group-003.md#canonical-3301003031203220-1330003030032321-0233023302121333-1101120101330111-3003011300032322-3032233230133012-2022332121321220-0020132330021030) |
@@ -576,7 +578,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `proxy_config.https.tls_parameters.tls_certificates.private_key.clear_secret_info` | [proxy_config.https.tls_parameters.tls_certificates.private_key.clear_secret_info](resources--bigip_http_proxy--reference--group-003.md#canonical-3101321102031322-2010221022033033-3110011233010102-1132312122322000-1121203302023131-3301130212231331-0313000010132021-1200121313012321) |
 | `proxy_config.https.tls_parameters.tls_certificates.private_key.clear_secret_info.provider_ref` | [proxy_config.https.tls_parameters.tls_certificates.private_key.clear_secret_info.provider_ref](resources--bigip_http_proxy--reference--group-003.md#canonical-0110203200231022-2023013001221300-2203303231020311-2032020312220302-1203232200100002-2030101223302013-3011021003132223-2201332211032312) |
 | `proxy_config.https.tls_parameters.tls_certificates.private_key.clear_secret_info.url` | [proxy_config.https.tls_parameters.tls_certificates.private_key.clear_secret_info.url](resources--bigip_http_proxy--reference--group-003.md#canonical-2023202121220333-3310223010223223-3323320130200213-2022103011011220-3022133301303232-2130320133302202-0031110032320232-3230323032122111) |
-| `proxy_config.https.tls_parameters.tls_certificates.use_system_defaults` | [proxy_config.https.tls_parameters.tls_certificates.use_system_defaults](resources--bigip_http_proxy--reference--group-003.md#canonical-3300203102333201-1311112211011302-0031000102110232-2312210220211233-1002211132111022-1232202302023033-2232132100310132-0111012201021031) |
+| `proxy_config.https.tls_parameters.tls_certificates.use_system_defaults` | [proxy_config.https.tls_parameters.tls_certificates.use_system_defaults](resources--bigip_http_proxy--reference--group-004.md#canonical-3300203102333201-1311112211011302-0031000102110232-2312210220211233-1002211132111022-1232202302023033-2232132100310132-0111012201021031) |
 | `proxy_config.https.tls_parameters.tls_config` | [proxy_config.https.tls_parameters.tls_config](resources--bigip_http_proxy--reference--group-004.md#canonical-2103323030031233-2211133023111033-2132023100322132-2331320220012233-0223223032201022-1301023100321302-1102000013211332-3302012003202223) |
 | `proxy_config.https.tls_parameters.tls_config.custom_security` | [proxy_config.https.tls_parameters.tls_config.custom_security](resources--bigip_http_proxy--reference--group-004.md#canonical-2210003101010303-3213302030201200-1223323223330133-1101110322332312-1322302203210230-1310233210130310-3032112312000001-1303200130311330) |
 | `proxy_config.https.tls_parameters.tls_config.custom_security.cipher_suites` | [proxy_config.https.tls_parameters.tls_config.custom_security.cipher_suites](resources--bigip_http_proxy--reference--group-004.md#canonical-3323033112233302-2102233202022010-2031312223330323-0322112102033321-1130013033033131-0200122333003312-2310031023302223-1101200201111303) |
@@ -698,6 +700,7 @@ This defines various advanced Profile OPTIONS for a Loadbalancer.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_spec",
     "enable_default_profile")}
 ```
@@ -871,6 +874,7 @@ BIG-IP DDoS Protection Rules.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_ddos_mitigation",
     "enable_ddos_mitigation")}
 ```
@@ -1115,6 +1119,7 @@ OPTIONS for attaching iRules to BIG-IP HTTP Proxy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -1183,6 +1188,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1248,6 +1254,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1320,6 +1327,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1578,6 +1586,7 @@ List of Origin Pools.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -1645,6 +1654,7 @@ Name of the origin pool.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1719,6 +1729,7 @@ pools are made active as per the increasing priority.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 32),
 }
@@ -1830,6 +1841,7 @@ List of origin Servers for the BIG-IP HTTP Proxy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("origin_servers"),
   validators.ConflictingObjectAttributes("automatic_port",
     "lb_port"),
@@ -1890,6 +1902,7 @@ Exclusive with \[automatic\_port lb\_port\] Endpoint service is available on thi
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -2033,6 +2046,7 @@ Origin Server Health Checks.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("health_check",
     "healthy_threshold",
     "interval",
@@ -2088,6 +2102,7 @@ single successful health check is required to mark a host healthy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 16),
 }
@@ -2141,6 +2156,7 @@ Time interval in seconds between two health check requests.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 600),
 }
@@ -2203,6 +2219,7 @@ failure.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 600),
 }
@@ -2267,6 +2284,7 @@ immediately.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 16),
 }
@@ -2348,6 +2366,7 @@ List of Health Checks.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("icmp_health_check",
     "tcp_health_check")}
 ```
@@ -2510,6 +2529,7 @@ response pattern.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("expected_response",
     "send_payload")}
 ```
@@ -2552,6 +2572,7 @@ Specifies a regular expression pattern which will be matched against response pa
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(2048),
 }
@@ -2607,6 +2628,7 @@ Text string sent in the request.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(2048),
 }
@@ -2745,6 +2767,7 @@ List of origin servers for Proxy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("k8s_service",
     "private_ip"),
   validators.ConflictingListObjectAttributes("k8s_service",
@@ -2859,6 +2882,7 @@ Specify origin server with K8s service name and site information.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("inside_network",
     "outside_network"),
   validators.ConflictingObjectAttributes("inside_network",
@@ -2920,6 +2944,8 @@ Type of protocol
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["PROTOCOL_TCP","PROTOCOL_UDP"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("PROTOCOL_TCP",
     "PROTOCOL_UDP"),

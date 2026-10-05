@@ -105,7 +105,7 @@
         "xcsh-docs:data-sources:app_security_evidence:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -140,8 +140,8 @@
     },
     {
       "aliases": ["app security evidence"],
-      "body_bytes": 7220,
-      "body_sha256": "sha256:f70ee883b3f46863e026214546dafa29c6d9547a68b8cbc539010e0e01011185",
+      "body_bytes": 7481,
+      "body_sha256": "sha256:a55f8f81c7d607db76022a08813ddf396531cf564de2f92b08484718cbb4e799",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -150,7 +150,7 @@
         "xcsh-docs:data-sources:app_security_evidence:properties:sort_values"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -176,6 +176,8 @@
           "anchor": "section",
           "description": "Aggregations provide summary/analytics data over the security evidence response. If the number of security evidence that matched the query is large and cannot be returned in a single response message, user can GET helpful insights/summary using aggregations. The aggregations are key'ed by..",
           "document_id": "xcsh-docs:data-sources:app_security_evidence:properties:aggs",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -190,6 +192,8 @@
           "anchor": "schema-end_time",
           "description": "Fetch security evidence whose timestamp <= end_time format: unix_timestamp|RFC 3339 Optional: If not specified, then the end_time will be evaluated to start_time+10m If start_time is not specified, then the end_time will be evaluated to <current time>.",
           "document_id": "xcsh-docs:data-sources:app_security_evidence:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -204,6 +208,8 @@
           "anchor": "schema-evidences",
           "description": "List of security evidences that matched the query. Contains no more than 500 messages.",
           "document_id": "xcsh-docs:data-sources:app_security_evidence:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -218,6 +224,8 @@
           "anchor": "section",
           "description": "These are timestamp and doc_id values returned by elastic search in the search request. Client is expected to set these values in a subsequent request to GET the next page of results.",
           "document_id": "xcsh-docs:data-sources:app_security_evidence:properties:last_sort_values",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -232,6 +240,8 @@
           "anchor": "schema-limit",
           "description": "Limits the number of security evidence returned in the response Optional: If not specified, first or last 500 security evidence that matches the query (depending on the sort order) will be returned in the response. The maximum value for limit is 500.",
           "document_id": "xcsh-docs:data-sources:app_security_evidence:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -246,6 +256,8 @@
           "anchor": "schema-namespace",
           "description": "Namespace fetch security evidence for a given namespace.",
           "document_id": "xcsh-docs:data-sources:app_security_evidence:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -260,6 +272,8 @@
           "anchor": "schema-query",
           "description": "Query is used to specify the list of matchers syntax for query := {} <matcher> := <field_name><operator>'<value>' <field_name> := string One or more of these fields in the security evidence may be specified in the query. Domain - domain endpoint - endpoint evidence_id - evidence ID..",
           "document_id": "xcsh-docs:data-sources:app_security_evidence:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -274,6 +288,8 @@
           "anchor": "schema-search_after",
           "description": "Search After is used to retrieve large number of log messages (or all log messages) that matches the query. If search_after is set to true, the sort_values in the response can be used in the API to fetch the next batch of logs. The number of messages in each batch is determined by the limit field.",
           "document_id": "xcsh-docs:data-sources:app_security_evidence:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -288,6 +304,17 @@
           "anchor": "schema-sort",
           "description": "Sort algorithm Sort in descending order Sort in ascending order. Possible values are `DESCENDING`, `ASCENDING`. Defaults to `DESCENDING`.",
           "document_id": "xcsh-docs:data-sources:app_security_evidence:reference",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["ASCENDING", "DESCENDING"],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -302,6 +329,8 @@
           "anchor": "schema-sort_by",
           "description": "Optional: default is sort by last_event_time.",
           "document_id": "xcsh-docs:data-sources:app_security_evidence:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -316,6 +345,8 @@
           "anchor": "section",
           "description": "These are timestamp and doc_id values returned by elastic search in the search request. Client is expected to set these values in a subsequent request to GET the next page of results.",
           "document_id": "xcsh-docs:data-sources:app_security_evidence:properties:sort_values",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -330,6 +361,8 @@
           "anchor": "schema-start_time",
           "description": "Fetch security evidence whose timestamp >= start_time format: unix_timestamp|RFC 3339 Optional: If not specified, then the start_time will be evaluated to end_time-10m If end_time is not specified, then the start_time will be evaluated to <current time>-10m.",
           "document_id": "xcsh-docs:data-sources:app_security_evidence:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -344,6 +377,8 @@
           "anchor": "schema-total_hits",
           "description": "Total number of security events that matched the query.",
           "document_id": "xcsh-docs:data-sources:app_security_evidence:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -373,7 +408,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -413,7 +448,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -439,6 +474,8 @@
           "anchor": "schema-last_sort_values--last_doc_id",
           "description": "Unique UUID generated by elastic search.",
           "document_id": "xcsh-docs:data-sources:app_security_evidence:properties:last_sort_values",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -453,6 +490,8 @@
           "anchor": "schema-last_sort_values--last_timestamp",
           "description": "Configuration parameter for last timestamp.",
           "document_id": "xcsh-docs:data-sources:app_security_evidence:properties:last_sort_values",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -482,7 +521,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -508,6 +547,8 @@
           "anchor": "schema-sort_values--last_doc_id",
           "description": "Unique UUID generated by elastic search.",
           "document_id": "xcsh-docs:data-sources:app_security_evidence:properties:sort_values",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -522,6 +563,8 @@
           "anchor": "schema-sort_values--last_timestamp",
           "description": "Configuration parameter for last timestamp.",
           "document_id": "xcsh-docs:data-sources:app_security_evidence:properties:sort_values",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -551,7 +594,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:app_security_evidence:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -591,7 +634,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

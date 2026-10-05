@@ -221,6 +221,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -288,6 +289,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -413,7 +415,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `routes.response_cookies_to_add.add_httponly` | [routes.response_cookies_to_add.add_httponly](resources--route--reference--group-001.md#canonical-3313121310131313-1200232200002320-3010311302311013-2122300200132233-3303133131303232-1130131310212211-0332311211221100-3201310101003223) |
 | `routes.response_cookies_to_add.add_partitioned` | [routes.response_cookies_to_add.add_partitioned](resources--route--reference--group-001.md#canonical-3202102133211301-0232112122021123-2120010110011222-0030232300021313-1332102101311330-0023100303232031-2033120102210110-2230303000202322) |
 | `routes.response_cookies_to_add.add_path` | [routes.response_cookies_to_add.add_path](resources--route--reference--group-001.md#canonical-2210220010112201-3300213012203231-0211333312112032-0222122321312012-0103121222331313-2230212311003123-3203230030130032-0311033212032123) |
-| `routes.response_cookies_to_add.add_secure` | [routes.response_cookies_to_add.add_secure](resources--route--reference--group-001.md#canonical-2020200201210230-2101132301023322-3021310033200022-3012210121020011-3331330033132012-3133023231120033-0211312033023300-0332321220103220) |
+| `routes.response_cookies_to_add.add_secure` | [routes.response_cookies_to_add.add_secure](resources--route--reference--group-002.md#canonical-2020200201210230-2101132301023322-3021310033200022-3012210121020011-3331330033132012-3133023231120033-0211312033023300-0332321220103220) |
 | `routes.response_cookies_to_add.ignore_domain` | [routes.response_cookies_to_add.ignore_domain](resources--route--reference--group-002.md#canonical-0322223013231320-0112121303012213-2033222310022210-3220320033300333-3303222121233100-3011031111131100-1230212322003001-3333201222212323) |
 | `routes.response_cookies_to_add.ignore_expiry` | [routes.response_cookies_to_add.ignore_expiry](resources--route--reference--group-002.md#canonical-0223311001021311-3201101231101121-2123120013223303-1122232102103232-3310102311000001-1320100011330130-3222121133222001-0100131101111233) |
 | `routes.response_cookies_to_add.ignore_httponly` | [routes.response_cookies_to_add.ignore_httponly](resources--route--reference--group-002.md#canonical-1010300020330100-2003321200002321-2333210303203230-0313223021022011-0330330203323022-1302212210130212-2131312331320002-1120221002201310) |
@@ -521,9 +523,9 @@ Each exact path has one authoritative reference destination. Collection element 
 | `routes.route_destination.regex_rewrite.substitution` | [routes.route_destination.regex_rewrite.substitution](resources--route--reference--group-002.md#canonical-3132122230211331-0031333022032033-2113100322230131-3210001100100032-2220222021132230-2100332022103211-1123302122113223-1011103302200213) |
 | `routes.route_destination.retract_cluster` | [routes.route_destination.retract_cluster](resources--route--reference--group-002.md#canonical-3133033201021013-1220100131310331-1023103000323112-0322203333003220-0111303312211200-2012200320231002-2331332302211033-1110213301231210) |
 | `routes.route_destination.retry_policy` | [routes.route_destination.retry_policy](resources--route--reference--group-002.md#canonical-0332120203322330-0231001201132303-3131103033201212-1120133013223103-1202022020111333-0121203233322211-1110030301201322-0303332300101330) |
-| `routes.route_destination.retry_policy.back_off` | [routes.route_destination.retry_policy.back_off](resources--route--reference--group-002.md#canonical-2322231011021330-2102132021303133-3132030223101012-2210121213010213-0200032120022221-0031302302230023-3103312203222103-2020322003020233) |
-| `routes.route_destination.retry_policy.back_off.base_interval` | [routes.route_destination.retry_policy.back_off.base_interval](resources--route--reference--group-002.md#canonical-2213302023003231-3230112012222031-1101221232222011-1113223022002033-0201221202333130-3010212303332231-3311102330103111-2131202232330231) |
-| `routes.route_destination.retry_policy.back_off.max_interval` | [routes.route_destination.retry_policy.back_off.max_interval](resources--route--reference--group-002.md#canonical-0312303303212133-0310220220200023-0310123303300013-2323231000102133-2113013320110101-0313111321112222-1222121111103131-2111301021121001) |
+| `routes.route_destination.retry_policy.back_off` | [routes.route_destination.retry_policy.back_off](resources--route--reference--group-003.md#canonical-2322231011021330-2102132021303133-3132030223101012-2210121213010213-0200032120022221-0031302302230023-3103312203222103-2020322003020233) |
+| `routes.route_destination.retry_policy.back_off.base_interval` | [routes.route_destination.retry_policy.back_off.base_interval](resources--route--reference--group-003.md#canonical-2213302023003231-3230112012222031-1101221232222011-1113223022002033-0201221202333130-3010212303332231-3311102330103111-2131202232330231) |
+| `routes.route_destination.retry_policy.back_off.max_interval` | [routes.route_destination.retry_policy.back_off.max_interval](resources--route--reference--group-003.md#canonical-0312303303212133-0310220220200023-0310123303300013-2323231000102133-2113013320110101-0313111321112222-1222121111103131-2111301021121001) |
 | `routes.route_destination.retry_policy.num_retries` | [routes.route_destination.retry_policy.num_retries](resources--route--reference--group-002.md#canonical-3330313310300130-3312310312010001-3130022311003221-0230220102233132-2323201321202100-2210223100300010-2230203102012202-3233211212301120) |
 | `routes.route_destination.retry_policy.per_try_timeout` | [routes.route_destination.retry_policy.per_try_timeout](resources--route--reference--group-002.md#canonical-1001121203001131-0211103020313001-0301332131232112-1131011033213310-1001332013303300-2031301013131130-0111110211103001-0133002232303101) |
 | `routes.route_destination.retry_policy.retriable_status_codes` | [routes.route_destination.retry_policy.retriable_status_codes](resources--route--reference--group-002.md#canonical-2203021300100032-3203111312120103-1120203200023132-3032002101313003-1112120230223212-0333313011200302-0232121123231202-3333003103222300) |
@@ -600,6 +602,7 @@ List of routes to match for incoming request.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("bot_defense_javascript_injection",
     "inherited_bot_defense_javascript_injection"),
   validators.ConflictingListObjectAttributes("inherited_waf_exclusion",
@@ -709,6 +712,7 @@ List of keys of Cookies to be removed from the HTTP request being sent towards u
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -767,6 +771,7 @@ List of keys of Headers to be removed from the HTTP request being sent towards u
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -823,6 +828,7 @@ set-cookie header will be removed.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -881,6 +887,7 @@ List of keys of Headers to be removed from the HTTP response being sent towards 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -980,6 +987,7 @@ Bot Defense JavaScript Injection Configuration for inline bot defense deployment
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("javascript_tags")}
 ```
 
@@ -1031,6 +1039,8 @@ JavaScript before first tag.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["AFTER_HEAD","AFTER_TITLE_END","BEFORE_SCRIPT"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("AFTER_HEAD",
     "AFTER_TITLE_END",
@@ -1095,6 +1105,7 @@ JavaScript should be added first.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("javascript_url")}
 ```
 
@@ -1163,6 +1174,7 @@ Please enter the full URL (include domain and path), or relative path.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 2048),
 }
@@ -1311,6 +1323,8 @@ Select from one of the predefined tag attributes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["JS_ATTR_API_DOMAIN","JS_ATTR_API_PATH","JS_ATTR_API_URL","JS_ATTR_ASYNC","JS_ATTR_CID","JS_ATTR_CN","JS_ATTR_DEFER","JS_ATTR_ID"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("JS_ATTR_ID",
     "JS_ATTR_CID",
@@ -1364,6 +1378,7 @@ Add the tag attribute value.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -1622,6 +1637,8 @@ Any HTTP Method.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ANY","CONNECT","COPY","DELETE","GET","HEAD","OPTIONS","PATCH","POST","PUT","TRACE"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("ANY",
     "GET",
@@ -1712,6 +1729,7 @@ List of (key, value) headers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("exact",
     "presence"),
@@ -1785,6 +1803,7 @@ Exclusive with \[presence regular expression\] Header value to match exactly.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -1866,6 +1885,7 @@ Name of the header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1971,6 +1991,7 @@ Exclusive with \[exact presence\] regular expression match of the header value i
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2047,6 +2068,7 @@ Port match of the request can be a range or a specific port.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("no_port_match",
     "port"),
   validators.ConflictingObjectAttributes("no_port_match",
@@ -2100,6 +2122,7 @@ Exclusive with \[no\_port\_match port\_ranges\] Exact Port to match.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -2154,6 +2177,7 @@ Exclusive with \[no\_port\_match port\] Port range to match.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 32),
 }
@@ -2292,6 +2316,7 @@ Path match of the URI can be either be, Prefix match or exact match or regular e
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("path",
     "prefix"),
   validators.ConflictingObjectAttributes("path",
@@ -2343,6 +2368,7 @@ Exclusive with \[prefix regular expression\] Exact path value to match.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2400,6 +2426,7 @@ Exclusive with \[path regular expression\] Path prefix to match (e.g. The value 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -2457,6 +2484,7 @@ all paths)
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2541,6 +2569,7 @@ List of (key, value) query parameters.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("key"),
   validators.ConflictingListObjectAttributes("exact",
     "regex")}
@@ -2646,6 +2675,7 @@ Query parameter key In the above example, assignee\_username is the key.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2709,6 +2739,7 @@ Exclusive with \[exact\] regular expression match value for the query parameter 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2788,6 +2819,7 @@ Cookies are key-value pairs to be added to HTTP request being routed towards ups
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("secret_value",
     "value")}
@@ -2856,6 +2888,7 @@ Name of the cookie in Cookie header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2958,6 +2991,7 @@ Exclusive with \[secret\_value\] Value of the Cookie header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(8096),
 }
@@ -3029,6 +3063,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -3100,6 +3135,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -3181,6 +3217,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -3297,6 +3334,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -3357,6 +3395,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -3447,6 +3486,7 @@ specified at this level are applied before headers from the enclosing VirtualHos
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("secret_value",
     "value")}
@@ -3541,6 +3581,7 @@ Name of the HTTP header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -3612,6 +3653,7 @@ Exclusive with \[secret\_value\] Value of the HTTP header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(8096),
 }
@@ -3683,6 +3725,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -3754,6 +3797,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -3835,6 +3879,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -3951,6 +3996,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -4011,6 +4057,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -4096,6 +4143,7 @@ being sent towards downstream.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("add_domain",
     "ignore_domain"),
@@ -4194,6 +4242,7 @@ Exclusive with \[ignore\_domain\] Add domain attribute.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -4254,6 +4303,7 @@ Exclusive with \[ignore\_expiry\] Add expiry attribute.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -4311,6 +4361,7 @@ Exclusive with \[ignore\_path\] Add path attribute.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -4386,6 +4437,7 @@ Exclusive with \[ignore\_max\_age\] Add max age attribute.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(34560000),
 }
@@ -4438,6 +4490,7 @@ Name of the cookie in Cookie header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -4546,6 +4599,7 @@ Exclusive with \[ignore\_value secret\_value\] Value of the Cookie header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(8096),
 }
@@ -4730,50 +4784,3 @@ This is an empty object or choice marker. It has no direct properties.
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-0021102322011211-3333002020121233-0120200003133200-2220303021311201-3203202123122222-3233012131013310-2320331200320300-1313103102102121"></a>
-
-## routes.response_cookies_to_add.add_secure — add_secure / 103332131223 / 2
-
-Breadcrumbs:
-
-- [xcsh_route](../resources/route.md#canonical-2032020033333212-1122013011031221-2111330322212302-0032132111212121-3023032322101232-1231332022020023-2021133001000111-2130020232210312)
-- [Property reference](resources--route--reference--group-001.md#canonical-3222103030211311-3130310001310032-2022203231320131-3102313133133331-2221123101031120-0130311122011322-0010220330230103-1030212032020232)
-- [routes](resources--route--reference--group-001.md#canonical-3123120021213101-3123232233023211-0220000122002101-2303300120130232-3310221113321032-1122210133233232-3320330200321212-2120210203132130)
-- [routes.response_cookies_to_add](resources--route--reference--group-001.md#canonical-1012103221102121-0311302110220133-3312032210222233-2321211003121320-3110000121321323-2231112320331231-3120130302021121-2113210223220100)
-- routes.response_cookies_to_add.add_secure
-
-<a id="canonical-2020200201210230-2101132301023322-3021310033200022-3012210121020011-3331330033132012-3133023231120033-0211312033023300-0332321220103220"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-add_secure = {}
-```
-
-<a id="canonical-1302003012032213-3320013321112211-0310301303332200-2131103321312330-2100120002231132-3220103102101032-1103213212230321-0320023213302310"></a>
-
-## Direct properties — add_secure / 103332131223 / 3
-
-This is an empty object or choice marker. It has no direct properties.

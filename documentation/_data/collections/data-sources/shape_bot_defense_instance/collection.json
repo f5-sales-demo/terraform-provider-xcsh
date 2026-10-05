@@ -50,7 +50,7 @@
         "xcsh-docs:data-sources:shape_bot_defense_instance:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -91,7 +91,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -117,6 +117,8 @@
           "anchor": "schema-annotations",
           "description": "Annotations.",
           "document_id": "xcsh-docs:data-sources:shape_bot_defense_instance:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -131,6 +133,8 @@
           "anchor": "schema-description",
           "description": "Description.",
           "document_id": "xcsh-docs:data-sources:shape_bot_defense_instance:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -145,6 +149,8 @@
           "anchor": "schema-id",
           "description": "Unique identifier.",
           "document_id": "xcsh-docs:data-sources:shape_bot_defense_instance:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -159,6 +165,8 @@
           "anchor": "schema-labels",
           "description": "Labels.",
           "document_id": "xcsh-docs:data-sources:shape_bot_defense_instance:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -173,6 +181,8 @@
           "anchor": "schema-name",
           "description": "Name of the ShapeBotDefenseInstance to look up.",
           "document_id": "xcsh-docs:data-sources:shape_bot_defense_instance:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -187,6 +197,8 @@
           "anchor": "schema-namespace",
           "description": "Namespace of the ShapeBotDefenseInstance.",
           "document_id": "xcsh-docs:data-sources:shape_bot_defense_instance:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -216,7 +228,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:shape_bot_defense_instance:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -256,7 +268,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

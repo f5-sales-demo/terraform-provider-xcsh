@@ -227,6 +227,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -294,6 +295,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -382,7 +384,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `virtual_server.access_profile.uid` | [virtual_server.access_profile.uid](resources--application_profiles--reference--group-001.md#canonical-0021311103300301-2023023131211133-3123101003001111-3213030232303001-3001001321222230-2221011230103332-3013300113202012-2012301323130030) |
 | `virtual_server.address_translation` | [virtual_server.address_translation](resources--application_profiles--reference--group-001.md#canonical-0300032312110001-3232021231013033-1202233220030012-2010213320123213-1112002012130110-0220131220101001-3220320331312001-0011330303333322) |
 | `virtual_server.address_translation.address_translation_disable` | [virtual_server.address_translation.address_translation_disable](resources--application_profiles--reference--group-001.md#canonical-0012120321210313-1132301022231031-3132112031313330-1101133222033112-2212223011012323-3023223302313030-1030201213021112-2011302032200230) |
-| `virtual_server.address_translation.address_translation_enable` | [virtual_server.address_translation.address_translation_enable](resources--application_profiles--reference--group-001.md#canonical-0331233123202101-2133022100220113-1033121202222303-0322123011213123-1011231330332022-3320310111310102-3033102012312201-1023303213331222) |
+| `virtual_server.address_translation.address_translation_enable` | [virtual_server.address_translation.address_translation_enable](resources--application_profiles--reference--group-002.md#canonical-0331233123202101-2133022100220113-1033121202222303-0322123011213123-1011231330332022-3320310111310102-3033102012312201-1023303213331222) |
 | `virtual_server.auto_last_hop` | [virtual_server.auto_last_hop](resources--application_profiles--reference--group-002.md#canonical-2102003333002100-3120130233030201-2230023011033122-1122220031100031-0002012133223230-1220000021212230-2313302313111212-3212210233202022) |
 | `virtual_server.auto_last_hop.auto_last_hop_default` | [virtual_server.auto_last_hop.auto_last_hop_default](resources--application_profiles--reference--group-002.md#canonical-0200312103221313-1103111200001032-1221002220011310-0112113223110233-3233322010331203-3230013203122122-1130012233102331-2313231022313131) |
 | `virtual_server.auto_last_hop.auto_last_hop_disable` | [virtual_server.auto_last_hop.auto_last_hop_disable](resources--application_profiles--reference--group-002.md#canonical-3333323311300221-1032210323101131-3110013321303220-0201100332302123-0222310211320100-1300320120332311-1223000303202000-2331032230221011) |
@@ -545,10 +547,10 @@ Each exact path has one authoritative reference destination. Collection element 
 | `virtual_server.http3.quic_profile.namespace` | [virtual_server.http3.quic_profile.namespace](resources--application_profiles--reference--group-002.md#canonical-3231202020111232-2023212123121022-0013223123210310-1000103102302133-1001211103302122-1233230200223323-3022002231312230-2320032132321003) |
 | `virtual_server.http3.quic_profile.tenant` | [virtual_server.http3.quic_profile.tenant](resources--application_profiles--reference--group-002.md#canonical-0331231031100010-3132103210320110-0022122310201313-3321332303100102-3011332133013120-0320112123112312-0310101003223203-1010123301102220) |
 | `virtual_server.http3.quic_profile.uid` | [virtual_server.http3.quic_profile.uid](resources--application_profiles--reference--group-002.md#canonical-1010230110221332-1202213231322301-2211100303001133-1233022232001102-3013100232223000-1131211102001003-3020100002231201-1313212101102330) |
-| `virtual_server.http3.server_ssl_profile` | [virtual_server.http3.server_ssl_profile](resources--application_profiles--reference--group-002.md#canonical-3011020032120132-2302133210113203-2231330200220020-2011300122312220-2130310201130222-1203123211131010-0021313120101311-3230333210021311) |
-| `virtual_server.http3.server_ssl_profile.kind` | [virtual_server.http3.server_ssl_profile.kind](resources--application_profiles--reference--group-002.md#canonical-3123101132120311-1121210230331331-1233123311113011-3322112010310111-0002012322121331-3020203322032132-3113233321330202-1312213011201132) |
-| `virtual_server.http3.server_ssl_profile.name` | [virtual_server.http3.server_ssl_profile.name](resources--application_profiles--reference--group-002.md#canonical-3303131301110201-1021303100323033-0101202321000101-3210132321223212-3200121332322323-1033002303110310-2002211221031022-2132320312200213) |
-| `virtual_server.http3.server_ssl_profile.namespace` | [virtual_server.http3.server_ssl_profile.namespace](resources--application_profiles--reference--group-002.md#canonical-3330222313300323-1300303111103222-1212310233133110-2310133303300312-0010323332131012-3320202010313020-1311231111223120-0230231231131333) |
+| `virtual_server.http3.server_ssl_profile` | [virtual_server.http3.server_ssl_profile](resources--application_profiles--reference--group-003.md#canonical-3011020032120132-2302133210113203-2231330200220020-2011300122312220-2130310201130222-1203123211131010-0021313120101311-3230333210021311) |
+| `virtual_server.http3.server_ssl_profile.kind` | [virtual_server.http3.server_ssl_profile.kind](resources--application_profiles--reference--group-003.md#canonical-3123101132120311-1121210230331331-1233123311113011-3322112010310111-0002012322121331-3020203322032132-3113233321330202-1312213011201132) |
+| `virtual_server.http3.server_ssl_profile.name` | [virtual_server.http3.server_ssl_profile.name](resources--application_profiles--reference--group-003.md#canonical-3303131301110201-1021303100323033-0101202321000101-3210132321223212-3200121332322323-1033002303110310-2002211221031022-2132320312200213) |
+| `virtual_server.http3.server_ssl_profile.namespace` | [virtual_server.http3.server_ssl_profile.namespace](resources--application_profiles--reference--group-003.md#canonical-3330222313300323-1300303111103222-1212310233133110-2310133303300312-0010323332131012-3320202010313020-1311231111223120-0230231231131333) |
 | `virtual_server.http3.server_ssl_profile.tenant` | [virtual_server.http3.server_ssl_profile.tenant](resources--application_profiles--reference--group-003.md#canonical-2330313112311101-2323331322211132-3032313321111113-2133000113202002-2300220332223110-2230130012233031-2010002010020222-0003033320100202) |
 | `virtual_server.http3.server_ssl_profile.uid` | [virtual_server.http3.server_ssl_profile.uid](resources--application_profiles--reference--group-003.md#canonical-0203003212200112-3310300301310211-2323330302211331-3322110132233122-1003021030333111-1012130322132301-0003003311211121-0001103031022320) |
 | `virtual_server.http3.tcp_server_profile` | [virtual_server.http3.tcp_server_profile](resources--application_profiles--reference--group-003.md#canonical-2112022202030023-0100133022230321-0003322233201012-1233302133322131-1221012120113011-1300301322102201-3220232232012300-2313211223230131) |
@@ -705,7 +707,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `virtual_server.tcp.tcp_server_profile.namespace` | [virtual_server.tcp.tcp_server_profile.namespace](resources--application_profiles--reference--group-003.md#canonical-2120132210000323-2102211130312203-1223202021100201-2131133002303321-3203123113221012-2213313132001133-1102132201232002-1021032020110230) |
 | `virtual_server.tcp.tcp_server_profile.tenant` | [virtual_server.tcp.tcp_server_profile.tenant](resources--application_profiles--reference--group-003.md#canonical-2030130300331200-1133103021231303-0312010033233120-1332321301230300-2002110230112212-2010022302000312-0122331020010202-3031032010011133) |
 | `virtual_server.tcp.tcp_server_profile.uid` | [virtual_server.tcp.tcp_server_profile.uid](resources--application_profiles--reference--group-003.md#canonical-3222222311333301-2121222012111010-1002102211212032-2321032311302023-2312132301021221-2013023103122003-2023330233313221-3202312331301211) |
-| `virtual_server.udp` | [virtual_server.udp](resources--application_profiles--reference--group-003.md#canonical-0202310031202010-2013230330033220-3203120030300320-3233311000332012-2333000000230213-3011230113132321-2311033300201330-2320323313023303) |
+| `virtual_server.udp` | [virtual_server.udp](resources--application_profiles--reference--group-004.md#canonical-0202310031202010-2013230330033220-3203120030300320-3233311000332012-2333000000230213-3011230113132321-2311033300201330-2320323313023303) |
 | `virtual_server.udp.client_ssl_profile` | [virtual_server.udp.client_ssl_profile](resources--application_profiles--reference--group-004.md#canonical-3033031223130232-3113223130200330-2021133322032131-2121022022233233-0110300131213332-1221213010021110-2033230033101033-1301003103210032) |
 | `virtual_server.udp.client_ssl_profile.kind` | [virtual_server.udp.client_ssl_profile.kind](resources--application_profiles--reference--group-004.md#canonical-0112221330330033-0123100222330113-0000131223033231-3122001033223013-2313131213121103-3032233332110211-0112002133302311-0012332122121212) |
 | `virtual_server.udp.client_ssl_profile.name` | [virtual_server.udp.client_ssl_profile.name](resources--application_profiles--reference--group-004.md#canonical-3310003111312011-0110110302200230-1310313220211111-1320110221232332-1232133312013202-1032321212101131-3233002001333230-0003032200000230) |
@@ -775,6 +777,7 @@ BIG-IP Advanced TCP Profile.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_tcp_advanced_profile",
     "enable_tcp_advanced_profile")}
 ```
@@ -965,6 +968,7 @@ BIG-IP DDoS Protection Rules.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_ddos_mitigation",
     "enable_ddos_mitigation")}
 ```
@@ -1291,6 +1295,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1535,6 +1540,7 @@ Specifies configuration related to virtual server.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("http",
     "http3"),
   validators.ConflictingObjectAttributes("http",
@@ -1612,6 +1618,7 @@ to 0 turns off connection limits. The default is 0.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 600000),
 }
@@ -1673,6 +1680,7 @@ default is 0.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 600000),
 }
@@ -1768,6 +1776,7 @@ metric is applied for the virtual server.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 600000),
 }
@@ -2003,6 +2012,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -2168,6 +2178,7 @@ enabled.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("address_translation_disable",
     "address_translation_enable")}
 ```
@@ -2276,44 +2287,3 @@ This is an empty object or choice marker. It has no direct properties.
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-3322023020022301-2132113303330020-1313301112213113-2001332203322333-2130133301231312-0200300132302131-2311032211102103-3101130011330232"></a>
-
-## virtual_server.address_translation.address_translation_enable — address_translation_enable / 321203012100 / 2
-
-Breadcrumbs:
-
-- [xcsh_application_profiles](../resources/application_profiles.md#canonical-0000323322010330-0102233213231021-3032332212013010-3121121333300110-2011320110200320-2330030330011323-3130301212021020-3133003102002130)
-- [Property reference](resources--application_profiles--reference--group-001.md#canonical-1000000221200332-2332020132023330-1113003211333221-0213203120201020-3120301011022333-3130031323012121-0123000301113121-2121031301023112)
-- [virtual_server](resources--application_profiles--reference--group-001.md#canonical-2022300032020022-3032121011332332-1323022132101011-3131133312011330-0010301011103100-3020120030331310-3302110001211033-0012330101021312)
-- [virtual_server.address_translation](resources--application_profiles--reference--group-001.md#canonical-3021112011013001-3231012202002003-2211233300032133-1313022100111002-1312313102121203-1032312311312031-2201100330021010-0102103013113132)
-- virtual_server.address_translation.address_translation_enable
-
-<a id="canonical-0331233123202101-2133022100220113-1033121202222303-0322123011213123-1011231330332022-3320310111310102-3033102012312201-1023303213331222"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-address_translation_enable = {}
-```

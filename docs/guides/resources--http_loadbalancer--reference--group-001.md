@@ -307,6 +307,7 @@ list of names for which DNS resolution will be automatically resolved to IP addr
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 32),
 }
@@ -372,7 +373,7 @@ Receipt-pinned upstream constraints:
 
 - [graphql_rules](resources--http_loadbalancer--reference--group-018.md#canonical-0103131211230021-3322322013030331-0002300200111211-3023323230210012-3210222101001300-3011023202322230-0123031212122011-2102122120303112): complete subsection reference.
 
-- [http](resources--http_loadbalancer--reference--group-018.md#canonical-3201330110311330-2123203220332301-2010310002232302-2200333212132031-2112023132010213-3001201001222010-0222333320131100-0013020102021323): complete subsection reference.
+- [http](resources--http_loadbalancer--reference--group-019.md#canonical-3201330110311330-2123203220332301-2010310002232302-2200333212132031-2112023132010213-3001201001222010-0222333320131100-0013020102021323): complete subsection reference.
 
 - [https](resources--http_loadbalancer--reference--group-019.md#canonical-0321232101200210-0011302000022301-2002321223210110-0303132310312201-0222311023330031-3231011200231021-2012211321122303-0001332120000102): complete subsection reference.
 
@@ -398,7 +399,7 @@ Unique identifier for the resource.
 
 - [l7_ddos_action_js_challenge](resources--http_loadbalancer--reference--group-020.md#canonical-1130022200313200-0012221203233323-2031132210123022-0122213131223223-0033223300233010-3030023013112322-3321030210121223-0130102321222031): complete subsection reference.
 
-- [l7_ddos_protection](resources--http_loadbalancer--reference--group-020.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211): complete subsection reference.
+- [l7_ddos_protection](resources--http_loadbalancer--reference--group-021.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211): complete subsection reference.
 
 <a id="canonical-3020010001030301-2132021001231203-3333220320322020-2031320223030231-0110033230012211-3001313111301100-1101333023200311-0213131303001033"></a>
 
@@ -456,6 +457,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -523,6 +525,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -588,11 +591,11 @@ Receipt-pinned upstream constraints:
 
 - [sensitive_data_disclosure_rules](resources--http_loadbalancer--reference--group-026.md#canonical-3010130000211103-2132323303233130-3123203102231323-2302320310112320-0023100231121123-3223331112120111-3300221200232213-1133321320223332): complete subsection reference.
 
-- [sensitive_data_policy](resources--http_loadbalancer--reference--group-026.md#canonical-3300321023010221-0210333331122211-1013103230213030-3001321133032323-0100212010332121-1322030300320113-3031022123002130-1203331012330020): complete subsection reference.
+- [sensitive_data_policy](resources--http_loadbalancer--reference--group-027.md#canonical-3300321023010221-0210333331122211-1013103230213030-3001321133032323-0100212010332121-1322030300320113-3031022123002130-1203331012330020): complete subsection reference.
 
-- [service_policies_from_namespace](resources--http_loadbalancer--reference--group-026.md#canonical-3320321312231220-2203023313122012-3333323031313130-0133112032311321-1013010313122112-3211000010020331-1110330001120132-0323002112221111): complete subsection reference.
+- [service_policies_from_namespace](resources--http_loadbalancer--reference--group-027.md#canonical-3320321312231220-2203023313122012-3333323031313130-0133112032311321-1013010313122112-3211000010020331-1110330001120132-0323002112221111): complete subsection reference.
 
-- [single_lb_app](resources--http_loadbalancer--reference--group-026.md#canonical-1310003232121331-1310031211031211-0032102003301212-1322003031311002-0103320322323000-1030132321201022-1330102301233302-0231033122321203): complete subsection reference.
+- [single_lb_app](resources--http_loadbalancer--reference--group-027.md#canonical-1310003232121331-1310031211031211-0032102003301212-1322003031311002-0103320322323000-1030132321201022-1330102301233302-0231033122321203): complete subsection reference.
 
 - [slow_ddos_mitigation](resources--http_loadbalancer--reference--group-027.md#canonical-3333311120100023-2230031010023220-2013013300321213-0302220321233313-0222113033133022-2131111320010323-2303320333133122-3002301330000322): complete subsection reference.
 

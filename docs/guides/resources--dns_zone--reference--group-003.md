@@ -6,6 +6,140 @@ description: "Complete grouped canonical reference for xcsh_dns_zone reference."
 
 # xcsh_dns_zone reference
 
+<a id="canonical-1230200010210003-2223301210223102-1103002303320013-2120023000212111-0321233110112030-2313230233232022-1200231211230102-3022001212231321"></a>
+
+## primary.rr_set_group.rr_set.cds_record — cds_record / 320300332131 / 2
+
+Breadcrumbs:
+
+- [xcsh_dns_zone](../resources/dns_zone.md#canonical-3231313303010030-0100221022033133-1333032030112013-0210022032301013-1120013101322111-1000210022113233-0321110131313221-2020312231302323)
+- [Property reference](resources--dns_zone--reference--group-001.md#canonical-0002310333001131-3221310230020300-1100323210113110-3011332112013233-0233233022020303-3111100323111003-0322213130311210-0302210132212031)
+- [primary](resources--dns_zone--reference--group-001.md#canonical-3123202203020311-2202302013313012-1330131221123210-3030331200201223-0320013021212223-0000332003102102-1303330133001310-3322331220312312)
+- [primary.rr_set_group](resources--dns_zone--reference--group-002.md#canonical-1231233131102130-3033122123213221-0200212121031323-0310313200103100-1133203333000312-0022023033122202-1122010230320231-0230033302322110)
+- [primary.rr_set_group.rr_set](resources--dns_zone--reference--group-002.md#canonical-3302221210003330-0233000030131300-2222332320003010-3202211132313210-1200111232120201-2121200231313301-3123021322110010-3031200330020313)
+- primary.rr_set_group.rr_set.cds_record
+
+<a id="canonical-3012220321222313-2102100303223132-3320001303231312-1113220202122233-3233033202202311-3303302130320322-3130001301210120-3230110112300123"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+DNS CDS Record. DNS CDS Record.
+
+Upstream description:
+
+DNS CDS Record.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.RequiredObjectAttributes("values")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+cds_record {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1110121023220131-0112103103111233-1103110030110032-2113210103113233-0232130033131322-2310320112313032-0033313120130032-3313000322222031"></a>
+
+## Direct properties — cds_record / 320300332131 / 3
+
+<a id="canonical-1202020213032001-1221001000120313-0200233210221010-1120001323311232-0231212323131302-1220021102102332-1111103201120221-0023103032201132"></a>
+
+<a id="canonical-0122321102113013-1123212013311321-3221302311033230-3303303012322231-0221320012122012-2231301311000023-2130221300233202-1231012330021311"></a>
+
+## name property — cds_record / 320300332131 / 4
+
+Type: `"string"`. Optional.
+
+CDS Record name, please provide only the specific subdomain or record name without the base domain.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 63),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^([a-zA-Z0-9*?]|([a-zA-Z0-9?*]+-[a-zA-Z0-9*?]+)){0,253}",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.pattern": "^([a-zA-Z0-9*?]|([a-zA-Z0-9?*]+-[a-zA-Z0-9*?]+)){0,253}"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.pattern": "^([a-zA-Z0-9*?]|([a-zA-Z0-9?*]+-[a-zA-Z0-9*?]+)){0,253}"
+  }
+}
+```
+
+- [values](resources--dns_zone--reference--group-003.md#canonical-3210332002003011-3212202303112030-0233233020201030-0213213201231121-1230302323101103-1121333022200310-2102321330133323-3033330230013033): complete subsection reference.
+
+<a id="canonical-2021121311011300-2131331220222120-1122213023102211-2333211030203321-2223003223000032-0232121200330020-3130020322301300-3330233330002101"></a>
+
+## Next pages — cds_record / 320300332131 / 5
+
+- [primary.rr_set_group.rr_set.cds_record.values](resources--dns_zone--reference--group-003.md#canonical-3210332002003011-3212202303112030-0233233020201030-0213213201231121-1230302323101103-1121333022200310-2102321330133323-3033330230013033)
+- [primary.rr_set_group.rr_set](resources--dns_zone--reference--group-002.md#canonical-3302221210003330-0233000030131300-2222332320003010-3202211132313210-1200111232120201-2121200231313301-3123021322110010-3031200330020313)
+- [xcsh_dns_zone](../resources/dns_zone.md#canonical-3231313303010030-0100221022033133-1333032030112013-0210022032301013-1120013101322111-1000210022113233-0321110131313221-2020312231302323)
+
+<a id="canonical-3210332002003011-3212202303112030-0233233020201030-0213213201231121-1230302323101103-1121333022200310-2102321330133323-3033330230013033"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-0001300212220323-1333231020303312-0212021133010032-0022311233222100-2002222030332102-3303013031010311-3223231310113220-2121113133112121"></a>
 
 ## primary.rr_set_group.rr_set.cds_record.values — values / 012312233223 / 2
@@ -33,6 +167,7 @@ Configuration parameter for values
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("key_tag"),
   validators.ConflictingListObjectAttributes("sha1_digest",
     "sha256_digest"),
@@ -132,6 +267,8 @@ DS key-value must be compatible with the specified algorithm.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ECDSAP256SHA256","ECDSAP384SHA384","ED25519","ED448","RSASHA1","RSASHA1NSEC3SHA1","RSASHA256","RSASHA512","UNSPECIFIED"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("UNSPECIFIED",
     "RSASHA1",
@@ -187,6 +324,7 @@ A short numeric value which can help quickly identify the referenced DNSKEY-reco
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -261,7 +399,7 @@ Breadcrumbs:
 - [primary.rr_set_group](resources--dns_zone--reference--group-002.md#canonical-1231233131102130-3033122123213221-0200212121031323-0310313200103100-1133203333000312-0022023033122202-1122010230320231-0230033302322110)
 - [primary.rr_set_group.rr_set](resources--dns_zone--reference--group-002.md#canonical-3302221210003330-0233000030131300-2222332320003010-3202211132313210-1200111232120201-2121200231313301-3123021322110010-3031200330020313)
 - [primary.rr_set_group.rr_set.cds_record](resources--dns_zone--reference--group-002.md#canonical-0212131200323302-0300321013230033-2121301221232203-0233133001113103-3201313000002021-1131310322331320-1013231302130100-1033333322030133)
-- [primary.rr_set_group.rr_set.cds_record.values](resources--dns_zone--reference--group-002.md#canonical-3210332002003011-3212202303112030-0233233020201030-0213213201231121-1230302323101103-1121333022200310-2102321330133323-3033330230013033)
+- [primary.rr_set_group.rr_set.cds_record.values](resources--dns_zone--reference--group-003.md#canonical-3210332002003011-3212202303112030-0233233020201030-0213213201231121-1230302323101103-1121333022200310-2102321330133323-3033330230013033)
 - primary.rr_set_group.rr_set.cds_record.values.sha1_digest
 
 <a id="canonical-3033132103122202-2320322021002103-2212203030021003-3313002010003333-0320010103312010-3332021022111200-0130221032312321-1230113302010031"></a>
@@ -273,6 +411,7 @@ Configuration parameter for sha1 digest.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("digest")}
 ```
 
@@ -314,6 +453,7 @@ The 'digest' is the DS key and the actual contents of the DS record.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(40, 40),
 }
@@ -360,7 +500,7 @@ Receipt-pinned upstream constraints:
 
 ## Next pages — sha1_digest / 122023003223 / 5
 
-- [primary.rr_set_group.rr_set.cds_record.values](resources--dns_zone--reference--group-002.md#canonical-3210332002003011-3212202303112030-0233233020201030-0213213201231121-1230302323101103-1121333022200310-2102321330133323-3033330230013033)
+- [primary.rr_set_group.rr_set.cds_record.values](resources--dns_zone--reference--group-003.md#canonical-3210332002003011-3212202303112030-0233233020201030-0213213201231121-1230302323101103-1121333022200310-2102321330133323-3033330230013033)
 - [xcsh_dns_zone](../resources/dns_zone.md#canonical-3231313303010030-0100221022033133-1333032030112013-0210022032301013-1120013101322111-1000210022113233-0321110131313221-2020312231302323)
 
 <a id="canonical-2302310320330210-0313333002331000-2112300301232232-3322031231010011-2101010213322220-3111320011201223-3300032310020120-3321323123001031"></a>
@@ -381,7 +521,7 @@ Breadcrumbs:
 - [primary.rr_set_group](resources--dns_zone--reference--group-002.md#canonical-1231233131102130-3033122123213221-0200212121031323-0310313200103100-1133203333000312-0022023033122202-1122010230320231-0230033302322110)
 - [primary.rr_set_group.rr_set](resources--dns_zone--reference--group-002.md#canonical-3302221210003330-0233000030131300-2222332320003010-3202211132313210-1200111232120201-2121200231313301-3123021322110010-3031200330020313)
 - [primary.rr_set_group.rr_set.cds_record](resources--dns_zone--reference--group-002.md#canonical-0212131200323302-0300321013230033-2121301221232203-0233133001113103-3201313000002021-1131310322331320-1013231302130100-1033333322030133)
-- [primary.rr_set_group.rr_set.cds_record.values](resources--dns_zone--reference--group-002.md#canonical-3210332002003011-3212202303112030-0233233020201030-0213213201231121-1230302323101103-1121333022200310-2102321330133323-3033330230013033)
+- [primary.rr_set_group.rr_set.cds_record.values](resources--dns_zone--reference--group-003.md#canonical-3210332002003011-3212202303112030-0233233020201030-0213213201231121-1230302323101103-1121333022200310-2102321330133323-3033330230013033)
 - primary.rr_set_group.rr_set.cds_record.values.sha256_digest
 
 <a id="canonical-0010233123223233-2012102031300132-3312323022113110-3031311102102121-2101311323203202-2131032213233033-1131311220010212-2221222002001002"></a>
@@ -393,6 +533,7 @@ Configuration parameter for sha256 digest.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("digest")}
 ```
 
@@ -434,6 +575,7 @@ The 'digest' is the DS key and the actual contents of the DS record.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(64, 64),
 }
@@ -480,7 +622,7 @@ Receipt-pinned upstream constraints:
 
 ## Next pages — sha256_digest / 302020022020 / 5
 
-- [primary.rr_set_group.rr_set.cds_record.values](resources--dns_zone--reference--group-002.md#canonical-3210332002003011-3212202303112030-0233233020201030-0213213201231121-1230302323101103-1121333022200310-2102321330133323-3033330230013033)
+- [primary.rr_set_group.rr_set.cds_record.values](resources--dns_zone--reference--group-003.md#canonical-3210332002003011-3212202303112030-0233233020201030-0213213201231121-1230302323101103-1121333022200310-2102321330133323-3033330230013033)
 - [xcsh_dns_zone](../resources/dns_zone.md#canonical-3231313303010030-0100221022033133-1333032030112013-0210022032301013-1120013101322111-1000210022113233-0321110131313221-2020312231302323)
 
 <a id="canonical-2032220222001301-1021003012000102-0101002330300323-0312203302002020-0003200112112211-3021032200112002-2003312333133200-3113331200110221"></a>
@@ -501,7 +643,7 @@ Breadcrumbs:
 - [primary.rr_set_group](resources--dns_zone--reference--group-002.md#canonical-1231233131102130-3033122123213221-0200212121031323-0310313200103100-1133203333000312-0022023033122202-1122010230320231-0230033302322110)
 - [primary.rr_set_group.rr_set](resources--dns_zone--reference--group-002.md#canonical-3302221210003330-0233000030131300-2222332320003010-3202211132313210-1200111232120201-2121200231313301-3123021322110010-3031200330020313)
 - [primary.rr_set_group.rr_set.cds_record](resources--dns_zone--reference--group-002.md#canonical-0212131200323302-0300321013230033-2121301221232203-0233133001113103-3201313000002021-1131310322331320-1013231302130100-1033333322030133)
-- [primary.rr_set_group.rr_set.cds_record.values](resources--dns_zone--reference--group-002.md#canonical-3210332002003011-3212202303112030-0233233020201030-0213213201231121-1230302323101103-1121333022200310-2102321330133323-3033330230013033)
+- [primary.rr_set_group.rr_set.cds_record.values](resources--dns_zone--reference--group-003.md#canonical-3210332002003011-3212202303112030-0233233020201030-0213213201231121-1230302323101103-1121333022200310-2102321330133323-3033330230013033)
 - primary.rr_set_group.rr_set.cds_record.values.sha384_digest
 
 <a id="canonical-3120330220013230-0303113122202021-2201232202113323-2022113002210013-0330202233323122-0233122303011112-1210231220322032-0101310120112201"></a>
@@ -513,6 +655,7 @@ Configuration parameter for sha384 digest.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("digest")}
 ```
 
@@ -554,6 +697,7 @@ The 'digest' is the DS key and the actual contents of the DS record.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(96, 96),
 }
@@ -600,7 +744,7 @@ Receipt-pinned upstream constraints:
 
 ## Next pages — sha384_digest / 233311210021 / 5
 
-- [primary.rr_set_group.rr_set.cds_record.values](resources--dns_zone--reference--group-002.md#canonical-3210332002003011-3212202303112030-0233233020201030-0213213201231121-1230302323101103-1121333022200310-2102321330133323-3033330230013033)
+- [primary.rr_set_group.rr_set.cds_record.values](resources--dns_zone--reference--group-003.md#canonical-3210332002003011-3212202303112030-0233233020201030-0213213201231121-1230302323101103-1121333022200310-2102321330133323-3033330230013033)
 - [xcsh_dns_zone](../resources/dns_zone.md#canonical-3231313303010030-0100221022033133-1333032030112013-0210022032301013-1120013101322111-1000210022113233-0321110131313221-2020312231302323)
 
 <a id="canonical-2122132002202221-2302210131231003-3030120300120123-2133331322231013-1130023111130312-3031311111321320-2202301111312003-0301302003020101"></a>
@@ -635,6 +779,7 @@ DNS CERT Record.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("values")}
 ```
 
@@ -676,6 +821,7 @@ CERT Record name, please provide only the specific subdomain or record name with
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -768,6 +914,7 @@ Configuration parameter for values
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("cert_key_tag",
     "certificate")}
 ```
@@ -861,6 +1008,8 @@ CERT algorithm value must be compatible with the specified algorithm.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["DH","DSASHA1","ECC","INDIRECT","PRIVATEDNS","PRIVATEOID","RESERVEDALGORITHM","RSAMD5","RSASHA1ALGORITHM"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("RESERVEDALGORITHM",
     "RSAMD5",
@@ -916,6 +1065,7 @@ Tag for categorization and filtering
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 65535),
 }
@@ -1000,6 +1150,8 @@ CERT type value must be compatible with the specified types.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ACPKIX","IACPKIX","INVALIDCERTTYPE","IPGP","IPKIX","ISPKI","OID","PGP","PKIX","SPKI","URI_"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("INVALIDCERTTYPE",
     "PKIX",
@@ -1059,6 +1211,7 @@ Certificate in base 64 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 4096),
 }
@@ -1146,6 +1299,7 @@ DNSCNAMEResourceRecord.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -1188,6 +1342,7 @@ domain.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1256,6 +1411,7 @@ Configuration parameter for value
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(255),
 }
@@ -1334,6 +1490,7 @@ DNS DS Record.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("values")}
 ```
 
@@ -1375,6 +1532,7 @@ DS Record name, please provide only the specific subdomain or record name withou
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1467,6 +1625,7 @@ Configuration parameter for values
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("key_tag"),
   validators.ConflictingListObjectAttributes("sha1_digest",
     "sha256_digest"),
@@ -1566,6 +1725,8 @@ DS key-value must be compatible with the specified algorithm.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ECDSAP256SHA256","ECDSAP384SHA384","ED25519","ED448","RSASHA1","RSASHA1NSEC3SHA1","RSASHA256","RSASHA512","UNSPECIFIED"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("UNSPECIFIED",
     "RSASHA1",
@@ -1621,6 +1782,7 @@ A short numeric value which can help quickly identify the referenced DNSKEY-reco
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -1707,6 +1869,7 @@ Configuration parameter for sha1 digest.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("digest")}
 ```
 
@@ -1748,6 +1911,7 @@ The 'digest' is the DS key and the actual contents of the DS record.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(40, 40),
 }
@@ -1827,6 +1991,7 @@ Configuration parameter for sha256 digest.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("digest")}
 ```
 
@@ -1868,6 +2033,7 @@ The 'digest' is the DS key and the actual contents of the DS record.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(64, 64),
 }
@@ -1947,6 +2113,7 @@ Configuration parameter for sha384 digest.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("digest")}
 ```
 
@@ -1988,6 +2155,7 @@ The 'digest' is the DS key and the actual contents of the DS record.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(96, 96),
 }
@@ -2069,6 +2237,7 @@ DNS EUI48 Record.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("value")}
 ```
 
@@ -2111,6 +2280,7 @@ domain.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2177,6 +2347,7 @@ A valid eui48 identifier, for example: 01-23-45-67-89-ab.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(17, 17),
 }
@@ -2261,6 +2432,7 @@ DNS EUI64 Record.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("value")}
 ```
 
@@ -2303,6 +2475,7 @@ domain.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2369,6 +2542,7 @@ A valid EUI64 identifier, for example: 01-23-45-67-89-ab-cd-ef.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(23, 23),
 }
@@ -2489,6 +2663,7 @@ and not a subdomain of a subdomain.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 255),
 }
@@ -2584,6 +2759,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -2631,6 +2807,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -2696,6 +2873,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2768,6 +2946,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -2846,6 +3025,7 @@ DNS LOC Record.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("values")}
 ```
 
@@ -2887,6 +3067,7 @@ LOC Record name, please provide only the specific subdomain or record name witho
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2979,6 +3160,7 @@ Configuration parameter for values
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("altitude",
     "latitude_degree",
     "longitude_degree")}
@@ -3118,6 +3300,7 @@ Latitude degree, an integer between 0 and 90, including 0 and 90.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 90),
 }
@@ -3180,6 +3363,8 @@ Latitude hemisphere can only be N or S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["N","S"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("N",
     "S"),
@@ -3217,6 +3402,7 @@ Latitude minute, an integer between 0 and 59, including 0 and 59.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 59),
 }
@@ -3330,6 +3516,7 @@ Longitude degree, an integer between 0 and 180, including 0 and 180.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 180),
 }
@@ -3392,6 +3579,8 @@ Longitude hemisphere can only be E or W
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["E","W"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("E",
     "W"),
@@ -3429,6 +3618,7 @@ Longitude minute, an integer between 0 and 59, including 0 and 59.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 59),
 }
@@ -3568,6 +3758,7 @@ DNSMXResourceRecord.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("values")}
 ```
 
@@ -3609,6 +3800,7 @@ MX Record name, please provide only the specific subdomain or record name withou
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -3760,6 +3952,7 @@ Mail exchanger domain name, please provide the full hostname, for example: mail.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -3813,6 +4006,7 @@ Mail exchanger priority code.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 65535),
 }
@@ -3891,6 +4085,7 @@ DNS NAPTR Record.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("values")}
 ```
 
@@ -3933,6 +4128,7 @@ domain.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -4025,6 +4221,7 @@ Configuration parameter for values
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("flags",
     "order",
     "preference")}
@@ -4093,6 +4290,7 @@ time only four flags, S/A/U/P, are defined.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(255),
 }
@@ -4147,6 +4345,7 @@ Order in which the NAPTR records must be processed. A lower number indicates a h
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 65535),
 }
@@ -4200,6 +4399,7 @@ Preference when records have the same order. A lower number indicates a higher p
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 65535),
 }
@@ -4253,6 +4453,7 @@ Regular expression to construct the next domain name to lookup.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(255),
 }
@@ -4335,6 +4536,7 @@ Specifies the service(s) available down this rewrite path.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(255),
 }
@@ -4409,6 +4611,7 @@ DNSNSResourceRecord.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("values")}
 ```
 
@@ -4450,6 +4653,7 @@ NS Record name, please provide only the specific subdomain or record name withou
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -4516,6 +4720,7 @@ Configuration parameter for values
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 100),
 }
@@ -4598,6 +4803,7 @@ DNSPTRResourceRecord.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("values")}
 ```
 
@@ -4639,6 +4845,7 @@ PTR Record name, please provide only the specific subdomain or record name witho
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -4705,6 +4912,7 @@ Configuration parameter for values
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 100),
 }
@@ -4787,6 +4995,7 @@ DNSSRVResourceRecord.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name",
     "values")}
 ```
@@ -4829,6 +5038,7 @@ SRV Record name, please provide only the specific subdomain or record name witho
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -4986,6 +5196,7 @@ Port on which the service can be found.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 65535),
 }
@@ -5038,6 +5249,7 @@ Priority of the target. A lower number indicates a higher preference.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 65535),
 }
@@ -5090,6 +5302,7 @@ Hostname of the machine providing the service.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -5139,6 +5352,7 @@ Weight of the target. A higher number indicates a higher preference.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 65535),
 }
@@ -5217,6 +5431,7 @@ DNS SSHFP Record.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("values")}
 ```
 
@@ -5259,6 +5474,7 @@ domain.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -5351,6 +5567,7 @@ Configuration parameter for values
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("sha1_fingerprint",
     "sha256_fingerprint")}
 ```
@@ -5436,6 +5653,8 @@ SSHFP algorithm value must be compatible with the specified algorithm.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["DSA","ECDSA","Ed25519","Ed448","RSA","UNSPECIFIEDALGORITHM"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("UNSPECIFIEDALGORITHM",
     "RSA",
@@ -5511,6 +5730,7 @@ Configuration parameter for sha1 fingerprint.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("fingerprint")}
 ```
 
@@ -5552,6 +5772,7 @@ The 'fingerprint' is the DS key and the actual contents of the DS record.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(40, 40),
 }
@@ -5637,6 +5858,7 @@ Configuration parameter for sha256 fingerprint.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("fingerprint")}
 ```
 
@@ -5678,6 +5900,7 @@ The 'fingerprint' is the DS key and the actual contents of the DS record.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(64, 64),
 }
@@ -5765,6 +5988,7 @@ DNS TLSA Record.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("values")}
 ```
 
@@ -5806,6 +6030,7 @@ TLSA Record name, please provide only the specific subdomain or record name with
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -5898,6 +6123,7 @@ Configuration parameter for values
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("certificate_association_data")}
 ```
 
@@ -5963,6 +6189,7 @@ The actual data to be matched given the settings of the other fields.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 4096),
 }
@@ -6037,6 +6264,8 @@ Upstream description:
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["CertificateAuthorityConstraint","DomainIssuedCertificate","ServiceCertificateConstraint","TrustAnchorAssertion"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("CertificateAuthorityConstraint",
     "ServiceCertificateConstraint",
@@ -6087,6 +6316,8 @@ Upstream description:
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["NoHash","SHA256","SHA512"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("NoHash",
     "SHA256",
@@ -6134,6 +6365,8 @@ Upstream description:
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["FullCertificate","UseSubjectPublicKey"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("FullCertificate",
     "UseSubjectPublicKey"),
@@ -6193,6 +6426,7 @@ DNSTXTResourceRecord.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("values")}
 ```
 
@@ -6234,6 +6468,7 @@ TXT Record name, please provide only the specific subdomain or record name witho
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -6300,6 +6535,7 @@ Configuration parameter for values
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 100),
 }
@@ -6380,6 +6616,7 @@ Configuration parameter for soa parameters.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("refresh",
     "retry")}
 ```
@@ -6423,6 +6660,7 @@ primary does not respond.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 2147483647),
 }
@@ -6474,6 +6712,7 @@ Negative TTL value indicates how long to cache non-existent resource record for 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 2147483647),
 }
@@ -6526,6 +6765,7 @@ changes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(3600, 2147483647),
 }
@@ -6578,6 +6818,7 @@ primary does not respond.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(60, 2147483647),
 }
@@ -6633,6 +6874,7 @@ SOA record time to live (in seconds)
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 2147483647),
 }
@@ -6703,6 +6945,7 @@ SecondaryDNSCreateSpecType.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("primary_servers")}
 ```
 
@@ -6748,6 +6991,7 @@ Configuration parameter for primary servers
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 10),
 }
@@ -6831,6 +7075,8 @@ TSIG key-value must be compatible with the specified algorithm
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["HMAC_MD5","HMAC_SHA1","HMAC_SHA224","HMAC_SHA256","HMAC_SHA384","HMAC_SHA512","UNDEFINED"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("HMAC_MD5",
     "UNDEFINED",
@@ -6878,6 +7124,7 @@ TSIG key name as used in TSIG protocol extension.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -6950,6 +7197,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -7020,6 +7268,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -7101,6 +7350,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -7216,6 +7466,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -7276,6 +7527,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }

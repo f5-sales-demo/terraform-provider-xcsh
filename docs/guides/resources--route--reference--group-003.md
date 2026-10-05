@@ -6,6 +6,136 @@ description: "Complete grouped canonical reference for xcsh_route reference."
 
 # xcsh_route reference
 
+<a id="canonical-3322023111013123-3102010330301033-2122123213103133-0010202320133330-0121022311000203-2002220012310211-0210210103202310-2131021032113021"></a>
+
+## routes.route_destination.retry_policy.back_off — back_off / 320221203121 / 2
+
+Breadcrumbs:
+
+- [xcsh_route](../resources/route.md#canonical-2032020033333212-1122013011031221-2111330322212302-0032132111212121-3023032322101232-1231332022020023-2021133001000111-2130020232210312)
+- [Property reference](resources--route--reference--group-001.md#canonical-3222103030211311-3130310001310032-2022203231320131-3102313133133331-2221123101031120-0130311122011322-0010220330230103-1030212032020232)
+- [routes](resources--route--reference--group-001.md#canonical-3123120021213101-3123232233023211-0220000122002101-2303300120130232-3310221113321032-1122210133233232-3320330200321212-2120210203132130)
+- [routes.route_destination](resources--route--reference--group-002.md#canonical-0220130131223320-0012002013321000-2333211313321101-2211101322133023-2310223133333233-3200210230002323-0333010203210122-1120013002111310)
+- [routes.route_destination.retry_policy](resources--route--reference--group-002.md#canonical-0301103202310121-1322001133231203-3330201331230333-2121120301200322-3222320330230320-1021310030201212-1120112023110002-2203110113210212)
+- routes.route_destination.retry_policy.back_off
+
+<a id="canonical-2322231011021330-2102132021303133-3132030223101012-2210121213010213-0200032120022221-0031302302230023-3103312203222103-2020322003020233"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Specifies parameters that control retry back off.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+back_off {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1110103332122323-2330001032332233-1332020031321013-2323023032223331-2320202131021202-0132110303310211-1322030201310302-3023123010203302"></a>
+
+## Direct properties — back_off / 320221203121 / 3
+
+<a id="canonical-2213302023003231-3230112012222031-1101221232222011-1113223022002033-0201221202333130-3010212303332231-3311102330103111-2131202232330231"></a>
+
+<a id="canonical-3113013323000231-1102022313223120-3013302021032130-1231010123311312-0131023223020011-2020122112030320-2130233303313033-1311310100000023"></a>
+
+## base_interval property — back_off / 320221203121 / 4
+
+Type: `"number"`. Optional.
+
+Specifies the base interval between retries in milliseconds.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  int64validator.AtLeast(1),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gt": "0"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gt": "0"
+  }
+}
+```
+
+<a id="canonical-0312303303212133-0310220220200023-0310123303300013-2323231000102133-2113013320110101-0313111321112222-1222121111103131-2111301021121001"></a>
+
+<a id="canonical-0222122033030032-0130300213132031-2021103001111132-0300102133320130-0103013202223030-2300022303310313-1103322232301131-2321012200213231"></a>
+
+## max_interval property — back_off / 320221203121 / 5
+
+Type: `"number"`. Optional.
+
+Specifies the maximum interval between retries in milliseconds. This parameter is optional, but must
+be greater than or equal to the base\_interval if set. The times the base\_interval. Defaults to
+\`10\`.
+
+Upstream description:
+
+Specifies the maximum interval between retries in milliseconds. This parameter is optional, but must
+be greater than or equal to the base\_interval if set. The default is 10 times the base\_interval.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1313302101301003-0212002203310020-0232232333230032-0033213201132230-3022321211032033-2122001223220330-1231212122230301-1322220201110010"></a>
+
+## Next pages — back_off / 320221203121 / 6
+
+- [routes.route_destination.retry_policy](resources--route--reference--group-002.md#canonical-0301103202310121-1322001133231203-3330201331230333-2121120301200322-3222320330230320-1021310030201212-1120112023110002-2203110113210212)
+- [xcsh_route](../resources/route.md#canonical-2032020033333212-1122013011031221-2111330322212302-0032132111212121-3023032322101232-1231332022020023-2021133001000111-2130020232210312)
+
 <a id="canonical-1211112100111122-3213121213133231-1231320323033110-2010301220033103-1021202000330100-0023023012000230-0022012210003120-3103323301010233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -222,6 +352,7 @@ Send this direct response in case of route match action is direct response.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("response_code")}
 ```
 
@@ -271,6 +402,7 @@ string:///PHA+IEFjY2VzcyBEZW5pZWQgPC9wPg==.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(65536),
 }
@@ -330,6 +462,7 @@ Response code to send.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(100, 599),
 }
@@ -401,6 +534,7 @@ Route redirect parameters when match action is redirect.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("path_redirect",
     "prefix_rewrite"),
   validators.ConflictingObjectAttributes("remove_all_params",
@@ -488,6 +622,7 @@ Exclusive with \[prefix\_rewrite\] swap path part of incoming URL in redirect UR
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -547,6 +682,7 @@ request.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -605,6 +741,8 @@ HTTPS When incoming-proto option is specified, swapping of protocol is not done.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["http","https","incoming-proto"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("incoming-proto",
     "http",
@@ -665,6 +803,7 @@ Exclusive with \[remove\_all\_params retain\_all\_params\]
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -718,6 +857,7 @@ The HTTP status code to use in the redirect response.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(599),
 }
@@ -983,6 +1123,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -1030,6 +1171,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1095,6 +1237,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1167,6 +1310,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1239,6 +1383,7 @@ WAF instance will be pointing to an app\_firewall object.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("app_firewall",
     "disable_waf"),
   validators.ConflictingObjectAttributes("app_firewall",
@@ -1320,6 +1465,7 @@ A list of references to the app\_firewall configuration objects.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("app_firewall")}
 ```
 
@@ -1513,6 +1659,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),

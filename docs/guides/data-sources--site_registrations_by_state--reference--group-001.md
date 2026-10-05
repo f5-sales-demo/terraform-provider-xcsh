@@ -59,6 +59,8 @@ Possible values are \`NOTSET\`, \`NEW\`, \`APPROVED\`, \`ADMITTED\`, \`RETIRED\`
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ADMITTED","APPROVED","DONE","FAILED","FAILED_INACTIVE","MAINTENANCE","NEW","NOTSET","ONLINE","PENDING","RETIRED","UPGRADING"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("NOTSET",
     "NEW",
@@ -363,7 +365,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `items.object.spec.gc_spec.passport.cluster_size` | [items.object.spec.gc_spec.passport.cluster_size](data-sources--site_registrations_by_state--reference--group-002.md#canonical-2110202132302130-1212212030233130-1010201313200013-1133100013203320-1222323230100023-2322213013310221-2233131033003102-0203003000132300) |
 | `items.object.spec.gc_spec.passport.cluster_type` | [items.object.spec.gc_spec.passport.cluster_type](data-sources--site_registrations_by_state--reference--group-002.md#canonical-2221011330333201-2122010001310231-3210022322132000-2130203333122311-2123111233013311-3020231133030213-0003302000020223-2102022223000331) |
 | `items.object.spec.gc_spec.passport.default_os_version` | [items.object.spec.gc_spec.passport.default_os_version](data-sources--site_registrations_by_state--reference--group-002.md#canonical-3223223323202110-1220303112323030-2131023333130130-2233010113321013-0310322313302222-2003101131222233-1122023103321221-2122033132221311) |
-| `items.object.spec.gc_spec.passport.default_sw_version` | [items.object.spec.gc_spec.passport.default_sw_version](data-sources--site_registrations_by_state--reference--group-002.md#canonical-2213213312031323-1031320121103321-3300020013032303-2210023202303222-1223100000212303-1131000320213111-0012010311311331-3311202300110110) |
+| `items.object.spec.gc_spec.passport.default_sw_version` | [items.object.spec.gc_spec.passport.default_sw_version](data-sources--site_registrations_by_state--reference--group-003.md#canonical-2213213312031323-1031320121103321-3300020013032303-2210023202303222-1223100000212303-1131000320213111-0012010311311331-3311202300110110) |
 | `items.object.spec.gc_spec.passport.latitude` | [items.object.spec.gc_spec.passport.latitude](data-sources--site_registrations_by_state--reference--group-002.md#canonical-0020222203132233-3200113121113203-3203223122222012-1231223113010202-2202322022211222-3022021111002010-2330330122023223-2211113101122312) |
 | `items.object.spec.gc_spec.passport.longitude` | [items.object.spec.gc_spec.passport.longitude](data-sources--site_registrations_by_state--reference--group-002.md#canonical-0213213111033013-0311111103320303-0121203222202011-2131333132321010-0311221221332030-1303311021332033-1122211131030013-1112212213212330) |
 | `items.object.spec.gc_spec.passport.operating_system_version` | [items.object.spec.gc_spec.passport.operating_system_version](data-sources--site_registrations_by_state--reference--group-002.md#canonical-1033123331333230-2203020200100031-1301000300231110-2200213103310033-1200120203032022-1101300210231322-2223131102133311-0301320110010133) |
@@ -507,6 +509,8 @@ values are \`EOK\`, \`EPERMS\`, \`EBADINPUT\`, \`ENOTFOUND\`, \`EEXISTS\`, \`EUN
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["EBADINPUT","EEXISTS","EINTERNAL","ENOTFOUND","EOK","EPARTIAL","EPERMS","ESERIALIZE","EUNKNOWN"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("EOK",
     "EPERMS",
@@ -665,6 +669,7 @@ Name. The name of this registration.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -685,6 +690,7 @@ Namespace. The namespace this item belongs to.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -893,6 +899,7 @@ Must be unique in entire cluster and same as OS settings. '.' (dots) are not all
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 1024),
   stringvalidator.RegexMatches(regexp.MustCompile(`^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\.)*[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$`),
@@ -959,6 +966,8 @@ provider, which was not identified by system. Possible values are \`UNKNOWN\`, \
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["AWS","AWS_K8S","AZURE","AZURE_K8S","EQUINIX","F5OS","GCP_K8S","GOOGLE","IBMCLOUD","IBMCLOUD_K8S","KUBERNETES","KVM","KVM_K8S","NUTANIX","OCI","OPENSHIFT_VIRTUALIZATION","OPENSTACK","OTHER","OTHER_K8S","RSERIES","UNKNOWN","UNKNOWN_K8S","VMWARE","VMWARE_K8S","VOLTERRA","VOLTERRA_K8S"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("UNKNOWN",
     "AWS",
@@ -1004,6 +1013,7 @@ It's used to verify machine have acceptable time difference from server.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(20, 1024),
   stringvalidator.RegexMatches(regexp.MustCompile(`^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{3})?Z?$`),
@@ -1076,6 +1086,7 @@ Member Interfaces. Configuration parameter for interfaces
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 8),
 }
@@ -1098,6 +1109,8 @@ backup) IEEE 802.3ad Dynamic link aggregation (LACP). Possible values are
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ACTIVE_BACKUP","BOND_MODE_UNSPECIFIED","LACP_802_3AD"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("BOND_MODE_UNSPECIFIED",
     "ACTIVE_BACKUP",
@@ -1118,6 +1131,7 @@ Bond Name. Human-readable name for the resource
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 64),
 }
@@ -1254,6 +1268,7 @@ Non-uniform memory access (NUMA) nodes count.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(0),
 }
@@ -1329,6 +1344,7 @@ Information from /sys/class/dmi/ID/bios\_date.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(10, 1024),
   stringvalidator.RegexMatches(regexp.MustCompile(`^\d{4}-\d{2}-\d{2}$`),
@@ -1416,6 +1432,7 @@ Information from /sys/class/dmi/ID/board\_name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1704,18 +1721,4 @@ Type: `"string"`. Computed.
 
 Driver Version. GPU Driver Version.
 
-- [gpu_device](data-sources--site_registrations_by_state--reference--group-001.md#canonical-1233312223031333-3311132012133130-0330213321211120-2000200020120321-1021323323213202-1221312320320032-0030032103112321-1311032112001133): complete subsection reference.
-
-<a id="canonical-1302300103010230-3321023300023020-3002331020010033-3223313310003112-2123120203211100-1233100120313000-0200011021301133-1132211001230022"></a>
-
-## Next pages — GPU / 223313033302 / 6
-
-- [items.get_spec.infra.hw_info.gpu.gpu_device](data-sources--site_registrations_by_state--reference--group-001.md#canonical-1233312223031333-3311132012133130-0330213321211120-2000200020120321-1021323323213202-1221312320320032-0030032103112321-1311032112001133)
-- [items.get_spec.infra.hw_info](data-sources--site_registrations_by_state--reference--group-001.md#canonical-0221000332223002-0003222301201320-0320022333112331-1222022120030000-2003302110120110-1231101313210231-0010010012113111-1302023332323232)
-- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
-
-<a id="canonical-1233312223031333-3311132012133130-0330213321211120-2000200020120321-1021323323213202-1221312320320032-0030032103112321-1311032112001133"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
+- [gpu_device](data-sources--site_registrations_by_state--reference--group-002.md#canonical-1233312223031333-3311132012133130-0330213321211120-2000200020120321-1021323323213202-1221312320320032-0030032103112321-1311032112001133): complete subsection reference.

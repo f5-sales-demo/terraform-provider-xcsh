@@ -74,6 +74,7 @@ aggregated/grouped by namespace and service. Possible values are \`METRIC\_LABEL
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -217,6 +218,8 @@ Possible values are \`METRIC\_TYPE\_NONE\`, \`METRIC\_TYPE\_ACTIVE\`, \`METRIC\_
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["METRIC_TYPE_ACTIVE","METRIC_TYPE_ADMIN_TERMINATED","METRIC_TYPE_ALLOWED","METRIC_TYPE_DENIED","METRIC_TYPE_ESTABLISHED_TIMEOUT","METRIC_TYPE_EVALUATION_TIMEOUT","METRIC_TYPE_LOGOUT","METRIC_TYPE_NONE","METRIC_TYPE_TOTAL"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("METRIC_TYPE_NONE",
     "METRIC_TYPE_ACTIVE",
@@ -252,6 +255,8 @@ UnitType is enumeration of units for scalar fields. Possible values are \`UNIT\_
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["UNIT_BITS_PER_SECOND","UNIT_BYTES","UNIT_BYTES_PER_SECOND","UNIT_CONNECTIONS_PER_SECOND","UNIT_COUNT","UNIT_DAYS","UNIT_ERRORS_PER_SECOND","UNIT_GBYTES","UNIT_GIBIBYTES","UNIT_HOURS","UNIT_KBITS_PER_SECOND","UNIT_KBYTES","UNIT_KBYTES_PER_SECOND","UNIT_KIBIBYTES","UNIT_MBITS_PER_SECOND","UNIT_MBYTES","UNIT_MBYTES_PER_SECOND","UNIT_MIBIBYTES","UNIT_MILLISECONDS","UNIT_MINUTES","UNIT_PACKETS","UNIT_PACKETS_PER_SECOND","UNIT_PERCENTAGE","UNIT_REQUESTS_PER_SECOND","UNIT_SECONDS","UNIT_TBYTES","UNIT_TEBIBYTES"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("UNIT_MILLISECONDS",
     "UNIT_SECONDS",
@@ -491,6 +496,8 @@ values are \`TREND\_SENTIMENT\_NONE\`, \`TREND\_SENTIMENT\_POSITIVE\`,
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["TREND_SENTIMENT_NEGATIVE","TREND_SENTIMENT_NONE","TREND_SENTIMENT_POSITIVE"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("TREND_SENTIMENT_NONE",
     "TREND_SENTIMENT_POSITIVE",
@@ -541,6 +548,7 @@ data that matches all the conditions specified in the label\_filter.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(64),
 }
@@ -568,6 +576,8 @@ to \`METRIC\_LABEL\_NONE\`.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["METRIC_LABEL_NAMESPACE","METRIC_LABEL_NONE","METRIC_LABEL_VIRTUAL_SERVER"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("METRIC_LABEL_NONE",
     "METRIC_LABEL_NAMESPACE",
@@ -589,6 +599,8 @@ are \`EQ\`, \`NEQ\`. Defaults to \`EQ\`.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["EQ","NEQ"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("EQ",
     "NEQ"),
@@ -608,6 +620,7 @@ Value. Value of the label.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }

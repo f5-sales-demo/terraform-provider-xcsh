@@ -75,7 +75,7 @@
         "xcsh-docs:data-sources:bot_peer_top_good_bots:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -110,13 +110,13 @@
     },
     {
       "aliases": ["bot peer top good bots"],
-      "body_bytes": 4035,
-      "body_sha256": "sha256:86f62fbd6b5c0da70a5868fa94c58b81e59b465ee5d1c6df4b2012f828097659",
+      "body_bytes": 4315,
+      "body_sha256": "sha256:4929ad012be476ec0fe46e1e5190cf1c101b2db060cf4bcc92460f21a806a317",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_peer_top_good_bots:properties:details"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -142,6 +142,8 @@
           "anchor": "section",
           "description": "Peer Group Top Good Bots Details. Configuration parameter for details",
           "document_id": "xcsh-docs:data-sources:bot_peer_top_good_bots:properties:details",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -156,6 +158,8 @@
           "anchor": "schema-end_time",
           "description": "End Time. End time of the query period.",
           "document_id": "xcsh-docs:data-sources:bot_peer_top_good_bots:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -170,6 +174,8 @@
           "anchor": "schema-limit",
           "description": "Limits the number of transactions returned in the response Optional: If not specified (with default value 0), all transactions that match the query will be returned in the response.",
           "document_id": "xcsh-docs:data-sources:bot_peer_top_good_bots:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -184,6 +190,8 @@
           "anchor": "schema-namespace",
           "description": "Namespace. namespace is used to scope the query. Only virtual_host in given namespace will be considered.",
           "document_id": "xcsh-docs:data-sources:bot_peer_top_good_bots:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -198,6 +206,17 @@
           "anchor": "schema-rank_by",
           "description": "Or 'PEER' Key for ranking - SELF: Rank by self Use Self as key to query Use Peer as key to query. Possible values are `SELF`, `PEER`. Defaults to `SELF`.",
           "document_id": "xcsh-docs:data-sources:bot_peer_top_good_bots:reference",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["PEER", "SELF"],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -212,6 +231,8 @@
           "anchor": "schema-start_time",
           "description": "Start Time. Start time of the query period.",
           "document_id": "xcsh-docs:data-sources:bot_peer_top_good_bots:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -235,13 +256,13 @@
     },
     {
       "aliases": ["details"],
-      "body_bytes": 1731,
-      "body_sha256": "sha256:132138824771d7ba0a192cf12bb00bac562ed5e4a83c041b1c749a442af54b6d",
+      "body_bytes": 1761,
+      "body_sha256": "sha256:05f35d021da4b5f63dd0631b7dc1b5441db4d0e561d5a5192c9ea03f067abf4e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -267,6 +288,8 @@
           "anchor": "schema-details--name",
           "description": "Name. The Name of Item.",
           "document_id": "xcsh-docs:data-sources:bot_peer_top_good_bots:properties:details",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -281,6 +304,8 @@
           "anchor": "schema-details--peer_count",
           "description": "Peer Count. The count of Peer of the Item.",
           "document_id": "xcsh-docs:data-sources:bot_peer_top_good_bots:properties:details",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -295,6 +320,8 @@
           "anchor": "schema-details--peer_percentage",
           "description": "Peer Percentage. The Peer Percentage of the Item.",
           "document_id": "xcsh-docs:data-sources:bot_peer_top_good_bots:properties:details",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -309,6 +336,8 @@
           "anchor": "schema-details--self_count",
           "description": "Self Count. The count of Self of the item.",
           "document_id": "xcsh-docs:data-sources:bot_peer_top_good_bots:properties:details",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -323,6 +352,8 @@
           "anchor": "schema-details--self_percentage",
           "description": "Self Percentage. The Self Percentage of the Item.",
           "document_id": "xcsh-docs:data-sources:bot_peer_top_good_bots:properties:details",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -352,7 +383,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_peer_top_good_bots:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -392,7 +423,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

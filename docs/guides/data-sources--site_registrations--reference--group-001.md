@@ -366,10 +366,10 @@ Each exact path has one authoritative reference destination. Collection element 
 | `items.object.spec.gc_spec.role` | [items.object.spec.gc_spec.role](data-sources--site_registrations--reference--group-002.md#canonical-1220203012112021-1211103113112212-0012211013032122-0012012311213213-0220233203111320-2232202313233213-1123001213133010-0123221100000202) |
 | `items.object.spec.gc_spec.site` | [items.object.spec.gc_spec.site](data-sources--site_registrations--reference--group-002.md#canonical-2111111033222230-2021111123313300-3121132231230003-3123331001312223-1200322211121302-3312103302213023-2201133313210233-0220221320121212) |
 | `items.object.spec.gc_spec.site.kind` | [items.object.spec.gc_spec.site.kind](data-sources--site_registrations--reference--group-002.md#canonical-0303313330232213-3133133120132300-3022022012301203-0320223132011132-2333212120201302-3122023120102230-2203023033311302-2122311203133323) |
-| `items.object.spec.gc_spec.site.name` | [items.object.spec.gc_spec.site.name](data-sources--site_registrations--reference--group-002.md#canonical-3330101103303313-0230130200321020-2210102310222223-0000122202002000-1301212233201133-3330233222221032-2103321230002133-3121320131233000) |
-| `items.object.spec.gc_spec.site.namespace` | [items.object.spec.gc_spec.site.namespace](data-sources--site_registrations--reference--group-002.md#canonical-3113130303222221-1330122022113033-0103311123232102-0300013221113132-1000030223300123-3210003132111030-2231110013002202-0121333123203323) |
-| `items.object.spec.gc_spec.site.tenant` | [items.object.spec.gc_spec.site.tenant](data-sources--site_registrations--reference--group-002.md#canonical-3303013101210002-2123121133013131-1330003322001222-3111022102330322-2101121320100101-0033110122130323-0031000001301332-1001320200022022) |
-| `items.object.spec.gc_spec.site.uid` | [items.object.spec.gc_spec.site.uid](data-sources--site_registrations--reference--group-002.md#canonical-3303002323002230-2300223011110233-0003102231023202-2220020010010310-0331333310132021-3232111101012101-2300130220003133-1321312211032012) |
+| `items.object.spec.gc_spec.site.name` | [items.object.spec.gc_spec.site.name](data-sources--site_registrations--reference--group-003.md#canonical-3330101103303313-0230130200321020-2210102310222223-0000122202002000-1301212233201133-3330233222221032-2103321230002133-3121320131233000) |
+| `items.object.spec.gc_spec.site.namespace` | [items.object.spec.gc_spec.site.namespace](data-sources--site_registrations--reference--group-003.md#canonical-3113130303222221-1330122022113033-0103311123232102-0300013221113132-1000030223300123-3210003132111030-2231110013002202-0121333123203323) |
+| `items.object.spec.gc_spec.site.tenant` | [items.object.spec.gc_spec.site.tenant](data-sources--site_registrations--reference--group-003.md#canonical-3303013101210002-2123121133013131-1330003322001222-3111022102330322-2101121320100101-0033110122130323-0031000001301332-1001320200022022) |
+| `items.object.spec.gc_spec.site.uid` | [items.object.spec.gc_spec.site.uid](data-sources--site_registrations--reference--group-003.md#canonical-3303002323002230-2300223011110233-0003102231023202-2220020010010310-0331333310132021-3232111101012101-2300130220003133-1321312211032012) |
 | `items.object.spec.gc_spec.token` | [items.object.spec.gc_spec.token](data-sources--site_registrations--reference--group-002.md#canonical-2303020013020022-3320303232131001-3013203223022300-0313313130111022-3300131003210330-2323311033103031-3130121300003201-3201000101100012) |
 | `items.object.spec.gc_spec.tunnel_type` | [items.object.spec.gc_spec.tunnel_type](data-sources--site_registrations--reference--group-002.md#canonical-3113300110012102-1232233203232231-3311013122023121-0110111001132212-2003021212330110-2203003010120232-2231310033010100-1201131102130231) |
 | `items.object.status` | [items.object.status](data-sources--site_registrations--reference--group-003.md#canonical-0323200303123032-1200022023211311-3013210011010012-1201033331103012-2013131131100110-1023033230113203-1021212031100230-1112321210300002) |
@@ -503,6 +503,8 @@ values are \`EOK\`, \`EPERMS\`, \`EBADINPUT\`, \`ENOTFOUND\`, \`EEXISTS\`, \`EUN
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["EBADINPUT","EEXISTS","EINTERNAL","ENOTFOUND","EOK","EPARTIAL","EPERMS","ESERIALIZE","EUNKNOWN"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("EOK",
     "EPERMS",
@@ -661,6 +663,7 @@ Name. The name of this registration.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -681,6 +684,7 @@ Namespace. The namespace this item belongs to.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -889,6 +893,7 @@ Must be unique in entire cluster and same as OS settings. '.' (dots) are not all
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 1024),
   stringvalidator.RegexMatches(regexp.MustCompile(`^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\.)*[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$`),
@@ -955,6 +960,8 @@ provider, which was not identified by system. Possible values are \`UNKNOWN\`, \
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["AWS","AWS_K8S","AZURE","AZURE_K8S","EQUINIX","F5OS","GCP_K8S","GOOGLE","IBMCLOUD","IBMCLOUD_K8S","KUBERNETES","KVM","KVM_K8S","NUTANIX","OCI","OPENSHIFT_VIRTUALIZATION","OPENSTACK","OTHER","OTHER_K8S","RSERIES","UNKNOWN","UNKNOWN_K8S","VMWARE","VMWARE_K8S","VOLTERRA","VOLTERRA_K8S"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("UNKNOWN",
     "AWS",
@@ -1000,6 +1007,7 @@ It's used to verify machine have acceptable time difference from server.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(20, 1024),
   stringvalidator.RegexMatches(regexp.MustCompile(`^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{3})?Z?$`),
@@ -1072,6 +1080,7 @@ Member Interfaces. Configuration parameter for interfaces
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 8),
 }
@@ -1094,6 +1103,8 @@ backup) IEEE 802.3ad Dynamic link aggregation (LACP). Possible values are
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ACTIVE_BACKUP","BOND_MODE_UNSPECIFIED","LACP_802_3AD"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("BOND_MODE_UNSPECIFIED",
     "ACTIVE_BACKUP",
@@ -1114,6 +1125,7 @@ Bond Name. Human-readable name for the resource
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 64),
 }
@@ -1250,6 +1262,7 @@ Non-uniform memory access (NUMA) nodes count.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(0),
 }
@@ -1325,6 +1338,7 @@ Information from /sys/class/dmi/ID/bios\_date.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(10, 1024),
   stringvalidator.RegexMatches(regexp.MustCompile(`^\d{4}-\d{2}-\d{2}$`),
@@ -1412,6 +1426,7 @@ Information from /sys/class/dmi/ID/board\_name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),

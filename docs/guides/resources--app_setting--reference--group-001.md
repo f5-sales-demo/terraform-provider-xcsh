@@ -223,6 +223,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -290,6 +291,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -432,6 +434,7 @@ List of settings to enable for each AppType, given instance of AppType Exist in 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("app_type_ref")}
 ```
 
@@ -674,6 +677,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -830,6 +834,7 @@ Settings specifying how API Discovery will be performed.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_spec",
     "enable")}
 ```
@@ -1178,6 +1183,8 @@ destination service combinations.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["EDGES","NODES","NONE","VIRTUAL_HOSTS"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("NONE",
     "NODES",
@@ -1239,6 +1246,7 @@ Configuration for user behavior analysis.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_detection",
     "enable_detection"),
   validators.ConflictingObjectAttributes("disable_learning",
@@ -1444,6 +1452,7 @@ settings allow tuning those factors used by the system to detect malicious users
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("bola_detection_automatic",
     "exclude_bola_detection"),
   validators.ConflictingObjectAttributes("exclude_bot_defense_activity",
@@ -1526,6 +1535,7 @@ threat level from a high to medium or medium to low or low to none.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(5, 120),
 }
@@ -2266,6 +2276,7 @@ login activity to determine suspicious behavior.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("login_failures_threshold")}
 ```
 
@@ -2307,6 +2318,7 @@ The number of failed logins beyond which the system will flag this user as malic
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(1),
 }
@@ -2387,6 +2399,7 @@ specify how to use disallowed request activity from a user to determine suspicio
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("forbidden_requests_threshold")}
 ```
 
@@ -2428,6 +2441,7 @@ The number of forbidden requests beyond which the system will flag this user as 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(1),
 }
@@ -2561,6 +2575,7 @@ Non-existent URL Automatic Activity Settings.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("high",
     "low"),
   validators.ConflictingObjectAttributes("high",
@@ -2825,6 +2840,7 @@ Non-existent URL Custom Activity Setting.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("nonexistent_requests_threshold")}
 ```
 
@@ -2866,6 +2882,7 @@ The percentage of non-existent requests beyond which the system will flag this u
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 100),
 }

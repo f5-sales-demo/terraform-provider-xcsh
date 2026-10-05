@@ -6,6 +6,74 @@ description: "Complete grouped canonical reference for xcsh_bigip_http_proxy ref
 
 # xcsh_bigip_http_proxy reference
 
+<a id="canonical-1032003223022220-2130323332313130-3221323000322303-3110310230102211-0210333013303123-0310301121230130-3112223130103113-0332222220001330"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0213210231012133-1003203210321031-2112130132002201-2330202003023311-3203321323302011-3012011233131221-0033320333322020-2210222110300203"></a>
+
+## proxy_config.https.tls_parameters.tls_certificates.use_system_defaults — use_system_defaults / 121110323233 / 2
+
+Breadcrumbs:
+
+- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
+- [Property reference](resources--bigip_http_proxy--reference--group-001.md#canonical-0101201332222201-3302033021001322-1302101210311331-2210333210320003-0002033231003211-1133020003110203-0200133113131131-0101001111122000)
+- [proxy_config](resources--bigip_http_proxy--reference--group-003.md#canonical-3003013220031132-0222103102123201-3133022011003320-3300031222211002-0032213213000000-1001011223312300-1133211303323330-1223230120123033)
+- [proxy_config.https](resources--bigip_http_proxy--reference--group-003.md#canonical-3203121210323113-2101032200321202-0010303030311321-3220231332303132-1310103011003233-3221200330233120-1030332101023220-1003313201121111)
+- [proxy_config.https.tls_parameters](resources--bigip_http_proxy--reference--group-003.md#canonical-0122023333332003-0230210110313232-2302012011112302-2312312013000100-0332122101232130-1301100301123232-3320133330333302-0122001022012013)
+- [proxy_config.https.tls_parameters.tls_certificates](resources--bigip_http_proxy--reference--group-003.md#canonical-0113320203210020-3311313102130022-1113310033003111-0101223223130021-2103033312111323-1320323200131202-1212122013221010-2321312000121101)
+- proxy_config.https.tls_parameters.tls_certificates.use_system_defaults
+
+<a id="canonical-3300203102333201-1311112211011302-0031000102110232-2312210220211233-1002211132111022-1232202302023033-2232132100310132-0111012201021031"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for use system defaults.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+use_system_defaults = {}
+```
+
+<a id="canonical-2120200002221332-2113222032032110-1212220313320200-0312131123333203-2003312131130212-1002213322033310-2022020323200131-0321130003013333"></a>
+
+## Direct properties — use_system_defaults / 121110323233 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1303113000213013-0203010313323302-1113320223300000-3011120011033132-0300311310022010-0121220200233100-0020221133330120-0210100213311322"></a>
+
+## Next pages — use_system_defaults / 121110323233 / 4
+
+- [proxy_config.https.tls_parameters.tls_certificates](resources--bigip_http_proxy--reference--group-003.md#canonical-0113320203210020-3311313102130022-1113310033003111-0101223223130021-2103033312111323-1320323200131202-1212122013221010-2321312000121101)
+- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
+
+<a id="canonical-2031033101211112-0033321320211013-1322122101220213-0120102020101130-1231000130120333-3103223203002122-0100003022021331-2323132322020200"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-0102330111321010-0302230200222201-2330010030013220-3111200113122110-1230333200303121-2013100213131101-3132201021232020-0003123123023313"></a>
 
 ## proxy_config.https.tls_parameters.tls_config — tls_config / 110031103020 / 2
@@ -32,6 +100,7 @@ This defines various OPTIONS to configure TLS configuration parameters.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("custom_security",
     "default_security"),
   validators.ConflictingObjectAttributes("custom_security",
@@ -108,7 +177,7 @@ Breadcrumbs:
 - [proxy_config](resources--bigip_http_proxy--reference--group-003.md#canonical-3003013220031132-0222103102123201-3133022011003320-3300031222211002-0032213213000000-1001011223312300-1133211303323330-1223230120123033)
 - [proxy_config.https](resources--bigip_http_proxy--reference--group-003.md#canonical-3203121210323113-2101032200321202-0010303030311321-3220231332303132-1310103011003233-3221200330233120-1030332101023220-1003313201121111)
 - [proxy_config.https.tls_parameters](resources--bigip_http_proxy--reference--group-003.md#canonical-0122023333332003-0230210110313232-2302012011112302-2312312013000100-0332122101232130-1301100301123232-3320133330333302-0122001022012013)
-- [proxy_config.https.tls_parameters.tls_config](resources--bigip_http_proxy--reference--group-003.md#canonical-2031033101211112-0033321320211013-1322122101220213-0120102020101130-1231000130120333-3103223203002122-0100003022021331-2323132322020200)
+- [proxy_config.https.tls_parameters.tls_config](resources--bigip_http_proxy--reference--group-004.md#canonical-2031033101211112-0033321320211013-1322122101220213-0120102020101130-1231000130120333-3103223203002122-0100003022021331-2323132322020200)
 - proxy_config.https.tls_parameters.tls_config.custom_security
 
 <a id="canonical-2210003101010303-3213302030201200-1223323223330133-1101110322332312-1322302203210230-1310233210130310-3032112312000001-1303200130311330"></a>
@@ -124,6 +193,7 @@ This defines TLS protocol config including min/max versions and allowed ciphers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("cipher_suites")}
 ```
 
@@ -217,6 +287,8 @@ F5 Distributed Cloud will choose the optimal TLS version.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("TLS_AUTO",
     "TLSv1_0",
@@ -268,6 +340,8 @@ F5 Distributed Cloud will choose the optimal TLS version.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("TLS_AUTO",
     "TLSv1_0",
@@ -302,7 +376,7 @@ Receipt-pinned upstream constraints:
 
 ## Next pages — custom_security / 123132102021 / 7
 
-- [proxy_config.https.tls_parameters.tls_config](resources--bigip_http_proxy--reference--group-003.md#canonical-2031033101211112-0033321320211013-1322122101220213-0120102020101130-1231000130120333-3103223203002122-0100003022021331-2323132322020200)
+- [proxy_config.https.tls_parameters.tls_config](resources--bigip_http_proxy--reference--group-004.md#canonical-2031033101211112-0033321320211013-1322122101220213-0120102020101130-1231000130120333-3103223203002122-0100003022021331-2323132322020200)
 - [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
 
 <a id="canonical-1001302030122213-2212331100230223-3101020120201233-0322202103201113-1332020112312000-0001323311112233-3320200112101330-3023120132020100"></a>
@@ -322,7 +396,7 @@ Breadcrumbs:
 - [proxy_config](resources--bigip_http_proxy--reference--group-003.md#canonical-3003013220031132-0222103102123201-3133022011003320-3300031222211002-0032213213000000-1001011223312300-1133211303323330-1223230120123033)
 - [proxy_config.https](resources--bigip_http_proxy--reference--group-003.md#canonical-3203121210323113-2101032200321202-0010303030311321-3220231332303132-1310103011003233-3221200330233120-1030332101023220-1003313201121111)
 - [proxy_config.https.tls_parameters](resources--bigip_http_proxy--reference--group-003.md#canonical-0122023333332003-0230210110313232-2302012011112302-2312312013000100-0332122101232130-1301100301123232-3320133330333302-0122001022012013)
-- [proxy_config.https.tls_parameters.tls_config](resources--bigip_http_proxy--reference--group-003.md#canonical-2031033101211112-0033321320211013-1322122101220213-0120102020101130-1231000130120333-3103223203002122-0100003022021331-2323132322020200)
+- [proxy_config.https.tls_parameters.tls_config](resources--bigip_http_proxy--reference--group-004.md#canonical-2031033101211112-0033321320211013-1322122101220213-0120102020101130-1231000130120333-3103223203002122-0100003022021331-2323132322020200)
 - proxy_config.https.tls_parameters.tls_config.default_security
 
 <a id="canonical-1022333100332033-2202313233010321-0033022011010231-0011021211031123-3002112000013110-0333322103010110-2112121010233130-3100123132023301"></a>
@@ -364,7 +438,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 ## Next pages — default_security / 133223011203 / 4
 
-- [proxy_config.https.tls_parameters.tls_config](resources--bigip_http_proxy--reference--group-003.md#canonical-2031033101211112-0033321320211013-1322122101220213-0120102020101130-1231000130120333-3103223203002122-0100003022021331-2323132322020200)
+- [proxy_config.https.tls_parameters.tls_config](resources--bigip_http_proxy--reference--group-004.md#canonical-2031033101211112-0033321320211013-1322122101220213-0120102020101130-1231000130120333-3103223203002122-0100003022021331-2323132322020200)
 - [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
 
 <a id="canonical-3330310303203023-2110013312120302-1231122110200313-3022003222230031-3032031332003231-2210220220231220-3121112121023001-2033132121322102"></a>
@@ -384,7 +458,7 @@ Breadcrumbs:
 - [proxy_config](resources--bigip_http_proxy--reference--group-003.md#canonical-3003013220031132-0222103102123201-3133022011003320-3300031222211002-0032213213000000-1001011223312300-1133211303323330-1223230120123033)
 - [proxy_config.https](resources--bigip_http_proxy--reference--group-003.md#canonical-3203121210323113-2101032200321202-0010303030311321-3220231332303132-1310103011003233-3221200330233120-1030332101023220-1003313201121111)
 - [proxy_config.https.tls_parameters](resources--bigip_http_proxy--reference--group-003.md#canonical-0122023333332003-0230210110313232-2302012011112302-2312312013000100-0332122101232130-1301100301123232-3320133330333302-0122001022012013)
-- [proxy_config.https.tls_parameters.tls_config](resources--bigip_http_proxy--reference--group-003.md#canonical-2031033101211112-0033321320211013-1322122101220213-0120102020101130-1231000130120333-3103223203002122-0100003022021331-2323132322020200)
+- [proxy_config.https.tls_parameters.tls_config](resources--bigip_http_proxy--reference--group-004.md#canonical-2031033101211112-0033321320211013-1322122101220213-0120102020101130-1231000130120333-3103223203002122-0100003022021331-2323132322020200)
 - proxy_config.https.tls_parameters.tls_config.low_security
 
 <a id="canonical-0212100230111030-1120211311122313-0130021100300301-0133232230003123-3130133203032303-2111020323111011-0311231333021201-2012120331102000"></a>
@@ -426,7 +500,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 ## Next pages — low_security / 302101332300 / 4
 
-- [proxy_config.https.tls_parameters.tls_config](resources--bigip_http_proxy--reference--group-003.md#canonical-2031033101211112-0033321320211013-1322122101220213-0120102020101130-1231000130120333-3103223203002122-0100003022021331-2323132322020200)
+- [proxy_config.https.tls_parameters.tls_config](resources--bigip_http_proxy--reference--group-004.md#canonical-2031033101211112-0033321320211013-1322122101220213-0120102020101130-1231000130120333-3103223203002122-0100003022021331-2323132322020200)
 - [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
 
 <a id="canonical-1030031031103101-3101301320202011-3031130233302300-3220211202033301-0120321113202212-0123231033333202-3202233332313211-0123311333021001"></a>
@@ -446,7 +520,7 @@ Breadcrumbs:
 - [proxy_config](resources--bigip_http_proxy--reference--group-003.md#canonical-3003013220031132-0222103102123201-3133022011003320-3300031222211002-0032213213000000-1001011223312300-1133211303323330-1223230120123033)
 - [proxy_config.https](resources--bigip_http_proxy--reference--group-003.md#canonical-3203121210323113-2101032200321202-0010303030311321-3220231332303132-1310103011003233-3221200330233120-1030332101023220-1003313201121111)
 - [proxy_config.https.tls_parameters](resources--bigip_http_proxy--reference--group-003.md#canonical-0122023333332003-0230210110313232-2302012011112302-2312312013000100-0332122101232130-1301100301123232-3320133330333302-0122001022012013)
-- [proxy_config.https.tls_parameters.tls_config](resources--bigip_http_proxy--reference--group-003.md#canonical-2031033101211112-0033321320211013-1322122101220213-0120102020101130-1231000130120333-3103223203002122-0100003022021331-2323132322020200)
+- [proxy_config.https.tls_parameters.tls_config](resources--bigip_http_proxy--reference--group-004.md#canonical-2031033101211112-0033321320211013-1322122101220213-0120102020101130-1231000130120333-3103223203002122-0100003022021331-2323132322020200)
 - proxy_config.https.tls_parameters.tls_config.medium_security
 
 <a id="canonical-0323133222230223-3132333012313201-0310113302022122-1210022232321131-3031201022012310-3330300002021201-0013300232103323-1331110032131202"></a>
@@ -488,7 +562,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 ## Next pages — medium_security / 023232032203 / 4
 
-- [proxy_config.https.tls_parameters.tls_config](resources--bigip_http_proxy--reference--group-003.md#canonical-2031033101211112-0033321320211013-1322122101220213-0120102020101130-1231000130120333-3103223203002122-0100003022021331-2323132322020200)
+- [proxy_config.https.tls_parameters.tls_config](resources--bigip_http_proxy--reference--group-004.md#canonical-2031033101211112-0033321320211013-1322122101220213-0120102020101130-1231000130120333-3103223203002122-0100003022021331-2323132322020200)
 - [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
 
 <a id="canonical-1330121210122133-3031122320310320-0011233103332023-0123132311203120-2203332113021122-2323200001230323-3203300122100330-2003232220200300"></a>
@@ -519,6 +593,7 @@ Validation context for downstream client TLS connections.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("crl",
     "no_crl"),
   validators.ConflictingObjectAttributes("trusted_ca",
@@ -608,6 +683,7 @@ Exclusive with \[trusted\_ca\] Upload a Root CA Certificate specifically for thi
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -705,6 +781,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -752,6 +829,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -817,6 +895,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -889,6 +968,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1032,6 +1112,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -1079,6 +1160,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1144,6 +1226,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1216,6 +1299,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1353,6 +1437,7 @@ X-Forwarded-Client-Cert header elements to be added to requests.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")}
 ```
 
@@ -1454,6 +1539,7 @@ Choice for selecting HTTP proxy with bring your own certificates.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("append_server_name",
     "default_header"),
   validators.ConflictingObjectAttributes("append_server_name",
@@ -1548,6 +1634,7 @@ name “server”. If header value is already present, it is not overwritten and
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(8096),
 }
@@ -1607,6 +1694,7 @@ specified in milliseconds. The default value is 2 minutes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(600000),
 }
@@ -1702,6 +1790,7 @@ Exclusive with \[port\_ranges\] HTTPS port to Listen.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -1758,6 +1847,7 @@ consists of a single port or two ports separated by "-".
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 512),
 }
@@ -1821,6 +1911,7 @@ the header name “server”. This will overwrite existing values, if any, for t
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(8096),
 }
@@ -1910,6 +2001,7 @@ TLS connection coalescing configuration (not compatible with mTLS)
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("default_coalescing",
     "strict_coalescing")}
 ```
@@ -2342,6 +2434,7 @@ HTTP protocol configuration OPTIONS for downstream connections.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("http_protocol_enable_v1_only",
     "http_protocol_enable_v1_v2"),
   validators.ConflictingObjectAttributes("http_protocol_enable_v1_only",
@@ -2481,6 +2574,7 @@ Header Transformation OPTIONS for HTTP/1.1 request/response headers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation",
     "preserve_case_header_transformation"),
   validators.ConflictingObjectAttributes("default_header_transformation",
@@ -3041,6 +3135,7 @@ This defines various OPTIONS to configure TLS configuration parameters.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("custom_security",
     "default_security"),
   validators.ConflictingObjectAttributes("custom_security",
@@ -3132,6 +3227,7 @@ This defines TLS protocol config including min/max versions and allowed ciphers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("cipher_suites")}
 ```
 
@@ -3225,6 +3321,8 @@ F5 Distributed Cloud will choose the optimal TLS version.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("TLS_AUTO",
     "TLSv1_0",
@@ -3276,6 +3374,8 @@ F5 Distributed Cloud will choose the optimal TLS version.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("TLS_AUTO",
     "TLSv1_0",
@@ -3523,6 +3623,7 @@ Validation context for downstream client TLS connections.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("crl",
     "no_crl"),
   validators.ConflictingObjectAttributes("trusted_ca",
@@ -3612,6 +3713,7 @@ Exclusive with \[trusted\_ca\] Upload a Root CA Certificate specifically for thi
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -3708,6 +3810,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -3755,6 +3858,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -3820,6 +3924,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -3892,6 +3997,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -4033,6 +4139,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -4080,6 +4187,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -4145,6 +4253,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -4217,6 +4326,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -4352,6 +4462,7 @@ X-Forwarded-Client-Cert header elements to be added to requests.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")}
 ```
 

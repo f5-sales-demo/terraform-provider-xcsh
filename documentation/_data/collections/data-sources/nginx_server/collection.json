@@ -272,7 +272,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:nginx_server:reference", "xcsh-docs:data-sources:nginx_server:examples"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -316,7 +316,7 @@
         "xcsh-docs:data-sources:nginx_server:properties:server_spec"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -342,6 +342,8 @@
           "anchor": "schema-annotations",
           "description": "Annotations.",
           "document_id": "xcsh-docs:data-sources:nginx_server:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -356,6 +358,8 @@
           "anchor": "section",
           "description": "DataplaneReference.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -370,6 +374,8 @@
           "anchor": "schema-description",
           "description": "Description.",
           "document_id": "xcsh-docs:data-sources:nginx_server:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -384,6 +390,8 @@
           "anchor": "schema-id",
           "description": "Unique identifier.",
           "document_id": "xcsh-docs:data-sources:nginx_server:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -398,6 +406,8 @@
           "anchor": "schema-labels",
           "description": "Labels.",
           "document_id": "xcsh-docs:data-sources:nginx_server:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -412,6 +422,8 @@
           "anchor": "schema-name",
           "description": "Name of the NginxServer to look up.",
           "document_id": "xcsh-docs:data-sources:nginx_server:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -426,6 +438,8 @@
           "anchor": "schema-namespace",
           "description": "Namespace of the NginxServer.",
           "document_id": "xcsh-docs:data-sources:nginx_server:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -440,6 +454,8 @@
           "anchor": "section",
           "description": "Configuration for server_spec.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -472,7 +488,7 @@
         "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref:nginx_instance"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -498,6 +514,8 @@
           "anchor": "section",
           "description": "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref:nginx_csg",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -512,6 +530,8 @@
           "anchor": "section",
           "description": "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref:nginx_instance",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -541,7 +561,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -567,6 +587,8 @@
           "anchor": "schema-dataplane_ref--nginx_csg--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref:nginx_csg",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -581,6 +603,8 @@
           "anchor": "schema-dataplane_ref--nginx_csg--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref:nginx_csg",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -595,6 +619,8 @@
           "anchor": "schema-dataplane_ref--nginx_csg--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref:nginx_csg",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -624,7 +650,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -650,6 +676,8 @@
           "anchor": "schema-dataplane_ref--nginx_instance--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref:nginx_instance",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -664,6 +692,8 @@
           "anchor": "schema-dataplane_ref--nginx_instance--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref:nginx_instance",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -678,6 +708,8 @@
           "anchor": "schema-dataplane_ref--nginx_instance--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref:nginx_instance",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -711,7 +743,7 @@
         "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -737,6 +769,8 @@
           "anchor": "section",
           "description": "Configuration for api_discovery_spec.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:api_discovery_spec",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -751,6 +785,8 @@
           "anchor": "schema-server_spec--domains",
           "description": "Server name list specified as ${server_name} in NGINX config. If no value is specified corresponding to this variable, 'default' is used Reference: https://nginx.org/en/docs/HTTP/ngx_http_core_module.html#server.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -765,6 +801,8 @@
           "anchor": "section",
           "description": "Configuration of the set of locations corresponding to this server.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -779,6 +817,8 @@
           "anchor": "schema-server_spec--nginx_one_object_id",
           "description": "Signifies the uniqueness identifier for NGINX One representation of this NGINX server.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -793,6 +833,8 @@
           "anchor": "schema-server_spec--nginx_one_object_name",
           "description": "Hostname value set for Instance or Name for a Config Sync Group in NGINX One.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -807,6 +849,8 @@
           "anchor": "schema-server_spec--port",
           "description": "Signifies the port configured for the NGINX server.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -821,6 +865,8 @@
           "anchor": "schema-server_spec--server_name",
           "description": "Signifies the combination of first element in domains array and the port configured for the NGINX server.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -835,6 +881,8 @@
           "anchor": "schema-server_spec--total_routes",
           "description": "Total locations configured in the NGINX Server.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -849,6 +897,8 @@
           "anchor": "section",
           "description": "Configuration for waf_spec.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -881,7 +931,7 @@
         "xcsh-docs:data-sources:nginx_server:properties:server_spec:api_discovery_spec:enabled"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -907,6 +957,8 @@
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:api_discovery_spec:disabled",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -921,6 +973,8 @@
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:api_discovery_spec:enabled",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -950,7 +1004,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -990,7 +1044,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1033,7 +1087,7 @@
         "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1059,6 +1113,8 @@
           "anchor": "section",
           "description": "Configuration for api_discovery_spec.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:api_discovery_spec",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1073,6 +1129,8 @@
           "anchor": "schema-server_spec--locations--definition",
           "description": "Location definition specified as the attributes of ${location} block in NGINX config. This includes both the optional_modifier and the location_match combined. A location can either be defined by a prefix string, or by a regular expression.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1087,6 +1145,8 @@
           "anchor": "schema-server_spec--locations--name",
           "description": "Uniqueness identifier for a location definition.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1101,6 +1161,8 @@
           "anchor": "section",
           "description": "Configuration for waf_spec.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1133,7 +1195,7 @@
         "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:api_discovery_spec:enabled"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1159,6 +1221,8 @@
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:api_discovery_spec:disabled",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1173,6 +1237,8 @@
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:api_discovery_spec:enabled",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1202,7 +1268,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1242,7 +1308,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1288,7 +1354,7 @@
         "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec:none_waf_mode"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1314,6 +1380,8 @@
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec:blocking_waf_mode",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1328,6 +1396,8 @@
           "anchor": "section",
           "description": "Configuration parameter for distributed cloud policy management.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec:distributed_cloud_policy_management",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1342,6 +1412,8 @@
           "anchor": "section",
           "description": "Configuration parameter for monitoring waf mode.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec:monitoring_waf_mode",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1356,6 +1428,8 @@
           "anchor": "section",
           "description": "Configuration parameter for nginx policy management.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec:nginx_policy_management",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1370,6 +1444,8 @@
           "anchor": "section",
           "description": "Configuration parameter for none waf mode.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec:none_waf_mode",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1384,6 +1460,8 @@
           "anchor": "schema-server_spec--locations--waf_spec--policy_file_name",
           "description": "WAF Policy File Name. Policy file name for WAF.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1398,6 +1476,8 @@
           "anchor": "schema-server_spec--locations--waf_spec--policy_name",
           "description": "WAF Policy Name. Policy name configured for WAF.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1412,6 +1492,8 @@
           "anchor": "schema-server_spec--locations--waf_spec--security_log_enabled",
           "description": "Specifies if security logging is enabled.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1426,6 +1508,8 @@
           "anchor": "schema-server_spec--locations--waf_spec--security_log_file_names",
           "description": "Specifies the list of security log files specification.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1455,7 +1539,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1495,7 +1579,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1535,7 +1619,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1575,7 +1659,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1615,7 +1699,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1661,7 +1745,7 @@
         "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec:none_waf_mode"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1687,6 +1771,8 @@
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec:blocking_waf_mode",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1701,6 +1787,8 @@
           "anchor": "section",
           "description": "Configuration parameter for distributed cloud policy management.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec:distributed_cloud_policy_management",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1715,6 +1803,8 @@
           "anchor": "section",
           "description": "Configuration parameter for monitoring waf mode.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec:monitoring_waf_mode",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1729,6 +1819,8 @@
           "anchor": "section",
           "description": "Configuration parameter for nginx policy management.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec:nginx_policy_management",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1743,6 +1835,8 @@
           "anchor": "section",
           "description": "Configuration parameter for none waf mode.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec:none_waf_mode",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1757,6 +1851,8 @@
           "anchor": "schema-server_spec--waf_spec--policy_file_name",
           "description": "WAF Policy File Name. Policy file name for WAF.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1771,6 +1867,8 @@
           "anchor": "schema-server_spec--waf_spec--policy_name",
           "description": "WAF Policy Name. Policy name configured for WAF.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1785,6 +1883,8 @@
           "anchor": "schema-server_spec--waf_spec--security_log_enabled",
           "description": "Specifies if security logging is enabled.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1799,6 +1899,8 @@
           "anchor": "schema-server_spec--waf_spec--security_log_file_names",
           "description": "Specifies the list of security log files specification.",
           "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1828,7 +1930,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1868,7 +1970,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1908,7 +2010,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1948,7 +2050,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1988,7 +2090,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2028,7 +2130,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:nginx_server:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2068,7 +2170,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

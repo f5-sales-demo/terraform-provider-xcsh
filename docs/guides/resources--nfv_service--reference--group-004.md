@@ -6,6 +6,86 @@ description: "Complete grouped canonical reference for xcsh_nfv_service referenc
 
 # xcsh_nfv_service reference
 
+<a id="canonical-0101120131120010-2120013301210231-1023223103010112-2112321302321212-3213001322020200-0303320023212013-0210101130133103-0100233201200110"></a>
+
+## Next pages — palo_alto_fw_service / 123201032120 / 8
+
+- [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-004.md#canonical-1323331203203220-3311331231103031-1001233001210020-3313130122302010-2233001013101302-3333333033103312-2000002012201020-3033003110033123)
+- [palo_alto_fw_service.aws_tgw_site](resources--nfv_service--reference--group-004.md#canonical-1301111030110103-0221103130313220-0310020330231021-3213300230211120-0300001131331322-1302213200103213-2300100123201131-0022123322310221)
+- [palo_alto_fw_service.disable_panaroma](resources--nfv_service--reference--group-004.md#canonical-1123032201111330-0000230312030121-2011301213013022-0012110231212311-2323223023121032-2121213231232023-1132132013020021-3132002201011002)
+- [palo_alto_fw_service.pan_ami_bundle1](resources--nfv_service--reference--group-004.md#canonical-3033330222311121-1332010330203303-1002302201120120-0021101102310211-3031013112310322-1220320330331121-3212331103011223-3332101111321030)
+- [palo_alto_fw_service.pan_ami_bundle2](resources--nfv_service--reference--group-004.md#canonical-1211032002030203-2321110130000111-0100333311120113-3102313030201023-0131001310210103-3201210103110232-2302102303231003-3203101301001000)
+- [palo_alto_fw_service.panorama_server](resources--nfv_service--reference--group-004.md#canonical-1011323001103321-2030100221203210-2122232000230032-2223123210312101-0202020002101023-0101121233000113-3313223221110312-1303032221032111)
+- [palo_alto_fw_service.service_nodes](resources--nfv_service--reference--group-004.md#canonical-2031200013222301-1113112221323113-0100320310111020-2012332001313133-1212000001301222-1002020103233310-3330332120300223-1122101300020031)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+
+<a id="canonical-1323331203203220-3311331231103031-1001233001210020-3313130122302010-2233001013101302-3333333033103312-2000002012201020-3033003110033123"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0110031313330101-1123131133003001-0203121323312021-3001330103023220-3123123313120301-1200103131230121-2220031000321030-0030222112332132"></a>
+
+## palo_alto_fw_service.auto_setup — auto_setup / 021133313232 / 2
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [palo_alto_fw_service](resources--nfv_service--reference--group-003.md#canonical-1220032300320010-0322310310320112-3102020032000031-0230002231133113-1321103031132221-2112211003001211-2001103020013300-3102213200033033)
+- palo_alto_fw_service.auto_setup
+
+<a id="canonical-3310302012302032-0132011203023101-1302100100013130-1010111331312131-2232100232203002-1131312233001023-3132321131020132-0022132333300322"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+For auto-setup, SSH public and pvt keys are needed. Using the given config user, SSH and API access
+will be configured.
+
+Upstream description:
+
+For auto-setup, SSH public and pvt keys are needed. Using the given config user, SSH and API access
+will be configured.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.RequiredObjectAttributes("admin_username")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-ssh_keys_choice": "[\"manual_ssh_keys\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+auto_setup {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0020331321213203-3301331112201111-0113320003233120-1232113321011022-0332102212001313-1122000330220302-2100112122020212-0221301120013100"></a>
+
+## Direct properties — auto_setup / 021133313232 / 3
+
+- [admin_password](resources--nfv_service--reference--group-004.md#canonical-2021013202121333-0332132013033030-0130230331300102-0033212321212113-3001333312121030-0303203233003111-2123010300222022-0131120132110211): complete subsection reference.
+
+<a id="canonical-2000103103321101-3101320102231022-0310121132320223-2021323230002232-1301322031210000-3013100302223002-2032310312033030-2010023002232300"></a>
+
 <a id="canonical-2013301200211112-1100003032311320-0023112202120310-2332113221123213-0021032130023101-0103210313310210-1003120310012133-0111202121002221"></a>
 
 ## admin_username property — auto_setup / 021133313232 / 4
@@ -21,6 +101,7 @@ Firewall Admin Username.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -85,7 +166,7 @@ Breadcrumbs:
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
 - [palo_alto_fw_service](resources--nfv_service--reference--group-003.md#canonical-1220032300320010-0322310310320112-3102020032000031-0230002231133113-1321103031132221-2112211003001211-2001103020013300-3102213200033033)
-- [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-003.md#canonical-1323331203203220-3311331231103031-1001233001210020-3313130122302010-2233001013101302-3333333033103312-2000002012201020-3033003110033123)
+- [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-004.md#canonical-1323331203203220-3311331231103031-1001233001210020-3313130122302010-2233001013101302-3333333033103312-2000002012201020-3033003110033123)
 - palo_alto_fw_service.auto_setup.admin_password
 
 <a id="canonical-2133330101012003-3220110310231233-0121210023200111-1002312202212001-3001330023110033-2330311203202123-3221100300133330-0231000331331011"></a>
@@ -97,6 +178,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -137,7 +219,7 @@ admin_password {
 
 - [palo_alto_fw_service.auto_setup.admin_password.blindfold_secret_info](resources--nfv_service--reference--group-004.md#canonical-1030002023230000-3131033200222002-1230310102122013-1130333310302011-0233320133212311-2032133033331213-2103031210002132-1200100212021001)
 - [palo_alto_fw_service.auto_setup.admin_password.clear_secret_info](resources--nfv_service--reference--group-004.md#canonical-2103032110002003-0101102132021023-0233002333110332-3200220133331320-0303102011202331-0222021301312211-0122031202123233-3133112322202230)
-- [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-003.md#canonical-1323331203203220-3311331231103031-1001233001210020-3313130122302010-2233001013101302-3333333033103312-2000002012201020-3033003110033123)
+- [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-004.md#canonical-1323331203203220-3311331231103031-1001233001210020-3313130122302010-2233001013101302-3333333033103312-2000002012201020-3033003110033123)
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 
 <a id="canonical-1030002023230000-3131033200222002-1230310102122013-1130333310302011-0233320133212311-2032133033331213-2103031210002132-1200100212021001"></a>
@@ -155,7 +237,7 @@ Breadcrumbs:
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
 - [palo_alto_fw_service](resources--nfv_service--reference--group-003.md#canonical-1220032300320010-0322310310320112-3102020032000031-0230002231133113-1321103031132221-2112211003001211-2001103020013300-3102213200033033)
-- [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-003.md#canonical-1323331203203220-3311331231103031-1001233001210020-3313130122302010-2233001013101302-3333333033103312-2000002012201020-3033003110033123)
+- [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-004.md#canonical-1323331203203220-3311331231103031-1001233001210020-3313130122302010-2233001013101302-3333333033103312-2000002012201020-3033003110033123)
 - [palo_alto_fw_service.auto_setup.admin_password](resources--nfv_service--reference--group-004.md#canonical-2021013202121333-0332132013033030-0130230331300102-0033212321212113-3001333312121030-0303203233003111-2123010300222022-0131120132110211)
 - palo_alto_fw_service.auto_setup.admin_password.blindfold_secret_info
 
@@ -168,6 +250,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -249,6 +332,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -352,7 +436,7 @@ Breadcrumbs:
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
 - [palo_alto_fw_service](resources--nfv_service--reference--group-003.md#canonical-1220032300320010-0322310310320112-3102020032000031-0230002231133113-1321103031132221-2112211003001211-2001103020013300-3102213200033033)
-- [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-003.md#canonical-1323331203203220-3311331231103031-1001233001210020-3313130122302010-2233001013101302-3333333033103312-2000002012201020-3033003110033123)
+- [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-004.md#canonical-1323331203203220-3311331231103031-1001233001210020-3313130122302010-2233001013101302-3333333033103312-2000002012201020-3033003110033123)
 - [palo_alto_fw_service.auto_setup.admin_password](resources--nfv_service--reference--group-004.md#canonical-2021013202121333-0332132013033030-0130230331300102-0033212321212113-3001333312121030-0303203233003111-2123010300222022-0131120132110211)
 - palo_alto_fw_service.auto_setup.admin_password.clear_secret_info
 
@@ -365,6 +449,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -425,6 +510,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -498,7 +584,7 @@ Breadcrumbs:
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
 - [palo_alto_fw_service](resources--nfv_service--reference--group-003.md#canonical-1220032300320010-0322310310320112-3102020032000031-0230002231133113-1321103031132221-2112211003001211-2001103020013300-3102213200033033)
-- [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-003.md#canonical-1323331203203220-3311331231103031-1001233001210020-3313130122302010-2233001013101302-3333333033103312-2000002012201020-3033003110033123)
+- [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-004.md#canonical-1323331203203220-3311331231103031-1001233001210020-3313130122302010-2233001013101302-3333333033103312-2000002012201020-3033003110033123)
 - palo_alto_fw_service.auto_setup.manual_ssh_keys
 
 <a id="canonical-0233122221112122-2121000312332323-0210133332122101-3131322212331211-3322102301130031-1333313202212332-1001210012012320-1022303302302113"></a>
@@ -510,6 +596,7 @@ SSH Key includes both public and private key.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("public_key")}
 ```
 
@@ -553,6 +640,7 @@ Authorized Public SSH key which will be programmed on the node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 8192),
 }
@@ -609,7 +697,7 @@ Receipt-pinned upstream constraints:
 ## Next pages — manual_ssh_keys / 100323203221 / 5
 
 - [palo_alto_fw_service.auto_setup.manual_ssh_keys.private_key](resources--nfv_service--reference--group-004.md#canonical-0010113000030201-1103121313002011-2023000321132022-3212203332030010-3112211031112232-3000333012101202-1330130222121223-3023233011002111)
-- [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-003.md#canonical-1323331203203220-3311331231103031-1001233001210020-3313130122302010-2233001013101302-3333333033103312-2000002012201020-3033003110033123)
+- [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-004.md#canonical-1323331203203220-3311331231103031-1001233001210020-3313130122302010-2233001013101302-3333333033103312-2000002012201020-3033003110033123)
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 
 <a id="canonical-0010113000030201-1103121313002011-2023000321132022-3212203332030010-3112211031112232-3000333012101202-1330130222121223-3023233011002111"></a>
@@ -627,7 +715,7 @@ Breadcrumbs:
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
 - [palo_alto_fw_service](resources--nfv_service--reference--group-003.md#canonical-1220032300320010-0322310310320112-3102020032000031-0230002231133113-1321103031132221-2112211003001211-2001103020013300-3102213200033033)
-- [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-003.md#canonical-1323331203203220-3311331231103031-1001233001210020-3313130122302010-2233001013101302-3333333033103312-2000002012201020-3033003110033123)
+- [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-004.md#canonical-1323331203203220-3311331231103031-1001233001210020-3313130122302010-2233001013101302-3333333033103312-2000002012201020-3033003110033123)
 - [palo_alto_fw_service.auto_setup.manual_ssh_keys](resources--nfv_service--reference--group-004.md#canonical-0033320030010322-1202102231033331-2100333321203211-1002102220220222-2103103103300010-1013013232210101-3211202330031320-2120100320132201)
 - palo_alto_fw_service.auto_setup.manual_ssh_keys.private_key
 
@@ -640,6 +728,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -698,7 +787,7 @@ Breadcrumbs:
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
 - [palo_alto_fw_service](resources--nfv_service--reference--group-003.md#canonical-1220032300320010-0322310310320112-3102020032000031-0230002231133113-1321103031132221-2112211003001211-2001103020013300-3102213200033033)
-- [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-003.md#canonical-1323331203203220-3311331231103031-1001233001210020-3313130122302010-2233001013101302-3333333033103312-2000002012201020-3033003110033123)
+- [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-004.md#canonical-1323331203203220-3311331231103031-1001233001210020-3313130122302010-2233001013101302-3333333033103312-2000002012201020-3033003110033123)
 - [palo_alto_fw_service.auto_setup.manual_ssh_keys](resources--nfv_service--reference--group-004.md#canonical-0033320030010322-1202102231033331-2100333321203211-1002102220220222-2103103103300010-1013013232210101-3211202330031320-2120100320132201)
 - [palo_alto_fw_service.auto_setup.manual_ssh_keys.private_key](resources--nfv_service--reference--group-004.md#canonical-0010113000030201-1103121313002011-2023000321132022-3212203332030010-3112211031112232-3000333012101202-1330130222121223-3023233011002111)
 - palo_alto_fw_service.auto_setup.manual_ssh_keys.private_key.blindfold_secret_info
@@ -712,6 +801,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -793,6 +883,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -896,7 +987,7 @@ Breadcrumbs:
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
 - [palo_alto_fw_service](resources--nfv_service--reference--group-003.md#canonical-1220032300320010-0322310310320112-3102020032000031-0230002231133113-1321103031132221-2112211003001211-2001103020013300-3102213200033033)
-- [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-003.md#canonical-1323331203203220-3311331231103031-1001233001210020-3313130122302010-2233001013101302-3333333033103312-2000002012201020-3033003110033123)
+- [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-004.md#canonical-1323331203203220-3311331231103031-1001233001210020-3313130122302010-2233001013101302-3333333033103312-2000002012201020-3033003110033123)
 - [palo_alto_fw_service.auto_setup.manual_ssh_keys](resources--nfv_service--reference--group-004.md#canonical-0033320030010322-1202102231033331-2100333321203211-1002102220220222-2103103103300010-1013013232210101-3211202330031320-2120100320132201)
 - [palo_alto_fw_service.auto_setup.manual_ssh_keys.private_key](resources--nfv_service--reference--group-004.md#canonical-0010113000030201-1103121313002011-2023000321132022-3212203332030010-3112211031112232-3000333012101202-1330130222121223-3023233011002111)
 - palo_alto_fw_service.auto_setup.manual_ssh_keys.private_key.clear_secret_info
@@ -910,6 +1001,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -970,6 +1062,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -1060,6 +1153,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -1107,6 +1201,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1172,6 +1267,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1244,6 +1340,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1497,6 +1594,7 @@ Panorama Server Type.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("server")}
 ```
 
@@ -1544,6 +1642,7 @@ Device Group Name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(128),
 }
@@ -1593,6 +1692,7 @@ Panorama Server Address to which the firewall should connect to.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPValidator(),
@@ -1649,6 +1749,7 @@ Template Stack Name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(128),
 }
@@ -1720,6 +1821,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -1791,6 +1893,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -1872,6 +1975,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -1988,6 +2092,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -2048,6 +2153,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -2132,6 +2238,7 @@ Configuration parameter for service nodes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("nodes")}
 ```
 
@@ -2201,6 +2308,7 @@ Configuration parameter for nodes
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("aws_az_name",
     "node_name"),
   validators.ConflictingListObjectAttributes("mgmt_subnet",
@@ -2270,6 +2378,7 @@ one of the AZ for sites.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -2323,6 +2432,7 @@ Node Name will be used to assign as hostname to the service.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2411,6 +2521,7 @@ Parameters for AWS subnet.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("existing_subnet_id",
     "subnet_param")}
 ```
@@ -2458,6 +2569,7 @@ Exclusive with \[subnet\_param\] Information about existing subnet ID.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -2536,6 +2648,7 @@ Parameters for creating a new cloud subnet.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("ipv4")}
 ```
 

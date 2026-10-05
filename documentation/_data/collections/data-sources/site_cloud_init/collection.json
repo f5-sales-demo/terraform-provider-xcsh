@@ -40,7 +40,7 @@
         "xcsh-docs:data-sources:site_cloud_init:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -81,7 +81,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -107,6 +107,8 @@
           "anchor": "schema-cloud_init_config",
           "description": "Cloud-init template with an unresolved token placeholder; substitute a separately issued site-bound JWT before deployment. This sensitive value is stored in Terraform state; protect state access accordingly.",
           "document_id": "xcsh-docs:data-sources:site_cloud_init:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed", "sensitive"],
           "max_items": null,
           "min_items": null,
@@ -121,6 +123,8 @@
           "anchor": "schema-enable_management_network",
           "description": "Management network choice for this cloud-init config.",
           "document_id": "xcsh-docs:data-sources:site_cloud_init:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -135,6 +139,8 @@
           "anchor": "schema-provider_ref",
           "description": "Provider for that cloud-init config.",
           "document_id": "xcsh-docs:data-sources:site_cloud_init:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -149,6 +155,8 @@
           "anchor": "schema-site_name",
           "description": "Site name for this cloud-init config.",
           "document_id": "xcsh-docs:data-sources:site_cloud_init:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -178,7 +186,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:site_cloud_init:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -218,7 +226,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

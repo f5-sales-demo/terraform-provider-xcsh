@@ -6,6 +6,46 @@ description: "Complete grouped canonical reference for xcsh_site_registrations_b
 
 # xcsh_site_registrations_by_state reference
 
+<a id="canonical-1323312311032131-1032020110202230-1032111220103133-2023222000211120-1232200202210100-1213101312132133-2330131220100300-1030120120123123"></a>
+
+## items.object.spec.gc_spec.passport.default_sw_version — default_sw_version / 032310110031 / 2
+
+Breadcrumbs:
+
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+- [Property reference](data-sources--site_registrations_by_state--reference--group-001.md#canonical-0320011213231301-1102033233211220-0302131120233130-2122121213220203-2033211132132211-0333231313221113-3210300123023021-2021122221230130)
+- [items](data-sources--site_registrations_by_state--reference--group-001.md#canonical-1133122031213013-2312233003121321-2003030111222220-0123212333122102-1113033120112122-1330232222330233-1111303223103223-2020000130121230)
+- [items.object](data-sources--site_registrations_by_state--reference--group-002.md#canonical-1223022213213010-2123312320000202-3212010203300330-2123121110030020-2121322322103003-3031303200312203-3323112222021022-0003011010032003)
+- [items.object.spec](data-sources--site_registrations_by_state--reference--group-002.md#canonical-2300201123032020-3301313011211022-3130333221102211-1201033333320023-2321202211023203-3011230023203033-0331211032133013-3221200200032222)
+- [items.object.spec.gc_spec](data-sources--site_registrations_by_state--reference--group-002.md#canonical-0101133023001220-0122002101101002-3021010302200310-1311213123300331-2033020320023103-2103222330330222-2020300312323220-2200331323103311)
+- [items.object.spec.gc_spec.passport](data-sources--site_registrations_by_state--reference--group-002.md#canonical-0231331112312020-0332200010103111-2100133133000021-3221232131111212-3232120300111102-2111103111011202-2211223212113223-0213003021300131)
+- items.object.spec.gc_spec.passport.default_sw_version
+
+<a id="canonical-2213213312031323-1031320121103321-3300020013032303-2210023202303222-1223100000212303-1131000320213111-0012010311311331-3311202300110110"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+<a id="canonical-2031321220132103-1212032201113302-3330210033322021-1220012013202303-0200011201133101-2302112221031113-3030013013122110-1202313123110320"></a>
+
+## Direct properties — default_sw_version / 032310110031 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0121011003222022-3320021200323310-2200133003131320-1212323123323010-1101002032233320-2222120332201103-3233122020100310-1322011300323210"></a>
+
+## Next pages — default_sw_version / 032310110031 / 4
+
+- [items.object.spec.gc_spec.passport](data-sources--site_registrations_by_state--reference--group-002.md#canonical-0231331112312020-0332200010103111-2100133133000021-3221232131111212-3232120300111102-2111103111011202-2211223212113223-0213003021300131)
+- [xcsh_site_registrations_by_state](../data-sources/site_registrations_by_state.md#canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303)
+
+<a id="canonical-0221221101033201-1020331112200021-1120033002221013-1033203123012222-1023313332113323-0023330303303010-3030120231213132-2233211312001103"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-3003000033113223-0132033123122113-3100003223211211-2032300110001313-1032332220221330-3311032110121213-3001311112332221-2131223222010031"></a>
 
 ## items.object.spec.gc_spec.site — site / 303201301101 / 2
@@ -66,6 +106,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -150,6 +191,8 @@ Possible values are \`NOTSET\`, \`NEW\`, \`APPROVED\`, \`ADMITTED\`, \`RETIRED\`
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ADMITTED","APPROVED","DONE","FAILED","FAILED_INACTIVE","MAINTENANCE","NEW","NOTSET","ONLINE","PENDING","RETIRED","UPGRADING"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("NOTSET",
     "NEW",
@@ -192,6 +235,8 @@ connected Regional Edge. Site is in process of upgrade. Possible values are \`ON
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["DECOMMISSIONING","DELETED_CLOUD_RESOURCES","DELETE_QUEUED","DELETING_CLOUD_RESOURCES","ERROR_DELETING_CLOUD_RESOURCES","ERROR_IN_ORCHESTRATION","ERROR_UPDATING_CLOUD_RESOURCES","FAILED","FAILED_INACTIVE","ONLINE","ORCHESTRATION_COMPLETE","ORCHESTRATION_IN_PROGRESS","ORCHESTRATION_QUEUED","PROVISIONING","REREGISTRATION","STANDBY","UPDATE_QUEUED","UPDATING_CLOUD_RESOURCES","UPGRADING","VALIDATION_FAILED","VALIDATION_IN_PROGRESS","VALIDATION_SUCCESS","WAITINGNODES","WAITING_FOR_REGISTRATION"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("ONLINE",
     "PROVISIONING",
@@ -621,6 +666,7 @@ Name of the service that is responsible for initializing this object.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -772,6 +818,7 @@ metadata.namespace field when an object is created.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(1),
 }
@@ -817,6 +864,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -906,6 +954,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -927,6 +976,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1002,6 +1052,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1023,6 +1074,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1277,6 +1329,7 @@ Name of the service that is responsible for initializing this object.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1449,6 +1502,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1470,6 +1524,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),

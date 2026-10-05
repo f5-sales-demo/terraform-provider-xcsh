@@ -6,6 +6,381 @@ description: "Complete grouped canonical reference for xcsh_fleet reference."
 
 # xcsh_fleet reference
 
+<a id="canonical-2033202030030212-1222221122121313-1312331233221113-2100032112120310-2123113111131323-2031323003023023-0131311002013020-1320330323100211"></a>
+
+## export_policy property — volume_defaults / 130110113011 / 6
+
+Type: `"string"`. Optional.
+
+Policy configuration for this feature.
+
+Upstream description:
+
+Export policy to use.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+- [no_qos](resources--fleet--reference--group-004.md#canonical-0230132003233011-1302200101120032-3302332032133012-3132303201232302-1223221123003013-2101021331312201-1332131002010030-2012322020112120): complete subsection reference.
+
+<a id="canonical-3013310231230110-0213300133130022-2011011333202031-0123013132133012-1223333022121122-1210300330233101-0323113022030300-2312011313303321"></a>
+
+<a id="canonical-1112312221221002-1300222331201003-2312201310131110-3102003102112100-0023021101013310-3022121131201102-3132320101233132-1311322212310331"></a>
+
+## qos_policy property — volume_defaults / 130110113011 / 7
+
+Type: `"string"`. Optional.
+
+Policy configuration for this feature.
+
+Upstream description:
+
+Exclusive with \[adaptive\_qos\_policy no\_qos\] Enter QoS Policy Name.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 128),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 128,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "128",
+    "ves.io.schema.rules.string.min_len": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "128",
+    "ves.io.schema.rules.string.min_len": "1"
+  }
+}
+```
+
+<a id="canonical-1310101232210213-1000222222131132-0133121323130303-0033233011121323-0210133022201023-2201322302232202-2303131002101211-2212100123203302"></a>
+
+<a id="canonical-0002002221013302-3302110231222211-1110212111332210-1200133002003300-0311202133002212-3301330220033103-1322302310122202-1030312313312022"></a>
+
+## security_style property — volume_defaults / 130110113011 / 8
+
+Type: `"string"`. Optional.
+
+Security Style. Security style for new volumes.
+
+Upstream description:
+
+Security style for new volumes.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1303130223112010-2020311230033012-1010200302212311-1132131223113010-1000002311211003-0230333331023233-1010210321021131-3321031221021130"></a>
+
+<a id="canonical-0110222310113022-0303310003033121-0230102030003022-3120033312221122-0223302032031212-3202030023330222-2220121022000010-1231020333003103"></a>
+
+## snapshot_dir property — volume_defaults / 130110113011 / 9
+
+Type: `"bool"`. Optional.
+
+Access to Snapshot Directory. Access to the .snapshot directory.
+
+Upstream description:
+
+Access to the .snapshot directory.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3122312112000331-2013032020102312-3301120311111221-0323122213002000-0331132232122123-2003222330221131-2333313311213132-3110321122023323"></a>
+
+<a id="canonical-2223031211133302-3312321010021333-0322300202300303-1220013220022013-0101221201112111-3032222012112001-1100333130122131-1010220132223311"></a>
+
+## snapshot_policy property — volume_defaults / 130110113011 / 10
+
+Type: `"string"`. Optional.
+
+Policy configuration for this feature.
+
+Upstream description:
+
+Snapshot policy to use.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1110102000233101-1223012221010300-1222313202211233-1031320301000003-3213331313022303-3122201313201001-1023112303020202-2221100201010332"></a>
+
+<a id="canonical-2112330222330300-1333210230313220-2333103311200000-3011230011200322-1201202012022031-2311300013031313-1330100201111203-0033213310122312"></a>
+
+## snapshot_reserve property — volume_defaults / 130110113011 / 11
+
+Type: `"string"`. Optional.
+
+Percentage of volume reserved for snapshots. '0' if snapshot policy is 'none', else ''.
+
+Upstream description:
+
+Percentage of volume reserved for snapshots. "0" if snapshot policy is "none", else ""
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3112103233200230-0313213130201003-2202123221301131-3121223010212031-3201233333013003-2123223212023203-0111113312033301-1012201103313230"></a>
+
+<a id="canonical-1101002032020002-0020312133201323-3213010120302233-2211113221201332-3003130312332003-2310131301001101-2303200321130111-1122321010010312"></a>
+
+## space_reserve property — volume_defaults / 130110113011 / 12
+
+Type: `"string"`. Optional.
+
+\[Enum: none|thick\] Space reservation mode; “none” (thin) or “volume” (thick). Possible values are
+\`none\`, \`thick\`.
+
+Upstream description:
+
+Space reservation mode; “none” (thin) or “volume” (thick)
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["none","thick"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
+Validators: []validator.String{
+  stringvalidator.OneOf("none",
+    "thick"),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "enum": [
+    "none",
+    "thick"
+  ],
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.in": "[\\\"none\\\",\\\"thick\\\"]"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.in": "[\\\"none\\\",\\\"thick\\\"]"
+  }
+}
+```
+
+<a id="canonical-1103301002033212-2022222310112100-2131310122213301-1032320212232132-0220220222311223-0132112112313211-2132021310211011-1203222302313101"></a>
+
+<a id="canonical-2022310121220110-1212022302210020-3201020013310312-3212230321001023-3111123230311211-0021022130223023-0231013011211103-0001203102211203"></a>
+
+## split_on_clone property — volume_defaults / 130110113011 / 13
+
+Type: `"bool"`. Optional.
+
+Split a clone from its parent upon creation.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1320221323223103-1110012330110123-1023130132003333-2223102212222231-2100010222003201-1332213203222210-1202023032120332-1203033030030230"></a>
+
+<a id="canonical-3012222201301112-1233001021202110-0303233313333012-3133213323022321-3200230202123330-2110200003133211-3201110311021321-1301232010320332"></a>
+
+## tiering_policy property — volume_defaults / 130110113011 / 14
+
+Type: `"string"`. Optional.
+
+Policy configuration for this feature.
+
+Upstream description:
+
+Tiering policy to use. "none" is default.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1012021000321233-1321020100222120-2001333133203313-3231332221020110-1300313202021020-0101210330030221-2323312100112121-2111332012010101"></a>
+
+<a id="canonical-0222221300122110-2120232000111321-0133230131331333-3113200001332313-2010200312313033-1222001003333332-3003110320200300-3222201303212101"></a>
+
+## unix_permissions property — volume_defaults / 130110113011 / 15
+
+Type: `"number"`. Optional.
+
+Unix permission mode for new volumes. All allowed 777.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
 <a id="canonical-2032222133212223-3021332010131032-0223000002102223-1133013311211332-2320331121310211-2313123032110213-3130120020311333-2121330113031303"></a>
 
 ## Next pages — volume_defaults / 130110113011 / 16
@@ -146,6 +521,7 @@ Target username. Required if useCHAP=true.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -199,6 +575,7 @@ Inbound username. Required if useCHAP=true.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -278,6 +655,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -352,6 +730,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -433,6 +812,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -552,6 +932,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -612,6 +993,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -700,6 +1082,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -774,6 +1157,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -855,6 +1239,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -974,6 +1359,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -1034,6 +1420,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -1122,6 +1509,7 @@ the configuration.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("adaptive_qos_policy",
     "no_qos"),
   validators.ConflictingObjectAttributes("adaptive_qos_policy",
@@ -1173,6 +1561,7 @@ Exclusive with \[no\_qos qos\_policy\] Enter Adaptive QoS Policy Name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1296,6 +1685,7 @@ Exclusive with \[adaptive\_qos\_policy no\_qos\] Enter QoS Policy Name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1492,6 +1882,8 @@ Space reservation mode; “none” (thin) or “volume” (thick)
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["none","thick"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("none",
     "thick"),
@@ -1712,6 +2104,7 @@ Device configuration for Pure Storage Service Orchestrator.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("cluster_id")}
 ```
 
@@ -1764,6 +2157,7 @@ underscores.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 22),
 }
@@ -1967,6 +2361,7 @@ Specify what storage flash arrays should be managed the plugin.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("default_fs_type",
     "flash_arrays",
     "iscsi_login_timeout",
@@ -2011,6 +2406,7 @@ Block volume default mkfs OPTIONS. Not recommended to change!
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -2069,6 +2465,8 @@ Block volume default filesystem type. Not recommended to change!
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ext4","xfs"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("xfs",
     "ext4"),
@@ -2123,6 +2521,7 @@ Block volume default filesystem mount OPTIONS. Not recommended to change!
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(4),
 }
@@ -2204,6 +2603,7 @@ ISCSI login timeout in seconds. Not recommended to change!
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 100),
 }
@@ -2262,6 +2662,8 @@ Block volume access protocol, either ISCSI or FC.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["FC","ISCSI"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("ISCSI",
     "FC"),
@@ -2345,6 +2747,7 @@ For FlashArrays you must set the "mgmt\_endpoint" and "api\_token"
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("mgmt_dns_name",
     "mgmt_ip")}
 ```
@@ -2420,6 +2823,7 @@ The labels are optional, and can be any key-value pair for use with the PSO "fle
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":20},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"20\",\"ves.io.schema.rules.map.values.string.max_len\":\"128\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"}}")}
 ```
 
@@ -2494,6 +2898,7 @@ resolution. The name given here is fully qualified domain name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -2550,6 +2955,7 @@ Exclusive with \[mgmt\_dns\_name\] Management Endpoint is reachable at the given
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPValidator(),
@@ -2626,6 +3032,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -2701,6 +3108,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -2782,6 +3190,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -2902,6 +3311,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -2962,6 +3372,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -3049,6 +3460,7 @@ Specify what storage flash blades should be managed the plugin.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("flash_blades")}
 ```
 
@@ -3121,6 +3533,7 @@ NFS Export rules.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 250),
 }
@@ -3205,6 +3618,7 @@ For FlashBlades you must set the "mgmt\_endpoint", "api\_token" and nfs\_endpoin
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("mgmt_dns_name",
     "mgmt_ip"),
   validators.ConflictingListObjectAttributes("nfs_endpoint_dns_name",
@@ -3282,6 +3696,7 @@ The labels are optional, and can be any key-value pair for use with the PSO "fle
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":20},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"20\",\"ves.io.schema.rules.map.values.string.max_len\":\"128\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"}}")}
 ```
 
@@ -3356,6 +3771,7 @@ resolution. The name given here is fully qualified domain name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -3412,6 +3828,7 @@ Exclusive with \[mgmt\_dns\_name\] Management Endpoint is reachable at the given
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPValidator(),
@@ -3468,6 +3885,7 @@ The name given here is fully qualified domain name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -3524,6 +3942,7 @@ Exclusive with \[nfs\_endpoint\_dns\_name\] Endpoint is reachable at the given I
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPValidator(),
@@ -3600,6 +4019,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -3675,6 +4095,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -3756,6 +4177,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -3876,6 +4298,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -3936,6 +4359,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -4019,6 +4443,7 @@ Add all interfaces belonging to this fleet.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("interfaces")}
 ```
 
@@ -4083,6 +4508,7 @@ Add all interfaces belonging to this fleet.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -4157,6 +4583,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -4222,6 +4649,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -4294,6 +4722,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -4369,6 +4798,7 @@ List of storage static routes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("storage_routes")}
 ```
 
@@ -4437,6 +4867,7 @@ List of storage static routes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("subnets")}
 ```
 
@@ -4514,6 +4945,7 @@ List of route attributes associated with the static route.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(4),
 }
@@ -4705,6 +5137,8 @@ nexthop Discard nexthop, used when attr type is Advertise Used in VoltADN privat
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["NEXT_HOP_DEFAULT_GATEWAY","NEXT_HOP_NETWORK_INTERFACE","NEXT_HOP_USE_CONFIGURED"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("NEXT_HOP_DEFAULT_GATEWAY",
     "NEXT_HOP_USE_CONFIGURED",
@@ -4909,6 +5343,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -5067,6 +5502,7 @@ IP Address used to specify an IPv4 or IPv6 address.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("dual_stack",
     "ipv4"),
   validators.ConflictingObjectAttributes("dual_stack",
@@ -5250,6 +5686,7 @@ IPv4 Address in string form with dot-decimal notation.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -5371,6 +5808,7 @@ IPv6 Address in form of string. IPv6 address must be specified as hexadecimal nu
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv6Validator(),
@@ -5483,6 +5921,7 @@ IPv4 Address in string form with dot-decimal notation.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -5603,6 +6042,7 @@ IPv6 Address in form of string. IPv6 address must be specified as hexadecimal nu
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv6Validator(),
@@ -5678,6 +6118,7 @@ List of route prefixes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("ipv4",
     "ipv6")}
 ```
@@ -5803,6 +6244,7 @@ Prefix-length of the IPv4 subnet. Must be &lt;= 32.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(32),
 }
@@ -5851,6 +6293,7 @@ Prefix part of the IPv4 subnet in string form with dot-decimal notation.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -5958,6 +6401,7 @@ Prefix length of the IPv6 subnet. Must be &lt;= 128.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(128),
 }
@@ -6014,6 +6458,7 @@ suppressing zeros e.g. "2001:db8::2::"
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv6Validator(),
@@ -6129,281 +6574,3 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 is enabled.
 
 <a id="canonical-2211201022321033-2330012313032120-0302200302012020-0133102300233231-1113112031323030-2221111031032122-3101323100013101-0200330001112030"></a>
-
-<a id="canonical-0212010000100332-3003320021133202-0012010123313120-2331202032103001-3000203320321112-3321331121022120-2112032203221112-3220010000113102"></a>
-
-## update property — timeouts / 303003032320 / 7
-
-Type: `"string"`. Optional.
-
-A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#ParseDuration) consisting
-of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
-(minutes), "h" (hours).
-
-<a id="canonical-2301111321133110-3130231223111012-2200231110210030-1120121022032322-3032113333003303-3021133110011200-1013021121032321-3221322120113203"></a>
-
-## Next pages — timeouts / 303003032320 / 8
-
-- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
-- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
-
-<a id="canonical-1313133033021303-0322312200331123-0101000033230330-1300123032023012-1022323323332131-3002113220222232-0302220132222213-1022313213313302"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2011313030230232-2021332310120103-3222000030330132-2013220010301320-1011300102021023-2233333103103101-0002230000103023-0130010233213232"></a>
-
-## usb_policy — usb_policy / 222203321332 / 2
-
-Breadcrumbs:
-
-- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
-- usb_policy
-
-<a id="canonical-1122110212330113-3101131220333203-2013203030011212-2310131001313330-1321230331331320-0133123320203112-1102233320013230-2122202121023032"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
-reference is in form of tenant/namespace/name.
-
-Upstream description:
-
-This type establishes a direct reference from one object(the referrer) to another(the referred).
-Such a reference is in form of tenant/namespace/name.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-usb_policy {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0011300300110001-1300113313023110-2020013031213110-0333302033320131-2131320201320113-0213223331210331-2301302132120223-3133033013300130"></a>
-
-## Direct properties — usb_policy / 222203321332 / 3
-
-<a id="canonical-0210031313123110-1013201323233220-3321022023222200-2131332103232323-2203032111130102-3313032333332030-0000332002311233-0320333133001220"></a>
-
-<a id="canonical-2321002121312331-0100023330212123-2301033021003333-2020203003022013-2102022320133001-0120332212033002-1222332203300300-1310013300022332"></a>
-
-## name property — usb_policy / 222203321332 / 4
-
-Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 128,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 128,
-      "min": 1
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 128,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  }
-}
-```
-
-<a id="canonical-2000203111211212-1122201033323001-3310033331330103-3320330022113132-0300023133131111-0131201313122323-2113011103200123-1002331020122212"></a>
-
-<a id="canonical-2013321200011212-3303201203312000-3020301302212320-2330113223132203-3113303231200121-0330210001110101-2111122102221332-3110231123031323"></a>
-
-## namespace property — usb_policy / 222203321332 / 5
-
-Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-1322013111303300-3212302013200320-3303113031311132-2220211312101300-3130101033211130-2010232231023103-3230111312312322-2223111210320202"></a>
-
-<a id="canonical-1313223330032231-1232230302121022-3012122033312101-1312112130103012-3302200021310302-0211200103211012-0300033310322332-1313322103132111"></a>
-
-## tenant property — usb_policy / 222203321332 / 6
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-1002020313123210-1330022233133010-1301130113331231-0221003332220202-1121000012132122-0200320033230212-1320322113013130-2322111211333102"></a>
-
-## Next pages — usb_policy / 222203321332 / 7
-
-- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
-- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)

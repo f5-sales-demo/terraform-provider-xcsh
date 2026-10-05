@@ -231,6 +231,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -298,6 +299,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -487,7 +489,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `https_management.advertise_on_slo_internet_vip.use_mtls.client_certificate_optional` | [https_management.advertise_on_slo_internet_vip.use_mtls.client_certificate_optional](resources--nfv_service--reference--group-002.md#canonical-2211002013323210-0013323113233123-1300332312231102-2132323331213003-2303223101100311-0103321113231302-1221123101111300-3112331321012032) |
 | `https_management.advertise_on_slo_internet_vip.use_mtls.crl` | [https_management.advertise_on_slo_internet_vip.use_mtls.crl](resources--nfv_service--reference--group-002.md#canonical-3030101113312111-2003312332110222-0313222332010033-3202333010003123-2003132310023121-1012121032302320-0101001103221112-3322013030332022) |
 | `https_management.advertise_on_slo_internet_vip.use_mtls.crl.name` | [https_management.advertise_on_slo_internet_vip.use_mtls.crl.name](resources--nfv_service--reference--group-002.md#canonical-0030133212103232-2211333103032311-1321102002312000-3313312033130220-0301202023223203-1020010233111130-0220032201111011-0131101211222331) |
-| `https_management.advertise_on_slo_internet_vip.use_mtls.crl.namespace` | [https_management.advertise_on_slo_internet_vip.use_mtls.crl.namespace](resources--nfv_service--reference--group-002.md#canonical-1033110012030301-1330212313012300-0202123011030022-2123212320200231-1011303322121003-1331323233301303-1012000320103321-0233031212331202) |
+| `https_management.advertise_on_slo_internet_vip.use_mtls.crl.namespace` | [https_management.advertise_on_slo_internet_vip.use_mtls.crl.namespace](resources--nfv_service--reference--group-003.md#canonical-1033110012030301-1330212313012300-0202123011030022-2123212320200231-1011303322121003-1331323233301303-1012000320103321-0233031212331202) |
 | `https_management.advertise_on_slo_internet_vip.use_mtls.crl.tenant` | [https_management.advertise_on_slo_internet_vip.use_mtls.crl.tenant](resources--nfv_service--reference--group-003.md#canonical-1102002020022313-3002213222313030-2122200132033223-2020322321000131-2302231201313313-1221233032013320-3103322231322132-2110312132131301) |
 | `https_management.advertise_on_slo_internet_vip.use_mtls.no_crl` | [https_management.advertise_on_slo_internet_vip.use_mtls.no_crl](resources--nfv_service--reference--group-003.md#canonical-0131033311220010-0111221133010001-3013200000202122-2103123033323133-3200032303132331-3102220030203012-3020231213211231-2111122120210021) |
 | `https_management.advertise_on_slo_internet_vip.use_mtls.trusted_ca` | [https_management.advertise_on_slo_internet_vip.use_mtls.trusted_ca](resources--nfv_service--reference--group-003.md#canonical-3212200110222312-2321131210222313-0321011000130032-0132302100212101-2332033032103311-1311011031113112-1220032102033323-2130201311123212) |
@@ -586,7 +588,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `name` | [name](resources--nfv_service--reference--group-001.md#canonical-0113312013100323-3001203330313203-2130221120123200-2133232231013333-2131013222231223-0001230333223222-1113001322233220-3311213231123230) |
 | `namespace` | [namespace](resources--nfv_service--reference--group-001.md#canonical-2132211332310221-0321032100122201-0031303002231002-1333110022202310-2030213001222303-0001030222111003-3232120313210031-2300300123223022) |
 | `palo_alto_fw_service` | [palo_alto_fw_service](resources--nfv_service--reference--group-003.md#canonical-1000211303110321-2132033102233220-3202330310311301-1011321010001303-2002102233013002-0110203131021011-1312303320302102-2012032301010010) |
-| `palo_alto_fw_service.auto_setup` | [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-003.md#canonical-3310302012302032-0132011203023101-1302100100013130-1010111331312131-2232100232203002-1131312233001023-3132321131020132-0022132333300322) |
+| `palo_alto_fw_service.auto_setup` | [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-004.md#canonical-3310302012302032-0132011203023101-1302100100013130-1010111331312131-2232100232203002-1131312233001023-3132321131020132-0022132333300322) |
 | `palo_alto_fw_service.auto_setup.admin_password` | [palo_alto_fw_service.auto_setup.admin_password](resources--nfv_service--reference--group-004.md#canonical-2133330101012003-3220110310231233-0121210023200111-1002312202212001-3001330023110033-2330311203202123-3221100300133330-0231000331331011) |
 | `palo_alto_fw_service.auto_setup.admin_password.blindfold_secret_info` | [palo_alto_fw_service.auto_setup.admin_password.blindfold_secret_info](resources--nfv_service--reference--group-004.md#canonical-3312321002331313-0321112300220131-1222100300200220-0131201330212003-2312113203330022-3220333111110133-3232102011322122-0001001301230310) |
 | `palo_alto_fw_service.auto_setup.admin_password.blindfold_secret_info.decryption_provider` | [palo_alto_fw_service.auto_setup.admin_password.blindfold_secret_info.decryption_provider](resources--nfv_service--reference--group-004.md#canonical-3322323302230030-3023223200122013-1110200033331311-2030321202301232-3300213330133200-1302232202313101-1021112213231303-0200310310311332) |
@@ -595,7 +597,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `palo_alto_fw_service.auto_setup.admin_password.clear_secret_info` | [palo_alto_fw_service.auto_setup.admin_password.clear_secret_info](resources--nfv_service--reference--group-004.md#canonical-3230020201102003-2021032330122033-2311223332112133-2200023321023203-3201300223320020-2201113113022210-0313223121122011-2030300031323033) |
 | `palo_alto_fw_service.auto_setup.admin_password.clear_secret_info.provider_ref` | [palo_alto_fw_service.auto_setup.admin_password.clear_secret_info.provider_ref](resources--nfv_service--reference--group-004.md#canonical-3211013132311310-1000323123220322-3313231010331110-3330310111113311-2223310303022001-2213102321110222-2012101231313301-1222230211131132) |
 | `palo_alto_fw_service.auto_setup.admin_password.clear_secret_info.url` | [palo_alto_fw_service.auto_setup.admin_password.clear_secret_info.url](resources--nfv_service--reference--group-004.md#canonical-0132311130023313-0333011032233031-2212112101110311-1221320102203033-2130300103212203-2003033101103231-3103331122101111-0233121120222032) |
-| `palo_alto_fw_service.auto_setup.admin_username` | [palo_alto_fw_service.auto_setup.admin_username](resources--nfv_service--reference--group-003.md#canonical-2000103103321101-3101320102231022-0310121132320223-2021323230002232-1301322031210000-3013100302223002-2032310312033030-2010023002232300) |
+| `palo_alto_fw_service.auto_setup.admin_username` | [palo_alto_fw_service.auto_setup.admin_username](resources--nfv_service--reference--group-004.md#canonical-2000103103321101-3101320102231022-0310121132320223-2021323230002232-1301322031210000-3013100302223002-2032310312033030-2010023002232300) |
 | `palo_alto_fw_service.auto_setup.manual_ssh_keys` | [palo_alto_fw_service.auto_setup.manual_ssh_keys](resources--nfv_service--reference--group-004.md#canonical-0233122221112122-2121000312332323-0210133332122101-3131322212331211-3322102301130031-1333313202212332-1001210012012320-1022303302302113) |
 | `palo_alto_fw_service.auto_setup.manual_ssh_keys.private_key` | [palo_alto_fw_service.auto_setup.manual_ssh_keys.private_key](resources--nfv_service--reference--group-004.md#canonical-2332213020122031-2210303020333031-0231323012200101-1013100333121130-2123022022301132-3312311231223300-0122213032331233-0221101031102201) |
 | `palo_alto_fw_service.auto_setup.manual_ssh_keys.private_key.blindfold_secret_info` | [palo_alto_fw_service.auto_setup.manual_ssh_keys.private_key.blindfold_secret_info](resources--nfv_service--reference--group-004.md#canonical-1223221033213103-0320031310222133-3233330101313111-1023120120332102-1320303212210223-3100031013232012-1332230300100003-0021230222311211) |
@@ -818,6 +820,7 @@ SSH based configuration.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("domain_suffix",
     "node_ssh_ports"),
   validators.ConflictingObjectAttributes("advertise_on_sli",
@@ -873,6 +876,7 @@ Domain suffix will be used along with node name to form the hostname for SSH nod
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -1131,6 +1135,7 @@ Enter TCP port and node name per node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("node_name",
     "ssh_port")}
 ```
@@ -1193,6 +1198,7 @@ Node name will be used to match a particular node with the desired TCP port.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -1255,6 +1261,7 @@ Enter TCP port per node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1024, 65535),
 }
@@ -1332,6 +1339,7 @@ Virtual BIG-IP specification for AWS.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("admin_username",
     "nodes",
     "ssh_key")}
@@ -1390,6 +1398,7 @@ Admin Username for BIG-IP.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -1449,6 +1458,7 @@ Public SSH key for accessing the Big IP nodes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 8192),
 }
@@ -1510,6 +1520,7 @@ organize, search for, and filter resources in AWS console.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":40},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":127,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"127\",\"ves.io.schema.rules.map.max_pairs\":\"40\",\"ves.io.schema.rules.map.values.string.max_len\":\"255\"},\"values\":{\"maxLength\":255,\"type\":\"string\"}}")}
 ```
 
@@ -1595,6 +1606,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -1665,6 +1677,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -1746,6 +1759,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -1861,6 +1875,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -1921,6 +1936,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -2074,6 +2090,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -2121,6 +2138,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -2186,6 +2204,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2258,6 +2277,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -2336,6 +2356,7 @@ the destination with a new destination address.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("advertise_on_slo_ip",
     "advertise_on_slo_ip_external"),
   validators.ConflictingObjectAttributes("advertise_on_slo_ip",
@@ -2420,6 +2441,7 @@ Exclusive with \[automatic\_vip\] Enter IP address for the default VIP.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPValidator(),
@@ -2471,7 +2493,7 @@ Receipt-pinned upstream constraints:
 
 - [https_port](resources--nfv_service--reference--group-001.md#canonical-1113221322000011-1313031012002033-2123303222033131-1023101101330233-1222020101023123-2130012102302313-0302322023032013-3110122331011130): complete subsection reference.
 
-- [no_tcp_ports](resources--nfv_service--reference--group-001.md#canonical-2323230322303213-2133022201311333-0013103330033033-3122301030103131-2303322233110330-3002113230113033-0230331312202212-1232301203313133): complete subsection reference.
+- [no_tcp_ports](resources--nfv_service--reference--group-002.md#canonical-2323230322303213-2133022201311333-0013103330033033-3122301030103131-2303322233110330-3002113230113033-0230331312202212-1232301203313133): complete subsection reference.
 
 - [no_udp_ports](resources--nfv_service--reference--group-002.md#canonical-0032211122030020-3003323212002133-2120003300011011-1012223010030013-1022302100113132-3330231031213131-3320022302013010-0110001302110001): complete subsection reference.
 
@@ -2488,7 +2510,7 @@ Receipt-pinned upstream constraints:
 - [f5_big_ip_aws_service.endpoint_service.disable_advertise_on_slo_ip](resources--nfv_service--reference--group-001.md#canonical-1133012012021202-1130332102023111-0002320121202131-3023123223110123-2221322121201022-0003100103303331-0030211232030110-2313312110230331)
 - [f5_big_ip_aws_service.endpoint_service.http_port](resources--nfv_service--reference--group-001.md#canonical-3320223321311023-3330032333213303-2231201320223001-2111101011102332-0131203102203200-0221001032103310-0112313113120020-2120000231003131)
 - [f5_big_ip_aws_service.endpoint_service.https_port](resources--nfv_service--reference--group-001.md#canonical-1113221322000011-1313031012002033-2123303222033131-1023101101330233-1222020101023123-2130012102302313-0302322023032013-3110122331011130)
-- [f5_big_ip_aws_service.endpoint_service.no_tcp_ports](resources--nfv_service--reference--group-001.md#canonical-2323230322303213-2133022201311333-0013103330033033-3122301030103131-2303322233110330-3002113230113033-0230331312202212-1232301203313133)
+- [f5_big_ip_aws_service.endpoint_service.no_tcp_ports](resources--nfv_service--reference--group-002.md#canonical-2323230322303213-2133022201311333-0013103330033033-3122301030103131-2303322233110330-3002113230113033-0230331312202212-1232301203313133)
 - [f5_big_ip_aws_service.endpoint_service.no_udp_ports](resources--nfv_service--reference--group-002.md#canonical-0032211122030020-3003323212002133-2120003300011011-1012223010030013-1022302100113132-3330231031213131-3320022302013010-0110001302110001)
 - [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
@@ -2704,6 +2726,7 @@ List of port ranges.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("ports")}
 ```
 
@@ -2745,6 +2768,7 @@ List of port ranges. Each range is a single port or a pair of start and end port
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(128),
 }
@@ -2823,6 +2847,7 @@ List of port ranges.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("ports")}
 ```
 
@@ -2864,6 +2889,7 @@ List of port ranges. Each range is a single port or a pair of start and end port
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(128),
 }
@@ -3150,9 +3176,3 @@ This is an empty object or choice marker. It has no direct properties.
 
 - [f5_big_ip_aws_service.endpoint_service](resources--nfv_service--reference--group-001.md#canonical-1010032200210212-2313121332112310-0110323222301213-2211012302000323-2311222030300112-0122023013313002-3223113221233302-2201323331331100)
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-
-<a id="canonical-2323230322303213-2133022201311333-0013103330033033-3122301030103131-2303322233110330-3002113230113033-0230331312202212-1232301203313133"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->

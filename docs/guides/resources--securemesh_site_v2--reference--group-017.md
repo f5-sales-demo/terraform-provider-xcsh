@@ -6,6 +6,392 @@ description: "Complete grouped canonical reference for xcsh_securemesh_site_v2 r
 
 # xcsh_securemesh_site_v2 reference
 
+<a id="canonical-2230121312220121-2031211200100333-2122010011021333-3122301201200203-0200333232013021-1213010003203232-1022132233231111-0320312120002003"></a>
+
+## openstack.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools — pools / 202300221000 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [openstack](resources--securemesh_site_v2--reference--group-016.md#canonical-3103330221113213-1101002321121001-1323321202302031-0033322000331021-3233221231330113-2212103122303202-3302221330110020-0111211323131322)
+- [openstack.not_managed](resources--securemesh_site_v2--reference--group-016.md#canonical-0312033221102032-1100121330120132-2103020332012010-3111210221102130-0320102323211200-3311310000001322-0301130130001001-2213113021333211)
+- [openstack.not_managed.node_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1110010322131320-2221002311300011-0022132301131322-0323121331112011-0212213332032002-2031000230123001-3201021000300133-0203213021231332)
+- [openstack.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1131102132020103-0331213303112023-3300232213212020-0202202222312002-2212022002021011-1030210222131310-3312211020203212-1300033030310132)
+- [openstack.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-016.md#canonical-0230211231030113-0120120332331000-2101100010222322-1130111123330322-0333212310313033-2113233200233201-2113313201210232-2221311223132113)
+- [openstack.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-016.md#canonical-3132231233332132-2102122213221230-3313013002311202-1203333210031313-0021320121131030-3023310132121323-2213202102303030-3331333212012001)
+- [openstack.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-016.md#canonical-3000301321230010-3111332131201213-2110232013333201-2132212120133331-2302031003333120-3321000300302311-0013231133211303-3031112320112201)
+- [openstack.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks](resources--securemesh_site_v2--reference--group-016.md#canonical-2310133332320111-1332331321133203-3121313212302033-1112011133002223-0230123210010001-3323032113330211-0320232231313102-2100301211202203)
+- openstack.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools
+
+<a id="canonical-1313021222022102-3100330011020110-1223023200133020-2202021321131332-2330312322303332-0120100001122221-2032231133020012-2322030011100220"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+List of non overlapping IP address ranges.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 16,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 16,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+pools {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0231030121032303-0313330031321123-1230120020301333-0010112110013202-0322102001301022-0023021201331322-2002112003131302-0113101112013100"></a>
+
+## Direct properties — pools / 202300221000 / 3
+
+<a id="canonical-1322331321113333-2100030022230031-3212013330230023-0011213201121310-0132111313131213-1201203103223332-0022232132133122-3013020332022022"></a>
+
+<a id="canonical-3002001033003213-3203313013010102-2130331013100021-2130321013000122-2330210331222332-0133122133101020-3211013001131120-3211112033223213"></a>
+
+## end_ip property — pools / 202300221000 / 4
+
+Type: `"string"`. Optional.
+
+Ending IPv6 address of the pool range. In case of address allocator, offset is derived based on
+network prefix.
+
+Upstream description:
+
+Ending IPv6 address of the pool range. In case of address allocator, offset is derived based on
+network prefix.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(1024),
+  validators.IPv6Validator(),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "ipv6",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv6": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv6": "true"
+  }
+}
+```
+
+<a id="canonical-0303021133000203-3031111023133023-3230110100133212-0110110133303031-2000232301133100-0301013332113101-3210011220123131-1121022230311313"></a>
+
+<a id="canonical-1233102233302301-1222101200132221-1201003303023203-2110020113322322-1013002302133322-3010101121303002-0030230202011222-0132123321133312"></a>
+
+## start_ip property — pools / 202300221000 / 5
+
+Type: `"string"`. Optional.
+
+Starting IPv6 address of the pool range. In case of address allocator, offset is derived based on
+network prefix. 2001::1 with prefix length of 64, start offset is 5.
+
+Upstream description:
+
+Starting IPv6 address of the pool range. In case of address allocator, offset is derived based on
+network prefix. 2001::1 with prefix length of 64, start offset is 5.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(1024),
+  validators.IPv6Validator(),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "ipv6",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv6": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv6": "true"
+  }
+}
+```
+
+<a id="canonical-2313210123013323-1111312000123003-1323332331112201-0331122321222133-2223120233220201-1121102212110000-2010333222313232-3222122312311003"></a>
+
+## Next pages — pools / 202300221000 / 6
+
+- [openstack.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks](resources--securemesh_site_v2--reference--group-016.md#canonical-2310133332320111-1332331321133203-3121313212302033-1112011133002223-0230123210010001-3323032113330211-0320232231313102-2100301211202203)
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+
+<a id="canonical-1233203333000302-3323203123130330-1302220232001130-0023020001111022-0120031233220223-0313230211120030-3332301111301311-1122212112311013"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0112313210013032-1010131013003202-0113101122300213-2201011203211321-3220000321131213-1333223100022033-3102213220011132-2313013010122320"></a>
+
+## openstack.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map — interface_ip_map / 003113020301 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [openstack](resources--securemesh_site_v2--reference--group-016.md#canonical-3103330221113213-1101002321121001-1323321202302031-0033322000331021-3233221231330113-2212103122303202-3302221330110020-0111211323131322)
+- [openstack.not_managed](resources--securemesh_site_v2--reference--group-016.md#canonical-0312033221102032-1100121330120132-2103020332012010-3111210221102130-0320102323211200-3311310000001322-0301130130001001-2213113021333211)
+- [openstack.not_managed.node_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1110010322131320-2221002311300011-0022132301131322-0323121331112011-0212213332032002-2031000230123001-3201021000300133-0203213021231332)
+- [openstack.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1131102132020103-0331213303112023-3300232213212020-0202202222312002-2212022002021011-1030210222131310-3312211020203212-1300033030310132)
+- [openstack.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-016.md#canonical-0230211231030113-0120120332331000-2101100010222322-1130111123330322-0333212310313033-2113233200233201-2113313201210232-2221311223132113)
+- [openstack.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-016.md#canonical-3132231233332132-2102122213221230-3313013002311202-1203333210031313-0021320121131030-3023310132121323-2213202102303030-3331333212012001)
+- [openstack.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-016.md#canonical-3000301321230010-3111332131201213-2110232013333201-2132212120133331-2302031003333120-3321000300302311-0013231133211303-3031112320112201)
+- openstack.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map
+
+<a id="canonical-3133120020122330-0222011130310000-3212301032022101-2121112021230000-0301230311331301-3133111101210033-0103310100301100-1022210320122330"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Map of Interface IPv6 assignments per node.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+interface_ip_map {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0132322123331221-1102221111102223-2230212311211123-3320010212323201-0222320003230131-1331210313321012-1310023232102111-2023310201021230"></a>
+
+## Direct properties — interface_ip_map / 003113020301 / 3
+
+<a id="canonical-3212133303011123-0222332100010122-2002210102102313-3220231101303111-0220030012103312-3203121120112033-3310333030123121-0000331222120100"></a>
+
+<a id="canonical-2103111200100312-1300302123300232-2112101212330013-2313330032302121-3201331323130131-0300111302212030-1233001230103010-2121122233133002"></a>
+
+## interface_ip_map property — interface_ip_map / 003113020301 / 4
+
+Type: `["map", "string"]`. Optional.
+
+Site:Node to IPv6 Mapping. Map of Site:Node to IPv6 address.
+
+Upstream description:
+
+Map of Site:Node to IPv6 address.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":64},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"64\",\"ves.io.schema.rules.map.values.string.ipv6\":\"true\"},\"values\":{\"format\":\"ipv6\",\"type\":\"string\"}}")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "cardinality": {
+      "maxProperties": 64
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "64",
+      "ves.io.schema.rules.map.values.string.ipv6": "true"
+    },
+    "values": {
+      "format": "ipv6",
+      "type": "string"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "128",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "64",
+    "ves.io.schema.rules.map.values.string.ipv6": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "128",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "64",
+    "ves.io.schema.rules.map.values.string.ipv6": "true"
+  }
+}
+```
+
+<a id="canonical-1201121000120000-3122123333110032-2313232131020020-3122231001022211-2201110322300012-2333233121323021-2302302133232100-1200331231110321"></a>
+
+## Next pages — interface_ip_map / 003113020301 / 5
+
+- [openstack.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-016.md#canonical-3000301321230010-3111332131201213-2110232013333201-2132212120133331-2302031003333120-3321000300302311-0013231133211303-3031112320112201)
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+
+<a id="canonical-3101113233000123-3211233033203031-3230112121131320-3021032013030320-2211023113300001-0002133320033300-3100233023020320-2021301303200202"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2022210230303023-0203321333310000-0111310130030122-1213020130203320-0302021102332023-1203103311210011-3013133122001023-3233120102222120"></a>
+
+## openstack.not_managed.node_list.interface_list.monitor — monitor / 120023302023 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [openstack](resources--securemesh_site_v2--reference--group-016.md#canonical-3103330221113213-1101002321121001-1323321202302031-0033322000331021-3233221231330113-2212103122303202-3302221330110020-0111211323131322)
+- [openstack.not_managed](resources--securemesh_site_v2--reference--group-016.md#canonical-0312033221102032-1100121330120132-2103020332012010-3111210221102130-0320102323211200-3311310000001322-0301130130001001-2213113021333211)
+- [openstack.not_managed.node_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1110010322131320-2221002311300011-0022132301131322-0323121331112011-0212213332032002-2031000230123001-3201021000300133-0203213021231332)
+- [openstack.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1131102132020103-0331213303112023-3300232213212020-0202202222312002-2212022002021011-1030210222131310-3312211020203212-1300033030310132)
+- openstack.not_managed.node_list.interface_list.monitor
+
+<a id="canonical-3002020310100322-0033123131303030-2321312302001100-0203032321210222-2300100110000330-3202120310033003-1012333101323122-1133322010100220"></a>
+
+Type: `["object", {}]`. Optional.
+
+Link Quality Monitoring configuration for a network interface.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+monitor = {}
+```
+
+<a id="canonical-2200010010011023-1331301333313013-3233300022010021-1202121103303201-1002111003112223-3133011223201013-2302121101330220-3131200113312101"></a>
+
+## Direct properties — monitor / 120023302023 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0323103133001012-0111331033312220-2033011221221120-3023013201020022-2010131221101102-3012301002013210-1100202313331033-1131210121312131"></a>
+
+## Next pages — monitor / 120023302023 / 4
+
+- [openstack.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1131102132020103-0331213303112023-3300232213212020-0202202222312002-2212022002021011-1030210222131310-3312211020203212-1300033030310132)
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+
+<a id="canonical-3222123322300001-0110133122012110-0111313122300121-0010031303320211-3130112222100330-1130133233002013-2230032311102211-0211232000012200"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-2102303000232121-3113321311131332-2211222011002022-1021203330200021-2110111101320021-3121231102331003-2300231002310133-2310112011020313"></a>
 
 ## openstack.not_managed.node_list.interface_list.monitor_disabled — monitor_disabled / 321311322032 / 2
@@ -102,6 +488,7 @@ Segments (global VRFs).
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("site_local_inside_network",
     "site_local_network")}
 ```
@@ -548,6 +935,7 @@ Configure Static IP parameters for a node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("ip_address")}
 ```
 
@@ -593,6 +981,7 @@ IP address of the default gateway.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPValidator(),
@@ -653,6 +1042,7 @@ IP address of the interface and prefix length.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(7, 1024),
   validators.CIDRValidator(),
@@ -735,6 +1125,7 @@ Configure Static IP parameters.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip",
     "node_static_ip")}
 ```
@@ -843,6 +1234,7 @@ Map of Node to Static IP configuration value, Key:Node, Value:IP Address.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"128\"}}")}
 ```
 
@@ -924,6 +1316,7 @@ Configure Static IP parameters for a node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("ip_address")}
 ```
 
@@ -969,6 +1362,7 @@ IP address of the default gateway.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPValidator(),
@@ -1029,6 +1423,7 @@ IP address of the interface and prefix length.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(7, 1024),
   validators.CIDRValidator(),
@@ -1107,6 +1502,7 @@ Configuration parameter for vlan interface.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("device",
     "vlan_id")}
 ```
@@ -1149,6 +1545,7 @@ Select a parent interface from the dropdown.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 64),
 }
@@ -1204,6 +1601,7 @@ Configure the VLAN tag for this interface.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 4095),
 }
@@ -1275,6 +1673,7 @@ Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("perf_mode_l3_enhanced",
     "perf_mode_l7_enhanced")}
 ```
@@ -1348,6 +1747,7 @@ L3 enhanced performance mode OPTIONS.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("jumbo",
     "no_jumbo")}
 ```
@@ -1541,6 +1941,7 @@ L7 enhanced performance mode OPTIONS.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("jumbo_disabled",
     "jumbo_enabled")}
 ```
@@ -1737,6 +2138,7 @@ support.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("private_adn")}
 ```
 
@@ -1779,6 +2181,7 @@ network. To provision a Private ADN network, please contact F5 Distributed Cloud
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1852,6 +2255,7 @@ Selection criteria to connect the site with F5 Distributed Cloud Regional Edge(s
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("geo_proximity",
     "specific_geography"),
   validators.ConflictingObjectAttributes("geo_proximity",
@@ -2067,6 +2471,7 @@ Select primary RE for this site.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 64),
 }
@@ -2229,6 +2634,7 @@ Segment Network Configuration.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("no_static_routes",
     "static_routes"),
   validators.ConflictingObjectAttributes("no_v6_static_routes",
@@ -2275,6 +2681,7 @@ Optional IPv4 DNS server to be used for name resolution.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -2329,6 +2736,7 @@ Optional Secondary IPv4 DNS server to be used for name resolution.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -2528,6 +2936,7 @@ Configuration parameter for static routes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("static_routes")}
 ```
 
@@ -2598,6 +3007,7 @@ Configuration parameter for static routes
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"),
   validators.RequiredOneOfListObjectAttributes("default_gateway",
     "ip_address",
@@ -2684,6 +3094,7 @@ List of attributes that control forwarding, dynamic routing and control plane (h
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(4),
 }
@@ -2744,6 +3155,7 @@ IP Address.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(7, 1024),
   validators.IPv4Validator(),
@@ -2797,6 +3209,7 @@ List of route prefixes that have common next hop and attributes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 256),
 }
@@ -3267,6 +3680,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -3428,6 +3842,7 @@ List of IPv6 static routes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("static_routes")}
 ```
 
@@ -3498,6 +3913,7 @@ List of IPv6 static routes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"),
   validators.RequiredOneOfListObjectAttributes("default_gateway",
     "ip_address",
@@ -3584,6 +4000,7 @@ List of attributes that control forwarding, dynamic routing and control plane (h
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(4),
 }
@@ -3644,6 +4061,7 @@ IP Address.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(7, 1024),
   validators.IPv6Validator(),
@@ -3697,6 +4115,7 @@ List of IPv6 route prefixes that have common next hop and attributes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 256),
 }
@@ -4167,6 +4586,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -4438,6 +4858,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -4594,6 +5015,7 @@ site will be used.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("no_site_mesh_group",
     "site_mesh_group"),
   validators.ConflictingObjectAttributes("sm_connection_public_ip",
@@ -4737,6 +5159,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -4784,6 +5207,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -4849,6 +5273,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -4921,6 +5346,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -5142,17 +5568,17 @@ software_settings {
 
 - [os](resources--securemesh_site_v2--reference--group-017.md#canonical-0322333322002322-3032123013133021-1301213130312232-1022000103110120-2323021100313310-3330102222002010-2330313032203300-3203333132213302): complete subsection reference.
 
-- [sw](resources--securemesh_site_v2--reference--group-017.md#canonical-1022011000033201-3130302031003303-1313330103003011-3220313123103210-0100001310330232-2023212030132102-2102021032031301-3311233103031300): complete subsection reference.
+- [sw](resources--securemesh_site_v2--reference--group-018.md#canonical-1022011000033201-3130302031003303-1313330103003011-3220313123103210-0100001310330232-2023212030132102-2102021032031301-3311233103031300): complete subsection reference.
 
-- [waf_signatures](resources--securemesh_site_v2--reference--group-017.md#canonical-0010013231031330-1121200000030022-2121223331000232-0001101321233133-3012232310002232-1123032033001322-2001130231000322-2233301113322031): complete subsection reference.
+- [waf_signatures](resources--securemesh_site_v2--reference--group-018.md#canonical-0010013231031330-1121200000030022-2121223331000232-0001101321233133-3012232310002232-1123032033001322-2001130231000322-2233301113322031): complete subsection reference.
 
 <a id="canonical-2112022112201213-0231021113031333-2322002301120022-1203201110022332-2331112021231333-1011231200330121-0212001221221123-0211321111122213"></a>
 
 ## Next pages — software_settings / 101203232033 / 4
 
 - [software_settings.os](resources--securemesh_site_v2--reference--group-017.md#canonical-0322333322002322-3032123013133021-1301213130312232-1022000103110120-2323021100313310-3330102222002010-2330313032203300-3203333132213302)
-- [software_settings.sw](resources--securemesh_site_v2--reference--group-017.md#canonical-1022011000033201-3130302031003303-1313330103003011-3220313123103210-0100001310330232-2023212030132102-2102021032031301-3311233103031300)
-- [software_settings.waf_signatures](resources--securemesh_site_v2--reference--group-017.md#canonical-0010013231031330-1121200000030022-2121223331000232-0001101321233133-3012232310002232-1123032033001322-2001130231000322-2233301113322031)
+- [software_settings.sw](resources--securemesh_site_v2--reference--group-018.md#canonical-1022011000033201-3130302031003303-1313330103003011-3220313123103210-0100001310330232-2023212030132102-2102021032031301-3311233103031300)
+- [software_settings.waf_signatures](resources--securemesh_site_v2--reference--group-018.md#canonical-0010013231031330-1121200000030022-2121223331000232-0001101321233133-3012232310002232-1123032033001322-2001130231000322-2233301113322031)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 
@@ -5188,6 +5614,7 @@ be used. Refer to release notes to find required released OS versions.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("default_os_version",
     "operating_system_version")}
 ```
@@ -5237,6 +5664,7 @@ Exclusive with \[default\_os\_version\] Specify a OS version to be used e.g. 9.2
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(20),
 }
@@ -5340,391 +5768,3 @@ This is an empty object or choice marker. It has no direct properties.
 
 - [software_settings.os](resources--securemesh_site_v2--reference--group-017.md#canonical-0322333322002322-3032123013133021-1301213130312232-1022000103110120-2323021100313310-3330102222002010-2330313032203300-3203333132213302)
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-1022011000033201-3130302031003303-1313330103003011-3220313123103210-0100001310330232-2023212030132102-2102021032031301-3311233103031300"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2130123111221101-1330322023212120-1123113330221033-0000120011000333-2110013030001031-2300203001200231-3111221131233102-2321320332113132"></a>
-
-## software_settings.sw — sw / 300021000330 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [software_settings](resources--securemesh_site_v2--reference--group-017.md#canonical-0022231303311111-0320032323222122-1103000112000213-1212111100333213-2111302213021020-3313130203211320-3301133033221310-2322002021330133)
-- software_settings.sw
-
-<a id="canonical-1110113213023313-1102311132110301-3323021130312011-2100333211122331-2120033223230133-1031233211311033-1120232111230220-2113330201012231"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Select the F5XC Software Version for the site. By default, latest available F5XC Software Version
-will be used. Refer to release notes to find required released SW versions.
-
-Upstream description:
-
-Select the F5XC Software Version for the site. By default, latest available F5XC Software Version
-will be used. Refer to release notes to find required released SW versions.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("default_sw_version",
-    "volterra_software_version")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-volterra_sw_version_choice": "[\"default_sw_version\",\"volterra_software_version\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-sw {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2223000331030221-1211001213031230-3120122101002202-2230033232010133-0031030010323212-2201212023230223-1301123230330102-0022123122302122"></a>
-
-## Direct properties — sw / 300021000330 / 3
-
-- [default_sw_version](resources--securemesh_site_v2--reference--group-017.md#canonical-2321301203002322-0331112232333333-3333211033120312-2001312211012223-1020013013113030-0021212302302320-0122320312112021-0031302110201003): complete subsection reference.
-
-<a id="canonical-2210323000122022-3231320233210302-1023302211020032-2131233123030233-1220000202132122-2031103030233111-0033223301101020-1103222333232202"></a>
-
-<a id="canonical-1333131212220210-2302002011121002-0000230220011111-1303012100103223-0000313231311021-1001322301110012-0333110221112020-1013022132302332"></a>
-
-## volterra_software_version property — sw / 300021000330 / 4
-
-Type: `"string"`. Optional, Sensitive.
-
-Exclusive with \[default\_sw\_version\] Specify a F5XC Software Version to be used e.g.
-Crt-20210329-1002.
-
-Upstream description:
-
-Exclusive with \[default\_sw\_version\] Specify a F5XC Software Version to be used e.g.
-Crt-20210329-1002.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(20),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 20,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 20,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "20"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "20"
-  }
-}
-```
-
-<a id="canonical-3233322211210330-3031110321131321-3203210132020022-2133332211333003-3021012121011230-2230123303301022-3013203320011013-1102102213313021"></a>
-
-## Next pages — sw / 300021000330 / 5
-
-- [software_settings.sw.default_sw_version](resources--securemesh_site_v2--reference--group-017.md#canonical-2321301203002322-0331112232333333-3333211033120312-2001312211012223-1020013013113030-0021212302302320-0122320312112021-0031302110201003)
-- [software_settings](resources--securemesh_site_v2--reference--group-017.md#canonical-0022231303311111-0320032323222122-1103000112000213-1212111100333213-2111302213021020-3313130203211320-3301133033221310-2322002021330133)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-2321301203002322-0331112232333333-3333211033120312-2001312211012223-1020013013113030-0021212302302320-0122320312112021-0031302110201003"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1003332031101021-1301110332310212-1112222030301333-0120031120233301-3303022201023230-2123110002323120-0233011210033033-0232023203132212"></a>
-
-## software_settings.sw.default_sw_version — default_sw_version / 323200332112 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [software_settings](resources--securemesh_site_v2--reference--group-017.md#canonical-0022231303311111-0320032323222122-1103000112000213-1212111100333213-2111302213021020-3313130203211320-3301133033221310-2322002021330133)
-- [software_settings.sw](resources--securemesh_site_v2--reference--group-017.md#canonical-1022011000033201-3130302031003303-1313330103003011-3220313123103210-0100001310330232-2023212030132102-2102021032031301-3311233103031300)
-- software_settings.sw.default_sw_version
-
-<a id="canonical-3203220002133302-1220333322120121-2112012331302320-2200100123110230-0121033011123310-2120313011200210-2110132302330203-3032220203131333"></a>
-
-Type: `["object", {}]`. Optional, Sensitive.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-default_sw_version = {}
-```
-
-<a id="canonical-2311030031213101-0203213000320130-3211320200110313-3113131200301033-2330022103020223-3300111030023113-0302210111011031-1131011031230303"></a>
-
-## Direct properties — default_sw_version / 323200332112 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3320131032320231-2123102003122033-3101133120331011-1320230122301333-0233111222210220-3000110223211300-0011001112213332-3301102310113031"></a>
-
-## Next pages — default_sw_version / 323200332112 / 4
-
-- [software_settings.sw](resources--securemesh_site_v2--reference--group-017.md#canonical-1022011000033201-3130302031003303-1313330103003011-3220313123103210-0100001310330232-2023212030132102-2102021032031301-3311233103031300)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-0010013231031330-1121200000030022-2121223331000232-0001101321233133-3012232310002232-1123032033001322-2001130231000322-2233301113322031"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1210233033330120-1322212123000110-2201330120211100-3222102213011203-3210002020332110-2222332222120202-1330110301103231-1323033332012123"></a>
-
-## software_settings.waf_signatures — waf_signatures / 212122210203 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [software_settings](resources--securemesh_site_v2--reference--group-017.md#canonical-0022231303311111-0320032323222122-1103000112000213-1212111100333213-2111302213021020-3313130203211320-3301133033221310-2322002021330133)
-- software_settings.waf_signatures
-
-<a id="canonical-2123333211201220-1021203012100232-0221321230021311-3110233330322110-3200332000212330-1013002101200320-2333132212230221-2013331233320202"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Select F5XC WAF Signatures update mode for the site. By default, new signatures will be applied
-manually. Refer to release notes for details about available Signatures update modes.
-
-Upstream description:
-
-Select F5XC WAF Signatures update mode for the site. By default, new signatures will be applied
-manually. Refer to release notes for details about available Signatures update modes.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("automatic",
-    "manual")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-signatures_update_mode_choice": "[\"automatic\",\"manual\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-waf_signatures {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0230231213001033-1032203333230311-3311313200111023-1333332201033100-3100201101232122-2212312103321320-2023103132023211-2213322311320202"></a>
-
-## Direct properties — waf_signatures / 212122210203 / 3
-
-- [automatic](resources--securemesh_site_v2--reference--group-017.md#canonical-1321112103302132-0311330003120012-3202222023122102-2222222333321323-2313231200132032-0001101331002033-1112022212311112-3010310111203233): complete subsection reference.
-
-- [manual](resources--securemesh_site_v2--reference--group-017.md#canonical-1330322203032023-2120032122001101-2211212031112120-1122031202300301-2112301323133203-0101313100113103-1321120100300011-3032303101111023): complete subsection reference.
-
-<a id="canonical-0131223322233130-1322031233212022-3200121132331320-3233300230312000-1131321332100301-0131011132321023-1120231202230222-1121310331202303"></a>
-
-## Next pages — waf_signatures / 212122210203 / 4
-
-- [software_settings.waf_signatures.automatic](resources--securemesh_site_v2--reference--group-017.md#canonical-1321112103302132-0311330003120012-3202222023122102-2222222333321323-2313231200132032-0001101331002033-1112022212311112-3010310111203233)
-- [software_settings.waf_signatures.manual](resources--securemesh_site_v2--reference--group-017.md#canonical-1330322203032023-2120032122001101-2211212031112120-1122031202300301-2112301323133203-0101313100113103-1321120100300011-3032303101111023)
-- [software_settings](resources--securemesh_site_v2--reference--group-017.md#canonical-0022231303311111-0320032323222122-1103000112000213-1212111100333213-2111302213021020-3313130203211320-3301133033221310-2322002021330133)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-1321112103302132-0311330003120012-3202222023122102-2222222333321323-2313231200132032-0001101331002033-1112022212311112-3010310111203233"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2012312302101311-3103311213321122-1321321131230013-2101123123103023-2300221222300333-0223130133210330-0222100211002213-3011110120213210"></a>
-
-## software_settings.waf_signatures.automatic — automatic / 230112113013 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [software_settings](resources--securemesh_site_v2--reference--group-017.md#canonical-0022231303311111-0320032323222122-1103000112000213-1212111100333213-2111302213021020-3313130203211320-3301133033221310-2322002021330133)
-- [software_settings.waf_signatures](resources--securemesh_site_v2--reference--group-017.md#canonical-0010013231031330-1121200000030022-2121223331000232-0001101321233133-3012232310002232-1123032033001322-2001130231000322-2233301113322031)
-- software_settings.waf_signatures.automatic
-
-<a id="canonical-0212033110121121-2221203031112002-2220323311203110-0030030011131000-3111101323112121-0232233032330133-3310101210113132-0223222330203000"></a>
-
-Type: `["object", {}]`. Optional, Sensitive.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-automatic = {}
-```
-
-<a id="canonical-2010102232220323-0012313223311020-1120003033322102-0331201230111312-2110120312033110-1130311030121332-3223131203002112-2103120110010112"></a>
-
-## Direct properties — automatic / 230112113013 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2000113002230300-1203102112013112-3222012321103113-0000321223001010-1201200220200300-0012020022323001-1230212101133103-0322013023322021"></a>
-
-## Next pages — automatic / 230112113013 / 4
-
-- [software_settings.waf_signatures](resources--securemesh_site_v2--reference--group-017.md#canonical-0010013231031330-1121200000030022-2121223331000232-0001101321233133-3012232310002232-1123032033001322-2001130231000322-2233301113322031)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-1330322203032023-2120032122001101-2211212031112120-1122031202300301-2112301323133203-0101313100113103-1321120100300011-3032303101111023"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0312011231220302-1212233233212032-1203203011010202-2012211322013231-2230200003121233-0112033323032023-0110000211002111-0112021011203310"></a>
-
-## software_settings.waf_signatures.manual — manual / 103111131001 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [software_settings](resources--securemesh_site_v2--reference--group-017.md#canonical-0022231303311111-0320032323222122-1103000112000213-1212111100333213-2111302213021020-3313130203211320-3301133033221310-2322002021330133)
-- [software_settings.waf_signatures](resources--securemesh_site_v2--reference--group-017.md#canonical-0010013231031330-1121200000030022-2121223331000232-0001101321233133-3012232310002232-1123032033001322-2001130231000322-2233301113322031)
-- software_settings.waf_signatures.manual
-
-<a id="canonical-3221332221221101-0102121321103320-3211111203002301-0020222103103013-0212322131112023-2102311100231210-3223200221222230-3321213001123032"></a>
-
-Type: `["object", {}]`. Optional, Sensitive.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-manual = {}
-```
-
-<a id="canonical-3300111022111030-0223221200230203-0211313301202232-2023032211220202-1001030113311213-3102210232323021-2233311121002212-0323333112202213"></a>
-
-## Direct properties — manual / 103111131001 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3313331101302133-0012223120320303-2001012000333312-2110213001030122-0233233131211320-0322003320233221-1210101111112213-0002230200123033"></a>
-
-## Next pages — manual / 103111131001 / 4
-
-- [software_settings.waf_signatures](resources--securemesh_site_v2--reference--group-017.md#canonical-0010013231031330-1121200000030022-2121223331000232-0001101321233133-3012232310002232-1123032033001322-2001130231000322-2233301113322031)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-2131133220012220-0222312200312320-2332131230210133-2323001331232302-0312012222021021-0213223112001210-2110313123231232-3312321032110030"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->

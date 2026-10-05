@@ -54,6 +54,8 @@ Type: `"string"`. Required.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["system"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{stringvalidator.OneOf("system")}
 ```
 
@@ -70,6 +72,7 @@ Type: `"number"`. Optional, Computed.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{int64validator.Between(1, 60)}
 ```
 
@@ -84,6 +87,7 @@ Type: `"string"`. Required.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{stringvalidator.LengthAtLeast(1)}
 ```
 
@@ -98,6 +102,7 @@ Type: `"number"`. Optional, Computed.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{int64validator.Between(1, 7200)}
 ```
 
@@ -249,6 +254,7 @@ Type: `"string"`. Required.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{stringvalidator.LengthAtLeast(1)}
 ```
 
@@ -263,6 +269,7 @@ Type: `"string"`. Required.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{stringvalidator.LengthAtLeast(1)}
 ```
 
@@ -277,6 +284,8 @@ Type: `"string"`. Required.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["sli","slo"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{stringvalidator.OneOf("slo",
     "sli")}
 ```

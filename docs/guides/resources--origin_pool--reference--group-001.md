@@ -194,6 +194,8 @@ endpoints will be considered.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["DISTRIBUTED","LOCAL_ONLY","LOCAL_PREFERRED"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("DISTRIBUTED",
     "LOCAL_ONLY",
@@ -238,6 +240,7 @@ Exclusive with \[same\_as\_endpoint\_port\] Port used for performing health chec
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 65535),
 }
@@ -374,6 +377,8 @@ Hash policy is taken from from the load balancer which is using this origin pool
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["LB_OVERRIDE","LEAST_REQUEST","RANDOM","RING_HASH","ROUND_ROBIN"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("ROUND_ROBIN",
     "LEAST_REQUEST",
@@ -423,6 +428,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -490,6 +496,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -555,6 +562,7 @@ Exclusive with \[automatic\_port lb\_port\] Endpoint service is available on thi
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -777,11 +785,11 @@ Each exact path has one authoritative reference destination. Collection element 
 | `origin_servers.vn_private_name.private_network.tenant` | [origin_servers.vn_private_name.private_network.tenant](resources--origin_pool--reference--group-002.md#canonical-3203203021110231-0111012212301333-0231202321023031-0200023321203132-2122323200121130-1202232210232212-2112323113223002-3222230212232320) |
 | `port` | [port](resources--origin_pool--reference--group-001.md#canonical-2332110001010220-3311320331201032-1221232122321010-0331301231310313-0122021030131110-0201203221123012-1211002121112313-2231113213132103) |
 | `same_as_endpoint_port` | [same_as_endpoint_port](resources--origin_pool--reference--group-002.md#canonical-2003120102323102-0320322222233123-0110310222321212-1303023300232011-2231113032010222-0322332011312201-0332033220131211-2002332200121120) |
-| `timeouts` | [timeouts](resources--origin_pool--reference--group-002.md#canonical-0000231121303330-2003202121011221-0020300020231001-1223302100322112-1221333321301112-3331212200332003-2111332002333011-3211101330111331) |
-| `timeouts.create` | [timeouts.create](resources--origin_pool--reference--group-002.md#canonical-0322021132111321-3112303003031330-0130110311120000-2323112211313121-2012101131003231-2310330113310310-0320302320102011-2221132032313132) |
-| `timeouts.delete` | [timeouts.delete](resources--origin_pool--reference--group-002.md#canonical-1123132211211221-0212322301210311-3001010203232213-1212101120321000-2222310231130132-1231023213030003-0031133032232203-3212022030111323) |
-| `timeouts.read` | [timeouts.read](resources--origin_pool--reference--group-002.md#canonical-0112102231203010-1002213233010322-3013322001331311-1200201112200033-3200131003022301-2112112000322322-2232133101312103-0233312112020123) |
-| `timeouts.update` | [timeouts.update](resources--origin_pool--reference--group-002.md#canonical-0110313103330301-1331101223223003-0022300330300231-0323203311011100-3322001332200002-3310012203101213-2201112330320131-0311333030233120) |
+| `timeouts` | [timeouts](resources--origin_pool--reference--group-003.md#canonical-0000231121303330-2003202121011221-0020300020231001-1223302100322112-1221333321301112-3331212200332003-2111332002333011-3211101330111331) |
+| `timeouts.create` | [timeouts.create](resources--origin_pool--reference--group-003.md#canonical-0322021132111321-3112303003031330-0130110311120000-2323112211313121-2012101131003231-2310330113310310-0320302320102011-2221132032313132) |
+| `timeouts.delete` | [timeouts.delete](resources--origin_pool--reference--group-003.md#canonical-1123132211211221-0212322301210311-3001010203232213-1212101120321000-2222310231130132-1231023213030003-0031133032232203-3212022030111323) |
+| `timeouts.read` | [timeouts.read](resources--origin_pool--reference--group-003.md#canonical-0112102231203010-1002213233010322-3013322001331311-1200201112200033-3200131003022301-2112112000322322-2232133101312103-0233312112020123) |
+| `timeouts.update` | [timeouts.update](resources--origin_pool--reference--group-003.md#canonical-0110313103330301-1331101223223003-0022300330300231-0323203311011100-3322001332200002-3310012203101213-2201112330320131-0311333030233120) |
 | `upstream_conn_pool_reuse_type` | [upstream_conn_pool_reuse_type](resources--origin_pool--reference--group-003.md#canonical-2020113323212003-1003032002212201-3230111332303132-1132100131321213-1302302110200330-2111203102330131-3033100023112000-2101313201120202) |
 | `upstream_conn_pool_reuse_type.disable_conn_pool_reuse` | [upstream_conn_pool_reuse_type.disable_conn_pool_reuse](resources--origin_pool--reference--group-003.md#canonical-1302332230212100-0332010233013101-3300102301101123-0002201113311001-1130033132122002-0201100203010021-1301330033303021-3000221202311030) |
 | `upstream_conn_pool_reuse_type.enable_conn_pool_reuse` | [upstream_conn_pool_reuse_type.enable_conn_pool_reuse](resources--origin_pool--reference--group-003.md#canonical-2101101012002111-0212122133332312-2211023230011231-2323313110333203-3111100301202012-3302031232001111-1000203100112302-0033120332203101) |
@@ -871,6 +879,7 @@ Configure Advanced OPTIONS for origin pool.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("auto_http_config",
     "http1_config"),
   validators.ConflictingObjectAttributes("auto_http_config",
@@ -958,6 +967,7 @@ milliseconds. The default value is 2 seconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(1800000),
 }
@@ -1035,6 +1045,7 @@ This is specified in milliseconds. The default value is 5 minutes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(600000),
 }
@@ -1091,6 +1102,7 @@ connection.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(1),
 }
@@ -1153,6 +1165,7 @@ considered for load balancing ignoring its health status.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(100),
 }
@@ -1353,6 +1366,7 @@ reach connection limit.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(32768),
 }
@@ -1411,6 +1425,7 @@ exceed this count.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(32768),
 }
@@ -1471,6 +1486,7 @@ if pending request reach pending\_request.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(32768),
 }
@@ -1530,6 +1546,8 @@ Default routing mechanism High-Priority routing mechanism.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["DEFAULT","HIGH"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("DEFAULT",
     "HIGH"),
@@ -1573,6 +1591,7 @@ Remove endpoint out of load balancing decision, if retries for request exceed th
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 32768),
 }
@@ -2059,6 +2078,7 @@ Configure subset OPTIONS for origin pool.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("endpoint_subsets"),
   validators.ConflictingObjectAttributes("any_endpoint",
     "default_subset"),
@@ -2344,6 +2364,7 @@ values of these keys form a subset within the class.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("keys")}
 ```
 
@@ -2405,6 +2426,7 @@ List of keys that define a cluster subset class.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -2597,6 +2619,7 @@ Header Transformation OPTIONS for HTTP/1.1 request/response headers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation",
     "preserve_case_header_transformation"),
   validators.ConflictingObjectAttributes("default_header_transformation",
@@ -3105,6 +3128,7 @@ they continue to fail. Defaults to 30000ms or 30s. Specified in milliseconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(1800000),
 }
@@ -3164,6 +3188,7 @@ number of consecutive 5xx responses required before a consecutive 5xx ejection o
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(1024),
 }
@@ -3222,6 +3247,7 @@ consecutive gateway failure ejection occurs. Defaults to 5.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(1024),
 }
@@ -3276,6 +3302,7 @@ endpoints being returned to service. Defaults to 10000ms or 10s. Specified in mi
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 600000),
 }
@@ -3332,6 +3359,7 @@ but will eject at least one host regardless of the value.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(100),
 }
@@ -3588,6 +3616,7 @@ Reference to healthcheck configuration objects.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -3653,6 +3682,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -3718,6 +3748,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -3790,6 +3821,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -3989,6 +4021,7 @@ List of origin servers in this pool.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("cbip_service",
     "consul_service"),
   validators.ConflictingListObjectAttributes("cbip_service",
@@ -4142,36 +4175,3 @@ origin_servers {
 - [k8s_service](resources--origin_pool--reference--group-002.md#canonical-2000133232313121-0012133003021110-2020130000113133-3222221313310322-1112103023033022-3023021201311203-3003323121302310-2122200312303300): complete subsection reference.
 
 <a id="canonical-0222322311301012-0302213113300121-1303133220100113-2310201011020013-1133022301330223-1211000303231312-2232032222303300-2231312012013323"></a>
-
-<a id="canonical-0303320322232021-3230331021221230-3233300121123203-0323131322210333-1211213200013022-3121333212320111-1131212232300133-2132123230303020"></a>
-
-## labels property — origin_servers / 330013001011 / 4
-
-Type: `["map", "string"]`. Optional.
-
-Add Labels for this origin server, these labels can be used to form subset.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-- [private_ip](resources--origin_pool--reference--group-002.md#canonical-0230123122031010-0231002312323012-1310211030230020-2100002130223132-3313222333000000-0212233130001122-3202122200300023-1011131120231003): complete subsection reference.
-
-- [private_name](resources--origin_pool--reference--group-002.md#canonical-1133022131320232-3123302201233302-1212311001131130-2012010123333133-0102031133330232-1000330202203203-2203003330013202-1120202100000323): complete subsection reference.
-
-- [public_ip](resources--origin_pool--reference--group-002.md#canonical-2012202102220023-2022233311031000-2131130202320231-1200001300020311-2032322312323113-2110322301123032-3132132030003331-0200031213133012): complete subsection reference.
-
-- [public_name](resources--origin_pool--reference--group-002.md#canonical-0101123032132221-2211032101001201-1000311221111203-2133111213011322-0333020102301313-3100023301322230-0212222321323322-2203130310321323): complete subsection reference.
-
-- [vn_private_ip](resources--origin_pool--reference--group-002.md#canonical-2130122232222011-2300321030110011-1031031023222200-1001031200312013-2120002123011312-1310133101323000-3001103213310123-2023322321313313): complete subsection reference.
-
-- [vn_private_name](resources--origin_pool--reference--group-002.md#canonical-1013210030120200-0300013133323110-0211222301220003-2111231123223232-2130003221211000-0010213100230320-3322112211323121-2102120111321112): complete subsection reference.

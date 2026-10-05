@@ -115,6 +115,7 @@ Namespace holding the registrations. Defaults to \`system\`, where site registra
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtLeast(1),
 }

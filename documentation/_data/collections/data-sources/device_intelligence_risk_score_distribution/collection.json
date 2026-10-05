@@ -80,7 +80,7 @@
         "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -115,8 +115,8 @@
     },
     {
       "aliases": ["device intelligence risk score distribution"],
-      "body_bytes": 5143,
-      "body_sha256": "sha256:6602f6c5ac75215e0846ef8e58bde75eb8aaced03b4b9e54fc4b6b4c90a58cda",
+      "body_bytes": 5201,
+      "body_sha256": "sha256:6055e46ab4c346e685d80a6e675044dca34b410b5489793f19b52558641157d4",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -124,7 +124,7 @@
         "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:risk_score_distribution"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -150,6 +150,8 @@
           "anchor": "schema-end_time",
           "description": "End time of the query period Format: unix_timestamp|RFC 3339 Optional: If not specified, then the end_time will be evaluated to start_time+10m If start_time is not specified, then the end_time will be evaluated to <current time>.",
           "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:reference",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -164,6 +166,8 @@
           "anchor": "section",
           "description": "Global Filters. Query Global Filters.",
           "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:filters",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -178,6 +182,8 @@
           "anchor": "schema-namespace",
           "description": "Namespace. Namespace name.",
           "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -192,6 +198,8 @@
           "anchor": "section",
           "description": "Distribution of devices across risk ranks.",
           "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:risk_score_distribution",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -206,6 +214,8 @@
           "anchor": "schema-start_time",
           "description": "Start time of the query period Format: unix_timestamp|RFC 3339 Optional: If not specified, then the start_time will be evaluated to end_time-10m If end_time is not specified, then the start_time will be evaluated to <current time>-10m.",
           "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:reference",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -229,15 +239,15 @@
     },
     {
       "aliases": ["filters"],
-      "body_bytes": 1780,
-      "body_sha256": "sha256:49f0604de2fe87097127bff459244245c987b5afff1921a642a68d55bba85e27",
+      "body_bytes": 2038,
+      "body_sha256": "sha256:8a84dd7987fb011dccff849fafbcfbf84dec7f6999e6bfa17e1505dc871bfa34",
       "capabilities": [],
       "category": null,
       "child_ids": [
         "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:filters:global_filters"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -263,6 +273,8 @@
           "anchor": "section",
           "description": "Global Filters. List of global filters.",
           "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:filters:global_filters",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -277,6 +289,17 @@
           "anchor": "schema-filters--region_filter",
           "description": "Defines a selection for Bot Defense region - US: US United States of America - EU: EU European Union - ASIA: ASIA Asia - CA: CA Canada. Possible values are `US`, `EU`, `ASIA`, `CA`. Defaults to `US`.",
           "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:filters",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["ASIA", "CA", "EU", "US"],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -300,13 +323,13 @@
     },
     {
       "aliases": ["filters global filters"],
-      "body_bytes": 5536,
-      "body_sha256": "sha256:a37c18725ee6ebf269115f93d4d450264db9f6112e4bb1202dbe599c324c5188",
+      "body_bytes": 6960,
+      "body_sha256": "sha256:67d325ff969bad243f43f9094c243e018b1a26687808020624f7448a54e0f037",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -332,6 +355,70 @@
           "anchor": "schema-filters--global_filters--key",
           "description": "Key for query filter - TIMESTAMP: Timestamp Filter Key Use Timestamp as key to query. Possible values are `TIMESTAMP`, `USERNAME`, `CLIENT_TOKEN`, `IP_ADDRESS`, `ASN`, `AS_ORGANIZATION`, `COUNTRY`, `METHOD`, `HOST`, `PATH`, `URL`, `REFERER`, `TRAFFIC_CHANNEL`, `IS_ATTACK`, `BOT_REASON`, `TRAFFIC_TYPE`, `THREAT_TYPE`,",
           "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:filters:global_filters",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": [
+                "ABSOLUTE",
+                "ACTION_TAKEN",
+                "AGENT",
+                "APPLICATION_NAME",
+                "ASN",
+                "AS_ORGANIZATION",
+                "BOT_COOKIE",
+                "BOT_ENDPOINT_POLICY",
+                "BOT_REASON",
+                "BROWSER_FINGERPRINT",
+                "CLIENT_TOKEN",
+                "COOKIE_AGE",
+                "COUNTRY",
+                "DEVICE_ID",
+                "ENDPOINT_LABEL",
+                "ENDPOINT_NAME",
+                "ENDPOINT_POLICY",
+                "FLOW",
+                "FLOW_CATEGORY",
+                "FLOW_LABEL",
+                "HEADER_FINGERPRINT",
+                "HOST",
+                "IP_ADDRESS",
+                "IS_ATTACK",
+                "KNOWN_BOT_CATEGORY",
+                "KNOWN_BOT_CATEGORY_TYPE",
+                "KNOWN_BOT_MITIGATION",
+                "KNOWN_BOT_NAME",
+                "KNOWN_BOT_PROVIDER",
+                "METHOD",
+                "MOBILE_TRANSACTION_INSIGHT",
+                "PATH",
+                "PERCENTAGE",
+                "PROTECTED_APPLICATION",
+                "REFERER",
+                "RESPONSE_CODE",
+                "SDK_VERSION",
+                "SERVER_RESPONSE_CODE",
+                "THREAT_TYPE",
+                "TIMESTAMP",
+                "TRAFFIC_CHANNEL",
+                "TRAFFIC_TYPE",
+                "TRANSACTION_RESULT",
+                "TREND",
+                "TRIGGERED_RULE",
+                "URL",
+                "USERNAME",
+                "USER_AGENT",
+                "USER_AGENT_FAMILY",
+                "USER_AGENT_OS_FAMILY",
+                "USER_FINGERPRINT",
+                "WEB_TRANSACTION_INSIGHT"
+              ],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -346,6 +433,26 @@
           "anchor": "schema-filters--global_filters--op",
           "description": "Operator for query filter - IN: Filter Operator Specifies that query result includes filter values - NOT_IN: Filter Operator Specifies that query result excludes filter values - MATCHES_REGEX: Filter Operator Specifies that query result matches filter regex - DOES_NOT_MATCH_REGEX: Filter.. Possible values are `IN`,",
           "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:filters:global_filters",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": [
+                "DOES_NOT_INCLUDE",
+                "DOES_NOT_MATCH_REGEX",
+                "ENDS_WITH",
+                "IN",
+                "INCLUDES",
+                "MATCHES_REGEX",
+                "NOT_IN",
+                "STARTS_WITH"
+              ],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -360,6 +467,8 @@
           "anchor": "schema-filters--global_filters--values",
           "description": "Values. An unordered list of filter strings.",
           "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:filters:global_filters",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -389,7 +498,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -415,6 +524,8 @@
           "anchor": "schema-risk_score_distribution--device_count",
           "description": "Device Count. Number of devices in this risk rank.",
           "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:risk_score_distribution",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -429,6 +540,8 @@
           "anchor": "schema-risk_score_distribution--risk_rank",
           "description": "Risk rank label (e.g., low, medium, high).",
           "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:risk_score_distribution",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -458,7 +571,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:device_intelligence_risk_score_distribution:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -498,7 +611,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

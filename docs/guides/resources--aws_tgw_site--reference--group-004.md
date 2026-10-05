@@ -6,6 +6,61 @@ description: "Complete grouped canonical reference for xcsh_aws_tgw_site referen
 
 # xcsh_aws_tgw_site reference
 
+<a id="canonical-1022302033130123-0031311121222213-3023330000333111-2023320112322230-0120320011331133-3211100023112210-2033102001011302-1122230223220101"></a>
+
+## vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address — nexthop_address / 103001310311 / 2
+
+Breadcrumbs:
+
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
+- [vn_config.outside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-2301113011113011-1112320230210202-0313100212313032-1131333013212023-3211313333212000-2110001321132102-1131010130012311-2101312102132133)
+- [vn_config.outside_static_routes.static_route_list](resources--aws_tgw_site--reference--group-003.md#canonical-0012330200333200-1003330212132300-0033033221012201-3330110232112210-0013230010001331-0003332013203201-0013211233213031-0201233331322323)
+- [vn_config.outside_static_routes.static_route_list.custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-3112202231210201-1221331101020010-2311032322110333-3203310310200232-2230321032201221-3313011300211333-0131031220003312-2233310210310310)
+- [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_tgw_site--reference--group-003.md#canonical-0003030130021111-3312333313002332-2112222111320300-1102302011333013-1321333031231001-0002003300230301-1030331331223202-0121210011003030)
+- vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address
+
+<a id="canonical-3211232202201232-1031300221322332-3332100103100122-2313323303000230-3321130303320310-0121203121030022-1301200213222033-0120003101331032"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+IP Address used to specify an IPv4 or IPv6 address.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.ConflictingObjectAttributes("dual_stack",
+    "ipv4"),
+  validators.ConflictingObjectAttributes("dual_stack",
+    "ipv6"),
+  validators.ConflictingObjectAttributes("ipv4",
+    "ipv6")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-ver": "[\"dual_stack\",\"ipv4\",\"ipv6\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+nexthop_address {
+  # Configure direct properties listed below.
+}
+```
+
 <a id="canonical-0110101102013333-3120120203223011-1310313001002223-1023113231032323-2303222201111100-1120031222220223-1131332113221003-2002131133311030"></a>
 
 ## Direct properties — nexthop_address / 103001310311 / 3
@@ -163,6 +218,7 @@ IPv4 Address in string form with dot-decimal notation.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -286,6 +342,7 @@ IPv6 Address in form of string. IPv6 address must be specified as hexadecimal nu
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv6Validator(),
@@ -400,6 +457,7 @@ IPv4 Address in string form with dot-decimal notation.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -522,6 +580,7 @@ IPv6 Address in form of string. IPv6 address must be specified as hexadecimal nu
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv6Validator(),
@@ -599,6 +658,7 @@ List of route prefixes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("ipv4",
     "ipv6")}
 ```
@@ -726,6 +786,7 @@ Prefix-length of the IPv4 subnet. Must be &lt;= 32.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(32),
 }
@@ -774,6 +835,7 @@ Prefix part of the IPv4 subnet in string form with dot-decimal notation.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -883,6 +945,7 @@ Prefix length of the IPv6 subnet. Must be &lt;= 128.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(128),
 }
@@ -939,6 +1002,7 @@ suppressing zeros e.g. "2001:db8::2::"
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv6Validator(),
@@ -1243,6 +1307,7 @@ Information about existing VPC.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1378,6 +1443,7 @@ manually. Refer to release notes for details about available Signatures update m
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("automatic",
     "manual")}
 ```

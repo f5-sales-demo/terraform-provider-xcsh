@@ -38,6 +38,7 @@ List of session IDs to terminate (maximum 100 per request).
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 100),
 }

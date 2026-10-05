@@ -341,6 +341,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -408,6 +409,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -484,6 +486,7 @@ Operating System version can be overridden via site config.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -536,7 +539,7 @@ Receipt-pinned upstream constraints:
 
 - [timeouts](resources--fleet--reference--group-004.md#canonical-3013312232300101-1023222303301232-0210002302033021-2230300221300103-1230132310201312-1210112221101000-0010122001311202-1320000331121210): complete subsection reference.
 
-- [usb_policy](resources--fleet--reference--group-004.md#canonical-1313133033021303-0322312200331123-0101000033230330-1300123032023012-1022323323332131-3002113220222232-0302220132222213-1022313213313302): complete subsection reference.
+- [usb_policy](resources--fleet--reference--group-005.md#canonical-1313133033021303-0322312200331123-0101000033230330-1300123032023012-1022323323332131-3002113220222232-0302220132222213-1022313213313302): complete subsection reference.
 
 <a id="canonical-1112311233323303-0300320300110001-2131011211002222-2113300313322103-1132133203321220-3302313320200210-0333231020001200-1202231201133302"></a>
 
@@ -559,6 +562,7 @@ installed can be overridden via site config.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -747,7 +751,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `storage_class_list.storage_classes.hpe_storage.sync_on_detach` | [storage_class_list.storage_classes.hpe_storage.sync_on_detach](resources--fleet--reference--group-002.md#canonical-1221100221101202-0002132220221330-0232110121112122-3212132202120000-2321312103122110-3210013200122132-0323112100110030-2020031100302300) |
 | `storage_class_list.storage_classes.hpe_storage.thick` | [storage_class_list.storage_classes.hpe_storage.thick](resources--fleet--reference--group-002.md#canonical-2103130213311223-0331203131333031-2012120002033221-1020313133213322-1033323230020123-1001123233122311-0010201322001133-1111122310101123) |
 | `storage_class_list.storage_classes.netapp_trident` | [storage_class_list.storage_classes.netapp_trident](resources--fleet--reference--group-002.md#canonical-3211323111122200-2022231133310222-2111133212330300-1010113231101330-0021303132000002-3100101322300112-2032232202110332-3231102032113310) |
-| `storage_class_list.storage_classes.netapp_trident.selector` | [storage_class_list.storage_classes.netapp_trident.selector](resources--fleet--reference--group-002.md#canonical-1230001331232023-1121200110230223-1320210312010322-2222111303221202-1030032033322312-1213022300230231-0123203120230022-3133132202222111) |
+| `storage_class_list.storage_classes.netapp_trident.selector` | [storage_class_list.storage_classes.netapp_trident.selector](resources--fleet--reference--group-003.md#canonical-1230001331232023-1121200110230223-1320210312010322-2222111303221202-1030032033322312-1213022300230231-0123203120230022-3133132202222111) |
 | `storage_class_list.storage_classes.netapp_trident.storage_pools` | [storage_class_list.storage_classes.netapp_trident.storage_pools](resources--fleet--reference--group-002.md#canonical-1323200222023300-3202123201121232-3200302013333131-1202122303320021-0313200002321110-1313123332203113-1103122333132232-1200231333320033) |
 | `storage_class_list.storage_classes.pure_service_orchestrator` | [storage_class_list.storage_classes.pure_service_orchestrator](resources--fleet--reference--group-003.md#canonical-2102032013030302-3313002330122221-3211033121302013-0310311210011323-0200201031123010-2233100223203002-1333301133030033-2001102003233021) |
 | `storage_class_list.storage_classes.pure_service_orchestrator.backend` | [storage_class_list.storage_classes.pure_service_orchestrator.backend](resources--fleet--reference--group-003.md#canonical-0210010221120302-3002023220030311-0113300021331233-1333323112113322-2210123130321230-1122320202312310-3212230103230113-3032301202032312) |
@@ -885,15 +889,15 @@ Each exact path has one authoritative reference destination. Collection element 
 | `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.encryption` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.encryption](resources--fleet--reference--group-003.md#canonical-0330330022322210-3301101000302032-2132023210033101-0223111032030301-1030330213312101-2232021313233320-2330102021023110-3021223023131222) |
 | `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.export_policy` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.export_policy](resources--fleet--reference--group-003.md#canonical-2213021120201112-2003101113230331-0303213102200212-3002333313221013-1123212231202012-2122202023122230-2331112010023211-1210230113103131) |
 | `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.no_qos` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.no_qos](resources--fleet--reference--group-004.md#canonical-1133003221223230-0303032211031120-3022301113132322-2030233300100020-3303121320031231-1323233311120011-0123023231130030-1111232031201013) |
-| `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.qos_policy` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.qos_policy](resources--fleet--reference--group-003.md#canonical-3013310231230110-0213300133130022-2011011333202031-0123013132133012-1223333022121122-1210300330233101-0323113022030300-2312011313303321) |
-| `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.security_style` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.security_style](resources--fleet--reference--group-003.md#canonical-1310101232210213-1000222222131132-0133121323130303-0033233011121323-0210133022201023-2201322302232202-2303131002101211-2212100123203302) |
-| `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.snapshot_dir` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.snapshot_dir](resources--fleet--reference--group-003.md#canonical-1303130223112010-2020311230033012-1010200302212311-1132131223113010-1000002311211003-0230333331023233-1010210321021131-3321031221021130) |
-| `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.snapshot_policy` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.snapshot_policy](resources--fleet--reference--group-003.md#canonical-3122312112000331-2013032020102312-3301120311111221-0323122213002000-0331132232122123-2003222330221131-2333313311213132-3110321122023323) |
-| `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.snapshot_reserve` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.snapshot_reserve](resources--fleet--reference--group-003.md#canonical-1110102000233101-1223012221010300-1222313202211233-1031320301000003-3213331313022303-3122201313201001-1023112303020202-2221100201010332) |
-| `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.space_reserve` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.space_reserve](resources--fleet--reference--group-003.md#canonical-3112103233200230-0313213130201003-2202123221301131-3121223010212031-3201233333013003-2123223212023203-0111113312033301-1012201103313230) |
-| `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.split_on_clone` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.split_on_clone](resources--fleet--reference--group-003.md#canonical-1103301002033212-2022222310112100-2131310122213301-1032320212232132-0220220222311223-0132112112313211-2132021310211011-1203222302313101) |
-| `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.tiering_policy` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.tiering_policy](resources--fleet--reference--group-003.md#canonical-1320221323223103-1110012330110123-1023130132003333-2223102212222231-2100010222003201-1332213203222210-1202023032120332-1203033030030230) |
-| `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.unix_permissions` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.unix_permissions](resources--fleet--reference--group-003.md#canonical-1012021000321233-1321020100222120-2001333133203313-3231332221020110-1300313202021020-0101210330030221-2323312100112121-2111332012010101) |
+| `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.qos_policy` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.qos_policy](resources--fleet--reference--group-004.md#canonical-3013310231230110-0213300133130022-2011011333202031-0123013132133012-1223333022121122-1210300330233101-0323113022030300-2312011313303321) |
+| `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.security_style` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.security_style](resources--fleet--reference--group-004.md#canonical-1310101232210213-1000222222131132-0133121323130303-0033233011121323-0210133022201023-2201322302232202-2303131002101211-2212100123203302) |
+| `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.snapshot_dir` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.snapshot_dir](resources--fleet--reference--group-004.md#canonical-1303130223112010-2020311230033012-1010200302212311-1132131223113010-1000002311211003-0230333331023233-1010210321021131-3321031221021130) |
+| `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.snapshot_policy` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.snapshot_policy](resources--fleet--reference--group-004.md#canonical-3122312112000331-2013032020102312-3301120311111221-0323122213002000-0331132232122123-2003222330221131-2333313311213132-3110321122023323) |
+| `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.snapshot_reserve` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.snapshot_reserve](resources--fleet--reference--group-004.md#canonical-1110102000233101-1223012221010300-1222313202211233-1031320301000003-3213331313022303-3122201313201001-1023112303020202-2221100201010332) |
+| `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.space_reserve` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.space_reserve](resources--fleet--reference--group-004.md#canonical-3112103233200230-0313213130201003-2202123221301131-3121223010212031-3201233333013003-2123223212023203-0111113312033301-1012201103313230) |
+| `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.split_on_clone` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.split_on_clone](resources--fleet--reference--group-004.md#canonical-1103301002033212-2022222310112100-2131310122213301-1032320212232132-0220220222311223-0132112112313211-2132021310211011-1203222302313101) |
+| `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.tiering_policy` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.tiering_policy](resources--fleet--reference--group-004.md#canonical-1320221323223103-1110012330110123-1023130132003333-2223102212222231-2100010222003201-1332213203222210-1202023032120332-1203033030030230) |
+| `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.unix_permissions` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.unix_permissions](resources--fleet--reference--group-004.md#canonical-1012021000321233-1321020100222120-2001333133203313-3231332221020110-1300313202021020-0101210330030221-2323312100112121-2111332012010101) |
 | `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.zone` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.zone](resources--fleet--reference--group-003.md#canonical-2223300130001123-1020221130012330-2221203113311211-2110033211130301-1022321230301010-1032100301011002-0030213103210201-1220030110231322) |
 | `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage_driver_name` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage_driver_name](resources--fleet--reference--group-003.md#canonical-1302220010102231-2313311230120312-0112100020331100-0031021323322033-2010110021211021-2302020303002012-3330323302221112-1300212220332022) |
 | `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage_prefix` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage_prefix](resources--fleet--reference--group-003.md#canonical-2201002330330333-2002100130001202-1132110133003112-3313102201121221-1002332003103013-3111001332130233-3321230200111013-3100303203111031) |
@@ -1014,10 +1018,10 @@ Each exact path has one authoritative reference destination. Collection element 
 | `timeouts.delete` | [timeouts.delete](resources--fleet--reference--group-004.md#canonical-3203133000103123-1222100322131033-1000111213021132-2121011133302120-2032112013132113-1020310210302103-2320112001100022-2323011312311032) |
 | `timeouts.read` | [timeouts.read](resources--fleet--reference--group-004.md#canonical-1020230301203111-0003103030020313-1023322320302003-2003303113021220-0301112330213002-1303012123012113-0203331001212110-1111302002202302) |
 | `timeouts.update` | [timeouts.update](resources--fleet--reference--group-004.md#canonical-2211201022321033-2330012313032120-0302200302012020-0133102300233231-1113112031323030-2221111031032122-3101323100013101-0200330001112030) |
-| `usb_policy` | [usb_policy](resources--fleet--reference--group-004.md#canonical-1122110212330113-3101131220333203-2013203030011212-2310131001313330-1321230331331320-0133123320203112-1102233320013230-2122202121023032) |
-| `usb_policy.name` | [usb_policy.name](resources--fleet--reference--group-004.md#canonical-0210031313123110-1013201323233220-3321022023222200-2131332103232323-2203032111130102-3313032333332030-0000332002311233-0320333133001220) |
-| `usb_policy.namespace` | [usb_policy.namespace](resources--fleet--reference--group-004.md#canonical-2000203111211212-1122201033323001-3310033331330103-3320330022113132-0300023133131111-0131201313122323-2113011103200123-1002331020122212) |
-| `usb_policy.tenant` | [usb_policy.tenant](resources--fleet--reference--group-004.md#canonical-1322013111303300-3212302013200320-3303113031311132-2220211312101300-3130101033211130-2010232231023103-3230111312312322-2223111210320202) |
+| `usb_policy` | [usb_policy](resources--fleet--reference--group-005.md#canonical-1122110212330113-3101131220333203-2013203030011212-2310131001313330-1321230331331320-0133123320203112-1102233320013230-2122202121023032) |
+| `usb_policy.name` | [usb_policy.name](resources--fleet--reference--group-005.md#canonical-0210031313123110-1013201323233220-3321022023222200-2131332103232323-2203032111130102-3313032333332030-0000332002311233-0320333133001220) |
+| `usb_policy.namespace` | [usb_policy.namespace](resources--fleet--reference--group-005.md#canonical-2000203111211212-1122201033323001-3310033331330103-3320330022113132-0300023133131111-0131201313122323-2113011103200123-1002331020122212) |
+| `usb_policy.tenant` | [usb_policy.tenant](resources--fleet--reference--group-005.md#canonical-1322013111303300-3212302013200320-3303113031311132-2220211312101300-3130101033211130-2010232231023103-3230111312312322-2223111210320202) |
 | `volterra_software_version` | [volterra_software_version](resources--fleet--reference--group-001.md#canonical-1112311233323303-0300320300110001-2131011211002222-2113300313322103-1132133203321220-3302313320200210-0333231020001200-1202231201133302) |
 
 <a id="canonical-0003222020310303-1223310232130230-3322221133210301-0023203321103312-2002213001012200-3132013121130023-3203330313001023-1133220103031130"></a>
@@ -1061,7 +1065,7 @@ Each exact path has one authoritative reference destination. Collection element 
 - [storage_interface_list](resources--fleet--reference--group-004.md#canonical-2200223121321313-3202113301130230-3113322333033203-2122021133112132-3302320001211330-3311111102111033-2201322232210330-0102122100010132)
 - [storage_static_routes](resources--fleet--reference--group-004.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
 - [timeouts](resources--fleet--reference--group-004.md#canonical-3013312232300101-1023222303301232-0210002302033021-2230300221300103-1230132310201312-1210112221101000-0010122001311202-1320000331121210)
-- [usb_policy](resources--fleet--reference--group-004.md#canonical-1313133033021303-0322312200331123-0101000033230330-1300123032023012-1022323323332131-3002113220222232-0302220132222213-1022313213313302)
+- [usb_policy](resources--fleet--reference--group-005.md#canonical-1313133033021303-0322312200331123-0101000033230330-1300123032023012-1022323323332131-3002113220222232-0302220132222213-1022313213313302)
 - [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 
 <a id="canonical-0233020232022221-0012000111130132-3331103020110010-1132313232302301-3302110232202113-3033221010233312-1302312102121301-2003110120333123"></a>
@@ -1107,7 +1111,7 @@ OneOf alternatives in this subsection:
 
 - [allow_all_usb](resources--fleet--reference--group-001.md#canonical-0011122200232321-0331210222021203-3211310010331331-0313201100121033-0210102200112232-2220223223100313-1001011001120021-3220221212103101)
 - [deny_all_usb](resources--fleet--reference--group-002.md#canonical-3031222031130102-0220323323303102-0001201301130320-0310333220032103-2020133202021100-3213120313202223-2013331220210232-1002130131230330)
-- [usb_policy](resources--fleet--reference--group-004.md#canonical-1122110212330113-3101131220333203-2013203030011212-2310131001313330-1321230331331320-0133123320203112-1102233320013230-2122202121023032)
+- [usb_policy](resources--fleet--reference--group-005.md#canonical-1122110212330113-3101131220333203-2013203030011212-2310131001313330-1321230331331320-0133123320203112-1102233320013230-2122202121023032)
 
 Select alternatives according to the provider validators above.
 
@@ -1155,6 +1159,7 @@ Disable node local services on this site.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("dns",
     "ssh"),
   validators.ConflictingListObjectAttributes("dns",

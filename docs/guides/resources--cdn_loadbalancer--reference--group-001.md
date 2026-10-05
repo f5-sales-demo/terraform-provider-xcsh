@@ -228,6 +228,7 @@ A list of fully qualified domain names. The CDN Distribution will be setup for t
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 32),
 }
@@ -309,7 +310,7 @@ Type: `"string"`. Computed.
 
 Unique identifier for the resource.
 
-- [js_challenge](resources--cdn_loadbalancer--reference--group-011.md#canonical-0013121320212310-0321212022202332-3221102212101112-2133200201303301-2223113031321031-2230211002301113-1023222011212331-2310212110032321): complete subsection reference.
+- [js_challenge](resources--cdn_loadbalancer--reference--group-012.md#canonical-0013121320212310-0321212022202332-3221102212101112-2133200201303301-2223113031321031-2230211002301113-1023222011212331-2310212110032321): complete subsection reference.
 
 - [jwt_validation](resources--cdn_loadbalancer--reference--group-012.md#canonical-3231211001230011-2120300311230023-2120101132320213-0303030323233113-3131333213011222-2310202013201013-0200320010001222-3022100012232031): complete subsection reference.
 
@@ -367,6 +368,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -434,6 +436,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -493,9 +496,9 @@ Receipt-pinned upstream constraints:
 
 - [sensitive_data_policy](resources--cdn_loadbalancer--reference--group-014.md#canonical-3101301311121220-1022212312223231-0103230132010000-1031303112000210-1003201331112110-2210011211032323-3113203213013300-1111103022320301): complete subsection reference.
 
-- [service_policies_from_namespace](resources--cdn_loadbalancer--reference--group-014.md#canonical-0232201322200031-0330122100331311-3221203302302022-3021301122011232-3230010232020130-3332030103113102-0223113230122010-1011332330021133): complete subsection reference.
+- [service_policies_from_namespace](resources--cdn_loadbalancer--reference--group-015.md#canonical-0232201322200031-0330122100331311-3221203302302022-3021301122011232-3230010232020130-3332030103113102-0223113230122010-1011332330021133): complete subsection reference.
 
-- [slow_ddos_mitigation](resources--cdn_loadbalancer--reference--group-014.md#canonical-1233003020202211-1121000220031121-0002002321202011-3200220102103002-3312211001303013-1111001323333210-3232211013001110-3302023302323112): complete subsection reference.
+- [slow_ddos_mitigation](resources--cdn_loadbalancer--reference--group-015.md#canonical-1233003020202211-1121000220031121-0002002321202011-3200220102103002-3312211001303013-1111001323333210-3232211013001110-3302023302323112): complete subsection reference.
 
 - [system_default_timeouts](resources--cdn_loadbalancer--reference--group-015.md#canonical-1302302300220120-1232133331030022-2202232123331001-1001230212313333-2002032030033031-0300122120322121-0023222330210101-0203103301320000): complete subsection reference.
 

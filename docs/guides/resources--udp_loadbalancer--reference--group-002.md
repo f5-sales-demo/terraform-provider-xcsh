@@ -6,6 +6,81 @@ description: "Complete grouped canonical reference for xcsh_udp_loadbalancer ref
 
 # xcsh_udp_loadbalancer reference
 
+<a id="canonical-0313011133220200-0002302102022132-2020023303222012-3323001300010212-1000230021201102-0203200332030033-1303301301002200-1001233110103322"></a>
+
+## origin_pools_weights.endpoint_subsets — endpoint_subsets / 301002021322 / 2
+
+Breadcrumbs:
+
+- [xcsh_udp_loadbalancer](../resources/udp_loadbalancer.md#canonical-2031002110012331-0223121021210130-3122111031231033-0102213100033031-3300120332233213-0233003311303232-0311110113213220-1211333320223212)
+- [Property reference](resources--udp_loadbalancer--reference--group-001.md#canonical-2002023213111000-0212122002033233-3102221313223201-2231030031021232-1300231222302011-1123120120031031-0312210221210100-2012113302110103)
+- [origin_pools_weights](resources--udp_loadbalancer--reference--group-001.md#canonical-0032213313100301-3212011112101330-1011333321321000-2333033310333031-2321102233211130-2001102232222211-1021030023313221-2023031320303303)
+- origin_pools_weights.endpoint_subsets
+
+<a id="canonical-2132312123111111-3003130211230121-3300132131022213-3333113133210032-2201200312010223-0321000123030310-2023102101033332-3123023213221201"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Upstream origin pool may be configured to divide its origin servers into subsets based on metadata
+attached to the origin servers. Routes may then specify the metadata that a endpoint must match in
+order to be selected by the load balancer For origin servers which are discovered in K8s or Consul..
+
+Upstream description:
+
+Upstream origin pool may be configured to divide its origin servers into subsets based on metadata
+attached to the origin servers. Routes may then specify the metadata that a endpoint must match in
+order to be selected by the load balancer
+
+For origin servers which are discovered in K8s or Consul cluster, the label of the service is merged
+with endpoint's labels. In case of Consul, the label is derived from the "Tag" field. For labels
+that are common between configured endpoint and discovered service, labels from discovered service
+takes precedence.
+
+List of key-value pairs that will be used as matching metadata. Only those origin servers of
+upstream origin pool which match this metadata will be selected for load balancing.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "cardinality": {
+      "maxProperties": 16
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "originalRules": {
+      "ves.io.schema.rules.map.max_pairs": "16"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.map.max_pairs": "16"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.map.max_pairs": "16"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+endpoint_subsets {}
+```
+
+<a id="canonical-3313011210201210-0332001112112013-0112200210202023-0113211013123023-2232213012231001-2302001223120232-1112322033021232-2230030201312001"></a>
+
+## Direct properties — endpoint_subsets / 301002021322 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
 <a id="canonical-1331322333231012-1200331233010001-2221123022032231-3113231330321320-2102102013021100-2311121333223022-3102321212013102-2331012310102321"></a>
 
 ## Next pages — endpoint_subsets / 301002021322 / 4
@@ -45,6 +120,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -92,6 +168,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -157,6 +234,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -229,6 +307,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }

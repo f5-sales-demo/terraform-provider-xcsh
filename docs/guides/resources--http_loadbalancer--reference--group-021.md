@@ -6,6 +6,314 @@ description: "Complete grouped canonical reference for xcsh_http_loadbalancer re
 
 # xcsh_http_loadbalancer reference
 
+<a id="canonical-1202321112310311-1010100031301003-0320302313103011-0111332203232300-1332213331220222-0321233211212300-3221001312022002-1310030033301021"></a>
+
+## js_script_delay property — l7_ddos_action_js_challenge / 001123312310 / 6
+
+Type: `"number"`. Optional.
+
+Delay introduced by JavaScript, in milliseconds.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  int64validator.Between(1000, 60000),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 60000,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 1000
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1000",
+    "ves.io.schema.rules.uint32.lte": "60000"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1000",
+    "ves.io.schema.rules.uint32.lte": "60000"
+  }
+}
+```
+
+<a id="canonical-3331231332202033-3202233112230031-3231102231302311-1233112202112120-1202203322123113-3023031321132101-1001113320011030-3010223000233220"></a>
+
+## Next pages — l7_ddos_action_js_challenge / 001123312310 / 7
+
+- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
+- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
+
+<a id="canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1212223013233032-0020100231300122-3220213331313303-0001011202311001-2012202023310202-2330333220211310-0332120013222300-0212330203332123"></a>
+
+## l7_ddos_protection — l7_ddos_protection / 122033220230 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
+- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
+- l7_ddos_protection
+
+<a id="canonical-3110302123103331-1102003311011121-0222232232200030-1232201323102322-2000300322231132-2303121211321100-2001322232123021-2312323033012310"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+L7 DDoS protection is critical for safeguarding web applications, APIs, and services that are
+exposed to the internet from sophisticated, volumetric, application-level threats. Configure
+actions, thresholds and policies to apply during L7 DDoS attack. Defaults to \`map\[\]\`. Server
+applies default when omitted.
+
+Upstream description:
+
+L7 DDoS protection is critical for safeguarding web applications, APIs, and services that are
+exposed to the internet from sophisticated, volumetric, application-level threats. Configure
+actions, thresholds and policies to apply during L7 DDoS attack.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.ConflictingObjectAttributes("clientside_action_captcha_challenge",
+    "clientside_action_js_challenge"),
+  validators.ConflictingObjectAttributes("clientside_action_captcha_challenge",
+    "clientside_action_none"),
+  validators.ConflictingObjectAttributes("clientside_action_js_challenge",
+    "clientside_action_none"),
+  validators.ConflictingObjectAttributes("ddos_policy_custom",
+    "ddos_policy_none"),
+  validators.ConflictingObjectAttributes("default_rps_threshold",
+    "rps_threshold"),
+  validators.ConflictingObjectAttributes("mitigation_block",
+    "mitigation_captcha_challenge"),
+  validators.ConflictingObjectAttributes("mitigation_block",
+    "mitigation_js_challenge"),
+  validators.ConflictingObjectAttributes("mitigation_captcha_challenge",
+    "mitigation_js_challenge")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-clientside_action_choice": "[\"clientside_action_captcha_challenge\",\"clientside_action_js_challenge\",\"clientside_action_none\"]",
+  "x-ves-oneof-field-ddos_policy_choice": "[\"ddos_policy_custom\",\"ddos_policy_none\"]",
+  "x-ves-oneof-field-mitigation_action_choice": "[\"mitigation_block\",\"mitigation_captcha_challenge\",\"mitigation_js_challenge\"]",
+  "x-ves-oneof-field-rps_threshold_choice": "[\"default_rps_threshold\",\"rps_threshold\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+l7_ddos_protection {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2212021031012313-3313213223320303-1201011311002132-3003211222022201-1203311333321333-0102022300121330-2133322110223211-3001120331223000"></a>
+
+## Direct properties — l7_ddos_protection / 122033220230 / 3
+
+- [clientside_action_captcha_challenge](resources--http_loadbalancer--reference--group-021.md#canonical-2132322130132131-0221002210111202-0312210122200110-2021110221003130-1200330031302010-3221030211111131-1333301121201332-1122121202211132): complete subsection reference.
+
+- [clientside_action_js_challenge](resources--http_loadbalancer--reference--group-021.md#canonical-0333120302000032-2111010020220213-3001222100021202-3303111122030223-3301012233231223-2023303300030103-1333103133330100-2013231002002123): complete subsection reference.
+
+- [clientside_action_none](resources--http_loadbalancer--reference--group-021.md#canonical-0232020023213211-0010012133112133-3201232132101111-0122310232212020-2332312100133201-3002012000121223-2333311311203210-2200010031330232): complete subsection reference.
+
+- [ddos_policy_custom](resources--http_loadbalancer--reference--group-021.md#canonical-2032302331132210-0023203122022322-3032330330303001-2020223202033300-2030111322330001-0312200322113211-3000033301113203-3303002121321102): complete subsection reference.
+
+- [ddos_policy_none](resources--http_loadbalancer--reference--group-021.md#canonical-2300010132330322-2103003000322002-3021312112020131-2303000032213033-3013331212212202-0213203100113003-2201112331020132-0300213200302321): complete subsection reference.
+
+- [default_rps_threshold](resources--http_loadbalancer--reference--group-021.md#canonical-0301032010330233-2032013210320130-3210101323222232-0012021320302330-0223331231012320-2131320332211100-2001103200321213-1330302002102102): complete subsection reference.
+
+- [mitigation_block](resources--http_loadbalancer--reference--group-021.md#canonical-3102200321321113-1320220022300332-1021202111011303-2133113221331112-1002233311030020-3000303031300302-1122210131112013-1111010212132100): complete subsection reference.
+
+- [mitigation_captcha_challenge](resources--http_loadbalancer--reference--group-021.md#canonical-2311312103021000-2231011313233313-0000032301302200-1110230312213123-3030113001001113-1103000230122301-3102220030133023-1103012032130232): complete subsection reference.
+
+- [mitigation_js_challenge](resources--http_loadbalancer--reference--group-021.md#canonical-1100330131220011-2223323303122231-3000301210002122-0002323302333200-2222221113020033-0312010003231303-0010020200123030-3130033132221212): complete subsection reference.
+
+<a id="canonical-2002330212323213-0100112213231011-3123131011303313-2310031230020023-0011113331032322-0112221031301200-1003130210230312-0302032110031033"></a>
+
+<a id="canonical-0311132110321303-2202211030133200-0211213333210012-1331332030213111-0132111123100333-1113213300121022-3113102132010301-2011232220212320"></a>
+
+## rps_threshold property — l7_ddos_protection / 122033220230 / 4
+
+Type: `"number"`. Optional.
+
+Exclusive with \[default\_rps\_threshold\] Configure custom RPS threshold.
+
+Upstream description:
+
+Exclusive with \[default\_rps\_threshold\] Configure custom RPS threshold.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  int64validator.Between(1, 50000),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 50000,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "50000"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "50000"
+  }
+}
+```
+
+<a id="canonical-2213001212213011-3311012120321001-3013123033300221-0212011103203212-2303121233002003-1220002121032320-1231110222032332-3301100233210210"></a>
+
+## Next pages — l7_ddos_protection / 122033220230 / 5
+
+- [l7_ddos_protection.clientside_action_captcha_challenge](resources--http_loadbalancer--reference--group-021.md#canonical-2132322130132131-0221002210111202-0312210122200110-2021110221003130-1200330031302010-3221030211111131-1333301121201332-1122121202211132)
+- [l7_ddos_protection.clientside_action_js_challenge](resources--http_loadbalancer--reference--group-021.md#canonical-0333120302000032-2111010020220213-3001222100021202-3303111122030223-3301012233231223-2023303300030103-1333103133330100-2013231002002123)
+- [l7_ddos_protection.clientside_action_none](resources--http_loadbalancer--reference--group-021.md#canonical-0232020023213211-0010012133112133-3201232132101111-0122310232212020-2332312100133201-3002012000121223-2333311311203210-2200010031330232)
+- [l7_ddos_protection.ddos_policy_custom](resources--http_loadbalancer--reference--group-021.md#canonical-2032302331132210-0023203122022322-3032330330303001-2020223202033300-2030111322330001-0312200322113211-3000033301113203-3303002121321102)
+- [l7_ddos_protection.ddos_policy_none](resources--http_loadbalancer--reference--group-021.md#canonical-2300010132330322-2103003000322002-3021312112020131-2303000032213033-3013331212212202-0213203100113003-2201112331020132-0300213200302321)
+- [l7_ddos_protection.default_rps_threshold](resources--http_loadbalancer--reference--group-021.md#canonical-0301032010330233-2032013210320130-3210101323222232-0012021320302330-0223331231012320-2131320332211100-2001103200321213-1330302002102102)
+- [l7_ddos_protection.mitigation_block](resources--http_loadbalancer--reference--group-021.md#canonical-3102200321321113-1320220022300332-1021202111011303-2133113221331112-1002233311030020-3000303031300302-1122210131112013-1111010212132100)
+- [l7_ddos_protection.mitigation_captcha_challenge](resources--http_loadbalancer--reference--group-021.md#canonical-2311312103021000-2231011313233313-0000032301302200-1110230312213123-3030113001001113-1103000230122301-3102220030133023-1103012032130232)
+- [l7_ddos_protection.mitigation_js_challenge](resources--http_loadbalancer--reference--group-021.md#canonical-1100330131220011-2223323303122231-3000301210002122-0002323302333200-2222221113020033-0312010003231303-0010020200123030-3130033132221212)
+- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
+- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
+
+<a id="canonical-2132322130132131-0221002210111202-0312210122200110-2021110221003130-1200330031302010-3221030211111131-1333301121201332-1122121202211132"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2033003230033313-2002101233302200-2031302221021030-3311013123213200-3320100000323002-2211113001311120-2222111100123222-3111200322230102"></a>
+
+## l7_ddos_protection.clientside_action_captcha_challenge — clientside_action_captcha_challenge / 321230320200 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
+- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
+- [l7_ddos_protection](resources--http_loadbalancer--reference--group-021.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
+- l7_ddos_protection.clientside_action_captcha_challenge
+
+<a id="canonical-2023210103313231-3210213220322303-1011012013100101-0000123023000001-2233003113301111-2133300030202301-2010133312123110-2002021000231331"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Enables loadbalancer to perform captcha challenge Captcha challenge will be based on Google
+Recaptcha. With this feature enabled, only clients that pass the captcha challenge will be allowed
+to complete the HTTP request. When loadbalancer is configured to do Captcha Challenge, it will
+redirect..
+
+Upstream description:
+
+Enables loadbalancer to perform captcha challenge
+
+Captcha challenge will be based on Google Recaptcha.
+
+With this feature enabled, only clients that pass the captcha challenge will be allowed to complete
+the HTTP request.
+
+When loadbalancer is configured to do Captcha Challenge, it will redirect the browser to an HTML
+page on every new HTTP request. This HTML page will have captcha challenge embedded in it. Client
+will be allowed to make the request only if the captcha challenge is successful. Loadbalancer will
+tag response header with a cookie to avoid Captcha challenge for subsequent requests.
+
+CAPTCHA is mainly used as a security check to ensure only human users can pass through. Generally,
+computers or bots are not capable of solving a captcha.
+
+You can enable either JavaScript challenge or Captcha challenge on a virtual host.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.RequiredObjectAttributes("cookie_expiry")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+clientside_action_captcha_challenge {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3221010131033100-2113313121030210-1131111121113310-1020233102311213-3110111213001231-0132100211331121-1221322312202322-3300311303332102"></a>
+
+## Direct properties — clientside_action_captcha_challenge / 321230320200 / 3
+
+<a id="canonical-0332300012103103-0322121323333323-0232032122003001-2202113120313301-3303322110312003-3221330300031330-0311222013332230-0232120023310032"></a>
+
 <a id="canonical-0312330222100312-2211133223330102-1233232112213010-1210230130222312-1333313312023233-1003020032000231-0331220220221332-3020313110212331"></a>
 
 ## cookie_expiry property — clientside_action_captcha_challenge / 321230320200 / 4
@@ -23,6 +331,7 @@ challenge.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 86400),
 }
@@ -83,6 +392,7 @@ base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(65536),
 }
@@ -126,7 +436,7 @@ Receipt-pinned upstream constraints:
 
 ## Next pages — clientside_action_captcha_challenge / 321230320200 / 6
 
-- [l7_ddos_protection](resources--http_loadbalancer--reference--group-020.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
+- [l7_ddos_protection](resources--http_loadbalancer--reference--group-021.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 
 <a id="canonical-0333120302000032-2111010020220213-3001222100021202-3303111122030223-3301012233231223-2023303300030103-1333103133330100-2013231002002123"></a>
@@ -143,7 +453,7 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [l7_ddos_protection](resources--http_loadbalancer--reference--group-020.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
+- [l7_ddos_protection](resources--http_loadbalancer--reference--group-021.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
 - l7_ddos_protection.clientside_action_js_challenge
 
 <a id="canonical-1002123331011332-0120233123332130-1132301100121330-0322323221331331-2320302021300213-0311123102121223-1020232112112213-1311132103003323"></a>
@@ -183,6 +493,7 @@ You can enable either JavaScript challenge or Captcha challenge on a virtual hos
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("cookie_expiry",
     "js_script_delay")}
 ```
@@ -231,6 +542,7 @@ challenge.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 86400),
 }
@@ -291,6 +603,7 @@ base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(65536),
 }
@@ -343,6 +656,7 @@ Delay introduced by JavaScript, in milliseconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1000, 60000),
 }
@@ -385,7 +699,7 @@ Receipt-pinned upstream constraints:
 
 ## Next pages — clientside_action_js_challenge / 031303000322 / 7
 
-- [l7_ddos_protection](resources--http_loadbalancer--reference--group-020.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
+- [l7_ddos_protection](resources--http_loadbalancer--reference--group-021.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 
 <a id="canonical-0232020023213211-0010012133112133-3201232132101111-0122310232212020-2332312100133201-3002012000121223-2333311311203210-2200010031330232"></a>
@@ -402,7 +716,7 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [l7_ddos_protection](resources--http_loadbalancer--reference--group-020.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
+- [l7_ddos_protection](resources--http_loadbalancer--reference--group-021.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
 - l7_ddos_protection.clientside_action_none
 
 <a id="canonical-2232303310220223-2121002300221020-3223110321223121-2020311130310110-0313211200232231-3232133320113212-3312231203201003-2131321132222333"></a>
@@ -444,7 +758,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 ## Next pages — clientside_action_none / 022132222000 / 4
 
-- [l7_ddos_protection](resources--http_loadbalancer--reference--group-020.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
+- [l7_ddos_protection](resources--http_loadbalancer--reference--group-021.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 
 <a id="canonical-2032302331132210-0023203122022322-3032330330303001-2020223202033300-2030111322330001-0312200322113211-3000033301113203-3303002121321102"></a>
@@ -461,7 +775,7 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [l7_ddos_protection](resources--http_loadbalancer--reference--group-020.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
+- [l7_ddos_protection](resources--http_loadbalancer--reference--group-021.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
 - l7_ddos_protection.ddos_policy_custom
 
 <a id="canonical-2023112333321212-2312212002203210-3330322233210023-0111300222230213-3130333002130102-2232322023303133-2313112231313113-0310221300132313"></a>
@@ -479,6 +793,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -526,6 +841,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -591,6 +907,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -663,6 +980,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -706,7 +1024,7 @@ Receipt-pinned upstream constraints:
 
 ## Next pages — ddos_policy_custom / 213011230222 / 7
 
-- [l7_ddos_protection](resources--http_loadbalancer--reference--group-020.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
+- [l7_ddos_protection](resources--http_loadbalancer--reference--group-021.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 
 <a id="canonical-2300010132330322-2103003000322002-3021312112020131-2303000032213033-3013331212212202-0213203100113003-2201112331020132-0300213200302321"></a>
@@ -723,7 +1041,7 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [l7_ddos_protection](resources--http_loadbalancer--reference--group-020.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
+- [l7_ddos_protection](resources--http_loadbalancer--reference--group-021.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
 - l7_ddos_protection.ddos_policy_none
 
 <a id="canonical-1030211220130021-0203311002323303-3232020002112332-0101123321211012-0001200001303032-3033202122103211-2231313012322020-1012222232213021"></a>
@@ -765,7 +1083,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 ## Next pages — ddos_policy_none / 113103330323 / 4
 
-- [l7_ddos_protection](resources--http_loadbalancer--reference--group-020.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
+- [l7_ddos_protection](resources--http_loadbalancer--reference--group-021.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 
 <a id="canonical-0301032010330233-2032013210320130-3210101323222232-0012021320302330-0223331231012320-2131320332211100-2001103200321213-1330302002102102"></a>
@@ -782,7 +1100,7 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [l7_ddos_protection](resources--http_loadbalancer--reference--group-020.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
+- [l7_ddos_protection](resources--http_loadbalancer--reference--group-021.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
 - l7_ddos_protection.default_rps_threshold
 
 <a id="canonical-1222233123130302-3312313101101003-3032322213223300-3313002231231311-0011303300213303-3120011303321131-3231322021330020-1323122023001311"></a>
@@ -824,7 +1142,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 ## Next pages — default_rps_threshold / 130313201011 / 4
 
-- [l7_ddos_protection](resources--http_loadbalancer--reference--group-020.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
+- [l7_ddos_protection](resources--http_loadbalancer--reference--group-021.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 
 <a id="canonical-3102200321321113-1320220022300332-1021202111011303-2133113221331112-1002233311030020-3000303031300302-1122210131112013-1111010212132100"></a>
@@ -841,7 +1159,7 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [l7_ddos_protection](resources--http_loadbalancer--reference--group-020.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
+- [l7_ddos_protection](resources--http_loadbalancer--reference--group-021.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
 - l7_ddos_protection.mitigation_block
 
 <a id="canonical-1302232310102120-3321021001223231-2300000031130123-3202303131232133-2010332011100130-0213311302321221-0323230323313212-2103123231230133"></a>
@@ -883,7 +1201,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 ## Next pages — mitigation_block / 113301031220 / 4
 
-- [l7_ddos_protection](resources--http_loadbalancer--reference--group-020.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
+- [l7_ddos_protection](resources--http_loadbalancer--reference--group-021.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 
 <a id="canonical-2311312103021000-2231011313233313-0000032301302200-1110230312213123-3030113001001113-1103000230122301-3102220030133023-1103012032130232"></a>
@@ -900,7 +1218,7 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [l7_ddos_protection](resources--http_loadbalancer--reference--group-020.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
+- [l7_ddos_protection](resources--http_loadbalancer--reference--group-021.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
 - l7_ddos_protection.mitigation_captcha_challenge
 
 <a id="canonical-2103221032121123-0022001013003020-2022320011012222-0100103012123123-1022202201202322-2120223133101130-1122000312303023-0111010011020312"></a>
@@ -934,6 +1252,7 @@ You can enable either JavaScript challenge or Captcha challenge on a virtual hos
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("cookie_expiry")}
 ```
 
@@ -981,6 +1300,7 @@ challenge.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 86400),
 }
@@ -1041,6 +1361,7 @@ base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(65536),
 }
@@ -1084,7 +1405,7 @@ Receipt-pinned upstream constraints:
 
 ## Next pages — mitigation_captcha_challenge / 123121122001 / 6
 
-- [l7_ddos_protection](resources--http_loadbalancer--reference--group-020.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
+- [l7_ddos_protection](resources--http_loadbalancer--reference--group-021.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 
 <a id="canonical-1100330131220011-2223323303122231-3000301210002122-0002323302333200-2222221113020033-0312010003231303-0010020200123030-3130033132221212"></a>
@@ -1101,7 +1422,7 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [l7_ddos_protection](resources--http_loadbalancer--reference--group-020.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
+- [l7_ddos_protection](resources--http_loadbalancer--reference--group-021.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
 - l7_ddos_protection.mitigation_js_challenge
 
 <a id="canonical-1100012301120112-2202032112113213-3303220332023333-1011032322131031-0333322112122232-0001212113322233-3223212123022221-1010203133103031"></a>
@@ -1141,6 +1462,7 @@ You can enable either JavaScript challenge or Captcha challenge on a virtual hos
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("cookie_expiry",
     "js_script_delay")}
 ```
@@ -1189,6 +1511,7 @@ challenge.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 86400),
 }
@@ -1249,6 +1572,7 @@ base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(65536),
 }
@@ -1301,6 +1625,7 @@ Delay introduced by JavaScript, in milliseconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1000, 60000),
 }
@@ -1343,7 +1668,7 @@ Receipt-pinned upstream constraints:
 
 ## Next pages — mitigation_js_challenge / 001120122231 / 7
 
-- [l7_ddos_protection](resources--http_loadbalancer--reference--group-020.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
+- [l7_ddos_protection](resources--http_loadbalancer--reference--group-021.md#canonical-2211021201313113-1021310021013033-1302002202111010-3312000330210330-2322112331020032-2233321200122022-2021112031123310-3213230222300211)
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 
 <a id="canonical-3100013201201320-1030023222021000-1020231012221032-2100130020230332-3130310121332223-2110221222102103-3201213033132002-0230230101332320"></a>
@@ -1430,6 +1755,7 @@ real-time.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("malware_protection_rules")}
 ```
 
@@ -1635,6 +1961,7 @@ Action
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("block",
     "report")}
 ```
@@ -1831,6 +2158,7 @@ Domain to be matched.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("any_domain",
     "domain")}
 ```
@@ -1967,6 +2295,7 @@ Domains names.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("exact_value",
     "regex_value"),
   validators.ConflictingObjectAttributes("exact_value",
@@ -2018,6 +2347,7 @@ Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2078,6 +2408,7 @@ Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the d
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2139,6 +2470,7 @@ Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2226,6 +2558,7 @@ and replace APIs.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -2267,6 +2600,7 @@ Description. Human readable description.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -2289,6 +2623,7 @@ This is the name of the message. The value of name has to follow DNS-1035 format
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2377,6 +2712,7 @@ Path match of the URI can be either be, Prefix match or exact match or regular e
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("path",
     "prefix"),
   validators.ConflictingObjectAttributes("path",
@@ -2428,6 +2764,7 @@ Exclusive with \[prefix regular expression\] Exact path value to match.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2485,6 +2822,7 @@ Exclusive with \[path regular expression\] Path prefix to match (e.g. The value 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -2542,6 +2880,7 @@ all paths)
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2624,6 +2963,7 @@ This defines various OPTIONS to define a route.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_path_normalize",
     "enable_path_normalize"),
   validators.ConflictingObjectAttributes("max_requests_per_connection",
@@ -2686,6 +3026,7 @@ matches for a request.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"ranges\":[[3,3],[4,4],[5,5],[300,599]],\"type\":\"uint32-string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.uint32.ranges\":\"3,4,5,300-599\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"65536\",\"ves.io.schema.rules.map.values.string.uri_ref\":\"true\"},\"values\":{\"format\":\"uri-reference\",\"maxLength\":65536,\"type\":\"string\"}}")}
 ```
 
@@ -2802,6 +3143,7 @@ has been received, otherwise the stream is reset.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(3600000),
 }
@@ -2861,6 +3203,7 @@ such load balancers is used for all the load balancers in question.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(96),
 }
@@ -2917,6 +3260,7 @@ request limit per connection.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(1),
 }
@@ -2969,6 +3313,7 @@ List of keys of Cookies to be removed from the HTTP request being sent towards u
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -3027,6 +3372,7 @@ List of keys of Headers to be removed from the HTTP request being sent towards u
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -3086,6 +3432,7 @@ set-cookie header will be removed.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -3144,6 +3491,7 @@ List of keys of Headers to be removed from the HTTP response being sent towards 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -3310,6 +3658,7 @@ buffering and return a RequestEntityTooLarge (413) response.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(10485760),
 }
@@ -3411,6 +3760,7 @@ A value which is optimal balance between speed of compression and amount of comp
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("content_length")}
 ```
 
@@ -3456,6 +3806,7 @@ Minimum response length, in bytes, which will trigger compression. The default v
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(30),
 }
@@ -3514,6 +3865,7 @@ defined, compression will be applied to the following mime-types: "application/J
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(50),
 }
@@ -3831,6 +4183,7 @@ specified at this level are applied after cookies from matched Route are applied
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("secret_value",
     "value")}
@@ -3899,6 +4252,7 @@ Name of the cookie in Cookie header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -4001,6 +4355,7 @@ Exclusive with \[secret\_value\] Value of the Cookie header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(8096),
 }
@@ -4072,6 +4427,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -4143,6 +4499,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -4224,6 +4581,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -4340,6 +4698,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -4400,6 +4759,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -4490,6 +4850,7 @@ specified at this level are applied after headers from matched Route are applied
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("secret_value",
     "value")}
@@ -4587,6 +4948,7 @@ Name of the HTTP header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -4658,6 +5020,7 @@ Exclusive with \[secret\_value\] Value of the HTTP header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(8096),
 }
@@ -4729,6 +5092,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -4800,6 +5164,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -4881,6 +5246,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -4997,6 +5363,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -5057,6 +5424,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -5149,6 +5517,7 @@ matched Route are applied.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("add_domain",
     "ignore_domain"),
@@ -5247,6 +5616,7 @@ Exclusive with \[ignore\_domain\] Add domain attribute.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -5307,6 +5677,7 @@ Exclusive with \[ignore\_expiry\] Add expiry attribute.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -5364,6 +5735,7 @@ Exclusive with \[ignore\_path\] Add path attribute.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -5439,6 +5811,7 @@ Exclusive with \[ignore\_max\_age\] Add max age attribute.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(34560000),
 }
@@ -5491,6 +5864,7 @@ Name of the cookie in Cookie header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -5578,9 +5952,9 @@ Receipt-pinned upstream constraints:
 
 - [samesite_none](resources--http_loadbalancer--reference--group-021.md#canonical-1332120002013122-1133230013132220-3110131310111110-3221333313023120-1213021213132300-2020010202123201-1232130222012003-1213113011012213): complete subsection reference.
 
-- [samesite_strict](resources--http_loadbalancer--reference--group-021.md#canonical-3200311123303121-3223302333130102-2013211221321310-3331031100310202-1011011132210011-1311002320131212-2320111013112103-0311130332202121): complete subsection reference.
+- [samesite_strict](resources--http_loadbalancer--reference--group-022.md#canonical-3200311123303121-3223302333130102-2013211221321310-3331031100310202-1011011132210011-1311002320131212-2320111013112103-0311130332202121): complete subsection reference.
 
-- [secret_value](resources--http_loadbalancer--reference--group-021.md#canonical-1322103020211312-3032032200003212-0100210121000112-1223112101202100-2220323300011112-2200212031011232-1301320100211112-0222303132332301): complete subsection reference.
+- [secret_value](resources--http_loadbalancer--reference--group-022.md#canonical-1322103020211312-3032032200003212-0100210121000112-1223112101202100-2220323300011112-2200212031011232-1301320100211112-0222303132332301): complete subsection reference.
 
 <a id="canonical-0200102003030300-3133312330100212-0222100230323310-3032133001220023-0101003202010012-0122011133300122-2313322012311120-1132301323221132"></a>
 
@@ -5599,6 +5973,7 @@ Exclusive with \[ignore\_value secret\_value\] Value of the Cookie header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(8096),
 }
@@ -5653,8 +6028,8 @@ Receipt-pinned upstream constraints:
 - [more_option.response_cookies_to_add.ignore_value](resources--http_loadbalancer--reference--group-021.md#canonical-3100111032103113-2230310102122122-0313103010101213-0223103301010022-0102110020033202-2223130032033032-3300020311131322-1201010312202110)
 - [more_option.response_cookies_to_add.samesite_lax](resources--http_loadbalancer--reference--group-021.md#canonical-2330303333211221-2202033113332220-1120033202332121-0320332101312012-2322102332223022-1322012331213210-0001230321211032-1111320222330013)
 - [more_option.response_cookies_to_add.samesite_none](resources--http_loadbalancer--reference--group-021.md#canonical-1332120002013122-1133230013132220-3110131310111110-3221333313023120-1213021213132300-2020010202123201-1232130222012003-1213113011012213)
-- [more_option.response_cookies_to_add.samesite_strict](resources--http_loadbalancer--reference--group-021.md#canonical-3200311123303121-3223302333130102-2013211221321310-3331031100310202-1011011132210011-1311002320131212-2320111013112103-0311130332202121)
-- [more_option.response_cookies_to_add.secret_value](resources--http_loadbalancer--reference--group-021.md#canonical-1322103020211312-3032032200003212-0100210121000112-1223112101202100-2220323300011112-2200212031011232-1301320100211112-0222303132332301)
+- [more_option.response_cookies_to_add.samesite_strict](resources--http_loadbalancer--reference--group-022.md#canonical-3200311123303121-3223302333130102-2013211221321310-3331031100310202-1011011132210011-1311002320131212-2320111013112103-0311130332202121)
+- [more_option.response_cookies_to_add.secret_value](resources--http_loadbalancer--reference--group-022.md#canonical-1322103020211312-3032032200003212-0100210121000112-1223112101202100-2220323300011112-2200212031011232-1301320100211112-0222303132332301)
 - [more_option](resources--http_loadbalancer--reference--group-021.md#canonical-0103232331000000-3202301220200212-2333013000233203-1310210130333000-1220011203132102-0102220112330233-2210002322102333-1111002302303232)
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 
@@ -6439,393 +6814,6 @@ This is an empty object or choice marker. It has no direct properties.
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 
 <a id="canonical-1332120002013122-1133230013132220-3110131310111110-3221333313023120-1213021213132300-2020010202123201-1232130222012003-1213113011012213"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-3233101022233312-0101302111213033-2012021323211032-0221010222132112-0010001002212033-2313322222033231-1033121332003312-0331022333213331"></a>
-
-## more_option.response_cookies_to_add.samesite_none — samesite_none / 213113313131 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [more_option](resources--http_loadbalancer--reference--group-021.md#canonical-0103232331000000-3202301220200212-2333013000233203-1310210130333000-1220011203132102-0102220112330233-2210002322102333-1111002302303232)
-- [more_option.response_cookies_to_add](resources--http_loadbalancer--reference--group-021.md#canonical-3230122303302011-1112303312333322-0101311101122013-2310111003121102-0102222303200001-3332202002002202-3032200210010322-1220300032103322)
-- more_option.response_cookies_to_add.samesite_none
-
-<a id="canonical-0030223113031120-0323122102230123-2122303023023120-2103302110032103-0132201112313110-3110011321311023-1111312010213003-2102121032321120"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-samesite_none = {}
-```
-
-<a id="canonical-1330120330103321-2111110121112230-2102300030000122-3320213010022330-2213213201120022-2310301011300130-1323113122301111-3302022323303233"></a>
-
-## Direct properties — samesite_none / 213113313131 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1010013000320330-2333231112332313-3230022313121130-0232302122303010-0003302310012211-2023000132023110-2300220210213003-1010011322020202"></a>
-
-## Next pages — samesite_none / 213113313131 / 4
-
-- [more_option.response_cookies_to_add](resources--http_loadbalancer--reference--group-021.md#canonical-3230122303302011-1112303312333322-0101311101122013-2310111003121102-0102222303200001-3332202002002202-3032200210010322-1220300032103322)
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-
-<a id="canonical-3200311123303121-3223302333130102-2013211221321310-3331031100310202-1011011132210011-1311002320131212-2320111013112103-0311130332202121"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1310320010023211-0203201223112133-3032320001321233-0303133313120330-2203103121121133-3032301222331310-0301232111333131-2302233023112032"></a>
-
-## more_option.response_cookies_to_add.samesite_strict — samesite_strict / 312101212120 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [more_option](resources--http_loadbalancer--reference--group-021.md#canonical-0103232331000000-3202301220200212-2333013000233203-1310210130333000-1220011203132102-0102220112330233-2210002322102333-1111002302303232)
-- [more_option.response_cookies_to_add](resources--http_loadbalancer--reference--group-021.md#canonical-3230122303302011-1112303312333322-0101311101122013-2310111003121102-0102222303200001-3332202002002202-3032200210010322-1220300032103322)
-- more_option.response_cookies_to_add.samesite_strict
-
-<a id="canonical-3031031131230122-0133032102123202-2133220322213101-3120131322101112-0022130223021200-2030001101100222-3111213133121203-2122100330310222"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-samesite_strict = {}
-```
-
-<a id="canonical-2101022023331211-2130010023223033-3123023122032212-2333113221222203-3223022232123332-3032300032031320-1112003311012313-0301232012200303"></a>
-
-## Direct properties — samesite_strict / 312101212120 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1000010012213031-0123221120231211-3123213221030220-2113123302230000-0232311132231120-1220030111110113-3030033120331332-0332301132121223"></a>
-
-## Next pages — samesite_strict / 312101212120 / 4
-
-- [more_option.response_cookies_to_add](resources--http_loadbalancer--reference--group-021.md#canonical-3230122303302011-1112303312333322-0101311101122013-2310111003121102-0102222303200001-3332202002002202-3032200210010322-1220300032103322)
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-
-<a id="canonical-1322103020211312-3032032200003212-0100210121000112-1223112101202100-2220323300011112-2200212031011232-1301320100211112-0222303132332301"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0321221100200112-0000211331020011-2030202002201021-2010031311123121-3231312330202311-3111321110322103-2311212233001100-2321011030100012"></a>
-
-## more_option.response_cookies_to_add.secret_value — secret_value / 030120300223 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [more_option](resources--http_loadbalancer--reference--group-021.md#canonical-0103232331000000-3202301220200212-2333013000233203-1310210130333000-1220011203132102-0102220112330233-2210002322102333-1111002302303232)
-- [more_option.response_cookies_to_add](resources--http_loadbalancer--reference--group-021.md#canonical-3230122303302011-1112303312333322-0101311101122013-2310111003121102-0102222303200001-3332202002002202-3032200210010322-1220300032103322)
-- more_option.response_cookies_to_add.secret_value
-
-<a id="canonical-2120210132333100-3201302311113121-0121212310132213-2222320233211302-3221113013201033-3202232012313031-1121212033113012-0203200320032121"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-SecretType is used in an object to indicate a sensitive/confidential field.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
-    "clear_secret_info")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-secret_info_oneof": "[\"blindfold_secret_info\",\"clear_secret_info\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-secret_value {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0132300002020302-1031120032132321-0333021202011120-3232012332101030-2222200332232230-2200002320312323-0011131112122120-3303212030331232"></a>
-
-## Direct properties — secret_value / 030120300223 / 3
-
-- [blindfold_secret_info](resources--http_loadbalancer--reference--group-021.md#canonical-3021231033011023-1011212223030023-2030200113003131-3322130011212001-1111133222233230-3112130301022221-0112233203021013-3000022003112333): complete subsection reference.
-
-- [clear_secret_info](resources--http_loadbalancer--reference--group-021.md#canonical-1123201200031101-2233032321030232-1300131011211233-1133230233030101-0232031323331322-0020221323211110-3023231133130300-2112201123133020): complete subsection reference.
-
-<a id="canonical-3321133031023002-2020220020001203-2331223121232223-0030012100002102-0030332332131022-2102001201131300-1322020020213313-2322121221200030"></a>
-
-## Next pages — secret_value / 030120300223 / 4
-
-- [more_option.response_cookies_to_add.secret_value.blindfold_secret_info](resources--http_loadbalancer--reference--group-021.md#canonical-3021231033011023-1011212223030023-2030200113003131-3322130011212001-1111133222233230-3112130301022221-0112233203021013-3000022003112333)
-- [more_option.response_cookies_to_add.secret_value.clear_secret_info](resources--http_loadbalancer--reference--group-021.md#canonical-1123201200031101-2233032321030232-1300131011211233-1133230233030101-0232031323331322-0020221323211110-3023231133130300-2112201123133020)
-- [more_option.response_cookies_to_add](resources--http_loadbalancer--reference--group-021.md#canonical-3230122303302011-1112303312333322-0101311101122013-2310111003121102-0102222303200001-3332202002002202-3032200210010322-1220300032103322)
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-
-<a id="canonical-3021231033011023-1011212223030023-2030200113003131-3322130011212001-1111133222233230-3112130301022221-0112233203021013-3000022003112333"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-3122300302201101-1210322211032123-1102310022132212-2003120002332231-2133312012020321-0210130210320011-2010022222023133-3331321332120313"></a>
-
-## more_option.response_cookies_to_add.secret_value.blindfold_secret_info — blindfold_secret_info / 303100331130 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [more_option](resources--http_loadbalancer--reference--group-021.md#canonical-0103232331000000-3202301220200212-2333013000233203-1310210130333000-1220011203132102-0102220112330233-2210002322102333-1111002302303232)
-- [more_option.response_cookies_to_add](resources--http_loadbalancer--reference--group-021.md#canonical-3230122303302011-1112303312333322-0101311101122013-2310111003121102-0102222303200001-3332202002002202-3032200210010322-1220300032103322)
-- [more_option.response_cookies_to_add.secret_value](resources--http_loadbalancer--reference--group-021.md#canonical-1322103020211312-3032032200003212-0100210121000112-1223112101202100-2220323300011112-2200212031011232-1301320100211112-0222303132332301)
-- more_option.response_cookies_to_add.secret_value.blindfold_secret_info
-
-<a id="canonical-3102233100020032-0311321100223313-0200333101111312-1113130223221332-1231132233103133-3300200312302123-3202310323123000-2333013232200201"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-blindfold_secret_info {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-1213301023323302-2313101010112322-1312030312310000-1130211012122003-2222123100322011-2232302322021201-0031322100200300-3301112031130202"></a>
-
-## Direct properties — blindfold_secret_info / 303100331130 / 3
-
-<a id="canonical-2012010011030123-1000000122000012-3001110202022333-3321022113032110-1033113100000010-1133013021220123-1230001331112223-1232322202033001"></a>
-
-<a id="canonical-3023221320310332-1003310331211031-0031132000313233-2120023001222131-3113200110213102-1003033030132000-3231010233012320-0130231020102320"></a>
-
-## decryption_provider property — blindfold_secret_info / 303100331130 / 4
-
-Type: `"string"`. Optional.
-
-Name of the Secret Management Access object that contains information about the backend Secret
-Management service.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-0201203233232220-0120323232113000-0221002322020123-0013112303332231-3300021332332312-2110233303101202-0132123230032030-2230212121011211"></a>
-
-<a id="canonical-2320133202213132-3000322223000110-0020123023133333-2220301010312223-0220101101030321-2101020010233302-3320332130030210-2220233013320032"></a>
-
-## location property — blindfold_secret_info / 303100331130 / 5
-
-Type: `"string"`. Optional, Sensitive.
-
-Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
-store provider is an HTTP/HTTPS location.
-
-Upstream description:
-
-Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
-store provider is an HTTP/HTTPS location.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(4, 131072),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "content",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "uri",
-    "maxLength": 131072,
-    "metadata": {
-      "category": "content",
-      "confidence": 1.0,
-      "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
-      "source": "manual-override",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minLength": 4
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-f5xc-sensitive": true,
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  }
-}
-```
-
-<a id="canonical-2232212101231013-1231330012122003-3301330122100220-1102121023233022-2100131001230300-1011302320333312-0031312232200102-1311103101221321"></a>
-
-<a id="canonical-1020321211213010-3312131131003122-3221211011022132-1101332312102330-1123031203312300-2221222231333101-2210301213320012-2310211120122211"></a>
-
-## store_provider property — blindfold_secret_info / 303100331130 / 6
-
-Type: `"string"`. Optional.
-
-Name of the Secret Management Access object that contains information about the store to GET
-encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
-
-Upstream description:
-
-Name of the Secret Management Access object that contains information about the store to GET
-encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-1221230231021230-1013233001223201-3201130301322323-2232012121100110-2002120323120022-2010020030313213-1111102000210212-0210011110003320"></a>
-
-## Next pages — blindfold_secret_info / 303100331130 / 7
-
-- [more_option.response_cookies_to_add.secret_value](resources--http_loadbalancer--reference--group-021.md#canonical-1322103020211312-3032032200003212-0100210121000112-1223112101202100-2220323300011112-2200212031011232-1301320100211112-0222303132332301)
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-
-<a id="canonical-1123201200031101-2233032321030232-1300131011211233-1133230233030101-0232031323331322-0020221323211110-3023231133130300-2112201123133020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 

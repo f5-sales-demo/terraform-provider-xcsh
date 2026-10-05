@@ -239,6 +239,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -306,6 +307,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -512,7 +514,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `http_receiver.auth_basic.password.clear_secret_info.provider_ref` | [http_receiver.auth_basic.password.clear_secret_info.provider_ref](resources--global_log_receiver--reference--group-002.md#canonical-2132111303200032-0332221123110312-0012220203030100-2310230010032203-0202311203302321-2132123331113100-2332320211112320-2311111032131001) |
 | `http_receiver.auth_basic.password.clear_secret_info.url` | [http_receiver.auth_basic.password.clear_secret_info.url](resources--global_log_receiver--reference--group-002.md#canonical-1002101213231003-0333103100122231-0020001021011201-0303001003133230-3122132211032330-2132213113132321-3122221003313332-0211012210113013) |
 | `http_receiver.auth_basic.user_name` | [http_receiver.auth_basic.user_name](resources--global_log_receiver--reference--group-002.md#canonical-3101333321222000-2322120102103323-1302130201121123-2133330211330123-3310302030031022-3110130122022333-0222111330301223-1310103230330213) |
-| `http_receiver.auth_none` | [http_receiver.auth_none](resources--global_log_receiver--reference--group-002.md#canonical-0330311131133321-1321020021102231-3100320111330201-3120000200123211-2311302122121303-0123202330213223-1101203311333222-2323220133111231) |
+| `http_receiver.auth_none` | [http_receiver.auth_none](resources--global_log_receiver--reference--group-003.md#canonical-0330311131133321-1321020021102231-3100320111330201-3120000200123211-2311302122121303-0123202330213223-1101203311333222-2323220133111231) |
 | `http_receiver.auth_token` | [http_receiver.auth_token](resources--global_log_receiver--reference--group-003.md#canonical-2012332322000301-3321203200031301-3321100111121022-2020101301201213-1001121221231012-0220022312301333-3111310220310033-0133203012101113) |
 | `http_receiver.auth_token.token` | [http_receiver.auth_token.token](resources--global_log_receiver--reference--group-003.md#canonical-0131230233221123-0210000220011330-2200211322003100-2010223233331112-1011123203021122-1330203220222010-3012113320120003-1100102030031312) |
 | `http_receiver.auth_token.token.blindfold_secret_info` | [http_receiver.auth_token.token.blindfold_secret_info](resources--global_log_receiver--reference--group-003.md#canonical-2112223021201212-1010230300212213-3020312332111121-1001112113012121-3103031331131232-3002303311132311-2023030133030010-2333122031033021) |
@@ -612,7 +614,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `qradar_receiver.batch.max_events` | [qradar_receiver.batch.max_events](resources--global_log_receiver--reference--group-003.md#canonical-0221001313121110-0023321013210211-2032322313000310-3123120023022101-1220312302130231-2132203230000030-1313000031021022-1322310123000023) |
 | `qradar_receiver.batch.max_events_disabled` | [qradar_receiver.batch.max_events_disabled](resources--global_log_receiver--reference--group-003.md#canonical-2133021212221123-3010200123200301-3203012132120100-2212111332331322-2122200012111002-0102223202230033-0113232031322223-1221333203320033) |
 | `qradar_receiver.batch.timeout_seconds` | [qradar_receiver.batch.timeout_seconds](resources--global_log_receiver--reference--group-003.md#canonical-2331032123013232-3003003033001121-0103210000003232-0200310101230221-2210321100211313-3233002122232231-3123112222112103-3101231010010222) |
-| `qradar_receiver.batch.timeout_seconds_default` | [qradar_receiver.batch.timeout_seconds_default](resources--global_log_receiver--reference--group-003.md#canonical-1232330321113311-1212002031333133-1322323221022321-3132001303132001-3221310210013310-0230013132300213-1221312100201230-0112022330011132) |
+| `qradar_receiver.batch.timeout_seconds_default` | [qradar_receiver.batch.timeout_seconds_default](resources--global_log_receiver--reference--group-004.md#canonical-1232330321113311-1212002031333133-1322323221022321-3132001303132001-3221310210013310-0230013132300213-1221312100201230-0112022330011132) |
 | `qradar_receiver.compression` | [qradar_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-0300123130230212-0210212003303202-3200011320133021-0102110230222223-3030323320223300-0030201030311113-0031112321032233-0032000210221331) |
 | `qradar_receiver.compression.compression_default` | [qradar_receiver.compression.compression_default](resources--global_log_receiver--reference--group-004.md#canonical-2222302002300322-1300312202111210-1330022331023221-3332012210021132-0023331300303200-1221133232321121-1120213331010002-0002222101001232) |
 | `qradar_receiver.compression.compression_gzip` | [qradar_receiver.compression.compression_gzip](resources--global_log_receiver--reference--group-004.md#canonical-3001210031003331-1120010333231111-2230100202002110-3233022230230201-2333303212222232-2133301011121123-0233131003303211-2202330010302200) |
@@ -705,9 +707,9 @@ Each exact path has one authoritative reference destination. Collection element 
 | `splunk_receiver.use_tls.trusted_ca_url` | [splunk_receiver.use_tls.trusted_ca_url](resources--global_log_receiver--reference--group-004.md#canonical-0220011300222101-0330103123330110-0200321332123021-1310222103003100-1112011003023310-3322030003223030-1032211212021120-3312332020303021) |
 | `sumo_logic_receiver` | [sumo_logic_receiver](resources--global_log_receiver--reference--group-004.md#canonical-1113220201232312-0211101312212201-3102312333303113-0100111113320322-0002010113322332-0120002221203122-2300101023133211-1222013031111322) |
 | `sumo_logic_receiver.url` | [sumo_logic_receiver.url](resources--global_log_receiver--reference--group-004.md#canonical-0331212021213032-3020113200223320-1121232303120211-3120023213233311-0301110331132002-3201200333223301-0211122303000021-2020223330322213) |
-| `sumo_logic_receiver.url.blindfold_secret_info` | [sumo_logic_receiver.url.blindfold_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-3010203311220001-1002210211100002-1031031113111332-1222121030213131-2030031132322300-2101300312020313-2001313033001301-3322131120011220) |
-| `sumo_logic_receiver.url.blindfold_secret_info.decryption_provider` | [sumo_logic_receiver.url.blindfold_secret_info.decryption_provider](resources--global_log_receiver--reference--group-004.md#canonical-1111130001013120-2332213311000231-3313231031102033-1013103302132130-3022133133120030-2000231033231130-2221032212311230-2232130230232233) |
-| `sumo_logic_receiver.url.blindfold_secret_info.location` | [sumo_logic_receiver.url.blindfold_secret_info.location](resources--global_log_receiver--reference--group-004.md#canonical-3030231301113303-0230220031233230-0002003302121332-2122333310131331-1300100021302010-3100333011330020-3333112130122230-1121020023220022) |
+| `sumo_logic_receiver.url.blindfold_secret_info` | [sumo_logic_receiver.url.blindfold_secret_info](resources--global_log_receiver--reference--group-005.md#canonical-3010203311220001-1002210211100002-1031031113111332-1222121030213131-2030031132322300-2101300312020313-2001313033001301-3322131120011220) |
+| `sumo_logic_receiver.url.blindfold_secret_info.decryption_provider` | [sumo_logic_receiver.url.blindfold_secret_info.decryption_provider](resources--global_log_receiver--reference--group-005.md#canonical-1111130001013120-2332213311000231-3313231031102033-1013103302132130-3022133133120030-2000231033231130-2221032212311230-2232130230232233) |
+| `sumo_logic_receiver.url.blindfold_secret_info.location` | [sumo_logic_receiver.url.blindfold_secret_info.location](resources--global_log_receiver--reference--group-005.md#canonical-3030231301113303-0230220031233230-0002003302121332-2122333310131331-1300100021302010-3100333011330020-3333112130122230-1121020023220022) |
 | `sumo_logic_receiver.url.blindfold_secret_info.store_provider` | [sumo_logic_receiver.url.blindfold_secret_info.store_provider](resources--global_log_receiver--reference--group-005.md#canonical-3222013330321333-2212200112223103-3121022313300311-2110223113000330-0222232202303221-3001313023112003-0330031133001303-3031200232122321) |
 | `sumo_logic_receiver.url.clear_secret_info` | [sumo_logic_receiver.url.clear_secret_info](resources--global_log_receiver--reference--group-005.md#canonical-3230133031132200-3013323300021221-0112022130230010-3202231331223233-1020232013320220-1302102100022000-3020202200110211-0120121310313130) |
 | `sumo_logic_receiver.url.clear_secret_info.provider_ref` | [sumo_logic_receiver.url.clear_secret_info.provider_ref](resources--global_log_receiver--reference--group-005.md#canonical-2311220113323202-3332332033030300-1330231021010113-0320111133110010-0112013000310000-3010220131131323-1000313020310201-1200201322000011) |
@@ -843,6 +845,7 @@ AWS Cloudwatch Logs Configuration for Global Log Receiver.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("aws_region",
     "group_name",
     "stream_name")}
@@ -915,6 +918,8 @@ AWS Region Name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","ap-southeast-3","ca-central-1","eu-central-1","eu-north-1","eu-south-1","eu-west-1","eu-west-2","eu-west-3","me-south-1","sa-east-1","us-east-1","us-east-2","us-west-1","us-west-2"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("ap-northeast-1",
     "ap-southeast-1",
@@ -1011,6 +1016,7 @@ The group name of the target Cloudwatch Logs stream.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(3, 512),
 }
@@ -1075,6 +1081,7 @@ log stream at a time.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(3, 512),
 }
@@ -1162,6 +1169,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -1209,6 +1217,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1274,6 +1283,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1346,6 +1356,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1418,6 +1429,7 @@ Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("max_bytes",
     "max_bytes_disabled"),
   validators.ConflictingObjectAttributes("max_events",
@@ -1473,6 +1485,7 @@ than this many bytes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(4096, 10485760),
 }
@@ -1532,6 +1545,7 @@ the batch.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(32, 2000),
 }
@@ -1840,6 +1854,7 @@ Compression Type.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("compression_default",
     "compression_gzip"),
   validators.ConflictingObjectAttributes("compression_default",
@@ -2095,6 +2110,7 @@ Azure Event Hubs Configuration for Global Log Receiver.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("instance",
     "namespace")}
 ```
@@ -2139,6 +2155,7 @@ Event Hubs Instance name into which logs should be stored.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(3, 63),
 }
@@ -2197,6 +2214,7 @@ Event Hubs Namespace is namespace with instance into which logs should be stored
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(3, 63),
 }
@@ -2288,6 +2306,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -2358,6 +2377,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -2439,6 +2459,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -2554,6 +2575,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -2614,6 +2636,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -2697,6 +2720,7 @@ Azure Blob Configuration for Global Log Receiver.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("container_name")}
 ```
 
@@ -2744,6 +2768,7 @@ Container Name is the name of the container into which logs should be stored.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(3, 63),
 }

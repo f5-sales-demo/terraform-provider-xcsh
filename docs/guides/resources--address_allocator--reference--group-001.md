@@ -40,6 +40,7 @@ Address pool from which the allocator carves out subnets or addresses to its cli
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 32),
 }
@@ -283,6 +284,8 @@ node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["GLOBAL_PER_SITE_NODE","LOCAL"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("LOCAL",
     "GLOBAL_PER_SITE_NODE"),
@@ -326,6 +329,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -393,6 +397,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -498,6 +503,7 @@ Decides the scheme to be used to allocate addresses from the configured address 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("allocation_unit")}
 ```
 
@@ -545,6 +551,7 @@ subnets of /30 will be allocated from the given address pool.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 32),
 }
@@ -614,6 +621,7 @@ Type set to "Offset from end of Subnet", local interface address of 192.0.2.204 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 32),
 }
@@ -689,6 +697,8 @@ This case is used for external\_connector.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["LOCAL_INTERFACE_ADDRESS_FROM_PREFIX","LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN","LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_END"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN",
     "LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_END",

@@ -6,6 +6,378 @@ description: "Complete grouped canonical reference for xcsh_http_loadbalancer re
 
 # xcsh_http_loadbalancer reference
 
+<a id="canonical-0113013011011013-3123321022223303-3233131202101103-0323202021200211-0202230330131103-3301213030100313-2201321102000132-1231030230331023"></a>
+
+## Next pages — pools / 220231103333 / 6
+
+- [default_pool_list.pools.cluster](resources--http_loadbalancer--reference--group-018.md#canonical-0203211033012202-0330031110233023-3003123220203232-0332013233023211-3220312232333201-2131113120302313-1301222332311031-0011201322300131)
+- [default_pool_list.pools.endpoint_subsets](resources--http_loadbalancer--reference--group-018.md#canonical-3210332310321130-0113222213001001-2113013221322330-3212101123033102-3001002230002303-2132202333322300-1201201130002212-1120123101133323)
+- [default_pool_list.pools.pool](resources--http_loadbalancer--reference--group-018.md#canonical-3013121320100123-0230112023312222-2313223300220001-0112310021033000-1001121323133302-2112022210113221-1313103310012302-3212310030321130)
+- [default_pool_list](resources--http_loadbalancer--reference--group-017.md#canonical-0232023012330101-1311101132201100-1333212211111332-1320223013300103-2111300101212212-3332332203230321-3210321213221300-3030022102121311)
+- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
+
+<a id="canonical-0203211033012202-0330031110233023-3003123220203232-0332013233023211-3220312232333201-2131113120302313-1301222332311031-0011201322300131"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3032300223120013-0121112210213021-1031132233222331-2200211321102301-0102313223032300-2022010200130031-2322220132210302-0102100311111312"></a>
+
+## default_pool_list.pools.cluster — cluster / 002113121112 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
+- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
+- [default_pool_list](resources--http_loadbalancer--reference--group-017.md#canonical-0232023012330101-1311101132201100-1333212211111332-1320223013300103-2111300101212212-3332332203230321-3210321213221300-3030022102121311)
+- [default_pool_list.pools](resources--http_loadbalancer--reference--group-017.md#canonical-3001002133320230-2120231222300222-0321102003221001-3110121302022323-0220111101122202-3330111333232120-3211021111120102-3212311302101112)
+- default_pool_list.pools.cluster
+
+<a id="canonical-2022032001300210-0100113302101222-3222032123312312-2103201330210120-2101032102101110-2020300132231333-1131210122301102-1320322013203231"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
+reference is in form of tenant/namespace/name.
+
+Upstream description:
+
+This type establishes a direct reference from one object(the referrer) to another(the referred).
+Such a reference is in form of tenant/namespace/name.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+cluster {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0010331000011002-2223303223033332-1233332311032113-2323323113320301-1303111002111311-2301302300012322-2221203212303231-2000331110020212"></a>
+
+## Direct properties — cluster / 002113121112 / 3
+
+<a id="canonical-0311122122232003-0001330212231032-0323030213332321-0012221211302122-2003033001030210-3023310203222202-1121310000101322-0002111102232213"></a>
+
+<a id="canonical-1310302033320232-0021130020221332-2222331200333301-0323033233332122-2100000030123033-1012012110201121-1103233123033122-3320211021012331"></a>
+
+## name property — cluster / 002113121112 / 4
+
+Type: `"string"`. Optional.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 128),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 128,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 128,
+      "min": 1
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  }
+}
+```
+
+<a id="canonical-0031320031332122-3030010133313031-0033331201001223-2330020223303233-3211232012020303-1100302133331102-2221200102013223-1333202223010221"></a>
+
+<a id="canonical-3101020203111321-1000313023232121-3320323132221110-0221023100331223-2030013310132231-0023330323033332-3312233021221103-2022303030101231"></a>
+
+## namespace property — cluster / 002113121112 / 5
+
+Type: `"string"`. Optional, Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 63),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-2203132230103200-3030001133021013-0313332320330322-3221131102121132-2203131102233131-3211013012332223-2010111123133012-0311030233332021"></a>
+
+<a id="canonical-2330121133222223-1122330232122302-3130213320311233-3000033201131012-0203201303313032-3000113202000333-1302212130323301-1331321231321212"></a>
+
+## tenant property — cluster / 002113121112 / 6
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(64),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-3313120232322001-0202110102232201-0010121121213130-0233031102032031-3100000221033330-2033231211330021-1113011230230223-0230113032031231"></a>
+
+## Next pages — cluster / 002113121112 / 7
+
+- [default_pool_list.pools](resources--http_loadbalancer--reference--group-017.md#canonical-3001002133320230-2120231222300222-0321102003221001-3110121302022323-0220111101122202-3330111333232120-3211021111120102-3212311302101112)
+- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
+
+<a id="canonical-3210332310321130-0113222213001001-2113013221322330-3212101123033102-3001002230002303-2132202333322300-1201201130002212-1120123101133323"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1121230003011013-2302001301223202-2101200023023322-1330120021200132-0121120210021113-0011301312203033-3321100322313003-1312133031120231"></a>
+
+## default_pool_list.pools.endpoint_subsets — endpoint_subsets / 310102320020 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
+- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
+- [default_pool_list](resources--http_loadbalancer--reference--group-017.md#canonical-0232023012330101-1311101132201100-1333212211111332-1320223013300103-2111300101212212-3332332203230321-3210321213221300-3030022102121311)
+- [default_pool_list.pools](resources--http_loadbalancer--reference--group-017.md#canonical-3001002133320230-2120231222300222-0321102003221001-3110121302022323-0220111101122202-3330111333232120-3211021111120102-3212311302101112)
+- default_pool_list.pools.endpoint_subsets
+
+<a id="canonical-1323010032123123-0013103233303002-1223231222330131-1111223120220111-2332113311112011-3202211000212220-3321213312023021-0302111200223122"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Upstream origin pool may be configured to divide its origin servers into subsets based on metadata
+attached to the origin servers. Routes may then specify the metadata that a endpoint must match in
+order to be selected by the load balancer For origin servers which are discovered in K8s or Consul..
+
+Upstream description:
+
+Upstream origin pool may be configured to divide its origin servers into subsets based on metadata
+attached to the origin servers. Routes may then specify the metadata that a endpoint must match in
+order to be selected by the load balancer
+
+For origin servers which are discovered in K8s or Consul cluster, the label of the service is merged
+with endpoint's labels. In case of Consul, the label is derived from the "Tag" field. For labels
+that are common between configured endpoint and discovered service, labels from discovered service
+takes precedence.
+
+List of key-value pairs that will be used as matching metadata. Only those origin servers of
+upstream origin pool which match this metadata will be selected for load balancing.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "cardinality": {
+      "maxProperties": 16
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "originalRules": {
+      "ves.io.schema.rules.map.max_pairs": "16"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.map.max_pairs": "16"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.map.max_pairs": "16"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+endpoint_subsets {}
+```
+
+<a id="canonical-3323220301133233-0101020302010321-1212001132300233-0131321013020010-0120030302332032-0211120232010203-2121323101320010-3122011233323213"></a>
+
+## Direct properties — endpoint_subsets / 310102320020 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1200221001011003-1200030332122031-0030110011232211-1300112112332303-2033323311313323-2232011201030003-2033002011033003-0111202233221103"></a>
+
+## Next pages — endpoint_subsets / 310102320020 / 4
+
+- [default_pool_list.pools](resources--http_loadbalancer--reference--group-017.md#canonical-3001002133320230-2120231222300222-0321102003221001-3110121302022323-0220111101122202-3330111333232120-3211021111120102-3212311302101112)
+- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
+
+<a id="canonical-3013121320100123-0230112023312222-2313223300220001-0112310021033000-1001121323133302-2112022210113221-1313103310012302-3212310030321130"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-2302123202312111-3301030131020023-3202233131312000-2222221101000120-1322230133012023-1002033133020302-1320031011320232-0301210013321231"></a>
 
 ## default_pool_list.pools.pool — pool / 320311312233 / 2
@@ -33,6 +405,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -80,6 +453,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -145,6 +519,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -217,6 +592,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -292,6 +668,7 @@ Origin Pools used when no route is specified (default route)
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("cluster",
     "pool")}
 ```
@@ -370,6 +747,7 @@ increasing priority.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 32),
 }
@@ -484,6 +862,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -531,6 +910,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -596,6 +976,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -668,6 +1049,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -834,6 +1216,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -881,6 +1264,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -946,6 +1330,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1018,6 +1403,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1108,7 +1494,7 @@ Receipt-pinned upstream constraints:
 OneOf alternatives in this subsection:
 
 - [default_sensitive_data_policy](resources--http_loadbalancer--reference--group-018.md#canonical-2033022123213123-2323113031001012-2201021021002231-3221313211000130-1202101233120223-2020021110211031-2103021121302100-2001220200021113)
-- [sensitive_data_policy](resources--http_loadbalancer--reference--group-026.md#canonical-2331322013011313-3111202121321023-1113002312200000-0132100333303032-2311313300200313-3003330023023213-0133322032323223-3212012023320222)
+- [sensitive_data_policy](resources--http_loadbalancer--reference--group-027.md#canonical-2331322013011313-3111202121321023-1113002312200000-0132100333303032-2311313300200313-3003330023023213-0133322032323223-3212012023320222)
 
 Select alternatives according to the provider validators above.
 
@@ -2022,6 +2408,7 @@ Specifies the settings used for API discovery.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("custom_api_auth_discovery",
     "default_api_auth_discovery"),
   validators.ConflictingObjectAttributes("disable_learn_from_redirect_traffic",
@@ -2113,6 +2500,7 @@ API Crawler message.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("api_crawler_config",
     "disable_api_crawler")}
 ```
@@ -2183,6 +2571,7 @@ Crawler Configure.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("domains")}
 ```
 
@@ -2250,6 +2639,7 @@ domains you own that are associated with this Load Balancer.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("domain")}
 ```
 
@@ -2313,6 +2703,7 @@ Select the domain to execute API Crawling with given credentials.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -2430,6 +2821,7 @@ Enter the username to assign credentials for the selected domain to crawl.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 64),
 }
@@ -2510,6 +2902,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -2584,6 +2977,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -2665,6 +3059,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -2784,6 +3179,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -2844,6 +3240,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -2988,6 +3385,7 @@ Select codebase and Repositories.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("code_base_integrations")}
 ```
 
@@ -3057,6 +3455,7 @@ Configuration parameter for codebase integrations
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("all_repos",
     "selected_repos")}
 ```
@@ -3220,6 +3619,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -3267,6 +3667,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -3332,6 +3733,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -3404,6 +3806,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -3478,6 +3881,7 @@ Select which API repositories represent the LB applications.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("api_code_repo")}
 ```
 
@@ -3639,6 +4043,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -3686,6 +4091,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -3751,6 +4157,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -3823,6 +4230,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -4017,6 +4425,7 @@ Configure Discovered API Settings.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("purge_duration_for_inactive_discovered_apis")}
 ```
 
@@ -4058,6 +4467,7 @@ Inactive discovered API will be deleted after configured duration.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 7),
 }
@@ -4187,6 +4597,7 @@ Configure auto mitigation i.e risk based challenges for malicious users.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("captcha_challenge_parameters",
     "default_captcha_challenge_parameters"),
   validators.ConflictingObjectAttributes("default_js_challenge_parameters",
@@ -4296,6 +4707,7 @@ You can enable either JavaScript challenge or Captcha challenge on a virtual hos
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("cookie_expiry")}
 ```
 
@@ -4343,6 +4755,7 @@ challenge.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 86400),
 }
@@ -4403,6 +4816,7 @@ base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(65536),
 }
@@ -4680,6 +5094,7 @@ You can enable either JavaScript challenge or Captcha challenge on a virtual hos
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("cookie_expiry",
     "js_script_delay")}
 ```
@@ -4728,6 +5143,7 @@ challenge.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 86400),
 }
@@ -4788,6 +5204,7 @@ base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(65536),
 }
@@ -4840,6 +5257,7 @@ Delay introduced by JavaScript, in milliseconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1000, 60000),
 }
@@ -4917,6 +5335,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -4964,6 +5383,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -5029,6 +5449,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -5101,6 +5522,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -5176,6 +5598,7 @@ List of IP threat categories.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("ip_threat_categories")}
 ```
 
@@ -5227,6 +5650,7 @@ denied.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -5420,6 +5844,7 @@ List of Client IP Headers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("client_ip_headers")}
 ```
 
@@ -5475,6 +5900,7 @@ X-Forwarded-For header, the system will read the IP address(rightmost - 1), as t
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 5),
 }
@@ -5566,6 +5992,7 @@ Policy configuration to analyze GraphQL queries and prevent GraphQL tailored att
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("exact_path"),
   validators.ConflictingListObjectAttributes("any_domain",
     "exact_value"),
@@ -5641,6 +6068,7 @@ Specifies the exact path to GraphQL endpoint. Default value is /GraphQL.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -5698,6 +6126,7 @@ Exclusive with \[any\_domain suffix\_value\] Exact domain name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -5743,11 +6172,11 @@ Receipt-pinned upstream constraints:
 
 - [graphql_settings](resources--http_loadbalancer--reference--group-018.md#canonical-3011311003031201-0212312023210011-2111310323233011-3101023203021002-3030002113133332-2000020322030231-1120133131022312-1120132001013031): complete subsection reference.
 
-- [metadata](resources--http_loadbalancer--reference--group-018.md#canonical-1311122103230322-0310010320111232-3223011301201233-2200311131220033-2130132102313000-0102213320031221-3101130301333310-1002120311120200): complete subsection reference.
+- [metadata](resources--http_loadbalancer--reference--group-019.md#canonical-1311122103230322-0310010320111232-3223011301201233-2200311131220033-2130132102313000-0102213320031221-3101130301333310-1002120311120200): complete subsection reference.
 
-- [method_get](resources--http_loadbalancer--reference--group-018.md#canonical-1131111003001301-0312122332120102-2200110102303301-3210020023332231-3022222101013121-3201333300300020-2210321301111112-2000203111220332): complete subsection reference.
+- [method_get](resources--http_loadbalancer--reference--group-019.md#canonical-1131111003001301-0312122332120102-2200110102303301-3210020023332231-3022222101013121-3201333300300020-2210321301111112-2000203111220332): complete subsection reference.
 
-- [method_post](resources--http_loadbalancer--reference--group-018.md#canonical-2231300223101031-0233020132112220-0133203032231333-2221320230211002-2202013323123213-2220223001302313-2311121332013112-3312321121130313): complete subsection reference.
+- [method_post](resources--http_loadbalancer--reference--group-019.md#canonical-2231300223101031-0233020132112220-0133203032231333-2221320230211002-2202013323123213-2220223001302313-2311121332013112-3312321121130313): complete subsection reference.
 
 <a id="canonical-1120202001232200-3021302302111002-1102131233031031-1201332202203233-3101211323101303-0201202102223333-2333111223313303-3103221303222203"></a>
 
@@ -5768,6 +6197,7 @@ Exclusive with \[any\_domain exact\_value\] Suffix of domain name e.g "xyz.com" 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -5817,9 +6247,9 @@ Receipt-pinned upstream constraints:
 
 - [graphql_rules.any_domain](resources--http_loadbalancer--reference--group-018.md#canonical-3232221130212110-0220113031100232-3030220000211332-2100002113221202-3330301230023021-1120230023230321-2200300122300101-1230331300300101)
 - [graphql_rules.graphql_settings](resources--http_loadbalancer--reference--group-018.md#canonical-3011311003031201-0212312023210011-2111310323233011-3101023203021002-3030002113133332-2000020322030231-1120133131022312-1120132001013031)
-- [graphql_rules.metadata](resources--http_loadbalancer--reference--group-018.md#canonical-1311122103230322-0310010320111232-3223011301201233-2200311131220033-2130132102313000-0102213320031221-3101130301333310-1002120311120200)
-- [graphql_rules.method_get](resources--http_loadbalancer--reference--group-018.md#canonical-1131111003001301-0312122332120102-2200110102303301-3210020023332231-3022222101013121-3201333300300020-2210321301111112-2000203111220332)
-- [graphql_rules.method_post](resources--http_loadbalancer--reference--group-018.md#canonical-2231300223101031-0233020132112220-0133203032231333-2221320230211002-2202013323123213-2220223001302313-2311121332013112-3312321121130313)
+- [graphql_rules.metadata](resources--http_loadbalancer--reference--group-019.md#canonical-1311122103230322-0310010320111232-3223011301201233-2200311131220033-2130132102313000-0102213320031221-3101130301333310-1002120311120200)
+- [graphql_rules.method_get](resources--http_loadbalancer--reference--group-019.md#canonical-1131111003001301-0312122332120102-2200110102303301-3210020023332231-3022222101013121-3201333300300020-2210321301111112-2000203111220332)
+- [graphql_rules.method_post](resources--http_loadbalancer--reference--group-019.md#canonical-2231300223101031-0233020132112220-0133203032231333-2221320230211002-2202013323123213-2220223001302313-2311121332013112-3312321121130313)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 
@@ -5912,6 +6342,7 @@ GraphQL configuration.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("max_batched_queries",
     "max_depth",
     "max_total_length"),
@@ -5962,6 +6393,7 @@ Specify maximum number of queries in a single batched request.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 20),
 }
@@ -6015,6 +6447,7 @@ Specify maximum depth for the GraphQL query.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 20),
 }
@@ -6068,6 +6501,7 @@ Specify maximum length in bytes for the GraphQL query.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 16386),
 }
@@ -6229,435 +6663,3 @@ enable_introspection = {}
 ## Direct properties — enable_introspection / 300331002032 / 3
 
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1132130310132221-1103311100021013-0010021030202302-2023021011133000-3301330300331020-2131110230201303-2302002330220233-3322323032133031"></a>
-
-## Next pages — enable_introspection / 300331002032 / 4
-
-- [graphql_rules.graphql_settings](resources--http_loadbalancer--reference--group-018.md#canonical-3011311003031201-0212312023210011-2111310323233011-3101023203021002-3030002113133332-2000020322030231-1120133131022312-1120132001013031)
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-
-<a id="canonical-1311122103230322-0310010320111232-3223011301201233-2200311131220033-2130132102313000-0102213320031221-3101130301333310-1002120311120200"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1203023111210211-1203232322312012-3301333011032113-2210002300111212-1112021212032120-3221131032133132-3330032000002132-1001132100113013"></a>
-
-## graphql_rules.metadata — metadata / 212303030130 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [graphql_rules](resources--http_loadbalancer--reference--group-018.md#canonical-0103131211230021-3322322013030331-0002300200111211-3023323230210012-3210222101001300-3011023202322230-0123031212122011-2102122120303112)
-- graphql_rules.metadata
-
-<a id="canonical-1312330201312313-0013011131322010-2203331002122013-1122330112112000-2022130220030201-2111302123213113-2001032113222223-0233103103320001"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
-information is propagated to the metadata of a child object that gets created from the containing
-message during view processing. The information in this type can be specified by user during
-create..
-
-Upstream description:
-
-MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
-information is propagated to the metadata of a child object that gets created from the containing
-message during view processing. The information in this type can be specified by user during create
-and replace APIs.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-metadata {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2302323233300032-3333330010322102-2322110131121203-0002323220322330-3020132311022113-1213200323311310-0200312133120233-2212030002131010"></a>
-
-## Direct properties — metadata / 212303030130 / 3
-
-<a id="canonical-2310022333112110-3213012011013021-2232210322033213-0021120011131131-1032303122222030-1313331103230232-2011100212233101-0012320331111322"></a>
-
-<a id="canonical-0123121111000311-2223132321203011-0221113131031123-2111102120321110-2201012322312200-1210313201001220-3322312103132122-1302230322023113"></a>
-
-## description_spec property — metadata / 212303030130 / 4
-
-Type: `"string"`. Optional.
-
-Description. Human readable description.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(256),
-}
-```
-
-<a id="canonical-0310210330220132-1032121210001031-2320001321000003-0002231220011012-3323021221332010-1323211212302330-2103232121221301-1123331303331123"></a>
-
-<a id="canonical-2323202020110301-1001322211120320-1001200322111100-3121320320120310-0311300303312223-3223213312023031-1131132332133120-3301001001131211"></a>
-
-## name property — metadata / 212303030130 / 5
-
-Type: `"string"`. Optional.
-
-Name of the message. The value of name has to follow DNS-1035 format.
-
-Upstream description:
-
-This is the name of the message. The value of name has to follow DNS-1035 format.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.min_len": "1",
-    "ves.io.schema.rules.string.ves_object_name": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.min_len": "1",
-    "ves.io.schema.rules.string.ves_object_name": "true"
-  }
-}
-```
-
-<a id="canonical-0210310012133303-0333000230123322-2003131100100313-2123322202210121-3130111123332322-3012032132232322-0132023032032112-0210313120202030"></a>
-
-## Next pages — metadata / 212303030130 / 6
-
-- [graphql_rules](resources--http_loadbalancer--reference--group-018.md#canonical-0103131211230021-3322322013030331-0002300200111211-3023323230210012-3210222101001300-3011023202322230-0123031212122011-2102122120303112)
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-
-<a id="canonical-1131111003001301-0312122332120102-2200110102303301-3210020023332231-3022222101013121-3201333300300020-2210321301111112-2000203111220332"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2212221133332202-3110113201132001-2101000131223101-0023201222311131-3101221201210132-0310310233223131-0121012110230313-0001313113033200"></a>
-
-## graphql_rules.method_get — method_get / 312113303310 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [graphql_rules](resources--http_loadbalancer--reference--group-018.md#canonical-0103131211230021-3322322013030331-0002300200111211-3023323230210012-3210222101001300-3011023202322230-0123031212122011-2102122120303112)
-- graphql_rules.method_get
-
-<a id="canonical-1010232111012121-1111131302103310-2331221201102200-3220331130011021-3303101021123103-2131001332322101-1333202303120302-3322321303010203"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-method_get = {}
-```
-
-<a id="canonical-2131212021112020-1101332221330201-1333221122002021-1220012331221323-3010330312233212-1030131122000102-2232202222111332-0203211303211303"></a>
-
-## Direct properties — method_get / 312113303310 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0012020100122002-2320201300201233-0232300211332300-0322131330021113-0023310311220321-2013120221021330-3331332321231012-0320031333011330"></a>
-
-## Next pages — method_get / 312113303310 / 4
-
-- [graphql_rules](resources--http_loadbalancer--reference--group-018.md#canonical-0103131211230021-3322322013030331-0002300200111211-3023323230210012-3210222101001300-3011023202322230-0123031212122011-2102122120303112)
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-
-<a id="canonical-2231300223101031-0233020132112220-0133203032231333-2221320230211002-2202013323123213-2220223001302313-2311121332013112-3312321121130313"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1001221103203003-2310303133030133-0311210331101333-3100323011301230-1210211021011103-3001013001111113-1201000321310110-2002312010202231"></a>
-
-## graphql_rules.method_post — method_post / 301000010011 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [graphql_rules](resources--http_loadbalancer--reference--group-018.md#canonical-0103131211230021-3322322013030331-0002300200111211-3023323230210012-3210222101001300-3011023202322230-0123031212122011-2102122120303112)
-- graphql_rules.method_post
-
-<a id="canonical-1331230101032323-1311132132033223-1010331133302011-1110020130021133-0203133000231032-0030330322223231-2302313132231212-1323102003230321"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for method post.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-method_post = {}
-```
-
-<a id="canonical-2320023223330231-2231031130111310-2102332300213320-3323101202202122-1033103033003233-0103331032111321-1110211330232333-2122111103322132"></a>
-
-## Direct properties — method_post / 301000010011 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0001111211020021-1222110211030301-2310133120333320-0313000003320102-1223301230301100-2013302000103021-3001111133213130-1230011120231133"></a>
-
-## Next pages — method_post / 301000010011 / 4
-
-- [graphql_rules](resources--http_loadbalancer--reference--group-018.md#canonical-0103131211230021-3322322013030331-0002300200111211-3023323230210012-3210222101001300-3011023202322230-0123031212122011-2102122120303112)
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-
-<a id="canonical-3201330110311330-2123203220332301-2010310002232302-2200333212132031-2112023132010213-3001201001222010-0222333320131100-0013020102021323"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1331221222213010-1111020232113203-3133222203001030-0333323200133110-3321330011033022-1101022221321330-2003331022022201-0210303231013101"></a>
-
-## http — http / 302213323300 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- http
-
-<a id="canonical-1202011002202030-1301123223221210-0221133001100200-3113323103312320-1112211202323013-2102200302020220-1011302212010002-2131232013211102"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-HTTP Choice. Choice for selecting HTTP proxy. Changing this type selection requires recreation and
-may interrupt service. Supported settings within the same selected type remain updatable.
-
-Upstream description:
-
-Choice for selecting HTTP proxy.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("port",
-    "port_ranges")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-port_choice": "[\"port\",\"port_ranges\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-http {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-1313001221113221-3102032101322223-3330133000213311-0211003003131123-0000013323003132-1130022002103202-1332220233000122-2102320220122202"></a>
-
-## Direct properties — http / 302213323300 / 3
-
-<a id="canonical-2131122102321022-2330313211011031-3303033230012121-2133113011020220-1320303033100221-0312200102313112-0020201201231333-2201211131330222"></a>
-
-<a id="canonical-1222133212100220-2002203123023130-0022301002100132-1323000130110133-1332112002020033-1333130121010012-3231031331001031-1032231012020322"></a>
-
-## dns_volterra_managed property — http / 302213323300 / 4
-
-Type: `"bool"`. Optional.
-
-DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite,
-the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME
-record should be created in your DNS provider's portal.
-
-Upstream description:
-
-DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite,
-the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME
-record should be created in your DNS provider's portal.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-0120011102032230-1003033001211202-2330312220333013-0130001032231131-2002023113112120-0111020111331300-2000231112330211-0001102000221211"></a>
-
-<a id="canonical-3022030301200023-0213201001013300-3331103221312330-3033112000113032-0021331131110003-1320330132020200-0213212212310002-2202001111313023"></a>
-
-## port property — http / 302213323300 / 5
-
-Type: `"number"`. Optional.
-
-Exclusive with \[port\_ranges\] HTTP port to Listen.
-
-Upstream description:
-
-Exclusive with \[port\_ranges\] HTTP port to Listen.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Int64{
-  int64validator.Between(1, 65535),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 65535,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minimum": 1,
-    "multipleOf": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.lte": "65535"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.lte": "65535"
-  }
-}
-```
-
-<a id="canonical-1010212311212230-3223032300310201-1211001003221013-3233132221220131-2002133303103032-0003321311111223-2102212120312231-1302323232203311"></a>

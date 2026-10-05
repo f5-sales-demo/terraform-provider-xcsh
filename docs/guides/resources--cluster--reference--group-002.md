@@ -6,6 +6,54 @@ description: "Complete grouped canonical reference for xcsh_cluster reference."
 
 # xcsh_cluster reference
 
+<a id="canonical-3032302230110020-0321131212323221-0110213221112323-2032113211203111-3113003313130233-3203030211311311-3013302112133132-0133013112203000"></a>
+
+## tls_parameters.common_params.tls_certificates.use_system_defaults — use_system_defaults / 323213311212 / 2
+
+Breadcrumbs:
+
+- [xcsh_cluster](../resources/cluster.md#canonical-0200232312311331-3030233031121222-1103023001033003-2132323312102233-3022210011323301-1323303310030333-2031301002313333-2332312221310003)
+- [Property reference](resources--cluster--reference--group-001.md#canonical-3101131133022110-3312300202101321-1032132322320210-3102023201100003-0111113110022121-3023312323003101-2100300213113301-3113003202303321)
+- [tls_parameters](resources--cluster--reference--group-001.md#canonical-3220210122031322-3121113012222331-0213030232301003-2002100301202230-1030100031230032-2222122001310100-2022213213020103-1031100333310031)
+- [tls_parameters.common_params](resources--cluster--reference--group-001.md#canonical-3000332102231031-2232112022123031-0211133232202112-0032122020002033-2212122300111002-2302023030003012-0222333220103023-0320013312123031)
+- [tls_parameters.common_params.tls_certificates](resources--cluster--reference--group-001.md#canonical-0131010103112232-3231212333021030-2003223122303221-0310132121203233-1133132000120130-0020110303123221-1122130221010233-3121233100221002)
+- tls_parameters.common_params.tls_certificates.use_system_defaults
+
+<a id="canonical-0120003301311011-3311300110113220-3301231322330122-2331031113210112-3122223030032101-3010310323031231-3332213031013023-1103122301132320"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for use system defaults.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+use_system_defaults = {}
+```
+
+<a id="canonical-2202232202210313-2310011320111013-3010113301313212-0311110100220013-2312312222120210-0033113202333332-2113233210321301-0303302330122021"></a>
+
+## Direct properties — use_system_defaults / 323213311212 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
 <a id="canonical-0102332200231322-2200202032302311-2332002033322011-3322112021130030-0301131002103321-3233232010011302-1222012102033322-1220122221203223"></a>
 
 ## Next pages — use_system_defaults / 323213311212 / 4
@@ -46,6 +94,7 @@ Names for verification.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("trusted_ca",
     "trusted_ca_url")}
 ```
@@ -124,6 +173,7 @@ Exclusive with \[trusted\_ca\] Inline Root CA Certificate.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(131072),
 }
@@ -438,6 +488,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -830,6 +881,7 @@ choice is for HTTP(S) LB only.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_conn_pool_reuse",
     "enable_conn_pool_reuse")}
 ```

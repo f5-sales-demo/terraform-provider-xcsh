@@ -6,6 +6,66 @@ description: "Complete grouped canonical reference for xcsh_global_log_receiver 
 
 # xcsh_global_log_receiver reference
 
+<a id="canonical-0111210230020132-2000332301001102-2132100312222110-3230112132020330-0031223313113332-3111311322310011-0302330231102102-3232213023122103"></a>
+
+## qradar_receiver.batch.timeout_seconds_default — timeout_seconds_default / 302311322121 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
+- [qradar_receiver.batch](resources--global_log_receiver--reference--group-003.md#canonical-2012101000101222-0131312232201201-1131331132111333-2032013223002221-3322201011301201-0021101300330031-1221211203330320-1210300330022011)
+- qradar_receiver.batch.timeout_seconds_default
+
+<a id="canonical-1232330321113311-1212002031333133-1322323221022321-3132001303132001-3221310210013310-0230013132300213-1221312100201230-0112022330011132"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+timeout_seconds_default = {}
+```
+
+<a id="canonical-1122021010213321-1313203303111200-0102302113023022-0323312121031121-3001300120300203-3110030002113300-2323322120300321-0312021200100101"></a>
+
+## Direct properties — timeout_seconds_default / 302311322121 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3222312101300001-0311212233112323-2003301131231101-1020032102010332-3232212302122323-0300212223321012-0303033002011331-2130111300332223"></a>
+
+## Next pages — timeout_seconds_default / 302311322121 / 4
+
+- [qradar_receiver.batch](resources--global_log_receiver--reference--group-003.md#canonical-2012101000101222-0131312232201201-1131331132111333-2032013223002221-3322201011301201-0021101300330031-1221211203330320-1210300330022011)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+
+<a id="canonical-3301131220021212-2003230020312213-3212012223100002-2102020333300000-1121103102303322-0002301332101111-3120020101112320-0023331201213332"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-2031310313332332-0013213312111003-3212111223022003-2033002210310113-2131223302012103-0110213221322323-3332113131332330-3123220001302000"></a>
 
 ## qradar_receiver.compression — compression / 332121310111 / 2
@@ -30,6 +90,7 @@ Compression Type.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("compression_default",
     "compression_gzip"),
   validators.ConflictingObjectAttributes("compression_default",
@@ -95,7 +156,7 @@ Breadcrumbs:
 - [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 - [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
 - [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
-- [qradar_receiver.compression](resources--global_log_receiver--reference--group-003.md#canonical-3301131220021212-2003230020312213-3212012223100002-2102020333300000-1121103102303322-0002301332101111-3120020101112320-0023331201213332)
+- [qradar_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-3301131220021212-2003230020312213-3212012223100002-2102020333300000-1121103102303322-0002301332101111-3120020101112320-0023331201213332)
 - qradar_receiver.compression.compression_default
 
 <a id="canonical-2222302002300322-1300312202111210-1330022331023221-3332012210021132-0023331300303200-1221133232321121-1120213331010002-0002222101001232"></a>
@@ -137,7 +198,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 ## Next pages — compression_default / 021021321223 / 4
 
-- [qradar_receiver.compression](resources--global_log_receiver--reference--group-003.md#canonical-3301131220021212-2003230020312213-3212012223100002-2102020333300000-1121103102303322-0002301332101111-3120020101112320-0023331201213332)
+- [qradar_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-3301131220021212-2003230020312213-3212012223100002-2102020333300000-1121103102303322-0002301332101111-3120020101112320-0023331201213332)
 - [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
 <a id="canonical-1300332030231231-3321313200311020-3012231130131233-3333210332302203-3222313113213321-2121110030311330-1201303020301220-3021111103333011"></a>
@@ -155,7 +216,7 @@ Breadcrumbs:
 - [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 - [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
 - [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
-- [qradar_receiver.compression](resources--global_log_receiver--reference--group-003.md#canonical-3301131220021212-2003230020312213-3212012223100002-2102020333300000-1121103102303322-0002301332101111-3120020101112320-0023331201213332)
+- [qradar_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-3301131220021212-2003230020312213-3212012223100002-2102020333300000-1121103102303322-0002301332101111-3120020101112320-0023331201213332)
 - qradar_receiver.compression.compression_gzip
 
 <a id="canonical-3001210031003331-1120010333231111-2230100202002110-3233022230230201-2333303212222232-2133301011121123-0233131003303211-2202330010302200"></a>
@@ -197,7 +258,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 ## Next pages — compression_gzip / 322333033232 / 4
 
-- [qradar_receiver.compression](resources--global_log_receiver--reference--group-003.md#canonical-3301131220021212-2003230020312213-3212012223100002-2102020333300000-1121103102303322-0002301332101111-3120020101112320-0023331201213332)
+- [qradar_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-3301131220021212-2003230020312213-3212012223100002-2102020333300000-1121103102303322-0002301332101111-3120020101112320-0023331201213332)
 - [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
 <a id="canonical-1220131201021112-1303302203110223-3303230233131122-0013032331223111-0012230010212130-1010311132222223-1200130323213000-0001322221200002"></a>
@@ -215,7 +276,7 @@ Breadcrumbs:
 - [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 - [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
 - [qradar_receiver](resources--global_log_receiver--reference--group-003.md#canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332)
-- [qradar_receiver.compression](resources--global_log_receiver--reference--group-003.md#canonical-3301131220021212-2003230020312213-3212012223100002-2102020333300000-1121103102303322-0002301332101111-3120020101112320-0023331201213332)
+- [qradar_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-3301131220021212-2003230020312213-3212012223100002-2102020333300000-1121103102303322-0002301332101111-3120020101112320-0023331201213332)
 - qradar_receiver.compression.compression_none
 
 <a id="canonical-0002020103233212-0203321120022222-1101230000013021-1210000210221231-0313110201001101-1330022333110020-0002023102313020-3011103322131212"></a>
@@ -257,7 +318,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 ## Next pages — compression_none / 310332101102 / 4
 
-- [qradar_receiver.compression](resources--global_log_receiver--reference--group-003.md#canonical-3301131220021212-2003230020312213-3212012223100002-2102020333300000-1121103102303322-0002301332101111-3120020101112320-0023331201213332)
+- [qradar_receiver.compression](resources--global_log_receiver--reference--group-004.md#canonical-3301131220021212-2003230020312213-3212012223100002-2102020333300000-1121103102303322-0002301332101111-3120020101112320-0023331201213332)
 - [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
 
 <a id="canonical-0333030003010101-1102331120011301-3023322233120221-1332221330232103-0110203322122232-0233200210022200-0211212203313232-2301331121322003"></a>
@@ -345,6 +406,7 @@ TLS Parameters for client connection to the endpoint.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_verify_certificate",
     "enable_verify_certificate"),
   validators.ConflictingObjectAttributes("disable_verify_hostname",
@@ -417,6 +479,7 @@ Certificates in PEM format including the PEM headers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(131072),
 }
@@ -834,6 +897,7 @@ Client certificate is PEM-encoded certificate or certificate-chain.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(100, 131072),
 }
@@ -920,6 +984,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -992,6 +1057,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -1073,6 +1139,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -1190,6 +1257,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -1250,6 +1318,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -1399,6 +1468,7 @@ unsampled (full) request logs.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("sampled",
     "unsampled")}
 ```
@@ -1585,6 +1655,7 @@ S3 Configuration for Global Log Receiver.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("aws_region",
     "bucket")}
 ```
@@ -1639,6 +1710,8 @@ AWS Region Name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","ap-southeast-3","ca-central-1","eu-central-1","eu-north-1","eu-south-1","eu-west-1","eu-west-2","eu-west-3","me-south-1","sa-east-1","us-east-1","us-east-2","us-west-1","us-west-2"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("ap-northeast-1",
     "ap-southeast-1",
@@ -1737,6 +1810,7 @@ S3 Bucket Name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(3, 128),
 }
@@ -1829,6 +1903,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -1876,6 +1951,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1941,6 +2017,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2013,6 +2090,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -2085,6 +2163,7 @@ Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("max_bytes",
     "max_bytes_disabled"),
   validators.ConflictingObjectAttributes("max_events",
@@ -2140,6 +2219,7 @@ than this many bytes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(4096, 10485760),
 }
@@ -2199,6 +2279,7 @@ the batch.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(32, 2000),
 }
@@ -2507,6 +2588,7 @@ Compression Type.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("compression_default",
     "compression_gzip"),
   validators.ConflictingObjectAttributes("compression_default",
@@ -2764,6 +2846,7 @@ bucket or file.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("custom_folder",
     "log_type_folder"),
   validators.ConflictingObjectAttributes("custom_folder",
@@ -2817,6 +2900,7 @@ in the endpoint bucket or file The folder name must match \`/^\[a-z\_\]\[a-z0-9\
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -3069,6 +3153,7 @@ Configuration for Splunk HEC Logs endpoint.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("endpoint"),
   validators.ConflictingObjectAttributes("no_tls",
     "use_tls")}
@@ -3121,6 +3206,7 @@ Splunk HEC Logs Endpoint, (Note: must not contain \`/services/collector\`)
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 1024),
 }
@@ -3205,6 +3291,7 @@ Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("max_bytes",
     "max_bytes_disabled"),
   validators.ConflictingObjectAttributes("max_events",
@@ -3260,6 +3347,7 @@ than this many bytes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(4096, 10485760),
 }
@@ -3319,6 +3407,7 @@ the batch.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(32, 2000),
 }
@@ -3627,6 +3716,7 @@ Compression Type.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("compression_default",
     "compression_gzip"),
   validators.ConflictingObjectAttributes("compression_default",
@@ -3942,6 +4032,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -4012,6 +4103,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -4093,6 +4185,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -4208,6 +4301,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -4268,6 +4362,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -4352,6 +4447,7 @@ TLS Parameters for client connection to the endpoint.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_verify_certificate",
     "enable_verify_certificate"),
   validators.ConflictingObjectAttributes("disable_verify_hostname",
@@ -4424,6 +4520,7 @@ Certificates in PEM format including the PEM headers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(131072),
 }
@@ -4841,6 +4938,7 @@ Client certificate is PEM-encoded certificate or certificate-chain.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(100, 131072),
 }
@@ -4927,6 +5025,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -4999,6 +5098,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -5080,6 +5180,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -5197,6 +5298,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -5257,6 +5359,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -5462,6 +5565,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -5492,106 +5596,6 @@ url {
 
 ## Direct properties — URL / 112210112313 / 3
 
-- [blindfold_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-1222300100301200-2230113301113031-0203313023321102-2120212003331332-0213310212322030-1211110122330211-2103213230303110-0022223311222122): complete subsection reference.
+- [blindfold_secret_info](resources--global_log_receiver--reference--group-005.md#canonical-1222300100301200-2230113301113031-0203313023321102-2120212003331332-0213310212322030-1211110122330211-2103213230303110-0022223311222122): complete subsection reference.
 
 - [clear_secret_info](resources--global_log_receiver--reference--group-005.md#canonical-3121032322130121-1230231123003111-3311322132332221-3210310302030210-2213011003012100-0311331110013130-2130103210211231-1201203322103000): complete subsection reference.
-
-<a id="canonical-1332331031301201-2330011312301003-1232203320213103-2311010010002023-1133222300320323-3222202200302002-3311312322112123-2121330221232103"></a>
-
-## Next pages — URL / 112210112313 / 4
-
-- [sumo_logic_receiver.url.blindfold_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-1222300100301200-2230113301113031-0203313023321102-2120212003331332-0213310212322030-1211110122330211-2103213230303110-0022223311222122)
-- [sumo_logic_receiver.url.clear_secret_info](resources--global_log_receiver--reference--group-005.md#canonical-3121032322130121-1230231123003111-3311322132332221-3210310302030210-2213011003012100-0311331110013130-2130103210211231-1201203322103000)
-- [sumo_logic_receiver](resources--global_log_receiver--reference--group-004.md#canonical-3133110202111331-3110012132230231-1313311200132200-3313312202001233-0330332232223132-0100032000033300-1111310013112123-0303121102330130)
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
-
-<a id="canonical-1222300100301200-2230113301113031-0203313023321102-2120212003331332-0213310212322030-1211110122330211-2103213230303110-0022223311222122"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0122303122213003-1023203220230333-2031132113312213-3100130303211331-3131213020332033-3222023003122131-3211321200231003-0130002311103221"></a>
-
-## sumo_logic_receiver.URL.blindfold_secret_info — blindfold_secret_info / 222020333133 / 2
-
-Breadcrumbs:
-
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
-- [sumo_logic_receiver](resources--global_log_receiver--reference--group-004.md#canonical-3133110202111331-3110012132230231-1313311200132200-3313312202001233-0330332232223132-0100032000033300-1111310013112123-0303121102330130)
-- [sumo_logic_receiver.url](resources--global_log_receiver--reference--group-004.md#canonical-1211232133011100-3311220123122001-2231031332221030-2311333131201230-3030311013102130-1320012132103022-0212200323121201-1213232003112030)
-- sumo_logic_receiver.URL.blindfold_secret_info
-
-<a id="canonical-3010203311220001-1002210211100002-1031031113111332-1222121030213131-2030031132322300-2101300312020313-2001313033001301-3322131120011220"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-blindfold_secret_info {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0310002330100010-1322123222231001-2330302301122023-1132011232121013-3130111310223331-3202310121201222-2221200223133121-2223012320331313"></a>
-
-## Direct properties — blindfold_secret_info / 222020333133 / 3
-
-<a id="canonical-1111130001013120-2332213311000231-3313231031102033-1013103302132130-3022133133120030-2000231033231130-2221032212311230-2232130230232233"></a>
-
-<a id="canonical-3012112122323302-3203010000033133-2223033000103010-0101301321220220-0122131002002220-1021121332130313-3033030002213331-3110030023322222"></a>
-
-## decryption_provider property — blindfold_secret_info / 222020333133 / 4
-
-Type: `"string"`. Optional.
-
-Name of the Secret Management Access object that contains information about the backend Secret
-Management service.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-3030231301113303-0230220031233230-0002003302121332-2122333310131331-1300100021302010-3100333011330020-3333112130122230-1121020023220022"></a>

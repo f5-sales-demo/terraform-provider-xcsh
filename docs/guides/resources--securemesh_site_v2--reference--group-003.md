@@ -53,12 +53,12 @@ Each exact path has one authoritative reference destination. Collection element 
 | `software_settings.os` | [software_settings.os](resources--securemesh_site_v2--reference--group-017.md#canonical-1310220101111131-2102110111201321-3111032230233210-2332211103222102-2023133321023231-1230021221222323-0332120102122103-2113302330301320) |
 | `software_settings.os.default_os_version` | [software_settings.os.default_os_version](resources--securemesh_site_v2--reference--group-017.md#canonical-3111110002212210-0102322331210330-1001201020332230-2031031302203002-1103221120211323-0313103112310301-2333301331323322-0133130222221312) |
 | `software_settings.os.operating_system_version` | [software_settings.os.operating_system_version](resources--securemesh_site_v2--reference--group-017.md#canonical-3110011123301322-3023331103222310-2201322123101120-1012002231201022-1221220333012123-3010012213133323-0123020021100230-1001213202111013) |
-| `software_settings.sw` | [software_settings.sw](resources--securemesh_site_v2--reference--group-017.md#canonical-1110113213023313-1102311132110301-3323021130312011-2100333211122331-2120033223230133-1031233211311033-1120232111230220-2113330201012231) |
-| `software_settings.sw.default_sw_version` | [software_settings.sw.default_sw_version](resources--securemesh_site_v2--reference--group-017.md#canonical-3203220002133302-1220333322120121-2112012331302320-2200100123110230-0121033011123310-2120313011200210-2110132302330203-3032220203131333) |
-| `software_settings.sw.volterra_software_version` | [software_settings.sw.volterra_software_version](resources--securemesh_site_v2--reference--group-017.md#canonical-2210323000122022-3231320233210302-1023302211020032-2131233123030233-1220000202132122-2031103030233111-0033223301101020-1103222333232202) |
-| `software_settings.waf_signatures` | [software_settings.waf_signatures](resources--securemesh_site_v2--reference--group-017.md#canonical-2123333211201220-1021203012100232-0221321230021311-3110233330322110-3200332000212330-1013002101200320-2333132212230221-2013331233320202) |
-| `software_settings.waf_signatures.automatic` | [software_settings.waf_signatures.automatic](resources--securemesh_site_v2--reference--group-017.md#canonical-0212033110121121-2221203031112002-2220323311203110-0030030011131000-3111101323112121-0232233032330133-3310101210113132-0223222330203000) |
-| `software_settings.waf_signatures.manual` | [software_settings.waf_signatures.manual](resources--securemesh_site_v2--reference--group-017.md#canonical-3221332221221101-0102121321103320-3211111203002301-0020222103103013-0212322131112023-2102311100231210-3223200221222230-3321213001123032) |
+| `software_settings.sw` | [software_settings.sw](resources--securemesh_site_v2--reference--group-018.md#canonical-1110113213023313-1102311132110301-3323021130312011-2100333211122331-2120033223230133-1031233211311033-1120232111230220-2113330201012231) |
+| `software_settings.sw.default_sw_version` | [software_settings.sw.default_sw_version](resources--securemesh_site_v2--reference--group-018.md#canonical-3203220002133302-1220333322120121-2112012331302320-2200100123110230-0121033011123310-2120313011200210-2110132302330203-3032220203131333) |
+| `software_settings.sw.volterra_software_version` | [software_settings.sw.volterra_software_version](resources--securemesh_site_v2--reference--group-018.md#canonical-2210323000122022-3231320233210302-1023302211020032-2131233123030233-1220000202132122-2031103030233111-0033223301101020-1103222333232202) |
+| `software_settings.waf_signatures` | [software_settings.waf_signatures](resources--securemesh_site_v2--reference--group-018.md#canonical-2123333211201220-1021203012100232-0221321230021311-3110233330322110-3200332000212330-1013002101200320-2333132212230221-2013331233320202) |
+| `software_settings.waf_signatures.automatic` | [software_settings.waf_signatures.automatic](resources--securemesh_site_v2--reference--group-018.md#canonical-0212033110121121-2221203031112002-2220323311203110-0030030011131000-3111101323112121-0232233032330133-3310101210113132-0223222330203000) |
+| `software_settings.waf_signatures.manual` | [software_settings.waf_signatures.manual](resources--securemesh_site_v2--reference--group-018.md#canonical-3221332221221101-0102121321103320-3211111203002301-0020222103103013-0212322131112023-2102311100231210-3223200221222230-3321213001123032) |
 | `timeouts` | [timeouts](resources--securemesh_site_v2--reference--group-018.md#canonical-0123232131001300-0011323332301222-1331300031113011-1313301030310003-1101033221200021-3320311312021033-0002021220231213-3010101123210223) |
 | `timeouts.create` | [timeouts.create](resources--securemesh_site_v2--reference--group-018.md#canonical-1110023132023112-1100103232120003-2233121122233201-3102321030123121-2111201002203301-0010022121120230-1321131213311030-0102133312300210) |
 | `timeouts.delete` | [timeouts.delete](resources--securemesh_site_v2--reference--group-018.md#canonical-3130133011022332-2230123123000100-2021330331212132-1122103310110301-1102211033201131-1022213332002323-3032001030113000-2101002021101032) |
@@ -129,17 +129,17 @@ Each exact path has one authoritative reference destination. Collection element 
 | `vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks` | [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks](resources--securemesh_site_v2--reference--group-018.md#canonical-0113111033113303-2011101301222322-3321133232203002-0330200003033231-3103032020000100-3323330100133011-0223013100120233-3322320212320333) |
 | `vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.network_prefix` | [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.network_prefix](resources--securemesh_site_v2--reference--group-018.md#canonical-3022212112002233-1233220132110130-1312132333123303-2222000120321012-3301320333212303-1300323201222103-0010110120110322-1010211221232220) |
 | `vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pool_settings` | [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pool_settings](resources--securemesh_site_v2--reference--group-018.md#canonical-1101131220211003-0010032112210231-0301322121332101-1030203011333012-3012300333332131-3310221322023031-2213320033210133-0132000013201121) |
-| `vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools` | [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools](resources--securemesh_site_v2--reference--group-018.md#canonical-1200102132212230-0000130232332102-3211301323102210-0210203330330312-1000320223122022-2301210202332010-0302010310131103-0132222001030310) |
-| `vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools.end_ip` | [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools.end_ip](resources--securemesh_site_v2--reference--group-018.md#canonical-2121232203312221-1331321012303132-3100230301223223-2200032200303211-0023020211012003-3001001310211133-3131211203312030-3011311302231133) |
-| `vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools.start_ip` | [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools.start_ip](resources--securemesh_site_v2--reference--group-018.md#canonical-0311022311231112-2010002120212031-0300103103000322-3221203002210001-1113312222201331-3323312103231112-0033302213231101-3031003131201020) |
+| `vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools` | [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools](resources--securemesh_site_v2--reference--group-019.md#canonical-1200102132212230-0000130232332102-3211301323102210-0210203330330312-1000320223122022-2301210202332010-0302010310131103-0132222001030310) |
+| `vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools.end_ip` | [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools.end_ip](resources--securemesh_site_v2--reference--group-019.md#canonical-2121232203312221-1331321012303132-3100230301223223-2200032200303211-0023020211012003-3001001310211133-3131211203312030-3011311302231133) |
+| `vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools.start_ip` | [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools.start_ip](resources--securemesh_site_v2--reference--group-019.md#canonical-0311022311231112-2010002120212031-0300103103000322-3221203002210001-1113312222201331-3323312103231112-0033302213231101-3031003131201020) |
 | `vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.fixed_ip_map` | [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.fixed_ip_map](resources--securemesh_site_v2--reference--group-018.md#canonical-2101102011312223-1110211013003201-3320022232213331-2321322121110001-1323210121033331-1000120211332230-0311031132102123-2213210033300000) |
-| `vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map` | [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map](resources--securemesh_site_v2--reference--group-018.md#canonical-3111221223013100-2123120032122112-0313220032122300-3231123102332233-3130130332221013-2233020022021012-0320022002211312-3010023113110003) |
-| `vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map.interface_ip_map` | [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map.interface_ip_map](resources--securemesh_site_v2--reference--group-018.md#canonical-2113131002221113-1132231120233121-3223310010101012-1112113123111101-0121201121101132-1333210010113232-2011301222330312-2311330320303033) |
+| `vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map` | [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map](resources--securemesh_site_v2--reference--group-019.md#canonical-3111221223013100-2123120032122112-0313220032122300-3231123102332233-3130130332221013-2233020022021012-0320022002211312-3010023113110003) |
+| `vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map.interface_ip_map` | [vmware.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map.interface_ip_map](resources--securemesh_site_v2--reference--group-019.md#canonical-2113131002221113-1132231120233121-3223310010101012-1112113123111101-0121201121101132-1333210010113232-2011301222330312-2311330320303033) |
 | `vmware.not_managed.node_list.interface_list.is_management` | [vmware.not_managed.node_list.interface_list.is_management](resources--securemesh_site_v2--reference--group-018.md#canonical-2112313301122330-3232030220303032-0330123023311113-2311122302120132-1222022020320303-2010111300030111-1012020010301121-1222112330310201) |
 | `vmware.not_managed.node_list.interface_list.is_primary` | [vmware.not_managed.node_list.interface_list.is_primary](resources--securemesh_site_v2--reference--group-018.md#canonical-3033333200311010-1312230121231033-3132123323220120-3222133233200203-1200331001333220-1021021310321102-2120220310120213-3133122121213313) |
 | `vmware.not_managed.node_list.interface_list.labels` | [vmware.not_managed.node_list.interface_list.labels](resources--securemesh_site_v2--reference--group-018.md#canonical-3221212132330031-1020002003020123-3031002313001132-1031302311203112-2123331022001002-1020330030220120-3320031212211320-3011332022012123) |
-| `vmware.not_managed.node_list.interface_list.monitor` | [vmware.not_managed.node_list.interface_list.monitor](resources--securemesh_site_v2--reference--group-018.md#canonical-1112320033111031-0222023033002122-0122230031203010-0030213010203032-2303200032133030-0303333112100111-3002101002011113-1003332211231331) |
-| `vmware.not_managed.node_list.interface_list.monitor_disabled` | [vmware.not_managed.node_list.interface_list.monitor_disabled](resources--securemesh_site_v2--reference--group-018.md#canonical-1100012213300002-0021010020302331-0103220002022303-2203112110220232-3010232302211203-0122000310123232-1013032012230322-1103203011212332) |
+| `vmware.not_managed.node_list.interface_list.monitor` | [vmware.not_managed.node_list.interface_list.monitor](resources--securemesh_site_v2--reference--group-019.md#canonical-1112320033111031-0222023033002122-0122230031203010-0030213010203032-2303200032133030-0303333112100111-3002101002011113-1003332211231331) |
+| `vmware.not_managed.node_list.interface_list.monitor_disabled` | [vmware.not_managed.node_list.interface_list.monitor_disabled](resources--securemesh_site_v2--reference--group-019.md#canonical-1100012213300002-0021010020302331-0103220002022303-2203112110220232-3010232302211203-0122000310123232-1013032012230322-1103203011212332) |
 | `vmware.not_managed.node_list.interface_list.mtu` | [vmware.not_managed.node_list.interface_list.mtu](resources--securemesh_site_v2--reference--group-018.md#canonical-1030202202133032-3203222321301022-0212332031103021-1212231210013302-0223202313030221-0201230123011002-1113003011101212-2121322312212123) |
 | `vmware.not_managed.node_list.interface_list.name` | [vmware.not_managed.node_list.interface_list.name](resources--securemesh_site_v2--reference--group-018.md#canonical-2100322201123332-3133122032321203-2030200031310002-3020213030233102-3201213113010321-2201133301122010-0220021122111101-0103330131230222) |
 | `vmware.not_managed.node_list.interface_list.network_option` | [vmware.not_managed.node_list.interface_list.network_option](resources--securemesh_site_v2--reference--group-019.md#canonical-0000110010300103-1001310000023333-3230222020231030-0123030022312233-0022330013232221-2330000323011101-0101113022213011-0002013122012123) |
@@ -212,8 +212,8 @@ Each exact path has one authoritative reference destination. Collection element 
 - [no_s2s_connectivity_slo](resources--securemesh_site_v2--reference--group-012.md#canonical-1032112221231302-2123032103000023-1212321030120112-1301100133021333-3122002203103112-2022222012000331-0333232203322311-3201133120130202)
 - [nutanix](resources--securemesh_site_v2--reference--group-012.md#canonical-3313330100011000-1321012221111023-2203201131220011-0021313133031220-2300300000311310-1301020003123302-1012202333312321-3300313210310321)
 - [oci](resources--securemesh_site_v2--reference--group-013.md#canonical-1332211122203232-2032213012031311-0312131000222131-0313233003113010-1010303203211031-2310121002301201-0221000203033232-3212021221312311)
-- [offline_survivability_mode](resources--securemesh_site_v2--reference--group-014.md#canonical-2001312130230101-3132012012311122-0230112101013213-1333302011302001-3223331311230002-0320013221303203-3122311112320113-1320320233110001)
-- [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
+- [offline_survivability_mode](resources--securemesh_site_v2--reference--group-015.md#canonical-2001312130230101-3132012012311122-0230112101013213-1333302011302001-3223331311230002-0320013221303203-3122311112320113-1320320233110001)
+- [openshift_virtualization](resources--securemesh_site_v2--reference--group-015.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
 - [openstack](resources--securemesh_site_v2--reference--group-016.md#canonical-3103330221113213-1101002321121001-1323321202302031-0033322000331021-3233221231330113-2212103122303202-3302221330110020-0111211323131322)
 - [performance_enhancement_mode](resources--securemesh_site_v2--reference--group-017.md#canonical-2130013131033231-3232223210311301-1121020200130212-1011012213303102-1120012133331003-0202331032111120-2302012123333131-0300312001101100)
 - [private_adn](resources--securemesh_site_v2--reference--group-017.md#canonical-1132333020000033-3121313020113130-1113011323131231-1303130201313202-3331202201110330-3232030020101012-0011123211010231-1301321320123330)
@@ -221,7 +221,7 @@ Each exact path has one authoritative reference destination. Collection element 
 - [segment_vrf](resources--securemesh_site_v2--reference--group-017.md#canonical-2013033031131331-2213313223020200-2112133031330202-2303320232020100-1213211121321303-2130010121132312-0000300320202222-1331023001013310)
 - [site_mesh_group_on_slo](resources--securemesh_site_v2--reference--group-017.md#canonical-1132320030201122-0222122012131332-0210322212020301-1032300301203333-3202102311232202-3000202023203231-1030101202313102-0300121202300311)
 - [software_settings](resources--securemesh_site_v2--reference--group-017.md#canonical-0022231303311111-0320032323222122-1103000112000213-1212111100333213-2111302213021020-3313130203211320-3301133033221310-2322002021330133)
-- [timeouts](resources--securemesh_site_v2--reference--group-017.md#canonical-2131133220012220-0222312200312320-2332131230210133-2323001331232302-0312012222021021-0213223112001210-2110313123231232-3312321032110030)
+- [timeouts](resources--securemesh_site_v2--reference--group-018.md#canonical-2131133220012220-0222312200312320-2332131230210133-2323001331232302-0312012222021021-0213223112001210-2110313123231232-3312321032110030)
 - [upgrade_settings](resources--securemesh_site_v2--reference--group-018.md#canonical-2122031130011121-2120222320030031-2032103312220112-3121002222230322-2332133023022103-2321103112123110-2013202113333333-2203321000331223)
 - [vmware](resources--securemesh_site_v2--reference--group-018.md#canonical-3001113303001011-1123231131321110-2233021103112320-0312233101131000-3202313121020020-3301002030023001-2131231233033311-1330001031200330)
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
@@ -258,6 +258,7 @@ available under firewall policies with an additional option for service insertio
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("enhanced_firewall_policies")}
 ```
 
@@ -329,6 +330,7 @@ Ordered List of Enhanced Firewall Policies active.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -400,6 +402,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -465,6 +468,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -537,6 +541,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -613,6 +618,7 @@ Ordered List of Forward Proxy Policies active.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("forward_proxy_policies")}
 ```
 
@@ -684,6 +690,7 @@ Ordered List of Forward Proxy Policies active.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -755,6 +762,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -820,6 +828,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -892,6 +901,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1014,6 +1024,7 @@ SSH to the nodes of this Customer Edge site using admin as the user.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(8192),
 }
@@ -1084,6 +1095,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -1154,6 +1166,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -1235,6 +1248,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -1350,6 +1364,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -1410,6 +1425,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -1705,6 +1721,7 @@ Hostname for this Node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -1766,6 +1783,7 @@ Public IP for this Node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -1820,6 +1838,8 @@ Type for this Node, can be Control or Worker.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["Control","Worker"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("Control",
     "Worker"),
@@ -1895,6 +1915,7 @@ Manage interfaces belonging to this node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("bond_interface",
     "ethernet_interface"),
   validators.ConflictingListObjectAttributes("bond_interface",
@@ -1986,6 +2007,7 @@ Interface Description. Description for this Interface.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -1995,7 +2017,7 @@ Validators: []validator.String{
 
 - [dhcp_server](resources--securemesh_site_v2--reference--group-003.md#canonical-2131210033331330-0021001311210330-2231113222103110-3031311212001002-0013323231303230-2010021233121001-0211222300021312-3130120020113111): complete subsection reference.
 
-- [ethernet_interface](resources--securemesh_site_v2--reference--group-003.md#canonical-3113101210202033-0330130131021131-3220233312212000-2113313313112211-2030231321123203-3011012312212200-1331203030312000-0001231210023000): complete subsection reference.
+- [ethernet_interface](resources--securemesh_site_v2--reference--group-004.md#canonical-3113101210202033-0330130131021131-3220233312212000-2113313313112211-2030231321123203-3011012312212200-1331203030312000-0001231210023000): complete subsection reference.
 
 - [ipv6_auto_config](resources--securemesh_site_v2--reference--group-004.md#canonical-1321033203010221-3121211103202303-3032120002333100-2101003122202213-2102110102203103-3202210230332001-0313021102012230-1012303131321123): complete subsection reference.
 
@@ -2032,6 +2054,7 @@ Add Labels for this Interface, these labels can be used in firewall policy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":64,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"64\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"64\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":64,\"minLength\":1,\"type\":\"string\"}}")}
 ```
 
@@ -2110,6 +2133,7 @@ Maximum packet size (Maximum Transfer Unit) of the interface When configured, MT
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   validators.Int64RangeSetValidator(
     validators.Int64Range{Minimum: 0, Maximum: 0},
@@ -2165,6 +2189,7 @@ Name of this Interface.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2242,6 +2267,7 @@ have the same priority, ECMP will be used. Greater the value, higher the priorit
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 255),
 }
@@ -2298,7 +2324,7 @@ Receipt-pinned upstream constraints:
 - [aws.not_managed.node_list.interface_list.bond_interface](resources--securemesh_site_v2--reference--group-003.md#canonical-3120011121232020-1020002322313101-2112022030322333-3213123210220231-3002210212110222-3022323103100111-1331333212001002-2331103300212002)
 - [aws.not_managed.node_list.interface_list.dhcp_client](resources--securemesh_site_v2--reference--group-003.md#canonical-1120032200201302-2032233313212122-0213303223200222-1223323232202133-2331203230121221-0320021122311322-3310220033302331-0130031302123330)
 - [aws.not_managed.node_list.interface_list.dhcp_server](resources--securemesh_site_v2--reference--group-003.md#canonical-2131210033331330-0021001311210330-2231113222103110-3031311212001002-0013323231303230-2010021233121001-0211222300021312-3130120020113111)
-- [aws.not_managed.node_list.interface_list.ethernet_interface](resources--securemesh_site_v2--reference--group-003.md#canonical-3113101210202033-0330130131021131-3220233312212000-2113313313112211-2030231321123203-3011012312212200-1331203030312000-0001231210023000)
+- [aws.not_managed.node_list.interface_list.ethernet_interface](resources--securemesh_site_v2--reference--group-004.md#canonical-3113101210202033-0330130131021131-3220233312212000-2113313313112211-2030231321123203-3011012312212200-1331203030312000-0001231210023000)
 - [aws.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-004.md#canonical-1321033203010221-3121211103202303-3032120002333100-2101003122202213-2102110102203103-3202210230332001-0313021102012230-1012303131321123)
 - [aws.not_managed.node_list.interface_list.monitor](resources--securemesh_site_v2--reference--group-004.md#canonical-0202022030000330-3101201300011103-3023131130202300-1321001033331112-0130022201000002-0123211120301111-2013310230200001-0330223213013320)
 - [aws.not_managed.node_list.interface_list.monitor_disabled](resources--securemesh_site_v2--reference--group-004.md#canonical-0203330022300012-3030233012313303-1203203000030122-0323130220203010-1002312111330030-2202230202112120-0330211133301321-2130311201310200)
@@ -2346,6 +2372,7 @@ Bond devices configuration for fleet.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("devices",
     "link_polling_interval",
     "link_up_delay",
@@ -2395,6 +2422,7 @@ Ethernet devices that will make up this bond.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 8),
 }
@@ -2461,6 +2489,7 @@ Link polling interval in milliseconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(500, 5000),
 }
@@ -2514,6 +2543,7 @@ Milliseconds wait before link is declared up.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 1000),
 }
@@ -2571,6 +2601,7 @@ Name for the Bond. Ex 'bond0'
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 64),
 }
@@ -2729,6 +2760,7 @@ LACP parameters for the bond device.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("rate")}
 ```
 
@@ -2770,6 +2802,7 @@ Interval in seconds to transmit LACP packets.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 30),
 }
@@ -2910,6 +2943,7 @@ DHCP server configuration for this interface.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"),
   validators.ConflictingObjectAttributes("automatic_from_end",
     "automatic_from_start"),
@@ -2968,6 +3002,7 @@ Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"crossEntry\":{\"uniqueValues\":true},\"deterministic\":true,\"keys\":{\"format\":\"mac-address\",\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.mac\":\"true\",\"ves.io.schema.rules.map.max_pairs\":\"128\",\"ves.io.schema.rules.map.unique_values\":\"true\",\"ves.io.schema.rules.map.values.string.ipv4\":\"true\"},\"values\":{\"format\":\"ipv4\",\"type\":\"string\"}}")}
 ```
 
@@ -3190,6 +3225,7 @@ List of networks from which DHCP Server can allocate IPv4 Addresses.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("dgw_address",
     "first_address"),
   validators.ConflictingListObjectAttributes("dgw_address",
@@ -3271,6 +3307,7 @@ used as the default gateway.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -3327,6 +3364,7 @@ server.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -3436,6 +3474,8 @@ are excluded from IP Address allocation.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS","INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
     "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"),
@@ -3697,6 +3737,7 @@ prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -3763,6 +3804,7 @@ prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -3940,6 +3982,7 @@ Specify static IPv4 addresses per site:node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":64},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"64\",\"ves.io.schema.rules.map.values.string.ipv4\":\"true\"},\"values\":{\"format\":\"ipv4\",\"type\":\"string\"}}")}
 ```
 
@@ -3990,16 +4033,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-<a id="canonical-2111130322233021-2121022101221131-3113112033211032-3132122002232221-1232101223101103-0120330202321021-2030300212033202-0321030330030001"></a>
-
-## Next pages — interface_ip_map / 132210222002 / 5
-
-- [aws.not_managed.node_list.interface_list.dhcp_server](resources--securemesh_site_v2--reference--group-003.md#canonical-2131210033331330-0021001311210330-2231113222103110-3031311212001002-0013323231303230-2010021233121001-0211222300021312-3130120020113111)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-3113101210202033-0330130131021131-3220233312212000-2113313313112211-2030231321123203-3011012312212200-1331203030312000-0001231210023000"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->

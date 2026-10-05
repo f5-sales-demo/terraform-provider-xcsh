@@ -47,6 +47,7 @@ node count for an HA site.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.OneOf(1, 3),
 }
@@ -81,6 +82,7 @@ Type: `"string"`. Required.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -97,6 +99,7 @@ Type: `"string"`. Required.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }

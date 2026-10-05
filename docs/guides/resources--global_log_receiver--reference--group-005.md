@@ -6,6 +6,107 @@ description: "Complete grouped canonical reference for xcsh_global_log_receiver 
 
 # xcsh_global_log_receiver reference
 
+<a id="canonical-1332331031301201-2330011312301003-1232203320213103-2311010010002023-1133222300320323-3222202200302002-3311312322112123-2121330221232103"></a>
+
+## Next pages — URL / 112210112313 / 4
+
+- [sumo_logic_receiver.url.blindfold_secret_info](resources--global_log_receiver--reference--group-005.md#canonical-1222300100301200-2230113301113031-0203313023321102-2120212003331332-0213310212322030-1211110122330211-2103213230303110-0022223311222122)
+- [sumo_logic_receiver.url.clear_secret_info](resources--global_log_receiver--reference--group-005.md#canonical-3121032322130121-1230231123003111-3311322132332221-3210310302030210-2213011003012100-0311331110013130-2130103210211231-1201203322103000)
+- [sumo_logic_receiver](resources--global_log_receiver--reference--group-004.md#canonical-3133110202111331-3110012132230231-1313311200132200-3313312202001233-0330332232223132-0100032000033300-1111310013112123-0303121102330130)
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+
+<a id="canonical-1222300100301200-2230113301113031-0203313023321102-2120212003331332-0213310212322030-1211110122330211-2103213230303110-0022223311222122"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0122303122213003-1023203220230333-2031132113312213-3100130303211331-3131213020332033-3222023003122131-3211321200231003-0130002311103221"></a>
+
+## sumo_logic_receiver.URL.blindfold_secret_info — blindfold_secret_info / 222020333133 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [sumo_logic_receiver](resources--global_log_receiver--reference--group-004.md#canonical-3133110202111331-3110012132230231-1313311200132200-3313312202001233-0330332232223132-0100032000033300-1111310013112123-0303121102330130)
+- [sumo_logic_receiver.url](resources--global_log_receiver--reference--group-004.md#canonical-1211232133011100-3311220123122001-2231031332221030-2311333131201230-3030311013102130-1320012132103022-0212200323121201-1213232003112030)
+- sumo_logic_receiver.URL.blindfold_secret_info
+
+<a id="canonical-3010203311220001-1002210211100002-1031031113111332-1222121030213131-2030031132322300-2101300312020313-2001313033001301-3322131120011220"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+blindfold_secret_info {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0310002330100010-1322123222231001-2330302301122023-1132011232121013-3130111310223331-3202310121201222-2221200223133121-2223012320331313"></a>
+
+## Direct properties — blindfold_secret_info / 222020333133 / 3
+
+<a id="canonical-1111130001013120-2332213311000231-3313231031102033-1013103302132130-3022133133120030-2000231033231130-2221032212311230-2232130230232233"></a>
+
+<a id="canonical-3012112122323302-3203010000033133-2223033000103010-0101301321220220-0122131002002220-1021121332130313-3033030002213331-3110030023322222"></a>
+
+## decryption_provider property — blindfold_secret_info / 222020333133 / 4
+
+Type: `"string"`. Optional.
+
+Name of the Secret Management Access object that contains information about the backend Secret
+Management service.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3030231301113303-0230220031233230-0002003302121332-2122333310131331-1300100021302010-3100333011330020-3333112130122230-1121020023220022"></a>
+
 <a id="canonical-3022033313323111-0210301021020213-1220202220003122-3030002012120131-2231223033132333-2322333110210032-0011313010022113-2021301332200310"></a>
 
 ## location property — blindfold_secret_info / 222020333133 / 5
@@ -23,6 +124,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -138,6 +240,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -198,6 +301,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }

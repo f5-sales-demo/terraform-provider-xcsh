@@ -36,7 +36,7 @@
         "xcsh-docs:actions:dns_zone_delete_cryptokey:lifecycle"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -71,13 +71,13 @@
     },
     {
       "aliases": ["dns zone delete cryptokey"],
-      "body_bytes": 1724,
-      "body_sha256": "sha256:64c6382f80f1603aff343c7fdb9ba1c57633f72b1e32c0e299b8c56c9c085c63",
+      "body_bytes": 1754,
+      "body_sha256": "sha256:d3b14eee9f63c64c1e9c9eaa08a64253bb18c7e99e6a2e340410c3c3bc6fac2a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -103,6 +103,8 @@
           "anchor": "schema-key_id",
           "description": "Key ID. Unique identifier for this resource",
           "document_id": "xcsh-docs:actions:dns_zone_delete_cryptokey:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -117,6 +119,8 @@
           "anchor": "schema-namespace",
           "description": "Namespace is always system for dns_zone.",
           "document_id": "xcsh-docs:actions:dns_zone_delete_cryptokey:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -131,6 +135,8 @@
           "anchor": "schema-zone_name",
           "description": "Zone Name. Human-readable name for the resource",
           "document_id": "xcsh-docs:actions:dns_zone_delete_cryptokey:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -160,7 +166,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:actions:dns_zone_delete_cryptokey:example:action"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -200,7 +206,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -247,7 +253,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

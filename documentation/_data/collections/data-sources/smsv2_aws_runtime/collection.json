@@ -105,7 +105,7 @@
         "xcsh-docs:data-sources:smsv2_aws_runtime:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -140,8 +140,8 @@
     },
     {
       "aliases": ["smsv2 aws runtime"],
-      "body_bytes": 4990,
-      "body_sha256": "sha256:fedcb1c89cc9dc7ed10a8dd0f4312935a723b6ae92af7da3d398ea432c796060",
+      "body_bytes": 5324,
+      "body_sha256": "sha256:91fc39a6b96906977fbe2f384d99d0aec8064ef722ba7b2f419ff65c2d329726",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -149,7 +149,7 @@
         "xcsh-docs:data-sources:smsv2_aws_runtime:properties:nodes"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -175,6 +175,8 @@
           "anchor": "schema-healthy",
           "description": "healthy",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -189,6 +191,8 @@
           "anchor": "schema-id",
           "description": "id",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -203,6 +207,8 @@
           "anchor": "section",
           "description": "interfaces",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:properties:interfaces",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -217,6 +223,17 @@
           "anchor": "schema-namespace",
           "description": "namespace",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:reference",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["system"],
+              "version": 1
+            }
+          ],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -231,6 +248,8 @@
           "anchor": "section",
           "description": "nodes",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:properties:nodes",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -245,6 +264,8 @@
           "anchor": "schema-poll_interval_seconds",
           "description": "poll interval seconds",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
@@ -259,6 +280,8 @@
           "anchor": "schema-site",
           "description": "site",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:reference",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -273,6 +296,8 @@
           "anchor": "schema-timeout_seconds",
           "description": "timeout seconds",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
@@ -302,7 +327,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -328,6 +353,8 @@
           "anchor": "schema-interfaces--healthy",
           "description": "healthy",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:properties:interfaces",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -342,6 +369,8 @@
           "anchor": "schema-interfaces--interface_name",
           "description": "interface name",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:properties:interfaces",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -356,6 +385,8 @@
           "anchor": "schema-interfaces--mac",
           "description": "mac",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:properties:interfaces",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -370,6 +401,8 @@
           "anchor": "schema-interfaces--mtu",
           "description": "mtu",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:properties:interfaces",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -384,6 +417,8 @@
           "anchor": "schema-interfaces--node",
           "description": "node",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:properties:interfaces",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -398,6 +433,8 @@
           "anchor": "schema-interfaces--role",
           "description": "role",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:properties:interfaces",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -421,13 +458,13 @@
     },
     {
       "aliases": ["nodes"],
-      "body_bytes": 1338,
-      "body_sha256": "sha256:f8bf39af3100c1d6d0962581cbf731dfd9bcea53f359d6bc8cf9dcf956ceea34",
+      "body_bytes": 1644,
+      "body_sha256": "sha256:12432189b0d69a041b506f5100a47c5d1e53a77cca5db7ac5f41c175f2e6e678",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -453,6 +490,8 @@
           "anchor": "schema-nodes--mac",
           "description": "mac",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:properties:nodes",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -467,6 +506,8 @@
           "anchor": "schema-nodes--node",
           "description": "node",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:properties:nodes",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -481,6 +522,17 @@
           "anchor": "schema-nodes--role",
           "description": "role",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:properties:nodes",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["sli", "slo"],
+              "version": 1
+            }
+          ],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -510,7 +562,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:smsv2_aws_runtime:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -550,7 +602,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
