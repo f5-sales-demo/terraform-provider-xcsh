@@ -248,6 +248,7 @@ constraints_output="$temporary_root/documentation-constraints.json"
 go run tools/export-doc-constraints.go >"$constraints_output"
 python3 tools/generate-doc-collections.py --schema "$schema_output" --constraints "$constraints_output"
 XCSH_DOCS_SCHEMA="$schema_output" python3 -m unittest discover -s tests -p test_doc_collections.py
+python3 -m unittest discover -s tests -p test_doc_publication.py
 python3 -m unittest discover -s tests -p test_registry_projection.py
 python3 -m unittest discover -s tests -p test_import_contract.py
 first_manifest="$temporary_root/first-generated-manifest.json"

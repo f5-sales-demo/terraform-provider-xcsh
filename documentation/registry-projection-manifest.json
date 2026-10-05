@@ -3216,6 +3216,10 @@
       "bytes": 1741,
       "sha256": "sha256:07af41b5d4db74629947a8ec7504bc57daf5f6c88d24dbeaa53b6c6abb27f4d7"
     },
+    "docs/guides/release-history.md": {
+      "bytes": 14779,
+      "sha256": "sha256:30a8651770c532353a5b13dfb85daabe4443b0dc2a008c5f84599c4487db546b"
+    },
     "docs/guides/resources--address_allocator--examples--group-001.md": {
       "bytes": 4315,
       "sha256": "sha256:f3ec1d70cc65bb4e6ae67a1b414d6d2504ef99c95dd741d8c02422f06a966e98"
@@ -5293,8 +5297,8 @@
       "sha256": "sha256:9139572a2d32395c1b0382b29847966c17aa086b1a49cfd2a9cc1e9562b97200"
     },
     "docs/index.md": {
-      "bytes": 7433,
-      "sha256": "sha256:d2da5d730a1cda22a5c841e136b4f5a1f12caca35151ce4ff2028ff628863148"
+      "bytes": 7704,
+      "sha256": "sha256:4ba28cfc719de410a4566320e194c1896e81b424ed17286322f8553cf5de5e21"
     },
     "docs/resources/address_allocator.md": {
       "bytes": 3561,
@@ -5987,7 +5991,7 @@
     { "path": "documentation/registry-projection/sections-0176.json", "section_count": 410 },
     { "path": "documentation/registry-projection/sections-0177.json", "section_count": 418 },
     { "path": "documentation/registry-projection/sections-0178.json", "section_count": 523 },
-    { "path": "documentation/registry-projection/sections-0179.json", "section_count": 168 }
+    { "path": "documentation/registry-projection/sections-0179.json", "section_count": 169 }
   ],
   "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
   "target_bytes": 450000

@@ -969,7 +969,12 @@ def validate(pages, collections, outputs):
             raise ValueError(f"Registry storage ceiling exceeded: {output}")
         for _, href in prose_links(text):
             target, _, anchor = href.partition("#")
-            if target in (SITE + "/llms.txt", SITE + "/terraform-llms-index.json"):
+            # Pages builds these discovery routes from the canonical corpus.
+            if target in (
+                SITE + "/llms.txt",
+                SITE + "/llms-full.txt",
+                SITE + "/terraform-llms-index.json",
+            ):
                 continue
             if target.startswith(SITE + "/"):
                 if target not in urls:
@@ -1086,16 +1091,27 @@ def generate(root, schema_path, constraints_path):
     provider_index = provider_index.replace("(llms.txt)", "(" + SITE + "/llms.txt)")
     outputs["docs/index.md"] = provider_index
     auxiliary = [("provider", "setup", provider_index)]
-    for guide in sorted((root / "templates/guides").glob("*.md")):
-        text = guide.read_text(encoding="utf-8")
-        text = text.replace(
+    guide_sources = [
+        (guide.stem, guide.read_text(encoding="utf-8"))
+        for guide in sorted((root / "templates/guides").glob("*.md"))
+    ]
+    guide_sources.append(
+        (
+            "release-history",
+            (root / "CHANGELOG.md")
+            .read_text(encoding="utf-8")
+            .replace("# Changelog\n", "# Release history\n", 1),
+        )
+    )
+    for name, source_text in guide_sources:
+        text = source_text.replace(
             "../../examples/",
             "https://github.com/f5-sales-demo/terraform-provider-xcsh/blob/"
             + os.environ.get("DOCUMENTATION_VERSION", "main")
             + "/examples/",
         )
-        outputs["docs/guides/" + guide.name] = text
-        auxiliary.append(("guides", guide.stem, text))
+        outputs["docs/guides/" + name + ".md"] = text
+        auxiliary.append(("guides", name, text))
     for kind, name, text in auxiliary:
         body = text.split("---\n", 2)[-1].lstrip() if text.startswith("---\n") else text
         identifier = stable_id(kind, name, "overview")
@@ -1110,9 +1126,13 @@ def generate(root, schema_path, constraints_path):
             "child_ids": [],
             "title": "Provider setup and authentication"
             if kind == "provider"
+            else "Release history"
+            if name == "release-history"
             else name,
             "summary": "Complete provider setup and authentication."
             if kind == "provider"
+            else "Published stable provider release history."
+            if name == "release-history"
             else "Maintained " + name + " guide.",
             "aliases": [],
             "completeness": "complete",
@@ -1128,7 +1148,36 @@ def generate(root, schema_path, constraints_path):
         }
         rules = RetrievalRules.default()
         page.update(rules.classify(kind, name, [], "overview"))
-        page["aliases"] = rules.aliases(name, body)
+        if kind == "guides":
+            taxonomy = read_json(root / "documentation/llms-config.json")[
+                "canonicalCorpus"
+            ]["taxonomy"]
+            if taxonomy["rulesDigest"] != rules.digest:
+                raise ValueError(
+                    "guide taxonomy differs from canonical retrieval rules"
+                )
+            mapped = [
+                group["category"]
+                for group in taxonomy["subcategories"]
+                if name in group["collections"]
+            ]
+            if len(mapped) > 1:
+                raise ValueError(f"guide has competing taxonomy mappings: {name}")
+            if mapped:
+                category = mapped[0]
+                if category not in taxonomy["topics"]:
+                    raise ValueError(f"guide has unknown taxonomy topic: {name}")
+                page["category"] = category
+                page["capabilities"] = sorted(set(page["capabilities"]) | {category})
+                page["classification"]["status"] = "resolved"
+                page["classification"]["sources"].append(
+                    "reviewed-publication-taxonomy"
+                )
+        if kind == "guides" and name == "release-history":
+            page["aliases"] = ["changelog", "provider releases", "release history"]
+            page["tasks"] = []
+        else:
+            page["aliases"] = rules.aliases(name, body)
         page["sections"] = []
         page["relationships"] = []
         pages.append(page)
@@ -1328,7 +1377,7 @@ def generate(root, schema_path, constraints_path):
         + SITE
         + "/provider/setup/)\n"
         + "".join(
-            f"- [{name} guide]({SITE}/guides/{name}/)\n"
+            f"- [{'Release history' if name == 'release-history' else name} guide]({SITE}/guides/{name}/)\n"
             for kind, name, _ in auxiliary
             if kind == "guides"
         )

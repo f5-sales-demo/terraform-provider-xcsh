@@ -85,6 +85,7 @@ jobs:
       code-changed: ${{ steps.changes.outputs.code }}
       tools-changed: ${{ steps.changes.outputs.tools }}
       docs-changed: ${{ steps.changes.outputs.docs }}
+      docs-source-changed: ${{ steps.changes.outputs.docs_source }}
       has-any-changes: ${{ steps.changes.outputs.has_any_changes }}
       is-regeneration-commit: ${{ steps.check-author.outputs.is_regeneration }}
       pending-delivery: ${{ steps.changes.outputs.pending_delivery }}
@@ -439,6 +440,13 @@ jobs:
             echo "tools=false" >> "$GITHUB_OUTPUT"
           fi
 
+          # Authored documentation inputs must regenerate their projections.
+          if echo "$CHANGED" | grep -qE '^(CHANGELOG\.md|documentation/llms-config\.json)$'; then
+            echo "docs_source=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "docs_source=false" >> "$GITHUB_OUTPUT"
+          fi
+
           # Check for documentation changes
           if echo "$CHANGED" | grep -qE '^docs/(resources|data-sources|actions)/'; then
             echo "docs=true" >> "$GITHUB_OUTPUT"
@@ -476,6 +484,7 @@ jobs:
           SPECS: ${{ steps.changes.outputs.specs }}
           CODE: ${{ steps.changes.outputs.code }}
           TOOLS: ${{ steps.changes.outputs.tools }}
+          DOCS_SOURCE: ${{ steps.changes.outputs.docs_source }}
           HAS_ANY_CHANGES: ${{ steps.changes.outputs.has_any_changes }}
           DELIVERY_METADATA_ONLY: ${{ steps.changes.outputs.delivery_metadata_only }}
           PENDING_DELIVERY: ${{ steps.changes.outputs.pending_delivery }}
@@ -485,7 +494,7 @@ jobs:
             PROVIDER_REQUIRED=true
           fi
           DOCS_REQUIRED=false
-          if [[ "$SPECS" == "true" || "$CODE" == "true" || "$TOOLS" == "true" || "$PENDING_DELIVERY" == "true" ]]; then
+          if [[ "$SPECS" == "true" || "$CODE" == "true" || "$TOOLS" == "true" || "$DOCS_SOURCE" == "true" || "$PENDING_DELIVERY" == "true" ]]; then
             DOCS_REQUIRED=true
           fi
           NEEDS_REGEN=false
