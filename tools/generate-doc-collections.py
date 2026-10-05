@@ -1148,6 +1148,31 @@ def generate(root, schema_path, constraints_path):
         }
         rules = RetrievalRules.default()
         page.update(rules.classify(kind, name, [], "overview"))
+        if kind == "guides":
+            taxonomy = read_json(root / "documentation/llms-config.json")[
+                "canonicalCorpus"
+            ]["taxonomy"]
+            if taxonomy["rulesDigest"] != rules.digest:
+                raise ValueError(
+                    "guide taxonomy differs from canonical retrieval rules"
+                )
+            mapped = [
+                group["category"]
+                for group in taxonomy["subcategories"]
+                if name in group["collections"]
+            ]
+            if len(mapped) > 1:
+                raise ValueError(f"guide has competing taxonomy mappings: {name}")
+            if mapped:
+                category = mapped[0]
+                if category not in taxonomy["topics"]:
+                    raise ValueError(f"guide has unknown taxonomy topic: {name}")
+                page["category"] = category
+                page["capabilities"] = sorted(set(page["capabilities"]) | {category})
+                page["classification"]["status"] = "resolved"
+                page["classification"]["sources"].append(
+                    "reviewed-publication-taxonomy"
+                )
         if kind == "guides" and name == "release-history":
             page["aliases"] = ["changelog", "provider releases", "release history"]
             page["tasks"] = []

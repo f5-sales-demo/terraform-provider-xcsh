@@ -3217,8 +3217,8 @@
       "sha256": "sha256:07af41b5d4db74629947a8ec7504bc57daf5f6c88d24dbeaa53b6c6abb27f4d7"
     },
     "docs/guides/release-history.md": {
-      "bytes": 15091,
-      "sha256": "sha256:3190d15c98df499f8a946c27404c830d387b3adc8815ec57eed9d6508fde79f0"
+      "bytes": 14779,
+      "sha256": "sha256:30a8651770c532353a5b13dfb85daabe4443b0dc2a008c5f84599c4487db546b"
     },
     "docs/guides/resources--address_allocator--examples--group-001.md": {
       "bytes": 4315,

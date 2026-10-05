@@ -6,6 +6,7 @@ import re
 import sys
 import unittest
 from pathlib import Path
+from typing import ClassVar
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
@@ -47,6 +48,11 @@ RETIRED = {
 
 
 class PublicationTests(unittest.TestCase):
+    taxonomy: ClassVar[dict]
+    index: ClassVar[dict]
+    surface: ClassVar[dict]
+    changelog: ClassVar[str]
+
     @classmethod
     def setUpClass(cls):
         cls.taxonomy = json.loads(
@@ -77,7 +83,7 @@ class PublicationTests(unittest.TestCase):
         )
         active.update({"setup", "release-history"})
         present = {page["provider_name"] for page in self.index["pages"]}
-        mapped = set()
+        mapped: set[str] = set()
         for group in self.taxonomy["subcategories"]:
             self.assertIn(group["category"], self.taxonomy["topics"])
             self.assertTrue(group["collections"], group["title"])
@@ -134,6 +140,11 @@ class PublicationTests(unittest.TestCase):
             ["changelog", "provider releases", "release history"],
         )
         self.assertEqual(guide[0]["tasks"], [])
+        self.assertEqual(guide[0]["category"], "administration")
+        self.assertIn(
+            "reviewed-publication-taxonomy",
+            guide[0]["classification"]["sources"],
+        )
 
 
 if __name__ == "__main__":
