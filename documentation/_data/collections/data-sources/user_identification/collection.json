@@ -130,7 +130,7 @@
         "xcsh-docs:data-sources:user_identification:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -142,7 +142,7 @@
       "path": "documentation/data-sources/user_identification/index.md",
       "product": "distributed-cloud",
       "provider_name": "user_identification",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2201200133133200-1323022002031211-0333333233002132-2202230300203100-0300223221213321-3023000331000320-1020113111130300-2213210002320321",
       "registry_path": "docs/data-sources/user_identification.md",
@@ -152,15 +152,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Manages user_identification creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_user_identification",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["user_identificationCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -171,7 +171,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:user_identification:properties:rules"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -183,7 +183,7 @@
       "path": "documentation/data-sources/user_identification/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "user_identification",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3310121033102132-2303003001031311-1133201000013200-3221030012100122-3312001102312332-2301122032131033-0221223313103222-0332010121330113",
       "registry_path": "docs/guides/data-sources--user_identification--reference--group-001.md",
@@ -292,14 +292,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Property reference for xcsh_user_identification.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["user_identificationCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -321,7 +321,7 @@
         "xcsh-docs:data-sources:user_identification:properties:rules:tls_fingerprint"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -333,7 +333,7 @@
       "path": "documentation/data-sources/user_identification/properties/rules/index.md",
       "product": "distributed-cloud",
       "provider_name": "user_identification",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0023320101101103-1310232200212121-0320003011113033-0312100132213231-1113210010123023-0103110220112213-2032223203203200-1013303102232233",
       "registry_path": "docs/guides/data-sources--user_identification--reference--group-001.md",
@@ -554,14 +554,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/rules/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "An ordered list of rules that are evaluated sequentially against the input fields extracted from an API request in order to determine a user identifier. Evaluation of the rules is terminated once a user identifier has been extracted.",
       "tasks": ["configuration"],
       "title": "rules",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["user_identificationCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -572,7 +572,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -584,7 +584,7 @@
       "path": "documentation/data-sources/user_identification/properties/rules/client_asn/index.md",
       "product": "distributed-cloud",
       "provider_name": "user_identification",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2211301013311301-2211231001201130-0233313313010001-3203233201320132-2011102013302302-2313000010221331-1012332332212100-0212313001310222",
       "registry_path": "docs/guides/data-sources--user_identification--reference--group-001.md",
@@ -594,14 +594,14 @@
       "schema_path": ["rules", "client_asn"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/rules/client_asn/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.client_asn",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["user_identificationCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -612,7 +612,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -624,7 +624,7 @@
       "path": "documentation/data-sources/user_identification/properties/rules/client_city/index.md",
       "product": "distributed-cloud",
       "provider_name": "user_identification",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0012131122003213-3031230220132323-3122132211021220-0122121212112201-1031011030010033-1212301010030133-1312221133323333-0222003300200223",
       "registry_path": "docs/guides/data-sources--user_identification--reference--group-001.md",
@@ -634,14 +634,14 @@
       "schema_path": ["rules", "client_city"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/rules/client_city/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.client_city",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["user_identificationCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -652,7 +652,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -664,7 +664,7 @@
       "path": "documentation/data-sources/user_identification/properties/rules/client_country/index.md",
       "product": "distributed-cloud",
       "provider_name": "user_identification",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1221202030311211-1033023013211233-0311231233132301-3100112000023022-2133031010303003-1133210213213120-0120101211300223-1011020033312221",
       "registry_path": "docs/guides/data-sources--user_identification--reference--group-001.md",
@@ -674,14 +674,14 @@
       "schema_path": ["rules", "client_country"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/rules/client_country/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.client_country",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["user_identificationCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -692,7 +692,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -704,7 +704,7 @@
       "path": "documentation/data-sources/user_identification/properties/rules/client_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "user_identification",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3111322221000120-1310110221322323-0311103020200202-1031032003210212-0321232301202302-0032133032011221-3320112303313213-2300032200131123",
       "registry_path": "docs/guides/data-sources--user_identification--reference--group-001.md",
@@ -714,14 +714,14 @@
       "schema_path": ["rules", "client_ip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/rules/client_ip/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.client_ip",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["user_identificationCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -732,7 +732,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -744,7 +744,7 @@
       "path": "documentation/data-sources/user_identification/properties/rules/client_region/index.md",
       "product": "distributed-cloud",
       "provider_name": "user_identification",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0333121032300332-3131002210130033-3001123000003111-3333003122031123-1332223031021112-3321203213311303-3121111000230301-3101121310232021",
       "registry_path": "docs/guides/data-sources--user_identification--reference--group-001.md",
@@ -754,14 +754,14 @@
       "schema_path": ["rules", "client_region"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/rules/client_region/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.client_region",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["user_identificationCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -772,7 +772,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -784,7 +784,7 @@
       "path": "documentation/data-sources/user_identification/properties/rules/ip_and_ja4_tls_fingerprint/index.md",
       "product": "distributed-cloud",
       "provider_name": "user_identification",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2320303013222332-3023202333130120-2011202212121031-3030110222232212-1011222021222313-1011300022120123-3133333112213213-3332112120303220",
       "registry_path": "docs/guides/data-sources--user_identification--reference--group-001.md",
@@ -794,14 +794,14 @@
       "schema_path": ["rules", "ip_and_ja4_tls_fingerprint"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/rules/ip_and_ja4_tls_fingerprint/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.ip_and_ja4_tls_fingerprint",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["user_identificationCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -812,7 +812,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -824,7 +824,7 @@
       "path": "documentation/data-sources/user_identification/properties/rules/ip_and_tls_fingerprint/index.md",
       "product": "distributed-cloud",
       "provider_name": "user_identification",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1130330220233023-2022313333120113-3131003111020231-1001113322101212-0111331310100011-1030102213202123-2020101020101123-0123311013123000",
       "registry_path": "docs/guides/data-sources--user_identification--reference--group-001.md",
@@ -834,14 +834,14 @@
       "schema_path": ["rules", "ip_and_tls_fingerprint"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/rules/ip_and_tls_fingerprint/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.ip_and_tls_fingerprint",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["user_identificationCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -852,7 +852,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -864,7 +864,7 @@
       "path": "documentation/data-sources/user_identification/properties/rules/ja4_tls_fingerprint/index.md",
       "product": "distributed-cloud",
       "provider_name": "user_identification",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1333132302231133-1012010222321122-3100100122132320-2333322113103220-3113003000022031-2300110231011113-2222222311221022-3001230000222003",
       "registry_path": "docs/guides/data-sources--user_identification--reference--group-001.md",
@@ -874,14 +874,14 @@
       "schema_path": ["rules", "ja4_tls_fingerprint"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/rules/ja4_tls_fingerprint/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.ja4_tls_fingerprint",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["user_identificationCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -892,7 +892,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -904,7 +904,7 @@
       "path": "documentation/data-sources/user_identification/properties/rules/none/index.md",
       "product": "distributed-cloud",
       "provider_name": "user_identification",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0331101123301300-0213110012321311-0312102201213001-1323100301231310-0313331130310122-2330001001022200-0111131122322100-3313033121220222",
       "registry_path": "docs/guides/data-sources--user_identification--reference--group-001.md",
@@ -914,14 +914,14 @@
       "schema_path": ["rules", "none"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/rules/none/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.none",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["user_identificationCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -932,7 +932,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -944,7 +944,7 @@
       "path": "documentation/data-sources/user_identification/properties/rules/tls_fingerprint/index.md",
       "product": "distributed-cloud",
       "provider_name": "user_identification",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3223201212222123-1320213332302222-3033301310213001-0232101010110322-1130011101033201-2231133010313101-0010013203310202-0332121310312003",
       "registry_path": "docs/guides/data-sources--user_identification--reference--group-001.md",
@@ -954,14 +954,14 @@
       "schema_path": ["rules", "tls_fingerprint"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/rules/tls_fingerprint/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.tls_fingerprint",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["user_identificationCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -972,7 +972,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:user_identification:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -984,7 +984,7 @@
       "path": "documentation/data-sources/user_identification/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "user_identification",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2332023102210113-1231211101202322-2303231032012131-0320023202113003-3233222222302313-1020333202322011-0000013021301000-1003303030200123",
       "registry_path": "docs/guides/data-sources--user_identification--examples--group-001.md",
@@ -994,14 +994,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/examples/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Examples for xcsh_user_identification.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["user_identificationCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1012,7 +1012,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1031,7 +1031,7 @@
       "path": "documentation/data-sources/user_identification/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "user_identification",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1113012020110212-3203110103303312-2010033223110313-3013231211121132-3210300300233322-3300021101211023-1120313212023220-0333121030121331",
       "registry_path": "docs/guides/data-sources--user_identification--examples--group-001.md",
@@ -1041,14 +1041,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Data source for xcsh_user_identification.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["user_identificationCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     }
   ],

@@ -59,7 +59,7 @@
       "category": "identity",
       "child_ids": ["xcsh-docs:data-sources:token:reference", "xcsh-docs:data-sources:token:examples"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -71,7 +71,7 @@
       "path": "documentation/data-sources/token/index.md",
       "product": "distributed-cloud",
       "provider_name": "token",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2000130020133110-1113012332320202-2223121002312130-2001210311231111-3323332201023323-2311120322030210-1131312201010133-0322033200102202",
       "registry_path": "docs/data-sources/token.md",
@@ -81,15 +81,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/token/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Manages new token. Token object is used to manage site admission. User must generate token before provisioning and pass this token to site during it's registration in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_token",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["tokenCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -100,7 +100,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -112,7 +112,7 @@
       "path": "documentation/data-sources/token/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "token",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1302021003003321-1033031123003102-3221300113210300-3012332223200031-1300210333011012-3120203201330301-0001020001012101-1203222133001122",
       "registry_path": "docs/guides/data-sources--token--reference--group-001.md",
@@ -263,14 +263,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/token/properties/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Property reference for xcsh_token.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["tokenCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -281,7 +281,7 @@
       "category": "identity",
       "child_ids": ["xcsh-docs:data-sources:token:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -293,7 +293,7 @@
       "path": "documentation/data-sources/token/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "token",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1020321111222301-2033123121331132-3331211233301231-1202000032310201-3201211232323022-2130002310311310-3103122312103310-0031001213131320",
       "registry_path": "docs/guides/data-sources--token--examples--group-001.md",
@@ -303,14 +303,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/token/examples/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Examples for xcsh_token.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["tokenCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -321,7 +321,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -340,7 +340,7 @@
       "path": "documentation/data-sources/token/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "token",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0102202302032300-2131201001103020-1213132120331221-0031010123200100-0120100213311021-1021133231120011-0320202323201223-2323111231111021",
       "registry_path": "docs/guides/data-sources--token--examples--group-001.md",
@@ -350,14 +350,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/token/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Data source for xcsh_token.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["tokenCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     }
   ],

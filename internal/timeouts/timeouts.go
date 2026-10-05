@@ -164,7 +164,6 @@ var LongRunningResourceTypes = map[string]bool{
 	"azure_vnet_site":    true,
 	"gcp_vpc_site":       true,
 	"aws_tgw_site":       true,
-	"voltstack_site":     true,
 	"securemesh_site":    true,
 	"securemesh_site_v2": true,
 	"k8s_cluster":        true,

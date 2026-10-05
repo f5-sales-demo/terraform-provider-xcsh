@@ -100,7 +100,7 @@
         "xcsh-docs:data-sources:managed_client_customer_support_comments:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -112,7 +112,7 @@
       "path": "documentation/data-sources/managed_client_customer_support_comments/index.md",
       "product": "distributed-cloud",
       "provider_name": "managed_client_customer_support_comments",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0121323102230033-0320023001323221-1211130012203100-2333331223231001-1203112221121320-3132121331212101-3013023323130212-2212123012212223",
       "registry_path": "docs/data-sources/managed_client_customer_support_comments.md",
@@ -122,15 +122,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/managed_client_customer_support_comments/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Resource retrieval operation.",
       "tasks": ["configuration"],
       "title": "xcsh_managed_client_customer_support_comments",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -141,7 +141,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:managed_client_customer_support_comments:properties:comments"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -153,7 +153,7 @@
       "path": "documentation/data-sources/managed_client_customer_support_comments/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "managed_client_customer_support_comments",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0000022210111311-2312013223102231-1230223030030013-3002331301021100-0113020132311001-2203322121231303-1313033333102303-3220002111232101",
       "registry_path": "docs/guides/data-sources--managed_client_customer_support_comments--reference--group-001.md",
@@ -220,14 +220,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/managed_client_customer_support_comments/properties/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Property reference for xcsh_managed_client_customer_support_comments.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -240,7 +240,7 @@
         "xcsh-docs:data-sources:managed_client_customer_support_comments:properties:comments:attachments_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -252,7 +252,7 @@
       "path": "documentation/data-sources/managed_client_customer_support_comments/properties/comments/index.md",
       "product": "distributed-cloud",
       "provider_name": "managed_client_customer_support_comments",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3331031333232023-3021203022123030-2213020102313132-2331122133113230-0120132330023202-2223010122231213-2330130122103321-3100013203233133",
       "registry_path": "docs/guides/data-sources--managed_client_customer_support_comments--reference--group-001.md",
@@ -375,14 +375,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/managed_client_customer_support_comments/properties/comments/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "List of comments on the customer support ticket.",
       "tasks": ["configuration"],
       "title": "comments",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -393,7 +393,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -405,7 +405,7 @@
       "path": "documentation/data-sources/managed_client_customer_support_comments/properties/comments/attachments_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "managed_client_customer_support_comments",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3230120002101330-0231323203333330-0223013202300221-3123210001302233-3103012231130012-1103303222032133-0300123110013323-3132123211200220",
       "registry_path": "docs/guides/data-sources--managed_client_customer_support_comments--reference--group-001.md",
@@ -472,14 +472,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/managed_client_customer_support_comments/properties/comments/attachments_info/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Information about any attachments (such as screenshots, plain text files) the comment can have.",
       "tasks": ["configuration"],
       "title": "comments.attachments_info",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -490,7 +490,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:managed_client_customer_support_comments:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -502,7 +502,7 @@
       "path": "documentation/data-sources/managed_client_customer_support_comments/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "managed_client_customer_support_comments",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3030003222020311-1211300121022203-2020231200103132-0123003222120122-0202313011010220-1311131120321212-0220300203013221-1311233302200111",
       "registry_path": "docs/guides/data-sources--managed_client_customer_support_comments--examples--group-001.md",
@@ -512,14 +512,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/managed_client_customer_support_comments/examples/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Examples for xcsh_managed_client_customer_support_comments.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -530,7 +530,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -549,7 +549,7 @@
       "path": "documentation/data-sources/managed_client_customer_support_comments/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "managed_client_customer_support_comments",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3100013300203120-1302101310131031-0112230210132103-3013322000120302-0231112013020300-2012331310222323-1333201110213001-1103010231112222",
       "registry_path": "docs/guides/data-sources--managed_client_customer_support_comments--examples--group-001.md",
@@ -559,14 +559,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/managed_client_customer_support_comments/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Data source for xcsh_managed_client_customer_support_comments.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     }
   ],

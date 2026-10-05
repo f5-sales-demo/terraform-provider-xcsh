@@ -537,7 +537,7 @@
         "xcsh-docs:data-sources:alert_receiver:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -549,7 +549,7 @@
       "path": "documentation/data-sources/alert_receiver/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3012133032112200-3010101132010313-3312231133323113-0303010111120112-3233032202012130-0203311232212023-1011202020122232-2231030013203102",
       "registry_path": "docs/data-sources/alert_receiver.md",
@@ -559,15 +559,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Manages new Alert Receiver object in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_alert_receiver",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -585,7 +585,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:webhook"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -597,7 +597,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2132131323221021-2020310203213232-1133303303131310-0202011031123003-3121133011213003-0120331333330031-0012311032301222-0021221020101101",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -776,14 +776,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Property reference for xcsh_alert_receiver.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -794,7 +794,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -806,7 +806,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/email/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0201220120220213-2102011031101202-1102230231331111-2220122101301312-3030220000230030-2233120122013213-3232011302301001-2102231023110000",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -831,14 +831,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/email/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Email Configuration.",
       "tasks": ["configuration"],
       "title": "email",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -849,7 +849,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -861,7 +861,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/opsgenie/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1211322113200310-1213220213023020-2232330133023322-0012212203103221-1123201022032210-1310021300010023-0123031121310201-0132303120000123",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -900,14 +900,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/opsgenie/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "OpsGenie configuration to send alert notifications.",
       "tasks": ["configuration"],
       "title": "opsgenie",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -921,7 +921,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -933,7 +933,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/opsgenie/api_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1100333223230322-1011221303322030-1212310003333232-0110200322020230-1202200230202120-1000013220031131-2203131301322221-0232223313331322",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -972,14 +972,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/opsgenie/api_key/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "opsgenie.api_key",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -990,7 +990,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1002,7 +1002,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/opsgenie/api_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2110110220202022-2030023222111301-1201112031323320-2101022232002203-3202133113300201-3001120332303032-1110031300310131-2202223212222330",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -1055,14 +1055,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/opsgenie/api_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "opsgenie.api_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1073,7 +1073,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1085,7 +1085,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/opsgenie/api_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3313101032122200-1110112322323110-3210022103321033-1312021310303323-2113322000213123-0301321110030320-0231013312000332-0332333000310123",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -1124,14 +1124,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/opsgenie/api_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "opsgenie.api_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1142,7 +1142,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1154,7 +1154,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/pagerduty/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2310320030111211-3032330222323111-2003331131121231-2021223211110101-3221203112203233-3022010211323123-2003032312303302-0111312030013211",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -1193,14 +1193,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/pagerduty/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "PagerDuty configuration to send alert notifications.",
       "tasks": ["configuration"],
       "title": "pagerduty",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1214,7 +1214,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1226,7 +1226,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/pagerduty/routing_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2012000210132323-1002231011103021-3222330123122310-0202132020221333-2003330333212213-2032020202301331-0220311201101323-1120103223322103",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -1265,14 +1265,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/pagerduty/routing_key/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "pagerduty.routing_key",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1283,7 +1283,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1295,7 +1295,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/pagerduty/routing_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2002231303320201-0110113232212030-2321102232213210-1210212202321012-2033031311033110-0313230111002023-1202031331030200-0011122012213300",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -1348,14 +1348,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/pagerduty/routing_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "pagerduty.routing_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1366,7 +1366,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1378,7 +1378,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/pagerduty/routing_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1301122001012323-0010103120233331-2202312122023203-3312100220102302-3210031103230200-0020003211223320-0301220123301033-2130210123123230",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -1417,14 +1417,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/pagerduty/routing_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "pagerduty.routing_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1435,7 +1435,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:alert_receiver:properties:slack:url"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1447,7 +1447,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/slack/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3033332003330212-1233103210333032-2131030123311030-0111310322012030-2122223002333001-2323111011321322-0321321013232130-1230032003100323",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -1486,14 +1486,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/slack/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Slack configuration to send alert notifications.",
       "tasks": ["configuration"],
       "title": "slack",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1507,7 +1507,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:slack:url:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1519,7 +1519,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/slack/url/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1010221222222122-1232032003021211-0132111211200300-1230203023100021-3333313011300332-1123102031101110-1303333212103120-3133200331231032",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -1558,14 +1558,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/slack/url/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "slack.url",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1576,7 +1576,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1588,7 +1588,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/slack/url/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3303111233202201-0311012222123131-2012031103033213-0230130010101100-0103002112132210-2312123023001102-3103130220030320-1333222232212232",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -1641,14 +1641,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/slack/url/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "slack.url.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1659,7 +1659,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1671,7 +1671,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/slack/url/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3132222201223311-0121122210333121-1232333233310101-3321103003323113-0210321133201130-1223101002333000-2320032111010300-3310202323321020",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -1710,14 +1710,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/slack/url/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "slack.url.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1728,7 +1728,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1740,7 +1740,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/sms/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1102020323302231-3330031312223101-2332200311130100-0221003321130033-0310033330311110-2222220310130220-0311300330010121-3122100310111130",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -1765,14 +1765,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/sms/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "SMS Configuration.",
       "tasks": ["configuration"],
       "title": "sms",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1786,7 +1786,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:webhook:url"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1798,7 +1798,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0300223223302111-0101231033213323-0110013230113210-2010301321102001-2123131011023312-3331032020333110-1222231013311122-3133302001000303",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -1837,14 +1837,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Webhook configuration to send alert notifications.",
       "tasks": ["configuration"],
       "title": "webhook",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1862,7 +1862,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1874,7 +1874,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2331011100033223-2223121001120230-0320022321013132-0021122120120022-0012123302320121-2010100323020230-3333230202010122-0322013002200012",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -1997,14 +1997,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Configuration for HTTP endpoint.",
       "tasks": ["configuration"],
       "title": "webhook.http_config",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2015,7 +2015,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2027,7 +2027,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/auth_token/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3212332102323121-2310200122313131-0321011120122000-0323031312333200-0110033322131121-2020223023120022-0320002133020011-1331100101132113",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -2052,14 +2052,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/auth_token/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Authentication Token for access.",
       "tasks": ["configuration"],
       "title": "webhook.http_config.auth_token",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2073,7 +2073,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2085,7 +2085,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/auth_token/token/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0203333133310200-1310220321311310-1001100300021021-1120110230200302-0302120302300331-2231221111311310-3123231223231011-1222130221231200",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -2124,14 +2124,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/auth_token/token/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "webhook.http_config.auth_token.token",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2142,7 +2142,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2154,7 +2154,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/auth_token/token/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3033301320212301-1113100232231230-3010002230123220-0120222020322322-2233333200102320-3332010020113010-0323203333022212-1103322201123222",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -2214,14 +2214,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/auth_token/token/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "webhook.http_config.auth_token.token.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2232,7 +2232,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2244,7 +2244,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/auth_token/token/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0210333320202002-1131331311103001-0321032100013033-0031201313121113-0323132233230130-0013302033200111-1213230301022031-1301032000033213",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -2283,14 +2283,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/auth_token/token/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "webhook.http_config.auth_token.token.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2301,7 +2301,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2313,7 +2313,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/basic_auth/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2122123202033231-3121123322333211-2313033202231112-3112301330133030-0103133110302103-1002212221302333-0322001010122031-2013020210012000",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -2352,14 +2352,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/basic_auth/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Authorization parameters to access HTPP alert Receiver Endpoint.",
       "tasks": ["configuration"],
       "title": "webhook.http_config.basic_auth",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2373,7 +2373,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2385,7 +2385,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/basic_auth/password/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3011232020310330-3031112210033310-3032132010032302-1113001212233200-1311313132301132-3223231030322231-0003012022031330-1233321130101213",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -2424,14 +2424,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/basic_auth/password/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "webhook.http_config.basic_auth.password",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2442,7 +2442,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2454,7 +2454,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/basic_auth/password/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3320100313203311-2333110031110030-0311321112312232-1013323011022212-2110123032013300-1012101111023000-2310133232223003-3030031021031003",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -2521,14 +2521,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/basic_auth/password/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "webhook.http_config.basic_auth.password.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2539,7 +2539,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2551,7 +2551,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/basic_auth/password/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2032001030033110-2010003211313011-3202121202100213-2010023300203212-3000003210130211-2013322000200103-0020113220331020-3101333203133202",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -2590,14 +2590,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/basic_auth/password/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "webhook.http_config.basic_auth.password.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2608,7 +2608,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:client_cert_obj:use_tls_obj"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2620,7 +2620,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/client_cert_obj/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2311000221310311-1210201200003322-2321232110300330-3023130122002031-3131003023220200-1203200302202301-1223013222002320-0211023111213222",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -2645,14 +2645,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/client_cert_obj/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Configuration for client certificate.",
       "tasks": ["configuration"],
       "title": "webhook.http_config.client_cert_obj",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2663,7 +2663,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2675,7 +2675,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/client_cert_obj/use_tls_obj/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3311330210202103-0223333111233212-2020120302010232-2321110312012021-2003123330031221-1313000200301110-0302102122013102-0000121020331300",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -2756,14 +2756,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/client_cert_obj/use_tls_obj/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Reference to client certificate object.",
       "tasks": ["configuration"],
       "title": "webhook.http_config.client_cert_obj.use_tls_obj",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2774,7 +2774,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2786,7 +2786,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/no_authorization/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2301030333321310-1212222023211233-3121330011012100-1032111111121332-3220121300231203-2203323220130213-3112302233213120-3202010233130312",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -2796,14 +2796,14 @@
       "schema_path": ["webhook", "http_config", "no_authorization"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/no_authorization/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "webhook.http_config.no_authorization",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2814,7 +2814,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2826,7 +2826,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/no_tls/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3332231222110321-3020221133211032-0213331012313022-2010232320233221-0313201211310220-1003103320200313-1210032223122331-3300020121000113",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -2836,14 +2836,14 @@
       "schema_path": ["webhook", "http_config", "no_tls"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/no_tls/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "webhook.http_config.no_tls",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2858,7 +2858,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:volterra_trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2870,7 +2870,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/use_tls/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3302303211231132-3333130311332333-2212310130112020-0232103121300113-0001310332333303-3122223032322012-1133302303231230-1112203023223132",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -2965,14 +2965,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/use_tls/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Configures the token request's TLS settings.",
       "tasks": ["configuration"],
       "title": "webhook.http_config.use_tls",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2983,7 +2983,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2995,7 +2995,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/use_tls/disable_sni/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2212010002301233-3212332222032310-2230120222111233-2230130233131320-3330312030301221-3010301223313301-2211030210120301-3212201222321001",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -3005,14 +3005,14 @@
       "schema_path": ["webhook", "http_config", "use_tls", "disable_sni"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/use_tls/disable_sni/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "webhook.http_config.use_tls.disable_sni",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -3025,7 +3025,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3037,7 +3037,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/use_tls/use_server_verification/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0001031210332313-3310013011030213-1220232223110312-0030002100112211-2132023301203221-2030213200231232-2232011311010032-3131031103222113",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -3062,14 +3062,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/use_tls/use_server_verification/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Upstream TLS Validation Context.",
       "tasks": ["configuration"],
       "title": "webhook.http_config.use_tls.use_server_verification",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -3082,7 +3082,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj:trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3094,7 +3094,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/use_tls/use_server_verification/ca_cert_obj/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3213001032311223-1032133001311020-1320031222113033-3213112031013112-0210122320133311-3321123033023310-1230310300323333-0033010033103333",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -3119,14 +3119,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/use_tls/use_server_verification/ca_cert_obj/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Configuration for CA certificate.",
       "tasks": ["configuration"],
       "title": "webhook.http_config.use_tls.use_server_verification.ca_cert_obj",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -3137,7 +3137,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3149,7 +3149,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/use_tls/use_server_verification/ca_cert_obj/trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1320011322010103-3322012322231233-3322011132231330-0010202221213301-0320301300202011-3011033033311222-3000202001323023-3202111233302132",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -3270,14 +3270,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/use_tls/use_server_verification/ca_cert_obj/trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Reference to client certificate object.",
       "tasks": ["configuration"],
       "title": "webhook.http_config.use_tls.use_server_verification.ca_cert_obj.trusted_ca",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -3288,7 +3288,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3300,7 +3300,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/use_tls/volterra_trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2202022223012232-1130032013220201-2112021321230103-3201200133303301-1113332303020231-1002132332112122-0022210131330211-1121011132300300",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -3310,14 +3310,14 @@
       "schema_path": ["webhook", "http_config", "use_tls", "volterra_trusted_ca"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/use_tls/volterra_trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "webhook.http_config.use_tls.volterra_trusted_ca",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -3331,7 +3331,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:webhook:url:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3343,7 +3343,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/url/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3320213310121301-2102313133202001-1222223320030002-0210110101002111-2033020200031033-0021031212201202-1201202021022300-3332013032320210",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -3382,14 +3382,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/url/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "webhook.url",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -3400,7 +3400,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3412,7 +3412,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/url/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1111322000011222-3000003103231301-1211011322020203-1321321223312301-2203000021303233-0031121220030001-2113313021033300-2111101312100203",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -3465,14 +3465,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/url/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "webhook.url.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -3483,7 +3483,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3495,7 +3495,7 @@
       "path": "documentation/data-sources/alert_receiver/properties/webhook/url/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0020032311303213-1010222031122012-2313002103132233-2302333110122033-0033002112212101-1300331323030213-1020010123323003-1100101100212311",
       "registry_path": "docs/guides/data-sources--alert_receiver--reference--group-001.md",
@@ -3534,14 +3534,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/url/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "webhook.url.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -3552,7 +3552,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:alert_receiver:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3564,7 +3564,7 @@
       "path": "documentation/data-sources/alert_receiver/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2130120101331130-2120000310312101-0313131112010322-3013100020120003-0221123111021020-1300012221211231-3110312120331222-0223310311022310",
       "registry_path": "docs/guides/data-sources--alert_receiver--examples--group-001.md",
@@ -3574,14 +3574,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/examples/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Examples for xcsh_alert_receiver.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -3592,7 +3592,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3611,7 +3611,7 @@
       "path": "documentation/data-sources/alert_receiver/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3221110320020111-3312110013000223-1332222210300322-1033301303313312-1122112222311311-1303332201220113-0031310322112310-2103120203003001",
       "registry_path": "docs/guides/data-sources--alert_receiver--examples--group-001.md",
@@ -3621,14 +3621,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Data source for xcsh_alert_receiver.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["alert_receiverCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     }
   ],

@@ -930,7 +930,7 @@ class Collection:
                     "Terraform identifies the affected type blocks as **must be replaced**. Unknown block presence requires replacement when unchanged selection cannot be proven; unknown child settings alone do not. Recommendations do not establish API defaults.\n"
                 )
                 lines.append(
-                    "Use `lifecycle { prevent_destroy = true }` to reject replacement before remote writes. Terraform controls replacement ordering: its default destroys before creating; `create_before_destroy` requests creation first, which may fail if XC requires a unique name. Plan a maintenance window or use a distinct name for a staged migration.\n"
+                    "Use `lifecycle { prevent_destroy = true }` to reject replacement before remote writes. Terraform controls replacement ordering: its default destroys before creating; `create_before_destroy` requests creation first, which may fail if XC requires a unique name. Plan a maintenance window or use a distinct name for a staged replacement.\n"
                 )
             elif self.kind == "actions":
                 lines.append(
@@ -1052,7 +1052,12 @@ def validate(pages, collections, outputs):
             raise ValueError(f"Registry storage ceiling exceeded: {output}")
         for _, href in prose_links(text):
             target, _, anchor = href.partition("#")
-            if target in (SITE + "/llms.txt", SITE + "/terraform-llms-index.json"):
+            # Pages builds these discovery routes from the canonical corpus.
+            if target in (
+                SITE + "/llms.txt",
+                SITE + "/llms-full.txt",
+                SITE + "/terraform-llms-index.json",
+            ):
                 continue
             if target.startswith(SITE + "/"):
                 if target not in urls:
@@ -1178,16 +1183,19 @@ def generate(root, schema_path, constraints_path):
     provider_index = provider_index.replace("(llms.txt)", "(" + SITE + "/llms.txt)")
     outputs["docs/index.md"] = provider_index
     auxiliary = [("provider", "setup", provider_index)]
-    for guide in sorted((root / "templates/guides").glob("*.md")):
-        text = guide.read_text(encoding="utf-8")
-        text = text.replace(
+    guide_sources = [
+        (guide.stem, guide.read_text(encoding="utf-8"))
+        for guide in sorted((root / "templates/guides").glob("*.md"))
+    ]
+    for name, source_text in guide_sources:
+        text = source_text.replace(
             "../../examples/",
             "https://github.com/f5-sales-demo/terraform-provider-xcsh/blob/"
             + os.environ.get("DOCUMENTATION_VERSION", "main")
             + "/examples/",
         )
-        outputs["docs/guides/" + guide.name] = text
-        auxiliary.append(("guides", guide.stem, text))
+        outputs["docs/guides/" + name + ".md"] = text
+        auxiliary.append(("guides", name, text))
     for kind, name, text in auxiliary:
         body = text.split("---\n", 2)[-1].lstrip() if text.startswith("---\n") else text
         identifier = stable_id(kind, name, "overview")
@@ -1220,6 +1228,31 @@ def generate(root, schema_path, constraints_path):
         }
         rules = RetrievalRules.default()
         page.update(rules.classify(kind, name, [], "overview"))
+        if kind == "guides":
+            taxonomy = read_json(root / "documentation/llms-config.json")[
+                "canonicalCorpus"
+            ]["taxonomy"]
+            if taxonomy["rulesDigest"] != rules.digest:
+                raise ValueError(
+                    "guide taxonomy differs from canonical retrieval rules"
+                )
+            mapped = [
+                group["category"]
+                for group in taxonomy["subcategories"]
+                if name in group["collections"]
+            ]
+            if len(mapped) > 1:
+                raise ValueError(f"guide has competing taxonomy mappings: {name}")
+            if mapped:
+                category = mapped[0]
+                if category not in taxonomy["topics"]:
+                    raise ValueError(f"guide has unknown taxonomy topic: {name}")
+                page["category"] = category
+                page["capabilities"] = sorted(set(page["capabilities"]) | {category})
+                page["classification"]["status"] = "resolved"
+                page["classification"]["sources"].append(
+                    "reviewed-publication-taxonomy"
+                )
         page["aliases"] = rules.aliases(name, body)
         page["sections"] = []
         page["relationships"] = []

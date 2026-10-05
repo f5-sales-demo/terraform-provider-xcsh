@@ -83,7 +83,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:ike2:reference", "xcsh-docs:data-sources:ike2:examples"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -95,7 +95,7 @@
       "path": "documentation/data-sources/ike2/index.md",
       "product": "distributed-cloud",
       "provider_name": "ike2",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1332033132212110-1332133210322000-0321030302123031-3010310020103003-2122221201132213-2201311321232022-0331322230010032-2233221102111032",
       "registry_path": "docs/data-sources/ike2.md",
@@ -105,15 +105,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike2/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Manages a Ike2 resource in F5 Distributed Cloud for ike phase2 profile specification. configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_ike2",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["ike2CreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -130,7 +130,7 @@
         "xcsh-docs:data-sources:ike2:properties:use_default_keylifetime"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -142,7 +142,7 @@
       "path": "documentation/data-sources/ike2/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "ike2",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2210220022220321-0032112331013302-1322232000331110-0332122122320233-1212003130332202-2130200012212213-0001200123130221-1102033222321323",
       "registry_path": "docs/guides/data-sources--ike2--reference--group-001.md",
@@ -307,14 +307,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike2/properties/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Property reference for xcsh_ike2.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["ike2CreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -325,7 +325,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -337,7 +337,7 @@
       "path": "documentation/data-sources/ike2/properties/dh_group_set/index.md",
       "product": "distributed-cloud",
       "provider_name": "ike2",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2321302020002112-0310322221000012-2331102322022133-1132023021030113-2123220320303032-3322223132200331-2110031120023331-3313012221120203",
       "registry_path": "docs/guides/data-sources--ike2--reference--group-001.md",
@@ -362,14 +362,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike2/properties/dh_group_set/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Choose the acceptable Diffie Hellman(DH) Group or Groups that you are willing to accept as part of this profile.",
       "tasks": ["configuration"],
       "title": "dh_group_set",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["ike2CreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -380,7 +380,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -392,7 +392,7 @@
       "path": "documentation/data-sources/ike2/properties/disable_pfs/index.md",
       "product": "distributed-cloud",
       "provider_name": "ike2",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1312221221200230-3200223001010023-3010122220033323-0221202201231312-0021311201030213-1002331312323030-2031223131210032-2313331111003023",
       "registry_path": "docs/guides/data-sources--ike2--reference--group-001.md",
@@ -402,14 +402,14 @@
       "schema_path": ["disable_pfs"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike2/properties/disable_pfs/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "disable_pfs",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["ike2CreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -420,7 +420,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -432,7 +432,7 @@
       "path": "documentation/data-sources/ike2/properties/ike_keylifetime_hours/index.md",
       "product": "distributed-cloud",
       "provider_name": "ike2",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0120220320102313-2020033132300233-1201001110323033-0131000220102200-1213302223130331-2312110121023222-3122313002230322-1232021113223112",
       "registry_path": "docs/guides/data-sources--ike2--reference--group-001.md",
@@ -457,14 +457,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike2/properties/ike_keylifetime_hours/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Input Hours.",
       "tasks": ["configuration"],
       "title": "ike_keylifetime_hours",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["ike2CreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -475,7 +475,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -487,7 +487,7 @@
       "path": "documentation/data-sources/ike2/properties/ike_keylifetime_minutes/index.md",
       "product": "distributed-cloud",
       "provider_name": "ike2",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2003210323203303-0200300230323221-0022102111032231-0230131102331120-1130330001211122-3111022233310330-2221231230000322-3023330222232103",
       "registry_path": "docs/guides/data-sources--ike2--reference--group-001.md",
@@ -512,14 +512,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike2/properties/ike_keylifetime_minutes/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Set IKE Key Lifetime in minutes.",
       "tasks": ["configuration"],
       "title": "ike_keylifetime_minutes",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["ike2CreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -530,7 +530,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -542,7 +542,7 @@
       "path": "documentation/data-sources/ike2/properties/use_default_keylifetime/index.md",
       "product": "distributed-cloud",
       "provider_name": "ike2",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2101213102331132-2011013013211220-0230123122131310-2111331103302100-3210100221233301-1020123312002000-2332110321121230-3121310012010332",
       "registry_path": "docs/guides/data-sources--ike2--reference--group-001.md",
@@ -552,14 +552,14 @@
       "schema_path": ["use_default_keylifetime"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike2/properties/use_default_keylifetime/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "use_default_keylifetime",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["ike2CreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -570,7 +570,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:ike2:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -582,7 +582,7 @@
       "path": "documentation/data-sources/ike2/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "ike2",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1130101033033222-2212233311300131-1210202130100120-3023323030232133-0213103222002211-1303133001221200-2221113230210131-3112213100212123",
       "registry_path": "docs/guides/data-sources--ike2--examples--group-001.md",
@@ -592,14 +592,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike2/examples/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Examples for xcsh_ike2.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["ike2CreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -610,7 +610,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -629,7 +629,7 @@
       "path": "documentation/data-sources/ike2/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "ike2",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0032223302130332-1133100133332220-3111102102021312-3033312130120213-3121021201332330-2333213110213301-0312310200330000-3020013312200213",
       "registry_path": "docs/guides/data-sources--ike2--examples--group-001.md",
@@ -639,14 +639,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike2/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Data source for xcsh_ike2.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["ike2CreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     }
   ],

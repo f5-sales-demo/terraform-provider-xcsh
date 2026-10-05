@@ -43,13 +43,13 @@ self-hosted-runner:
     - origin-server
     - starlight-llms-txt
     - starlight-mega-menu
+    - statistics
     - terraform-provider-xcsh
     - terraform-provider-xcsh-32vcpu-candidate
     - terraform-provider-xcsh-compute
     - traffic-generator
     - ubuntu-24.04-arm
     - vscode-xcsh
-    - waf
     - was
     - webapp-api-protection
     - xcsh

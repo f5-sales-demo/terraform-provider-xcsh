@@ -11,10 +11,10 @@ func TestLoadProviderReleaseSurfaceIsExact(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if got, want := len(surface.Resources), 131; got != want {
+	if got, want := len(surface.Resources), 125; got != want {
 		t.Fatalf("resources = %d, want %d", got, want)
 	}
-	if got, want := len(surface.DataSources), 198; got != want {
+	if got, want := len(surface.DataSources), 192; got != want {
 		t.Fatalf("data sources = %d, want %d", got, want)
 	}
 	if got, want := len(surface.Actions), 11; got != want {
@@ -31,6 +31,11 @@ func TestLoadProviderReleaseSurfaceIsExact(t *testing.T) {
 	for _, name := range []string{"addon_service_activation_status", "network_regional_edges", "smsv2_contract"} {
 		if !slices.Contains(surface.DataSources, name) {
 			t.Errorf("data sources does not contain %q", name)
+		}
+	}
+	for _, name := range []string{"aws_vpc_site", "azure_vnet_site", "gcp_vpc_site", "securemesh_site", "cloud_connect", "voltstack_site"} {
+		if slices.Contains(surface.Resources, name) || slices.Contains(surface.DataSources, name) {
+			t.Errorf("retired type %q remains in the release surface", name)
 		}
 	}
 	if len(surface.Functions) != 0 {

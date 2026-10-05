@@ -185,39 +185,7 @@
       ]
     },
     {
-      "collection": "aws_vpc_site",
-      "schema_prefix": [],
-      "category": "infrastructure",
-      "capabilities": [
-        "infrastructure"
-      ]
-    },
-    {
       "collection": "aws_tgw_site",
-      "schema_prefix": [],
-      "category": "infrastructure",
-      "capabilities": [
-        "infrastructure"
-      ]
-    },
-    {
-      "collection": "azure_vnet_site",
-      "schema_prefix": [],
-      "category": "infrastructure",
-      "capabilities": [
-        "infrastructure"
-      ]
-    },
-    {
-      "collection": "gcp_vpc_site",
-      "schema_prefix": [],
-      "category": "infrastructure",
-      "capabilities": [
-        "infrastructure"
-      ]
-    },
-    {
-      "collection": "securemesh_site",
       "schema_prefix": [],
       "category": "infrastructure",
       "capabilities": [
@@ -265,14 +233,6 @@
       ],
       "tasks": [
         "authentication"
-      ]
-    },
-    {
-      "collection": "cloud_connect",
-      "schema_prefix": [],
-      "category": "infrastructure",
-      "capabilities": [
-        "infrastructure"
       ]
     },
     {
@@ -1375,43 +1335,6 @@
       "review_basis": "Choice marker mutually exclusive with eligible_for_cache; narrowed to eliminate guessed runtime forwarding effects and speculative aliases. Verified canonical v12.3.1 destination: https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/cdn_cache_rule/properties/cache_rules/cache_bypass/"
     },
     {
-      "provider_type": "resources",
-      "collection": "cloud_connect",
-      "schema_path": [
-        "azure_vnet_site",
-        "vnet_attachments",
-        "vnet_list",
-        "default_route",
-        "all_route_tables"
-      ],
-      "summary": "Applies the default route to all route tables in the Azure VNet attachment.",
-      "aliases": [
-        "all route tables"
-      ],
-      "review_basis": "Choice marker mutually exclusive with selective_route_tables; narrowed to eliminate unentailed propagation wording and informal aliases. Verified canonical v12.3.1 destination: https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/default_route/all_route_tables/"
-    },
-    {
-      "provider_type": "resources",
-      "collection": "bgp",
-      "schema_path": [
-        "bgp_parameters",
-        "asn"
-      ],
-      "summary": "Configure the autonomous system number (ASN) for the local site.",
-      "review_basis": "Receipt-pinned schema ves.io.schema.bgp.BgpParameters description: BGP parameters for the local site; ves.io.schema.bgp.PeerExternal description: External BGP Peer parameters. Direct asn properties declare Autonomous System Number; peer asn explicitly names BGP peer."
-    },
-    {
-      "provider_type": "resources",
-      "collection": "bgp",
-      "schema_path": [
-        "peers",
-        "external",
-        "asn"
-      ],
-      "summary": "Configure the autonomous system number (ASN) for the external BGP peer.",
-      "review_basis": "Receipt-pinned schema ves.io.schema.bgp.BgpParameters description: BGP parameters for the local site; ves.io.schema.bgp.PeerExternal description: External BGP Peer parameters. Direct asn properties declare Autonomous System Number; peer asn explicitly names BGP peer."
-    },
-    {
       "provider_type": "data-sources",
       "collection": "bgp",
       "schema_path": [
@@ -1419,7 +1342,7 @@
         "asn"
       ],
       "summary": "Inspect the autonomous system number (ASN) for the local site.",
-      "review_basis": "Receipt-pinned schema ves.io.schema.bgp.BgpParameters description: BGP parameters for the local site; ves.io.schema.bgp.PeerExternal description: External BGP Peer parameters. Direct asn properties declare Autonomous System Number; peer asn explicitly names BGP peer."
+      "review_basis": "Receipt-pinned schema ves.io.schema.bgp.BgpParameters description: BGP parameters for the local site; ves.io.schema.bgp.PeerExternal description: External BGP Peer parameters. Direct asn properties declare Autonomous System Number; peer asn explicitly names BGP peer. Exact destination and description rechecked in documentation-v15.0.0 manifest."
     },
     {
       "provider_type": "data-sources",
@@ -1430,21 +1353,7 @@
         "asn"
       ],
       "summary": "Inspect the autonomous system number (ASN) for the external BGP peer.",
-      "review_basis": "Receipt-pinned schema ves.io.schema.bgp.BgpParameters description: BGP parameters for the local site; ves.io.schema.bgp.PeerExternal description: External BGP Peer parameters. Direct asn properties declare Autonomous System Number; peer asn explicitly names BGP peer."
-    },
-    {
-      "provider_type": "resources",
-      "collection": "http_loadbalancer",
-      "schema_path": [
-        "domains"
-      ],
-      "summary": "Configure the domain names matched against the HTTP host/authority header by the load balancer.",
-      "aliases": [
-        "hostnames",
-        "host header domains",
-        "authority header domains"
-      ],
-      "review_basis": "Installed source-matched xcsh_http_loadbalancer schema domains attribute is list(string), described as Domains (host/authority header) matched to load balancer. Resource requires the list; data source computes it. Exact root domains only; no DNS-zone or nested-property inference."
+      "review_basis": "Receipt-pinned schema ves.io.schema.bgp.BgpParameters description: BGP parameters for the local site; ves.io.schema.bgp.PeerExternal description: External BGP Peer parameters. Direct asn properties declare Autonomous System Number; peer asn explicitly names BGP peer. Exact destination and description rechecked in documentation-v15.0.0 manifest."
     },
     {
       "provider_type": "data-sources",
@@ -1458,7 +1367,42 @@
         "host header domains",
         "authority header domains"
       ],
-      "review_basis": "Installed source-matched xcsh_http_loadbalancer schema domains attribute is list(string), described as Domains (host/authority header) matched to load balancer. Resource requires the list; data source computes it. Exact root domains only; no DNS-zone or nested-property inference."
+      "review_basis": "Installed source-matched xcsh_http_loadbalancer schema domains attribute is list(string), described as Domains (host/authority header) matched to load balancer. Resource requires the list; data source computes it. Exact root domains only; no DNS-zone or nested-property inference. Exact destination and description rechecked in documentation-v15.0.0 manifest."
+    },
+    {
+      "provider_type": "resources",
+      "collection": "bgp",
+      "schema_path": [
+        "bgp_parameters",
+        "asn"
+      ],
+      "summary": "Configure the autonomous system number (ASN) for the local site.",
+      "review_basis": "Receipt-pinned schema ves.io.schema.bgp.BgpParameters description: BGP parameters for the local site; ves.io.schema.bgp.PeerExternal description: External BGP Peer parameters. Direct asn properties declare Autonomous System Number; peer asn explicitly names BGP peer. Exact destination and description rechecked in documentation-v15.0.0 manifest."
+    },
+    {
+      "provider_type": "resources",
+      "collection": "bgp",
+      "schema_path": [
+        "peers",
+        "external",
+        "asn"
+      ],
+      "summary": "Configure the autonomous system number (ASN) for the external BGP peer.",
+      "review_basis": "Receipt-pinned schema ves.io.schema.bgp.BgpParameters description: BGP parameters for the local site; ves.io.schema.bgp.PeerExternal description: External BGP Peer parameters. Direct asn properties declare Autonomous System Number; peer asn explicitly names BGP peer. Exact destination and description rechecked in documentation-v15.0.0 manifest."
+    },
+    {
+      "provider_type": "resources",
+      "collection": "http_loadbalancer",
+      "schema_path": [
+        "domains"
+      ],
+      "summary": "Configure the domain names matched against the HTTP host/authority header by the load balancer.",
+      "aliases": [
+        "hostnames",
+        "host header domains",
+        "authority header domains"
+      ],
+      "review_basis": "Installed source-matched xcsh_http_loadbalancer schema domains attribute is list(string), described as Domains (host/authority header) matched to load balancer. Resource requires the list; data source computes it. Exact root domains only; no DNS-zone or nested-property inference. Exact destination and description rechecked in documentation-v15.0.0 manifest."
     }
   ]
 }

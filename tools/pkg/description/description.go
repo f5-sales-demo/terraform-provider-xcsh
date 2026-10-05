@@ -308,7 +308,6 @@ func GenerateCapabilityDescriptionOnly(resourceName, humanName, rawDesc string) 
 		"azure_vnet_site":    "deploying F5 sites within Azure Virtual Network environments",
 		"gcp_vpc_site":       "deploying F5 sites within Google Cloud VPC environments",
 		"aws_tgw_site":       "deploying F5 sites connected via AWS Transit Gateway",
-		"voltstack_site":     "deploying App Stack edge computing sites",
 		"virtual_site":       "creating logical groupings of sites based on labels and selectors",
 
 		// Load Balancing

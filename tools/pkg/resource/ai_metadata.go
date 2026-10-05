@@ -49,7 +49,6 @@ var AICategories = map[string]string{
 	"azure_vnet_site":    "Sites",
 	"gcp_vpc_site":       "Sites",
 	"aws_tgw_site":       "Sites",
-	"voltstack_site":     "Sites",
 
 	// DNS
 	"dns_zone":              "DNS",

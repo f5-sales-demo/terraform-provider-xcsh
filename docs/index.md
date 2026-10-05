@@ -18,14 +18,6 @@ This is a community-maintained provider built from public F5 API documentation.
 
 ~> **Note:** This provider includes first-class actions, which require Terraform 1.14 or later. The provider does not define provider functions.
 
-## Upgrading from v9 through v11
-
-Versions v10.0.0 through v11.3.0 accidentally left broad-provider consumers without a supported path
-by publishing only the SMSv2-focused subset. Version v11.4.0 restores every type registered by
-v9.5.2 while retaining the SMSv2 and offline network allowlist additions. Upgrade with a saved plan
-and investigate any managed-resource change before applying; no import or state surgery is required
-for the restored type names.
-
 ## Authenticating to F5 Distributed Cloud
 
 The XCSH Terraform provider supports multiple authentication methods:
@@ -201,7 +193,8 @@ Browse the documentation sidebar for the complete list of resources and data sou
 
 For AI assistants and tools, this provider publishes machine-readable documentation:
 
-* **[llms.txt](https://f5-sales-demo.github.io/terraform-provider-xcsh/llms.txt)** — Entry point with provider identity, syntax rules, and category index
-* **Per-resource files** — Self-contained text files at `_llms-txt/resources/<name>.txt` with required fields, OneOf groups, minimal valid configs, and dependency chains
+* **[llms.txt](https://f5-sales-demo.github.io/terraform-provider-xcsh/llms.txt)** — Compact entry point to the current documentation. Follow its families, topics, and tasks links to the relevant complete pages.
+* **[Machine index](https://f5-sales-demo.github.io/terraform-provider-xcsh/terraform-llms-index.json)** — Exact canonical page paths, collection identities, relationships, and content digests for precise retrieval.
+* **[Full corpus](https://f5-sales-demo.github.io/terraform-provider-xcsh/llms-full.txt)** — Optional complete corpus download when a larger context is appropriate.
 
 <!-- Template version: 1.2.0 - Add AI-consumable documentation section -->

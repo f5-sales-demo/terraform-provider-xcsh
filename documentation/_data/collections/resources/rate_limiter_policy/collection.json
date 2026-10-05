@@ -487,7 +487,7 @@
         "xcsh-docs:resources:rate_limiter_policy:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -499,7 +499,7 @@
       "path": "documentation/resources/rate_limiter_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0001113203213012-3230223203213013-3101130323201300-3231310112330322-1330013011322232-3231222000231002-0131233030332120-1030230203122100",
       "registry_path": "docs/resources/rate_limiter_policy.md",
@@ -509,15 +509,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Manages a Rate Limiter Policy resource in F5 Distributed Cloud for rate limiter policy create specification. configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_rate_limiter_policy",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -534,7 +534,7 @@
         "xcsh-docs:resources:rate_limiter_policy:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -546,7 +546,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0300002123113003-0232011230013030-1022121023121332-1310323330300210-0013133131103100-1131102133320333-3103000313033112-0112302033121023",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -748,14 +748,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Property reference for xcsh_rate_limiter_policy.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -766,7 +766,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -778,7 +778,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/any_server/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0211213222320023-0301120212121003-2221311230220112-0031320320033020-2032022001201303-0013020220032120-0021032212231130-1003333312100321",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -788,14 +788,14 @@
       "schema_path": ["any_server"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/any_server/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "any_server",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -809,7 +809,7 @@
         "xcsh-docs:resources:rate_limiter_policy:properties:rules:spec"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -821,7 +821,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2222131300013222-2030020131223321-0301112221002023-2103133002001211-0202321013020301-0203133301000033-1033002002011112-3021313102033303",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -1030,14 +1030,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "A list of RateLimiterRules that are evaluated sequentially till a matching rule is identified.",
       "tasks": ["configuration"],
       "title": "rules",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1048,7 +1048,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1060,7 +1060,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/metadata/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3023012010232323-1023103223030223-2220121223212031-0202030330120331-3212032012123331-0203223023100101-1002003331223120-0322213012210021",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -1108,14 +1108,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/metadata/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "rules.metadata",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1143,7 +1143,7 @@
         "xcsh-docs:resources:rate_limiter_policy:properties:rules:spec:segment_policy"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1155,7 +1155,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0132202013211102-2330210311001320-0320321112002010-3322111012130323-0012003033121113-1211030313313322-2030022002333220-2033032132312031",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -1718,14 +1718,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Shape of Rate Limiter Rule.",
       "tasks": ["configuration"],
       "title": "rules.spec",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1736,7 +1736,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1748,7 +1748,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/any_asn/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1013323220310111-0232222201001333-3133202000330200-1020020102312030-0300112110013211-1010111121330020-1313000013311301-2013230011030310",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -1758,14 +1758,14 @@
       "schema_path": ["rules", "spec", "any_asn"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/any_asn/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.spec.any_asn",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1776,7 +1776,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1788,7 +1788,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/any_country/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3130220013132120-3231030013111330-2321300131000313-3223300330101230-1003230032103203-0011201222111123-0211333213223032-2001333223332020",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -1798,14 +1798,14 @@
       "schema_path": ["rules", "spec", "any_country"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/any_country/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.spec.any_country",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1816,7 +1816,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1828,7 +1828,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/any_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1132231223032231-1022320133231322-2333210310222202-2201320103303031-2200112113231301-0212313312322233-3012023013002111-3111233313333121",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -1838,14 +1838,14 @@
       "schema_path": ["rules", "spec", "any_ip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/any_ip/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.spec.any_ip",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1856,7 +1856,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1868,7 +1868,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/apply_rate_limiter/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3321310131202033-1221212002212021-0313200003110223-0100011023002103-3012212302313111-2132320202030101-1301113303131203-3022102210131311",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -1878,14 +1878,14 @@
       "schema_path": ["rules", "spec", "apply_rate_limiter"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/apply_rate_limiter/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.spec.apply_rate_limiter",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1896,7 +1896,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1908,7 +1908,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/asn_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3010103313212020-1101012202233132-1330330033300022-2311310200023033-3211203223232131-3320302101031231-0211130030203212-1231223121103332",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -1942,14 +1942,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/asn_list/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
       "tasks": ["configuration"],
       "title": "rules.spec.asn_list",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1960,7 +1960,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:resources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1972,7 +1972,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/asn_matcher/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1121002311123100-0122300203123223-3001131202202332-1011231120230130-0301100223033021-3113303010201322-1302112301323113-0212311213102221",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -2006,14 +2006,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/asn_matcher/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Match any AS number contained in the list of bgp_asn_sets.",
       "tasks": ["configuration"],
       "title": "rules.spec.asn_matcher",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2024,7 +2024,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2036,7 +2036,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/asn_matcher/asn_sets/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3222300213221013-1200300102202312-3121113313322213-1120030220021013-3032230013322330-2320133213300330-0003131012323102-0323011223112201",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -2117,14 +2117,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/asn_matcher/asn_sets/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "A list of references to bgp_asn_set objects.",
       "tasks": ["configuration"],
       "title": "rules.spec.asn_matcher.asn_sets",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2135,7 +2135,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2147,7 +2147,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/bypass_rate_limiter/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3022322213330233-0231202100023331-3200222121011103-2033231011132032-3233222020200330-1310313113302210-2333012103310303-1030113210010233",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -2157,14 +2157,14 @@
       "schema_path": ["rules", "spec", "bypass_rate_limiter"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/bypass_rate_limiter/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.spec.bypass_rate_limiter",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2175,7 +2175,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2187,7 +2187,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/country_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1001100110131203-2022313122101031-3021020211203013-2011031120032103-2231210132312322-3012333221123303-3120110210323210-1332330233102031",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -2235,14 +2235,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/country_list/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "List of Country Codes to match against.",
       "tasks": ["configuration"],
       "title": "rules.spec.country_list",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2253,7 +2253,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2265,7 +2265,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/custom_rate_limiter/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2130031031003201-3121021221313123-3212330332132031-3110303201002111-0022201121003120-3133032022030132-2210232020031333-2303020110311211",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -2327,14 +2327,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/custom_rate_limiter/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "rules.spec.custom_rate_limiter",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2345,7 +2345,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2357,7 +2357,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/domain_matcher/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3300021332133333-1203323210333122-1332203202013001-2200321311220221-1112022320113120-3321332013312023-3310000020203121-3203013032022002",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -2396,14 +2396,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/domain_matcher/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
       "tasks": ["configuration"],
       "title": "rules.spec.domain_matcher",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2418,7 +2418,7 @@
         "xcsh-docs:resources:rate_limiter_policy:properties:rules:spec:headers:item"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2430,7 +2430,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/headers/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2221320321300321-2330321211030322-1123313203310202-0223000201333132-2300022030130203-1112330202302230-1331201200001010-2121212213033013",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -2568,14 +2568,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/headers/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "A list of predicates for various HTTP headers that need to match. The criteria for matching each HTTP header are described in individual HeaderMatcherType instances. The actual HTTP header values are extracted from the request API as a list of strings for each HTTP header type. Note that all specified header",
       "tasks": ["configuration"],
       "title": "rules.spec.headers",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2586,7 +2586,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2598,7 +2598,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/headers/check_not_present/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0133223033233121-2010023303012120-0320100103321222-3220311322031003-1113222110010200-0130101032030312-1023102033303333-0121303130122122",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -2608,14 +2608,14 @@
       "schema_path": ["rules", "spec", "headers", "check_not_present"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/headers/check_not_present/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.spec.headers.check_not_present",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2626,7 +2626,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2638,7 +2638,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/headers/check_present/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1110212301113113-2111313023331021-1011020130333033-3131312210030013-3022300033330223-1113310301311013-2103113033103232-2130301311322120",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -2648,14 +2648,14 @@
       "schema_path": ["rules", "spec", "headers", "check_present"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/headers/check_present/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.spec.headers.check_present",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2666,7 +2666,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2678,7 +2678,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/headers/item/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2323220313112011-3322000013022033-1021002100120221-2311101201131121-2000201120330132-3333013210320130-1203100112233232-1130331000222332",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -2731,14 +2731,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/headers/item/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
       "tasks": ["configuration"],
       "title": "rules.spec.headers.item",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2749,7 +2749,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2761,7 +2761,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/http_method/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2331130021113233-3222011222131023-1103132231122310-2111003103322212-0322230210113302-3111101213101230-0032132033102313-0202023221133112",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -2800,14 +2800,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/http_method/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "A HTTP method matcher specifies a list of methods to match an input HTTP method. The match is considered successful if the input method is a member of the list. The result of the match based on the method list is inverted if invert_matcher is true.",
       "tasks": ["configuration"],
       "title": "rules.spec.http_method",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2818,7 +2818,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:resources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2830,7 +2830,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/ip_matcher/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3111131012320123-0102312201010201-0301133000221330-3213123012032312-1103133123133103-2230203102333021-2031120230010221-0130121221122012",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -2878,14 +2878,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/ip_matcher/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Match any IP prefix contained in the list of ip_prefix_sets. The result of the match is inverted if invert_matcher is true.",
       "tasks": ["configuration"],
       "title": "rules.spec.ip_matcher",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -2896,7 +2896,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2908,7 +2908,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/ip_matcher/prefix_sets/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1122123220101132-0201033030320202-2332110100013011-0320121010333111-2232011333133233-0232200003023120-2120223011323023-1331230302111233",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -2989,14 +2989,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/ip_matcher/prefix_sets/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "A list of references to ip_prefix_set objects.",
       "tasks": ["configuration"],
       "title": "rules.spec.ip_matcher.prefix_sets",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -3007,7 +3007,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3019,7 +3019,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/ip_prefix_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1022003110312122-0131332020212300-2232023332132000-3020320211320300-0230101300230032-1301303223231100-0120210032032222-1100133300211300",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -3058,14 +3058,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/ip_prefix_list/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "List of IP Prefix strings to match against.",
       "tasks": ["configuration"],
       "title": "rules.spec.ip_prefix_list",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -3076,7 +3076,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3088,7 +3088,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/path/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2131203301013120-3032013232130102-0212001020202111-1313312001121213-0121313301000233-0313201111113233-0323023020321211-3110123003332321",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -3197,14 +3197,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/path/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "A path matcher specifies multiple criteria for matching an HTTP path string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of path prefixes, a list of exact path values and a list of regular expressions.",
       "tasks": ["configuration"],
       "title": "rules.spec.path",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -3221,7 +3221,7 @@
         "xcsh-docs:resources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3233,7 +3233,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/segment_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1003300311131110-2122022122210003-0233032231302312-0120003132000133-2322322113133003-2322331131222131-3112023232001233-0030221022001312",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -3397,14 +3397,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/segment_policy/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Configure source and destination segment for policy.",
       "tasks": ["configuration"],
       "title": "rules.spec.segment_policy",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -3415,7 +3415,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3427,7 +3427,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/segment_policy/dst_any/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2221020101101013-2322303003003121-0222311101103230-2203322321313003-0231000101210230-1323100102311133-1321312120001110-0120202232013312",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -3437,14 +3437,14 @@
       "schema_path": ["rules", "spec", "segment_policy", "dst_any"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/segment_policy/dst_any/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.spec.segment_policy.dst_any",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -3457,7 +3457,7 @@
         "xcsh-docs:resources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments:segments"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3469,7 +3469,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/segment_policy/dst_segments/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3322200110122100-0203202310213222-3302203020101330-2030302212120133-3300212213333233-1223033321020303-3002122332133101-1203212010210103",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -3512,14 +3512,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/segment_policy/dst_segments/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "List of references to Segments.",
       "tasks": ["configuration"],
       "title": "rules.spec.segment_policy.dst_segments",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -3530,7 +3530,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3542,7 +3542,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/segment_policy/dst_segments/segments/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0133312222123001-0233120200121131-0111000101031312-1333311111120101-2121320123110300-3101122130311303-3001010030011233-0010310133100022",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -3604,14 +3604,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/segment_policy/dst_segments/segments/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Select list of segments.",
       "tasks": ["configuration"],
       "title": "rules.spec.segment_policy.dst_segments.segments",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -3622,7 +3622,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3634,7 +3634,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/segment_policy/intra_segment/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1031111222233131-3030031320222313-1011000131211231-0212002101013303-2113213210020111-3011323310000203-0133311330023233-2212132203310000",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -3644,14 +3644,14 @@
       "schema_path": ["rules", "spec", "segment_policy", "intra_segment"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/segment_policy/intra_segment/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.spec.segment_policy.intra_segment",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -3662,7 +3662,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3674,7 +3674,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/segment_policy/src_any/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1320312221031301-0033011221303221-0111313210211221-0212120001322103-1302211211222002-1133133233133021-2310223023131111-3330233113322320",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -3684,14 +3684,14 @@
       "schema_path": ["rules", "spec", "segment_policy", "src_any"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/segment_policy/src_any/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rules.spec.segment_policy.src_any",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -3704,7 +3704,7 @@
         "xcsh-docs:resources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments:segments"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3716,7 +3716,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/segment_policy/src_segments/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0022310130211210-2222210220122323-2122321023133332-2031120230030333-1333330100313232-2002132113300110-0200120130020032-3101313230103323",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -3759,14 +3759,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/segment_policy/src_segments/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "List of references to Segments.",
       "tasks": ["configuration"],
       "title": "rules.spec.segment_policy.src_segments",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -3777,7 +3777,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3789,7 +3789,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/segment_policy/src_segments/segments/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2333313230001310-1130023032101302-1220331102120203-1102212222203210-0022010103203220-0133110103013303-2301310221330000-1201222132333223",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -3851,14 +3851,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/segment_policy/src_segments/segments/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Select list of segments.",
       "tasks": ["configuration"],
       "title": "rules.spec.segment_policy.src_segments.segments",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -3869,7 +3869,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3881,7 +3881,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/server_name_matcher/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0332131121330022-2320313020032211-0233232101323322-0302123232122021-0110301202203032-2012210121330301-1232012122013010-0312200313032203",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -3920,14 +3920,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/server_name_matcher/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
       "tasks": ["configuration"],
       "title": "server_name_matcher",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -3938,7 +3938,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3950,7 +3950,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/server_selector/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2213123230331302-2112033033112303-3303010013132210-2021022013123003-2001322313033232-2333120000201120-2312313120200303-1032200022123013",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -3984,14 +3984,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/server_selector/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "server_selector",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -4002,7 +4002,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4014,7 +4014,7 @@
       "path": "documentation/resources/rate_limiter_policy/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1121122303032230-0332030130132021-3012333310113223-0311011022311021-2203133033133302-0012001113101220-2001003203233201-1012131010323033",
       "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md",
@@ -4116,14 +4116,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "timeouts for xcsh_rate_limiter_policy.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -4134,7 +4134,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:resources:rate_limiter_policy:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4146,7 +4146,7 @@
       "path": "documentation/resources/rate_limiter_policy/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0213100123320111-2001330133213113-0320130230122202-0312123101222021-3023213322000203-2311002230312032-2133010011033113-1330122112130323",
       "registry_path": "docs/guides/resources--rate_limiter_policy--examples--group-001.md",
@@ -4156,14 +4156,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/examples/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Examples for xcsh_rate_limiter_policy.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -4174,7 +4174,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4193,7 +4193,7 @@
       "path": "documentation/resources/rate_limiter_policy/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2110232211133031-3030230313331213-0331300220013210-3221003011333100-0100303233222330-0013201322210221-0320321012330323-2302323021310220",
       "registry_path": "docs/guides/resources--rate_limiter_policy--examples--group-001.md",
@@ -4203,14 +4203,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Resource for xcsh_rate_limiter_policy.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -4221,7 +4221,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4234,7 +4234,7 @@
       "path": "documentation/resources/rate_limiter_policy/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3022030322002201-2133333030111232-3212220102002312-1010010013032310-0113231221123101-3111212122311022-2313312112033301-0223231231100212",
       "registry_path": "docs/guides/resources--rate_limiter_policy--lifecycle--group-001.md",
@@ -4244,14 +4244,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Import for xcsh_rate_limiter_policy.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -4262,7 +4262,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4274,7 +4274,7 @@
       "path": "documentation/resources/rate_limiter_policy/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "rate_limiter_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3010223313023231-1320313212123203-0211313221212323-3000001311201322-2033012030330202-3300232122213133-1123113213321033-3022020312323302",
       "registry_path": "docs/guides/resources--rate_limiter_policy--lifecycle--group-001.md",
@@ -4284,14 +4284,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Timeouts for xcsh_rate_limiter_policy.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v12.0.0",
         "schema_components": ["rate_limiter_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     }
   ],

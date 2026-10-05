@@ -114,12 +114,6 @@ var SkippedResources = map[string]SkipReason{
 	// was skipped as "requires physical hardware v2", which is what stopped
 	// discover-defaults from auto-deriving the per-interface `labels {}` marker and
 	// left #1244 to be hand-seeded. See ResourceConfigs in tools/discover-defaults.go.
-	"voltstack_site": {
-		Reason:       "Requires physical VoltStack hardware",
-		Category:     "infrastructure",
-		SkipGenerate: false,
-		SkipAPITest:  true,
-	},
 	"registration": {
 		Reason:       "Requires physical site registration token",
 		Category:     "infrastructure",

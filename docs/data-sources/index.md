@@ -1,6 +1,6 @@
 # Data Sources
 
-This provider includes 198 data sources.
+This provider includes 192 data sources.
 
 - [xcsh_access_active_session](access_active_session.md)
 - [xcsh_access_active_sessions](access_active_sessions.md)
@@ -26,8 +26,6 @@ This provider includes 198 data sources.
 - [xcsh_authentication](authentication.md)
 - [xcsh_authorization_server](authorization_server.md)
 - [xcsh_aws_tgw_site](aws_tgw_site.md)
-- [xcsh_aws_vpc_site](aws_vpc_site.md)
-- [xcsh_azure_vnet_site](azure_vnet_site.md)
 - [xcsh_bgp](bgp.md)
 - [xcsh_bgp_asn_set](bgp_asn_set.md)
 - [xcsh_bgp_routing_policy](bgp_routing_policy.md)
@@ -51,7 +49,6 @@ This provider includes 198 data sources.
 - [xcsh_certificate](certificate.md)
 - [xcsh_certificate_chain](certificate_chain.md)
 - [xcsh_certified_hardware](certified_hardware.md)
-- [xcsh_cloud_connect](cloud_connect.md)
 - [xcsh_cloud_credentials](cloud_credentials.md)
 - [xcsh_cloud_elastic_ip](cloud_elastic_ip.md)
 - [xcsh_cloud_link](cloud_link.md)
@@ -91,7 +88,6 @@ This provider includes 198 data sources.
 - [xcsh_flow_anomaly](flow_anomaly.md)
 - [xcsh_forward_proxy_policy](forward_proxy_policy.md)
 - [xcsh_forwarding_class](forwarding_class.md)
-- [xcsh_gcp_vpc_site](gcp_vpc_site.md)
 - [xcsh_geo_location_set](geo_location_set.md)
 - [xcsh_global_log_receiver](global_log_receiver.md)
 - [xcsh_healthcheck](healthcheck.md)
@@ -153,7 +149,6 @@ This provider includes 198 data sources.
 - [xcsh_registration](registration.md)
 - [xcsh_route](route.md)
 - [xcsh_secret_management_access](secret_management_access.md)
-- [xcsh_securemesh_site](securemesh_site.md)
 - [xcsh_securemesh_site_v2](securemesh_site_v2.md)
 - [xcsh_segment](segment.md)
 - [xcsh_segment_connection](segment_connection.md)
@@ -191,7 +186,6 @@ This provider includes 198 data sources.
 - [xcsh_virtual_k8s](virtual_k8s.md)
 - [xcsh_virtual_network](virtual_network.md)
 - [xcsh_virtual_site](virtual_site.md)
-- [xcsh_voltstack_site](voltstack_site.md)
 - [xcsh_waf_attack_signatures](waf_attack_signatures.md)
 - [xcsh_waf_bot_signatures](waf_bot_signatures.md)
 - [xcsh_waf_exclusion_policy](waf_exclusion_policy.md)

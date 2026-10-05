@@ -82,6 +82,7 @@ GENERATOR_SOURCE_PATTERNS=(
   "^tools/pkg/operationsurface/"
   "^operation-surface\.json$"
   "^templates/"
+  "^CHANGELOG\.md$"
   "^provider-release-surface\.json$"
   # Hand-authored allowlist examples are tfplugindocs inputs.
   "^examples/data-sources/xcsh_network_"

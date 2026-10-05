@@ -10,7 +10,7 @@ import (
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/releasesurface"
 )
 
-func TestV9OperationSurfaceIsExact(t *testing.T) {
+func TestV12OperationSurfaceIsExact(t *testing.T) {
 	root := filepath.Join("..", "..", "..")
 	specDir := filepath.Join(root, "docs", "specifications", "api")
 	catalog, err := openapi.ParseOperationCatalogFromDir(specDir)
@@ -20,7 +20,7 @@ func TestV9OperationSurfaceIsExact(t *testing.T) {
 	manifest, err := LoadAndApply(
 		filepath.Join(root, "operation-surface.json"),
 		filepath.Join(specDir, "upstream-contract-changes.json"),
-		"v10.0.0",
+		"v12.0.0",
 		catalog,
 	)
 	if err != nil {
@@ -58,7 +58,7 @@ func TestV9OperationSurfaceIsExact(t *testing.T) {
 	}
 }
 
-func TestV9OperationSurfaceRejectsIncompleteDuplicateAndMismatchedMappings(t *testing.T) {
+func TestV12OperationSurfaceRejectsIncompleteDuplicateAndMismatchedMappings(t *testing.T) {
 	root := filepath.Join("..", "..", "..")
 	specDir := filepath.Join(root, "docs", "specifications", "api")
 	data, err := os.ReadFile(filepath.Join(root, "operation-surface.json"))
@@ -94,7 +94,7 @@ func TestV9OperationSurfaceRejectsIncompleteDuplicateAndMismatchedMappings(t *te
 			if err != nil {
 				t.Fatal(err)
 			}
-			if _, err := LoadAndApply(path, filepath.Join(specDir, "upstream-contract-changes.json"), "v10.0.0", catalog); err == nil {
+			if _, err := LoadAndApply(path, filepath.Join(specDir, "upstream-contract-changes.json"), "v12.0.0", catalog); err == nil {
 				t.Fatal("invalid operation surface was accepted")
 			}
 		})
