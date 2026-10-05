@@ -1,7 +1,7 @@
 {
   "canonicalCorpus": {
     "taxonomy": {
-      "rulesDigest": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+      "rulesDigest": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
       "evidence": "Canonical classification metadata derived from receipt-pinned upstream descriptions and reviewed provider taxonomy rules. Unresolved collections remain Unclassified.",
       "topics": {
         "security": {
@@ -160,25 +160,13 @@
         {
           "category": "infrastructure",
           "title": "AWS sites",
-          "collections": ["aws_vpc_site", "aws_tgw_site", "smsv2_aws_runtime"],
-          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
-        },
-        {
-          "category": "infrastructure",
-          "title": "Azure sites",
-          "collections": ["azure_vnet_site"],
-          "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
-        },
-        {
-          "category": "infrastructure",
-          "title": "Google Cloud sites",
-          "collections": ["gcp_vpc_site"],
+          "collections": ["aws_tgw_site", "smsv2_aws_runtime"],
           "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
         },
         {
           "category": "infrastructure",
           "title": "Secure Mesh and virtual sites",
-          "collections": ["site", "virtual_site", "securemesh_site", "securemesh_site_v2"],
+          "collections": ["site", "virtual_site", "securemesh_site_v2"],
           "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
         },
         {
@@ -196,7 +184,7 @@
         {
           "category": "infrastructure",
           "title": "Cloud connectivity and credentials",
-          "collections": ["cloud_connect", "cloud_link", "cloud_credentials", "cloud_elastic_ip"],
+          "collections": ["cloud_link", "cloud_credentials", "cloud_elastic_ip"],
           "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
         },
         {
@@ -312,6 +300,12 @@
           "title": "Provider setup",
           "collections": ["setup"],
           "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
+        },
+        {
+          "category": "administration",
+          "title": "Release history",
+          "collections": ["release-history"],
+          "evidence": "CHANGELOG.md is the authored record of published stable provider releases and immutable release links."
         }
       ]
     }

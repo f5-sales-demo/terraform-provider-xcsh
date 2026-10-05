@@ -338,3 +338,4 @@ Load fundamentals first, then the property reference or immediate children. Fetc
 - [ephemeral-resources/kubernetes_manifests](https://f5-sales-demo.github.io/terraform-provider-xcsh/ephemeral-resources/kubernetes_manifests/): Kubernetes workload configuration.
 - [Provider setup and authentication](https://f5-sales-demo.github.io/terraform-provider-xcsh/provider/setup/)
 - [network-allowlists guide](https://f5-sales-demo.github.io/terraform-provider-xcsh/guides/network-allowlists/)
+- [Release history guide](https://f5-sales-demo.github.io/terraform-provider-xcsh/guides/release-history/)

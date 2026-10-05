@@ -3216,6 +3216,10 @@
       "bytes": 1741,
       "sha256": "sha256:07af41b5d4db74629947a8ec7504bc57daf5f6c88d24dbeaa53b6c6abb27f4d7"
     },
+    "docs/guides/release-history.md": {
+      "bytes": 15091,
+      "sha256": "sha256:3190d15c98df499f8a946c27404c830d387b3adc8815ec57eed9d6508fde79f0"
+    },
     "docs/guides/resources--address_allocator--examples--group-001.md": {
       "bytes": 4315,
       "sha256": "sha256:f3ec1d70cc65bb4e6ae67a1b414d6d2504ef99c95dd741d8c02422f06a966e98"
@@ -5293,8 +5297,8 @@
       "sha256": "sha256:9139572a2d32395c1b0382b29847966c17aa086b1a49cfd2a9cc1e9562b97200"
     },
     "docs/index.md": {
-      "bytes": 7433,
-      "sha256": "sha256:d2da5d730a1cda22a5c841e136b4f5a1f12caca35151ce4ff2028ff628863148"
+      "bytes": 7704,
+      "sha256": "sha256:4ba28cfc719de410a4566320e194c1896e81b424ed17286322f8553cf5de5e21"
     },
     "docs/resources/address_allocator.md": {
       "bytes": 3561,
@@ -7133,8 +7137,8 @@
       "sha256": "sha256:a547e047b4a05acfa3dc2da565bac3b67f37587bc70eadaf3c216e64f30afbdb"
     },
     "documentation/_data/llms.txt": {
-      "bytes": 75665,
-      "sha256": "sha256:3fdc4c09265c855003e646b87aec1405adebf0da6534ff41e2235ad30b1e76fb"
+      "bytes": 75772,
+      "sha256": "sha256:c2e45a5b1c6cead47ab5151eeccd93d9501aa3e8a9fcc1a0e69482187a828cc3"
     },
     "documentation/_data/pages/actions/access_active_session_terminate/examples/action/index.txt": {
       "bytes": 3593,
@@ -43612,13 +43616,17 @@
       "bytes": 3020,
       "sha256": "sha256:26364187344d5ef66ebd75c2495a3fd5e5adc7942ad03e4809fd5c8f80fd1098"
     },
+    "documentation/_data/pages/guides/release-history/index.txt": {
+      "bytes": 16381,
+      "sha256": "sha256:c7c4639fcf6eb3f5ebef962a19a0cd0b0e0589a00c6d707935088cdd5e09c4ae"
+    },
     "documentation/_data/pages/index.txt": {
-      "bytes": 1971,
-      "sha256": "sha256:16d0c6879c0f5dd784c1600e3685e1f2929d7787c8399f8c163fc4fe5cad8e44"
+      "bytes": 2117,
+      "sha256": "sha256:3cc223b3ef494f32bd725180e3cf02c1924f3936fef535c68a50c3e2f926f316"
     },
     "documentation/_data/pages/provider/setup/index.txt": {
-      "bytes": 8513,
-      "sha256": "sha256:cebda0d74999b959e6bd34596fcadf086fe38d4df0adb57aa1801819e1b46cc3"
+      "bytes": 8784,
+      "sha256": "sha256:c643def19680da19c56bb4251554c63ccbda695d5fe220fc217a54b6d619a0d6"
     },
     "documentation/_data/pages/resources/address_allocator/examples/index.txt": {
       "bytes": 2603,
@@ -75197,8 +75205,8 @@
       "sha256": "sha256:3034769919d8b7a0727be8b5bf2707057b9a23f90138ce414040d76be711e298"
     },
     "documentation/_data/terraform-llms-index.json": {
-      "bytes": 81444266,
-      "sha256": "sha256:35f74429a8d819a04e013ebd5ae4f08acce5787e4c2c0cd89d3b81f9d6e741a4"
+      "bytes": 81445541,
+      "sha256": "sha256:2d553d87227165fb9c04d4c8db6006577e144ab3fce271f8da9bc2cd2d8c52fa"
     },
     "documentation/actions/access_active_session_terminate/examples/action/index.md": {
       "bytes": 3593,
@@ -111676,21 +111684,25 @@
       "bytes": 3020,
       "sha256": "sha256:26364187344d5ef66ebd75c2495a3fd5e5adc7942ad03e4809fd5c8f80fd1098"
     },
+    "documentation/guides/release-history/index.md": {
+      "bytes": 16381,
+      "sha256": "sha256:c7c4639fcf6eb3f5ebef962a19a0cd0b0e0589a00c6d707935088cdd5e09c4ae"
+    },
     "documentation/index.md": {
-      "bytes": 1971,
-      "sha256": "sha256:16d0c6879c0f5dd784c1600e3685e1f2929d7787c8399f8c163fc4fe5cad8e44"
+      "bytes": 2117,
+      "sha256": "sha256:3cc223b3ef494f32bd725180e3cf02c1924f3936fef535c68a50c3e2f926f316"
     },
     "documentation/llms.txt": {
-      "bytes": 75665,
-      "sha256": "sha256:3fdc4c09265c855003e646b87aec1405adebf0da6534ff41e2235ad30b1e76fb"
+      "bytes": 75772,
+      "sha256": "sha256:c2e45a5b1c6cead47ab5151eeccd93d9501aa3e8a9fcc1a0e69482187a828cc3"
     },
     "documentation/provider/setup/index.md": {
-      "bytes": 8513,
-      "sha256": "sha256:cebda0d74999b959e6bd34596fcadf086fe38d4df0adb57aa1801819e1b46cc3"
+      "bytes": 8784,
+      "sha256": "sha256:c643def19680da19c56bb4251554c63ccbda695d5fe220fc217a54b6d619a0d6"
     },
     "documentation/registry-projection-manifest.json": {
-      "bytes": 288164,
-      "sha256": "sha256:1a132e0ecdc37db4b0eb99f914395b50ffaf2a110db55b6c3ab9d0db96c1a1e7"
+      "bytes": 288323,
+      "sha256": "sha256:656c3016bd4bda2ba96ff5b2729922f9e8646943e5fc190565812dc3084ee4f9"
     },
     "documentation/registry-projection/sections-0001.json": {
       "bytes": 550517,
@@ -112405,8 +112417,8 @@
       "sha256": "sha256:9417db39319dbd2195ab43881ece6e3bf65794b11c91a7a59619d5346bf83b80"
     },
     "documentation/registry-projection/sections-0179.json": {
-      "bytes": 146650,
-      "sha256": "sha256:18acaca0b429bcf59b1b93c6d3f56da2dcf0594c79b330324387e86dd33007b4"
+      "bytes": 147262,
+      "sha256": "sha256:04de86a7d67300b90083f1b7516badf5e4fddf439048540cc42d5368a8146168"
     },
     "documentation/resources/address_allocator/examples/index.md": {
       "bytes": 2603,
@@ -143985,8 +143997,8 @@
       "sha256": "sha256:3034769919d8b7a0727be8b5bf2707057b9a23f90138ce414040d76be711e298"
     },
     "documentation/terraform-llms-index.json": {
-      "bytes": 81444266,
-      "sha256": "sha256:35f74429a8d819a04e013ebd5ae4f08acce5787e4c2c0cd89d3b81f9d6e741a4"
+      "bytes": 81445541,
+      "sha256": "sha256:2d553d87227165fb9c04d4c8db6006577e144ab3fce271f8da9bc2cd2d8c52fa"
     }
   },
   "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",

@@ -2,7 +2,7 @@
 page_title: "Provider setup and authentication"
 subcategory: ""
 description: "Complete provider setup and authentication."
-xcsh_docs: {"aliases": ["adopt existing object", "import existing resource", "setup"], "body_bytes": 7170, "body_sha256": "sha256:ead3a2e4de0bf83b2e4fb9ffbd9ad3365e69be28ddf1e52b2a3a15ddea0683e5", "capabilities": ["administration"], "category": "administration", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved"}, "collection_id": "xcsh-docs:provider:setup:collection", "completeness": "complete", "id": "xcsh-docs:provider:setup:overview", "parent_id": "xcsh-docs:provider:xcsh:navigation", "path": "documentation/provider/setup/index.md", "product": "distributed-cloud", "provider_name": "setup", "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733", "provider_type": "provider", "registry_path": "docs/index.md", "relationships": [], "retrieval_version": 1, "role": "overview", "schema_path": [], "schema_version": 1, "sections": [], "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff", "summary": "Complete provider setup and authentication.", "tasks": ["authentication", "configuration"]}
+xcsh_docs: {"aliases": ["adopt existing object", "import existing resource", "setup"], "body_bytes": 7441, "body_sha256": "sha256:b3946b9cfa49503fc270c63ed6b9de41f861a74df92d3de47b3c139d5d3e5435", "capabilities": ["administration"], "category": "administration", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved"}, "collection_id": "xcsh-docs:provider:setup:collection", "completeness": "complete", "id": "xcsh-docs:provider:setup:overview", "parent_id": "xcsh-docs:provider:xcsh:navigation", "path": "documentation/provider/setup/index.md", "product": "distributed-cloud", "provider_name": "setup", "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733", "provider_type": "provider", "registry_path": "docs/index.md", "relationships": [], "retrieval_version": 1, "role": "overview", "schema_path": [], "schema_version": 1, "sections": [], "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff", "summary": "Complete provider setup and authentication.", "tasks": ["authentication", "configuration"]}
 ---
 
 # XCSH Provider
@@ -202,7 +202,8 @@ Browse the documentation sidebar for the complete list of resources and data sou
 
 For AI assistants and tools, this provider publishes machine-readable documentation:
 
-* **[llms.txt](https://f5-sales-demo.github.io/terraform-provider-xcsh/llms.txt)** — Entry point with provider identity, syntax rules, and category index
-* **Per-resource files** — Self-contained text files at `_llms-txt/resources/<name>.txt` with required fields, OneOf groups, minimal valid configs, and dependency chains
+* **[llms.txt](https://f5-sales-demo.github.io/terraform-provider-xcsh/llms.txt)** — Compact entry point to the current documentation. Follow its families, topics, and tasks links to the relevant complete pages.
+* **[Machine index](https://f5-sales-demo.github.io/terraform-provider-xcsh/terraform-llms-index.json)** — Exact canonical page paths, collection identities, relationships, and content digests for precise retrieval.
+* **[Full corpus](https://f5-sales-demo.github.io/terraform-provider-xcsh/llms-full.txt)** — Optional complete corpus download when a larger context is appropriate.
 
 <!-- Template version: 1.2.0 - Add AI-consumable documentation section -->
