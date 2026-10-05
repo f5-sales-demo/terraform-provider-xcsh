@@ -6264,9 +6264,9 @@
     {
       "canonical_id": "xcsh-docs:provider:setup:overview",
       "section_id": "xcsh-docs:provider:setup:overview",
-      "source_sha256": "sha256:b3946b9cfa49503fc270c63ed6b9de41f861a74df92d3de47b3c139d5d3e5435",
-      "source_bytes": 7441,
-      "canonical_source_sha256": "sha256:b3946b9cfa49503fc270c63ed6b9de41f861a74df92d3de47b3c139d5d3e5435",
+      "source_sha256": "sha256:2e7b51356aa109bf162b2def4b8f6baeb9383d0222f8dd694db4ab511a64fae6",
+      "source_bytes": 6981,
+      "canonical_source_sha256": "sha256:2e7b51356aa109bf162b2def4b8f6baeb9383d0222f8dd694db4ab511a64fae6",
       "registry_path": "docs/index.md",
       "mode": "embedded",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/provider/setup/",
@@ -6282,18 +6282,6 @@
       "registry_path": "docs/guides/network-allowlists.md",
       "mode": "embedded",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/guides/network-allowlists/",
-      "anchor_map": {},
-      "anchor": ""
-    },
-    {
-      "canonical_id": "xcsh-docs:guides:release-history:overview",
-      "section_id": "xcsh-docs:guides:release-history:overview",
-      "source_sha256": "sha256:7f35d2924432de84d7af4590ee2308c7a22826df4e3c9dda6088df8e3a621f5a",
-      "source_bytes": 14997,
-      "canonical_source_sha256": "sha256:7f35d2924432de84d7af4590ee2308c7a22826df4e3c9dda6088df8e3a621f5a",
-      "registry_path": "docs/guides/release-history.md",
-      "mode": "embedded",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/guides/release-history/",
       "anchor_map": {},
       "anchor": ""
     }

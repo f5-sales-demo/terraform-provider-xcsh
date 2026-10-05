@@ -300,12 +300,6 @@
           "title": "Provider setup",
           "collections": ["setup"],
           "evidence": "Reviewed canonical provider identities, summaries, schema descriptions and receipt-pinned classification metadata."
-        },
-        {
-          "category": "administration",
-          "title": "Release history",
-          "collections": ["release-history"],
-          "evidence": "CHANGELOG.md is the authored record of published stable provider releases and immutable release links."
         }
       ]
     }

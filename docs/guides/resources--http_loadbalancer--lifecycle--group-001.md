@@ -81,7 +81,7 @@ Certificate rotation and other supported settings within the same selected type 
 
 Terraform identifies the affected type blocks as **must be replaced**. Unknown block presence requires replacement when unchanged selection cannot be proven; unknown child settings alone do not. Recommendations do not establish API defaults.
 
-Use `lifecycle { prevent_destroy = true }` to reject replacement before remote writes. Terraform controls replacement ordering: its default destroys before creating; `create_before_destroy` requests creation first, which may fail if XC requires a unique name. Plan a maintenance window or use a distinct name for a staged migration.
+Use `lifecycle { prevent_destroy = true }` to reject replacement before remote writes. Terraform controls replacement ordering: its default destroys before creating; `create_before_destroy` requests creation first, which may fail if XC requires a unique name. Plan a maintenance window or use a distinct name for a staged replacement.
 
 <a id="canonical-1232110203102110-2300200000021301-1013230003120232-2221103212032023-3330232211013320-3101323320003330-0210302030302211-0323132211131132"></a>
 

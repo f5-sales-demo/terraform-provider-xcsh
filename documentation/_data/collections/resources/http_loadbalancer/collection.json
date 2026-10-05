@@ -139732,8 +139732,8 @@
     },
     {
       "aliases": ["http loadbalancer"],
-      "body_bytes": 1601,
-      "body_sha256": "sha256:d35e225763b0a8f23470319d8596e1ddd58ba7e68c049b4149e244552b5f8031",
+      "body_bytes": 1603,
+      "body_sha256": "sha256:fd0d10a88701cae1e2cca025fac49e9c02a071de687a85f7aa3bed2c9205edde",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],

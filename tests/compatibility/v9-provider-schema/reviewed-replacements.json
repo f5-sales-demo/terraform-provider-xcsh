@@ -70,7 +70,7 @@
     },
     {
       "diagnostic": "registered data source type removed: xcsh_voltstack_site",
-      "replacement": "API v12.0.0 removes AppStack voltstack_site; provider v15 removes this data source type without an alias or state upgrade."
+      "replacement": "API v12.0.0 removes AppStack voltstack_site; the provider no longer registers this data source."
     },
     {
       "diagnostic": "registered resource type removed: xcsh_aws_vpc_site",
@@ -94,7 +94,7 @@
     },
     {
       "diagnostic": "registered resource type removed: xcsh_voltstack_site",
-      "replacement": "API v12.0.0 removes AppStack voltstack_site; provider v15 removes this resource type without an alias or state upgrade."
+      "replacement": "API v12.0.0 removes AppStack voltstack_site; the provider no longer registers this resource."
     }
   ]
 }

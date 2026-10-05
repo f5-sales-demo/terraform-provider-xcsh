@@ -2,7 +2,7 @@
 page_title: "Provider setup and authentication"
 subcategory: ""
 description: "Complete provider setup and authentication."
-xcsh_docs: {"aliases": ["adopt existing object", "import existing resource", "setup"], "body_bytes": 7441, "body_sha256": "sha256:b3946b9cfa49503fc270c63ed6b9de41f861a74df92d3de47b3c139d5d3e5435", "capabilities": ["administration"], "category": "administration", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved"}, "collection_id": "xcsh-docs:provider:setup:collection", "completeness": "complete", "id": "xcsh-docs:provider:setup:overview", "parent_id": "xcsh-docs:provider:xcsh:navigation", "path": "documentation/provider/setup/index.md", "product": "distributed-cloud", "provider_name": "setup", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "provider", "registry_path": "docs/index.md", "relationships": [], "retrieval_version": 1, "role": "overview", "schema_path": [], "schema_version": 1, "sections": [], "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Complete provider setup and authentication.", "tasks": ["authentication", "configuration"]}
+xcsh_docs: {"aliases": ["setup"], "body_bytes": 6981, "body_sha256": "sha256:2e7b51356aa109bf162b2def4b8f6baeb9383d0222f8dd694db4ab511a64fae6", "capabilities": ["administration"], "category": "administration", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved"}, "collection_id": "xcsh-docs:provider:setup:collection", "completeness": "complete", "id": "xcsh-docs:provider:setup:overview", "parent_id": "xcsh-docs:provider:xcsh:navigation", "path": "documentation/provider/setup/index.md", "product": "distributed-cloud", "provider_name": "setup", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "provider", "registry_path": "docs/index.md", "relationships": [], "retrieval_version": 1, "role": "overview", "schema_path": [], "schema_version": 1, "sections": [], "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Complete provider setup and authentication.", "tasks": ["authentication", "configuration"]}
 ---
 
 # XCSH Provider
@@ -18,14 +18,6 @@ This is a community-maintained provider built from public F5 API documentation.
 | terraform | >= 1.14 |
 
 ~> **Note:** This provider includes first-class actions, which require Terraform 1.14 or later. The provider does not define provider functions.
-
-## Upgrading from v9 through v11
-
-Versions v10.0.0 through v11.3.0 accidentally left broad-provider consumers without a supported path
-by publishing only the SMSv2-focused subset. Version v11.4.0 restores every type registered by
-v9.5.2 while retaining the SMSv2 and offline network allowlist additions. Upgrade with a saved plan
-and investigate any managed-resource change before applying; no import or state surgery is required
-for the restored type names.
 
 ## Authenticating to F5 Distributed Cloud
 

@@ -847,7 +847,7 @@ class Collection:
                     "Terraform identifies the affected type blocks as **must be replaced**. Unknown block presence requires replacement when unchanged selection cannot be proven; unknown child settings alone do not. Recommendations do not establish API defaults.\n"
                 )
                 lines.append(
-                    "Use `lifecycle { prevent_destroy = true }` to reject replacement before remote writes. Terraform controls replacement ordering: its default destroys before creating; `create_before_destroy` requests creation first, which may fail if XC requires a unique name. Plan a maintenance window or use a distinct name for a staged migration.\n"
+                    "Use `lifecycle { prevent_destroy = true }` to reject replacement before remote writes. Terraform controls replacement ordering: its default destroys before creating; `create_before_destroy` requests creation first, which may fail if XC requires a unique name. Plan a maintenance window or use a distinct name for a staged replacement.\n"
                 )
             elif self.kind == "actions":
                 lines.append(
@@ -1095,14 +1095,6 @@ def generate(root, schema_path, constraints_path):
         (guide.stem, guide.read_text(encoding="utf-8"))
         for guide in sorted((root / "templates/guides").glob("*.md"))
     ]
-    guide_sources.append(
-        (
-            "release-history",
-            (root / "CHANGELOG.md")
-            .read_text(encoding="utf-8")
-            .replace("# Changelog\n", "# Release history\n", 1),
-        )
-    )
     for name, source_text in guide_sources:
         text = source_text.replace(
             "../../examples/",
@@ -1126,13 +1118,9 @@ def generate(root, schema_path, constraints_path):
             "child_ids": [],
             "title": "Provider setup and authentication"
             if kind == "provider"
-            else "Release history"
-            if name == "release-history"
             else name,
             "summary": "Complete provider setup and authentication."
             if kind == "provider"
-            else "Published stable provider release history."
-            if name == "release-history"
             else "Maintained " + name + " guide.",
             "aliases": [],
             "completeness": "complete",
@@ -1173,11 +1161,7 @@ def generate(root, schema_path, constraints_path):
                 page["classification"]["sources"].append(
                     "reviewed-publication-taxonomy"
                 )
-        if kind == "guides" and name == "release-history":
-            page["aliases"] = ["changelog", "provider releases", "release history"]
-            page["tasks"] = []
-        else:
-            page["aliases"] = rules.aliases(name, body)
+        page["aliases"] = rules.aliases(name, body)
         page["sections"] = []
         page["relationships"] = []
         pages.append(page)
@@ -1377,7 +1361,7 @@ def generate(root, schema_path, constraints_path):
         + SITE
         + "/provider/setup/)\n"
         + "".join(
-            f"- [{'Release history' if name == 'release-history' else name} guide]({SITE}/guides/{name}/)\n"
+            f"- [{name} guide]({SITE}/guides/{name}/)\n"
             for kind, name, _ in auxiliary
             if kind == "guides"
         )
