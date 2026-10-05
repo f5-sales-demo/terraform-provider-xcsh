@@ -72,7 +72,7 @@
       "path": "documentation/resources/public_ip_binding/index.md",
       "product": "distributed-cloud",
       "provider_name": "public_ip_binding",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0203231102121100-0021222023322132-1033002220322133-0210023131031121-3331122113020013-3010312110213323-0102222031221012-2102213113003031",
       "registry_path": "docs/resources/public_ip_binding.md",
@@ -82,15 +82,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/public_ip_binding/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Manage the regional virtual-site binding of an already allocated public IP. Creation adopts only the binding; deletion restores its captured original binding. This resource never allocates, deallocates or deletes the public IP.",
       "tasks": ["configuration"],
       "title": "xcsh_public_ip_binding",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -113,7 +113,7 @@
       "path": "documentation/resources/public_ip_binding/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "public_ip_binding",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0000123303013230-2022101212032211-3303121103322023-1113210013222113-2332132123021221-0201100212311212-3322201001001113-1203020333320300",
       "registry_path": "docs/guides/resources--public_ip_binding--reference--group-001.md",
@@ -236,14 +236,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/public_ip_binding/properties/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Property reference for xcsh_public_ip_binding.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -266,7 +266,7 @@
       "path": "documentation/resources/public_ip_binding/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "public_ip_binding",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3200320122123303-1130300212320023-3232122301302102-2221120230202213-0322231312213330-3311300112112302-3000101330021310-3012112203332131",
       "registry_path": "docs/guides/resources--public_ip_binding--examples--group-001.md",
@@ -276,14 +276,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/public_ip_binding/examples/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Examples for xcsh_public_ip_binding.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -313,7 +313,7 @@
       "path": "documentation/resources/public_ip_binding/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "public_ip_binding",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2223123313212300-3023032303202012-2012211231031331-1311020231001102-3213120012231210-1013001311303121-0003302020113300-2213222303130231",
       "registry_path": "docs/guides/resources--public_ip_binding--examples--group-001.md",
@@ -323,14 +323,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/public_ip_binding/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Resource for xcsh_public_ip_binding.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     }
   ],

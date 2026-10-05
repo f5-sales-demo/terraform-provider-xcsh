@@ -43,7 +43,7 @@
       "path": "documentation/actions/site_upgrade_os/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_upgrade_os",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "actions",
       "registry_anchor": "canonical-0021103023333201-3221302120300023-0003110201010333-0330313301123130-0121011331210220-0002322000123231-1001203221200011-1100310302120313",
       "registry_path": "docs/actions/site_upgrade_os.md",
@@ -53,15 +53,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/site_upgrade_os/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Request an in-place site operating-system upgrade.",
       "tasks": ["configuration"],
       "title": "xcsh_site_upgrade_os",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -84,7 +84,7 @@
       "path": "documentation/actions/site_upgrade_os/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_upgrade_os",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "actions",
       "registry_anchor": "canonical-0233301120032133-3210223300213333-1302112321321300-1323121101120121-0210322111121023-2100021020202101-3303023010122301-0321132310210201",
       "registry_path": "docs/guides/actions--site_upgrade_os--reference--group-001.md",
@@ -123,14 +123,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/site_upgrade_os/properties/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Property reference for xcsh_site_upgrade_os.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -153,7 +153,7 @@
       "path": "documentation/actions/site_upgrade_os/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_upgrade_os",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "actions",
       "registry_anchor": "canonical-0001330122130010-1310122032120301-2021030020203122-2110211300130112-2221200012332023-2000332233021110-2101033001012101-1320301121012202",
       "registry_path": "docs/guides/actions--site_upgrade_os--examples--group-001.md",
@@ -163,14 +163,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/site_upgrade_os/examples/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Examples for xcsh_site_upgrade_os.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -200,7 +200,7 @@
       "path": "documentation/actions/site_upgrade_os/examples/action/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_upgrade_os",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "actions",
       "registry_anchor": "canonical-2020233322102210-1200223201102011-1232100213021313-1223022003212330-3022013310331221-2123133322200210-3201330022133300-0130322311002100",
       "registry_path": "docs/guides/actions--site_upgrade_os--examples--group-001.md",
@@ -210,14 +210,14 @@
       "schema_path": ["action"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/site_upgrade_os/examples/action/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Action for xcsh_site_upgrade_os.",
       "tasks": ["configuration"],
       "title": "Action",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -240,7 +240,7 @@
       "path": "documentation/actions/site_upgrade_os/lifecycle/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_upgrade_os",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "actions",
       "registry_anchor": "canonical-0002200213213001-1300020120200223-1300322332300133-1201320030300122-0321203100223333-0211300010111210-2003222003223023-2232130003320002",
       "registry_path": "docs/guides/actions--site_upgrade_os--lifecycle--group-001.md",
@@ -250,14 +250,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/site_upgrade_os/lifecycle/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Lifecycle for xcsh_site_upgrade_os.",
       "tasks": ["lifecycle"],
       "title": "Lifecycle",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     }
   ],

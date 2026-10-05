@@ -74,7 +74,7 @@
       "path": "documentation/data-sources/virtual_site/index.md",
       "product": "distributed-cloud",
       "provider_name": "virtual_site",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1031213012322000-0133010132320022-1031302313301212-0223023031301131-3333302202323221-1032021131132033-3323021133330011-1320213202212000",
       "registry_path": "docs/data-sources/virtual_site.md",
@@ -84,15 +84,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Manages virtual site object in given namespace in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_virtual_site",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["virtual_siteCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -115,7 +115,7 @@
       "path": "documentation/data-sources/virtual_site/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "virtual_site",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0001012332120212-3321121210011001-1030302032121112-1211101313330022-1313122033210013-3011100213131302-3231210233123131-0230121213221310",
       "registry_path": "docs/guides/data-sources--virtual_site--reference--group-001.md",
@@ -238,14 +238,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/virtual_site/properties/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Property reference for xcsh_virtual_site.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["virtual_siteCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -268,7 +268,7 @@
       "path": "documentation/data-sources/virtual_site/properties/site_selector/index.md",
       "product": "distributed-cloud",
       "provider_name": "virtual_site",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2301103133123210-2313021021321321-1233320023113120-0032210032021100-1111330222102332-2223333000332112-0023322211321132-1200220130123003",
       "registry_path": "docs/guides/data-sources--virtual_site--reference--group-001.md",
@@ -293,14 +293,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/virtual_site/properties/site_selector/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "site_selector",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["virtual_siteCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -323,7 +323,7 @@
       "path": "documentation/data-sources/virtual_site/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "virtual_site",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1123310110133133-0113110231020120-3023230122332103-2222112230100333-0021123310130212-2011130123011330-1222102221230332-2102220101233112",
       "registry_path": "docs/guides/data-sources--virtual_site--examples--group-001.md",
@@ -333,14 +333,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/virtual_site/examples/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Examples for xcsh_virtual_site.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["virtual_siteCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -370,7 +370,7 @@
       "path": "documentation/data-sources/virtual_site/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "virtual_site",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1000133010023010-0301230230021210-3312232022020211-2010102212332200-0100020110033011-2023211012013003-1223311121030321-2110231103331112",
       "registry_path": "docs/guides/data-sources--virtual_site--examples--group-001.md",
@@ -380,14 +380,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/virtual_site/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Data source for xcsh_virtual_site.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["virtual_siteCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     }
   ],

@@ -2,7 +2,7 @@
 page_title: "Release history"
 subcategory: ""
 description: "Published stable provider release history."
-xcsh_docs: {"aliases": ["changelog", "provider releases", "release history"], "body_bytes": 14779, "body_sha256": "sha256:30a8651770c532353a5b13dfb85daabe4443b0dc2a008c5f84599c4487db546b", "capabilities": ["administration"], "category": "administration", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-publication-taxonomy"], "status": "resolved"}, "collection_id": "xcsh-docs:guides:release-history:collection", "completeness": "complete", "id": "xcsh-docs:guides:release-history:overview", "parent_id": "xcsh-docs:provider:xcsh:navigation", "path": "documentation/guides/release-history/index.md", "product": "distributed-cloud", "provider_name": "release-history", "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733", "provider_type": "guides", "registry_path": "docs/guides/release-history.md", "relationships": [], "retrieval_version": 1, "role": "overview", "schema_path": [], "schema_version": 1, "sections": [], "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff", "summary": "Published stable provider release history.", "tasks": []}
+xcsh_docs: {"aliases": ["changelog", "provider releases", "release history"], "body_bytes": 14997, "body_sha256": "sha256:7f35d2924432de84d7af4590ee2308c7a22826df4e3c9dda6088df8e3a621f5a", "capabilities": ["administration"], "category": "administration", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-publication-taxonomy"], "status": "resolved"}, "collection_id": "xcsh-docs:guides:release-history:collection", "completeness": "complete", "id": "xcsh-docs:guides:release-history:overview", "parent_id": "xcsh-docs:provider:xcsh:navigation", "path": "documentation/guides/release-history/index.md", "product": "distributed-cloud", "provider_name": "release-history", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "guides", "registry_path": "docs/guides/release-history.md", "relationships": [], "retrieval_version": 1, "role": "overview", "schema_path": [], "schema_version": 1, "sections": [], "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Published stable provider release history.", "tasks": []}
 ---
 
 # Release history
@@ -13,6 +13,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+### Breaking changes
+
+API v12.0.0 removes the `xcsh_voltstack_site` resource and data source. Provider v15 removes both Terraform types without an alias or state upgrade. Mesh CE, SMSv2, and AWS TGW remain available.
 
 ## [v14.0.0](https://github.com/f5-sales-demo/terraform-provider-xcsh/releases/tag/v14.0.0) - 2026-10-05
 

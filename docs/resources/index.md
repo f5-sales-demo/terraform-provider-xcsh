@@ -1,6 +1,6 @@
 # Resources
 
-This provider includes 126 resources.
+This provider includes 125 resources.
 
 - [xcsh_address_allocator](address_allocator.md)
 - [xcsh_advertise_policy](advertise_policy.md)
@@ -124,7 +124,6 @@ This provider includes 126 resources.
 - [xcsh_virtual_k8s](virtual_k8s.md)
 - [xcsh_virtual_network](virtual_network.md)
 - [xcsh_virtual_site](virtual_site.md)
-- [xcsh_voltstack_site](voltstack_site.md)
 - [xcsh_waf_exclusion_policy](waf_exclusion_policy.md)
 - [xcsh_workload](workload.md)
 - [xcsh_workload_flavor](workload_flavor.md)

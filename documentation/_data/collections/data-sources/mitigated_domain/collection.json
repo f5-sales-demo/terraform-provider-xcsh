@@ -67,7 +67,7 @@
       "path": "documentation/data-sources/mitigated_domain/index.md",
       "product": "distributed-cloud",
       "provider_name": "mitigated_domain",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3233303323320020-3201003222322030-3103103212101100-1321230323023131-3310220303032323-0211212333301333-1330120302113020-2012202211332310",
       "registry_path": "docs/data-sources/mitigated_domain.md",
@@ -77,15 +77,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/mitigated_domain/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Manages Mitigated Domain in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_mitigated_domain",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["mitigated_domainCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -108,7 +108,7 @@
       "path": "documentation/data-sources/mitigated_domain/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "mitigated_domain",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0201213223313332-2132200331130222-1202220001302010-1022310120223013-3020032223131202-2123112211203031-2213120030001221-2330123113023202",
       "registry_path": "docs/guides/data-sources--mitigated_domain--reference--group-001.md",
@@ -217,14 +217,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/mitigated_domain/properties/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Property reference for xcsh_mitigated_domain.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["mitigated_domainCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -247,7 +247,7 @@
       "path": "documentation/data-sources/mitigated_domain/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "mitigated_domain",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1230120121021001-2100330101330313-0000131010233210-3233021320010013-2322121011013130-2330100102101222-0132023121130001-2233232331220210",
       "registry_path": "docs/guides/data-sources--mitigated_domain--examples--group-001.md",
@@ -257,14 +257,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/mitigated_domain/examples/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Examples for xcsh_mitigated_domain.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["mitigated_domainCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -294,7 +294,7 @@
       "path": "documentation/data-sources/mitigated_domain/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "mitigated_domain",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3313030103121120-3301201332001313-0103102033021113-3202232130333030-1211001200203032-1130030301302313-3303232310100111-0003021032202212",
       "registry_path": "docs/guides/data-sources--mitigated_domain--examples--group-001.md",
@@ -304,14 +304,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/mitigated_domain/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Data source for xcsh_mitigated_domain.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["mitigated_domainCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     }
   ],

@@ -277,7 +277,7 @@
       "path": "documentation/data-sources/certified_hardware/index.md",
       "product": "distributed-cloud",
       "provider_name": "certified_hardware",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3203100033102110-1200003111311001-2130133202021111-2000112331003330-0223333332201310-0221311220013120-2000203133203030-3221223311122122",
       "registry_path": "docs/data-sources/certified_hardware.md",
@@ -287,15 +287,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Manages a Certified Hardware resource in F5 Distributed Cloud for get certified hardware object. configuration. (read-only data source)",
       "tasks": ["configuration"],
       "title": "xcsh_certified_hardware",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -324,7 +324,7 @@
       "path": "documentation/data-sources/certified_hardware/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "certified_hardware",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0302130231202120-2203110233320123-1120332022311120-3011032230213311-2103323001103203-0212122123333022-1013300331312111-0101311012103201",
       "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md",
@@ -545,14 +545,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Property reference for xcsh_certified_hardware.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -575,7 +575,7 @@
       "path": "documentation/data-sources/certified_hardware/properties/devices/index.md",
       "product": "distributed-cloud",
       "provider_name": "certified_hardware",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1323223232320303-3210303020021333-0211300220322202-3033001020330232-1122111132321300-2001101311013022-0031101111011002-3103231103301231",
       "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md",
@@ -670,14 +670,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/devices/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "List of supported devices in this model.",
       "tasks": ["configuration"],
       "title": "devices",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -704,7 +704,7 @@
       "path": "documentation/data-sources/certified_hardware/properties/image_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "certified_hardware",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3301201231202101-0111203210233310-3010321103121133-1110131201111123-3310102031021120-0121212002303313-1220201232030313-2301130001301220",
       "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md",
@@ -785,14 +785,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "List of image names with providers for this certified hardware, e.g. AWS ami-0f99d090261d2acd5.",
       "tasks": ["configuration"],
       "title": "image_list",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -815,7 +815,7 @@
       "path": "documentation/data-sources/certified_hardware/properties/image_list/aws/index.md",
       "product": "distributed-cloud",
       "provider_name": "certified_hardware",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1123330222022223-1010031100010001-3101201301122200-2230230121231111-1310103000331303-1301130102202003-1221021212021223-3121122323031232",
       "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md",
@@ -840,14 +840,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/aws/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "AWS. AWS specific information.",
       "tasks": ["configuration"],
       "title": "image_list.aws",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -870,7 +870,7 @@
       "path": "documentation/data-sources/certified_hardware/properties/image_list/aws/image_id/index.md",
       "product": "distributed-cloud",
       "provider_name": "certified_hardware",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1302333203022310-0211233233301012-3001210121223011-1203202333201212-1131222301032102-2010332103110012-2022112310232311-2123330102001302",
       "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md",
@@ -909,14 +909,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/aws/image_id/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Configuration for image_id.",
       "tasks": ["configuration"],
       "title": "image_list.aws.image_id",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -942,7 +942,7 @@
       "path": "documentation/data-sources/certified_hardware/properties/image_list/azure/index.md",
       "product": "distributed-cloud",
       "provider_name": "certified_hardware",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3323322103223103-1310112213021103-1231221232200003-0203011030301022-2300000323211231-2322012323022103-0123001113023131-3033131212200321",
       "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md",
@@ -981,14 +981,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/azure/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Azure. Azure specific information.",
       "tasks": ["configuration"],
       "title": "image_list.azure",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1011,7 +1011,7 @@
       "path": "documentation/data-sources/certified_hardware/properties/image_list/azure/image_id/index.md",
       "product": "distributed-cloud",
       "provider_name": "certified_hardware",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0303310313323010-3110202230320132-1110122012132100-3022111023011323-3223232023320111-2332000223231313-0303010023321321-1302320020320023",
       "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md",
@@ -1036,14 +1036,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/azure/image_id/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Configuration for image_id.",
       "tasks": ["configuration"],
       "title": "image_list.azure.image_id",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1066,7 +1066,7 @@
       "path": "documentation/data-sources/certified_hardware/properties/image_list/azure/marketplace/index.md",
       "product": "distributed-cloud",
       "provider_name": "certified_hardware",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0103120113333021-0121333012320020-3231330231300131-3200013223130330-0320302331323120-0011331112233000-0312123122213111-0132220322130331",
       "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md",
@@ -1147,14 +1147,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/azure/marketplace/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Configuration parameter for marketplace.",
       "tasks": ["configuration"],
       "title": "image_list.azure.marketplace",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1177,7 +1177,7 @@
       "path": "documentation/data-sources/certified_hardware/properties/image_list/gcp/index.md",
       "product": "distributed-cloud",
       "provider_name": "certified_hardware",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1220230221302310-0030120303133231-1131211320100232-3220033133222133-1021023020300313-3023133000310100-1231223203131132-2301011103213310",
       "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md",
@@ -1202,14 +1202,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/gcp/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "GCP. GCP specific information.",
       "tasks": ["configuration"],
       "title": "image_list.gcp",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1232,7 +1232,7 @@
       "path": "documentation/data-sources/certified_hardware/properties/image_list/gcp/image_id/index.md",
       "product": "distributed-cloud",
       "provider_name": "certified_hardware",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3033202020003210-3010202300103121-1011313220320023-2220233201221103-0033003022303230-1302303023321332-2320313112210121-0322110203220310",
       "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md",
@@ -1257,14 +1257,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/gcp/image_id/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Configuration for image_id.",
       "tasks": ["configuration"],
       "title": "image_list.gcp.image_id",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1287,7 +1287,7 @@
       "path": "documentation/data-sources/certified_hardware/properties/internal_usb_device_rule/index.md",
       "product": "distributed-cloud",
       "provider_name": "certified_hardware",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3001313320012012-1233202130023210-1212001121232030-1232021103332333-0212331312033303-1020321011122021-1210110331030331-3132113111230010",
       "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md",
@@ -1382,14 +1382,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/internal_usb_device_rule/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "List of internal USB device rules for server.",
       "tasks": ["configuration"],
       "title": "internal_usb_device_rule",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1412,7 +1412,7 @@
       "path": "documentation/data-sources/certified_hardware/properties/numa_mem/index.md",
       "product": "distributed-cloud",
       "provider_name": "certified_hardware",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2330233232230001-2320121010311121-0321011030100311-3021331102302000-0130032123111310-0033312132220332-3000213332113201-0111301333202103",
       "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md",
@@ -1451,14 +1451,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/numa_mem/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "List of Numa nodes with the number of MB of instance memory to map to node instance If not specified, memory is evenly divided among available NUMA nodes.",
       "tasks": ["configuration"],
       "title": "numa_mem",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1481,7 +1481,7 @@
       "path": "documentation/data-sources/certified_hardware/properties/vendor_model_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "certified_hardware",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1210110121010203-3220102133233012-0133010210100132-0022020322110100-1301123111120033-0220003210120331-3020311203330112-0103022201331031",
       "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md",
@@ -1520,14 +1520,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/vendor_model_list/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "List of supported hardware vendor and model for this certified hardware.",
       "tasks": ["configuration"],
       "title": "vendor_model_list",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1550,7 +1550,7 @@
       "path": "documentation/data-sources/certified_hardware/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "certified_hardware",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3211013330020133-2220002032011211-2213232320113221-0321132313332230-1131300330100223-1100020132102113-1120013311233100-2101331022200313",
       "registry_path": "docs/guides/data-sources--certified_hardware--examples--group-001.md",
@@ -1560,14 +1560,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/examples/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Examples for xcsh_certified_hardware.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1597,7 +1597,7 @@
       "path": "documentation/data-sources/certified_hardware/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "certified_hardware",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1001223122213112-2321321330020223-3001031021223130-0312000001213120-2202031212330020-1033003021022202-3021321100302202-2313303211212213",
       "registry_path": "docs/guides/data-sources--certified_hardware--examples--group-001.md",
@@ -1607,14 +1607,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Data source for xcsh_certified_hardware.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     }
   ],

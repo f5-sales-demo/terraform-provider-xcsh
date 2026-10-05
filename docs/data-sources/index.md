@@ -1,6 +1,6 @@
 # Data Sources
 
-This provider includes 193 data sources.
+This provider includes 192 data sources.
 
 - [xcsh_access_active_session](access_active_session.md)
 - [xcsh_access_active_sessions](access_active_sessions.md)
@@ -186,7 +186,6 @@ This provider includes 193 data sources.
 - [xcsh_virtual_k8s](virtual_k8s.md)
 - [xcsh_virtual_network](virtual_network.md)
 - [xcsh_virtual_site](virtual_site.md)
-- [xcsh_voltstack_site](voltstack_site.md)
 - [xcsh_waf_attack_signatures](waf_attack_signatures.md)
 - [xcsh_waf_bot_signatures](waf_bot_signatures.md)
 - [xcsh_waf_exclusion_policy](waf_exclusion_policy.md)

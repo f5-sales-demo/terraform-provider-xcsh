@@ -2,6 +2,5 @@
   "_comment": "Node-backed site resources whose API objects receive hardware and OS discovery labels. The generator filters six unprefixed discovery keys on read-back only for these resources; platform label prefixes are filtered everywhere. SMSv2 and AWS TGW remain supported. See issue #1391 and the write-path follow-up #1396.",
   "AWSTGWSite": true,
   "SecuremeshSiteV2": true,
-  "Site": true,
-  "VoltstackSite": true
+  "Site": true
 }

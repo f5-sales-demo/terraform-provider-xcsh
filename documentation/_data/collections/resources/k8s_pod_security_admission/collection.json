@@ -129,7 +129,7 @@
       "path": "documentation/resources/k8s_pod_security_admission/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_admission",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0313313203122132-2133320121222233-2103022302032133-2001003113030010-1331332233310223-0122000131122000-1030032313322310-3110123301232023",
       "registry_path": "docs/resources/k8s_pod_security_admission.md",
@@ -139,15 +139,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Manages k8s_pod_security_admission will create the object in the storage backend in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_k8s_pod_security_admission",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["k8s_pod_security_admissionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -173,7 +173,7 @@
       "path": "documentation/resources/k8s_pod_security_admission/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_admission",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2222333310123013-1221301313132132-3120203303322302-2023312113233133-3221130101113030-0021200233133103-2011300211002132-0212001303010330",
       "registry_path": "docs/guides/resources--k8s_pod_security_admission--reference--group-001.md",
@@ -407,14 +407,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/properties/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Property reference for xcsh_k8s_pod_security_admission.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["k8s_pod_security_admissionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -444,7 +444,7 @@
       "path": "documentation/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_admission",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1000030230112200-1231331301101110-1303212112010002-0022032303300133-0310013011110210-1012020000003201-2013031303111200-2003222011220032",
       "registry_path": "docs/guides/resources--k8s_pod_security_admission--reference--group-001.md",
@@ -636,14 +636,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Uniform Resource Identifier",
       "tasks": ["configuration"],
       "title": "pod_security_admission_specs",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["k8s_pod_security_admissionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -666,7 +666,7 @@
       "path": "documentation/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/audit/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_admission",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0111210113021032-1132303221231322-0131113233000101-0310133201123201-3303301122210123-3312133030303320-2322001003103232-1310213321310331",
       "registry_path": "docs/guides/resources--k8s_pod_security_admission--reference--group-001.md",
@@ -676,14 +676,14 @@
       "schema_path": ["pod_security_admission_specs", "audit"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/audit/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "pod_security_admission_specs.audit",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["k8s_pod_security_admissionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -706,7 +706,7 @@
       "path": "documentation/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/baseline/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_admission",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2133120101221330-1013013031332212-0111021021330212-0122112012131332-2003123222210011-3302203210312121-0002131200013010-1121202031110332",
       "registry_path": "docs/guides/resources--k8s_pod_security_admission--reference--group-001.md",
@@ -716,14 +716,14 @@
       "schema_path": ["pod_security_admission_specs", "baseline"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/baseline/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "pod_security_admission_specs.baseline",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["k8s_pod_security_admissionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -746,7 +746,7 @@
       "path": "documentation/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/enforce/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_admission",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0310333232313130-2020100002003332-3112203120102203-2303323102221110-1120023211013000-1003021113210131-0210022203233200-3333003010033212",
       "registry_path": "docs/guides/resources--k8s_pod_security_admission--reference--group-001.md",
@@ -756,14 +756,14 @@
       "schema_path": ["pod_security_admission_specs", "enforce"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/enforce/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "pod_security_admission_specs.enforce",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["k8s_pod_security_admissionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -786,7 +786,7 @@
       "path": "documentation/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/privileged/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_admission",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2221201033113120-3102221030010231-3013121211311033-3310133213032232-2333013322013120-1100103021023312-2222300310113132-1000322132313333",
       "registry_path": "docs/guides/resources--k8s_pod_security_admission--reference--group-001.md",
@@ -796,14 +796,14 @@
       "schema_path": ["pod_security_admission_specs", "privileged"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/privileged/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "pod_security_admission_specs.privileged",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["k8s_pod_security_admissionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -826,7 +826,7 @@
       "path": "documentation/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/restricted/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_admission",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1102101023232323-3300132013021330-0323320320111131-3211203101102112-2100332332133333-2232222311012203-2112121012100132-2010232022111133",
       "registry_path": "docs/guides/resources--k8s_pod_security_admission--reference--group-001.md",
@@ -836,14 +836,14 @@
       "schema_path": ["pod_security_admission_specs", "restricted"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/restricted/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "pod_security_admission_specs.restricted",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["k8s_pod_security_admissionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -866,7 +866,7 @@
       "path": "documentation/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/warn/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_admission",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2323230313203131-2003022010302330-3323202121303002-1312133032233021-1300232123120033-0322310312321311-2331001030033123-3221303320030001",
       "registry_path": "docs/guides/resources--k8s_pod_security_admission--reference--group-001.md",
@@ -876,14 +876,14 @@
       "schema_path": ["pod_security_admission_specs", "warn"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/warn/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "pod_security_admission_specs.warn",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["k8s_pod_security_admissionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -906,7 +906,7 @@
       "path": "documentation/resources/k8s_pod_security_admission/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_admission",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3313222201332230-2320100123321123-3302030323300021-2321323013310010-0201132310033032-0001002200220012-1123310103120131-1130311210122220",
       "registry_path": "docs/guides/resources--k8s_pod_security_admission--reference--group-001.md",
@@ -1008,14 +1008,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "timeouts for xcsh_k8s_pod_security_admission.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["k8s_pod_security_admissionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1038,7 +1038,7 @@
       "path": "documentation/resources/k8s_pod_security_admission/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_admission",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3303212110021111-0310330201010013-3130321323000001-2103313102022233-1213301323300113-2112033122032222-1032310313122120-3020321110323322",
       "registry_path": "docs/guides/resources--k8s_pod_security_admission--examples--group-001.md",
@@ -1048,14 +1048,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/examples/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Examples for xcsh_k8s_pod_security_admission.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["k8s_pod_security_admissionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1085,7 +1085,7 @@
       "path": "documentation/resources/k8s_pod_security_admission/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_admission",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1202203123123302-0101221202003123-2133202023323322-3231332220120210-1031221233313023-1122123230121120-3313032301323000-1323230331320202",
       "registry_path": "docs/guides/resources--k8s_pod_security_admission--examples--group-001.md",
@@ -1095,14 +1095,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Resource for xcsh_k8s_pod_security_admission.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["k8s_pod_security_admissionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1126,7 +1126,7 @@
       "path": "documentation/resources/k8s_pod_security_admission/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_admission",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1332322211301202-3112300032013110-3333012330223211-2030001100132313-1030222133313333-3012033302200111-0012121021232011-3133300211112002",
       "registry_path": "docs/guides/resources--k8s_pod_security_admission--lifecycle--group-001.md",
@@ -1136,14 +1136,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Import for xcsh_k8s_pod_security_admission.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["k8s_pod_security_admissionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1166,7 +1166,7 @@
       "path": "documentation/resources/k8s_pod_security_admission/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_admission",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2212300120320230-3120103030130113-0231311023023312-1233230202100000-3022100210320223-1300113310302113-0212331330311010-0002130132010200",
       "registry_path": "docs/guides/resources--k8s_pod_security_admission--lifecycle--group-001.md",
@@ -1176,14 +1176,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Timeouts for xcsh_k8s_pod_security_admission.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["k8s_pod_security_admissionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     }
   ],

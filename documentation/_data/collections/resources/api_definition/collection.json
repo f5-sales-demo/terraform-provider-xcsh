@@ -154,7 +154,7 @@
       "path": "documentation/resources/api_definition/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_definition",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0122213120002012-3231302001220300-2001233123112233-1130330020321211-3113132132002121-2133030200111003-0210010013030021-1211030320012300",
       "registry_path": "docs/resources/api_definition.md",
@@ -164,15 +164,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Manages API Definition in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_api_definition",
       "unresolved_relationships": [{ "name": "api_endpoint", "source": "receipt-pinned-dependency:optional" }],
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["api_definitionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -202,7 +202,7 @@
       "path": "documentation/resources/api_definition/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_definition",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1013013311212220-2100012121010012-2012032113201303-3011001133121233-0013201202222002-0113112031031113-2000220121302133-2321231322222211",
       "registry_path": "docs/guides/resources--api_definition--reference--group-001.md",
@@ -436,14 +436,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/properties/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Property reference for xcsh_api_definition.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["api_definitionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -466,7 +466,7 @@
       "path": "documentation/resources/api_definition/properties/api_inventory_exclusion_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_definition",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0322111332303200-0102230312330331-2230231331102322-0111003030300213-3103033311100113-2312223222013222-0332133333003331-1230011112023110",
       "registry_path": "docs/guides/resources--api_definition--reference--group-001.md",
@@ -514,14 +514,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/properties/api_inventory_exclusion_list/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "List of API Endpoints excluded from the API Inventory.",
       "tasks": ["configuration"],
       "title": "api_inventory_exclusion_list",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["api_definitionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -544,7 +544,7 @@
       "path": "documentation/resources/api_definition/properties/api_inventory_inclusion_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_definition",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0323203300310302-0203231011212201-3122301133231102-1200330320231103-3013021220022111-2110033120132001-0322200121032302-1301222111101101",
       "registry_path": "docs/guides/resources--api_definition--reference--group-001.md",
@@ -592,14 +592,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/properties/api_inventory_inclusion_list/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "List of API Endpoints included in the API Inventory. Typically, discovered API endpoints are added to the API Inventory using this list.",
       "tasks": ["configuration"],
       "title": "api_inventory_inclusion_list",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["api_definitionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -622,7 +622,7 @@
       "path": "documentation/resources/api_definition/properties/mixed_schema_origin/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_definition",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2013020123013310-2332123212130022-0023333010011221-1230113002222301-1130100022112333-2321100033121332-2322203201132102-0001311332202103",
       "registry_path": "docs/guides/resources--api_definition--reference--group-001.md",
@@ -632,14 +632,14 @@
       "schema_path": ["mixed_schema_origin"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/properties/mixed_schema_origin/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "mixed_schema_origin",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["api_definitionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -662,7 +662,7 @@
       "path": "documentation/resources/api_definition/properties/non_api_endpoints/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_definition",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3013111320133022-1120132002103332-1322121200101212-1332122003230001-3132113222020231-0022312331223301-2130330000300003-1313003013011323",
       "registry_path": "docs/guides/resources--api_definition--reference--group-001.md",
@@ -710,14 +710,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/properties/non_api_endpoints/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "List of Non-API Endpoints.",
       "tasks": ["configuration"],
       "title": "non_api_endpoints",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["api_definitionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -740,7 +740,7 @@
       "path": "documentation/resources/api_definition/properties/strict_schema_origin/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_definition",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2310302013203313-0231100001203113-1203121222003301-2311001121000010-0000132332111022-1101302100003131-0301013302332203-1033132331200113",
       "registry_path": "docs/guides/resources--api_definition--reference--group-001.md",
@@ -750,14 +750,14 @@
       "schema_path": ["strict_schema_origin"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/properties/strict_schema_origin/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "strict_schema_origin",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["api_definitionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -780,7 +780,7 @@
       "path": "documentation/resources/api_definition/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_definition",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0012033303210001-2011322101331022-1222132032212313-2010223123333221-2221230230221111-0103330330311200-2001332103301321-0102023222320312",
       "registry_path": "docs/guides/resources--api_definition--reference--group-001.md",
@@ -882,14 +882,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "timeouts for xcsh_api_definition.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["api_definitionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -912,7 +912,7 @@
       "path": "documentation/resources/api_definition/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_definition",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1021200213031100-3331111211312013-1031323303301031-0322221202302021-2220021101122011-3011100220301120-2331131031230210-2001320110010210",
       "registry_path": "docs/guides/resources--api_definition--examples--group-001.md",
@@ -922,14 +922,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/examples/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Examples for xcsh_api_definition.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["api_definitionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -959,7 +959,7 @@
       "path": "documentation/resources/api_definition/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_definition",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1213001112132303-3333011121103100-3210233222333023-0331300210320303-1230003312130322-2100032100011211-2201033221322101-2011122021010300",
       "registry_path": "docs/guides/resources--api_definition--examples--group-001.md",
@@ -969,14 +969,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Resource for xcsh_api_definition.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["api_definitionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1000,7 +1000,7 @@
       "path": "documentation/resources/api_definition/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_definition",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2232021313301213-0120030010233332-0123231113030312-3033030122002113-3221001022032312-3200112300230200-3022031313321001-2123110232233111",
       "registry_path": "docs/guides/resources--api_definition--lifecycle--group-001.md",
@@ -1010,14 +1010,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Import for xcsh_api_definition.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["api_definitionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -1040,7 +1040,7 @@
       "path": "documentation/resources/api_definition/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_definition",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2002022223022103-3302230110102312-0030110120003121-1321201003010231-1013100221110231-2303332123222300-3223030011032000-3222210020121330",
       "registry_path": "docs/guides/resources--api_definition--lifecycle--group-001.md",
@@ -1050,14 +1050,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Timeouts for xcsh_api_definition.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": ["api_definitionCreateRequest"],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     }
   ],

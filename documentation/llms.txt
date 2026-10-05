@@ -126,7 +126,6 @@ Load fundamentals first, then the property reference or immediate children. Fetc
 - [resources/virtual_k8s](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/virtual_k8s/): Manages virtual_k8s will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.
 - [resources/virtual_network](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/virtual_network/): Manages virtual network in given namespace in F5 Distributed Cloud.
 - [resources/virtual_site](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/virtual_site/): Manages virtual site object in given namespace in F5 Distributed Cloud.
-- [resources/voltstack_site](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/): Manages a Voltstack Site resource in F5 Distributed Cloud for deploying App Stack edge computing sites.
 - [resources/waf_exclusion_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/waf_exclusion_policy/): Manages WAF exclusion policy in F5 Distributed Cloud.
 - [resources/workload](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/): Manages a Workload resource in F5 Distributed Cloud for workload. configuration.
 - [resources/workload_flavor](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload_flavor/): Manages workload_flavor in F5 Distributed Cloud.
@@ -314,7 +313,6 @@ Load fundamentals first, then the property reference or immediate children. Fetc
 - [data-sources/virtual_k8s](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/virtual_k8s/): Manages virtual_k8s will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.
 - [data-sources/virtual_network](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/virtual_network/): Manages virtual network in given namespace in F5 Distributed Cloud.
 - [data-sources/virtual_site](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/virtual_site/): Manages virtual site object in given namespace in F5 Distributed Cloud.
-- [data-sources/voltstack_site](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/): Manages a Voltstack Site resource in F5 Distributed Cloud for deploying App Stack edge computing sites.
 - [data-sources/waf_attack_signatures](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_attack_signatures/): Resource retrieval operation.
 - [data-sources/waf_bot_signatures](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_bot_signatures/): Bot detection and defense configuration.
 - [data-sources/waf_exclusion_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_exclusion_policy/): Manages WAF exclusion policy in F5 Distributed Cloud.

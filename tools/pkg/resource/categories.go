@@ -74,7 +74,6 @@ var CategoryPatterns = []CategoryPattern{
 	{"_vnet_site", "Sites"},
 	{"_tgw_site", "Sites"},
 	{"securemesh_site", "Sites"},
-	{"voltstack_site", "Sites"},
 	{"virtual_site", "Sites"},
 	{"site_mesh", "Sites"},
 
