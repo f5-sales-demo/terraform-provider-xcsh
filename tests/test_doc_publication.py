@@ -96,9 +96,7 @@ class PublicationTests(unittest.TestCase):
         manifest = json.loads(
             (ROOT / "documentation/generated-manifest.json").read_text()
         )
-        self.assertFalse(
-            any("release-history" in path for path in manifest["files"])
-        )
+        self.assertFalse(any("release-history" in path for path in manifest["files"]))
 
 
 if __name__ == "__main__":
