@@ -6,6 +6,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location(
@@ -87,6 +88,50 @@ class SnapshotTests(unittest.TestCase):
             ValueError, "only stable"
         ):
             SNAPSHOT.snapshot("docs-v12.0.4", Path("unused"))
+
+    def test_snapshot_create_retries_only_without_remote_state(self) -> None:
+        """A failed upload retries only after the release and tag are absent."""
+        with (
+            patch.object(
+                SNAPSHOT,
+                "run",
+                side_effect=[RuntimeError("gh exited 1: HTTP 502"), b""],
+            ) as command,
+            patch.object(SNAPSHOT, "assert_no_partial_snapshot") as absent,
+            patch.object(SNAPSHOT.time, "sleep") as delay,
+        ):
+            SNAPSHOT.create_snapshot_draft("documentation-v15.0.0", ["--draft"])
+        assert command.call_count == 2
+        absent.assert_called_once_with("documentation-v15.0.0")
+        delay.assert_called_once_with(1)
+
+        with (
+            patch.object(
+                SNAPSHOT, "run", side_effect=RuntimeError("gh exited 1")
+            ) as command,
+            patch.object(
+                SNAPSHOT,
+                "assert_no_partial_snapshot",
+                side_effect=ValueError("snapshot creation left a draft"),
+            ),
+            self.assertRaisesRegex(ValueError, "left a draft"),  # noqa: PT027
+        ):
+            SNAPSHOT.create_snapshot_draft("documentation-v15.0.0", ["--draft"])
+        assert command.call_count == 1
+
+    def test_snapshot_rejects_unsealed_provider_release(self) -> None:
+        """Documentation publication requires a final immutable provider."""
+        provider = {
+            "tag_name": "v15.0.0",
+            "draft": False,
+            "prerelease": False,
+            "immutable": False,
+        }
+        with (
+            patch.object(SNAPSHOT, "run", return_value=json.dumps(provider).encode()),
+            self.assertRaisesRegex(ValueError, "stable, and immutable"),  # noqa: PT027
+        ):
+            SNAPSHOT.publish("v15.0.0", Path("unused"))
 
 
 if __name__ == "__main__":
