@@ -1,8 +1,7 @@
 # ruff: noqa: INP001, PT009
-"""Check the authored taxonomy and release record against generated docs."""
+"""Check that current documentation is derived from the active provider surface."""
 
 import json
-import re
 import sys
 import unittest
 from pathlib import Path
@@ -12,38 +11,13 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 from retrieval_metadata import RetrievalRules  # noqa: E402
 
-VERSIONS = (
-    "v12.0.0",
-    "v12.0.1",
-    "v12.0.2",
-    "v12.0.3",
-    "v12.0.4",
-    "v12.0.5",
-    "v12.0.6",
-    "v12.0.7",
-    "v12.1.0",
-    "v12.1.1",
-    "v12.1.2",
-    "v12.2.0",
-    "v12.2.1",
-    "v12.3.0",
-    "v12.3.1",
-    "v12.3.2",
-    "v12.4.0",
-    "v13.0.0",
-    "v13.0.1",
-    "v13.0.2",
-    "v13.0.3",
-    "v13.1.0",
-    "v13.1.1",
-    "v14.0.0",
-)
 RETIRED = {
     "aws_vpc_site",
     "azure_vnet_site",
     "cloud_connect",
     "gcp_vpc_site",
     "securemesh_site",
+    "voltstack_site",
 }
 
 
@@ -51,7 +25,6 @@ class PublicationTests(unittest.TestCase):
     taxonomy: ClassVar[dict]
     index: ClassVar[dict]
     surface: ClassVar[dict]
-    changelog: ClassVar[str]
 
     @classmethod
     def setUpClass(cls):
@@ -62,7 +35,6 @@ class PublicationTests(unittest.TestCase):
             (ROOT / "documentation/terraform-llms-index.json").read_text()
         )
         cls.surface = json.loads((ROOT / "provider-release-surface.json").read_text())
-        cls.changelog = (ROOT / "CHANGELOG.md").read_text()
 
     def test_taxonomy_is_bound_to_final_rules_and_current_surface(self):
         digest = RetrievalRules.default().digest
@@ -81,7 +53,7 @@ class PublicationTests(unittest.TestCase):
         active.update(
             {guide.stem for guide in (ROOT / "templates/guides").glob("*.md")}
         )
-        active.update({"setup", "release-history"})
+        active.add("setup")
         present = {page["provider_name"] for page in self.index["pages"]}
         mapped: set[str] = set()
         for group in self.taxonomy["subcategories"]:
@@ -93,58 +65,38 @@ class PublicationTests(unittest.TestCase):
                 self.assertNotIn(name, RETIRED)
                 self.assertNotIn(name, mapped)
                 mapped.add(name)
-        self.assertIn("release-history", mapped)
+        self.assertNotIn("release-history", mapped)
         self.assertTrue(RETIRED.isdisjoint(mapped))
         self.assertEqual(len(self.taxonomy["topics"]), 11)
 
-    def test_release_record_and_generated_guide_links(self):
-        headings = re.findall(
-            r"^## \[(v(?:12|13|14)\.\d+\.\d+)\].*$", self.changelog, re.MULTILINE
+    def test_current_publication_has_no_version_migration_guide(self):
+        retired_paths = (
+            "docs/guides/release-history.md",
+            "documentation/guides/release-history/index.md",
+            "documentation/_data/pages/guides/release-history/index.txt",
         )
-        self.assertEqual(set(headings), set(VERSIONS))
-        self.assertEqual(len(headings), 24)
-        for version in VERSIONS:
-            self.assertRegex(
-                self.changelog,
-                rf"(?m)^## \[{re.escape(version)}\]\([^\n]+\) - 20\d\d-\d\d-\d\d$",
-            )
-        section = self.changelog.split("## [v14.0.0]", 1)[1].split("## [v13.1.1]", 1)[0]
-        for kind in ("resource", "data source"):
-            for name in RETIRED:
-                self.assertIn(f"- {kind} `xcsh_{name}`", section)
-        self.assertIn("does not establish a drop-in replacement", section)
-        expected = self.changelog.replace("# Changelog\n", "# Release history\n", 1)
-        self.assertEqual(
-            (ROOT / "docs/guides/release-history.md").read_text(), expected
+        for path in retired_paths:
+            self.assertFalse((ROOT / path).exists(), path)
+        pages = self.index["pages"]
+        self.assertFalse(
+            any(page["provider_name"] == "release-history" for page in pages)
         )
-        canonical = (ROOT / "documentation/guides/release-history/index.md").read_text()
-        self.assertIn(expected, canonical)
-        self.assertIn(
-            "/guides/release-history/", (ROOT / "documentation/llms.txt").read_text()
+        for path in (
+            "docs/index.md",
+            "documentation/index.md",
+            "documentation/llms.txt",
+        ):
+            body = (ROOT / path).read_text()
+            self.assertNotIn("release-history", body, path)
+            self.assertNotIn("Upgrading from v9 through v11", body, path)
+        projection = json.loads(
+            (ROOT / "documentation/registry-projection-manifest.json").read_text()
         )
-        self.assertIn(
-            "/guides/release-history/", (ROOT / "documentation/index.md").read_text()
+        self.assertNotIn("docs/guides/release-history.md", projection["files"])
+        manifest = json.loads(
+            (ROOT / "documentation/generated-manifest.json").read_text()
         )
-        guide = [
-            page
-            for page in self.index["pages"]
-            if page["id"] == "xcsh-docs:guides:release-history:overview"
-        ]
-        self.assertEqual(len(guide), 1)
-        self.assertEqual(
-            guide[0]["path"], "documentation/guides/release-history/index.md"
-        )
-        self.assertEqual(guide[0]["registry_path"], "docs/guides/release-history.md")
-        self.assertEqual(
-            guide[0]["aliases"],
-            ["changelog", "provider releases", "release history"],
-        )
-        self.assertEqual(guide[0]["tasks"], [])
-        self.assertEqual(guide[0]["category"], "administration")
-        self.assertIn(
-            "reviewed-publication-taxonomy",
-            guide[0]["classification"]["sources"],
-        )
+        self.assertFalse(any("release-history" in path for path in manifest["files"]))
 
 
 if __name__ == "__main__":

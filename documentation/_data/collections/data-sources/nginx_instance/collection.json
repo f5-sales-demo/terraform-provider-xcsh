@@ -137,7 +137,7 @@
       "path": "documentation/data-sources/nginx_instance/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_instance",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2321323302121221-3000233313231030-0313213302223310-1121122112023213-0213032333202311-2032313311010213-0230302320211113-0011100303031122",
       "registry_path": "docs/data-sources/nginx_instance.md",
@@ -147,15 +147,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_instance/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Manages a Nginx Instance resource in F5 Distributed Cloud for get nginx instance configuration. configuration. (read-only data source)",
       "tasks": ["configuration"],
       "title": "xcsh_nginx_instance",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -181,7 +181,7 @@
       "path": "documentation/data-sources/nginx_instance/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_instance",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3131110011123322-2133331020011210-3000121001113220-1122300010232133-0220211102033013-2121023120220133-1222111233001023-2003132120300201",
       "registry_path": "docs/guides/data-sources--nginx_instance--reference--group-001.md",
@@ -332,14 +332,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_instance/properties/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Property reference for xcsh_nginx_instance.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -365,7 +365,7 @@
       "path": "documentation/data-sources/nginx_instance/properties/api_discovery_spec/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_instance",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0210333210012231-0211133100013112-2212011032130303-1122303321230332-3010103300333231-2200130200013311-1011321002210120-0112200010023011",
       "registry_path": "docs/guides/data-sources--nginx_instance--reference--group-001.md",
@@ -404,14 +404,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_instance/properties/api_discovery_spec/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Configuration for api_discovery_spec.",
       "tasks": ["configuration"],
       "title": "api_discovery_spec",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -434,7 +434,7 @@
       "path": "documentation/data-sources/nginx_instance/properties/api_discovery_spec/disabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_instance",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0112331212003231-0110123031211111-0220123313030331-0220221112112221-2222301011331022-0023321330021202-2321130113003311-0112210000222011",
       "registry_path": "docs/guides/data-sources--nginx_instance--reference--group-001.md",
@@ -444,14 +444,14 @@
       "schema_path": ["api_discovery_spec", "disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_instance/properties/api_discovery_spec/disabled/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Enable this option",
       "tasks": ["configuration"],
       "title": "api_discovery_spec.disabled",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -474,7 +474,7 @@
       "path": "documentation/data-sources/nginx_instance/properties/api_discovery_spec/enabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_instance",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3030112301202203-0020032112013221-0221013021101112-1332230310122033-3120010331202222-2211111323112320-3303130232121330-2322112331102223",
       "registry_path": "docs/guides/data-sources--nginx_instance--reference--group-001.md",
@@ -484,14 +484,14 @@
       "schema_path": ["api_discovery_spec", "enabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_instance/properties/api_discovery_spec/enabled/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Enable this option",
       "tasks": ["configuration"],
       "title": "api_discovery_spec.enabled",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -520,7 +520,7 @@
       "path": "documentation/data-sources/nginx_instance/properties/waf_spec/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_instance",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1000133302301320-1012132213300332-3020123020312312-3222223313313122-3100212223131120-1020021333003101-3123333122231023-2221001301210100",
       "registry_path": "docs/guides/data-sources--nginx_instance--reference--group-001.md",
@@ -657,14 +657,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_instance/properties/waf_spec/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Configuration for waf_spec.",
       "tasks": ["configuration"],
       "title": "waf_spec",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -687,7 +687,7 @@
       "path": "documentation/data-sources/nginx_instance/properties/waf_spec/blocking_waf_mode/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_instance",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2312333213231031-1121102221212233-2033331122132120-3131020013021223-0133132211233301-0322220102121322-2021100231131010-0121011320303130",
       "registry_path": "docs/guides/data-sources--nginx_instance--reference--group-001.md",
@@ -697,14 +697,14 @@
       "schema_path": ["waf_spec", "blocking_waf_mode"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_instance/properties/waf_spec/blocking_waf_mode/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Enable this option",
       "tasks": ["configuration"],
       "title": "waf_spec.blocking_waf_mode",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -727,7 +727,7 @@
       "path": "documentation/data-sources/nginx_instance/properties/waf_spec/distributed_cloud_policy_management/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_instance",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2013230232230011-3323333010330323-0202221001123002-1123302230033102-0210303020202211-2301111021111230-3233111332213200-1321321203130031",
       "registry_path": "docs/guides/data-sources--nginx_instance--reference--group-001.md",
@@ -737,14 +737,14 @@
       "schema_path": ["waf_spec", "distributed_cloud_policy_management"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_instance/properties/waf_spec/distributed_cloud_policy_management/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Configuration parameter for distributed cloud policy management.",
       "tasks": ["configuration"],
       "title": "waf_spec.distributed_cloud_policy_management",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -767,7 +767,7 @@
       "path": "documentation/data-sources/nginx_instance/properties/waf_spec/monitoring_waf_mode/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_instance",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1110103231130112-2122212303233213-3102112221200110-3321010211111133-0321133320101132-0110020233321010-1311303321121320-2011121131331233",
       "registry_path": "docs/guides/data-sources--nginx_instance--reference--group-001.md",
@@ -777,14 +777,14 @@
       "schema_path": ["waf_spec", "monitoring_waf_mode"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_instance/properties/waf_spec/monitoring_waf_mode/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Configuration parameter for monitoring waf mode.",
       "tasks": ["configuration"],
       "title": "waf_spec.monitoring_waf_mode",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -807,7 +807,7 @@
       "path": "documentation/data-sources/nginx_instance/properties/waf_spec/nginx_policy_management/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_instance",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0110310013213311-2331021011233333-1210223103331221-0333223223210031-3020103311300222-1231230013212300-3111131310112001-2322331321031202",
       "registry_path": "docs/guides/data-sources--nginx_instance--reference--group-001.md",
@@ -817,14 +817,14 @@
       "schema_path": ["waf_spec", "nginx_policy_management"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_instance/properties/waf_spec/nginx_policy_management/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Configuration parameter for nginx policy management.",
       "tasks": ["configuration"],
       "title": "waf_spec.nginx_policy_management",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -847,7 +847,7 @@
       "path": "documentation/data-sources/nginx_instance/properties/waf_spec/none_waf_mode/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_instance",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2231331002323032-2310132103121333-1133201300211220-1323333131030231-1100030200031100-3223010323221210-3023300331223123-1030220122210210",
       "registry_path": "docs/guides/data-sources--nginx_instance--reference--group-001.md",
@@ -857,14 +857,14 @@
       "schema_path": ["waf_spec", "none_waf_mode"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_instance/properties/waf_spec/none_waf_mode/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Configuration parameter for none waf mode.",
       "tasks": ["configuration"],
       "title": "waf_spec.none_waf_mode",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -887,7 +887,7 @@
       "path": "documentation/data-sources/nginx_instance/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_instance",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3301303331101130-2132231102232100-1003302031313130-1320220321332032-1231103011131003-0133223332130313-0113112313121212-3303112113112031",
       "registry_path": "docs/guides/data-sources--nginx_instance--examples--group-001.md",
@@ -897,14 +897,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_instance/examples/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Examples for xcsh_nginx_instance.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     },
     {
@@ -934,7 +934,7 @@
       "path": "documentation/data-sources/nginx_instance/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_instance",
-      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
+      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3232112231331013-0121032112132013-1032301313133203-2131310322022232-0132100203131033-3213123232130311-3013310002300202-0121110320133133",
       "registry_path": "docs/guides/data-sources--nginx_instance--examples--group-001.md",
@@ -944,14 +944,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_instance/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
+      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
       "summary": "Data source for xcsh_nginx_instance.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v11.0.0",
+        "release_tag": "v12.0.0",
         "schema_components": [],
-        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
+        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
       }
     }
   ],

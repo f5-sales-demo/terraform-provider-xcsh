@@ -197,7 +197,6 @@
     "virtual_k8s",
     "virtual_network",
     "virtual_site",
-    "voltstack_site",
     "waf_attack_signatures",
     "waf_bot_signatures",
     "waf_exclusion_policy",
@@ -331,7 +330,6 @@
     "virtual_k8s",
     "virtual_network",
     "virtual_site",
-    "voltstack_site",
     "waf_exclusion_policy",
     "workload",
     "workload_flavor"

@@ -23,7 +23,6 @@ var decoratedSiteResources = []string{
 	"aws_tgw_site",
 	"securemesh_site_v2",
 	"site",
-	"voltstack_site",
 }
 
 // The data file is keyed by TitleCase, and TitleCase is not guessable — the
