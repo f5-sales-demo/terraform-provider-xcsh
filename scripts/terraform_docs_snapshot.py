@@ -11,18 +11,25 @@ import re
 import shutil
 import subprocess
 import tarfile
+import time
 from pathlib import Path, PurePosixPath
 from typing import Any
 
 REPOSITORY = "f5-sales-demo/terraform-provider-xcsh"
 VERSION = re.compile(r"v[0-9]+\.[0-9]+\.[0-9]+\Z")
+CREATE_ATTEMPTS = 3
 
 
 def run(*args: str) -> bytes:
     """Execute fixed CLI arguments without a shell and check their status."""
-    return subprocess.run(  # noqa: S603 - fixed CLI commands with separate arguments
-        [shutil.which(args[0]) or args[0], *args[1:]], check=True, capture_output=True
-    ).stdout
+    result = subprocess.run(  # noqa: S603 - fixed CLI commands with separate arguments
+        [shutil.which(args[0]) or args[0], *args[1:]], check=False, capture_output=True
+    )
+    if result.returncode:
+        detail = result.stderr.decode("utf-8", errors="replace").strip()
+        message = f"{args[0]} exited {result.returncode}: {detail or 'no stderr'}"
+        raise RuntimeError(message)
+    return result.stdout
 
 
 def sha(data: bytes) -> str:
@@ -264,14 +271,64 @@ def snapshot(tag: str, output: Path) -> dict:  # pylint: disable=too-many-locals
     return manifest
 
 
+def assert_no_partial_snapshot(tag: str) -> None:
+    """Permit a create retry only when GitHub has no tag or draft for it."""
+    tag_ref = subprocess.run(  # noqa: S603 - fixed endpoint from validated tag
+        [
+            shutil.which("gh") or "/usr/bin/gh",
+            "api",
+            f"repos/{REPOSITORY}/git/ref/tags/{tag}",
+        ],
+        check=False,
+        capture_output=True,
+    )
+    if tag_ref.returncode == 0:
+        message = "snapshot creation left a tag; refusing a duplicate"
+        raise ValueError(message)
+    if b"404" not in tag_ref.stderr:
+        message = "cannot verify snapshot tag absence after failed create"
+        raise RuntimeError(message)
+    pages = json.loads(
+        run(
+            "gh",
+            "api",
+            "--paginate",
+            "--slurp",
+            f"repos/{REPOSITORY}/releases?per_page=100",
+        )
+    )
+    if any(release.get("tag_name") == tag for page in pages for release in page):
+        message = "snapshot creation left a draft; refusing a duplicate"
+        raise ValueError(message)
+
+
+def create_snapshot_draft(tag: str, arguments: list[str]) -> None:
+    """Retry transient create failures only after proving no remote state exists."""
+    for attempt in range(CREATE_ATTEMPTS):
+        try:
+            run("gh", "release", "create", tag, *arguments)
+        except RuntimeError:
+            assert_no_partial_snapshot(tag)
+            if attempt == CREATE_ATTEMPTS - 1:
+                raise
+            time.sleep(attempt + 1)
+        else:
+            return
+
+
 def publish(tag: str, output: Path) -> None:  # pylint: disable=too-many-locals
     """Publish assets atomically under repository immutable-release policy."""
     if not VERSION.fullmatch(tag):
         message = "only stable vN.N.N provider tags are allowed"
         raise ValueError(message)
     release = json.loads(run("gh", "api", f"repos/{REPOSITORY}/releases/tags/{tag}"))
-    if release["draft"] or release["prerelease"] or release["tag_name"] != tag:
-        message = "provider release must be published and stable"
+    if (
+        release["draft"]
+        or release["prerelease"]
+        or not release.get("immutable")
+        or release["tag_name"] != tag
+    ):
+        message = "provider release must be published, stable, and immutable"
         raise ValueError(message)
     generated = json.loads(
         run("git", "show", tag + ":documentation/generated-manifest.json")
@@ -345,25 +402,26 @@ def publish(tag: str, output: Path) -> None:  # pylint: disable=too-many-locals
         "tag_name"
     ]
     manifest = snapshot(tag, output)
-    run(
-        "gh",
-        "release",
-        "create",
+    create_snapshot_draft(
         docs_tag,
-        "--repo",
-        REPOSITORY,
-        "--target",
-        manifest["source_commit"],
-        "--draft",
-        "--latest=false",
-        "--title",
-        f"Terraform documentation {tag}",
-        "--notes",
-        f"Exact documentation/ Markdown from provider {tag} at {manifest['source_commit']}.",
-        *(
-            str(output / name)
-            for name in sorted(file.name for file in output.iterdir() if file.is_file())
-        ),
+        [
+            "--repo",
+            REPOSITORY,
+            "--target",
+            manifest["source_commit"],
+            "--draft",
+            "--latest=false",
+            "--title",
+            f"Terraform documentation {tag}",
+            "--notes",
+            f"Exact documentation/ Markdown from provider {tag} at {manifest['source_commit']}.",
+            *(
+                str(output / name)
+                for name in sorted(
+                    file.name for file in output.iterdir() if file.is_file()
+                )
+            ),
+        ],
     )
     run(
         "gh",
