@@ -144,14 +144,6 @@
       "bytes": 2930,
       "sha256": "sha256:0f3613862753649e4229304922eeaa31d12b1c370eaa34a4f73f3b0379d00189"
     },
-    "docs/data-sources/aws_vpc_site.md": {
-      "bytes": 3073,
-      "sha256": "sha256:0cf2abfc616c16f2c1113cdd56637dd9208498360f1be555ebcdc7fa25f9977a"
-    },
-    "docs/data-sources/azure_vnet_site.md": {
-      "bytes": 3132,
-      "sha256": "sha256:c5dc6b778d963d1c00976fa8a376e66ae95d539958059e95d77b244b7819c8bc"
-    },
     "docs/data-sources/bgp.md": {
       "bytes": 2839,
       "sha256": "sha256:1889621d3e90202c6df00b1bfe5e388056210f749bd0824cc7bc203cac1dc50d"
@@ -243,10 +235,6 @@
     "docs/data-sources/certified_hardware.md": {
       "bytes": 3062,
       "sha256": "sha256:3d8d0903d1bc92fc1f780f1b03765909179802bf79d3fae08259f87f1808583a"
-    },
-    "docs/data-sources/cloud_connect.md": {
-      "bytes": 2951,
-      "sha256": "sha256:b59a0e1c981ac2e3f08780aeb6bd513b7d031ffe384cd26076781075017b3065"
     },
     "docs/data-sources/cloud_credentials.md": {
       "bytes": 3077,
@@ -404,10 +392,6 @@
       "bytes": 3027,
       "sha256": "sha256:eb29caed68e3abc2192e39c2924442c3a68731973cabb4207a1fe0e271ca11da"
     },
-    "docs/data-sources/gcp_vpc_site.md": {
-      "bytes": 3082,
-      "sha256": "sha256:f730026afa4df254edc37af69375ae4e778ded2c2262dec41f6ab7b87315812c"
-    },
     "docs/data-sources/geo_location_set.md": {
       "bytes": 2923,
       "sha256": "sha256:89d4301a4a3839ac69fe88f11f000684daffbf7a0ccd24593bf0d0ee111063ec"
@@ -441,8 +425,8 @@
       "sha256": "sha256:ddc3faceaca0a2dd8c0bf4c1fd816e2f53a07ca4e51146e08c56ffc4d370dd9f"
     },
     "docs/data-sources/index.md": {
-      "bytes": 9862,
-      "sha256": "sha256:5620265def334214abb20ffd085dac6457b1cca7dd6b3d074bfab9304c46cb2c"
+      "bytes": 9653,
+      "sha256": "sha256:887d6218cd4ecf1f48fc5a9f3c1cc3a42f301c58d43064b90399953763837a4d"
     },
     "docs/data-sources/infraprotect_mitigation_ips.md": {
       "bytes": 3062,
@@ -655,10 +639,6 @@
     "docs/data-sources/secret_management_access.md": {
       "bytes": 3155,
       "sha256": "sha256:346c5f4a9de5779e53d021cb49686f1422e8b0a7ee696f34b5b60f0e75b2da2b"
-    },
-    "docs/data-sources/securemesh_site.md": {
-      "bytes": 2995,
-      "sha256": "sha256:d14b2a40a419cbef999df23b6989d455bdd8642b96d249b54ea5e6f93342a23e"
     },
     "docs/data-sources/securemesh_site_v2.md": {
       "bytes": 3048,
@@ -1204,74 +1184,6 @@
       "bytes": 46511,
       "sha256": "sha256:de40b4b24cb6b0a397a876a1ccaafa9f2783e2dbf216ebb6a1b8bb71146c9ec0"
     },
-    "docs/guides/data-sources--aws_vpc_site--examples--group-001.md": {
-      "bytes": 4193,
-      "sha256": "sha256:df47c34771df4a4b007e9b240b88f63c0a092b2c8c218580f359ee441123742e"
-    },
-    "docs/guides/data-sources--aws_vpc_site--reference--group-001.md": {
-      "bytes": 206536,
-      "sha256": "sha256:d38a2a2baa8ababb184b9ad78778eb9c6cfdcaccc4b972420fe33571d9c948c0"
-    },
-    "docs/guides/data-sources--aws_vpc_site--reference--group-002.md": {
-      "bytes": 258316,
-      "sha256": "sha256:c981c1e934aedec6ca6d04cd12faf8d6c0465d97e87037b8d906dcc2d49c8d9b"
-    },
-    "docs/guides/data-sources--aws_vpc_site--reference--group-003.md": {
-      "bytes": 239699,
-      "sha256": "sha256:79b973ba67f73fb4a5d68bb178471250327007e83ba7d0855805416b9b8f9f13"
-    },
-    "docs/guides/data-sources--aws_vpc_site--reference--group-004.md": {
-      "bytes": 257562,
-      "sha256": "sha256:0255126143b1550bba10fa9ec763ad363cf9998ff0c8a0707c3f0c208669ec61"
-    },
-    "docs/guides/data-sources--aws_vpc_site--reference--group-005.md": {
-      "bytes": 131374,
-      "sha256": "sha256:7c758623edbfff346c7ffac7b1ab2e3f968ca7d601ed0c44d9902f0657e9ff28"
-    },
-    "docs/guides/data-sources--azure_vnet_site--examples--group-001.md": {
-      "bytes": 4258,
-      "sha256": "sha256:0ecd74a1120b264050805767988fb109039fe44af087f22567492019a5ce9bca"
-    },
-    "docs/guides/data-sources--azure_vnet_site--reference--group-001.md": {
-      "bytes": 29833,
-      "sha256": "sha256:f8e88ff8d360b191866151d46220244158de69e4db1556026b3cc06588530895"
-    },
-    "docs/guides/data-sources--azure_vnet_site--reference--group-002.md": {
-      "bytes": 241777,
-      "sha256": "sha256:61c5b10c94adbcb029aed814bb505e7ed14e8bb5f224df148a7efa3bb0145dc6"
-    },
-    "docs/guides/data-sources--azure_vnet_site--reference--group-003.md": {
-      "bytes": 255618,
-      "sha256": "sha256:bad287d02a7290798963d9a6456cc4eccba231e6e0d872df774d138538e663ec"
-    },
-    "docs/guides/data-sources--azure_vnet_site--reference--group-004.md": {
-      "bytes": 240236,
-      "sha256": "sha256:770ffe7e3319bb9feab3099df7e6139086d0fbc39d26108bb395f14de20f3ac1"
-    },
-    "docs/guides/data-sources--azure_vnet_site--reference--group-005.md": {
-      "bytes": 244655,
-      "sha256": "sha256:348857d5f78dd721dc90fec8d4735a54bf6f2922626614907ab9ed7f9cfe77de"
-    },
-    "docs/guides/data-sources--azure_vnet_site--reference--group-006.md": {
-      "bytes": 242456,
-      "sha256": "sha256:1d72233087319bc4d8e240882d79e4e09852f9ffd387752f39cb9dae5c828da9"
-    },
-    "docs/guides/data-sources--azure_vnet_site--reference--group-007.md": {
-      "bytes": 238336,
-      "sha256": "sha256:61e2489e131bef594502d294a8efddae3e504597d91edaea096ddcedf54ff195"
-    },
-    "docs/guides/data-sources--azure_vnet_site--reference--group-008.md": {
-      "bytes": 254659,
-      "sha256": "sha256:652ba25c452d9071630be1055eef384420d8c5cabec31eb3df50a45741492327"
-    },
-    "docs/guides/data-sources--azure_vnet_site--reference--group-009.md": {
-      "bytes": 254144,
-      "sha256": "sha256:d03500630989c6c565cf543790746a363541fcf9d2343a781f59efecd7cfb0b9"
-    },
-    "docs/guides/data-sources--azure_vnet_site--reference--group-010.md": {
-      "bytes": 126162,
-      "sha256": "sha256:fc0eeceee2467e49a5ad105049c1cc43973bb524132fd6b816c1cda1511674ba"
-    },
     "docs/guides/data-sources--bgp--examples--group-001.md": {
       "bytes": 3985,
       "sha256": "sha256:6bb259d6fcd3f2197a16a2cbcb270e4217198b0708c8096555d9aa35bf2e7dfb"
@@ -1624,14 +1536,6 @@
       "bytes": 67416,
       "sha256": "sha256:a4c4bc88e934eec5788d7491cfbc6fd32b81c146144bedad8a4e75472f25a785"
     },
-    "docs/guides/data-sources--cloud_connect--examples--group-001.md": {
-      "bytes": 4203,
-      "sha256": "sha256:b741ec0a0451bea73f6785a7196a909298177a1194a1baba32c90c31f3f7f875"
-    },
-    "docs/guides/data-sources--cloud_connect--reference--group-001.md": {
-      "bytes": 150307,
-      "sha256": "sha256:2dc39ca6c16d13f7d910dcccac7e82ba61aa52aec36edf6b76e9d30fc6280d9b"
-    },
     "docs/guides/data-sources--cloud_credentials--examples--group-001.md": {
       "bytes": 4305,
       "sha256": "sha256:b2781771d3b9a70f353640875eff7ee7a93a64bfca4dd3b7a5e95c8a048da911"
@@ -1979,30 +1883,6 @@
     "docs/guides/data-sources--forwarding_class--reference--group-001.md": {
       "bytes": 43217,
       "sha256": "sha256:19105185b341785e6371d1330a89887a717b9f6beea49ba97f2f8080786a3624"
-    },
-    "docs/guides/data-sources--gcp_vpc_site--examples--group-001.md": {
-      "bytes": 4193,
-      "sha256": "sha256:d1814b418cb8331bd8b872ab0f97751efc6a61a63fb8b11eb2e0201fc901e2b3"
-    },
-    "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md": {
-      "bytes": 210964,
-      "sha256": "sha256:48a637e6b6f44e6f641f059c33ef467bcccc6e9049ac7c473fcd3c7ba111fd43"
-    },
-    "docs/guides/data-sources--gcp_vpc_site--reference--group-002.md": {
-      "bytes": 253192,
-      "sha256": "sha256:af8285bf5b12d35f24971ea8d02bd03b961f363890766873188b2194f02dedb8"
-    },
-    "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md": {
-      "bytes": 247215,
-      "sha256": "sha256:53eff462afceb189950b76692e239f1eb5de56262a2a550b80c7d82a18d46570"
-    },
-    "docs/guides/data-sources--gcp_vpc_site--reference--group-004.md": {
-      "bytes": 255561,
-      "sha256": "sha256:3ff2912999e508ad25fe157088fc198bbc6544db79ad6b6e11e312f7c291a162"
-    },
-    "docs/guides/data-sources--gcp_vpc_site--reference--group-005.md": {
-      "bytes": 8849,
-      "sha256": "sha256:315c28a7d78893df378afde2db492cd5fd0fe3d392d985f8a70de3f179fcc29c"
     },
     "docs/guides/data-sources--geo_location_set--examples--group-001.md": {
       "bytes": 4266,
@@ -2671,26 +2551,6 @@
     "docs/guides/data-sources--secret_management_access--reference--group-002.md": {
       "bytes": 107698,
       "sha256": "sha256:27ecdce7e962817b983fe33200165a0470ed12e812bfe96c4082032f8cdbc60b"
-    },
-    "docs/guides/data-sources--securemesh_site--examples--group-001.md": {
-      "bytes": 4247,
-      "sha256": "sha256:8f873a511335c89c16b77d4cacbb6834f689e67384549a047e202255bab71720"
-    },
-    "docs/guides/data-sources--securemesh_site--reference--group-001.md": {
-      "bytes": 219835,
-      "sha256": "sha256:28bbb3619635facd444cee4d89421f8a997630123d8f9bf4f7d3c314d677ec5f"
-    },
-    "docs/guides/data-sources--securemesh_site--reference--group-002.md": {
-      "bytes": 234583,
-      "sha256": "sha256:d50351097f13399a3395856ca92aa810157ca08a5a89aae60bf481afc3fad4c4"
-    },
-    "docs/guides/data-sources--securemesh_site--reference--group-003.md": {
-      "bytes": 252580,
-      "sha256": "sha256:e631508d5c46906f641642740ed85a868bd809a114251155835baeed8cb7d9cc"
-    },
-    "docs/guides/data-sources--securemesh_site--reference--group-004.md": {
-      "bytes": 152340,
-      "sha256": "sha256:f6cfa96c6d0ad88e49599fbe86493b4657520112309bef7e959e184ab6609e0c"
     },
     "docs/guides/data-sources--securemesh_site_v2--examples--group-001.md": {
       "bytes": 4310,
@@ -3608,82 +3468,6 @@
       "bytes": 73870,
       "sha256": "sha256:c3ab5256133b63c73e5785c5601ec284f3ed7e7b8dc8736cc88fdcdfcf4a9c05"
     },
-    "docs/guides/resources--aws_vpc_site--examples--group-001.md": {
-      "bytes": 4277,
-      "sha256": "sha256:2649bedb2b45e1980314302d98eeab672da5d42f9fbbf5a92f7c661a1c61c591"
-    },
-    "docs/guides/resources--aws_vpc_site--lifecycle--group-001.md": {
-      "bytes": 2807,
-      "sha256": "sha256:5a6e3a7925955045d4fab8458a501a83fe1e0d1a48a7e4f608a01cd10d5ce8cc"
-    },
-    "docs/guides/resources--aws_vpc_site--reference--group-001.md": {
-      "bytes": 206444,
-      "sha256": "sha256:df88bf95bd2bb99f4318070dcb79315a507e3de76643a3bc122ed6eb14a55fb4"
-    },
-    "docs/guides/resources--aws_vpc_site--reference--group-002.md": {
-      "bytes": 263752,
-      "sha256": "sha256:cb1d2e4568c41d5d9e7456d5bf661c2917fcbc748a9ed7aadd621e75c4179ae6"
-    },
-    "docs/guides/resources--aws_vpc_site--reference--group-003.md": {
-      "bytes": 248676,
-      "sha256": "sha256:4c6a08daac07d0fbccc4f37a405889799bd87d13014bfb8c02e769f85440d35c"
-    },
-    "docs/guides/resources--aws_vpc_site--reference--group-004.md": {
-      "bytes": 259587,
-      "sha256": "sha256:0b340d1e542339c9f6f10f26fecb1965a96a025f8a94e676ee265588ba1fcda1"
-    },
-    "docs/guides/resources--aws_vpc_site--reference--group-005.md": {
-      "bytes": 178420,
-      "sha256": "sha256:d1371c41f7dd7fd692ef50415cb917355a9c4f7494040c552e7591fd57239ed7"
-    },
-    "docs/guides/resources--azure_vnet_site--examples--group-001.md": {
-      "bytes": 4356,
-      "sha256": "sha256:c4f30a7f94034a02ebbf3b778aa51e74b1180a826855c482f00b1fb66a6329ea"
-    },
-    "docs/guides/resources--azure_vnet_site--lifecycle--group-001.md": {
-      "bytes": 2846,
-      "sha256": "sha256:d651612aa0fcba8ee3d0bdd790d5632f8c70179ddccd578c9b651a54bbe24f20"
-    },
-    "docs/guides/resources--azure_vnet_site--reference--group-001.md": {
-      "bytes": 33165,
-      "sha256": "sha256:19a78f4b8d789b8ab04ab3bd4007fd89bb629a4ac9ea4eb6583501ddf5f81f04"
-    },
-    "docs/guides/resources--azure_vnet_site--reference--group-002.md": {
-      "bytes": 241107,
-      "sha256": "sha256:a10c76db49b543039456262326414d9da40f7d65be8de21d100467bc801ac015"
-    },
-    "docs/guides/resources--azure_vnet_site--reference--group-003.md": {
-      "bytes": 262801,
-      "sha256": "sha256:db2db197162776633493d98feec12b47b68adc60e28e09cefc85f29e955c6cc1"
-    },
-    "docs/guides/resources--azure_vnet_site--reference--group-004.md": {
-      "bytes": 245159,
-      "sha256": "sha256:013c23a850c509a36f9b9b56ea68d7fa38994d582e8ad0e011ccf437e3bdf213"
-    },
-    "docs/guides/resources--azure_vnet_site--reference--group-005.md": {
-      "bytes": 253368,
-      "sha256": "sha256:95da87e88a2b55eb5132836b97ad4bba79f844857e3590ff353aef4d192a1ca2"
-    },
-    "docs/guides/resources--azure_vnet_site--reference--group-006.md": {
-      "bytes": 239942,
-      "sha256": "sha256:0156049cd673ebacb450b07ada30351f5da2dfc20813043ac57a1bcf8c662b53"
-    },
-    "docs/guides/resources--azure_vnet_site--reference--group-007.md": {
-      "bytes": 248473,
-      "sha256": "sha256:0e7aec066a6afc67cb46504f71f1451b0c8b4cfaee1f004ea291c14fc5773d4b"
-    },
-    "docs/guides/resources--azure_vnet_site--reference--group-008.md": {
-      "bytes": 256094,
-      "sha256": "sha256:9b15433d4705a072881a17e7b7283cee1ac16e2964af600e0fa3ffe8e28de29e"
-    },
-    "docs/guides/resources--azure_vnet_site--reference--group-009.md": {
-      "bytes": 261204,
-      "sha256": "sha256:8b42d78afa19a434ba957ca092af9a6cf6a2083bb225d5855fe507b94cc1f582"
-    },
-    "docs/guides/resources--azure_vnet_site--reference--group-010.md": {
-      "bytes": 196484,
-      "sha256": "sha256:edcc513c0f7cdba8451097e24c922b8af72e6105fb5a07630a9d997e5d3b4560"
-    },
     "docs/guides/resources--bgp--examples--group-001.md": {
       "bytes": 3998,
       "sha256": "sha256:fdddf19965e5fd7365c4f1347e4efe926841b2d397defedb3fe45416819a19a1"
@@ -3887,18 +3671,6 @@
     "docs/guides/resources--certificate_chain--reference--group-001.md": {
       "bytes": 21191,
       "sha256": "sha256:bf4609529d7d084b3de08d3114023fd6c422d979c29f5f4eb18b4e0e1aeed8ef"
-    },
-    "docs/guides/resources--cloud_connect--examples--group-001.md": {
-      "bytes": 4189,
-      "sha256": "sha256:4f144eacef2a5daa5e0c53ee898120dbe5f8366ffd0a577ffa1fd9b32d1a51dc"
-    },
-    "docs/guides/resources--cloud_connect--lifecycle--group-001.md": {
-      "bytes": 2806,
-      "sha256": "sha256:31397f8dc111dfd5fabdf9a7465f2bca459e35f736154d74a9bf2882f5ea2001"
-    },
-    "docs/guides/resources--cloud_connect--reference--group-001.md": {
-      "bytes": 164986,
-      "sha256": "sha256:4660dfa38384236a6fbd2c9b351ff2dbb42e0a8f602ab7164550f2342f6752f5"
     },
     "docs/guides/resources--cloud_credentials--examples--group-001.md": {
       "bytes": 4273,
@@ -4271,34 +4043,6 @@
     "docs/guides/resources--forwarding_class--reference--group-001.md": {
       "bytes": 53010,
       "sha256": "sha256:76b9f7e18117462ff4900a4721aeffb4f3e12e202cec01597c6e4035553c5f88"
-    },
-    "docs/guides/resources--gcp_vpc_site--examples--group-001.md": {
-      "bytes": 4286,
-      "sha256": "sha256:fdb9c59de4d480dd9f72b5a741d18a0f871aa8a9440eb4f8f0bfe32e3bf7a187"
-    },
-    "docs/guides/resources--gcp_vpc_site--lifecycle--group-001.md": {
-      "bytes": 2807,
-      "sha256": "sha256:08f6cd6d1c97696efd414bd61a801e2727a50bf34c98d7ef17395711687841ee"
-    },
-    "docs/guides/resources--gcp_vpc_site--reference--group-001.md": {
-      "bytes": 216126,
-      "sha256": "sha256:960111f8d21e538e254b998b9d110eb13db104275d005d5e5a605386f9fbfaff"
-    },
-    "docs/guides/resources--gcp_vpc_site--reference--group-002.md": {
-      "bytes": 259968,
-      "sha256": "sha256:8ea11c59b7f667c17dd1ff65602513a7449a950562d2e6f8b11787d90b277bb9"
-    },
-    "docs/guides/resources--gcp_vpc_site--reference--group-003.md": {
-      "bytes": 251638,
-      "sha256": "sha256:82a08142f4ca0d7431bab24069f46f744cafe0eda034fc0924ded6e8a624daac"
-    },
-    "docs/guides/resources--gcp_vpc_site--reference--group-004.md": {
-      "bytes": 260938,
-      "sha256": "sha256:33d274c55de5252c5ef1d43d85fda1489d1dfe98717fceb29dfc9482035d84a4"
-    },
-    "docs/guides/resources--gcp_vpc_site--reference--group-005.md": {
-      "bytes": 45247,
-      "sha256": "sha256:a413562e3ff8f69e7e548e5de3540eafe4bce382ed311cc6aa21fc4c2f9a6de0"
     },
     "docs/guides/resources--geo_location_set--examples--group-001.md": {
       "bytes": 4180,
@@ -5000,30 +4744,6 @@
       "bytes": 127833,
       "sha256": "sha256:d00667161d83c9b0fa2e47d1b2b5234592c30a479c167e7c775392b85e4b9476"
     },
-    "docs/guides/resources--securemesh_site--examples--group-001.md": {
-      "bytes": 4280,
-      "sha256": "sha256:57983032f810c37f36af559518caf951b7c33bd6b8ce7d2916ce90742b981437"
-    },
-    "docs/guides/resources--securemesh_site--lifecycle--group-001.md": {
-      "bytes": 2832,
-      "sha256": "sha256:2972225b44b51fcb713232cdf709378febdf0d41cb98e50cd2c8e8191ddb0d23"
-    },
-    "docs/guides/resources--securemesh_site--reference--group-001.md": {
-      "bytes": 220516,
-      "sha256": "sha256:57fb5d3d7edd2148e4f0c47c6a42a156da9694f220212b13510c34174ab57baa"
-    },
-    "docs/guides/resources--securemesh_site--reference--group-002.md": {
-      "bytes": 244287,
-      "sha256": "sha256:d0b5037ed3ab504a309695e803ccd81e7d9b0ead3f1a920cd81e1ab3f7744516"
-    },
-    "docs/guides/resources--securemesh_site--reference--group-003.md": {
-      "bytes": 256699,
-      "sha256": "sha256:f72d322220d114ce8681bb7deb5b3cec03e110f5fece72cf0844f478d3894fd1"
-    },
-    "docs/guides/resources--securemesh_site--reference--group-004.md": {
-      "bytes": 189301,
-      "sha256": "sha256:6a19709656414e1030ee9260c140f5961ffe000a9bddf11f8b25fcd63874ed2b"
-    },
     "docs/guides/resources--securemesh_site_v2--examples--group-001.md": {
       "bytes": 4309,
       "sha256": "sha256:6bd6e4b28c85d67334b9db2ff2645a7aa52fd4cfe4dabd28c2f5338c16725ff2"
@@ -5652,14 +5372,6 @@
       "bytes": 3395,
       "sha256": "sha256:06023d5d6c90229e6796d498698578f0b24ddc226bb6b31af480f96803fe967a"
     },
-    "docs/resources/aws_vpc_site.md": {
-      "bytes": 3677,
-      "sha256": "sha256:256c99fe88a7736eba34ca30c4937c1244dc359679ed1412988869085c519143"
-    },
-    "docs/resources/azure_vnet_site.md": {
-      "bytes": 3759,
-      "sha256": "sha256:f427d80214ecc1b630cc9494f8215915c32e0dbc31cd9711265976f38dca6cf4"
-    },
     "docs/resources/bgp.md": {
       "bytes": 3312,
       "sha256": "sha256:d4dffe3587648f9b754e4bfaf7a0656fc407fc4fed9b50f7c78732041791c7cf"
@@ -5703,10 +5415,6 @@
     "docs/resources/certificate_chain.md": {
       "bytes": 3569,
       "sha256": "sha256:a011044e1c3d45078dbbd079bc62e79fd77c10d8cf9260c1466d09f69a300cbe"
-    },
-    "docs/resources/cloud_connect.md": {
-      "bytes": 3417,
-      "sha256": "sha256:63c106ecd2bd2cfce1b6ac2d355964e2c60758365e8da2716bdd794fe74020ce"
     },
     "docs/resources/cloud_credentials.md": {
       "bytes": 3533,
@@ -5820,10 +5528,6 @@
       "bytes": 3500,
       "sha256": "sha256:cdca56d3686ae7cc5ecc768f3ca97a17cf2366765633eed3fda7e60a94480bd5"
     },
-    "docs/resources/gcp_vpc_site.md": {
-      "bytes": 3695,
-      "sha256": "sha256:e6d23d1ca44259e7baee87e39f4ee140a26e184d19c89a0cc2bd83b1660b7ea8"
-    },
     "docs/resources/geo_location_set.md": {
       "bytes": 3323,
       "sha256": "sha256:f0a0a8431827ccd0327eaa877b77507ac0e638f6b9e0bf1d696d87434f5239c8"
@@ -5857,8 +5561,8 @@
       "sha256": "sha256:72806f6eb3ad6a134a469de2a139fd56256048dbc907cc9baca93b56bbd6340c"
     },
     "docs/resources/index.md": {
-      "bytes": 5953,
-      "sha256": "sha256:bebf2b5ab85e5614db18c101f46707c5aba364182a533b09ccacbe72ea692821"
+      "bytes": 5744,
+      "sha256": "sha256:74f58c6ecc645465ef7ab74514a63193f3aa6dc4576a7b1a4bcd0de902f150bd"
     },
     "docs/resources/ip_prefix_set.md": {
       "bytes": 3415,
@@ -6000,10 +5704,6 @@
       "bytes": 3679,
       "sha256": "sha256:419fe233161e88959cb0d9bea2f8909f557fc8837767e7f0bf743cbd82630cb0"
     },
-    "docs/resources/securemesh_site.md": {
-      "bytes": 3537,
-      "sha256": "sha256:42c348e641d66ec0b9a58f7b13e127c67d0910417ae1e679bb5af841d801edac"
-    },
     "docs/resources/securemesh_site_v2.md": {
       "bytes": 3537,
       "sha256": "sha256:b986fd1d7ec67c22d809e85053119b1927b066a7abf4f2983fb456ce0900fccf"
@@ -6106,7 +5806,7 @@
     }
   },
   "limit_bytes": 500000,
-  "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+  "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
   "schema_version": 1,
   "section_manifests": [
     { "path": "documentation/registry-projection/sections-0001.json", "section_count": 567 },
@@ -6115,199 +5815,180 @@
     { "path": "documentation/registry-projection/sections-0004.json", "section_count": 516 },
     { "path": "documentation/registry-projection/sections-0005.json", "section_count": 532 },
     { "path": "documentation/registry-projection/sections-0006.json", "section_count": 528 },
-    { "path": "documentation/registry-projection/sections-0007.json", "section_count": 520 },
-    { "path": "documentation/registry-projection/sections-0008.json", "section_count": 512 },
-    { "path": "documentation/registry-projection/sections-0009.json", "section_count": 514 },
-    { "path": "documentation/registry-projection/sections-0010.json", "section_count": 479 },
-    { "path": "documentation/registry-projection/sections-0011.json", "section_count": 505 },
-    { "path": "documentation/registry-projection/sections-0012.json", "section_count": 491 },
-    { "path": "documentation/registry-projection/sections-0013.json", "section_count": 570 },
-    { "path": "documentation/registry-projection/sections-0014.json", "section_count": 491 },
-    { "path": "documentation/registry-projection/sections-0015.json", "section_count": 520 },
-    { "path": "documentation/registry-projection/sections-0016.json", "section_count": 464 },
-    { "path": "documentation/registry-projection/sections-0017.json", "section_count": 475 },
-    { "path": "documentation/registry-projection/sections-0018.json", "section_count": 491 },
-    { "path": "documentation/registry-projection/sections-0019.json", "section_count": 514 },
-    { "path": "documentation/registry-projection/sections-0020.json", "section_count": 512 },
-    { "path": "documentation/registry-projection/sections-0021.json", "section_count": 538 },
-    { "path": "documentation/registry-projection/sections-0022.json", "section_count": 562 },
-    { "path": "documentation/registry-projection/sections-0023.json", "section_count": 544 },
-    { "path": "documentation/registry-projection/sections-0024.json", "section_count": 568 },
-    { "path": "documentation/registry-projection/sections-0025.json", "section_count": 573 },
-    { "path": "documentation/registry-projection/sections-0026.json", "section_count": 518 },
-    { "path": "documentation/registry-projection/sections-0027.json", "section_count": 549 },
-    { "path": "documentation/registry-projection/sections-0028.json", "section_count": 543 },
-    { "path": "documentation/registry-projection/sections-0029.json", "section_count": 577 },
-    { "path": "documentation/registry-projection/sections-0030.json", "section_count": 454 },
-    { "path": "documentation/registry-projection/sections-0031.json", "section_count": 554 },
-    { "path": "documentation/registry-projection/sections-0032.json", "section_count": 504 },
-    { "path": "documentation/registry-projection/sections-0033.json", "section_count": 524 },
-    { "path": "documentation/registry-projection/sections-0034.json", "section_count": 529 },
-    { "path": "documentation/registry-projection/sections-0035.json", "section_count": 537 },
-    { "path": "documentation/registry-projection/sections-0036.json", "section_count": 474 },
-    { "path": "documentation/registry-projection/sections-0037.json", "section_count": 464 },
-    { "path": "documentation/registry-projection/sections-0038.json", "section_count": 475 },
-    { "path": "documentation/registry-projection/sections-0039.json", "section_count": 477 },
-    { "path": "documentation/registry-projection/sections-0040.json", "section_count": 494 },
-    { "path": "documentation/registry-projection/sections-0041.json", "section_count": 505 },
-    { "path": "documentation/registry-projection/sections-0042.json", "section_count": 523 },
-    { "path": "documentation/registry-projection/sections-0043.json", "section_count": 519 },
-    { "path": "documentation/registry-projection/sections-0044.json", "section_count": 499 },
-    { "path": "documentation/registry-projection/sections-0045.json", "section_count": 505 },
-    { "path": "documentation/registry-projection/sections-0046.json", "section_count": 493 },
-    { "path": "documentation/registry-projection/sections-0047.json", "section_count": 588 },
-    { "path": "documentation/registry-projection/sections-0048.json", "section_count": 563 },
-    { "path": "documentation/registry-projection/sections-0049.json", "section_count": 567 },
-    { "path": "documentation/registry-projection/sections-0050.json", "section_count": 544 },
-    { "path": "documentation/registry-projection/sections-0051.json", "section_count": 556 },
-    { "path": "documentation/registry-projection/sections-0052.json", "section_count": 497 },
-    { "path": "documentation/registry-projection/sections-0053.json", "section_count": 546 },
-    { "path": "documentation/registry-projection/sections-0054.json", "section_count": 542 },
-    { "path": "documentation/registry-projection/sections-0055.json", "section_count": 493 },
-    { "path": "documentation/registry-projection/sections-0056.json", "section_count": 535 },
-    { "path": "documentation/registry-projection/sections-0057.json", "section_count": 504 },
-    { "path": "documentation/registry-projection/sections-0058.json", "section_count": 569 },
-    { "path": "documentation/registry-projection/sections-0059.json", "section_count": 550 },
-    { "path": "documentation/registry-projection/sections-0060.json", "section_count": 523 },
-    { "path": "documentation/registry-projection/sections-0061.json", "section_count": 472 },
-    { "path": "documentation/registry-projection/sections-0062.json", "section_count": 506 },
-    { "path": "documentation/registry-projection/sections-0063.json", "section_count": 474 },
-    { "path": "documentation/registry-projection/sections-0064.json", "section_count": 496 },
-    { "path": "documentation/registry-projection/sections-0065.json", "section_count": 479 },
-    { "path": "documentation/registry-projection/sections-0066.json", "section_count": 487 },
-    { "path": "documentation/registry-projection/sections-0067.json", "section_count": 470 },
-    { "path": "documentation/registry-projection/sections-0068.json", "section_count": 477 },
-    { "path": "documentation/registry-projection/sections-0069.json", "section_count": 527 },
-    { "path": "documentation/registry-projection/sections-0070.json", "section_count": 530 },
-    { "path": "documentation/registry-projection/sections-0071.json", "section_count": 555 },
-    { "path": "documentation/registry-projection/sections-0072.json", "section_count": 540 },
-    { "path": "documentation/registry-projection/sections-0073.json", "section_count": 569 },
-    { "path": "documentation/registry-projection/sections-0074.json", "section_count": 560 },
-    { "path": "documentation/registry-projection/sections-0075.json", "section_count": 551 },
-    { "path": "documentation/registry-projection/sections-0076.json", "section_count": 485 },
-    { "path": "documentation/registry-projection/sections-0077.json", "section_count": 458 },
-    { "path": "documentation/registry-projection/sections-0078.json", "section_count": 412 },
-    { "path": "documentation/registry-projection/sections-0079.json", "section_count": 533 },
-    { "path": "documentation/registry-projection/sections-0080.json", "section_count": 493 },
-    { "path": "documentation/registry-projection/sections-0081.json", "section_count": 442 },
-    { "path": "documentation/registry-projection/sections-0082.json", "section_count": 422 },
-    { "path": "documentation/registry-projection/sections-0083.json", "section_count": 432 },
-    { "path": "documentation/registry-projection/sections-0084.json", "section_count": 469 },
-    { "path": "documentation/registry-projection/sections-0085.json", "section_count": 485 },
-    { "path": "documentation/registry-projection/sections-0086.json", "section_count": 429 },
-    { "path": "documentation/registry-projection/sections-0087.json", "section_count": 415 },
-    { "path": "documentation/registry-projection/sections-0088.json", "section_count": 419 },
-    { "path": "documentation/registry-projection/sections-0089.json", "section_count": 445 },
-    { "path": "documentation/registry-projection/sections-0090.json", "section_count": 553 },
-    { "path": "documentation/registry-projection/sections-0091.json", "section_count": 565 },
-    { "path": "documentation/registry-projection/sections-0092.json", "section_count": 545 },
-    { "path": "documentation/registry-projection/sections-0093.json", "section_count": 505 },
-    { "path": "documentation/registry-projection/sections-0094.json", "section_count": 506 },
-    { "path": "documentation/registry-projection/sections-0095.json", "section_count": 536 },
-    { "path": "documentation/registry-projection/sections-0096.json", "section_count": 516 },
-    { "path": "documentation/registry-projection/sections-0097.json", "section_count": 498 },
-    { "path": "documentation/registry-projection/sections-0098.json", "section_count": 504 },
-    { "path": "documentation/registry-projection/sections-0099.json", "section_count": 475 },
-    { "path": "documentation/registry-projection/sections-0100.json", "section_count": 486 },
-    { "path": "documentation/registry-projection/sections-0101.json", "section_count": 500 },
-    { "path": "documentation/registry-projection/sections-0102.json", "section_count": 552 },
-    { "path": "documentation/registry-projection/sections-0103.json", "section_count": 480 },
-    { "path": "documentation/registry-projection/sections-0104.json", "section_count": 468 },
-    { "path": "documentation/registry-projection/sections-0105.json", "section_count": 492 },
-    { "path": "documentation/registry-projection/sections-0106.json", "section_count": 420 },
-    { "path": "documentation/registry-projection/sections-0107.json", "section_count": 400 },
-    { "path": "documentation/registry-projection/sections-0108.json", "section_count": 347 },
-    { "path": "documentation/registry-projection/sections-0109.json", "section_count": 333 },
-    { "path": "documentation/registry-projection/sections-0110.json", "section_count": 357 },
-    { "path": "documentation/registry-projection/sections-0111.json", "section_count": 428 },
-    { "path": "documentation/registry-projection/sections-0112.json", "section_count": 407 },
-    { "path": "documentation/registry-projection/sections-0113.json", "section_count": 355 },
-    { "path": "documentation/registry-projection/sections-0114.json", "section_count": 336 },
-    { "path": "documentation/registry-projection/sections-0115.json", "section_count": 380 },
-    { "path": "documentation/registry-projection/sections-0116.json", "section_count": 523 },
-    { "path": "documentation/registry-projection/sections-0117.json", "section_count": 460 },
-    { "path": "documentation/registry-projection/sections-0118.json", "section_count": 470 },
-    { "path": "documentation/registry-projection/sections-0119.json", "section_count": 488 },
-    { "path": "documentation/registry-projection/sections-0120.json", "section_count": 508 },
-    { "path": "documentation/registry-projection/sections-0121.json", "section_count": 501 },
-    { "path": "documentation/registry-projection/sections-0122.json", "section_count": 535 },
-    { "path": "documentation/registry-projection/sections-0123.json", "section_count": 551 },
-    { "path": "documentation/registry-projection/sections-0124.json", "section_count": 528 },
-    { "path": "documentation/registry-projection/sections-0125.json", "section_count": 560 },
-    { "path": "documentation/registry-projection/sections-0126.json", "section_count": 553 },
-    { "path": "documentation/registry-projection/sections-0127.json", "section_count": 522 },
-    { "path": "documentation/registry-projection/sections-0128.json", "section_count": 518 },
-    { "path": "documentation/registry-projection/sections-0129.json", "section_count": 545 },
-    { "path": "documentation/registry-projection/sections-0130.json", "section_count": 567 },
-    { "path": "documentation/registry-projection/sections-0131.json", "section_count": 469 },
-    { "path": "documentation/registry-projection/sections-0132.json", "section_count": 530 },
-    { "path": "documentation/registry-projection/sections-0133.json", "section_count": 497 },
-    { "path": "documentation/registry-projection/sections-0134.json", "section_count": 518 },
-    { "path": "documentation/registry-projection/sections-0135.json", "section_count": 520 },
-    { "path": "documentation/registry-projection/sections-0136.json", "section_count": 524 },
-    { "path": "documentation/registry-projection/sections-0137.json", "section_count": 473 },
-    { "path": "documentation/registry-projection/sections-0138.json", "section_count": 457 },
-    { "path": "documentation/registry-projection/sections-0139.json", "section_count": 463 },
-    { "path": "documentation/registry-projection/sections-0140.json", "section_count": 484 },
-    { "path": "documentation/registry-projection/sections-0141.json", "section_count": 474 },
-    { "path": "documentation/registry-projection/sections-0142.json", "section_count": 502 },
-    { "path": "documentation/registry-projection/sections-0143.json", "section_count": 516 },
-    { "path": "documentation/registry-projection/sections-0144.json", "section_count": 515 },
-    { "path": "documentation/registry-projection/sections-0145.json", "section_count": 492 },
-    { "path": "documentation/registry-projection/sections-0146.json", "section_count": 509 },
-    { "path": "documentation/registry-projection/sections-0147.json", "section_count": 475 },
-    { "path": "documentation/registry-projection/sections-0148.json", "section_count": 560 },
-    { "path": "documentation/registry-projection/sections-0149.json", "section_count": 552 },
-    { "path": "documentation/registry-projection/sections-0150.json", "section_count": 555 },
-    { "path": "documentation/registry-projection/sections-0151.json", "section_count": 540 },
-    { "path": "documentation/registry-projection/sections-0152.json", "section_count": 558 },
-    { "path": "documentation/registry-projection/sections-0153.json", "section_count": 507 },
-    { "path": "documentation/registry-projection/sections-0154.json", "section_count": 537 },
-    { "path": "documentation/registry-projection/sections-0155.json", "section_count": 541 },
-    { "path": "documentation/registry-projection/sections-0156.json", "section_count": 521 },
-    { "path": "documentation/registry-projection/sections-0157.json", "section_count": 485 },
-    { "path": "documentation/registry-projection/sections-0158.json", "section_count": 518 },
-    { "path": "documentation/registry-projection/sections-0159.json", "section_count": 508 },
-    { "path": "documentation/registry-projection/sections-0160.json", "section_count": 553 },
-    { "path": "documentation/registry-projection/sections-0161.json", "section_count": 543 },
-    { "path": "documentation/registry-projection/sections-0162.json", "section_count": 494 },
-    { "path": "documentation/registry-projection/sections-0163.json", "section_count": 468 },
-    { "path": "documentation/registry-projection/sections-0164.json", "section_count": 491 },
-    { "path": "documentation/registry-projection/sections-0165.json", "section_count": 486 },
-    { "path": "documentation/registry-projection/sections-0166.json", "section_count": 472 },
-    { "path": "documentation/registry-projection/sections-0167.json", "section_count": 476 },
-    { "path": "documentation/registry-projection/sections-0168.json", "section_count": 481 },
-    { "path": "documentation/registry-projection/sections-0169.json", "section_count": 459 },
-    { "path": "documentation/registry-projection/sections-0170.json", "section_count": 478 },
-    { "path": "documentation/registry-projection/sections-0171.json", "section_count": 530 },
-    { "path": "documentation/registry-projection/sections-0172.json", "section_count": 526 },
-    { "path": "documentation/registry-projection/sections-0173.json", "section_count": 562 },
-    { "path": "documentation/registry-projection/sections-0174.json", "section_count": 513 },
-    { "path": "documentation/registry-projection/sections-0175.json", "section_count": 498 },
-    { "path": "documentation/registry-projection/sections-0176.json", "section_count": 484 },
-    { "path": "documentation/registry-projection/sections-0177.json", "section_count": 489 },
-    { "path": "documentation/registry-projection/sections-0178.json", "section_count": 544 },
-    { "path": "documentation/registry-projection/sections-0179.json", "section_count": 479 },
-    { "path": "documentation/registry-projection/sections-0180.json", "section_count": 536 },
-    { "path": "documentation/registry-projection/sections-0181.json", "section_count": 542 },
-    { "path": "documentation/registry-projection/sections-0182.json", "section_count": 546 },
-    { "path": "documentation/registry-projection/sections-0183.json", "section_count": 466 },
-    { "path": "documentation/registry-projection/sections-0184.json", "section_count": 440 },
-    { "path": "documentation/registry-projection/sections-0185.json", "section_count": 420 },
-    { "path": "documentation/registry-projection/sections-0186.json", "section_count": 535 },
-    { "path": "documentation/registry-projection/sections-0187.json", "section_count": 504 },
-    { "path": "documentation/registry-projection/sections-0188.json", "section_count": 432 },
-    { "path": "documentation/registry-projection/sections-0189.json", "section_count": 426 },
-    { "path": "documentation/registry-projection/sections-0190.json", "section_count": 425 },
-    { "path": "documentation/registry-projection/sections-0191.json", "section_count": 451 },
-    { "path": "documentation/registry-projection/sections-0192.json", "section_count": 494 },
-    { "path": "documentation/registry-projection/sections-0193.json", "section_count": 417 },
-    { "path": "documentation/registry-projection/sections-0194.json", "section_count": 422 },
-    { "path": "documentation/registry-projection/sections-0195.json", "section_count": 414 },
-    { "path": "documentation/registry-projection/sections-0196.json", "section_count": 422 },
-    { "path": "documentation/registry-projection/sections-0197.json", "section_count": 572 },
-    { "path": "documentation/registry-projection/sections-0198.json", "section_count": 5 }
+    { "path": "documentation/registry-projection/sections-0007.json", "section_count": 574 },
+    { "path": "documentation/registry-projection/sections-0008.json", "section_count": 486 },
+    { "path": "documentation/registry-projection/sections-0009.json", "section_count": 523 },
+    { "path": "documentation/registry-projection/sections-0010.json", "section_count": 466 },
+    { "path": "documentation/registry-projection/sections-0011.json", "section_count": 470 },
+    { "path": "documentation/registry-projection/sections-0012.json", "section_count": 488 },
+    { "path": "documentation/registry-projection/sections-0013.json", "section_count": 516 },
+    { "path": "documentation/registry-projection/sections-0014.json", "section_count": 515 },
+    { "path": "documentation/registry-projection/sections-0015.json", "section_count": 513 },
+    { "path": "documentation/registry-projection/sections-0016.json", "section_count": 574 },
+    { "path": "documentation/registry-projection/sections-0017.json", "section_count": 539 },
+    { "path": "documentation/registry-projection/sections-0018.json", "section_count": 576 },
+    { "path": "documentation/registry-projection/sections-0019.json", "section_count": 568 },
+    { "path": "documentation/registry-projection/sections-0020.json", "section_count": 518 },
+    { "path": "documentation/registry-projection/sections-0021.json", "section_count": 552 },
+    { "path": "documentation/registry-projection/sections-0022.json", "section_count": 541 },
+    { "path": "documentation/registry-projection/sections-0023.json", "section_count": 577 },
+    { "path": "documentation/registry-projection/sections-0024.json", "section_count": 454 },
+    { "path": "documentation/registry-projection/sections-0025.json", "section_count": 556 },
+    { "path": "documentation/registry-projection/sections-0026.json", "section_count": 528 },
+    { "path": "documentation/registry-projection/sections-0027.json", "section_count": 540 },
+    { "path": "documentation/registry-projection/sections-0028.json", "section_count": 481 },
+    { "path": "documentation/registry-projection/sections-0029.json", "section_count": 462 },
+    { "path": "documentation/registry-projection/sections-0030.json", "section_count": 469 },
+    { "path": "documentation/registry-projection/sections-0031.json", "section_count": 490 },
+    { "path": "documentation/registry-projection/sections-0032.json", "section_count": 481 },
+    { "path": "documentation/registry-projection/sections-0033.json", "section_count": 508 },
+    { "path": "documentation/registry-projection/sections-0034.json", "section_count": 522 },
+    { "path": "documentation/registry-projection/sections-0035.json", "section_count": 521 },
+    { "path": "documentation/registry-projection/sections-0036.json", "section_count": 495 },
+    { "path": "documentation/registry-projection/sections-0037.json", "section_count": 515 },
+    { "path": "documentation/registry-projection/sections-0038.json", "section_count": 488 },
+    { "path": "documentation/registry-projection/sections-0039.json", "section_count": 580 },
+    { "path": "documentation/registry-projection/sections-0040.json", "section_count": 562 },
+    { "path": "documentation/registry-projection/sections-0041.json", "section_count": 567 },
+    { "path": "documentation/registry-projection/sections-0042.json", "section_count": 547 },
+    { "path": "documentation/registry-projection/sections-0043.json", "section_count": 557 },
+    { "path": "documentation/registry-projection/sections-0044.json", "section_count": 502 },
+    { "path": "documentation/registry-projection/sections-0045.json", "section_count": 540 },
+    { "path": "documentation/registry-projection/sections-0046.json", "section_count": 547 },
+    { "path": "documentation/registry-projection/sections-0047.json", "section_count": 494 },
+    { "path": "documentation/registry-projection/sections-0048.json", "section_count": 535 },
+    { "path": "documentation/registry-projection/sections-0049.json", "section_count": 500 },
+    { "path": "documentation/registry-projection/sections-0050.json", "section_count": 558 },
+    { "path": "documentation/registry-projection/sections-0051.json", "section_count": 558 },
+    { "path": "documentation/registry-projection/sections-0052.json", "section_count": 519 },
+    { "path": "documentation/registry-projection/sections-0053.json", "section_count": 493 },
+    { "path": "documentation/registry-projection/sections-0054.json", "section_count": 492 },
+    { "path": "documentation/registry-projection/sections-0055.json", "section_count": 478 },
+    { "path": "documentation/registry-projection/sections-0056.json", "section_count": 482 },
+    { "path": "documentation/registry-projection/sections-0057.json", "section_count": 484 },
+    { "path": "documentation/registry-projection/sections-0058.json", "section_count": 464 },
+    { "path": "documentation/registry-projection/sections-0059.json", "section_count": 491 },
+    { "path": "documentation/registry-projection/sections-0060.json", "section_count": 538 },
+    { "path": "documentation/registry-projection/sections-0061.json", "section_count": 539 },
+    { "path": "documentation/registry-projection/sections-0062.json", "section_count": 559 },
+    { "path": "documentation/registry-projection/sections-0063.json", "section_count": 541 },
+    { "path": "documentation/registry-projection/sections-0064.json", "section_count": 568 },
+    { "path": "documentation/registry-projection/sections-0065.json", "section_count": 548 },
+    { "path": "documentation/registry-projection/sections-0066.json", "section_count": 551 },
+    { "path": "documentation/registry-projection/sections-0067.json", "section_count": 467 },
+    { "path": "documentation/registry-projection/sections-0068.json", "section_count": 423 },
+    { "path": "documentation/registry-projection/sections-0069.json", "section_count": 457 },
+    { "path": "documentation/registry-projection/sections-0070.json", "section_count": 542 },
+    { "path": "documentation/registry-projection/sections-0071.json", "section_count": 454 },
+    { "path": "documentation/registry-projection/sections-0072.json", "section_count": 440 },
+    { "path": "documentation/registry-projection/sections-0073.json", "section_count": 420 },
+    { "path": "documentation/registry-projection/sections-0074.json", "section_count": 436 },
+    { "path": "documentation/registry-projection/sections-0075.json", "section_count": 503 },
+    { "path": "documentation/registry-projection/sections-0076.json", "section_count": 446 },
+    { "path": "documentation/registry-projection/sections-0077.json", "section_count": 431 },
+    { "path": "documentation/registry-projection/sections-0078.json", "section_count": 405 },
+    { "path": "documentation/registry-projection/sections-0079.json", "section_count": 430 },
+    { "path": "documentation/registry-projection/sections-0080.json", "section_count": 491 },
+    { "path": "documentation/registry-projection/sections-0081.json", "section_count": 561 },
+    { "path": "documentation/registry-projection/sections-0082.json", "section_count": 545 },
+    { "path": "documentation/registry-projection/sections-0083.json", "section_count": 540 },
+    { "path": "documentation/registry-projection/sections-0084.json", "section_count": 497 },
+    { "path": "documentation/registry-projection/sections-0085.json", "section_count": 530 },
+    { "path": "documentation/registry-projection/sections-0086.json", "section_count": 507 },
+    { "path": "documentation/registry-projection/sections-0087.json", "section_count": 558 },
+    { "path": "documentation/registry-projection/sections-0088.json", "section_count": 485 },
+    { "path": "documentation/registry-projection/sections-0089.json", "section_count": 463 },
+    { "path": "documentation/registry-projection/sections-0090.json", "section_count": 483 },
+    { "path": "documentation/registry-projection/sections-0091.json", "section_count": 416 },
+    { "path": "documentation/registry-projection/sections-0092.json", "section_count": 395 },
+    { "path": "documentation/registry-projection/sections-0093.json", "section_count": 336 },
+    { "path": "documentation/registry-projection/sections-0094.json", "section_count": 339 },
+    { "path": "documentation/registry-projection/sections-0095.json", "section_count": 371 },
+    { "path": "documentation/registry-projection/sections-0096.json", "section_count": 423 },
+    { "path": "documentation/registry-projection/sections-0097.json", "section_count": 405 },
+    { "path": "documentation/registry-projection/sections-0098.json", "section_count": 343 },
+    { "path": "documentation/registry-projection/sections-0099.json", "section_count": 342 },
+    { "path": "documentation/registry-projection/sections-0100.json", "section_count": 426 },
+    { "path": "documentation/registry-projection/sections-0101.json", "section_count": 499 },
+    { "path": "documentation/registry-projection/sections-0102.json", "section_count": 453 },
+    { "path": "documentation/registry-projection/sections-0103.json", "section_count": 476 },
+    { "path": "documentation/registry-projection/sections-0104.json", "section_count": 498 },
+    { "path": "documentation/registry-projection/sections-0105.json", "section_count": 513 },
+    { "path": "documentation/registry-projection/sections-0106.json", "section_count": 495 },
+    { "path": "documentation/registry-projection/sections-0107.json", "section_count": 543 },
+    { "path": "documentation/registry-projection/sections-0108.json", "section_count": 552 },
+    { "path": "documentation/registry-projection/sections-0109.json", "section_count": 550 },
+    { "path": "documentation/registry-projection/sections-0110.json", "section_count": 535 },
+    { "path": "documentation/registry-projection/sections-0111.json", "section_count": 555 },
+    { "path": "documentation/registry-projection/sections-0112.json", "section_count": 512 },
+    { "path": "documentation/registry-projection/sections-0113.json", "section_count": 543 },
+    { "path": "documentation/registry-projection/sections-0114.json", "section_count": 537 },
+    { "path": "documentation/registry-projection/sections-0115.json", "section_count": 550 },
+    { "path": "documentation/registry-projection/sections-0116.json", "section_count": 466 },
+    { "path": "documentation/registry-projection/sections-0117.json", "section_count": 536 },
+    { "path": "documentation/registry-projection/sections-0118.json", "section_count": 522 },
+    { "path": "documentation/registry-projection/sections-0119.json", "section_count": 515 },
+    { "path": "documentation/registry-projection/sections-0120.json", "section_count": 470 },
+    { "path": "documentation/registry-projection/sections-0121.json", "section_count": 455 },
+    { "path": "documentation/registry-projection/sections-0122.json", "section_count": 473 },
+    { "path": "documentation/registry-projection/sections-0123.json", "section_count": 471 },
+    { "path": "documentation/registry-projection/sections-0124.json", "section_count": 489 },
+    { "path": "documentation/registry-projection/sections-0125.json", "section_count": 498 },
+    { "path": "documentation/registry-projection/sections-0126.json", "section_count": 517 },
+    { "path": "documentation/registry-projection/sections-0127.json", "section_count": 513 },
+    { "path": "documentation/registry-projection/sections-0128.json", "section_count": 492 },
+    { "path": "documentation/registry-projection/sections-0129.json", "section_count": 502 },
+    { "path": "documentation/registry-projection/sections-0130.json", "section_count": 489 },
+    { "path": "documentation/registry-projection/sections-0131.json", "section_count": 566 },
+    { "path": "documentation/registry-projection/sections-0132.json", "section_count": 551 },
+    { "path": "documentation/registry-projection/sections-0133.json", "section_count": 562 },
+    { "path": "documentation/registry-projection/sections-0134.json", "section_count": 537 },
+    { "path": "documentation/registry-projection/sections-0135.json", "section_count": 555 },
+    { "path": "documentation/registry-projection/sections-0136.json", "section_count": 495 },
+    { "path": "documentation/registry-projection/sections-0137.json", "section_count": 552 },
+    { "path": "documentation/registry-projection/sections-0138.json", "section_count": 536 },
+    { "path": "documentation/registry-projection/sections-0139.json", "section_count": 512 },
+    { "path": "documentation/registry-projection/sections-0140.json", "section_count": 501 },
+    { "path": "documentation/registry-projection/sections-0141.json", "section_count": 501 },
+    { "path": "documentation/registry-projection/sections-0142.json", "section_count": 529 },
+    { "path": "documentation/registry-projection/sections-0143.json", "section_count": 550 },
+    { "path": "documentation/registry-projection/sections-0144.json", "section_count": 525 },
+    { "path": "documentation/registry-projection/sections-0145.json", "section_count": 487 },
+    { "path": "documentation/registry-projection/sections-0146.json", "section_count": 470 },
+    { "path": "documentation/registry-projection/sections-0147.json", "section_count": 489 },
+    { "path": "documentation/registry-projection/sections-0148.json", "section_count": 473 },
+    { "path": "documentation/registry-projection/sections-0149.json", "section_count": 481 },
+    { "path": "documentation/registry-projection/sections-0150.json", "section_count": 465 },
+    { "path": "documentation/registry-projection/sections-0151.json", "section_count": 474 },
+    { "path": "documentation/registry-projection/sections-0152.json", "section_count": 519 },
+    { "path": "documentation/registry-projection/sections-0153.json", "section_count": 519 },
+    { "path": "documentation/registry-projection/sections-0154.json", "section_count": 548 },
+    { "path": "documentation/registry-projection/sections-0155.json", "section_count": 546 },
+    { "path": "documentation/registry-projection/sections-0156.json", "section_count": 494 },
+    { "path": "documentation/registry-projection/sections-0157.json", "section_count": 487 },
+    { "path": "documentation/registry-projection/sections-0158.json", "section_count": 477 },
+    { "path": "documentation/registry-projection/sections-0159.json", "section_count": 544 },
+    { "path": "documentation/registry-projection/sections-0160.json", "section_count": 504 },
+    { "path": "documentation/registry-projection/sections-0161.json", "section_count": 508 },
+    { "path": "documentation/registry-projection/sections-0162.json", "section_count": 542 },
+    { "path": "documentation/registry-projection/sections-0163.json", "section_count": 535 },
+    { "path": "documentation/registry-projection/sections-0164.json", "section_count": 492 },
+    { "path": "documentation/registry-projection/sections-0165.json", "section_count": 462 },
+    { "path": "documentation/registry-projection/sections-0166.json", "section_count": 402 },
+    { "path": "documentation/registry-projection/sections-0167.json", "section_count": 513 },
+    { "path": "documentation/registry-projection/sections-0168.json", "section_count": 531 },
+    { "path": "documentation/registry-projection/sections-0169.json", "section_count": 433 },
+    { "path": "documentation/registry-projection/sections-0170.json", "section_count": 431 },
+    { "path": "documentation/registry-projection/sections-0171.json", "section_count": 423 },
+    { "path": "documentation/registry-projection/sections-0172.json", "section_count": 426 },
+    { "path": "documentation/registry-projection/sections-0173.json", "section_count": 516 },
+    { "path": "documentation/registry-projection/sections-0174.json", "section_count": 427 },
+    { "path": "documentation/registry-projection/sections-0175.json", "section_count": 420 },
+    { "path": "documentation/registry-projection/sections-0176.json", "section_count": 410 },
+    { "path": "documentation/registry-projection/sections-0177.json", "section_count": 418 },
+    { "path": "documentation/registry-projection/sections-0178.json", "section_count": 523 },
+    { "path": "documentation/registry-projection/sections-0179.json", "section_count": 168 }
   ],
-  "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+  "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
   "target_bytes": 450000
 }

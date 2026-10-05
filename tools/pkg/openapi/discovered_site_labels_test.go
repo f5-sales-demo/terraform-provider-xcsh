@@ -16,15 +16,11 @@ import (
 //
 // Measured in the f5-sales-demo tenant on 2026-07-30 by listing each kind and
 // counting objects carrying `domain`, `host-os-version` or an `hw-` key:
-// aws_vpc_site 4/4, azure_vnet_site 2/2, securemesh_site_v2 9/13. fleet 0/19 and
-// virtual_site 0/6 carried none, and are deliberately excluded. The kinds with no
-// live objects to measure share the node-backed site shape and the same generator.
+// securemesh_site_v2 9/13. fleet 0/19 and virtual_site 0/6 carried none, and
+// are deliberately excluded. The other supported kinds share the node-backed
+// site shape and the same generator.
 var decoratedSiteResources = []string{
 	"aws_tgw_site",
-	"aws_vpc_site",
-	"azure_vnet_site",
-	"gcp_vpc_site",
-	"securemesh_site",
 	"securemesh_site_v2",
 	"site",
 	"voltstack_site",

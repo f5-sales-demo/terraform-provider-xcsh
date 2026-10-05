@@ -47,6 +47,46 @@
     {
       "diagnostic": "configured attribute removed: xcsh_site_upgrade_sw.version",
       "replacement": "The v11 action uses the required software_version attribute to distinguish the target kind."
+    },
+    {
+      "diagnostic": "registered data source type removed: xcsh_aws_vpc_site",
+      "replacement": "API v11.0.0 retires aws_vpc_site; provider v14 removes this data source type without an alias or state migration."
+    },
+    {
+      "diagnostic": "registered data source type removed: xcsh_azure_vnet_site",
+      "replacement": "API v11.0.0 retires azure_vnet_site; provider v14 removes this data source type without an alias or state migration."
+    },
+    {
+      "diagnostic": "registered data source type removed: xcsh_cloud_connect",
+      "replacement": "API v11.0.0 retires cloud_connect; provider v14 removes this data source type without an alias or state migration."
+    },
+    {
+      "diagnostic": "registered data source type removed: xcsh_gcp_vpc_site",
+      "replacement": "API v11.0.0 retires gcp_vpc_site; provider v14 removes this data source type without an alias or state migration."
+    },
+    {
+      "diagnostic": "registered data source type removed: xcsh_securemesh_site",
+      "replacement": "API v11.0.0 retires securemesh_site; provider v14 removes this data source type without an alias or state migration."
+    },
+    {
+      "diagnostic": "registered resource type removed: xcsh_aws_vpc_site",
+      "replacement": "API v11.0.0 retires aws_vpc_site; provider v14 removes this resource type without an alias or state migration."
+    },
+    {
+      "diagnostic": "registered resource type removed: xcsh_azure_vnet_site",
+      "replacement": "API v11.0.0 retires azure_vnet_site; provider v14 removes this resource type without an alias or state migration."
+    },
+    {
+      "diagnostic": "registered resource type removed: xcsh_cloud_connect",
+      "replacement": "API v11.0.0 retires cloud_connect; provider v14 removes this resource type without an alias or state migration."
+    },
+    {
+      "diagnostic": "registered resource type removed: xcsh_gcp_vpc_site",
+      "replacement": "API v11.0.0 retires gcp_vpc_site; provider v14 removes this resource type without an alias or state migration."
+    },
+    {
+      "diagnostic": "registered resource type removed: xcsh_securemesh_site",
+      "replacement": "API v11.0.0 retires securemesh_site; provider v14 removes this resource type without an alias or state migration."
     }
   ]
 }
