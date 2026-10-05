@@ -107,7 +107,7 @@
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_crawler:reference", "xcsh-docs:data-sources:api_crawler:examples"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -119,7 +119,7 @@
       "path": "documentation/data-sources/api_crawler/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_crawler",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3032313323203012-2021301131010010-1211333201122111-1021320230300330-0211003112312030-1200030031330121-3012320020032333-2333221312222211",
       "registry_path": "docs/data-sources/api_crawler.md",
@@ -129,15 +129,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_crawler/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
       "summary": "Manages a API Crawler resource in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_api_crawler",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v11.0.0",
         "schema_components": ["api_crawlerCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
       }
     },
     {
@@ -148,7 +148,7 @@
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_crawler:properties:domains"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -160,7 +160,7 @@
       "path": "documentation/data-sources/api_crawler/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_crawler",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0220220322223001-1320313010233203-3300000030200300-0201002302301013-0210212312130310-0300333002303302-1311323021220123-2132303221000023",
       "registry_path": "docs/guides/data-sources--api_crawler--reference--group-001.md",
@@ -269,14 +269,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_crawler/properties/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
       "summary": "Property reference for xcsh_api_crawler.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v11.0.0",
         "schema_components": ["api_crawlerCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
       }
     },
     {
@@ -287,7 +287,7 @@
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_crawler:properties:domains:simple_login"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -299,7 +299,7 @@
       "path": "documentation/data-sources/api_crawler/properties/domains/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_crawler",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3112021300111122-1311200230001132-3332331001022213-2123023231013133-2203120032023202-1313210310120113-3302231313323222-1103212322221010",
       "registry_path": "docs/guides/data-sources--api_crawler--reference--group-001.md",
@@ -338,14 +338,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_crawler/properties/domains/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
       "summary": "API Crawler Configuration.",
       "tasks": ["configuration"],
       "title": "domains",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v11.0.0",
         "schema_components": ["api_crawlerCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
       }
     },
     {
@@ -356,7 +356,7 @@
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_crawler:properties:domains:simple_login:password"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -368,7 +368,7 @@
       "path": "documentation/data-sources/api_crawler/properties/domains/simple_login/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_crawler",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0120231310201203-1120011010012333-3311301110232003-0101122113033103-0010202201301200-1133212333101303-3331202133310203-2001211101310301",
       "registry_path": "docs/guides/data-sources--api_crawler--reference--group-001.md",
@@ -407,14 +407,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_crawler/properties/domains/simple_login/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
       "summary": "Configuration parameter for simple login.",
       "tasks": ["configuration"],
       "title": "domains.simple_login",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v11.0.0",
         "schema_components": ["api_crawlerCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
       }
     },
     {
@@ -428,7 +428,7 @@
         "xcsh-docs:data-sources:api_crawler:properties:domains:simple_login:password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -440,7 +440,7 @@
       "path": "documentation/data-sources/api_crawler/properties/domains/simple_login/password/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_crawler",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1102201101032321-2011133200223223-0230103103000213-3130332132100303-0321113030301111-3221031210122302-1221021320330310-1220220132312302",
       "registry_path": "docs/guides/data-sources--api_crawler--reference--group-001.md",
@@ -479,14 +479,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_crawler/properties/domains/simple_login/password/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "domains.simple_login.password",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v11.0.0",
         "schema_components": ["api_crawlerCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
       }
     },
     {
@@ -497,7 +497,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -509,7 +509,7 @@
       "path": "documentation/data-sources/api_crawler/properties/domains/simple_login/password/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_crawler",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1333331002111103-2220222000030111-2023222233111012-1110232131333310-2300000102131230-2111320220303123-2131200203013122-0103221223203110",
       "registry_path": "docs/guides/data-sources--api_crawler--reference--group-001.md",
@@ -577,14 +577,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_crawler/properties/domains/simple_login/password/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "domains.simple_login.password.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v11.0.0",
         "schema_components": ["api_crawlerCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
       }
     },
     {
@@ -595,7 +595,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -607,7 +607,7 @@
       "path": "documentation/data-sources/api_crawler/properties/domains/simple_login/password/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_crawler",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0322230302312030-2312120320112312-1302300333332332-1302002330021101-3323331100303033-0200003110113200-0331030113312113-3311312021032233",
       "registry_path": "docs/guides/data-sources--api_crawler--reference--group-001.md",
@@ -651,14 +651,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_crawler/properties/domains/simple_login/password/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "domains.simple_login.password.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v11.0.0",
         "schema_components": ["api_crawlerCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
       }
     },
     {
@@ -669,7 +669,7 @@
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_crawler:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -681,7 +681,7 @@
       "path": "documentation/data-sources/api_crawler/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_crawler",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3033332101013230-0112123023331122-1221102333031200-0302111301111031-1120302110301131-1023232102311101-1120221301330013-3333200122200111",
       "registry_path": "docs/guides/data-sources--api_crawler--examples--group-001.md",
@@ -691,14 +691,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_crawler/examples/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
       "summary": "Examples for xcsh_api_crawler.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v11.0.0",
         "schema_components": ["api_crawlerCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
       }
     },
     {
@@ -709,7 +709,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -728,7 +728,7 @@
       "path": "documentation/data-sources/api_crawler/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_crawler",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3232313232030132-1313101131032321-3321122323312312-2121023201302333-1131210120221023-0201010031003033-3221100000321310-3302203000200300",
       "registry_path": "docs/guides/data-sources--api_crawler--examples--group-001.md",
@@ -738,14 +738,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_crawler/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
       "summary": "Data source for xcsh_api_crawler.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v11.0.0",
         "schema_components": ["api_crawlerCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
       }
     }
   ],

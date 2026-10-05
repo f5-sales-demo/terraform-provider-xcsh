@@ -82,7 +82,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:usb_policy:reference", "xcsh-docs:data-sources:usb_policy:examples"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -94,7 +94,7 @@
       "path": "documentation/data-sources/usb_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "usb_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3133321203222121-0333232330020202-2311221201233121-1211132233302312-0010122132101103-2031031312101012-3000023221320113-0202220320111000",
       "registry_path": "docs/data-sources/usb_policy.md",
@@ -104,15 +104,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/usb_policy/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
       "summary": "Manages new USB policy object in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_usb_policy",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v11.0.0",
         "schema_components": ["usb_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
       }
     },
     {
@@ -123,7 +123,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:usb_policy:properties:allowed_devices"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -135,7 +135,7 @@
       "path": "documentation/data-sources/usb_policy/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "usb_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1000132301302331-1210321310212233-2332001022201121-3133211123011103-2123333120333133-1000202023301002-2333222023302121-1001000003033000",
       "registry_path": "docs/guides/data-sources--usb_policy--reference--group-001.md",
@@ -244,14 +244,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/usb_policy/properties/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
       "summary": "Property reference for xcsh_usb_policy.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v11.0.0",
         "schema_components": ["usb_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
       }
     },
     {
@@ -262,7 +262,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -274,7 +274,7 @@
       "path": "documentation/data-sources/usb_policy/properties/allowed_devices/index.md",
       "product": "distributed-cloud",
       "provider_name": "usb_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1222313110031021-0033310100131201-3003112111300200-1012320303311210-3122230300102333-2330103233013011-0311111233223203-0223210002011200",
       "registry_path": "docs/guides/data-sources--usb_policy--reference--group-001.md",
@@ -369,14 +369,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/usb_policy/properties/allowed_devices/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
       "summary": "List of allowed USB devices.",
       "tasks": ["configuration"],
       "title": "allowed_devices",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v11.0.0",
         "schema_components": ["usb_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
       }
     },
     {
@@ -387,7 +387,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:usb_policy:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -399,7 +399,7 @@
       "path": "documentation/data-sources/usb_policy/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "usb_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0102202312010132-3223213230021232-3100232232131311-1301000132200210-0022013310320310-1011103100213320-3113320310021033-0000003311301213",
       "registry_path": "docs/guides/data-sources--usb_policy--examples--group-001.md",
@@ -409,14 +409,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/usb_policy/examples/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
       "summary": "Examples for xcsh_usb_policy.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v11.0.0",
         "schema_components": ["usb_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
       }
     },
     {
@@ -427,7 +427,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -446,7 +446,7 @@
       "path": "documentation/data-sources/usb_policy/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "usb_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0233311010100122-3103202203302102-2223112121120010-2331221331101103-3002112021222331-3023103233320103-3032001201110233-1233133230012303",
       "registry_path": "docs/guides/data-sources--usb_policy--examples--group-001.md",
@@ -456,14 +456,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/usb_policy/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
       "summary": "Data source for xcsh_usb_policy.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v11.0.0",
         "schema_components": ["usb_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
       }
     }
   ],

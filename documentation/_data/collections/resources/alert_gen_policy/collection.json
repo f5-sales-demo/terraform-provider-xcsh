@@ -112,7 +112,7 @@
         "xcsh-docs:resources:alert_gen_policy:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -124,7 +124,7 @@
       "path": "documentation/resources/alert_gen_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_gen_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
       "provider_type": "resources",
       "registry_anchor": "canonical-2201222232120330-1303130313333202-2020210123203131-3130311000211300-3201232201020110-2210203113113010-2232121111101221-3030222001111001",
       "registry_path": "docs/resources/alert_gen_policy.md",
@@ -134,15 +134,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_gen_policy/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
       "summary": "Manages Alert Generation Policy in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_alert_gen_policy",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v11.0.0",
         "schema_components": ["alert_gen_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
       }
     },
     {
@@ -156,7 +156,7 @@
         "xcsh-docs:resources:alert_gen_policy:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -168,7 +168,7 @@
       "path": "documentation/resources/alert_gen_policy/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_gen_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
       "provider_type": "resources",
       "registry_anchor": "canonical-0113323010121111-3310031311010033-0120221122230330-1032002302130100-3011003320313103-0332032231313220-3233111110000200-2012111221210303",
       "registry_path": "docs/guides/resources--alert_gen_policy--reference--group-001.md",
@@ -344,14 +344,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_gen_policy/properties/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
       "summary": "Property reference for xcsh_alert_gen_policy.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v11.0.0",
         "schema_components": ["alert_gen_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
       }
     },
     {
@@ -362,7 +362,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -374,7 +374,7 @@
       "path": "documentation/resources/alert_gen_policy/properties/details/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_gen_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
       "provider_type": "resources",
       "registry_anchor": "canonical-0320213020013121-1010322233231212-2300332320130011-3121330303302010-0001233132322230-3323233211022310-3113330122121321-2101130202032320",
       "registry_path": "docs/guides/resources--alert_gen_policy--reference--group-001.md",
@@ -466,14 +466,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_gen_policy/properties/details/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
       "summary": "Notification Details.",
       "tasks": ["configuration"],
       "title": "details",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v11.0.0",
         "schema_components": ["alert_gen_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
       }
     },
     {
@@ -484,7 +484,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -496,7 +496,7 @@
       "path": "documentation/resources/alert_gen_policy/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_gen_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
       "provider_type": "resources",
       "registry_anchor": "canonical-3222010321001100-3030000323213301-1100232023312222-3000012332332203-0302210320302130-2311330301223302-0000133310200101-1021231310310200",
       "registry_path": "docs/guides/resources--alert_gen_policy--reference--group-001.md",
@@ -598,14 +598,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_gen_policy/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
       "summary": "timeouts for xcsh_alert_gen_policy.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v11.0.0",
         "schema_components": ["alert_gen_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
       }
     },
     {
@@ -616,7 +616,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:alert_gen_policy:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -628,7 +628,7 @@
       "path": "documentation/resources/alert_gen_policy/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_gen_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
       "provider_type": "resources",
       "registry_anchor": "canonical-1333311220130202-1032210111110011-0220332203212331-1012033311301010-2031321003013300-0312030101013302-0002322233120201-1110333102211333",
       "registry_path": "docs/guides/resources--alert_gen_policy--examples--group-001.md",
@@ -638,14 +638,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_gen_policy/examples/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
       "summary": "Examples for xcsh_alert_gen_policy.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v11.0.0",
         "schema_components": ["alert_gen_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
       }
     },
     {
@@ -656,7 +656,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -675,7 +675,7 @@
       "path": "documentation/resources/alert_gen_policy/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_gen_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
       "provider_type": "resources",
       "registry_anchor": "canonical-3222011002002223-1330220300113113-0131301101312110-0102323310112300-2332203333312303-2321210023123022-1130211011232310-2231110332222322",
       "registry_path": "docs/guides/resources--alert_gen_policy--examples--group-001.md",
@@ -685,14 +685,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_gen_policy/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
       "summary": "Resource for xcsh_alert_gen_policy.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v11.0.0",
         "schema_components": ["alert_gen_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
       }
     },
     {
@@ -703,7 +703,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -716,7 +716,7 @@
       "path": "documentation/resources/alert_gen_policy/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_gen_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
       "provider_type": "resources",
       "registry_anchor": "canonical-1103101021010221-2231010233003223-1320220111303111-0312011221230000-2132221132030030-1203131200111010-1303223102220113-0221200020321012",
       "registry_path": "docs/guides/resources--alert_gen_policy--lifecycle--group-001.md",
@@ -726,14 +726,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_gen_policy/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
       "summary": "Import for xcsh_alert_gen_policy.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v11.0.0",
         "schema_components": ["alert_gen_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
       }
     },
     {
@@ -744,7 +744,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -756,7 +756,7 @@
       "path": "documentation/resources/alert_gen_policy/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_gen_policy",
-      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
+      "provider_schema_digest": "sha256:46b91e0dfead6561ff76cfb5d9ccf48f9937eb084797761eb9aa6a2759342733",
       "provider_type": "resources",
       "registry_anchor": "canonical-2203233101331112-3132232220332331-3132000013020003-3311232002232333-2133322212003010-3230223012222220-2112113223211330-3330202203113113",
       "registry_path": "docs/guides/resources--alert_gen_policy--lifecycle--group-001.md",
@@ -766,14 +766,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_gen_policy/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:be3d0ac7e39778bb5070994fc48800318715ca8ca0ee228725aebf23a5cb76fd",
+      "spec_pin_digest": "sha256:92d57ca4044c441eb33576dc672fc743258240803e45b1b9796649248e2b5dff",
       "summary": "Timeouts for xcsh_alert_gen_policy.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v10.0.1",
+        "release_tag": "v11.0.0",
         "schema_components": ["alert_gen_policyCreateRequest"],
-        "target_commit": "ec431fb7909aae6a211468542c1e74c04122a56a"
+        "target_commit": "93e701d8415eb6d501534c03289fc2180b1ad3d2"
       }
     }
   ],

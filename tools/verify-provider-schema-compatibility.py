@@ -134,7 +134,8 @@ def main() -> int:
         for type_name, baseline_schema in sorted(baseline_schemas.items()):
             candidate_schema = candidate_schemas.get(type_name)
             if candidate_schema is None:
-                errors.append(f"registered type removed: {type_name}")
+                type_kind = group.removesuffix("_schemas").replace("_", " ")
+                errors.append(f"registered {type_kind} type removed: {type_name}")
                 continue
             compare_block(
                 baseline_schema.get("block", {}),

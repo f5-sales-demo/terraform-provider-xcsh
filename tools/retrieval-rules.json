@@ -185,39 +185,7 @@
       ]
     },
     {
-      "collection": "aws_vpc_site",
-      "schema_prefix": [],
-      "category": "infrastructure",
-      "capabilities": [
-        "infrastructure"
-      ]
-    },
-    {
       "collection": "aws_tgw_site",
-      "schema_prefix": [],
-      "category": "infrastructure",
-      "capabilities": [
-        "infrastructure"
-      ]
-    },
-    {
-      "collection": "azure_vnet_site",
-      "schema_prefix": [],
-      "category": "infrastructure",
-      "capabilities": [
-        "infrastructure"
-      ]
-    },
-    {
-      "collection": "gcp_vpc_site",
-      "schema_prefix": [],
-      "category": "infrastructure",
-      "capabilities": [
-        "infrastructure"
-      ]
-    },
-    {
-      "collection": "securemesh_site",
       "schema_prefix": [],
       "category": "infrastructure",
       "capabilities": [
@@ -265,14 +233,6 @@
       ],
       "tasks": [
         "authentication"
-      ]
-    },
-    {
-      "collection": "cloud_connect",
-      "schema_prefix": [],
-      "category": "infrastructure",
-      "capabilities": [
-        "infrastructure"
       ]
     },
     {
@@ -1373,22 +1333,6 @@
         "no cache"
       ],
       "review_basis": "Choice marker mutually exclusive with eligible_for_cache; narrowed to eliminate guessed runtime forwarding effects and speculative aliases. Verified canonical v12.3.1 destination: https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/cdn_cache_rule/properties/cache_rules/cache_bypass/"
-    },
-    {
-      "provider_type": "resources",
-      "collection": "cloud_connect",
-      "schema_path": [
-        "azure_vnet_site",
-        "vnet_attachments",
-        "vnet_list",
-        "default_route",
-        "all_route_tables"
-      ],
-      "summary": "Applies the default route to all route tables in the Azure VNet attachment.",
-      "aliases": [
-        "all route tables"
-      ],
-      "review_basis": "Choice marker mutually exclusive with selective_route_tables; narrowed to eliminate unentailed propagation wording and informal aliases. Verified canonical v12.3.1 destination: https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/default_route/all_route_tables/"
     }
   ]
 }
