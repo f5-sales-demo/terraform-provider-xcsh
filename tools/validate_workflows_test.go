@@ -593,6 +593,25 @@ func TestTerraformDocumentationSnapshotFollowsSealedProviderRelease(t *testing.T
 	if publish["environment"] != "terraform-documentation-publication" {
 		t.Error("documentation publication bypasses its environment")
 	}
+	steps, ok := publish["steps"].([]any)
+	if !ok {
+		t.Fatal("documentation publisher has no steps")
+	}
+	found := false
+	for _, value := range steps {
+		step, ok := value.(map[string]any)
+		if !ok || step["name"] != "Publish canonical snapshot without rebuilding schemas" {
+			continue
+		}
+		found = true
+		env, ok := step["env"].(map[string]any)
+		if !ok || env["GH_TOKEN"] != "${{ secrets.REPO_SYNC_TOKEN }}" {
+			t.Error("documentation publisher does not use the passed release credential")
+		}
+	}
+	if !found {
+		t.Fatal("documentation publish step is missing")
+	}
 }
 
 func TestAcceptanceHostedJobsPinGoToolchain(t *testing.T) {
