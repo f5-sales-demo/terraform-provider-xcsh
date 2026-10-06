@@ -545,6 +545,34 @@
         "version": "13.1.0"
       }
     },
+    "5b7bb5c330244f7ea91350c31d4dd20adf953f9ec7ce1f9515ebb9214b457a26": {
+      "delivery": {
+        "release_tag": "v12.0.1",
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c",
+        "version": "12.0.1"
+      },
+      "publication": {
+        "assets": {
+          "terraform-provider-xcsh_15.2.0_SHA256SUMS": "sha256:f120b52bf41d7c801ce00b9ee4808186f3b7c7c3739b9e71979ff25614cf567b",
+          "terraform-provider-xcsh_15.2.0_SHA256SUMS.sig": "sha256:016c14ce457457a73571d9269da3543a80699ff873958d1dc5bbb0a1864c22b2",
+          "terraform-provider-xcsh_15.2.0_darwin_amd64.zip": "sha256:0f70a1044212eb26b32e278a68f2608e9d82fb97e701107bea5a3c24e775ed5e",
+          "terraform-provider-xcsh_15.2.0_darwin_arm64.zip": "sha256:2e2a401685801212369b876939c8695b202edc9fddec04ca68e29219c72a439f",
+          "terraform-provider-xcsh_15.2.0_freebsd_386.zip": "sha256:1b7200851a29dedabd586da14e34b7bce324d0c969962a00a793b1de21e2c98e",
+          "terraform-provider-xcsh_15.2.0_freebsd_amd64.zip": "sha256:2bb58b8b317b22b015c1a0e4067de52b83d5a9ea603abb222e8472d8700b6e47",
+          "terraform-provider-xcsh_15.2.0_linux_386.zip": "sha256:7448a6dfe0811fef27d00dfd6f075b0d4138270e2eef36445bc0f5c111cb6d43",
+          "terraform-provider-xcsh_15.2.0_linux_amd64.zip": "sha256:4d125537ce31e09376b1076f0d754e10e96ef14d82ddfccf771b23a638c20ce4",
+          "terraform-provider-xcsh_15.2.0_linux_arm.zip": "sha256:e64272768ded5fe7efc27b111a90795e7b4fc923877cc31290a14034af127712",
+          "terraform-provider-xcsh_15.2.0_linux_arm64.zip": "sha256:99cea293540a978913277a254e65a7e176c8eb413cb656026bfbf7024a08a38c",
+          "terraform-provider-xcsh_15.2.0_manifest.json": "sha256:95513584b227b9c7923e641aae986935821077b1eb4116845b5312ac412bbc72",
+          "terraform-provider-xcsh_15.2.0_windows_386.zip": "sha256:e78064ed7126baa2387d8968e8ce923ce69efdabf2eff6959ee8c2d8627f4ece",
+          "terraform-provider-xcsh_15.2.0_windows_amd64.zip": "sha256:4747f2e223c3b4608a4623e4bfac7ad71a4a4fc49729c47565e794751796f894"
+        },
+        "commit": "4a6732d62dac10e5a4454ceea2f6dd32db6403c1",
+        "spec_release_sha256": "fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+        "tag": "v15.2.0",
+        "version": "15.2.0"
+      }
+    },
     "6127fc679609195f22da3004f85edac50a5800e60a2062d60075d1a97ef8cf85": {
       "delivery": {
         "release_tag": "v4.0.2",
