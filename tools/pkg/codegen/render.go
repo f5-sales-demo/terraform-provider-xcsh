@@ -1931,3 +1931,10 @@ func nestedConflictPairs(children []openapi.TerraformAttribute) [][2]string {
 	})
 	return pairs
 }
+
+// RenderProtectedDomainLookupAttributes exposes the existing protected root as
+// an optional lookup key because the CSD list projection can omit object names.
+func RenderProtectedDomainLookupAttributes(attrs []openapi.TerraformAttribute, indent string) string {
+	rendered := RenderDataSourceSchemaAttributes(attrs, indent)
+	return strings.Replace(rendered, indent+"\"protected_domain\": schema.StringAttribute{", indent+"\"protected_domain\": schema.StringAttribute{\n"+indent+"\tOptional: true,", 1)
+}

@@ -838,6 +838,11 @@ func (r *AppFirewallResource) ValidateConfig(ctx context.Context, req resource.V
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	// Mixed block/marker conflict: the generic scalar conflict emitter excludes
+	// nested model pointers, so this demonstrated blocking-page choice needs both.
+	if data.BlockingPage != nil && !data.UseDefaultBlockingPage.IsNull() && !data.UseDefaultBlockingPage.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("blocking_page"), "Conflicting Configuration", "blocking_page and use_default_blocking_page are mutually exclusive.")
+	}
 	if !data.Blocking.IsNull() && !data.Blocking.IsUnknown() && !data.Monitoring.IsNull() && !data.Monitoring.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("blocking"),

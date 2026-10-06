@@ -294,6 +294,13 @@ func (r *{{.TitleCase}}Resource) ValidateConfig(ctx context.Context, req resourc
 	if resp.Diagnostics.HasError() {
 		return
 	}
+{{- if eq .Name "app_firewall"}}
+ // Mixed block/marker conflict: the generic scalar conflict emitter excludes
+ // nested model pointers, so this demonstrated blocking-page choice needs both.
+ if data.BlockingPage != nil && !data.UseDefaultBlockingPage.IsNull() && !data.UseDefaultBlockingPage.IsUnknown() {
+  resp.Diagnostics.AddAttributeError(path.Root("blocking_page"), "Conflicting Configuration", "blocking_page and use_default_blocking_page are mutually exclusive.")
+ }
+{{- end}}
 {{- if eq .Name "token"}}
 	if !data.Type.IsNull() && !data.Type.IsUnknown() {
 		tokenType := data.Type.ValueInt64()
@@ -519,11 +526,16 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 	{{- if .HasConcurrencyToken}}
 	_, err := r.client.Create{{.TitleCase}}(ctx, createReq)
 	{{- else}}
-	apiResource, err := r.client.Create{{.TitleCase}}(ctx, createReq)
+	{{if eq .Name "protected_domain"}}apiResource, created, err := r.client.CreateProtectedDomainRegistration(ctx, createReq){{else}}apiResource, err := r.client.Create{{.TitleCase}}(ctx, createReq){{end}}
 	{{- end}}
 	if err != nil {
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create {{.TitleCase}}: %s", err))
-		return
+{{if eq .Name "protected_domain"}} if created {
+ data.ID = data.Name
+ resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+ }
+ resp.Diagnostics.AddError("Unable to Verify Created Registration", client.ProtectedDomainDiagnostic(err))
+{{else}}		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create {{.TitleCase}}: %s", err))
+{{end}}		return
 	}
 {{- if .HasConcurrencyToken}}
 
@@ -544,7 +556,18 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 	}
 {{- end}}
 
-	// Only now that the write has landed. terraform-plugin-framework persists private
+{{if eq .Name "protected_domain"}} data.ID = data.Name
+ resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+ if err := client.ValidateProtectedDomainCreateResponse(apiResource, data.Namespace.ValueString(), data.Name.ValueString(), data.ProtectedDomain.ValueString()); err != nil {
+  resp.Diagnostics.AddError("Unable to Verify Created Registration", err.Error())
+  return
+ }
+ apiResource, err = r.client.VerifyProtectedDomain(ctx, data.Namespace.ValueString(), data.Name.ValueString(), data.ProtectedDomain.ValueString())
+ if err != nil {
+  resp.Diagnostics.AddError("Unable to Verify Created Registration", "The create completed, but authoritative verification failed. Ownership is retained; refresh before another mutation.")
+  return
+ }
+{{end}}	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
@@ -556,7 +579,7 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 		return
 	}
 
-	data.ID = types.StringValue(apiResource.Metadata.Name)
+	data.ID = {{if eq .Name "protected_domain"}}data.Name{{else}}types.StringValue(apiResource.Metadata.Name){{end}}
 {{- if not .HasNamespaceInPath}}
 	// For resources without namespace in API path, namespace is computed from API response
 	data.Namespace = types.StringValue(apiResource.Metadata.Namespace)
@@ -602,10 +625,10 @@ func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequ
 	ctx, cancel := context.WithTimeout(ctx, readTimeout)
 	defer cancel()
 
-	apiResource, err := r.client.Get{{.TitleCase}}(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.{{if eq .Name "protected_domain"}}VerifyProtectedDomain(ctx, data.Namespace.ValueString(), data.Name.ValueString(), data.ProtectedDomain.ValueString()){{else}}Get{{.TitleCase}}(ctx, data.Namespace.ValueString(), data.Name.ValueString()){{end}}
 	if err != nil {
 		// Check if the resource was deleted outside Terraform
-		if strings.Contains(err.Error(), "NOT_FOUND") || strings.Contains(err.Error(), "404") {
+		if {{if eq .Name "protected_domain"}}client.HasHTTPStatus(err, 404){{else}}strings.Contains(err.Error(), "NOT_FOUND") || strings.Contains(err.Error(), "404"){{end}} {
 			tflog.Warn(ctx, "{{.TitleCase}} not found, removing from state", map[string]interface{}{
 				"name":      data.Name.ValueString(),
 				"namespace": data.Namespace.ValueString(),
@@ -613,7 +636,7 @@ func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequ
 			resp.State.RemoveResource(ctx)
 			return
 		}
-		// Some F5 XC APIs do not implement GET-by-name (read returns 501 Not
+{{if ne .Name "protected_domain"}}		// Some F5 XC APIs do not implement GET-by-name (read returns 501 Not
 		// Implemented — e.g. the shape/csd domain objects, which support only
 		// list/create/delete). Treat that as "cannot refresh" and preserve the
 		// prior state rather than erroring, so the resource stays manageable and
@@ -626,7 +649,7 @@ func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequ
 			resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 			return
 		}
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read {{.TitleCase}}: %s", err))
+{{end}}		resp.Diagnostics.AddError("Client Error", {{if eq .Name "protected_domain"}}client.ProtectedDomainDiagnostic(err){{else}}fmt.Sprintf("Unable to read {{.TitleCase}}: %s", err){{end}})
 		return
 	}
 {{- if .HasConcurrencyToken}}
@@ -642,9 +665,9 @@ func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequ
 	}
 {{- end}}
 
-	data.ID = types.StringValue(apiResource.Metadata.Name)
+{{if ne .Name "protected_domain"}}	data.ID = types.StringValue(apiResource.Metadata.Name)
 	data.Name = types.StringValue(apiResource.Metadata.Name)
-	data.Namespace = types.StringValue(apiResource.Metadata.Namespace)
+	data.Namespace = types.StringValue(apiResource.Metadata.Namespace){{end}}
 {{- if and .ExposeUID (ne .Name "token")}}
 	// Surface the server-generated system_metadata.uid as the read-only uid attribute.
 	if apiResource.SystemMetadata != nil {
@@ -654,7 +677,8 @@ func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequ
 	}
 {{- end}}
 
-	// Read description from metadata
+{{if eq .Name "protected_domain"}} if apiResource.Metadata.Name != "" {
+{{end}}	// Read description from metadata
 	if apiResource.Metadata.Description != "" {
 		data.Description = types.StringValue(apiResource.Metadata.Description)
 	} else {
@@ -715,7 +739,9 @@ func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequ
 		data.Annotations = types.MapNull(types.StringType)
 	}
 
-	// Check if this Read is triggered by an import operation
+{{if eq .Name "protected_domain"}} }
+ tflog.Debug(ctx, "Protected-domain registration verified", map[string]interface{}{"scope": "requested namespace", "matching": "exact protected root"})
+{{end}}	// Check if this Read is triggered by an import operation
 	// Import sets a private state marker so we know to populate all nested blocks from API response
 	isImport := false
 	if importMarker, diags := req.Private.GetKey(ctx, "isImport"); diags.HasError() == false && string(importMarker) == "true" {
@@ -1007,7 +1033,7 @@ func (r *{{.TitleCase}}Resource) Delete(ctx context.Context, req resource.Delete
 		// Namespace requires cascade_delete endpoint (standard DELETE returns 501)
 		err = r.client.CascadeDeleteNamespace(ctx, data.Name.ValueString())
 {{- else}}
-		err = r.client.Delete{{.TitleCase}}(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+		err = r.client.{{if eq .Name "protected_domain"}}DeleteProtectedDomainRegistration(ctx, data.Namespace.ValueString(), data.Name.ValueString(), data.ProtectedDomain.ValueString()){{else}}Delete{{.TitleCase}}(ctx, data.Namespace.ValueString(), data.Name.ValueString()){{end}}
 {{- end}}
 		if err == nil {
 			break
@@ -1045,7 +1071,7 @@ func (r *{{.TitleCase}}Resource) Delete(ctx context.Context, req resource.Delete
 		}
 {{- end}}
 		// If the resource is already gone, consider deletion successful (idempotent delete)
-		if strings.Contains(err.Error(), "NOT_FOUND") || strings.Contains(err.Error(), "404") {
+		if {{if eq .Name "protected_domain"}}client.HasHTTPStatus(err, 404){{else}}strings.Contains(err.Error(), "NOT_FOUND") || strings.Contains(err.Error(), "404"){{end}} {
 			tflog.Warn(ctx, "{{.TitleCase}} already deleted, removing from state", map[string]interface{}{
 				"name":      data.Name.ValueString(),
 				"namespace": data.Namespace.ValueString(),
@@ -1055,7 +1081,7 @@ func (r *{{.TitleCase}}Resource) Delete(ctx context.Context, req resource.Delete
 		// Every non-404 failure, including NOT_IMPLEMENTED/501, must remain a
 		// diagnostic. Returning success here would make Terraform forget a remote
 		// object that the API did not delete, creating an unrecoverable orphan.
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to delete {{.TitleCase}}: %s", err))
+		resp.Diagnostics.AddError("Client Error", {{if eq .Name "protected_domain"}}client.ProtectedDomainDiagnostic(err){{else}}fmt.Sprintf("Unable to delete {{.TitleCase}}: %s", err){{end}})
 		return
 	}
 }
@@ -1075,7 +1101,15 @@ func (r *{{.TitleCase}}Resource) ImportState(ctx context.Context, req resource.I
 		return
 	}
 
-	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("namespace"), parts[0])...)
+{{if eq .Name "protected_domain"}} if parts[2] == "" {
+  resp.Diagnostics.AddError("Invalid Import ID", "A nonempty protected root is required.")
+  return
+ }
+ if _, err := r.client.VerifyProtectedDomain(ctx, parts[0], parts[1], parts[2]); err != nil {
+  resp.Diagnostics.AddError("Unable to Verify Imported Registration", "Import requires a unique authoritative match for the provided namespace and protected root.")
+  return
+ }
+{{end}}	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("namespace"), parts[0])...)
 	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("name"), parts[1])...)
 	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("id"), parts[1])...)
 {{- range $i, $f := .ImportIDExtraFields}}
@@ -1211,7 +1245,7 @@ package provider
 
 import (
 	"context"
-	"fmt"
+{{if ne .Name "protected_domain"}}	"fmt"{{end}}
 
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
@@ -1301,7 +1335,7 @@ func (d *{{.TitleCase}}DataSource) Schema(ctx context.Context, req datasource.Sc
 			},
 {{- end}}
 {{- end}}
-{{renderDataSourceSchemaAttributes $dataSourceAttributes "\t\t\t" -}}
+{{if eq .Name "protected_domain"}}{{renderProtectedDomainLookupAttributes $dataSourceAttributes "\t\t\t" -}}{{else}}{{renderDataSourceSchemaAttributes $dataSourceAttributes "\t\t\t" -}}{{end}}
 		},
 	}
 }
@@ -1331,13 +1365,13 @@ func (d *{{.TitleCase}}DataSource) Read(ctx context.Context, req datasource.Read
 		namespace = "{{dataSourceNamespaceDefault .Attributes}}"
 	}
 {{- end}}
-	resource, err := d.client.Get{{.TitleCase}}(ctx, namespace, data.Name.ValueString())
+	resource, err := d.client.{{if eq .Name "protected_domain"}}VerifyProtectedDomain(ctx, namespace, data.Name.ValueString(), data.ProtectedDomain.ValueString()){{else}}Get{{.TitleCase}}(ctx, namespace, data.Name.ValueString()){{end}}
 	if err != nil {
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read {{.TitleCase}}: %s", err))
+		resp.Diagnostics.AddError("Client Error", {{if eq .Name "protected_domain"}}client.ProtectedDomainDiagnostic(err){{else}}fmt.Sprintf("Unable to read {{.TitleCase}}: %s", err){{end}})
 		return
 	}
 
-	data.ID = types.StringValue(resource.Metadata.Name)
+	data.ID = {{if eq .Name "protected_domain"}}data.Name{{else}}types.StringValue(resource.Metadata.Name){{end}}
 {{- if eq .Name "token"}}
 	credential, _, err := tokenCredential(resource, 0)
 	if err != nil {
@@ -1356,7 +1390,7 @@ func (d *{{.TitleCase}}DataSource) Read(ctx context.Context, req datasource.Read
 		data.Uid = types.StringNull()
 	}
 {{- end}}
-	data.Name = types.StringValue(resource.Metadata.Name)
+{{if ne .Name "protected_domain"}}	data.Name = types.StringValue(resource.Metadata.Name){{end}}
 	if resource.Metadata.Namespace != "" {
 		data.Namespace = types.StringValue(resource.Metadata.Namespace)
 	} else {
@@ -1511,7 +1545,7 @@ func (d *{{.TitleCase}}DataSource) Read(ctx context.Context, req datasource.Read
 
 	resource, err := d.client.Get{{.TitleCase}}(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read {{.TitleCase}}: %s", err))
+		resp.Diagnostics.AddError("Client Error", {{if eq .Name "protected_domain"}}client.ProtectedDomainDiagnostic(err){{else}}fmt.Sprintf("Unable to read {{.TitleCase}}: %s", err){{end}})
 		return
 	}
 
@@ -1900,7 +1934,7 @@ func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequ
 			resp.State.RemoveResource(ctx)
 			return
 		}
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read {{.TitleCase}}: %s", err))
+		resp.Diagnostics.AddError("Client Error", {{if eq .Name "protected_domain"}}client.ProtectedDomainDiagnostic(err){{else}}fmt.Sprintf("Unable to read {{.TitleCase}}: %s", err){{end}})
 		return
 	}
 

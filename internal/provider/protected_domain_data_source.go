@@ -5,7 +5,6 @@ package provider
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
@@ -72,6 +71,7 @@ func (d *ProtectedDomainDataSource) Schema(ctx context.Context, req datasource.S
 				ElementType:         types.StringType,
 			},
 			"protected_domain": schema.StringAttribute{
+				Optional:            true,
 				MarkdownDescription: "For Client-Side Defense to work on the web pages where you injected the JS, you need to enter the root domain below.",
 				Computed:            true,
 			},
@@ -99,14 +99,14 @@ func (d *ProtectedDomainDataSource) Read(ctx context.Context, req datasource.Rea
 	}
 
 	namespace := data.Namespace.ValueString()
-	resource, err := d.client.GetProtectedDomain(ctx, namespace, data.Name.ValueString())
+	resource, err := d.client.VerifyProtectedDomain(ctx, namespace, data.Name.ValueString(), data.ProtectedDomain.ValueString())
 	if err != nil {
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read ProtectedDomain: %s", err))
+		resp.Diagnostics.AddError("Client Error", client.ProtectedDomainDiagnostic(err))
 		return
 	}
 
-	data.ID = types.StringValue(resource.Metadata.Name)
-	data.Name = types.StringValue(resource.Metadata.Name)
+	data.ID = data.Name
+
 	if resource.Metadata.Namespace != "" {
 		data.Namespace = types.StringValue(resource.Metadata.Namespace)
 	} else {
