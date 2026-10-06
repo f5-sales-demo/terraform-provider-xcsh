@@ -93,6 +93,7 @@ def description_markdown(value):
         )
         for part in paragraphs
     )
+    result = re.sub(r"(?m)^([=-]{3,})(?=\s*$)", r"&#8203;\1", result)
     return re.sub(r"(?m)^(?=[+.-] |[0-9]+[.)] )", "&#8203;", result)
 
 
