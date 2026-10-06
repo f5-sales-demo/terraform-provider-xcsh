@@ -1,10 +1,10 @@
 ---
-page_title: "xcsh_certificate_chain landing"
+page_title: "xcsh_certificate_chain"
 subcategory: "Security"
-description: "Complete grouped canonical reference for xcsh_certificate_chain landing."
+description: "Complete grouped canonical reference for xcsh_certificate_chain."
 ---
 
-# xcsh_certificate_chain landing
+# xcsh_certificate_chain
 
 <a id="canonical-3300311221202132-1102121323122311-1122132320001300-2323321020311113-1011300012003132-2010130221021000-0203210321321112-0332331331210322"></a>
 
@@ -12,9 +12,7 @@ description: "Complete grouped canonical reference for xcsh_certificate_chain la
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1311222232210100-3101221130023211-3113330130320203-3320023020103200-0221112312320322-1113020013212020-0312002223230021-0122112112133010"></a>
-
-## xcsh_certificate_chain — xcsh_certificate_chain / 111322102311 / 2
+## Overview
 
 Breadcrumbs:
 
@@ -23,17 +21,17 @@ Breadcrumbs:
 Manages a Certificate Chain resource in F5 Distributed Cloud for certificate chain configuration for
 TLS.
 
-<a id="canonical-2313301220213112-0230101033313003-3211102312102123-1002320211301300-0210012312021110-0120311133012221-0003202332330010-2031330202302221"></a>
+<a id="canonical-1311222232210100-3101221130023211-3113330130320203-3320023020103200-0221112312320322-1113020013212020-0312002223230021-0122112112133010"></a>
 
-## Prerequisites — xcsh_certificate_chain / 111322102311 / 3
+### Prerequisites for `xcsh_certificate_chain`
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-<a id="canonical-3001132221001200-1200113032112300-1010210320220311-2122131203123033-2202321233211233-2121331102330221-0213121321032010-3211222202230010"></a>
+<a id="canonical-2313301220213112-0230101033313003-3211102312102123-1002320211301300-0210012312021110-0120311133012221-0003202332330010-2031330202302221"></a>
 
-## Minimal configuration — xcsh_certificate_chain / 111322102311 / 4
+### Minimal configuration for `xcsh_certificate_chain`
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -61,15 +59,15 @@ resource "xcsh_certificate_chain" "example" {
 }
 ```
 
-<a id="canonical-2013110331111320-3321002332112130-1331103031022333-1033223211113023-0110333220130220-1001113123322313-3100133113120120-1200110230201233"></a>
+<a id="canonical-3001132221001200-1200113032112300-1010210320220311-2122131203123033-2202321233211233-2121331102330221-0213121321032010-3211222202230010"></a>
 
-## Root configuration — xcsh_certificate_chain / 111322102311 / 5
+### Root configuration for `xcsh_certificate_chain`
 
 Required root properties: `certificate_url`, `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-1330222121101022-2130131233013322-3332320233210001-2322212221022102-0101121010221200-1031101210302323-0223013033230020-0100120130011110"></a>
+<a id="canonical-2013110331111320-3321002332112130-1331103031022333-1033223211113023-0110333220130220-1001113123322313-3100133113120120-1200110230201233"></a>
 
-## Next pages — xcsh_certificate_chain / 111322102311 / 6
+### Explore this collection for `xcsh_certificate_chain`
 
 - [Property reference](../guides/resources--certificate_chain--reference--group-001.md#canonical-3021131230120120-2001003003312102-0331033112303122-3121321212202103-3132210200101210-2100113131211103-3003002012030023-2121301110001321)
 - [Examples](../guides/resources--certificate_chain--examples--group-001.md#canonical-2232010112021122-0333033022233011-1212120302221000-1111333200302332-3020123202322231-3100022030003231-0110323221202211-2100233111030330)

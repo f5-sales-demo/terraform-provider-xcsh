@@ -2,7 +2,7 @@
 page_title: "enable_challenge.captcha_challenge_parameters"
 subcategory: "Load Balancing"
 description: "Enables loadbalancer to perform captcha challenge Captcha challenge will be based on Google Recaptcha. With this feature enabled, only clients that pass the captcha challenge will be allowed to complete the HTTP request. When loadbalancer is configured to do Captcha Challenge, it will redirect the browser to an HTML"
-xcsh_docs: {"aliases": ["enable challenge captcha challenge parameters", "succeeded", "success", "successful"], "body_bytes": 5473, "body_sha256": "sha256:f1a14b2bc79195d05e49001fb52c5c69136f385ce0dfbae9a193dd32c2f3f327", "capabilities": ["cdn"], "category": "cdn", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:cdn_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:cdn_loadbalancer:properties:enable_challenge:captcha_challenge_parameters", "parent_id": "xcsh-docs:resources:cdn_loadbalancer:properties:enable_challenge", "path": "documentation/resources/cdn_loadbalancer/properties/enable_challenge/captcha_challenge_parameters/index.md", "product": "distributed-cloud", "provider_name": "cdn_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1012112303301110-3222223022111121-0322323321333132-0233230321301001-3011120230103011-1321123300033331-0013312223020331-0102200200231012", "registry_path": "docs/guides/resources--cdn_loadbalancer--reference--group-010.md", "relationships": [{"anchor": "schema-enable_challenge--captcha_challenge_parameters--cookie_expiry", "enforcement": "provider-schema", "group": "enable_challenge.captcha_challenge_parameters:RequiredObjectAttributes:cookie_expiry", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:cdn_loadbalancer:properties:enable_challenge:captcha_challenge_parameters", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["enable_challenge", "captcha_challenge_parameters"], "schema_version": 1, "sections": [{"aliases": ["enable challenge captcha challenge parameters cookie expiry"], "anchor": "schema-enable_challenge--captcha_challenge_parameters--cookie_expiry", "description": "Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge.", "document_id": "xcsh-docs:resources:cdn_loadbalancer:properties:enable_challenge:captcha_challenge_parameters", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_challenge", "captcha_challenge_parameters", "cookie_expiry"], "syntax": "attribute", "type": "number"}, {"aliases": ["enable challenge captcha challenge parameters custom page"], "anchor": "schema-enable_challenge--captcha_challenge_parameters--custom_page", "description": "Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded plain text message e.g. \"Please Wait..\" or it can be HTML paragraph or a body string encoded as base64 string E.g. \"<p>", "document_id": "xcsh-docs:resources:cdn_loadbalancer:properties:enable_challenge:captcha_challenge_parameters", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_challenge", "captcha_challenge_parameters", "custom_page"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_loadbalancer/properties/enable_challenge/captcha_challenge_parameters/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Enables loadbalancer to perform captcha challenge Captcha challenge will be based on Google Recaptcha. With this feature enabled, only clients that pass the captcha challenge will be allowed to complete the HTTP request. When loadbalancer is configured to do Captcha Challenge, it will redirect the browser to an HTML", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["cdn_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["enable challenge captcha challenge parameters", "succeeded", "success", "successful"], "body_bytes": 4585, "body_sha256": "sha256:4e7b32636792ff4afb8894ac20b3db610d492072f57f8de049184046b3058187", "capabilities": ["cdn"], "category": "cdn", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:cdn_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:cdn_loadbalancer:properties:enable_challenge:captcha_challenge_parameters", "parent_id": "xcsh-docs:resources:cdn_loadbalancer:properties:enable_challenge", "path": "documentation/resources/cdn_loadbalancer/properties/enable_challenge/captcha_challenge_parameters/index.md", "product": "distributed-cloud", "provider_name": "cdn_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1012112303301110-3222223022111121-0322323321333132-0233230321301001-3011120230103011-1321123300033331-0013312223020331-0102200200231012", "registry_path": "docs/guides/resources--cdn_loadbalancer--reference--group-010.md", "relationships": [{"anchor": "schema-enable_challenge--captcha_challenge_parameters--cookie_expiry", "enforcement": "provider-schema", "group": "enable_challenge.captcha_challenge_parameters:RequiredObjectAttributes:cookie_expiry", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:cdn_loadbalancer:properties:enable_challenge:captcha_challenge_parameters", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["enable_challenge", "captcha_challenge_parameters"], "schema_version": 1, "sections": [{"aliases": ["enable challenge captcha challenge parameters cookie expiry"], "anchor": "schema-enable_challenge--captcha_challenge_parameters--cookie_expiry", "description": "Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge.", "document_id": "xcsh-docs:resources:cdn_loadbalancer:properties:enable_challenge:captcha_challenge_parameters", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_challenge", "captcha_challenge_parameters", "cookie_expiry"], "syntax": "attribute", "type": "number"}, {"aliases": ["enable challenge captcha challenge parameters custom page"], "anchor": "schema-enable_challenge--captcha_challenge_parameters--custom_page", "description": "Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded plain text message e.g. \"Please Wait..\" or it can be HTML paragraph or a body string encoded as base64 string E.g. \"<p>", "document_id": "xcsh-docs:resources:cdn_loadbalancer:properties:enable_challenge:captcha_challenge_parameters", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_challenge", "captcha_challenge_parameters", "custom_page"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_loadbalancer/properties/enable_challenge/captcha_challenge_parameters/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Enables loadbalancer to perform captcha challenge Captcha challenge will be based on Google Recaptcha. With this feature enabled, only clients that pass the captcha challenge will be allowed to complete the HTTP request. When loadbalancer is configured to do Captcha Challenge, it will redirect the browser to an HTML", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["cdn_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -21,13 +21,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Enables loadbalancer to perform captcha challenge Captcha challenge will be based on Google
-Recaptcha. With this feature enabled, only clients that pass the captcha challenge will be allowed
-to complete the HTTP request. When loadbalancer is configured to do Captcha Challenge, it will
-redirect..
-
-Upstream description:
 
 Enables loadbalancer to perform captcha challenge
 
@@ -85,11 +78,6 @@ Type: `"number"`. Optional.
 Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new
 challenge.
 
-Upstream description:
-
-Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new
-challenge.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -139,11 +127,6 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Optional.
 
 Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format.
-
-Upstream description:
-
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
 scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded
 plain text message e.g. "Please Wait.." or it can be HTML paragraph or a body string encoded as
 base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". Base64 encoded string for this HTML is
@@ -191,8 +174,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [enable_challenge](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/cdn_loadbalancer/properties/enable_challenge/)
-- [xcsh_cdn_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/cdn_loadbalancer/)

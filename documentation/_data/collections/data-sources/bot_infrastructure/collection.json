@@ -81,8 +81,8 @@
   "pages": [
     {
       "aliases": ["bot infrastructure"],
-      "body_bytes": 1358,
-      "body_sha256": "sha256:a183a449c1ed6a46a0d4297e1812837749a913559baef3ce4a68946830b068af",
+      "body_bytes": 1383,
+      "body_sha256": "sha256:a632e5430f631d42349893204813d7b20d00433a07ecc0218ea633017073979f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -113,7 +113,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_infrastructure/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages Bot Infrastructure in F5 Distributed Cloud.",
+      "summary": "Reads Bot Infrastructure information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_bot_infrastructure",
       "unresolved_relationships": [],
@@ -125,8 +125,8 @@
     },
     {
       "aliases": ["bot infrastructure"],
-      "body_bytes": 10685,
-      "body_sha256": "sha256:2e14ec628dfc31fff4587c9f7d6a03e262fde1ba49e39c29299e48d3a85116a0",
+      "body_bytes": 10325,
+      "body_sha256": "sha256:17469c6eec263eed1ba357ddf2be8d56e73a2edbb848d6fced925b8e7b51cf82",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:bot_infrastructure:properties:create_cloud_hosted"],
@@ -294,8 +294,8 @@
     },
     {
       "aliases": ["create cloud hosted"],
-      "body_bytes": 2215,
-      "body_sha256": "sha256:824a2613fcd2ca5a4ec3681abed3ec08d236146be1e3e3f2dd724b057f31c296",
+      "body_bytes": 1629,
+      "body_sha256": "sha256:f506719161a511ad608cdf65d7d5b6ee1b7f467948154026deb67f3828473c3a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -386,8 +386,8 @@
     },
     {
       "aliases": ["create cloud hosted production"],
-      "body_bytes": 2971,
-      "body_sha256": "sha256:001f16974e08c60c3155a59f2ee4f29a02207ef910d7d504d5ea01d1ac63eff6",
+      "body_bytes": 2444,
+      "body_sha256": "sha256:89702376ce4ebcf49c091d2a7703701c265fce43b53f5756b53c6a7422d584e8",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -459,8 +459,8 @@
     },
     {
       "aliases": ["create cloud hosted testing"],
-      "body_bytes": 2002,
-      "body_sha256": "sha256:7aca535087b51d28fcb206ce3c976043abc54de632cfbe49599b845d87645d18",
+      "body_bytes": 1611,
+      "body_sha256": "sha256:c8b8ff47495bd2b9524cd43e8f2778ab126d03d713016a3a09d24cb0a0f6f2ca",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -516,8 +516,8 @@
     },
     {
       "aliases": ["bot infrastructure"],
-      "body_bytes": 693,
-      "body_sha256": "sha256:b28152ae9e5fae16393bf49f729d321ca974191f242dd49d2be383274fe2fd86",
+      "body_bytes": 432,
+      "body_sha256": "sha256:85e6ce7884a2bc9aa59e1f271859ac778e94a62ef3d96d6c434f429dca1dc8d5",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:bot_infrastructure:example:data-source"],
@@ -556,8 +556,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1357,
-      "body_sha256": "sha256:e7c2ee09e8ae6e33c87f581a615847af0b867e9f28834b69b237ef5e34919576",
+      "body_bytes": 1111,
+      "body_sha256": "sha256:69b70dc1fe17c0a3104ccd4265d5e7e646e833520eeb254a1477d252b9d6d1b0",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],

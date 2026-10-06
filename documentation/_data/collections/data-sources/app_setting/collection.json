@@ -367,8 +367,8 @@
   "pages": [
     {
       "aliases": ["app setting"],
-      "body_bytes": 1327,
-      "body_sha256": "sha256:f6d644629431c5a0e25b50a3137bc0a2245db019b63569dea2c06114b5ed3ba8",
+      "body_bytes": 1306,
+      "body_sha256": "sha256:a9765a2404d73a85aeb89de3c42d58877a663dac32b94d1e50c1eb1d06841f85",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:app_setting:reference", "xcsh-docs:data-sources:app_setting:examples"],
@@ -396,7 +396,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_setting/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages App setting configuration in namespace metadata.namespace in F5 Distributed Cloud.",
+      "summary": "Reads App Setting information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_app_setting",
       "unresolved_relationships": [],
@@ -408,8 +408,8 @@
     },
     {
       "aliases": ["app setting"],
-      "body_bytes": 23293,
-      "body_sha256": "sha256:6a18729194b9cabca18d202578c0702e750a325e1a4540c74762ffbbbe95611e",
+      "body_bytes": 23074,
+      "body_sha256": "sha256:76bdd1824ce7eaf8c90a98845b7a79ea23af2fd56cb44125d98179de3b8f666e",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:app_setting:properties:app_type_settings"],
@@ -561,8 +561,8 @@
     },
     {
       "aliases": ["app type settings"],
-      "body_bytes": 3187,
-      "body_sha256": "sha256:f107cf0d197733814b62b3bfc6f5974198fbc3cb43b8b3a22481ae4da715111c",
+      "body_bytes": 2210,
+      "body_sha256": "sha256:0c216e9a3e8d8288d5d0789375fa81c9fe2497d347428ef5d06d76a30483e6c3",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -671,8 +671,8 @@
     },
     {
       "aliases": ["app type settings app type ref"],
-      "body_bytes": 6564,
-      "body_sha256": "sha256:6981033597f025564ff54342f7a09695e6ea657df19e5ee0c526c04db2d918b6",
+      "body_bytes": 5456,
+      "body_sha256": "sha256:c890e7c3b0f36dc00cf6b324311f4734eccd22be8ba155e193230b23551f7042",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -827,8 +827,8 @@
     },
     {
       "aliases": ["app type settings business logic markup setting"],
-      "body_bytes": 2027,
-      "body_sha256": "sha256:2c4bef62dbfb13149f71bbc45f6825f82e0bde96616ace967e669130947b7084",
+      "body_bytes": 1345,
+      "body_sha256": "sha256:0f04165c1c7e2a37a62a20cf80bbe699c963c15d857155e638e275598b0d15e9",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -903,8 +903,8 @@
     },
     {
       "aliases": ["app type settings business logic markup setting disable spec"],
-      "body_bytes": 1274,
-      "body_sha256": "sha256:308d45f13527f9e3ad597a1c8d1d100a53cf538c0db32228684d05956487f589",
+      "body_bytes": 938,
+      "body_sha256": "sha256:ea0ee83a9bd5c4428b5faa665f8036c3935eb2087e38ca15ea3121b6eeb49554",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -943,8 +943,8 @@
     },
     {
       "aliases": ["app type settings business logic markup setting enable"],
-      "body_bytes": 1519,
-      "body_sha256": "sha256:327dc853f800be3eb9415ab288c460c1d6d6e6dbc92375e78a8dcd5d2ea29048",
+      "body_bytes": 1190,
+      "body_sha256": "sha256:e9488452dcdd990503c1a0ff1b3617d7e38a72357c68a41753003a80eb67dcc9",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -983,8 +983,8 @@
     },
     {
       "aliases": ["app type settings timeseries analyses setting"],
-      "body_bytes": 1618,
-      "body_sha256": "sha256:e9b8f085fa05f709a94f3574beacdeeb08d28f82f08ad96622062b925456af04",
+      "body_bytes": 1147,
+      "body_sha256": "sha256:9e3d6d61aaafc414d98d1a4bb147758da0c6cabd638762f4e53e62b4eb90ccac",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1042,8 +1042,8 @@
     },
     {
       "aliases": ["app type settings timeseries analyses setting metric selectors"],
-      "body_bytes": 4123,
-      "body_sha256": "sha256:db1c579ef7e1bf922476fca7fb15241b9bc7f166beb2f49b273f80cce6d519a3",
+      "body_bytes": 3362,
+      "body_sha256": "sha256:ace1dd7cd95dcbe70772298d9566f89befbec98a178f4e5aaace6d60346a03a2",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1115,8 +1115,8 @@
     },
     {
       "aliases": ["app type settings user behavior analysis setting"],
-      "body_bytes": 3078,
-      "body_sha256": "sha256:ecf92e9e16a75f6a1929744970213d32cd04e334ab5b35ba6d2067513840f845",
+      "body_bytes": 1904,
+      "body_sha256": "sha256:e2be00686fda1ec766bdd84d0e0e57485de489f9b4a21914b311d54db5630af4",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1225,8 +1225,8 @@
     },
     {
       "aliases": ["app type settings user behavior analysis setting disable detection"],
-      "body_bytes": 1575,
-      "body_sha256": "sha256:429b6eeec29820e45324d3e55660192e792652be38625385bac2e56969077f5d",
+      "body_bytes": 1244,
+      "body_sha256": "sha256:dea982565d80909d940c103812420f52b502e9a05aff79647190bcd80d9a9f85",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1265,8 +1265,8 @@
     },
     {
       "aliases": ["app type settings user behavior analysis setting disable learning"],
-      "body_bytes": 1572,
-      "body_sha256": "sha256:e9612356569a74507038b2c6b00386df882daa50337a17be4a3838f1acec10bd",
+      "body_bytes": 1241,
+      "body_sha256": "sha256:63c35642f9d80b8f3426004e991d1bce40eab8d520ebad0ae6b6000b6ca54197",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1305,8 +1305,8 @@
     },
     {
       "aliases": ["app type settings user behavior analysis setting enable detection"],
-      "body_bytes": 13543,
-      "body_sha256": "sha256:41a41644eee5085bef5b4d5358785c1372f4f867fe1fe5f1ba77d8177966664d",
+      "body_bytes": 7862,
+      "body_sha256": "sha256:79cf1a8f7827b280254093f99033c32e6940c3d2314f4ca99751d830f46abd17",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1758,8 +1758,8 @@
     },
     {
       "aliases": ["app type settings user behavior analysis setting enable detection bola detection automatic"],
-      "body_bytes": 1894,
-      "body_sha256": "sha256:4e0702704a311913addd9d897c1878a512d468b07cd56e827763597fa26d6c4b",
+      "body_bytes": 1529,
+      "body_sha256": "sha256:3fcb936a9ceed4cfebbfea84ace2e441a00a4971ed5041f9bf949050466bc691",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1803,8 +1803,8 @@
     },
     {
       "aliases": ["app type settings user behavior analysis setting enable detection exclude bola detection"],
-      "body_bytes": 1888,
-      "body_sha256": "sha256:fa5832e1d5e979a784115e0132192d8975634757e42df15224b25431c2dd1d67",
+      "body_bytes": 1523,
+      "body_sha256": "sha256:ef9bea3c0376bef68c0c76268231dff67b54b96f1fb953f6431848fb547a5236",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1848,8 +1848,8 @@
     },
     {
       "aliases": ["app type settings user behavior analysis setting enable detection exclude bot defense activity"],
-      "body_bytes": 1906,
-      "body_sha256": "sha256:027805331df371d4a65c58bee06662e25a7e8130f3b2ed1225aa8cfef7bcb473",
+      "body_bytes": 1541,
+      "body_sha256": "sha256:c23bf3ec663f39bc6d66c2ad1a0e93220dfd804966761035e0a0428e664b1a78",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1898,8 +1898,8 @@
         "login result",
         "sign in"
       ],
-      "body_bytes": 1909,
-      "body_sha256": "sha256:8f2ab2a7a5e4f73ebb836062c6aa0a7ccf87aa0df6770a248df150288be57e91",
+      "body_bytes": 1544,
+      "body_sha256": "sha256:f81535d3c6e4f696dfd1bec284b3719f7bd53429360e0af706df1e89b966f380",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1943,8 +1943,8 @@
     },
     {
       "aliases": ["app type settings user behavior analysis setting enable detection exclude forbidden activity"],
-      "body_bytes": 1900,
-      "body_sha256": "sha256:1c4674578b0e96274bc0118baedd41641b77fd3132ed52d599542cc02603d6e4",
+      "body_bytes": 1535,
+      "body_sha256": "sha256:43deb95e8780a197883f0f997a0531658b21e6a2cd6d960bfcb0872c5d449659",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1988,8 +1988,8 @@
     },
     {
       "aliases": ["app type settings user behavior analysis setting enable detection exclude ip reputation"],
-      "body_bytes": 1853,
-      "body_sha256": "sha256:da16affed44d2af64b232f0b0fb81ef6e6839bc7c30747e3465a0e0cfd97c8f6",
+      "body_bytes": 1488,
+      "body_sha256": "sha256:4a554632a22b193b989a6bac0602ba9639a21a8e0e5390462fa3bad6bb5bf220",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2035,8 +2035,8 @@
       "aliases": [
         "app type settings user behavior analysis setting enable detection exclude non existent url activity"
       ],
-      "body_bytes": 1877,
-      "body_sha256": "sha256:4f7a71d52f1fead7f2780a2734fe550f802bce74ea60e31a6bcf9e94b182f267",
+      "body_bytes": 1512,
+      "body_sha256": "sha256:5690b0adb68ecb7aca2d49cd486d61a7f3bea589bf9a48a563f2df1fb79655e3",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2080,8 +2080,8 @@
     },
     {
       "aliases": ["app type settings user behavior analysis setting enable detection exclude rate limit"],
-      "body_bytes": 1876,
-      "body_sha256": "sha256:3b4eae6dc064bd55bc1d4f14daa10e16df9593c34ba93e22c7c06028eaa08748",
+      "body_bytes": 1511,
+      "body_sha256": "sha256:9de1d5ed81aec36b9955bfb1c362ada3ef7bb97bf584a6115fa1adedcf1bbb2b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2120,8 +2120,8 @@
     },
     {
       "aliases": ["app type settings user behavior analysis setting enable detection exclude waf activity"],
-      "body_bytes": 1882,
-      "body_sha256": "sha256:b020d28a8e3d0a1dacefe827e0ea5a9c413cc0140b3f91334e210058a74bc8ee",
+      "body_bytes": 1517,
+      "body_sha256": "sha256:1d4a9b08286bceb562d3f6353b8a8ed2f726a57d47903c70686a76b64d7716e3",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2165,8 +2165,8 @@
     },
     {
       "aliases": ["app type settings user behavior analysis setting enable detection include bot defense activity"],
-      "body_bytes": 1906,
-      "body_sha256": "sha256:5fe0e6898df142c2dc42da44d41e97ed5b9770ab4287b9704013bc37fec18b2f",
+      "body_bytes": 1541,
+      "body_sha256": "sha256:55d870430239f1d85c5217b68753aecdf9b29af3eee7601ce3d46d5462d6813c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2215,8 +2215,8 @@
         "login result",
         "sign in"
       ],
-      "body_bytes": 3196,
-      "body_sha256": "sha256:3efe70090a59a0c5affaf743fb0c501c4bba84cb964d57ca141a18f7f0049d92",
+      "body_bytes": 2577,
+      "body_sha256": "sha256:60d6a221db679ae1db9ac9c229e3a416f4d8ba93115a88fcd8f457cbe1b5915e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2288,8 +2288,8 @@
     },
     {
       "aliases": ["app type settings user behavior analysis setting enable detection include forbidden activity"],
-      "body_bytes": 3268,
-      "body_sha256": "sha256:21d6932993b00b816366abf8d7185c2867df67f346bbaafca08aeb037d6f0652",
+      "body_bytes": 2615,
+      "body_sha256": "sha256:1b33e6ea0e9c586976a9d67950e269b557931b2b2a03d05fffd0c3653cde2045",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2358,8 +2358,8 @@
     },
     {
       "aliases": ["app type settings user behavior analysis setting enable detection include ip reputation"],
-      "body_bytes": 1853,
-      "body_sha256": "sha256:84e601498d7de5e409f5af2f7df96bc6bf3dfd3074c515f39e65236d1aaf2180",
+      "body_bytes": 1488,
+      "body_sha256": "sha256:db666b602cf1b3e3edcb72aa1fffc7f2c5d48af831c7ff8f8f59162994d24ccc",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2405,8 +2405,8 @@
       "aliases": [
         "app type settings user behavior analysis setting enable detection include non existent url activity automatic"
       ],
-      "body_bytes": 3573,
-      "body_sha256": "sha256:63c798c14573133d2c758dc55932747dbe82cfce515e85d995db77c055f3e375",
+      "body_bytes": 2237,
+      "body_sha256": "sha256:3f215d0432e3dd6b1ea2e32d35c0193b99886972cd6436612627b7a30f686a29",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2529,8 +2529,8 @@
       "aliases": [
         "app type settings user behavior analysis setting enable detection include non existent url activity automatic high"
       ],
-      "body_bytes": 2313,
-      "body_sha256": "sha256:f3f00dafa2b8b962c2c4772515d67d2904d9d5da8dd67a722157aa55dc699e47",
+      "body_bytes": 1860,
+      "body_sha256": "sha256:99215ec2a3a8b355b231bf86295592b9139573d584af54d6ddb34bf7d6991b63",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2577,8 +2577,8 @@
       "aliases": [
         "app type settings user behavior analysis setting enable detection include non existent url activity automatic low"
       ],
-      "body_bytes": 2311,
-      "body_sha256": "sha256:a886410037b7568b5e52dca47f08b3b9eb5c6c2896a399d46774cb08fbb98808",
+      "body_bytes": 1858,
+      "body_sha256": "sha256:898ca9df34c338a37d30f81dd4cabfef609fe1ac0d18f650ddd54995527cb15f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2625,8 +2625,8 @@
       "aliases": [
         "app type settings user behavior analysis setting enable detection include non existent url activity automatic medium"
       ],
-      "body_bytes": 2317,
-      "body_sha256": "sha256:7e297660002ad090c4b7cc6d964fb32c2b8a3c8e7a4cd56ed637fd532b807fdd",
+      "body_bytes": 1864,
+      "body_sha256": "sha256:4ee955a2c28442afd5c768980f9bc1cf9c5affc395919832369b5bc85b92745e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2673,8 +2673,8 @@
       "aliases": [
         "app type settings user behavior analysis setting enable detection include non existent url activity custom"
       ],
-      "body_bytes": 2891,
-      "body_sha256": "sha256:01d30f50bf5d103e5b9c1b54e7f6f9a817949b6f3ec05fe0de73fcbd010b4b5a",
+      "body_bytes": 2541,
+      "body_sha256": "sha256:535bcbef3e86f1bfb95c061f451d4ca2a7c54a9cf1ebcce9497136fb09d402e9",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2743,8 +2743,8 @@
     },
     {
       "aliases": ["app type settings user behavior analysis setting enable detection include rate limit"],
-      "body_bytes": 1876,
-      "body_sha256": "sha256:1a2bedd4d803698cd0b99f53572ae6f0ccd2ad062e8516da4a186d622fe714dd",
+      "body_bytes": 1511,
+      "body_sha256": "sha256:e16789f78c554cae232ea9862c407fcc15b571b98ab4a71f3ddb68db78b33494",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2783,8 +2783,8 @@
     },
     {
       "aliases": ["app type settings user behavior analysis setting enable detection include waf activity"],
-      "body_bytes": 1882,
-      "body_sha256": "sha256:47632ca935bf2a165c9e98df4fb4c2dcaced6420b0a7c567623afdcdfd8d0330",
+      "body_bytes": 1517,
+      "body_sha256": "sha256:e818c771eb157cb310cfb3c2f780929f24e91263e5ababdeee58773a316c690b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2828,8 +2828,8 @@
     },
     {
       "aliases": ["app type settings user behavior analysis setting enable learning"],
-      "body_bytes": 1569,
-      "body_sha256": "sha256:2e6c7d9ff6bfa9e13383f254c3ebe5de2d2425a302d665e00143ee54971f2440",
+      "body_bytes": 1238,
+      "body_sha256": "sha256:06b249e87235869ef4bb4bbdc31c015c8f81bab9869dd230c22dd04714883057",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2868,8 +2868,8 @@
     },
     {
       "aliases": ["app setting"],
-      "body_bytes": 651,
-      "body_sha256": "sha256:d392873fd8f74243ba75eac6fc500261c0bf536db1a1c8275f45a27667099d4c",
+      "body_bytes": 411,
+      "body_sha256": "sha256:7f06595eb5189230540726a325f3e9c1de0bee5e8b3f700ffcc15feb08c26196",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:app_setting:example:data-source"],
@@ -2908,8 +2908,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1266,
-      "body_sha256": "sha256:15a7551581ee1635e11be6eaa186eb760a65521e5ed3b0854e4e8e6837081a15",
+      "body_bytes": 1041,
+      "body_sha256": "sha256:f179ffc3dcbb5322e32d2691e6694b53d813cf054df9097c7f6209e908f82123",
       "capabilities": [],
       "category": null,
       "child_ids": [],

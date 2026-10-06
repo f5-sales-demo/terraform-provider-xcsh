@@ -96,8 +96,8 @@
   "pages": [
     {
       "aliases": ["smsv2 aws runtime"],
-      "body_bytes": 1769,
-      "body_sha256": "sha256:295257e2067ee5706138fe868ce996b666fd35aff2ed113a699910057c8998d7",
+      "body_bytes": 1782,
+      "body_sha256": "sha256:8ee38dc703a90a78daec47d699acc88e84933ebfccb2c205052e2af53820ae4d",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -140,8 +140,8 @@
     },
     {
       "aliases": ["smsv2 aws runtime"],
-      "body_bytes": 5324,
-      "body_sha256": "sha256:91fc39a6b96906977fbe2f384d99d0aec8064ef722ba7b2f419ff65c2d329726",
+      "body_bytes": 4950,
+      "body_sha256": "sha256:97c8fe1ba996b1b13434900f41af53d3978db4689f252715dbb23a817dd8023c",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -321,8 +321,8 @@
     },
     {
       "aliases": ["interfaces"],
-      "body_bytes": 1240,
-      "body_sha256": "sha256:27aebf1bb69e105f0db4744a4939214b1b3dd88369acb190597ad856ab8f7cac",
+      "body_bytes": 985,
+      "body_sha256": "sha256:b80d5a9e879ba8bb92f4b041b1b0551b9414eda9688246b20e6979973aa95d4a",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -458,8 +458,8 @@
     },
     {
       "aliases": ["nodes"],
-      "body_bytes": 1644,
-      "body_sha256": "sha256:12432189b0d69a041b506f5100a47c5d1e53a77cca5db7ac5f41c175f2e6e678",
+      "body_bytes": 1389,
+      "body_sha256": "sha256:262226a75ce4e614b40a417a89e04dca4a887349606c8e2b8fcb46e0cd7a27fc",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -556,8 +556,8 @@
     },
     {
       "aliases": ["smsv2 aws runtime"],
-      "body_bytes": 687,
-      "body_sha256": "sha256:387b23daaccb33b198b937b8014aaaa60cf3835b4d0f8a47c07267c3b8b9a2ea",
+      "body_bytes": 429,
+      "body_sha256": "sha256:6dcad941dc0e2c340bb7f5013a549ba9feffd9967b2c93a73b7943d5913abd7a",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:smsv2_aws_runtime:example:data-source"],
@@ -596,8 +596,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1698,
-      "body_sha256": "sha256:a000c8455a99ff1d03cc5f57bcd0c51265c77462133d86fae48b0854aa8bcb09",
+      "body_bytes": 1455,
+      "body_sha256": "sha256:da6752f7bb495fc34a9e8ab51876f323f775eee5011e997a928d0ca7d39e2556",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],

@@ -61,8 +61,8 @@
   "pages": [
     {
       "aliases": ["dns zone cryptokeys"],
-      "body_bytes": 1213,
-      "body_sha256": "sha256:b26cf803f1868029962b5cccafbfcba025f261d9f105ccf40f1d5732bc949d2c",
+      "body_bytes": 1270,
+      "body_sha256": "sha256:ebee95cda1fd2601e5c1daca3023f77c887ec20632226f07fc73b2f658805983",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -93,7 +93,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone_cryptokeys/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource creation operation.",
+      "summary": "Reads DNS zone cryptographic keys information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_dns_zone_cryptokeys",
       "unresolved_relationships": [],
@@ -105,8 +105,8 @@
     },
     {
       "aliases": ["dns zone cryptokeys"],
-      "body_bytes": 3019,
-      "body_sha256": "sha256:10d517e112036155234825eae03810fd40ab5803b2faf94afca7884ce4d3e58f",
+      "body_bytes": 2767,
+      "body_sha256": "sha256:bea8ee8747de9b6f62ab0137973ffafe1db5c83f0a6613fc140a19916c275fb8",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:dns_zone_cryptokeys:properties:keys"],
@@ -194,8 +194,8 @@
     },
     {
       "aliases": ["keys"],
-      "body_bytes": 1663,
-      "body_sha256": "sha256:675d164736eb447424701304599484a2456549cff9985f4f71a75c5791a6f356",
+      "body_bytes": 1402,
+      "body_sha256": "sha256:a03953e8e44e7e66dfef275cf4c6dead140e657d79d1b01ef7ffa740d2c4fd72",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -347,8 +347,8 @@
     },
     {
       "aliases": ["dns zone cryptokeys"],
-      "body_bytes": 699,
-      "body_sha256": "sha256:c707eb9e80cef6bf3943bde8a85a94eb709196917a12d258d191e717e2a214fc",
+      "body_bytes": 435,
+      "body_sha256": "sha256:ffca9f2dc3ac61e37b8098eea27d72c0daa5bc339027103c331fc91bf8204af9",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:dns_zone_cryptokeys:example:data-source"],
@@ -387,8 +387,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1253,
-      "body_sha256": "sha256:8061bfd903f1a6e7b459770893d156f65908539cb9cf7276726f3dc584362f3c",
+      "body_bytes": 1004,
+      "body_sha256": "sha256:5b90e62b89f87d3086d749d9b84a08dc03376bda02e1b824e16bccdfb4ac504a",
       "capabilities": [],
       "category": null,
       "child_ids": [],

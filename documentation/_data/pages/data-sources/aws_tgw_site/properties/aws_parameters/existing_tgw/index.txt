@@ -2,7 +2,7 @@
 page_title: "aws_parameters.existing_tgw"
 subcategory: ""
 description: "Information needed for existing TGW."
-xcsh_docs: {"aliases": ["aws parameters existing tgw"], "body_bytes": 3933, "body_sha256": "sha256:cc80239b5dcd698d7212016314fc66cd7d5f4512b989645ec3db627d16caa3fe", "capabilities": ["infrastructure"], "category": "infrastructure", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:aws_tgw_site:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:existing_tgw", "parent_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters", "path": "documentation/data-sources/aws_tgw_site/properties/aws_parameters/existing_tgw/index.md", "product": "distributed-cloud", "provider_name": "aws_tgw_site", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2022022330331132-1202301000122022-0131230132121103-2300033201303301-1103312012020121-1311322301301210-0321211103202233-0213003312233030", "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["aws_parameters", "existing_tgw"], "schema_version": 1, "sections": [{"aliases": ["aws parameters existing tgw tgw asn"], "anchor": "schema-aws_parameters--existing_tgw--tgw_asn", "description": "TGW ASN.", "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:existing_tgw", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["aws_parameters", "existing_tgw", "tgw_asn"], "syntax": "attribute", "type": "number"}, {"aliases": ["aws parameters existing tgw tgw id"], "anchor": "schema-aws_parameters--existing_tgw--tgw_id", "description": "Existing TGW ID.", "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:existing_tgw", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["aws_parameters", "existing_tgw", "tgw_id"], "syntax": "attribute", "type": "string"}, {"aliases": ["aws parameters existing tgw volterra site asn"], "anchor": "schema-aws_parameters--existing_tgw--volterra_site_asn", "description": "F5XC Site ASN.", "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:existing_tgw", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["aws_parameters", "existing_tgw", "volterra_site_asn"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/aws_tgw_site/properties/aws_parameters/existing_tgw/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Information needed for existing TGW.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["aws_tgw_siteCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["aws parameters existing tgw"], "body_bytes": 3576, "body_sha256": "sha256:fcd2e95de9f8181bd52968eb9ffd1349943cac56cefbc0cbaf64335a29898d12", "capabilities": ["infrastructure"], "category": "infrastructure", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:aws_tgw_site:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:existing_tgw", "parent_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters", "path": "documentation/data-sources/aws_tgw_site/properties/aws_parameters/existing_tgw/index.md", "product": "distributed-cloud", "provider_name": "aws_tgw_site", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2022022330331132-1202301000122022-0131230132121103-2300033201303301-1103312012020121-1311322301301210-0321211103202233-0213003312233030", "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["aws_parameters", "existing_tgw"], "schema_version": 1, "sections": [{"aliases": ["aws parameters existing tgw tgw asn"], "anchor": "schema-aws_parameters--existing_tgw--tgw_asn", "description": "TGW ASN.", "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:existing_tgw", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["aws_parameters", "existing_tgw", "tgw_asn"], "syntax": "attribute", "type": "number"}, {"aliases": ["aws parameters existing tgw tgw id"], "anchor": "schema-aws_parameters--existing_tgw--tgw_id", "description": "Existing TGW ID.", "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:existing_tgw", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["aws_parameters", "existing_tgw", "tgw_id"], "syntax": "attribute", "type": "string"}, {"aliases": ["aws parameters existing tgw volterra site asn"], "anchor": "schema-aws_parameters--existing_tgw--volterra_site_asn", "description": "F5XC Site ASN.", "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:existing_tgw", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["aws_parameters", "existing_tgw", "volterra_site_asn"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/aws_tgw_site/properties/aws_parameters/existing_tgw/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Information needed for existing TGW.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["aws_tgw_siteCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -24,7 +24,7 @@ Type: `"single"`. Computed.
 
 Configuration parameter for existing tgw.
 
-Upstream description:
+Additional upstream details:
 
 Information needed for existing TGW.
 
@@ -50,10 +50,6 @@ Receipt-pinned upstream constraints:
 Type: `"number"`. Computed.
 
 Enter TGW ASN. TGW ASN.
-
-Upstream description:
-
-TGW ASN.
 
 Receipt-pinned upstream constraints:
 
@@ -95,10 +91,6 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Computed.
 
 Existing TGW ID. Existing TGW ID.
-
-Upstream description:
-
-Existing TGW ID.
 
 Receipt-pinned upstream constraints:
 
@@ -142,10 +134,6 @@ Type: `"number"`. Computed.
 
 Enter F5XC Site ASN. F5XC Site ASN.
 
-Upstream description:
-
-F5XC Site ASN.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -178,8 +166,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [aws_parameters](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/aws_parameters/)
-- [xcsh_aws_tgw_site](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/)

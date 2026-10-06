@@ -2,7 +2,7 @@
 page_title: "service.advertise_options.advertise_in_cluster.port.info"
 subcategory: "Container"
 description: "Port information."
-xcsh_docs: {"aliases": ["service advertise options advertise in cluster port info"], "body_bytes": 6723, "body_sha256": "sha256:8c3c2c207f1dc2738f503d525a9161565d22128b2693a1d7bce553cfe1d56aa5", "capabilities": ["container"], "category": "container", "child_ids": ["xcsh-docs:resources:workload:properties:service:advertise_options:advertise_in_cluster:port:info:same_as_port"], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:workload:collection", "completeness": "complete", "id": "xcsh-docs:resources:workload:properties:service:advertise_options:advertise_in_cluster:port:info", "parent_id": "xcsh-docs:resources:workload:properties:service:advertise_options:advertise_in_cluster:port", "path": "documentation/resources/workload/properties/service/advertise_options/advertise_in_cluster/port/info/index.md", "product": "distributed-cloud", "provider_name": "workload", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3000021121133300-0112013033122013-0332121130331320-2320022103131303-3211132020321221-0102021013132121-3121210012321313-1032112131200133", "registry_path": "docs/guides/resources--workload--reference--group-008.md", "relationships": [{"anchor": "schema-service--advertise_options--advertise_in_cluster--port--info--target_port", "enforcement": "provider-schema", "group": "service.advertise_options.advertise_in_cluster.port.info:ConflictingObjectAttributes:same_as_port,target_port", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:workload:properties:service:advertise_options:advertise_in_cluster:port:info", "type": "conflicts"}, {"anchor": "section", "enforcement": "provider-schema", "group": "service.advertise_options.advertise_in_cluster.port.info:ConflictingObjectAttributes:same_as_port,target_port", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:workload:properties:service:advertise_options:advertise_in_cluster:port:info:same_as_port", "type": "conflicts"}, {"anchor": "schema-service--advertise_options--advertise_in_cluster--port--info--port", "enforcement": "provider-schema", "group": "service.advertise_options.advertise_in_cluster.port.info:RequiredObjectAttributes:port", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:workload:properties:service:advertise_options:advertise_in_cluster:port:info", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["service", "advertise_options", "advertise_in_cluster", "port", "info"], "schema_version": 1, "sections": [{"aliases": ["service advertise options advertise in cluster port info port"], "anchor": "schema-service--advertise_options--advertise_in_cluster--port--info--port", "description": "Port the workload can be reached on.", "document_id": "xcsh-docs:resources:workload:properties:service:advertise_options:advertise_in_cluster:port:info", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["service", "advertise_options", "advertise_in_cluster", "port", "info", "port"], "syntax": "attribute", "type": "number"}, {"aliases": ["service advertise options advertise in cluster port info protocol"], "anchor": "schema-service--advertise_options--advertise_in_cluster--port--info--protocol", "description": "Type of protocol - PROTOCOL_TCP: TCP TCP - PROTOCOL_HTTP: HTTP HTTP - PROTOCOL_HTTP2: HTTP2 HTTP2 - PROTOCOL_TLS_WITH_SNI: TLS with SNI TLS with SNI - PROTOCOL_UDP: UDP UDP.", "document_id": "xcsh-docs:resources:workload:properties:service:advertise_options:advertise_in_cluster:port:info", "enum_extraction_complete": true, "enum_validators": [{"case_sensitive": true, "complete": true, "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf", "validator": "OneOf", "values": ["PROTOCOL_HTTP", "PROTOCOL_HTTP2", "PROTOCOL_TCP", "PROTOCOL_TLS_WITH_SNI", "PROTOCOL_UDP"], "version": 1}], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["service", "advertise_options", "advertise_in_cluster", "port", "info", "protocol"], "syntax": "attribute", "type": "string"}, {"aliases": ["service advertise options advertise in cluster port info same as port"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:resources:workload:properties:service:advertise_options:advertise_in_cluster:port:info:same_as_port", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["service", "advertise_options", "advertise_in_cluster", "port", "info", "same_as_port"], "syntax": "attribute", "type": "object"}, {"aliases": ["service advertise options advertise in cluster port info target port"], "anchor": "schema-service--advertise_options--advertise_in_cluster--port--info--target_port", "description": "Exclusive with Port the workload is listening on.", "document_id": "xcsh-docs:resources:workload:properties:service:advertise_options:advertise_in_cluster:port:info", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["service", "advertise_options", "advertise_in_cluster", "port", "info", "target_port"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/workload/properties/service/advertise_options/advertise_in_cluster/port/info/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Port information.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["workloadCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["service advertise options advertise in cluster port info"], "body_bytes": 5742, "body_sha256": "sha256:775dd86e9c9441c3246794ecb4c9c9589081e0f632bf5027fa04552c79baee05", "capabilities": ["container"], "category": "container", "child_ids": ["xcsh-docs:resources:workload:properties:service:advertise_options:advertise_in_cluster:port:info:same_as_port"], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:workload:collection", "completeness": "complete", "id": "xcsh-docs:resources:workload:properties:service:advertise_options:advertise_in_cluster:port:info", "parent_id": "xcsh-docs:resources:workload:properties:service:advertise_options:advertise_in_cluster:port", "path": "documentation/resources/workload/properties/service/advertise_options/advertise_in_cluster/port/info/index.md", "product": "distributed-cloud", "provider_name": "workload", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3000021121133300-0112013033122013-0332121130331320-2320022103131303-3211132020321221-0102021013132121-3121210012321313-1032112131200133", "registry_path": "docs/guides/resources--workload--reference--group-008.md", "relationships": [{"anchor": "schema-service--advertise_options--advertise_in_cluster--port--info--target_port", "enforcement": "provider-schema", "group": "service.advertise_options.advertise_in_cluster.port.info:ConflictingObjectAttributes:same_as_port,target_port", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:workload:properties:service:advertise_options:advertise_in_cluster:port:info", "type": "conflicts"}, {"anchor": "section", "enforcement": "provider-schema", "group": "service.advertise_options.advertise_in_cluster.port.info:ConflictingObjectAttributes:same_as_port,target_port", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:workload:properties:service:advertise_options:advertise_in_cluster:port:info:same_as_port", "type": "conflicts"}, {"anchor": "schema-service--advertise_options--advertise_in_cluster--port--info--port", "enforcement": "provider-schema", "group": "service.advertise_options.advertise_in_cluster.port.info:RequiredObjectAttributes:port", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:workload:properties:service:advertise_options:advertise_in_cluster:port:info", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["service", "advertise_options", "advertise_in_cluster", "port", "info"], "schema_version": 1, "sections": [{"aliases": ["service advertise options advertise in cluster port info port"], "anchor": "schema-service--advertise_options--advertise_in_cluster--port--info--port", "description": "Port the workload can be reached on.", "document_id": "xcsh-docs:resources:workload:properties:service:advertise_options:advertise_in_cluster:port:info", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["service", "advertise_options", "advertise_in_cluster", "port", "info", "port"], "syntax": "attribute", "type": "number"}, {"aliases": ["service advertise options advertise in cluster port info protocol"], "anchor": "schema-service--advertise_options--advertise_in_cluster--port--info--protocol", "description": "Type of protocol - PROTOCOL_TCP: TCP TCP - PROTOCOL_HTTP: HTTP HTTP - PROTOCOL_HTTP2: HTTP2 HTTP2 - PROTOCOL_TLS_WITH_SNI: TLS with SNI TLS with SNI - PROTOCOL_UDP: UDP UDP.", "document_id": "xcsh-docs:resources:workload:properties:service:advertise_options:advertise_in_cluster:port:info", "enum_extraction_complete": true, "enum_validators": [{"case_sensitive": true, "complete": true, "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf", "validator": "OneOf", "values": ["PROTOCOL_HTTP", "PROTOCOL_HTTP2", "PROTOCOL_TCP", "PROTOCOL_TLS_WITH_SNI", "PROTOCOL_UDP"], "version": 1}], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["service", "advertise_options", "advertise_in_cluster", "port", "info", "protocol"], "syntax": "attribute", "type": "string"}, {"aliases": ["service advertise options advertise in cluster port info same as port"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:resources:workload:properties:service:advertise_options:advertise_in_cluster:port:info:same_as_port", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["service", "advertise_options", "advertise_in_cluster", "port", "info", "same_as_port"], "syntax": "attribute", "type": "object"}, {"aliases": ["service advertise options advertise in cluster port info target port"], "anchor": "schema-service--advertise_options--advertise_in_cluster--port--info--target_port", "description": "Exclusive with Port the workload is listening on.", "document_id": "xcsh-docs:resources:workload:properties:service:advertise_options:advertise_in_cluster:port:info", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["service", "advertise_options", "advertise_in_cluster", "port", "info", "target_port"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/workload/properties/service/advertise_options/advertise_in_cluster/port/info/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Port information.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["workloadCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -26,10 +26,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Port Information. Port information.
-
-Upstream description:
-
-Port information.
 
 Provider validators and defaults (from schema source):
 
@@ -71,10 +67,6 @@ info {
 Type: `"number"`. Optional.
 
 Port. Port the workload can be reached on.
-
-Upstream description:
-
-Port the workload can be reached on.
 
 Provider validators and defaults (from schema source):
 
@@ -133,22 +125,6 @@ PROTOCOL\_TLS\_WITH\_SNI: TLS with SNI TLS with SNI - PROTOCOL\_UDP: UDP UDP. Po
 \`PROTOCOL\_TCP\`, \`PROTOCOL\_HTTP\`, \`PROTOCOL\_HTTP2\`, \`PROTOCOL\_TLS\_WITH\_SNI\`,
 \`PROTOCOL\_UDP\`. Defaults to \`PROTOCOL\_TCP\`.
 
-Upstream description:
-
-Type of protocol
-
-&#8203;- PROTOCOL\_TCP: TCP
-
-TCP &#8203;- PROTOCOL\_HTTP: HTTP
-
-HTTP &#8203;- PROTOCOL\_HTTP2: HTTP2
-
-HTTP2 &#8203;- PROTOCOL\_TLS\_WITH\_SNI: TLS with SNI
-
-TLS with SNI &#8203;- PROTOCOL\_UDP: UDP
-
-UDP.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -194,10 +170,6 @@ Type: `"number"`. Optional.
 
 Exclusive with \[same\_as\_port\] Port the workload is listening on.
 
-Upstream description:
-
-Exclusive with \[same\_as\_port\] Port the workload is listening on.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -239,9 +211,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [service.advertise_options.advertise_in_cluster.port.info.same_as_port](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/service/advertise_options/advertise_in_cluster/port/info/same_as_port/)
-- [service.advertise_options.advertise_in_cluster.port](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/service/advertise_options/advertise_in_cluster/port/)
-- [xcsh_workload](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/)

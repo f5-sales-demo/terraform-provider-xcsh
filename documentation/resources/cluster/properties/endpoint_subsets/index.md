@@ -2,7 +2,7 @@
 page_title: "endpoint_subsets"
 subcategory: ""
 description: "Cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer. Endpoint_subsets is list of subsets for this cluster. Each entry in this list has definition for a"
-xcsh_docs: {"aliases": ["endpoint subsets"], "body_bytes": 5026, "body_sha256": "sha256:92c664dda3eb13e67ba9d3d157ec4889c6bd2f8fc541a4b5e2f40fe6e3a3b167", "capabilities": [], "category": null, "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": [], "status": "unresolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:cluster:collection", "completeness": "complete", "id": "xcsh-docs:resources:cluster:properties:endpoint_subsets", "parent_id": "xcsh-docs:resources:cluster:reference", "path": "documentation/resources/cluster/properties/endpoint_subsets/index.md", "product": "distributed-cloud", "provider_name": "cluster", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0130002222020001-0232133310310030-3303113101232230-1302101000000023-2102221011311020-3031020222211032-2220002000132123-3001122011123303", "registry_path": "docs/guides/resources--cluster--reference--group-001.md", "relationships": [{"anchor": "schema-endpoint_subsets--keys", "enforcement": "provider-schema", "group": "endpoint_subsets:RequiredListObjectAttributes:keys", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:cluster:properties:endpoint_subsets", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["endpoint_subsets"], "schema_version": 1, "sections": [{"aliases": ["endpoint subsets keys"], "anchor": "schema-endpoint_subsets--keys", "description": "List of keys that define a cluster subset class.", "document_id": "xcsh-docs:resources:cluster:properties:endpoint_subsets", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["endpoint_subsets", "keys"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/endpoint_subsets/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer. Endpoint_subsets is list of subsets for this cluster. Each entry in this list has definition for a", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["clusterCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["endpoint subsets"], "body_bytes": 4818, "body_sha256": "sha256:458f209456df1a3fd1564f1129240e49c843461a48865ff5ccdc35c6ac6bf25d", "capabilities": [], "category": null, "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": [], "status": "unresolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:cluster:collection", "completeness": "complete", "id": "xcsh-docs:resources:cluster:properties:endpoint_subsets", "parent_id": "xcsh-docs:resources:cluster:reference", "path": "documentation/resources/cluster/properties/endpoint_subsets/index.md", "product": "distributed-cloud", "provider_name": "cluster", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0130002222020001-0232133310310030-3303113101232230-1302101000000023-2102221011311020-3031020222211032-2220002000132123-3001122011123303", "registry_path": "docs/guides/resources--cluster--reference--group-001.md", "relationships": [{"anchor": "schema-endpoint_subsets--keys", "enforcement": "provider-schema", "group": "endpoint_subsets:RequiredListObjectAttributes:keys", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:cluster:properties:endpoint_subsets", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["endpoint_subsets"], "schema_version": 1, "sections": [{"aliases": ["endpoint subsets keys"], "anchor": "schema-endpoint_subsets--keys", "description": "List of keys that define a cluster subset class.", "document_id": "xcsh-docs:resources:cluster:properties:endpoint_subsets", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["endpoint_subsets", "keys"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/endpoint_subsets/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer. Endpoint_subsets is list of subsets for this cluster. Each entry in this list has definition for a", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["clusterCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -24,22 +24,18 @@ Type: `"object"`. list nested block, Optional.
 Configure endpoint groups based on metadata labels for traffic routing. Supports weighted
 distribution and session affinity across labeled endpoints.
 
-Upstream description:
+Additional upstream details:
 
 Cluster may be configured to divide its endpoints into subsets based on metadata attached to the
 endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected
-by the load balancer.
-
-Endpoint\_subsets is list of subsets for this cluster. Each entry in this list has definition for a
-subset (which is collection of keys)
+by the load balancer. Endpoint\_subsets is list of subsets for this cluster. Each entry in this list
+has definition for a subset (which is collection of keys)
 
 During routing, the route’s metadata match configuration is used to find a specific subset. If there
 is a subset with the exact keys and values specified by the route, the subset is used for load
 balancing. Otherwise, the fallback policy is used. The cluster’s subset configuration must,
 therefore, contain a definition that has the same keys as a given route in order for subset load
-balancing to occur.
-
-Example:
+balancing to occur. Example:
 
 RouteConfig
 
@@ -56,9 +52,8 @@ ClusterConfig
 gcSpec: defaultSubset: stage: production fallbackPolicy: DEFAULT\_SUBSET endpointSubsets: &#8203;-
 keys: &#8203;- site &#8203;- keys: &#8203;- stage &#8203;- app
 
-Assume the below endpoints are defined and associated with the cluster.
-
-Endpoint Labels -------- ------
+Assume the below endpoints are defined and associated with the cluster. Endpoint Labels --------
+&#8203;------
 
 ep1 stage: production, site: india ep2 stage: deployment, site: us ep3 stage: production, app: hr
 ep4 site: india
@@ -172,8 +167,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/cluster/properties/)
-- [xcsh_cluster](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/cluster/)

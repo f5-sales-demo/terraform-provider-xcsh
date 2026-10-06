@@ -141,8 +141,8 @@
   "pages": [
     {
       "aliases": ["cminstance"],
-      "body_bytes": 1332,
-      "body_sha256": "sha256:ddb5860528c3d335029eee7efbf619c7ed43c0ae93c6bbca9988bf2878db4ad8",
+      "body_bytes": 1297,
+      "body_sha256": "sha256:328d09146da3d7245fe0ea120644c2c6f65fdf0ab4be576955572712f2cbe9ed",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:cminstance:reference", "xcsh-docs:data-sources:cminstance:examples"],
@@ -170,7 +170,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cminstance/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages App type will create the configuration in namespace metadata.namespace in F5 Distributed Cloud.",
+      "summary": "Reads Cminstance information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_cminstance",
       "unresolved_relationships": [],
@@ -182,8 +182,8 @@
     },
     {
       "aliases": ["cminstance"],
-      "body_bytes": 14564,
-      "body_sha256": "sha256:c36aae1b769f5513430324a3703bf2df5bbd73ae018884606953b545c6fa6806",
+      "body_bytes": 14146,
+      "body_sha256": "sha256:50daed5e76841c41eb99179ff9334cfb3179bfe6d2b9c2ca600fa5bafd210991",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -403,8 +403,8 @@
     },
     {
       "aliases": ["api token", "authentication", "credential setup", "credentials"],
-      "body_bytes": 1683,
-      "body_sha256": "sha256:15509d84d73cb30010ff386d0cf201e420efd2f9e75f1adf7b3eee0c26162204",
+      "body_bytes": 1135,
+      "body_sha256": "sha256:de4b2869a3135c5524bd80bb4c09e5000bae5ef6a8f8310595a2c5b309711d8d",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -479,8 +479,8 @@
     },
     {
       "aliases": ["api token blindfold secret info"],
-      "body_bytes": 4166,
-      "body_sha256": "sha256:bd921100f4ae8f9daaf99b904d2ef4224c3e70f0ef7538b924df6e0d72228174",
+      "body_bytes": 3562,
+      "body_sha256": "sha256:a0f3f762bb41372dd4a1d6d28c423927e8ab96c096b5bf6a3a3d4d234cb241fd",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -568,8 +568,8 @@
     },
     {
       "aliases": ["api token clear secret info"],
-      "body_bytes": 3077,
-      "body_sha256": "sha256:f819f822795d6e754ab65a11169d3039f93880beb34686b90f1957471e1b8ccb",
+      "body_bytes": 2607,
+      "body_sha256": "sha256:e24f993783d907df48c81f26d36ec1277abf270566b595dee73384928d16083e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -641,8 +641,8 @@
     },
     {
       "aliases": ["ip"],
-      "body_bytes": 1705,
-      "body_sha256": "sha256:7cd3baeebd99a06e2e7d5a8f674ff05ce9ba50d8b5beeacf8ebf0ad66a27abed",
+      "body_bytes": 1478,
+      "body_sha256": "sha256:5584c62b949196bd4c709aec3666c2bdb0b94c1f58fef3ccc9db07d64355ad05",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -698,8 +698,8 @@
     },
     {
       "aliases": ["password"],
-      "body_bytes": 1675,
-      "body_sha256": "sha256:b189443a43e3e2b9d26da33c3aa078150238bc39c0659af84b17f4e210e5840f",
+      "body_bytes": 1131,
+      "body_sha256": "sha256:9900d396df1610b271c7db8006efdf2283206c97b7ed6af72a78ff6f63a0f614",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -774,8 +774,8 @@
     },
     {
       "aliases": ["password blindfold secret info"],
-      "body_bytes": 4157,
-      "body_sha256": "sha256:587edfffd5e341994d85009150e167af2b4841bd14a761cbfba9bc346ccc25f4",
+      "body_bytes": 3555,
+      "body_sha256": "sha256:54c10ac41915dedb77c227f7630062cc1b76fbecf99ef87aab1ffc6e1a4dd231",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -863,8 +863,8 @@
     },
     {
       "aliases": ["password clear secret info"],
-      "body_bytes": 3069,
-      "body_sha256": "sha256:aed997089bbf5add1289a962ef72e2efcc14d2a7ab2a789322fbbc5752433a4e",
+      "body_bytes": 2601,
+      "body_sha256": "sha256:fff71a465060658a918af03ce204e5514c37c610cdc25637c3663868ac051b58",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -936,8 +936,8 @@
     },
     {
       "aliases": ["cminstance"],
-      "body_bytes": 645,
-      "body_sha256": "sha256:8be0a122e3436db72db082af625d5fdb060bb58c14188c23858104d2cf462be4",
+      "body_bytes": 408,
+      "body_sha256": "sha256:2567d23a82cd531f3bac86669f532647dd9243e36d82184ff5a5cd61e1c638db",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:cminstance:example:data-source"],
@@ -976,8 +976,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1255,
-      "body_sha256": "sha256:eacef67085860bda96847e14efd433dfc2f5ab01039589930819108b7fb0ab17",
+      "body_bytes": 1033,
+      "body_sha256": "sha256:344ee279ebf4e094594564830786da6276b97a0a05b360954d70a61e89537485",
       "capabilities": [],
       "category": null,
       "child_ids": [],

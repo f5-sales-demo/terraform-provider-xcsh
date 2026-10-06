@@ -2,7 +2,7 @@
 page_title: "http_proxy.more_option.request_headers_to_add"
 subcategory: ""
 description: "Headers are key-value pairs to be added to HTTP request being routed towards upstream. Headers specified at this level are applied after headers from matched Route are applied."
-xcsh_docs: {"aliases": ["http proxy more option request headers to add"], "body_bytes": 5467, "body_sha256": "sha256:a56d98b645084a33541e09151e1b15bf54dd80ad8bd72e8798104e5b9a2c800c", "capabilities": ["networking"], "category": "networking", "child_ids": ["xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:request_headers_to_add:secret_value"], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:proxy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:request_headers_to_add", "parent_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option", "path": "documentation/data-sources/proxy/properties/http_proxy/more_option/request_headers_to_add/index.md", "product": "distributed-cloud", "provider_name": "proxy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2213012201232033-0321330202023321-2330031333303321-2113210102231203-3232031210002002-2201101202033323-0031022310111323-3332302313022022", "registry_path": "docs/guides/data-sources--proxy--reference--group-004.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["http_proxy", "more_option", "request_headers_to_add"], "schema_version": 1, "sections": [{"aliases": ["http proxy more option request headers to add append"], "anchor": "schema-http_proxy--more_option--request_headers_to_add--append", "description": "Should the value be appended? If true, the value is appended to existing values. Default value is do not append.", "document_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:request_headers_to_add", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["http_proxy", "more_option", "request_headers_to_add", "append"], "syntax": "attribute", "type": "bool"}, {"aliases": ["http proxy more option request headers to add name"], "anchor": "schema-http_proxy--more_option--request_headers_to_add--name", "description": "Name of the HTTP header.", "document_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:request_headers_to_add", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["http_proxy", "more_option", "request_headers_to_add", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["http proxy more option request headers to add secret value"], "anchor": "section", "description": "SecretType is used in an object to indicate a sensitive/confidential field.", "document_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:request_headers_to_add:secret_value", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["http_proxy", "more_option", "request_headers_to_add", "secret_value"], "syntax": "attribute", "type": "object"}, {"aliases": ["http proxy more option request headers to add value"], "anchor": "schema-http_proxy--more_option--request_headers_to_add--value", "description": "Exclusive with Value of the HTTP header.", "document_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:request_headers_to_add", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["http_proxy", "more_option", "request_headers_to_add", "value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/proxy/properties/http_proxy/more_option/request_headers_to_add/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Headers are key-value pairs to be added to HTTP request being routed towards upstream. Headers specified at this level are applied after headers from matched Route are applied.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["proxyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["http proxy more option request headers to add"], "body_bytes": 4655, "body_sha256": "sha256:38f36f23df6316710197a1a851644250632fdb88363f78930dd9179ed07db7f9", "capabilities": ["networking"], "category": "networking", "child_ids": ["xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:request_headers_to_add:secret_value"], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:proxy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:request_headers_to_add", "parent_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option", "path": "documentation/data-sources/proxy/properties/http_proxy/more_option/request_headers_to_add/index.md", "product": "distributed-cloud", "provider_name": "proxy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2213012201232033-0321330202023321-2330031333303321-2113210102231203-3232031210002002-2201101202033323-0031022310111323-3332302313022022", "registry_path": "docs/guides/data-sources--proxy--reference--group-004.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["http_proxy", "more_option", "request_headers_to_add"], "schema_version": 1, "sections": [{"aliases": ["http proxy more option request headers to add append"], "anchor": "schema-http_proxy--more_option--request_headers_to_add--append", "description": "Should the value be appended? If true, the value is appended to existing values. Default value is do not append.", "document_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:request_headers_to_add", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["http_proxy", "more_option", "request_headers_to_add", "append"], "syntax": "attribute", "type": "bool"}, {"aliases": ["http proxy more option request headers to add name"], "anchor": "schema-http_proxy--more_option--request_headers_to_add--name", "description": "Name of the HTTP header.", "document_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:request_headers_to_add", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["http_proxy", "more_option", "request_headers_to_add", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["http proxy more option request headers to add secret value"], "anchor": "section", "description": "SecretType is used in an object to indicate a sensitive/confidential field.", "document_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:request_headers_to_add:secret_value", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["http_proxy", "more_option", "request_headers_to_add", "secret_value"], "syntax": "attribute", "type": "object"}, {"aliases": ["http proxy more option request headers to add value"], "anchor": "schema-http_proxy--more_option--request_headers_to_add--value", "description": "Exclusive with Value of the HTTP header.", "document_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:request_headers_to_add", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["http_proxy", "more_option", "request_headers_to_add", "value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/proxy/properties/http_proxy/more_option/request_headers_to_add/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Headers are key-value pairs to be added to HTTP request being routed towards upstream. Headers specified at this level are applied after headers from matched Route are applied.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["proxyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -22,11 +22,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"list"`. Computed.
-
-Headers are key-value pairs to be added to HTTP request being routed towards upstream. Headers
-specified at this level are applied after headers from matched Route are applied.
-
-Upstream description:
 
 Headers are key-value pairs to be added to HTTP request being routed towards upstream. Headers
 specified at this level are applied after headers from matched Route are applied.
@@ -76,10 +71,9 @@ Type: `"bool"`. Computed.
 Should the value be appended? If true, the value is appended to existing values. not append.
 Defaults to \`do\`.
 
-Upstream description:
+Additional upstream details:
 
-Should the value be appended? If true, the value is appended to existing values. Default value is do
-not append.
+If true, the value is appended to existing values. Default value is do not append.
 
 Receipt-pinned upstream constraints:
 
@@ -101,10 +95,6 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Computed.
 
 Name. Name of the HTTP header.
-
-Upstream description:
-
-Name of the HTTP header.
 
 Receipt-pinned upstream constraints:
 
@@ -163,10 +153,6 @@ Type: `"string"`. Computed.
 
 Exclusive with \[secret\_value\] Value of the HTTP header.
 
-Upstream description:
-
-Exclusive with \[secret\_value\] Value of the HTTP header.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -197,9 +183,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [http_proxy.more_option.request_headers_to_add.secret_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/proxy/properties/http_proxy/more_option/request_headers_to_add/secret_value/)
-- [http_proxy.more_option](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/proxy/properties/http_proxy/more_option/)
-- [xcsh_proxy](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/proxy/)

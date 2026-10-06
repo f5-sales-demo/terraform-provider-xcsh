@@ -2,7 +2,7 @@
 page_title: "stateful_service.configuration.parameters.env_var"
 subcategory: "Container"
 description: "Environment Variable."
-xcsh_docs: {"aliases": ["stateful service configuration parameters env var"], "body_bytes": 3786, "body_sha256": "sha256:8b9f3b31f9026d0c856356194d295125a0a1357f61b7dbf6e36741f173eb14dd", "capabilities": ["container"], "category": "container", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:workload:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters:env_var", "parent_id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters", "path": "documentation/data-sources/workload/properties/stateful_service/configuration/parameters/env_var/index.md", "product": "distributed-cloud", "provider_name": "workload", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-0231102013011210-1020102000313033-1100331131212012-2021110220223323-2013031320222203-3003031332222020-1233030121123123-1003220313112232", "registry_path": "docs/guides/data-sources--workload--reference--group-027.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["stateful_service", "configuration", "parameters", "env_var"], "schema_version": 1, "sections": [{"aliases": ["stateful service configuration parameters env var name"], "anchor": "schema-stateful_service--configuration--parameters--env_var--name", "description": "Name of Environment Variable.", "document_id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters:env_var", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["stateful_service", "configuration", "parameters", "env_var", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["stateful service configuration parameters env var value"], "anchor": "schema-stateful_service--configuration--parameters--env_var--value", "description": "Value of Environment Variable.", "document_id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters:env_var", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["stateful_service", "configuration", "parameters", "env_var", "value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/workload/properties/stateful_service/configuration/parameters/env_var/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Environment Variable.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["workloadCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["stateful service configuration parameters env var"], "body_bytes": 3338, "body_sha256": "sha256:eab6e7339a3b701a41d0a5bc1cbf599e607d74419f89af0f9a7b49529cefb96c", "capabilities": ["container"], "category": "container", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:workload:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters:env_var", "parent_id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters", "path": "documentation/data-sources/workload/properties/stateful_service/configuration/parameters/env_var/index.md", "product": "distributed-cloud", "provider_name": "workload", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-0231102013011210-1020102000313033-1100331131212012-2021110220223323-2013031320222203-3003031332222020-1233030121123123-1003220313112232", "registry_path": "docs/guides/data-sources--workload--reference--group-026.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["stateful_service", "configuration", "parameters", "env_var"], "schema_version": 1, "sections": [{"aliases": ["stateful service configuration parameters env var name"], "anchor": "schema-stateful_service--configuration--parameters--env_var--name", "description": "Name of Environment Variable.", "document_id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters:env_var", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["stateful_service", "configuration", "parameters", "env_var", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["stateful service configuration parameters env var value"], "anchor": "schema-stateful_service--configuration--parameters--env_var--value", "description": "Value of Environment Variable.", "document_id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters:env_var", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["stateful_service", "configuration", "parameters", "env_var", "value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/workload/properties/stateful_service/configuration/parameters/env_var/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Environment Variable.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["workloadCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -26,10 +26,6 @@ Type: `"single"`. Computed.
 
 Environment Variable. Environment Variable.
 
-Upstream description:
-
-Environment Variable.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -52,10 +48,6 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Computed.
 
 Name. Name of Environment Variable.
-
-Upstream description:
-
-Name of Environment Variable.
 
 Receipt-pinned upstream constraints:
 
@@ -110,10 +102,6 @@ Type: `"string"`. Computed.
 
 Value. Value of Environment Variable.
 
-Upstream description:
-
-Value of Environment Variable.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -144,8 +132,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [stateful_service.configuration.parameters](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/configuration/parameters/)
-- [xcsh_workload](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/)

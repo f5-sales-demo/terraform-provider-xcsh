@@ -46,8 +46,8 @@
   "pages": [
     {
       "aliases": ["bgp asn set"],
-      "body_bytes": 1348,
-      "body_sha256": "sha256:066f8591b5f9b0ecab87ef6f631c44dfa6179d957807df7c272f8529d05425aa",
+      "body_bytes": 1304,
+      "body_sha256": "sha256:46cbdfa5024b666693cd52a30b654f88aa7b0b725f52ae9c638133a6ac06ec57",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:bgp_asn_set:reference", "xcsh-docs:data-sources:bgp_asn_set:examples"],
@@ -75,7 +75,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_asn_set/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages bgp_asn_set creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
+      "summary": "Reads BGP Asn Set information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_bgp_asn_set",
       "unresolved_relationships": [],
@@ -87,8 +87,8 @@
     },
     {
       "aliases": ["bgp asn set"],
-      "body_bytes": 8976,
-      "body_sha256": "sha256:5f83ac1430a93934e1a076b7405c74dd3a88e822a3cd315c34e0194d69c92db6",
+      "body_bytes": 8718,
+      "body_sha256": "sha256:9b726c2cee34bf778cb1820ad9a753a2f985a1e4ac0797cae642f7a3fa60ac67",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -240,8 +240,8 @@
     },
     {
       "aliases": ["bgp asn set"],
-      "body_bytes": 651,
-      "body_sha256": "sha256:a8f3562fecb4cb4ab8f84c486e94fc384b5d87094231284bf68659939caf1afa",
+      "body_bytes": 411,
+      "body_sha256": "sha256:97e8d1b780a36a93f1d2f541bc0120f75ee836c4b4043de38a3e266547df067c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:bgp_asn_set:example:data-source"],
@@ -280,8 +280,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1264,
-      "body_sha256": "sha256:ff31f94ada2d5bea36123c8f05770bff905590caf5a0d299a0845f53fff38273",
+      "body_bytes": 1039,
+      "body_sha256": "sha256:0bcf19d0d278c6431b47f940090b81c5d63418bc875f65c2311b241d80a3f518",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],

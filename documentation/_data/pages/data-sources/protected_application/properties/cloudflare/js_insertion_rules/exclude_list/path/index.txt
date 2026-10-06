@@ -2,7 +2,7 @@
 page_title: "cloudflare.js_insertion_rules.exclude_list.path"
 subcategory: ""
 description: "Path match of the URI can be either be, Prefix match or exact match or regular expression match."
-xcsh_docs: {"aliases": ["cloudflare js insertion rules exclude list path"], "body_bytes": 5129, "body_sha256": "sha256:8839faa9c0ad59d0b3f326f25c4da4e3a656453824be291d08cd4147232c99f7", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:protected_application:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:js_insertion_rules:exclude_list:path", "parent_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:js_insertion_rules:exclude_list", "path": "documentation/data-sources/protected_application/properties/cloudflare/js_insertion_rules/exclude_list/path/index.md", "product": "distributed-cloud", "provider_name": "protected_application", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2122312210233200-3133121131320021-0031122222221203-3020030122321302-3301003222112333-1103132130230311-3333332301020320-2103010310111110", "registry_path": "docs/guides/data-sources--protected_application--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["cloudflare", "js_insertion_rules", "exclude_list", "path"], "schema_version": 1, "sections": [{"aliases": ["cloudflare js insertion rules exclude list path path"], "anchor": "schema-cloudflare--js_insertion_rules--exclude_list--path--path", "description": "Exclusive with Exact path value to match.", "document_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:js_insertion_rules:exclude_list:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudflare", "js_insertion_rules", "exclude_list", "path", "path"], "syntax": "attribute", "type": "string"}, {"aliases": ["cloudflare js insertion rules exclude list path prefix"], "anchor": "schema-cloudflare--js_insertion_rules--exclude_list--path--prefix", "description": "Exclusive with Path prefix to match (e.g. The value / will match on all paths)", "document_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:js_insertion_rules:exclude_list:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudflare", "js_insertion_rules", "exclude_list", "path", "prefix"], "syntax": "attribute", "type": "string"}, {"aliases": ["cloudflare js insertion rules exclude list path regex"], "anchor": "schema-cloudflare--js_insertion_rules--exclude_list--path--regex", "description": "Exclusive with Regular expression of path match (e.g. The value .* will match on all paths)", "document_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:js_insertion_rules:exclude_list:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudflare", "js_insertion_rules", "exclude_list", "path", "regex"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protected_application/properties/cloudflare/js_insertion_rules/exclude_list/path/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Path match of the URI can be either be, Prefix match or exact match or regular expression match.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["protected_applicationCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["cloudflare js insertion rules exclude list path"], "body_bytes": 4461, "body_sha256": "sha256:ea3ea78b5dfaa03cf0fcdda76612af64c03423179a68f2bda3676d05a53ea63b", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:protected_application:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:js_insertion_rules:exclude_list:path", "parent_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:js_insertion_rules:exclude_list", "path": "documentation/data-sources/protected_application/properties/cloudflare/js_insertion_rules/exclude_list/path/index.md", "product": "distributed-cloud", "provider_name": "protected_application", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2122312210233200-3133121131320021-0031122222221203-3020030122321302-3301003222112333-1103132130230311-3333332301020320-2103010310111110", "registry_path": "docs/guides/data-sources--protected_application--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["cloudflare", "js_insertion_rules", "exclude_list", "path"], "schema_version": 1, "sections": [{"aliases": ["cloudflare js insertion rules exclude list path path"], "anchor": "schema-cloudflare--js_insertion_rules--exclude_list--path--path", "description": "Exclusive with Exact path value to match.", "document_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:js_insertion_rules:exclude_list:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudflare", "js_insertion_rules", "exclude_list", "path", "path"], "syntax": "attribute", "type": "string"}, {"aliases": ["cloudflare js insertion rules exclude list path prefix"], "anchor": "schema-cloudflare--js_insertion_rules--exclude_list--path--prefix", "description": "Exclusive with Path prefix to match (e.g. The value / will match on all paths)", "document_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:js_insertion_rules:exclude_list:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudflare", "js_insertion_rules", "exclude_list", "path", "prefix"], "syntax": "attribute", "type": "string"}, {"aliases": ["cloudflare js insertion rules exclude list path regex"], "anchor": "schema-cloudflare--js_insertion_rules--exclude_list--path--regex", "description": "Exclusive with Regular expression of path match (e.g. The value .* will match on all paths)", "document_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:js_insertion_rules:exclude_list:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudflare", "js_insertion_rules", "exclude_list", "path", "regex"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protected_application/properties/cloudflare/js_insertion_rules/exclude_list/path/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Path match of the URI can be either be, Prefix match or exact match or regular expression match.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["protected_applicationCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -50,10 +50,6 @@ Type: `"string"`. Computed.
 
 Exclusive with \[prefix regex\] Exact path value to match.
 
-Upstream description:
-
-Exclusive with \[prefix regex\] Exact path value to match.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -94,10 +90,6 @@ Receipt-pinned upstream constraints:
 ### prefix property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
-
-Upstream description:
 
 Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
 
@@ -143,11 +135,6 @@ Type: `"string"`. Computed.
 Exclusive with \[path prefix\] Regular expression of path match (e.g. The value .\* will match on
 all paths).
 
-Upstream description:
-
-Exclusive with \[path prefix\] Regular expression of path match (e.g. The value .\* will match on
-all paths)
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -188,8 +175,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [cloudflare.js_insertion_rules.exclude_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/js_insertion_rules/exclude_list/)
-- [xcsh_protected_application](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/)

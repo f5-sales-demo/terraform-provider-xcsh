@@ -2,7 +2,7 @@
 page_title: "insecure_registry_list"
 subcategory: ""
 description: "List of docker insecure registries."
-xcsh_docs: {"aliases": ["insecure registry list"], "body_bytes": 3521, "body_sha256": "sha256:16cc7b0246224d5226bed80e37ea6932d2178384d6b7236b5f19d933d0bc1764", "capabilities": ["container"], "category": "container", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:k8s_cluster:collection", "completeness": "complete", "id": "xcsh-docs:resources:k8s_cluster:properties:insecure_registry_list", "parent_id": "xcsh-docs:resources:k8s_cluster:reference", "path": "documentation/resources/k8s_cluster/properties/insecure_registry_list/index.md", "product": "distributed-cloud", "provider_name": "k8s_cluster", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2133012030210030-0220221330213223-2132132333211220-3120030220103203-1313003032301101-1300133311312022-1321021211021222-3230112201130332", "registry_path": "docs/guides/resources--k8s_cluster--reference--group-001.md", "relationships": [{"anchor": "schema-insecure_registry_list--insecure_registries", "enforcement": "provider-schema", "group": "insecure_registry_list:RequiredObjectAttributes:insecure_registries", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:k8s_cluster:properties:insecure_registry_list", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["insecure_registry_list"], "schema_version": 1, "sections": [{"aliases": ["insecure registry list insecure registries"], "anchor": "schema-insecure_registry_list--insecure_registries", "description": "List of docker insecure registries in format \"example.com:5000\"", "document_id": "xcsh-docs:resources:k8s_cluster:properties:insecure_registry_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["insecure_registry_list", "insecure_registries"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/insecure_registry_list/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of docker insecure registries.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["k8s_clusterCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["insecure registry list"], "body_bytes": 3237, "body_sha256": "sha256:f737bffb6d550eb45756466858a14096471b59870d7500a54d47998da123d71c", "capabilities": ["container"], "category": "container", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:k8s_cluster:collection", "completeness": "complete", "id": "xcsh-docs:resources:k8s_cluster:properties:insecure_registry_list", "parent_id": "xcsh-docs:resources:k8s_cluster:reference", "path": "documentation/resources/k8s_cluster/properties/insecure_registry_list/index.md", "product": "distributed-cloud", "provider_name": "k8s_cluster", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2133012030210030-0220221330213223-2132132333211220-3120030220103203-1313003032301101-1300133311312022-1321021211021222-3230112201130332", "registry_path": "docs/guides/resources--k8s_cluster--reference--group-001.md", "relationships": [{"anchor": "schema-insecure_registry_list--insecure_registries", "enforcement": "provider-schema", "group": "insecure_registry_list:RequiredObjectAttributes:insecure_registries", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:k8s_cluster:properties:insecure_registry_list", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["insecure_registry_list"], "schema_version": 1, "sections": [{"aliases": ["insecure registry list insecure registries"], "anchor": "schema-insecure_registry_list--insecure_registries", "description": "List of docker insecure registries in format \"example.com:5000\"", "document_id": "xcsh-docs:resources:k8s_cluster:properties:insecure_registry_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["insecure_registry_list", "insecure_registries"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/insecure_registry_list/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of docker insecure registries.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["k8s_clusterCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,10 +23,6 @@ Type: `"object"`. single nested block, Optional.
 
 \[OneOf: insecure\_registry\_list, no\_insecure\_registries; Default: no\_insecure\_registries\]
 Docker Insecure Registry List. List of docker insecure registries.
-
-Upstream description:
-
-List of docker insecure registries.
 
 Provider validators and defaults (from schema source):
 
@@ -73,7 +69,7 @@ Type: `["list", "string"]`. Optional.
 
 List of docker insecure registries in format 'example.com:5000'.
 
-Upstream description:
+Additional upstream details:
 
 List of docker insecure registries in format "example.com:5000"
 
@@ -129,8 +125,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/k8s_cluster/properties/)
-- [xcsh_k8s_cluster](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/k8s_cluster/)

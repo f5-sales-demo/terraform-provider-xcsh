@@ -690,8 +690,8 @@
   "pages": [
     {
       "aliases": ["network interface"],
-      "body_bytes": 1750,
-      "body_sha256": "sha256:c0a6b3571e9a1c2552d1428c587f09d00d48d8413fc4334cfbfc6f211d7760b7",
+      "body_bytes": 1763,
+      "body_sha256": "sha256:fd683d81b2528c4c2ad2358b2beb4b09516e8a0db75d60a191fc866b67be267e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -736,8 +736,8 @@
     },
     {
       "aliases": ["network interface"],
-      "body_bytes": 42581,
-      "body_sha256": "sha256:0038d0e61037d44806b6b56ba82dbe07f17586783d7e1e38ed96c9a15a0a5b72",
+      "body_bytes": 41480,
+      "body_sha256": "sha256:727564fd3d0b078451f8708c396087d50925ead34d49aa503038ff576b97d3b7",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1357,8 +1357,8 @@
     },
     {
       "aliases": ["dedicated interface"],
-      "body_bytes": 9379,
-      "body_sha256": "sha256:ffbc95afcea63af2884507dcd800fecec654461f6450754ff2846084e7933f93",
+      "body_bytes": 7903,
+      "body_sha256": "sha256:dc85d1efc82b56eb186e639eb14ccdadcbfc6577fb28435e2460c340279551c1",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1610,8 +1610,8 @@
     },
     {
       "aliases": ["cluster scope", "cluster wide interface", "dedicated interface cluster"],
-      "body_bytes": 1296,
-      "body_sha256": "sha256:b140a304bedd45987f3fb56c54b4a7709f883385bc50f276c42d6deb91ed2682",
+      "body_bytes": 1011,
+      "body_sha256": "sha256:167a11f76be994ff91a35b492c9b9ecfb3ce7934a43068e32fe7ec92b458d2cb",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1650,8 +1650,8 @@
     },
     {
       "aliases": ["dedicated interface is primary", "primary interface", "set primary"],
-      "body_bytes": 1305,
-      "body_sha256": "sha256:b69f47ccb9cce8806c44ff9e998cef551e06be85af3f2c195c0de2f8dfa7eab1",
+      "body_bytes": 1020,
+      "body_sha256": "sha256:3eb45796ed24b58f2a4544d4f6bccd196bbbe8d81ba659fc6d1aaf98899b438d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1690,8 +1690,8 @@
     },
     {
       "aliases": ["dedicated interface monitor"],
-      "body_bytes": 1258,
-      "body_sha256": "sha256:88dff1e1d086ea5aab9fab73b0a7afb0932c23e03cb2b5345811e7d74e61f771",
+      "body_bytes": 966,
+      "body_sha256": "sha256:4a1fc589f503e1a3c6c4f34d88bf19cea872365e6774c9a9d862bee013beaa83",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1735,8 +1735,8 @@
         "disable link quality monitoring",
         "monitoring disabled"
       ],
-      "body_bytes": 1323,
-      "body_sha256": "sha256:6f04241ef46289c94a009bc7f9ee3a8b684d06d84c1fc3e7d440c635eab60486",
+      "body_bytes": 1038,
+      "body_sha256": "sha256:eb2f69f5429928fafc2e42cc7559eecb345d2467d13c5e11d72342eea276c340",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1775,8 +1775,8 @@
     },
     {
       "aliases": ["dedicated interface not primary"],
-      "body_bytes": 1330,
-      "body_sha256": "sha256:a71c262b4994faa12fe7078aced4ccc8c5ca5506fd12be7ca18dd09bb5de5f23",
+      "body_bytes": 1045,
+      "body_sha256": "sha256:00b31dd9d948a0da754241cb1f3db66421c3a1a961e3139323a055940af14d48",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1815,8 +1815,8 @@
     },
     {
       "aliases": ["dedicated management interface"],
-      "body_bytes": 5516,
-      "body_sha256": "sha256:4f70aa992586aa4fd4d1dee7c2b60e17b6db26fac6dfa9e8d8512134da0863e8",
+      "body_bytes": 4840,
+      "body_sha256": "sha256:5ac7ed27f89cffbf7f7657a22b2743e843db8138e619fec5d57e4a004303af4b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:network_interface:properties:dedicated_management_interface:cluster"],
@@ -1945,8 +1945,8 @@
     },
     {
       "aliases": ["dedicated management interface cluster"],
-      "body_bytes": 1362,
-      "body_sha256": "sha256:fd44cb9927e0590c3136101c44b4ba9866ad73737e70352b3e45eac8d0fe1d03",
+      "body_bytes": 1055,
+      "body_sha256": "sha256:b213caa95612d0fb9a9fe84ef7cae632cde911a93db9940f7af3a4d8eeb8fa05",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1985,8 +1985,8 @@
     },
     {
       "aliases": ["ethernet interface"],
-      "body_bytes": 14263,
-      "body_sha256": "sha256:387289fc0673d15ad46378185e23cc73ee95539b488c5238927a9a34d49b37c8",
+      "body_bytes": 11009,
+      "body_sha256": "sha256:9274e5accdca0d08c0dca617d5bb554f3ca504a05bdc3f4081fa57a49588475d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2687,8 +2687,8 @@
     },
     {
       "aliases": ["ethernet interface cluster"],
-      "body_bytes": 1290,
-      "body_sha256": "sha256:3a27c8eac8d4072b31fe405b8aa302d0a6a7ba8bc54acbee09728d99b87d841e",
+      "body_bytes": 1007,
+      "body_sha256": "sha256:2534baddc12a7006e031f77ad929b8630326d14e57cb2f3e3525c4281e934d0e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2727,8 +2727,8 @@
     },
     {
       "aliases": ["ethernet interface dhcp client"],
-      "body_bytes": 1302,
-      "body_sha256": "sha256:c332cd47e5896e33889743972d66f73710a1dc4bf485e34478b65dfc6ec9d7a1",
+      "body_bytes": 1019,
+      "body_sha256": "sha256:87882c72db824c247c1d5093bf37b8a73e1c360f66b3327bb4da460a1f7d779b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2767,8 +2767,8 @@
     },
     {
       "aliases": ["ethernet interface dhcp server"],
-      "body_bytes": 5710,
-      "body_sha256": "sha256:3ff72f01ec88785a4172e2581b40ff541f6e456a4eca05b658edd8573a7341a1",
+      "body_bytes": 4648,
+      "body_sha256": "sha256:cce3596173ff444b76461463b4174331cd0372fa6644cc04b2e28dd65985f887",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -3031,8 +3031,8 @@
     },
     {
       "aliases": ["ethernet interface dhcp server automatic from end"],
-      "body_bytes": 1563,
-      "body_sha256": "sha256:29a61a29b84551190935a536daa536d7a70b21c0a7ac262c2c9ae57cae8e42bb",
+      "body_bytes": 1256,
+      "body_sha256": "sha256:927955f3db92d437f45b2116a9d756ebf052f8d41460f48f94bd99517fa2f1fa",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3071,8 +3071,8 @@
     },
     {
       "aliases": ["ethernet interface dhcp server automatic from start"],
-      "body_bytes": 1571,
-      "body_sha256": "sha256:ac01bdb280615f8ac4a73fb95a49544559ab363d3f4eb242326b6d0ddfaea828",
+      "body_bytes": 1264,
+      "body_sha256": "sha256:e860ea62dc39d446cb6ac48012876f5a4ed6092c742e9ec380bf8581e6073f50",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3111,8 +3111,8 @@
     },
     {
       "aliases": ["ethernet interface dhcp server dhcp networks"],
-      "body_bytes": 9425,
-      "body_sha256": "sha256:8a425161a5c081b02e685b14f4b8bc2e21ff728c419404a7cab575522865e6fc",
+      "body_bytes": 7675,
+      "body_sha256": "sha256:008d6f02630a085f40bb579eccbfc14d4a41d07ed975e1a75a974dd49f185ff5",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -3359,8 +3359,8 @@
     },
     {
       "aliases": ["ethernet interface dhcp server dhcp networks first address"],
-      "body_bytes": 1766,
-      "body_sha256": "sha256:91b27914f72bd325bb87e04488922034299abae7c8a88ebc7237419bab97a334",
+      "body_bytes": 1431,
+      "body_sha256": "sha256:a79e83ee1ebf2272ba39efe341b547ce9aeb4ade1a8e58b11b14c6925892d957",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3399,8 +3399,8 @@
     },
     {
       "aliases": ["ethernet interface dhcp server dhcp networks last address"],
-      "body_bytes": 1763,
-      "body_sha256": "sha256:a276ae82db935fba758925a32445ec786fb3695502936c4e3fb235de3039097c",
+      "body_bytes": 1428,
+      "body_sha256": "sha256:20b0d79766030796025db131fda55dd9c443cbb6ee1c40aa4c61e873b219aea8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3439,8 +3439,8 @@
     },
     {
       "aliases": ["ethernet interface dhcp server dhcp networks pools"],
-      "body_bytes": 5091,
-      "body_sha256": "sha256:5f58dcbcfbd5fd5e2dbfecbaa692b6eac390aa045f08124feb3b0e9b95e0d9b2",
+      "body_bytes": 4387,
+      "body_sha256": "sha256:203cd4dcf85edf103c71ac0217120870280d3d68f04fe1eede061560eaebaa2b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3528,8 +3528,8 @@
     },
     {
       "aliases": ["ethernet interface dhcp server dhcp networks same as dgw"],
-      "body_bytes": 1782,
-      "body_sha256": "sha256:660c17046eff8f2cc60a3ac9466bd48ca597be1281e0104cdc7ceb7959c0e9fb",
+      "body_bytes": 1447,
+      "body_sha256": "sha256:bad161b1dbe183369198872e86b0efdec7f97935670ad4fb6b6390f4217f6745",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3568,8 +3568,8 @@
     },
     {
       "aliases": ["ethernet interface dhcp server interface ip map"],
-      "body_bytes": 3644,
-      "body_sha256": "sha256:6026051027a056f58e72c335158f0c5dc2b3d9c8e09cc79ad7856db862b0037b",
+      "body_bytes": 3288,
+      "body_sha256": "sha256:a8a195874a6815003d25b0c356141b70e169385752cbdbae70421d3e5c66fb03",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3625,8 +3625,8 @@
     },
     {
       "aliases": ["ethernet interface ipv6 auto config"],
-      "body_bytes": 2214,
-      "body_sha256": "sha256:a60dfecba55a26e7d7a73c830a6a4082e3a21da94c281eec0dc4cc5eac6b3739",
+      "body_bytes": 1576,
+      "body_sha256": "sha256:13aae18071f08da26645065880592a9212c56f01193e26d340b9a1089beba559",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -3735,8 +3735,8 @@
     },
     {
       "aliases": ["ethernet interface ipv6 auto config host"],
-      "body_bytes": 1548,
-      "body_sha256": "sha256:444f3649f0ce2ff0812237546f29f0f4c2ad6498a0369377eedc5f34510b3972",
+      "body_bytes": 1231,
+      "body_sha256": "sha256:7c79fcd92e590d56baadd66db9cd79010c006bdcb96789f41fc43e0b40d08e47",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3775,8 +3775,8 @@
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router"],
-      "body_bytes": 3863,
-      "body_sha256": "sha256:6d54150f5a4fe420e03a847cd98fcbb3c40098d53164f41eae989454188b9050",
+      "body_bytes": 2997,
+      "body_sha256": "sha256:270f9f9716e0456baf50ee022777a085f23c729b59cf7343f26f2b694b753cae",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -3958,8 +3958,8 @@
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router dns config"],
-      "body_bytes": 2832,
-      "body_sha256": "sha256:d0d7d4112116c4d6a72a0283df0bc93a7bbc5c490e248bedda465f70ca53d753",
+      "body_bytes": 2046,
+      "body_sha256": "sha256:4511f7b281b2931e6452fba900f9e248fb96c23bed12956400a611ba7af3481b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -4109,8 +4109,8 @@
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router dns config configured list"],
-      "body_bytes": 3592,
-      "body_sha256": "sha256:c111ad55715c5d4db2b8f8786b89985488f79d96565562e2b74dc64beb7276a9",
+      "body_bytes": 3254,
+      "body_sha256": "sha256:1a8bc3314705dcc5902227e95b768aa84cf34daac055a764663192dfd47d6ceb",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4182,8 +4182,8 @@
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router dns config local dns"],
-      "body_bytes": 4604,
-      "body_sha256": "sha256:d7ecfc98576e872773a88a1e9a022ce67db04d454fc5969fe25a068b1c85ef9e",
+      "body_bytes": 3614,
+      "body_sha256": "sha256:cb50e3d430c0a97aceb0818fb95c38e8b406a6d829f6e834fae4ef485fad209c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -4344,8 +4344,8 @@
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router dns config local dns first address"],
-      "body_bytes": 2286,
-      "body_sha256": "sha256:59e6355d7a8bb12f27e14f69987caa2d78bd81e1b6bf8bc05a30c1dbfca622f2",
+      "body_bytes": 1913,
+      "body_sha256": "sha256:beddca38a700064d853a58c8727d3173196bcef82121171e80907c796eb312cd",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4384,8 +4384,8 @@
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router dns config local dns last address"],
-      "body_bytes": 2283,
-      "body_sha256": "sha256:2258f9c2d53b070d5a18bdaebe9e2bdff122dc047b9e5586d4bc33f4acac2c35",
+      "body_bytes": 1910,
+      "body_sha256": "sha256:c6dd8817928d0c3601ef3f85a6789ac87b76ac5dd7b9f57e1e1f9d25203447eb",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4424,8 +4424,8 @@
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router stateful"],
-      "body_bytes": 6514,
-      "body_sha256": "sha256:347d7592127116dabfb9763f1ff0ad673b95f483192dc52fc813deedb8c79f9c",
+      "body_bytes": 5062,
+      "body_sha256": "sha256:dd5120bf7da9cc754bfa3241473c22f078b079a0b4fca38e1e0c68e86a5f2d5f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -4607,8 +4607,8 @@
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router stateful automatic from end"],
-      "body_bytes": 2049,
-      "body_sha256": "sha256:dff6d2e2dce45ed934444a25796597b2429cbbb23c8b5c0246a4547313ad17a3",
+      "body_bytes": 1700,
+      "body_sha256": "sha256:40b1e692cee61499823bf4f2e0ab702edbdbc86e136821439a45a6236004950b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4647,8 +4647,8 @@
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router stateful automatic from start"],
-      "body_bytes": 2057,
-      "body_sha256": "sha256:841810b98950d3106abbe61ce910cef3d04466a3a3d196e83e00b1ab48733661",
+      "body_bytes": 1708,
+      "body_sha256": "sha256:9cfc51980aec7945aa2f7ac84cd18567ca7b27544a1492d66456eaad24ec17f6",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4687,8 +4687,8 @@
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router stateful dhcp networks"],
-      "body_bytes": 5876,
-      "body_sha256": "sha256:910adf1f4f6c2f423d8891842331c2a0872bbb66feb912fe1e64c024fdc9b39e",
+      "body_bytes": 4969,
+      "body_sha256": "sha256:88a4edb69bdb0af7ed90b113925eedfd8572e7a8586cb52f6e67e02f7ff354af",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -4801,8 +4801,8 @@
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router stateful dhcp networks pools"],
-      "body_bytes": 5368,
-      "body_sha256": "sha256:761830d9717597a3f89fc5d74f8bb7616aaeece5d807413524d364edbd712962",
+      "body_bytes": 4679,
+      "body_sha256": "sha256:a51f4b08d5a0425ce5087f324ebc0c37b4b9b3f1093ddaa54bbb773592725661",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4890,8 +4890,8 @@
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router stateful interface ip map"],
-      "body_bytes": 4139,
-      "body_sha256": "sha256:951aeef85201e582bc39ff94f151d2f3604da41998470a0a64efe1f539593dd8",
+      "body_bytes": 3747,
+      "body_sha256": "sha256:d1036ca172c1de31f1a579b61e2d8fc3a98b9eb9d8a869039201f0d894e676d4",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4954,8 +4954,8 @@
     },
     {
       "aliases": ["ethernet interface is primary"],
-      "body_bytes": 1299,
-      "body_sha256": "sha256:543f13404d2d61050483cae59f60cd81cc5077f6beaf04a999a55f0343a77da5",
+      "body_bytes": 1016,
+      "body_sha256": "sha256:eb13ccc7c3df7cdfc6e91a8ae4b422143013c09f1029e0ff2beaecfce8288bd0",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4994,8 +4994,8 @@
     },
     {
       "aliases": ["ethernet interface monitor"],
-      "body_bytes": 1252,
-      "body_sha256": "sha256:7d3c45e2ff0eaab0fec59eb64ba41e8962fbc99d140331b318e0f9d32ed65cf8",
+      "body_bytes": 962,
+      "body_sha256": "sha256:89e8ba8b3dfd0502ece407fad8e6dca15d296bdfeea12b7adfb0e893e7fead41",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5034,8 +5034,8 @@
     },
     {
       "aliases": ["ethernet interface monitor disabled"],
-      "body_bytes": 1317,
-      "body_sha256": "sha256:2af5d226b54895532e628d3a45ef62974ba0da2a067dad7843b514fed1dc0dc2",
+      "body_bytes": 1034,
+      "body_sha256": "sha256:3b399533f51501bb9707daa3299d62f031c7497c090a39012c8a4fa33fff5297",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5074,8 +5074,8 @@
     },
     {
       "aliases": ["ethernet interface no ipv6 address"],
-      "body_bytes": 1314,
-      "body_sha256": "sha256:dd9b737a12245db8f61bb2700f7879a3f8a1260455b8eda2c65c5942945be658",
+      "body_bytes": 1031,
+      "body_sha256": "sha256:0b0c560aaf050b9a098cdc43498fcf7946eb5b8ef8e5f7b689bb5fe352d2c616",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5114,8 +5114,8 @@
     },
     {
       "aliases": ["ethernet interface not primary"],
-      "body_bytes": 1324,
-      "body_sha256": "sha256:d1e34e12295c4d3b8bd342dca3c9651d86a3296bd4c9284d1b15dcd5459c6cf3",
+      "body_bytes": 1041,
+      "body_sha256": "sha256:4845378f509be965a62e8218d9765f87b124f8b1aa131390415cbac20d78529a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5135,7 +5135,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1200321013310102-0032232013131303-0313231101032121-1032013113332222-3302320311120331-1320212223013321-0302331230222102-0102032230203100",
-      "registry_path": "docs/guides/resources--network_interface--reference--group-002.md",
+      "registry_path": "docs/guides/resources--network_interface--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5154,8 +5154,8 @@
     },
     {
       "aliases": ["ethernet interface site local inside network"],
-      "body_bytes": 1344,
-      "body_sha256": "sha256:d156ac97d8cdf0247200e65e16e84a087b6ffc746c7505f2144eeb78eb296901",
+      "body_bytes": 1061,
+      "body_sha256": "sha256:307ac51c4379c063e7652750941a3648f62e28b053c6700eb38c57d8837c9cdd",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5175,7 +5175,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0130021031001123-3103100331301201-3001310300213201-0220222112333033-1032212013313102-1032013030013102-0323300222121123-0313002332320133",
-      "registry_path": "docs/guides/resources--network_interface--reference--group-002.md",
+      "registry_path": "docs/guides/resources--network_interface--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5194,8 +5194,8 @@
     },
     {
       "aliases": ["ethernet interface site local network"],
-      "body_bytes": 1323,
-      "body_sha256": "sha256:cdbc97486065ed69b48e4872c81c291acd60dd0d76525fcc54395031c9ac80c3",
+      "body_bytes": 1040,
+      "body_sha256": "sha256:81454e24153812d274d61405a3179953d4396722f5352b876e5e2ffa37e9dad0",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5215,7 +5215,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1202003031332121-0320100021220100-0021231331001321-2313003211300332-3131230330132130-1100122212021011-3213120032122123-3021232101032213",
-      "registry_path": "docs/guides/resources--network_interface--reference--group-002.md",
+      "registry_path": "docs/guides/resources--network_interface--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5234,8 +5234,8 @@
     },
     {
       "aliases": ["ethernet interface static ip"],
-      "body_bytes": 2371,
-      "body_sha256": "sha256:21aab1d1a600110a0bad16c42c94a8a53653a062da0d898a57e793456455b56c",
+      "body_bytes": 1663,
+      "body_sha256": "sha256:70fbd90b49de3d4cf0bbd2c6e7602da58cbe91483c2c5b0c2c24c69db548830d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -5258,7 +5258,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3022232102130132-0113030032123321-1012123313020210-2230003031231301-1032311210332033-2222203030010301-2030212000100303-0203232233101020",
-      "registry_path": "docs/guides/resources--network_interface--reference--group-002.md",
+      "registry_path": "docs/guides/resources--network_interface--reference--group-001.md",
       "relationships": [
         {
           "anchor": "section",
@@ -5336,8 +5336,8 @@
     },
     {
       "aliases": ["ethernet interface static ip cluster static ip"],
-      "body_bytes": 3226,
-      "body_sha256": "sha256:e034e3bc11a292dc2825ffa48f9fb8894b5b66640f95fe6df4212ad9142020fa",
+      "body_bytes": 2938,
+      "body_sha256": "sha256:f59764d4332784175e3208b3c510944db725521dd661757b7b0e20a84fa3edbb",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5357,7 +5357,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0223003320231223-2231122222123220-3310032010122012-2322212311330303-0030331123333012-1331000121113131-3021233303022213-3030101330022202",
-      "registry_path": "docs/guides/resources--network_interface--reference--group-002.md",
+      "registry_path": "docs/guides/resources--network_interface--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5393,8 +5393,8 @@
     },
     {
       "aliases": ["ethernet interface static ip node static ip"],
-      "body_bytes": 4157,
-      "body_sha256": "sha256:94d3b0470af50b8959e34173f89da8a81b991197c6bf965cb4ff44f55acac97e",
+      "body_bytes": 3810,
+      "body_sha256": "sha256:7392bbf7201faf3fa3a0cad15064405f65b270ef293e76f7b90f717a9b02acfa",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5414,7 +5414,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2303101021211120-3010222011201312-2113001133320111-0301010000312330-1320120233212331-0302201211232023-1303310100102320-3023001113030131",
-      "registry_path": "docs/guides/resources--network_interface--reference--group-002.md",
+      "registry_path": "docs/guides/resources--network_interface--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-ethernet_interface--static_ip--node_static_ip--ip_address",
@@ -5491,8 +5491,8 @@
     },
     {
       "aliases": ["ethernet interface static ipv6 address"],
-      "body_bytes": 2461,
-      "body_sha256": "sha256:65c1475d8e35ff9956090e62a30c91ec83480d1ab5915671c9f2778f5816a84c",
+      "body_bytes": 1713,
+      "body_sha256": "sha256:8f68ddeaa9768c2f4f20eb7d2ec4e6667c59d694a6ee844c22981293d384fbfb",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -5515,7 +5515,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2002001211323102-2100132012330031-2302323310311332-2101323303113311-1132013232230332-3223112303200311-3323303331131101-3303332012102212",
-      "registry_path": "docs/guides/resources--network_interface--reference--group-002.md",
+      "registry_path": "docs/guides/resources--network_interface--reference--group-001.md",
       "relationships": [
         {
           "anchor": "section",
@@ -5593,8 +5593,8 @@
     },
     {
       "aliases": ["ethernet interface static ipv6 address cluster static ip"],
-      "body_bytes": 3296,
-      "body_sha256": "sha256:2095db846237f0ea07277764d71cf1b72f77b67b44f839d6fd58190cc9a23d65",
+      "body_bytes": 2988,
+      "body_sha256": "sha256:4005b90e6873b5e860e1461800bd23de43f7f2cb6c3a5a003da1d625b2e1e52e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5614,7 +5614,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2300322031001031-1011321030020032-0120113021333133-3003211121232332-1303220231301032-3313001310113231-2003013323300302-1001321233130301",
-      "registry_path": "docs/guides/resources--network_interface--reference--group-002.md",
+      "registry_path": "docs/guides/resources--network_interface--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5650,8 +5650,8 @@
     },
     {
       "aliases": ["ethernet interface static ipv6 address node static ip"],
-      "body_bytes": 4247,
-      "body_sha256": "sha256:b9ca0fb0a2eea5ce6f7a6cba212d9c132dcb72fad8ee84bc0f6506ab01f56c60",
+      "body_bytes": 3880,
+      "body_sha256": "sha256:ff46e9f5f53e6eb7657ea8c97aa44889b85bf1aa6232c97cd2ab5b202632935d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5671,7 +5671,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0220110320201110-1311231322302123-2000302030130203-1112120210031211-3030011101120023-2002111100222130-3303111002113322-1200032213212212",
-      "registry_path": "docs/guides/resources--network_interface--reference--group-002.md",
+      "registry_path": "docs/guides/resources--network_interface--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-ethernet_interface--static_ipv6_address--node_static_ip--ip_address",
@@ -5748,8 +5748,8 @@
     },
     {
       "aliases": ["ethernet interface storage network"],
-      "body_bytes": 1340,
-      "body_sha256": "sha256:80c983390bee16a7e876c99c1611df50bd15ab6ad8efd51d32c35e323f091e8d",
+      "body_bytes": 1057,
+      "body_sha256": "sha256:11b1dba739f17c68ca7d9886b3b7af352687acd3d4a1ea1f1f76368b35090b91",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5769,7 +5769,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1211221102021022-2110220001020321-2332331213201332-0002030102311330-0010010200013330-0330313231112202-2213212221310021-2102020220330011",
-      "registry_path": "docs/guides/resources--network_interface--reference--group-002.md",
+      "registry_path": "docs/guides/resources--network_interface--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5788,8 +5788,8 @@
     },
     {
       "aliases": ["ethernet interface untagged"],
-      "body_bytes": 1293,
-      "body_sha256": "sha256:ee6e283b98cd48dd74023708f64bdac595a1be8c4e27400b13f3d037072bc974",
+      "body_bytes": 1010,
+      "body_sha256": "sha256:c595d45099c0b49bea76152ba642f077528f51d6328d513b7c06e4811813e119",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5809,7 +5809,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2013330120312021-1032032031131103-2211211331111323-0310100111303230-0000211230300201-0103011311101311-0100022032120312-3310012312123032",
-      "registry_path": "docs/guides/resources--network_interface--reference--group-002.md",
+      "registry_path": "docs/guides/resources--network_interface--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5828,8 +5828,8 @@
     },
     {
       "aliases": ["layer2 interface"],
-      "body_bytes": 2706,
-      "body_sha256": "sha256:27f658d01f4fe56182d721dcc96dcb3fc981dd2a3817045723197ab2c70cfaa9",
+      "body_bytes": 1947,
+      "body_sha256": "sha256:4b29d5d9e87773f5856639d15cbc4c5a9cf9d32947a4150511cb430220a36506",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -5853,7 +5853,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0130112110231113-3130032011200330-3231321010032002-1110233231103021-2000032102333133-0312112112133231-3001223102103322-3003100130233100",
-      "registry_path": "docs/guides/resources--network_interface--reference--group-002.md",
+      "registry_path": "docs/guides/resources--network_interface--reference--group-001.md",
       "relationships": [
         {
           "anchor": "section",
@@ -6021,8 +6021,8 @@
     },
     {
       "aliases": ["layer2 interface l2sriov interface"],
-      "body_bytes": 4389,
-      "body_sha256": "sha256:9638dd95aa875a18d592cdcdebdd0baa10bfc9dce93d7d1636bd93f2a506971b",
+      "body_bytes": 3803,
+      "body_sha256": "sha256:4c6d4c25969af733b3128999b26efb74b635b2af14306d8c79a8431cb2d79dc5",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:network_interface:properties:layer2_interface:l2sriov_interface:untagged"],
@@ -6042,7 +6042,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2001213330111322-1102020311010223-3113031102330111-3233331202011220-0021313020301221-1013000221232132-1311230023032233-0232100011312112",
-      "registry_path": "docs/guides/resources--network_interface--reference--group-002.md",
+      "registry_path": "docs/guides/resources--network_interface--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-layer2_interface--l2sriov_interface--vlan_id",
@@ -6135,8 +6135,8 @@
     },
     {
       "aliases": ["layer2 interface l2sriov interface untagged"],
-      "body_bytes": 1524,
-      "body_sha256": "sha256:9a06b55a994c322e49c84da4b9ed54f51b35b3f35a74dfa5858374865174374b",
+      "body_bytes": 1209,
+      "body_sha256": "sha256:b774483fcae60632befc5621d32e0f06cddec712837e58f76a9e6ed5e2b28842",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6156,7 +6156,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2211132100222123-0200310223022311-0310022322121010-1301320032131003-3320211110231331-1110210301101303-1211002010021201-3322002200312002",
-      "registry_path": "docs/guides/resources--network_interface--reference--group-002.md",
+      "registry_path": "docs/guides/resources--network_interface--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -6175,8 +6175,8 @@
     },
     {
       "aliases": ["layer2 interface l2vlan interface"],
-      "body_bytes": 3887,
-      "body_sha256": "sha256:61a388c7b02bf6aa6008e2830d336e9f5b5b1d6d98e09a152fb8940dbb415eea",
+      "body_bytes": 3545,
+      "body_sha256": "sha256:f78e5c2ed921ffcea7bec825fed117d81f560d03cd51a02dc9d89531b1205881",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6196,7 +6196,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3020100313222301-3322210111012110-0002233303010223-2101112211013101-3110320121222020-1000123022030111-2201113203323033-3203202233203111",
-      "registry_path": "docs/guides/resources--network_interface--reference--group-002.md",
+      "registry_path": "docs/guides/resources--network_interface--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-layer2_interface--l2vlan_interface--device",
@@ -6265,8 +6265,8 @@
     },
     {
       "aliases": ["layer2 interface l2vlan slo interface"],
-      "body_bytes": 2598,
-      "body_sha256": "sha256:7cc80e8e5f88a6d427a9a96a2aa8d15e30d059fe0f7e0e08b4d800d7ea959787",
+      "body_bytes": 2302,
+      "body_sha256": "sha256:4bef2084b195fb2199c1ce568269172b69cb77d0c973edf8f5c74292763baff3",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6286,7 +6286,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1302323103122132-1203113111202003-2133211110002320-1232221120230211-3000113113333120-0301230011130031-3323002003223012-2333231221102112",
-      "registry_path": "docs/guides/resources--network_interface--reference--group-002.md",
+      "registry_path": "docs/guides/resources--network_interface--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-layer2_interface--l2vlan_slo_interface--vlan_id",
@@ -6331,8 +6331,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2261,
-      "body_sha256": "sha256:127cedf2c19fecd2dcb1d15056c8f0665d0b1d93a3c86351957d16ba420b71ea",
+      "body_bytes": 2012,
+      "body_sha256": "sha256:73aa03ed055c4da2f233f6580b5ae423a353e4ce9b8f49e1f0e9f3b4d8bfb44e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6352,7 +6352,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1303132311333210-1221330012020213-1122223010233002-0030303311010230-0011322330320102-3132110020230113-0221222223121302-3210013332102313",
-      "registry_path": "docs/guides/resources--network_interface--reference--group-002.md",
+      "registry_path": "docs/guides/resources--network_interface--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -6471,8 +6471,8 @@
     },
     {
       "aliases": ["tunnel interface"],
-      "body_bytes": 6598,
-      "body_sha256": "sha256:38200f9b3b7017e0bef101339020aac748c624c08d47006bc6be7e3333388395",
+      "body_bytes": 5288,
+      "body_sha256": "sha256:e24b9ef9b1dc97aa2631c5c0cbd4745b7e537f3477c2fb472b288064516d433f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -6497,7 +6497,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0031231223100101-0221202300220330-0013311301301203-3301232310130302-2330031103323032-2221301010223301-3302220320030311-3202002232312200",
-      "registry_path": "docs/guides/resources--network_interface--reference--group-002.md",
+      "registry_path": "docs/guides/resources--network_interface--reference--group-001.md",
       "relationships": [
         {
           "anchor": "section",
@@ -6672,8 +6672,8 @@
     },
     {
       "aliases": ["tunnel interface site local inside network"],
-      "body_bytes": 1332,
-      "body_sha256": "sha256:996dbfb50bbad83557ef57ad85ea83c03615a15317efb8369352c792e3fcc087",
+      "body_bytes": 1053,
+      "body_sha256": "sha256:0ac43cd5de22760a9a01b6ec630b0d3d0dce7820cf58e91b9b8e28bc2809cc57",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6693,7 +6693,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3332021022121001-1113213123220212-3032323321111222-0323303113201322-1212202301332212-2330102000122331-0113111331332212-0222031123322201",
-      "registry_path": "docs/guides/resources--network_interface--reference--group-002.md",
+      "registry_path": "docs/guides/resources--network_interface--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -6712,8 +6712,8 @@
     },
     {
       "aliases": ["tunnel interface site local network"],
-      "body_bytes": 1311,
-      "body_sha256": "sha256:9d8a633d93925eec99bcae8561e337d4fa8bd4bfc8c2883d82daaede4face814",
+      "body_bytes": 1032,
+      "body_sha256": "sha256:b9a9b95a9a01a2373a4cffd027f9a11dd3493136d37007d54954d4740482a918",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6733,7 +6733,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3212113202201030-2202333120032003-3031302320112300-2311223300103221-1313002220323323-2010130030213203-1131231031332120-0030230321133032",
-      "registry_path": "docs/guides/resources--network_interface--reference--group-002.md",
+      "registry_path": "docs/guides/resources--network_interface--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -6752,8 +6752,8 @@
     },
     {
       "aliases": ["tunnel interface static ip"],
-      "body_bytes": 2347,
-      "body_sha256": "sha256:65c8c3c8d0dd999b8a1ac1d388fc45e6df9ab8c2abd849b6bc71f75baaeba42e",
+      "body_bytes": 1651,
+      "body_sha256": "sha256:6f5b10a3c29d8371eabb4c4faae7b64c97b886511800e3289f5aa58dbd5e8b89",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -6776,7 +6776,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3000301202120000-2120302233320331-1032223120223111-2120030310022133-0301211132223101-1120232202101331-0120120333222230-2033213332133001",
-      "registry_path": "docs/guides/resources--network_interface--reference--group-002.md",
+      "registry_path": "docs/guides/resources--network_interface--reference--group-001.md",
       "relationships": [
         {
           "anchor": "section",
@@ -6854,8 +6854,8 @@
     },
     {
       "aliases": ["tunnel interface static ip cluster static ip"],
-      "body_bytes": 3208,
-      "body_sha256": "sha256:f59d79749b474699e65de74198d88a239eb2c8bc1c3dc05d893546d9eac4f2ad",
+      "body_bytes": 2924,
+      "body_sha256": "sha256:6f959374477373792526e7f56e44d33103379efa8c43414930d699198771db56",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6911,8 +6911,8 @@
     },
     {
       "aliases": ["tunnel interface static ip node static ip"],
-      "body_bytes": 4135,
-      "body_sha256": "sha256:77bbebb00fe4ebbc4c89be5878b3937e3e4114ab883e136aedebb0c43260a2f5",
+      "body_bytes": 3792,
+      "body_sha256": "sha256:88eb3feadc20324039fb5da970a91ccf1d5d6a752ede1eb6f218b34104a0fd99",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -7009,8 +7009,8 @@
     },
     {
       "aliases": ["tunnel interface tunnel"],
-      "body_bytes": 6178,
-      "body_sha256": "sha256:88167300c0e261d088ebbfc657bf5f0579b6098df7940a1fd5ac2052d2e6507b",
+      "body_bytes": 5241,
+      "body_sha256": "sha256:2ffb1f566243b887ca0a8d66cdc07e50a4b16bf044a4c51906c6eb2d24ab5820",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -7128,8 +7128,8 @@
     },
     {
       "aliases": ["network interface"],
-      "body_bytes": 663,
-      "body_sha256": "sha256:7f66372e9d1e9bd012a23d6d3732c3557c484e0017144266982f518b0c010098",
+      "body_bytes": 417,
+      "body_sha256": "sha256:a76e257a600620cedc5bac11454ec06c5f4f5713dd342edbfba998c657e8eb99",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:network_interface:example:resource"],
@@ -7168,8 +7168,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1360,
-      "body_sha256": "sha256:eb0b32d92718c74d01dbc03c75564ec92ed14a5388834871380963f46da54e56",
+      "body_bytes": 1123,
+      "body_sha256": "sha256:3ff3fea514459c1670c0a84e2eef81ef15fe657f0a51c76090ae9f849ba88c82",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -7215,8 +7215,8 @@
     },
     {
       "aliases": ["network interface"],
-      "body_bytes": 505,
-      "body_sha256": "sha256:fb352fe6942e0fc14e68f98859cc73bff1ebcc31410c39be0e5aa7baba4582ea",
+      "body_bytes": 376,
+      "body_sha256": "sha256:83b50a12a39c30c303ab3992a5bf66ea33cc4c97fb5043cf4646f6e2fecd6771",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -7256,8 +7256,8 @@
     },
     {
       "aliases": ["network interface"],
-      "body_bytes": 593,
-      "body_sha256": "sha256:fe73d1479848da034df205fa1cd1522cee0810c170ab9d732f96a65f83f8c9b8",
+      "body_bytes": 464,
+      "body_sha256": "sha256:c63dcf5c89d2c5718b95965084e6d9e9705d8e9d5c86027af88a67de803541c6",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],

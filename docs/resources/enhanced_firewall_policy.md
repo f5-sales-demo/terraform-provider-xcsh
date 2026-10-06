@@ -1,10 +1,10 @@
 ---
-page_title: "xcsh_enhanced_firewall_policy landing"
+page_title: "xcsh_enhanced_firewall_policy"
 subcategory: ""
-description: "Complete grouped canonical reference for xcsh_enhanced_firewall_policy landing."
+description: "Complete grouped canonical reference for xcsh_enhanced_firewall_policy."
 ---
 
-# xcsh_enhanced_firewall_policy landing
+# xcsh_enhanced_firewall_policy
 
 <a id="canonical-0230122003121113-2121322323013210-0332210003313031-3130130121001020-0320301310111013-2131011113313110-1232313200113310-3023330120001120"></a>
 
@@ -12,26 +12,24 @@ description: "Complete grouped canonical reference for xcsh_enhanced_firewall_po
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0321003301132132-0013110203021102-1223110222123030-2203020123322210-0201320210220002-1333311003303110-2120102123022123-2232030010302300"></a>
-
-## xcsh_enhanced_firewall_policy — xcsh_enhanced_firewall_policy / 310232200013 / 2
+## Overview
 
 Breadcrumbs:
 
 - xcsh_enhanced_firewall_policy
 
-Manages a Enhanced Firewall Policy resource in F5 Distributed Cloud for enhanced firewall policy
+Manages an Enhanced Firewall Policy resource in F5 Distributed Cloud for enhanced firewall policy
 specification. configuration.
 
-<a id="canonical-1012130223132300-1213031022302103-1121313102220201-1210003303112101-0131311200002303-2123031210010312-3300233300033321-2331331103210133"></a>
+<a id="canonical-0321003301132132-0013110203021102-1223110222123030-2203020123322210-0201320210220002-1333311003303110-2120102123022123-2232030010302300"></a>
 
-## Prerequisites — xcsh_enhanced_firewall_policy / 310232200013 / 3
+### Prerequisites for `xcsh_enhanced_firewall_policy`
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-2103303013233103-2302231233210123-2310003303232120-3022320233121323-3121012201002302-1233102132133112-3223233133302213-3103131300221220"></a>
+<a id="canonical-1012130223132300-1213031022302103-1121313102220201-1210003303112101-0131311200002303-2123031210010312-3300233300033321-2331331103210133"></a>
 
-## Minimal configuration — xcsh_enhanced_firewall_policy / 310232200013 / 4
+### Minimal configuration for `xcsh_enhanced_firewall_policy`
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,15 +55,15 @@ resource "xcsh_enhanced_firewall_policy" "example" {
 }
 ```
 
-<a id="canonical-1322213300011313-0003331310010033-2012331120232022-3130132230320033-1303321110103101-0130212202322100-3302331120113013-3021122200013020"></a>
+<a id="canonical-2103303013233103-2302231233210123-2310003303232120-3022320233121323-3121012201002302-1233102132133112-3223233133302213-3103131300221220"></a>
 
-## Root configuration — xcsh_enhanced_firewall_policy / 310232200013 / 5
+### Root configuration for `xcsh_enhanced_firewall_policy`
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-1103320311320121-2310003021023202-2301011221213323-3212031330001131-0233203002112102-1201011113301221-3222131100332113-1211331213031133"></a>
+<a id="canonical-1322213300011313-0003331310010033-2012331120232022-3130132230320033-1303321110103101-0130212202322100-3302331120113013-3021122200013020"></a>
 
-## Next pages — xcsh_enhanced_firewall_policy / 310232200013 / 6
+### Explore this collection for `xcsh_enhanced_firewall_policy`
 
 - [Property reference](../guides/resources--enhanced_firewall_policy--reference--group-001.md#canonical-3120211302012031-2120323122122020-0210103121120212-1321311022000233-2100211332133033-0032332233212111-3203333123232212-3220222311000331)
 - [Examples](../guides/resources--enhanced_firewall_policy--examples--group-001.md#canonical-0300121330133313-2033001313033321-1102113313303112-3122233131133213-3012030223103201-1312010030303003-3313002333002221-0002221303031112)

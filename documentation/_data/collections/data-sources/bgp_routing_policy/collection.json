@@ -136,8 +136,8 @@
   "pages": [
     {
       "aliases": ["bgp routing policy"],
-      "body_bytes": 1552,
-      "body_sha256": "sha256:265787bae4f43400947dcc119e825c4e7b6141a705d1f9a62fbba968c5242cce",
+      "body_bytes": 1415,
+      "body_sha256": "sha256:6f0b1ca83b49321e5fd21cb8eddbffbd6990bb5cee7cf18a21833660ee1966ad",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -168,7 +168,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a BGP Routing Policy resource in F5 Distributed Cloud for bgp routing policy is a list of rules containing match criteria and action to be applied. these rules help control routes which are imported or exported to bgp peers. configuration.",
+      "summary": "Reads BGP routing rules with match criteria and actions that control imported or exported routes.",
       "tasks": ["configuration"],
       "title": "xcsh_bgp_routing_policy",
       "unresolved_relationships": [],
@@ -180,8 +180,8 @@
     },
     {
       "aliases": ["bgp routing policy"],
-      "body_bytes": 11716,
-      "body_sha256": "sha256:a3e844464806c926750a1d029865ec947a6a860edd44772527c6d62106caa542",
+      "body_bytes": 11500,
+      "body_sha256": "sha256:6ef5a362bf4136fe6aa5e6c2f0a7b065610edcf3c39eb56af54d2499055b0b53",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:bgp_routing_policy:properties:rules"],
@@ -333,8 +333,8 @@
     },
     {
       "aliases": ["rules"],
-      "body_bytes": 2455,
-      "body_sha256": "sha256:59e5ebb23389be7a2d2af3491d762d34900bd1a3f120c7b37cd14f356b3196e4",
+      "body_bytes": 1783,
+      "body_sha256": "sha256:4e6f7e276cde5124919fc311e29744258e4be6de888a628444f79affc67ee85c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -409,8 +409,8 @@
     },
     {
       "aliases": ["rules action"],
-      "body_bytes": 4048,
-      "body_sha256": "sha256:3235eee63ea3e9f7d27070c27da2264d9983856f78855c5dddd7e5a5c2baa280",
+      "body_bytes": 2890,
+      "body_sha256": "sha256:86a77566ac77792510a817712434f8f1b9e6dca7d7a18534e13bedfe32437a6c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -550,8 +550,8 @@
     },
     {
       "aliases": ["rules action allow"],
-      "body_bytes": 1339,
-      "body_sha256": "sha256:bc49230c13a1277c1527a6614ba3088b6edc2eddc1c481e563dc0ba2c1667baa",
+      "body_bytes": 1059,
+      "body_sha256": "sha256:89f01e0267e87e55aa0d28782b0cf5da331f6488c97ccf776d34f404e563f7d3",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -590,8 +590,8 @@
     },
     {
       "aliases": ["rules action community"],
-      "body_bytes": 2782,
-      "body_sha256": "sha256:891fb172cb3b1cf94f1594470e70124bda513f47dfdde1c9e5fdb73384580057",
+      "body_bytes": 2337,
+      "body_sha256": "sha256:253642acf23896c58bb8e3ea5a805415bec4b517f301ce40629790792a0a9cbd",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -647,8 +647,8 @@
     },
     {
       "aliases": ["rules action deny"],
-      "body_bytes": 1337,
-      "body_sha256": "sha256:901e791994ddcce31041dff9f06dbdd788bae0c92782fa61fc78c2fa0b0f95ff",
+      "body_bytes": 1057,
+      "body_sha256": "sha256:7ca4160fbb91a80c8c29b9279e3569284ab97234a48eacf5296c4abfec096687",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -687,8 +687,8 @@
     },
     {
       "aliases": ["rules match"],
-      "body_bytes": 2583,
-      "body_sha256": "sha256:07fdcf37f6d595436ef7beb57856057a18ea6b74d09d68b24eabc7d486b95068",
+      "body_bytes": 1886,
+      "body_sha256": "sha256:b2d27dc047aa171eeb3a7348ab5495c94eb542a99572e0015e55d858795c5200",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -779,8 +779,8 @@
     },
     {
       "aliases": ["rules match community"],
-      "body_bytes": 2775,
-      "body_sha256": "sha256:7d6dbedfb65bb5512ea2affae7e939daadfcc3c06817ae79615c1c825ee942ed",
+      "body_bytes": 2332,
+      "body_sha256": "sha256:249d96783cc86fb4c32db9982742c148ecfd0f81046f2848099827a4c4d1631a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -836,8 +836,8 @@
     },
     {
       "aliases": ["rules match ip prefixes"],
-      "body_bytes": 1576,
-      "body_sha256": "sha256:dbe4998ae133a73e28fda7343e360dd2c67a49426ca5affd09125be50008f572",
+      "body_bytes": 1142,
+      "body_sha256": "sha256:8de7c68596f04f3301947c424bf5e2305dab94c3cbde30878d29a32480f2a749",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes"],
@@ -893,8 +893,8 @@
     },
     {
       "aliases": ["rules match ip prefixes prefixes"],
-      "body_bytes": 4190,
-      "body_sha256": "sha256:ead15211944927c7b12d8370051c923bda8a67efa541ee5ba7a977e12aa6bffa",
+      "body_bytes": 3200,
+      "body_sha256": "sha256:70fd1c0773d3f9104241ec7162e126452f06ac14431e6db4450c3af760c69425",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1002,8 +1002,8 @@
     },
     {
       "aliases": ["rules match ip prefixes prefixes equal or longer than"],
-      "body_bytes": 1802,
-      "body_sha256": "sha256:dbc1dace33947a346d3de530bebd121d6d817fdbb70e73830bbe1948487074b6",
+      "body_bytes": 1482,
+      "body_sha256": "sha256:c770b2b39ec37921d108ffea04319826907f4577db411175619389c085867011",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1042,8 +1042,8 @@
     },
     {
       "aliases": ["rules match ip prefixes prefixes exact match"],
-      "body_bytes": 1775,
-      "body_sha256": "sha256:3672f4779e88a365985ed002aa3e3f0297f159ac3cd23b41da32612ba621b843",
+      "body_bytes": 1455,
+      "body_sha256": "sha256:66e2cfc2efe7668492da4d1d2a031704fbeaae6324aaf67584878c6aba46d50c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1082,8 +1082,8 @@
     },
     {
       "aliases": ["rules match ip prefixes prefixes longer than"],
-      "body_bytes": 1775,
-      "body_sha256": "sha256:6ee977680f079e59cbc61d1c786a0669090772c65d5136fbb2f41f018e14d396",
+      "body_bytes": 1455,
+      "body_sha256": "sha256:bd1de41b0c1e31b05301513b67da626572503c9d000593549cd95f92177b5f0a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1122,8 +1122,8 @@
     },
     {
       "aliases": ["bgp routing policy"],
-      "body_bytes": 693,
-      "body_sha256": "sha256:822110c703aa6387662264f8fde530be1197e7051abf89ae978994a199623802",
+      "body_bytes": 432,
+      "body_sha256": "sha256:e279319aea207589515b6dd40a9f859f4f78d273b03ffd1156c9c3612c78d424",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:bgp_routing_policy:example:data-source"],
@@ -1162,8 +1162,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1355,
-      "body_sha256": "sha256:37f21768288e516d2b92a6ef06b3774270bb76c306adc564b49a94e6624800e8",
+      "body_bytes": 1109,
+      "body_sha256": "sha256:392c9af9a93777045bb2677bd3e726d74aa1f609957177227feebe3d4e5fccd1",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],

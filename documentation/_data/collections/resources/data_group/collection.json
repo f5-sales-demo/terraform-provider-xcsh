@@ -97,8 +97,8 @@
   "pages": [
     {
       "aliases": ["data group"],
-      "body_bytes": 1514,
-      "body_sha256": "sha256:91c3205d3fb5ab2807030af7790c0fb7bdbb231ee7563ab1b5ce62afe7b71280",
+      "body_bytes": 1527,
+      "body_sha256": "sha256:8d71c1bd662838849d2992bf3713e3c4ae8d645adbd948c9146124fc8d4326ae",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -143,8 +143,8 @@
     },
     {
       "aliases": ["data group"],
-      "body_bytes": 11339,
-      "body_sha256": "sha256:536b5684bb11c425dc4b9c30a7c5b577ff299173193ea5a0650f14475750a909",
+      "body_bytes": 10596,
+      "body_sha256": "sha256:9d6ed38364b8e64aa23f4071a172479a29f00ae44daa897ca855c6a0106fb351",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -365,8 +365,8 @@
     },
     {
       "aliases": ["address records"],
-      "body_bytes": 3599,
-      "body_sha256": "sha256:1f2d4fa156711456b871359406e8c0508e763c7c94ef76dd61bbb887500e22dc",
+      "body_bytes": 3250,
+      "body_sha256": "sha256:4a5325e9db82685d0f89955d02bfd129e29cbf25974eac3ff57c7e7caa8e1a18",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -422,8 +422,8 @@
     },
     {
       "aliases": ["integer records"],
-      "body_bytes": 2717,
-      "body_sha256": "sha256:c886a649b9b2f7d8e185262be06e8eaab37290b1c58030135abc33babb665989",
+      "body_bytes": 2436,
+      "body_sha256": "sha256:1099509e246385f0a57c5a8e9e3c45936358bcfdaedc9a4b207d4f470dbb746f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -479,8 +479,8 @@
     },
     {
       "aliases": ["string records"],
-      "body_bytes": 2669,
-      "body_sha256": "sha256:7702ebadba18a6b8312ae379a539cd0512478801188e093d0943a53b0395c031",
+      "body_bytes": 2388,
+      "body_sha256": "sha256:1cdb4f1dce170c8e397b5031322f00b9159de00c04e220987ca6a68f927e5bf3",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -536,8 +536,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2219,
-      "body_sha256": "sha256:3a1059179273db518ae8657810776b481fa3794fa17d683d446c51338c59299a",
+      "body_bytes": 1991,
+      "body_sha256": "sha256:27085e5607607d31985e04627a2bcb424e1a51af08d6b64cd61fa1f59a05bab0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -676,8 +676,8 @@
     },
     {
       "aliases": ["data group"],
-      "body_bytes": 621,
-      "body_sha256": "sha256:83cfa44905d3731d563fcb5d816fc68431bc2575b9c2fcfbeca36c033e63065c",
+      "body_bytes": 396,
+      "body_sha256": "sha256:e266cdc23a15d462a1615ce14fce6f2192e4ed8269e7be78971a77f42112da39",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:data_group:example:resource"],
@@ -716,8 +716,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1195,
-      "body_sha256": "sha256:bee7c8651cfb517fe95c2225c3721f410dcd3389a6b919beb86c133c4af34888",
+      "body_bytes": 979,
+      "body_sha256": "sha256:7acd1555d79d1c166d8c50adbf1badbae0581c9798b0bc827b394d28b67400ca",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -763,8 +763,8 @@
     },
     {
       "aliases": ["data group"],
-      "body_bytes": 470,
-      "body_sha256": "sha256:0801e25fd8ec37a5bd6469586894bec254cc4a9c0d2f8a5d6047127f615f9313",
+      "body_bytes": 355,
+      "body_sha256": "sha256:d3da5306a98ff312c3737d343c2d27541ad2d976566d9a61bff6c2fd607f1074",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -804,8 +804,8 @@
     },
     {
       "aliases": ["data group"],
-      "body_bytes": 558,
-      "body_sha256": "sha256:b29d419692d1943dcdb3f00283ee7390b20d0d8cfa6eb9d7516620a3b10622b4",
+      "body_bytes": 443,
+      "body_sha256": "sha256:5855bce0f9e33981e9d29dfd7f3048c4915d1c96cbaa85cbf3450802d1641c55",
       "capabilities": [],
       "category": null,
       "child_ids": [],

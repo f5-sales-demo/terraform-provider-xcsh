@@ -21,8 +21,8 @@
   "pages": [
     {
       "aliases": ["access active session terminate"],
-      "body_bytes": 1397,
-      "body_sha256": "sha256:241e52a228834e9a85f07538c480113306f5ce68900d5c83460eb745fb8e78de",
+      "body_bytes": 1443,
+      "body_sha256": "sha256:8980efaf82a3c406ea541773ebf2c9fb1bb1b2abc2955b71287d33e3d225d097",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -54,7 +54,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/access_active_session_terminate/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource deletion operation.",
+      "summary": "Terminates one active access session in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_access_active_session_terminate",
       "unresolved_relationships": [],
@@ -66,8 +66,8 @@
     },
     {
       "aliases": ["access active session terminate"],
-      "body_bytes": 1235,
-      "body_sha256": "sha256:ce7411f24c98bb70998d50b24a3139976dff93f94483a5f3fd388fa11157e8f3",
+      "body_bytes": 1080,
+      "body_sha256": "sha256:c5480f4d78fd50ed89e9c42c392ed36a4d70597fc2eaf0f9849a4f1727846a06",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -139,8 +139,8 @@
     },
     {
       "aliases": ["access active session terminate"],
-      "body_bytes": 731,
-      "body_sha256": "sha256:541bfc0f190c0fab32792ab98c06fb45fdc3042010c66374b9485fdc36fa9f3e",
+      "body_bytes": 451,
+      "body_sha256": "sha256:6046b4cfd93a8bc1da29cfcb4540df4fa4adb3b7b3467ba29f3ccfa41c40154d",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:actions:access_active_session_terminate:example:action"],
@@ -179,8 +179,8 @@
     },
     {
       "aliases": ["action"],
-      "body_bytes": 1308,
-      "body_sha256": "sha256:24eba07232aa25b6f07f586bf13069d2559bbf807ffc528e47abaa55ade97797",
+      "body_bytes": 1033,
+      "body_sha256": "sha256:b736ae6b337c5688b3d5c2a674e6ee98d679cf2440327be10aed897b2e9aaaca",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -226,8 +226,8 @@
     },
     {
       "aliases": ["access active session terminate"],
-      "body_bytes": 674,
-      "body_sha256": "sha256:2e687b66d372bc1cb67cbb5014a6892efb90f22352df3088a856ad89c623943d",
+      "body_bytes": 519,
+      "body_sha256": "sha256:a8445f678d31cbf158de0705e525c69d86f639784acef2f431d98213df2e30c0",
       "capabilities": [],
       "category": null,
       "child_ids": [],

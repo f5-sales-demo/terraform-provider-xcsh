@@ -633,8 +633,8 @@
   "pages": [
     {
       "aliases": ["cdn cache rule"],
-      "body_bytes": 1604,
-      "body_sha256": "sha256:38f89ad102db06b62826fee69cdde8f989806b76ea85c4b51886beb31b2e3984",
+      "body_bytes": 1617,
+      "body_sha256": "sha256:fef4b962ab694459eecbc745afe6e2a8af7208d8ca6c057a18ca46b4d35865a9",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -679,8 +679,8 @@
     },
     {
       "aliases": ["cdn cache rule"],
-      "body_bytes": 34970,
-      "body_sha256": "sha256:05c87c73a146090f228f8c0f9288cbe892674ad1f109b0564d8b20f0ee2a6a34",
+      "body_bytes": 34469,
+      "body_sha256": "sha256:fdd3a24a96b7181d73455b95197d3c67dcfa0d76c60d83a062cde324b7f60e33",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -900,8 +900,8 @@
     },
     {
       "aliases": ["cache rules"],
-      "body_bytes": 3528,
-      "body_sha256": "sha256:bc1be2d54a1ea1424e7cd175ce844af9d34937f27a26c45a34801dd986ae0b53",
+      "body_bytes": 2713,
+      "body_sha256": "sha256:3ff1d76efd2a806e9437416733f493fa12d44465956f8ca1589ae4e1754e2a9a",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -1076,8 +1076,8 @@
     },
     {
       "aliases": ["cache bypass", "cache rules cache bypass", "no cache"],
-      "body_bytes": 1265,
-      "body_sha256": "sha256:3bf88beac526ef057cd0cbec718ba8656fb062ffd207c5658c547f042c362dfd",
+      "body_bytes": 1005,
+      "body_sha256": "sha256:5cb59eb2cd051a48bc14ced05e6172c35fc811c38f7a4cf1f43b3ef37effd4c0",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -1116,8 +1116,8 @@
     },
     {
       "aliases": ["cache rules eligible for cache"],
-      "body_bytes": 2442,
-      "body_sha256": "sha256:50f867d8a5eacde2a64b7bdad65af6efa92a086cacb12a475e1df0084fd87fb3",
+      "body_bytes": 1780,
+      "body_sha256": "sha256:22cab9916191cbf4f9ca4f68b65cee6fee58225007508f23e9bd6c03e8220739",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -1227,8 +1227,8 @@
     },
     {
       "aliases": ["cache rules eligible for cache scheme proxy host request uri"],
-      "body_bytes": 3822,
-      "body_sha256": "sha256:f8869ea46dfaba963c2f3335347aaa6370567c0ef6defa1b9caa4d455e7633e6",
+      "body_bytes": 3254,
+      "body_sha256": "sha256:a0352e7be03c6e9834854cc81d4208e3842ed3639dfe46b2f53b3aae2079aa86",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -1330,8 +1330,8 @@
     },
     {
       "aliases": ["cache rules eligible for cache scheme proxy host uri"],
-      "body_bytes": 3774,
-      "body_sha256": "sha256:b0cabaf46846eb225249681fbf6d08eb0bda50a45930e5091bfdc7fe0d3ab424",
+      "body_bytes": 3206,
+      "body_sha256": "sha256:2bfa9174a4a663eb0d040352c2b9cb04a453ce9afc276d5d0b38a13266f508b9",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -1428,8 +1428,8 @@
     },
     {
       "aliases": ["cache rules rule expression list"],
-      "body_bytes": 3941,
-      "body_sha256": "sha256:5e5f21bb3ea86216265d1e27703218d5b3422cf34b53e3c7fa76e9e466becefd",
+      "body_bytes": 3340,
+      "body_sha256": "sha256:eb0334e5d4ef585dea73c47d30613551db9cf65f034ec8a67b217a8fe353a25b",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -1520,8 +1520,8 @@
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression"],
-      "body_bytes": 4069,
-      "body_sha256": "sha256:5437e5a8073fbd3f146696f88e77bd275a775b397c21c980ad029b5bf24c64f4",
+      "body_bytes": 2836,
+      "body_sha256": "sha256:087c34f79c89fb4f18ccce724dd6a6fae0d75f450246dbb5a737f3f4749e3879",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -1648,8 +1648,8 @@
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression cache headers"],
-      "body_bytes": 4485,
-      "body_sha256": "sha256:5112a9753704d01306d69202238dd8730b523f6e9f3a186c60a77baf86504493",
+      "body_bytes": 3544,
+      "body_sha256": "sha256:00020ddd0ed11504787ccbe04a7bcb9d734c1eee6c3af765ad0b25b2ecb209a2",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -2309,8 +2309,8 @@
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression cache headers operator"],
-      "body_bytes": 8392,
-      "body_sha256": "sha256:38375fa9b00923165165d46791a9062c43d167f72776a4b2f25bc927ff6bdade",
+      "body_bytes": 8033,
+      "body_sha256": "sha256:b4c248b24e1d0579f1259b217c248ed88c100c3c909b9989a08ed54f10876610",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -3138,8 +3138,8 @@
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression cookie matcher"],
-      "body_bytes": 5294,
-      "body_sha256": "sha256:38c60bb2f87e97dba9fd773c265aa6d1b9420acf01ff99ad80af55ec4757aca1",
+      "body_bytes": 4360,
+      "body_sha256": "sha256:6b12892d8055b819a622e65d915851be6b060346a09a52d8004bf20c7bab269f",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -3799,8 +3799,8 @@
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression cookie matcher operator"],
-      "body_bytes": 8422,
-      "body_sha256": "sha256:92699ce56a4cca69fecc92c3e0d3677418caffbfeaac42fcb2da7219cdf26f88",
+      "body_bytes": 8061,
+      "body_sha256": "sha256:a29456edabfe8153434913482d830301812164114775feed0304844135447dc7",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -4630,8 +4630,8 @@
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression path match"],
-      "body_bytes": 2227,
-      "body_sha256": "sha256:e3caf1afafb2097dbf2305003851b4504bc7927f520ac29cdef54360843125be",
+      "body_bytes": 1648,
+      "body_sha256": "sha256:9880d589096e502d82760eb9067e41f823d4e477e1f40f05cb3b98827929b95a",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -5266,8 +5266,8 @@
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression path match operator"],
-      "body_bytes": 8450,
-      "body_sha256": "sha256:6d5601b602814466912db6a24c756cfe9c6943944629b492fa57dec6b1e1c06b",
+      "body_bytes": 8097,
+      "body_sha256": "sha256:bafcb44639bf7b577d280da8ddcf29fb3566c27c2bc1534f212b1774f1bcda5b",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -6091,8 +6091,8 @@
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression query parameters"],
-      "body_bytes": 4323,
-      "body_sha256": "sha256:cd0cfa100b4d64d9b88d234c8f73864231b0dedb761df985a088c969a75a56dc",
+      "body_bytes": 3669,
+      "body_sha256": "sha256:439891175bec997287617d775335b215fad2dd49fcf9506d0228cbc93a7e8890",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -6758,8 +6758,8 @@
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression query parameters operator"],
-      "body_bytes": 8533,
-      "body_sha256": "sha256:2ad6e8e2b13f7e5f046a66a03297fe8b021bf17f11734353a6d348e1068067ca",
+      "body_bytes": 8168,
+      "body_sha256": "sha256:08df3494b7cb8cb05bfe75a199530c1653e4c798845aa40089a5608b97174d5b",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -7591,8 +7591,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2243,
-      "body_sha256": "sha256:07066dacc8bfd9bba1fae166d8f2a28ef9b57068a402b3d855158165be19f0cd",
+      "body_bytes": 2003,
+      "body_sha256": "sha256:14b6f9d9b490f14ec40a219855b03e2ee650ae79233e2ef4f989c3b30909af21",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -7731,8 +7731,8 @@
     },
     {
       "aliases": ["cdn cache rule"],
-      "body_bytes": 645,
-      "body_sha256": "sha256:9d30bf0babbd6d23a39173c561e7a8fd14977e118eff9a60272ff63a974a9aed",
+      "body_bytes": 408,
+      "body_sha256": "sha256:5bb556d0ff7844003aa947dd30a671f3edc3743a530496486d1654acf8e4a246",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": ["xcsh-docs:resources:cdn_cache_rule:example:resource"],
@@ -7771,8 +7771,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1290,
-      "body_sha256": "sha256:94ec9a66b51b9f36de56424a9088cac61cd8f7e3589cc62875d67aeb1d0a1405",
+      "body_bytes": 1062,
+      "body_sha256": "sha256:75bcdf6df1c5befe41dee131c7477acc4334fcff903376f1ea525907e6b3b74b",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -7818,8 +7818,8 @@
     },
     {
       "aliases": ["cdn cache rule"],
-      "body_bytes": 490,
-      "body_sha256": "sha256:58c8e28eab9bb69bee48af72cd15c8609a1b24f5221ef2093b496d2e10267c26",
+      "body_bytes": 367,
+      "body_sha256": "sha256:442d14496a360e255eb7a9e497ee6dfd2a9cc12ff731ab220822e3ec4d2b1a1d",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -7859,8 +7859,8 @@
     },
     {
       "aliases": ["cdn cache rule"],
-      "body_bytes": 578,
-      "body_sha256": "sha256:41a24a4fb8007a1e7785eddec112ae1f36d34a674b6578af409b71b2007808a8",
+      "body_bytes": 455,
+      "body_sha256": "sha256:d42b569146360dcb595605c4b6bbccac5f09b875602bcd34b68c48e55b659f42",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],

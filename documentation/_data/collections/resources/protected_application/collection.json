@@ -1521,8 +1521,8 @@
   "pages": [
     {
       "aliases": ["protected application"],
-      "body_bytes": 1615,
-      "body_sha256": "sha256:18704554f42378c2ce2c5b1a3d42cbd1478ca81353532b17500f74cbd8daa744",
+      "body_bytes": 1628,
+      "body_sha256": "sha256:7d8de8ca1f6be07a6ac903d1fff71de32e3eac05e9b3856676e8556b9ee07622",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -1567,8 +1567,8 @@
     },
     {
       "aliases": ["protected application"],
-      "body_bytes": 94329,
-      "body_sha256": "sha256:320e91ce33941b478c7e3873fae7f99814fa692775c04e6b95ab5a73e2bfafba",
+      "body_bytes": 92769,
+      "body_sha256": "sha256:948af907af1f3e8650a8d888cffadd0be3db213bbe415d3767b1ea96e1481a0d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -2076,8 +2076,8 @@
     },
     {
       "aliases": ["adobe commerce connector"],
-      "body_bytes": 2475,
-      "body_sha256": "sha256:cc5055cd366991fcf30c84d0585a467020fa8d0364e47c252d8b243131e51896",
+      "body_bytes": 2199,
+      "body_sha256": "sha256:33281168e9dfb73520bdaa296d2ae5c1d1a3ee0f30e89cc145276d15d4b69b92",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -2116,8 +2116,8 @@
     },
     {
       "aliases": ["big ip iapp"],
-      "body_bytes": 1130,
-      "body_sha256": "sha256:8ab0abb3e2acddbc25a0041244420b61889a16536293957697d1b6a524a78b6e",
+      "body_bytes": 854,
+      "body_sha256": "sha256:2d2e508accf4571214a9415d24d95de085da03620c370f6d972649e0c4680ac8",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -2156,8 +2156,8 @@
     },
     {
       "aliases": ["cloudflare"],
-      "body_bytes": 8390,
-      "body_sha256": "sha256:0dcd9442eba4f455a9be73711e65f22c6d3ceeee33d10462a99c44bd92851c9e",
+      "body_bytes": 6505,
+      "body_sha256": "sha256:9391ca1e266142ac265e9b85486225ba3686433a0475158d42d2e06c38a72db6",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -2546,8 +2546,8 @@
     },
     {
       "aliases": ["cloudflare disable js insert", "disable js insert", "no javascript insertion"],
-      "body_bytes": 1328,
-      "body_sha256": "sha256:2c153866f04061077b009f03d1f2daca904494e15f8374ca8a2fe1d57694edfc",
+      "body_bytes": 1049,
+      "body_sha256": "sha256:71deb02533757dd5f498b4a5df9bb5b1c9fe10b249158c8c311ec89de5e164cd",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -2586,8 +2586,8 @@
     },
     {
       "aliases": ["cloudflare disable mobile sdk", "disable mobile sdk", "no mobile sdk"],
-      "body_bytes": 1303,
-      "body_sha256": "sha256:d8692aea6acbbce60fe216206f79d1cf510fe6fa717750fb8b67fa709efc9d51",
+      "body_bytes": 1024,
+      "body_sha256": "sha256:edc5f52a02bdec08a1eb0edfb28d96375325280c194f265c6411d413f40c26f4",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -2626,8 +2626,8 @@
     },
     {
       "aliases": ["cloudflare js insertion rules"],
-      "body_bytes": 5109,
-      "body_sha256": "sha256:d236078fd96ecd39d2bae58b8687e25c27b3476ddcb48208991e8158b2f84901",
+      "body_bytes": 3930,
+      "body_sha256": "sha256:6c10098006447a300dc663c04f8976304662705e394f6695119921c1b1760d0b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -2834,8 +2834,8 @@
     },
     {
       "aliases": ["cloudflare js insertion rules exclude list"],
-      "body_bytes": 3881,
-      "body_sha256": "sha256:7d1c0ae845d694187b97e891efc6e200dba4fc00f76616210a5c02e1b360e06d",
+      "body_bytes": 2751,
+      "body_sha256": "sha256:bcc2a22bb4fe835aa6e3b6d444c77774eb9d600776d25df7464eb806ef329055",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -3068,8 +3068,8 @@
     },
     {
       "aliases": ["cloudflare js insertion rules exclude list any domain"],
-      "body_bytes": 1763,
-      "body_sha256": "sha256:75c44ca4bf25d3a6cc9f0381903d73304543e8affc0f374216ef6c2727f85ff8",
+      "body_bytes": 1420,
+      "body_sha256": "sha256:ef5bed5b993a7043ad26b93053f79be3c7f499be2c6641d12c56efd56abaa58f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -3108,8 +3108,8 @@
     },
     {
       "aliases": ["cloudflare js insertion rules exclude list domain"],
-      "body_bytes": 6363,
-      "body_sha256": "sha256:0a7f8adb4745c1d54723e12ef46ef9d830c8ad6d81210b961f5c1cee0d9a8b4c",
+      "body_bytes": 5844,
+      "body_sha256": "sha256:0c6a46ceb62556ea499831ec79619b2e139b943a5a5c7902dc2104720695c14e",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -3246,8 +3246,8 @@
     },
     {
       "aliases": ["cloudflare js insertion rules exclude list metadata"],
-      "body_bytes": 4696,
-      "body_sha256": "sha256:cade40714bdb677bb9359496ccbd649d3cc29fec41134441862a3d4faf0c4517",
+      "body_bytes": 3951,
+      "body_sha256": "sha256:321118e406ef6f07c7bcd1bb4c205513dd4aacec624a688ce9ef633d651a487f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -3328,8 +3328,8 @@
     },
     {
       "aliases": ["cloudflare js insertion rules exclude list path"],
-      "body_bytes": 6048,
-      "body_sha256": "sha256:619dc05520458f2492099936847aa44c3577a72dc08184b8909d467bc74e6368",
+      "body_bytes": 5386,
+      "body_sha256": "sha256:c588075a9c25c1e6e3e286e543126c4c4c89b96abb5a03c0541aba9d8e22d595",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -3466,8 +3466,8 @@
     },
     {
       "aliases": ["cloudflare js insertion rules rules"],
-      "body_bytes": 7866,
-      "body_sha256": "sha256:3b8cb79b0cd7739b4243f5c965e7d8e8882a3cefd31ff5d759926fd5b2a29567",
+      "body_bytes": 6626,
+      "body_sha256": "sha256:e4f835d94112480dd3273f38765a492fed9f8b5f997fe98f7b34fbfd60e0e27c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -3730,8 +3730,8 @@
     },
     {
       "aliases": ["cloudflare js insertion rules rules any domain"],
-      "body_bytes": 1721,
-      "body_sha256": "sha256:e7741224273e1f4aead6bf1869581a72d48f2df04f22ce87c80b7ecd51d2663e",
+      "body_bytes": 1392,
+      "body_sha256": "sha256:443b62b2511c63034ee3e8da182b9c3cafde059e721ed7709d1c98966b3b51fe",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -3770,8 +3770,8 @@
     },
     {
       "aliases": ["cloudflare js insertion rules rules domain"],
-      "body_bytes": 6300,
-      "body_sha256": "sha256:cae22597c9df9c13c00819820f989766c64ef4d82a04c1c3be27ca4ac6be518d",
+      "body_bytes": 5795,
+      "body_sha256": "sha256:8e50269fae479488edd166f3de61904230a0cd9245758b81b06ba88f1e171d73",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -3908,8 +3908,8 @@
     },
     {
       "aliases": ["cloudflare js insertion rules rules metadata"],
-      "body_bytes": 4640,
-      "body_sha256": "sha256:d68ab9d1d7df48684ddb853699b303705e15f13a088bcecd04268219018d6b60",
+      "body_bytes": 3909,
+      "body_sha256": "sha256:e2da6678edbcf1078985bce2a6d9c3bd05e17f0382f38c3e089bfda69bafd8b5",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -3990,8 +3990,8 @@
     },
     {
       "aliases": ["cloudflare manual js insert"],
-      "body_bytes": 2381,
-      "body_sha256": "sha256:7130f1f22f95d60d9fa288d0132be5f9b8baa43730b542d7e5a709ab01c88149",
+      "body_bytes": 1864,
+      "body_sha256": "sha256:a050e6f32cac734a9ce9f2da7dcda9de4ed5df8cc2c5494f242fa5931923a1e5",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -4047,8 +4047,8 @@
     },
     {
       "aliases": ["cloudflare mobile sdk config"],
-      "body_bytes": 1691,
-      "body_sha256": "sha256:c2b923b64e87071ee11d4f9894a95034bbc721358873b0ea789d28b464c965d9",
+      "body_bytes": 1178,
+      "body_sha256": "sha256:5d474457dd18095287711064439ebcd94d388c3b61b10f3c9a6f59914212f123",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -4106,8 +4106,8 @@
     },
     {
       "aliases": ["cloudflare mobile sdk config mobile identifier"],
-      "body_bytes": 1953,
-      "body_sha256": "sha256:b0364b0df8e4d0dc7a9d08934e38b0fdba1a31c45717af4b38affe91bba7e4fe",
+      "body_bytes": 1382,
+      "body_sha256": "sha256:849a64a905ccaaad6f38f01821398a352e2cbb107d314b87efbd4144dbcfd75d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -4190,8 +4190,8 @@
     },
     {
       "aliases": ["cloudflare mobile sdk config mobile identifier headers"],
-      "body_bytes": 7100,
-      "body_sha256": "sha256:cd0f7fa7b20e8e441378f1e6abaf563d548d6f7d48c935cf0f9d8de595bfbbe8",
+      "body_bytes": 6459,
+      "body_sha256": "sha256:a6e92016e273dd8d7d83588e41dbd358f29d53dfdaccb14e20e24ccb6b0727b2",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -4304,8 +4304,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints"],
-      "body_bytes": 8350,
-      "body_sha256": "sha256:e0fd4ed3bc15dfd017d975dc0e5db3d7f052d07ea8c2a3c016be1e3b85be4e0f",
+      "body_bytes": 6653,
+      "body_sha256": "sha256:5febf072ce73d414083ee2c5296e939e2dc3bace2fb30d6111065e5e2e175a31",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -4768,8 +4768,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints any domain"],
-      "body_bytes": 1526,
-      "body_sha256": "sha256:8fdeb8df2f050ec7c34c87cbec0a97e65d35f7f6b9b280fa84732da2354a0f87",
+      "body_bytes": 1207,
+      "body_sha256": "sha256:567be0c8de4b2031f26c70f9e9d40f3529a2935e8c739dded6247337b3d98511",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -4789,7 +4789,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1033311200213201-3332033221131111-2122101202012030-0220332233322202-2120211003233311-3213303210333212-2203003000022020-1313000303312232",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-002.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4808,8 +4808,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints domain"],
-      "body_bytes": 6087,
-      "body_sha256": "sha256:c1c60ffc2b4a78c7f59e796e257dd0d58495803e262add9be7535c2772c9b24f",
+      "body_bytes": 5592,
+      "body_sha256": "sha256:dd1cdb25860c49f6ca66d077f351be29db1d0e53a831ac55982a8b018a6f0c9e",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -4829,7 +4829,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3022333301023332-2020221211122132-2220331300033002-3210230122323122-0301223130033002-1110232320103200-2132211310223201-0323000301133331",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-002.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-cloudflare--protected_endpoints--domain--exact_value",
@@ -4946,8 +4946,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints metadata"],
-      "body_bytes": 4433,
-      "body_sha256": "sha256:73b13d233efca07005b74b59ef4eecfd0c7fc132b69b437a3e8a63747c64ad05",
+      "body_bytes": 3712,
+      "body_sha256": "sha256:c471cef17b40afbabd776b937d0864a67867987b3bafd55bf646c5a3ecc7c330",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -4967,7 +4967,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0313013122021223-2132102100230101-1111201212133020-3103013102302032-0010021223220331-1202010100113100-3003121222312133-2303311000323323",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-002.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-cloudflare--protected_endpoints--metadata--name",
@@ -5028,8 +5028,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints mobile client"],
-      "body_bytes": 2606,
-      "body_sha256": "sha256:062567613d8f8d6856aedad71ebd41afd4179880220b849daa0c43f05327a3de",
+      "body_bytes": 1821,
+      "body_sha256": "sha256:f18c392229c746934738cf195fe829a2c9cbf790824de08686caa6655d24975d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -5052,7 +5052,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2231203002122332-0001110313310323-3123313122330323-0133123113300301-0302002231331030-1132302003033313-1122331331111221-2320131231013033",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-002.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-001.md",
       "relationships": [
         {
           "anchor": "section",
@@ -5138,8 +5138,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints mobile client block"],
-      "body_bytes": 11988,
-      "body_sha256": "sha256:2786efd4246570452673d6711779a3d463504512972139d04afe8a3147ec29c1",
+      "body_bytes": 11578,
+      "body_sha256": "sha256:ac705ce1a4c783994e352854cccf3909f67f60f32d344d9081473a101d729fc6",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -5159,7 +5159,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2011123200003121-0030302210222020-2122020332212021-3210220311102131-0230112002200311-0203313000002221-1312023133331312-0131023301211131",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-002.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5294,8 +5294,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints mobile client continue"],
-      "body_bytes": 2945,
-      "body_sha256": "sha256:45495c40531b7e95ac9e9434d05a78af6ff9dc091b6bc913aadb309c04b0d8a1",
+      "body_bytes": 2093,
+      "body_sha256": "sha256:f1081652f51801e12cd2295b69f220ecbc41a6739b9bb8d7d46b98dfe18c2f3c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -5318,7 +5318,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0112302133133110-0322331130001100-2111220203133221-0003231332303003-3123310333300212-0323311001332010-0033111200012101-1333131131321120",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-002.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-001.md",
       "relationships": [
         {
           "anchor": "section",
@@ -5387,8 +5387,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints mobile client continue add header"],
-      "body_bytes": 2026,
-      "body_sha256": "sha256:71e686ab10b1384995c39170f104970e45217b0089a80d1b18d05d4a3b9b4cc6",
+      "body_bytes": 1661,
+      "body_sha256": "sha256:1ba34c1557b75504fdced008abeac1872c56d59c913caa77f5b1b225b8e3dbab",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -5408,7 +5408,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1210200112200210-2102002030111232-0121311303301303-3122332120220223-3133113322321031-3022320011302312-3030332210313101-1001100030310200",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-002.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5427,8 +5427,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints mobile client continue no header"],
-      "body_bytes": 2023,
-      "body_sha256": "sha256:3da86bb4b2b5752f88eef017738ac1ea10ff1f4b8098a14cb3e8195e58d16d5f",
+      "body_bytes": 1658,
+      "body_sha256": "sha256:d645a87d95b53356aa36ada7f8058d7201ce61269ed5e2105882a7e5516e4d3c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -5448,7 +5448,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2030231300103221-0112230220333132-3121300220003120-3310033131210020-0302313201321110-3200323013003200-1021220000012131-3230303321010330",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-002.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5467,8 +5467,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints path"],
-      "body_bytes": 3529,
-      "body_sha256": "sha256:20de4c3b42e8e6dde138df68dc3fea1768b0b4f039ba851cd17c518c654f6675",
+      "body_bytes": 3093,
+      "body_sha256": "sha256:c96c99a9f5c32925d55b4770519d7c3675214326f0a4c8dcccabaf0243025188",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -5488,7 +5488,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1001300212102331-3212330102111323-3100201020003211-0232102000201230-2211133203031111-3132133032303233-3312123120323022-0303222121321212",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-002.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-cloudflare--protected_endpoints--path--path",
@@ -5549,8 +5549,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints web client"],
-      "body_bytes": 3125,
-      "body_sha256": "sha256:e65dc6a2e3231c859033b6ca4326e8a522e038efc75c440dbf323675f4ebe417",
+      "body_bytes": 2148,
+      "body_sha256": "sha256:c53e18cb735f9a19e31eabd0f08466274415fe0f112d41b4d5c459bce2fb45c9",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -5717,8 +5717,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints web client block"],
-      "body_bytes": 11950,
-      "body_sha256": "sha256:16407e9ecee7dbcebc56fa7ffe8efa99d0e8945ddab05bf0954ce572c45b5e7f",
+      "body_bytes": 11546,
+      "body_sha256": "sha256:99ba1dc7ee836334ff351b4caa76ca8e10b68b7056a749acebc58e0921f04666",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -5873,8 +5873,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints web client continue"],
-      "body_bytes": 2909,
-      "body_sha256": "sha256:6b33fd72908ad80b4459d9aec4c0a23a184b723c89627f5004650397b8e38561",
+      "body_bytes": 2075,
+      "body_sha256": "sha256:035072cf5ba7f4a313e636c42312f115722d1ae2f4e7958f97c201870016d20d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -5966,8 +5966,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints web client continue add header"],
-      "body_bytes": 2002,
-      "body_sha256": "sha256:e4ce2215d4e8d7b59eb1f7a9df49056ee933b6d6fbaea383c81c7d4fa6d209b9",
+      "body_bytes": 1643,
+      "body_sha256": "sha256:a1fba7ea58784b1fd78a2891f91eb4f92a798612c87df1ba04c07a9e0d63e6ea",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -6006,8 +6006,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints web client continue no header"],
-      "body_bytes": 1999,
-      "body_sha256": "sha256:2d33ddc54151ea3742c053d56a96e41e625ef952a215d84a86d3e305a88537d4",
+      "body_bytes": 1640,
+      "body_sha256": "sha256:98f16bbb2a435c78bb95104d6864210d0ab0a17804bf30fbfa2596f11635b11e",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -6046,8 +6046,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints web client redirect"],
-      "body_bytes": 11448,
-      "body_sha256": "sha256:9646d9c4d4483b15c8838d707676904b7bdb9f60f3f16893abe9680754d1f2b9",
+      "body_bytes": 11035,
+      "body_sha256": "sha256:f2280c4b892681e02e9925fabde544f9912ccd51ca664e167022beb3bab01b9b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -6195,8 +6195,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints web mobile client"],
-      "body_bytes": 4298,
-      "body_sha256": "sha256:97e579d4915511d9737f9d3c6d3487edd0d37c9cfa6fbe0a6152556668b36090",
+      "body_bytes": 2849,
+      "body_sha256": "sha256:8282c3c1eba6c7a1d01c9910dab6911f519e2cc63c73b64b4989f43f0c098603",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -6430,8 +6430,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints web mobile client block mobile"],
-      "body_bytes": 12066,
-      "body_sha256": "sha256:1c77be7aec8f81d0d78bbc2aade5e00cc02a6559b8a8864fbb3d83703fa9ccda",
+      "body_bytes": 11648,
+      "body_sha256": "sha256:aaebaec96c5b381f4ba91dcd8c26b5794f5ed682c7b8af6bdb6f0abf6cc94905",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -6586,8 +6586,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints web mobile client block web"],
-      "body_bytes": 12037,
-      "body_sha256": "sha256:dfe6c01ef0348dd7d2b500b56681f26d66dd325cb1ac075e7b1673bab8dfa4c0",
+      "body_bytes": 11619,
+      "body_sha256": "sha256:41ab45e6fe0f7068fd76651c22e745e6587ea2af4dcf7f21b00e10464cad3657",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -6742,8 +6742,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints web mobile client continue mobile"],
-      "body_bytes": 3056,
-      "body_sha256": "sha256:6b50c7f0dcdb45197fc0cc61be5d3fcb5bfa96b618e853f9d4f53573a373ec88",
+      "body_bytes": 2152,
+      "body_sha256": "sha256:7a86abca94ecb99338790d03c84c5785edcfcd4e581a232d8723baba719479d4",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -6835,8 +6835,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints web mobile client continue mobile add header"],
-      "body_bytes": 2100,
-      "body_sha256": "sha256:a3ee48d8372853d532d926d2149d8446bd3d398d4595778aea624be196953ced",
+      "body_bytes": 1713,
+      "body_sha256": "sha256:7a07b6622671d636177a55b30b0dd29f5f856288ff161b41bfbaba6dadf80a9f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -6875,8 +6875,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints web mobile client continue mobile no header"],
-      "body_bytes": 2097,
-      "body_sha256": "sha256:5edac4f97bca50226971f43202f2c991ca41e617ad2f6aeb1e66fafd1eee7c55",
+      "body_bytes": 1710,
+      "body_sha256": "sha256:707634ce02766eda4c906aff3deaddeb65e305956a54b0d6f0ddd620df2a3983",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -6915,8 +6915,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints web mobile client continue web"],
-      "body_bytes": 3029,
-      "body_sha256": "sha256:22b1e101e13579ea7b184bc223a77085e28901b9061b29dc92891b2b30b57971",
+      "body_bytes": 2137,
+      "body_sha256": "sha256:55a42102ab679db7c0742f2abb5c026f15b578139d3c590f95d9460d39c828a3",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -7008,8 +7008,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints web mobile client continue web add header"],
-      "body_bytes": 2082,
-      "body_sha256": "sha256:d53472a4026b936d76bdf2f99d78501cd1473f2027d664036bf5f670dad0fa5d",
+      "body_bytes": 1701,
+      "body_sha256": "sha256:81c51cf2324faa0c340044cedb41d039570a8856178734a6029072f7a1123c7e",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -7048,8 +7048,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints web mobile client continue web no header"],
-      "body_bytes": 2079,
-      "body_sha256": "sha256:cb2fe46a65f51cced5b5ebd76d747bf1e9b1afed1424a127c54aa51aea2b6a09",
+      "body_bytes": 1698,
+      "body_sha256": "sha256:43d3ad290c220f02478ce5c0fdc813e6e7c2e379feca3f996094ad60e0887ec8",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -7088,8 +7088,8 @@
     },
     {
       "aliases": ["cloudflare protected endpoints web mobile client redirect web"],
-      "body_bytes": 11524,
-      "body_sha256": "sha256:2d35fd7dd2ccca643e6e9fd25e8032588ece582cd4d7e93053892cb2564da311",
+      "body_bytes": 11097,
+      "body_sha256": "sha256:353032404d09337dfe790969991d981136e2fd12349aa104432fbcd1ba35132d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -7237,8 +7237,8 @@
     },
     {
       "aliases": ["cloudflare trusted clients"],
-      "body_bytes": 3836,
-      "body_sha256": "sha256:053b72a1a8958984b264cced34f73084f75928a50a774dd356e1d2296ec0259b",
+      "body_bytes": 3138,
+      "body_sha256": "sha256:4f1387820a1043b5dbceb5c33e61db21ec2019c5ffc2c3031671b0dd7e81cfcc",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -7364,8 +7364,8 @@
     },
     {
       "aliases": ["cloudflare trusted clients http header"],
-      "body_bytes": 2062,
-      "body_sha256": "sha256:88f25c4608f5021070a0acc552b1571d074f5faaf8dd1d0751a9051b2cadc55b",
+      "body_bytes": 1574,
+      "body_sha256": "sha256:1cf9b75a279d5166140425a9837cc16e9c40980d6f05d912dd5caf887b774ea3",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -7457,8 +7457,8 @@
     },
     {
       "aliases": ["cloudflare trusted clients http header headers"],
-      "body_bytes": 7020,
-      "body_sha256": "sha256:5e4f8f3b061207b7e4cfbaf8d06e78076936511c6e17f0aff12f8526a6503235",
+      "body_bytes": 6480,
+      "body_sha256": "sha256:543e24674eb3d9c8a75d3d08d338aabba5f67919f5846ef831781a6cb361af85",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -7571,8 +7571,8 @@
     },
     {
       "aliases": ["cloudflare trusted clients metadata"],
-      "body_bytes": 4401,
-      "body_sha256": "sha256:a8e18dec75d6ece3ad01ea8196caec49533bc81e23f19c51f70eb0ed42d43249",
+      "body_bytes": 3688,
+      "body_sha256": "sha256:5a9859c35e50c1d90915d8c4c0a09173ebd9d55dcb270f13ca9d187dfd47adee",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -7653,8 +7653,8 @@
     },
     {
       "aliases": ["cloudfront"],
-      "body_bytes": 11292,
-      "body_sha256": "sha256:b778188803e91576bc9522679dae65512a1a0d93131f15948a425e261d4f8f7f",
+      "body_bytes": 8714,
+      "body_sha256": "sha256:28e0350201013ac47f3f07bfede43049c139c8ec62a2b9a3e221f0e5f404199e",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -8200,8 +8200,8 @@
     },
     {
       "aliases": ["cloudfront aws configuration id selector"],
-      "body_bytes": 3248,
-      "body_sha256": "sha256:801f816f1849bf6eb24b2b4a2c1058759bfc0cebb59ed2bfbe519ece77e38562",
+      "body_bytes": 2991,
+      "body_sha256": "sha256:f8fd34df4ff17b9d8f4ab22bfc157aa88630e8798e713e1a778d2d2deb12c547",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -8266,8 +8266,8 @@
     },
     {
       "aliases": ["cloudfront aws configuration tag selector"],
-      "body_bytes": 4701,
-      "body_sha256": "sha256:11c7e86ba8632c3de7755de75ead582a78c387b001de11c7a3c88767885b2432",
+      "body_bytes": 4227,
+      "body_sha256": "sha256:846faf68df797bcf251737dbf6efa7f57dbf28e39d5dac304d823db37c0267ff",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -8332,8 +8332,8 @@
     },
     {
       "aliases": ["cloudfront disable aws configuration"],
-      "body_bytes": 1360,
-      "body_sha256": "sha256:4418b4d3fef4bf02b44226e5d21a1bcc284651cb36e1c32159e39f8c23efade6",
+      "body_bytes": 1081,
+      "body_sha256": "sha256:a6bb356ec8393cdefdd357e865319fbed0004e12ca42eb14ce9c2dfbeb4ee80f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -8372,8 +8372,8 @@
     },
     {
       "aliases": ["cloudfront disable js insert"],
-      "body_bytes": 1328,
-      "body_sha256": "sha256:8158e0a429c1cceee56cce6d9138f42316ca6b687dee94fd589fbb9b24232520",
+      "body_bytes": 1049,
+      "body_sha256": "sha256:22fef9680e843bacc84bbb48ee5e7bc2ec0a22eb32754ccaab365d3516ef8513",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -8412,8 +8412,8 @@
     },
     {
       "aliases": ["cloudfront disable mobile sdk"],
-      "body_bytes": 1303,
-      "body_sha256": "sha256:7b83c8edd545ce13d2ae8dd6c10330e1c982d7f860505be8e63df3e8d363a1a1",
+      "body_bytes": 1024,
+      "body_sha256": "sha256:352ed52e07f67fb11d247c8f3a5d4effab7155fa06ec819886d74cff9b678e84",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -8452,8 +8452,8 @@
     },
     {
       "aliases": ["cloudfront js insertion rules"],
-      "body_bytes": 7094,
-      "body_sha256": "sha256:c9c28cb3033cdfba890e2ee640e6fd26265aac27a109140e86c92c46b6604f97",
+      "body_bytes": 5921,
+      "body_sha256": "sha256:8fee5f12c89fea07860239175f107dabf8a30a724d30190308452425b3988496",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -8685,8 +8685,8 @@
     },
     {
       "aliases": ["cloudfront js insertion rules exclude list"],
-      "body_bytes": 3881,
-      "body_sha256": "sha256:eceee32230def2419f4f1b91c1495dd990f0decdf2ef46abe2e9214c2dfb1438",
+      "body_bytes": 2751,
+      "body_sha256": "sha256:b21c51f1b770a5197f4a546297fd8978192f97ce7c4a9c530bffdcb5b117bf56",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -8919,8 +8919,8 @@
     },
     {
       "aliases": ["cloudfront js insertion rules exclude list any domain"],
-      "body_bytes": 1763,
-      "body_sha256": "sha256:730d2c73f799820e31faa9c194f2424bfb9763e44c10a82fd38510fe5b1f446a",
+      "body_bytes": 1420,
+      "body_sha256": "sha256:4863e7a24fb9b1e662b210c696f084bee6ee2911aeb4cda4351020f1aa38831f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -8959,8 +8959,8 @@
     },
     {
       "aliases": ["cloudfront js insertion rules exclude list domain"],
-      "body_bytes": 6363,
-      "body_sha256": "sha256:b0e125f0048eca7e3dafa628fc4200c57b9b74b90c0ae81c24175324c0da72a2",
+      "body_bytes": 5844,
+      "body_sha256": "sha256:46bf0b554f7d07209356d139de885e4b68844207f825425563ce8e6bf8e30dbe",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -8980,7 +8980,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0223132131303030-1021321002133031-1322031020210023-3021012231212331-3323212220200021-3333310133301130-1033301220110133-0232301203331323",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-002.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-cloudfront--js_insertion_rules--exclude_list--domain--exact_value",
@@ -9097,8 +9097,8 @@
     },
     {
       "aliases": ["cloudfront js insertion rules exclude list metadata"],
-      "body_bytes": 4696,
-      "body_sha256": "sha256:cc30bf9ff11dfc889ba6503588c999d4a6ce5fc68b7e779a8df6d4385201b8f9",
+      "body_bytes": 3951,
+      "body_sha256": "sha256:b2ac15f00cf31edd52fed1fc4304c6aed310ecd9401a17fedc70a062d6d4c315",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -9118,7 +9118,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2010012310003231-3020100210200133-2210333023120033-1323211001220022-1201221122322313-0012223022121231-2311120202101323-3322032232313013",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-002.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-cloudfront--js_insertion_rules--exclude_list--metadata--name",
@@ -9179,8 +9179,8 @@
     },
     {
       "aliases": ["cloudfront js insertion rules exclude list path"],
-      "body_bytes": 6048,
-      "body_sha256": "sha256:aadf31255aa560b7cbbae26d633653da75b10c5e6c39c363baff2413779a86f6",
+      "body_bytes": 5386,
+      "body_sha256": "sha256:7d0011afe2c0c338a812eabb33bd18095df6351d6fdbf96e44a5fc03081ae82e",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -9200,7 +9200,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2021213021001211-1331122120210300-3310333130003330-2200033112003033-1101020130331102-3033121122222031-1213332313232000-1103013002303331",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-002.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-cloudfront--js_insertion_rules--exclude_list--path--path",
@@ -9317,8 +9317,8 @@
     },
     {
       "aliases": ["cloudfront js insertion rules rules"],
-      "body_bytes": 7866,
-      "body_sha256": "sha256:b3697a28dff18730847e965872cf144fc4f23a8800892ea0d1cbb3bf7fa343a4",
+      "body_bytes": 6626,
+      "body_sha256": "sha256:ccf1f5c314c070f2f11d924f36d0d07a25d443d6d897136456fe38513688cfd2",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -9342,7 +9342,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1111120223012133-1010232232112011-0002033223202121-2202200003200333-0330223310201233-0110011213302203-0110111123233202-0232200123131110",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-002.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-cloudfront--js_insertion_rules--rules--exact_path",
@@ -9581,8 +9581,8 @@
     },
     {
       "aliases": ["cloudfront js insertion rules rules any domain"],
-      "body_bytes": 1721,
-      "body_sha256": "sha256:526632a38be2a899cd8dd315763ebe200c0e7fbcb1c7d0d87d3a3c0f30947695",
+      "body_bytes": 1392,
+      "body_sha256": "sha256:ab96be804b20d211105a33244f07d9f4f29dd8b3e66f137d6b8c2e0a1c118507",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -9602,7 +9602,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3113132303113221-1313322211002210-1201130223003310-2203023013231322-2212023120011313-1030032202011113-3201110011121201-2030233302323303",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-002.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9621,8 +9621,8 @@
     },
     {
       "aliases": ["cloudfront js insertion rules rules domain"],
-      "body_bytes": 6300,
-      "body_sha256": "sha256:b9d51c377c992057cbcfc7e92eaf0c5a554fe08211cab9a227cd264877c3fb74",
+      "body_bytes": 5795,
+      "body_sha256": "sha256:a259d9ae616f70f4c5e32be7a9ba72e3cb2f44b248fe76c9b12943209d88c3e2",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -9759,8 +9759,8 @@
     },
     {
       "aliases": ["cloudfront js insertion rules rules metadata"],
-      "body_bytes": 4640,
-      "body_sha256": "sha256:366d5285beb8b4562f8181b32fda7514239f23d5ae0cdc0260877a45ea18f506",
+      "body_bytes": 3909,
+      "body_sha256": "sha256:ad3baeca6c30d483da28100aaa06f0279b712bcf5b4fee2e04d32ea8ad42089f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -9841,8 +9841,8 @@
     },
     {
       "aliases": ["cloudfront manual js insert"],
-      "body_bytes": 4364,
-      "body_sha256": "sha256:79bea6cabebc05e85eafd95a9c57183cf4580e02b0ad64dbb576fc11a497dfe5",
+      "body_bytes": 3853,
+      "body_sha256": "sha256:0e3609b4b790dad5afa08ee2518f0066b6a077ceb5b2a29a103e5743e8767280",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -9923,8 +9923,8 @@
     },
     {
       "aliases": ["cloudfront mobile sdk config"],
-      "body_bytes": 1691,
-      "body_sha256": "sha256:08fe6b1400edbe1c56b01a3782a31a3d1c877cd29dbe7e19420eff86db9ff2e7",
+      "body_bytes": 1178,
+      "body_sha256": "sha256:136df6208f6313a7a55c8d5012bdd466e248b85d0f73ecc04ab687c6ce83c71f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -9982,8 +9982,8 @@
     },
     {
       "aliases": ["cloudfront mobile sdk config mobile identifier"],
-      "body_bytes": 1953,
-      "body_sha256": "sha256:b2639ba8e1901f6d015ad967b481528319f0550ce07c1300d41b93275681c37f",
+      "body_bytes": 1382,
+      "body_sha256": "sha256:9cec3a6d9587042d2a254591bca5a81167a67516b37ef5643243f03f1abb308d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -10066,8 +10066,8 @@
     },
     {
       "aliases": ["cloudfront mobile sdk config mobile identifier headers"],
-      "body_bytes": 7100,
-      "body_sha256": "sha256:1d08ffd68fc8d65ed72b743980311b22a994a9e3e029ec6dc44783cbe6df20aa",
+      "body_bytes": 6459,
+      "body_sha256": "sha256:8ed940ab292b8ccf4c656b44afee6e3493b5c7ba104d400bf84f457fad3546a8",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -10180,8 +10180,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints"],
-      "body_bytes": 10419,
-      "body_sha256": "sha256:af8dfc8cf9aa198463d44f18a8146815edc11c6785769e86dd3475127a0cd33b",
+      "body_bytes": 8501,
+      "body_sha256": "sha256:41faea48def201e1f9372c0190f1a7fa8113e50ae075acc290806c13a71fdfc5",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -11029,8 +11029,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints any domain"],
-      "body_bytes": 1526,
-      "body_sha256": "sha256:259e828bead7de840accb85e091940e3b3bd65edcc6b302ce8ff603403398227",
+      "body_bytes": 1207,
+      "body_sha256": "sha256:c796e7f8cdc48f6249e001c39cc4da2d15812adc55cf547b300375f771a0e9e5",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -11069,8 +11069,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints domain"],
-      "body_bytes": 6087,
-      "body_sha256": "sha256:61c5f501bc17d2908bfdc2c21babfad56daa5b0401664866329278a3697105c4",
+      "body_bytes": 5592,
+      "body_sha256": "sha256:85cdf3539c47e1f502bbb5e21c2d9e33a9a8e48e682e2048465c5cf4060f7394",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -11207,8 +11207,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label"],
-      "body_bytes": 6538,
-      "body_sha256": "sha256:ca667bdf378051f950d13253d9f6651479e6d34a3211e6b26c7228ea00c4cb81",
+      "body_bytes": 4699,
+      "body_sha256": "sha256:662572513155d58cce1792cfb89497c22eb4966d7bd96d451c56d4cc8b0500ff",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -13108,8 +13108,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label account management"],
-      "body_bytes": 2933,
-      "body_sha256": "sha256:3b9413f4d501d78d2c5703ca95455ee60decb28f8eab41a226a4685779d5e662",
+      "body_bytes": 2109,
+      "body_sha256": "sha256:e551633c6725c394745b666a1b22c590fb69a9408767bac2ac6f48c74c060608",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -13201,8 +13201,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label account management create"],
-      "body_bytes": 2050,
-      "body_sha256": "sha256:f2d63702b1b324959d598ead47a844e8b339750855b66405103e6c5283c38c64",
+      "body_bytes": 1671,
+      "body_sha256": "sha256:f763c1e8b76fad81e35cdd57f21032f8133ed13c836ada7e44deae1f7226c3e5",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -13241,8 +13241,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label account management password reset"],
-      "body_bytes": 2099,
-      "body_sha256": "sha256:02d7a9835b95624233100d23829fbf13b56e6e4c5046e67c6f633d32a225fe94",
+      "body_bytes": 1720,
+      "body_sha256": "sha256:0e20231f22e4e7abd06477cdb21d245abc5d4af932e017358713b9bc3661a015",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -13286,8 +13286,8 @@
         "credential setup",
         "credentials"
       ],
-      "body_bytes": 4942,
-      "body_sha256": "sha256:192e3611a73ab2e983c52a5a47609445cf44f9af20b2057d56b1475d9c0d0b2a",
+      "body_bytes": 3419,
+      "body_sha256": "sha256:1fa5f12ddd387028d8d6b17bda25341b80b39b5cee256da9baffbf582d401618",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -13606,8 +13606,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label authentication login", "login", "login result", "sign in"],
-      "body_bytes": 3410,
-      "body_sha256": "sha256:b80c1fd7b14af707b09336c80602c0485c8693b11e62ea910c8fc098325b177c",
+      "body_bytes": 2444,
+      "body_sha256": "sha256:017bccb145822ee41a0531806cdf49e03223816dd069b47d983ee01ce88ec1b5",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -13728,8 +13728,8 @@
         "login result",
         "sign in"
       ],
-      "body_bytes": 2341,
-      "body_sha256": "sha256:af711a7e07434e00817563fa57802b7853170504c8cf97507dbf538e6a92a842",
+      "body_bytes": 1958,
+      "body_sha256": "sha256:40b075770494afaf24af5ba55b491049d95020be22bf04905b6d1054e574f02a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -13780,8 +13780,8 @@
         "login result",
         "sign in"
       ],
-      "body_bytes": 3467,
-      "body_sha256": "sha256:9c81280c2a5799594704d7652c146d15f60fbca9e00a16563f2c5bbeb97a1d3e",
+      "body_bytes": 2425,
+      "body_sha256": "sha256:7db541ecc53008fc34a6c2ae4f12c35121003935b8a1d64692090497ebef9de7",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -13898,8 +13898,8 @@
         "login result",
         "sign in"
       ],
-      "body_bytes": 14876,
-      "body_sha256": "sha256:7763178f5b3e4d83e951222fd3c7517299de8741b82de8d5f2a03e7db3ab1962",
+      "body_bytes": 14292,
+      "body_sha256": "sha256:6a3621aee6ccb4336a81a2f1404996bc5a0ece69922a600cc4d1d57bd0c26301",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -14114,8 +14114,8 @@
         "success",
         "successful"
       ],
-      "body_bytes": 14876,
-      "body_sha256": "sha256:9f33868f32b9c3cc6e0398c38e42a70198ea340a0499220d2806c651b5c51468",
+      "body_bytes": 14292,
+      "body_sha256": "sha256:b5f2539cc14f9a4ddf34ec9a43247bd1be191a39f8432013d7ddc97d300bdac7",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -14335,8 +14335,8 @@
         "login result",
         "sign in"
       ],
-      "body_bytes": 2035,
-      "body_sha256": "sha256:0e791a9e7f8051df645eef4187fb4c3588385c7d139b4268f78e05d75a5f821c",
+      "body_bytes": 1664,
+      "body_sha256": "sha256:650a52d20df4d11eb74c332f45fa54b5b72d1cd9f855b95e58be5408599297f0",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -14380,8 +14380,8 @@
         "login result",
         "sign in"
       ],
-      "body_bytes": 2071,
-      "body_sha256": "sha256:16695d174287338493b5a08ea5c32d7f8b420c8d5fbdbd18f3cdade67b5cdc5c",
+      "body_bytes": 1700,
+      "body_sha256": "sha256:e8b8bce711779657faca3364f87161ba9267a88de013b19bdf9471a83f6f6f06",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -14420,8 +14420,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label authentication logout"],
-      "body_bytes": 2026,
-      "body_sha256": "sha256:3340f36cace90ee3e5a0169ee0a9594f4f58199e22ba73ab2665e80784788e84",
+      "body_bytes": 1655,
+      "body_sha256": "sha256:34af5ea6440f119a357b31c66d9382c1c7d0534b4e67dfe09ab34efe39215c76",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -14441,7 +14441,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2023230121133030-2201121101121230-0220332300301121-2302020013003231-2020332313030301-3013310311001322-2300002322121000-0203111111331023",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14460,8 +14460,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label authentication token refresh"],
-      "body_bytes": 2071,
-      "body_sha256": "sha256:2a9be9f0953f2b7e84afaa4f9f348f937a90fbb7291d6b2eee889e84561cf10c",
+      "body_bytes": 1700,
+      "body_sha256": "sha256:db993ba5ed2892a53fbce8be1b03ade98bf8cccefa80a22ea484f289a6744e8a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -14481,7 +14481,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0221220001332301-1120022323032010-3223222333000222-3122210013003033-1211103333223233-2023023223100310-1203113132202212-1301101303333202",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14500,8 +14500,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label financial services"],
-      "body_bytes": 2927,
-      "body_sha256": "sha256:c583872ad656c7e815ae1ddf0ee6f69ba1d3365eefaf534a6d86c017b940eb9c",
+      "body_bytes": 2105,
+      "body_sha256": "sha256:1dce55bead5bd19b53d43bfef68bf4bc859cc355c17335d5c6d66aca3b04af57",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -14524,7 +14524,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1221023222000133-2202131211101230-3002001310200213-2332103310233321-1101212233310220-2110032311022233-2010231232203303-3311033032212012",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [
         {
           "anchor": "section",
@@ -14593,8 +14593,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label financial services apply"],
-      "body_bytes": 2047,
-      "body_sha256": "sha256:465100da45b882ba0875344c8edc941c431e9677dc5f3975dd4e77e049f652cb",
+      "body_bytes": 1668,
+      "body_sha256": "sha256:c7dee5318e68047725478c05e1736b16e0c60bf31356383828a8a85cf3bd133f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -14614,7 +14614,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3233130101131012-2230231323120303-1112132001020310-0331221320303132-0133030121333222-2103013232210132-2000323131320330-0130212132311231",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14633,8 +14633,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label financial services money transfer"],
-      "body_bytes": 2099,
-      "body_sha256": "sha256:065b0f220943a1d57d92f8c609225d0be66ef916d6456aeee43eee10d2821100",
+      "body_bytes": 1720,
+      "body_sha256": "sha256:94b33cdef3ee75f2af08f6b7610f4c315e9c6dd04415f67c4119b3cf37acd492",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -14654,7 +14654,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2123133020032313-0001102203232031-2301333103103301-2233222202131001-0301301130233211-1232100322300112-3330100302320022-3311203301301333",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14673,8 +14673,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label flight"],
-      "body_bytes": 2253,
-      "body_sha256": "sha256:d25597eae5fdfd36b50540a4e1ae20579520b783d656f17071653734ef0dc031",
+      "body_bytes": 1644,
+      "body_sha256": "sha256:f81b0bdbb2dc546198baf6f4f1e19f9970f4ebf21be50daeb7bc43cd4db80681",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -14696,7 +14696,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1222012302233310-3002202302031210-3333311020003022-3111110222100121-0022220203120113-3212033313021202-1110103012131232-2221322022111020",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14732,8 +14732,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label flight checkin"],
-      "body_bytes": 1994,
-      "body_sha256": "sha256:94b9f0534a888ebfcea5f1a6b4e1c46b83a39da147318f7c34630ce8b5fe50a6",
+      "body_bytes": 1639,
+      "body_sha256": "sha256:e2cd54e442e254dfe490ce93149ade10e72d7c23c676127b0ae6ca0b9523b47c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -14753,7 +14753,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0113120030020110-0011033131131333-2010121201103222-3212110233112131-0130010203121022-0020303320232311-2123221132313032-1030102031331213",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14772,8 +14772,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label profile management"],
-      "body_bytes": 3468,
-      "body_sha256": "sha256:6b703010c94314288f91239c8ad6f1da685af0d35e48ac7569ee1b09f7782117",
+      "body_bytes": 2423,
+      "body_sha256": "sha256:9b9ef2726e1cef9f7d08715e427b63371581d0538038de22a644d1be8b632b30",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -14797,7 +14797,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3211102101003312-3032211031321310-2211210232311300-1131013131331012-1303012230231101-0112030102132033-1131131132220101-1221202011233013",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [
         {
           "anchor": "section",
@@ -14914,8 +14914,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label profile management create"],
-      "body_bytes": 2050,
-      "body_sha256": "sha256:95bf677c910a773c2a82706d5779d23b2684cddf68ebfaeb4c7111d8535ba387",
+      "body_bytes": 1671,
+      "body_sha256": "sha256:36c2e1e1c486d165f4d5fa2ec98a9f473571f81ed97b48bd904f4144d8505f32",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -14935,7 +14935,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2100323120303101-1231303211310202-3012003221011133-3323101101331301-3021110232320012-1023000312330310-1320302133312101-3212032133103230",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14954,8 +14954,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label profile management update"],
-      "body_bytes": 2050,
-      "body_sha256": "sha256:ce1ecbceca053715cf883aa252e38a147b6be4ce7fa03da97475f78e6d4e95e0",
+      "body_bytes": 1671,
+      "body_sha256": "sha256:fff1ff0342eb76986a76ee01f9ae57bc0ef1e343853f6843ee9bbd489a94f74c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -14975,7 +14975,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0201123110301210-0210120100110231-1033012112300313-3333023100222310-1113200023020321-0102020023323231-2300003033200121-0032232222102023",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14994,8 +14994,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label profile management view"],
-      "body_bytes": 2044,
-      "body_sha256": "sha256:498918f6ae63b4981b96be9a14c49aae7c598747df5288b2a942c882a0fa2ae0",
+      "body_bytes": 1665,
+      "body_sha256": "sha256:9186306e9bd0487807b2efb3b36562ae705cc15a02a519d88b5fd40e96654b3c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -15015,7 +15015,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1233222100133011-0002022330323113-3101330101022203-0102003111221232-3312132032130331-0011030012202200-2331030301002313-1332002132123022",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -15034,8 +15034,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label search"],
-      "body_bytes": 4313,
-      "body_sha256": "sha256:25081981bff9b31c765225a6f5e80f7cd17a2f547bede016fd0493065f04436f",
+      "body_bytes": 2991,
+      "body_sha256": "sha256:1bc4697f4486188b748363185fdd1aa28e447be46ece9d66185eccd9c8942dc7",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -15060,7 +15060,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1221120003231031-3310301213120220-0032220323011233-2110122200010201-3313222021201123-3020102102131103-3123330110003123-2121330223202033",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [
         {
           "anchor": "section",
@@ -15241,8 +15241,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label search flight search"],
-      "body_bytes": 2023,
-      "body_sha256": "sha256:f0157d0111360bab72d701235eac87c5d8aab30b11e9d0f24c85f308cb777253",
+      "body_bytes": 1668,
+      "body_sha256": "sha256:1f73fde3c4ae1f8d2b2b9a96eca31499f4c4f84b8272eb500e7d37fae3c2f311",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -15262,7 +15262,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3223030031332010-2210120101102300-1213021232212133-3020320231330311-2013302201101102-3211303223113233-0231210011130331-2332230230212211",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -15281,8 +15281,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label search product search"],
-      "body_bytes": 2027,
-      "body_sha256": "sha256:e37f6dffa26d4382d6bca574502fcbfd5ce4bbcf415dea09b907b3a66615fd78",
+      "body_bytes": 1672,
+      "body_sha256": "sha256:437db7917fc18d65289144604c655d354c57df33b2044900bf4525082ced52fa",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -15302,7 +15302,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0201223233323331-2332201113330022-2111002002123021-3332302222333212-1100300032130013-0213220111223331-2231233122312012-1021232002011020",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -15321,8 +15321,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label search reservation search"],
-      "body_bytes": 2043,
-      "body_sha256": "sha256:260d9d4031496baab570d84f44b4cd0440c53e83872c4e776afd59c33237504f",
+      "body_bytes": 1688,
+      "body_sha256": "sha256:bfd54f4010cec9afdd6106f2f2f6e2007bec6f219cb3a570a4e607b79fdc18b6",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -15342,7 +15342,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3113211010123310-1120033320002210-1130303233131111-3122300330031100-0200023320320233-3302012021130212-1000332233211013-2222123233012202",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -15361,8 +15361,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label search room search"],
-      "body_bytes": 2015,
-      "body_sha256": "sha256:56c9116857045dc51506d2e1f54d65828130c84687a7709ecee88dd20be1a4de",
+      "body_bytes": 1660,
+      "body_sha256": "sha256:43ec1dbe86742491baa505b431cf6595480d73dcc7779b9204e6f2656e3f0946",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -15382,7 +15382,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2133130311222322-2122123012212012-2333030011312022-3333111013103030-1021202123313110-3113101001121103-0001310322011023-2303030103021202",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -15401,8 +15401,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label shopping gift cards"],
-      "body_bytes": 14655,
-      "body_sha256": "sha256:ea8861b77cad8f924388642d5255803243103ab4a377a946714f39edc73a9ec1",
+      "body_bytes": 11065,
+      "body_sha256": "sha256:b87642796909d570365a9b6b4f0c80e2138c335965d9bbcebe2fca5989fcd5ae",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -15435,7 +15435,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0303211230231300-2003111202022220-3313000233300133-0120313112201012-1221202223231121-0123123120133032-1312011231322232-1111310130000223",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [
         {
           "anchor": "section",
@@ -16756,8 +16756,8 @@
       "aliases": [
         "cloudfront protected endpoints flow label shopping gift cards gift card make purchase with gift card"
       ],
-      "body_bytes": 2201,
-      "body_sha256": "sha256:0e50a1e97f799164fa216140c8cc21457fe7fc32798d9a3ea79f1730f7db1810",
+      "body_bytes": 1820,
+      "body_sha256": "sha256:eadecb352df937500dd5eafb4dab74da7169dc437e33865fb8a2f030ee45d1b9",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -16777,7 +16777,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3120300330320222-2200121031020023-2031111213330001-0032220013011210-1112300310330300-3220131101020312-0211231022201210-3010212102012332",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -16802,8 +16802,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label shopping gift cards gift card validation"],
-      "body_bytes": 2129,
-      "body_sha256": "sha256:d1d2c16e9c49bcf3dc5003bfb2b2e5d624ca19e755aa9c5a2ca7f4ebc3042995",
+      "body_bytes": 1748,
+      "body_sha256": "sha256:2215a81c5e8d562ca5a4df7a7d1a678e6df40b105e6f3209c793551c31ec1f1d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -16823,7 +16823,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2133331233201132-2300303213300021-3222222320210030-0313012211302123-0302330312201101-1233211113011123-2133223300130311-1122132232330330",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -16842,8 +16842,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label shopping gift cards shop add to cart"],
-      "body_bytes": 2113,
-      "body_sha256": "sha256:61ebad2282b665e4dd5e2515d0ee836b425add0fe64342387ee7a8261a6ca43a",
+      "body_bytes": 1732,
+      "body_sha256": "sha256:0e97ff61dc89738565cb4ecbdee7da4d15b984e52844ceff8d283404d1d2e369",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -16863,7 +16863,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0120013113211021-1203331311220032-0202222202011130-0022203100103021-1223001222301011-1322132001233033-2331023001022110-3020132201323311",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -16882,8 +16882,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label shopping gift cards shop checkout"],
-      "body_bytes": 2101,
-      "body_sha256": "sha256:1dcc478cb0cda2ffa36b33ae0fe0dfa9d1abaffbae51df1806b8a7f33ae8e7a5",
+      "body_bytes": 1720,
+      "body_sha256": "sha256:7d09d2eff7ece7514836a7608b2a2aef9e76346413e14a71327220f682a0d30c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -16903,7 +16903,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1123100023311133-1133333032010301-3322221222020333-0333103200011030-0032022332123333-1202310321312313-0222300021120110-0311023231132111",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -16922,8 +16922,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label shopping gift cards shop choose seat"],
-      "body_bytes": 2113,
-      "body_sha256": "sha256:25b6e9c7f9400c545e859acb2159037162b650f917dd8120ffd05756af95c889",
+      "body_bytes": 1732,
+      "body_sha256": "sha256:bd0c48cfcdb67fb467dac6a3573c26a3832edb194cd9b591eb5ab9ee1d5e0473",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -16943,7 +16943,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1212333323023112-1101101213223222-3003022211323120-0322033321102010-3012003012320023-1331310301333210-3132320002011333-0100333011123113",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -16962,8 +16962,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label shopping gift cards shop enter drawing submission"],
-      "body_bytes": 2165,
-      "body_sha256": "sha256:d7b6e9b8f854234279ca812feaf7366857f2a299e729c180f35229998381ce01",
+      "body_bytes": 1784,
+      "body_sha256": "sha256:f2786b2760bea2b582c0165d9def3a84127c7d1ea560b63aeb638a887877a8a3",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -16983,7 +16983,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1122201233020223-0123123102301002-2032003312331213-2000032030330122-1322100021333303-3313030000100110-3020220333031310-2323203301123323",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -17008,8 +17008,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label shopping gift cards shop make payment"],
-      "body_bytes": 2117,
-      "body_sha256": "sha256:6f0966ce427fb449085ea3e265cf3ab0b8a081cd27e1115da722400c3bdadc98",
+      "body_bytes": 1736,
+      "body_sha256": "sha256:67cad7320464078ea6570ab10f6c7169dedd201cd756d5de0b25fb0ebb3dbc31",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -17029,7 +17029,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1012102320222231-0230000030130332-0220311102022112-2203013110323333-2000320030132232-3233013121232111-2120131001302000-2131323333311300",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -17048,8 +17048,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label shopping gift cards shop order"],
-      "body_bytes": 2068,
-      "body_sha256": "sha256:246830ed70d77970440f78ae2a759697acbb6c1718e97477c465a89a010e1a71",
+      "body_bytes": 1687,
+      "body_sha256": "sha256:b78972d4517023e409dd18a67e9e3135a9a2c5212479ccd3e92b316aad5c8deb",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -17069,7 +17069,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0011213111221013-2100013223312023-3020012303323230-2220033102001002-1331103022210111-1221001020032200-1233110301023232-3113330322021100",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -17088,8 +17088,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label shopping gift cards shop price inquiry"],
-      "body_bytes": 2121,
-      "body_sha256": "sha256:416e6a4d7e53d8ed136164faa2dbe7e02cc645eee433488c4552408212b2db47",
+      "body_bytes": 1740,
+      "body_sha256": "sha256:d432cdf51927d7d3443fee51df74f666bc3f4c84b2954f5c7bd32aab66719f0d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -17128,8 +17128,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label shopping gift cards shop promo code validation"],
-      "body_bytes": 2153,
-      "body_sha256": "sha256:bc9db8a021f7a50355dfc93722de25f9eb808b4d8d67233813d12873f2020001",
+      "body_bytes": 1772,
+      "body_sha256": "sha256:07ff9b160d2238d9f785ddb1efe02ef075cc2b9c952ffc09aa5416e5407540ac",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -17174,8 +17174,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label shopping gift cards shop purchase gift card"],
-      "body_bytes": 2141,
-      "body_sha256": "sha256:68222e767ae0635f830c5944b21c049c8d7ecdee439dfea89440d25f62eb0cb9",
+      "body_bytes": 1760,
+      "body_sha256": "sha256:e1631eee8b0dd1c211dfed81b6d3f185162914ae2e09a38600b8c7d02b4ce18b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -17220,8 +17220,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints flow label shopping gift cards shop update quantity"],
-      "body_bytes": 2129,
-      "body_sha256": "sha256:7f452a1c53d2a43c198edf8c848725340239053811c0a3e05ce597d121fe31f9",
+      "body_bytes": 1748,
+      "body_sha256": "sha256:6b74f4f801710a6c3f0a509f9231b72fd1d0e3a9ef5e7dc0c328b8329fd38477",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -17260,8 +17260,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints metadata"],
-      "body_bytes": 4433,
-      "body_sha256": "sha256:fec36b0e9d276688bd246221694e811a86c0dae724cafe1d264169993719e31d",
+      "body_bytes": 3712,
+      "body_sha256": "sha256:7507f78613469a96a9ec17276269cc2d97f4e370dc3cc99a7633463e14a448e1",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -17342,8 +17342,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints mobile client"],
-      "body_bytes": 2606,
-      "body_sha256": "sha256:457a24e8a24e6d9a6348d02e204b6d8ae17a47fde6802c9431445864fdb4eb4f",
+      "body_bytes": 1821,
+      "body_sha256": "sha256:b58a39e595710223bce0e027f83289a37f4794c4489656e19d2380e2fdc45e4b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -17452,8 +17452,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints mobile client block"],
-      "body_bytes": 11988,
-      "body_sha256": "sha256:a615e0dd6d9972400dc7ced1fb327819767567c1f23a3a99d3eef77f12de7580",
+      "body_bytes": 11578,
+      "body_sha256": "sha256:d239c6564276be3bc86fc1de8adbb6bcc77ba3ef20ae40282a973ef7f92983ef",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -17608,8 +17608,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints mobile client continue"],
-      "body_bytes": 2945,
-      "body_sha256": "sha256:ac1b6b78e3b223d7c307ec4907de6d0ebf786e34907d96dc162a2b26c7b1629d",
+      "body_bytes": 2093,
+      "body_sha256": "sha256:995e6998384bd0e894e5ca7bf61f69a16378b3b7112d9a8b6c6b7494b4509322",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -17701,8 +17701,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints mobile client continue add header"],
-      "body_bytes": 2026,
-      "body_sha256": "sha256:f037712259922b349bc1c936b5bd4fb1ff47f808ca2ed0d6c15d4c851f667fda",
+      "body_bytes": 1661,
+      "body_sha256": "sha256:7a1f48fa39fa87e139dc25e7d35554679ff001dfc9b1db1eb423063b6bc4b491",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -17741,8 +17741,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints mobile client continue no header"],
-      "body_bytes": 2023,
-      "body_sha256": "sha256:04b1cee3be9a9c660e68b41796cb57e49d5dbbae789c55663efbdad0f9dcf890",
+      "body_bytes": 1658,
+      "body_sha256": "sha256:367a9a7209ef7ba7498d417f03d1ac1778a81d180d21387f4f949049f6e6ca91",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -17781,8 +17781,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints undefined flow label"],
-      "body_bytes": 1556,
-      "body_sha256": "sha256:3e89d13ff863b5d77f71a026d966a0cdd5efdce71cf627d72238731a1025961b",
+      "body_bytes": 1237,
+      "body_sha256": "sha256:f6102494abfabafaad611ec5f400d69875caa2e1871fe0063811615db190918e",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -17821,8 +17821,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints web client"],
-      "body_bytes": 3125,
-      "body_sha256": "sha256:f2064a6a400be0a41bd72b5703bd5c29bc0d15e270537a0e9e34e42237c86213",
+      "body_bytes": 2148,
+      "body_sha256": "sha256:0b4fc35147a888830d29fe336b7d9077ad5f40918f1e8f537dd9f5f50f330387",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -17989,8 +17989,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints web client block"],
-      "body_bytes": 11950,
-      "body_sha256": "sha256:c8cda45b91bf13755784e455e9287be47f6d0680a65a273e40bad81d2e6070ac",
+      "body_bytes": 11546,
+      "body_sha256": "sha256:673dee85d6c64d0de20827b2ad7140472a966173d0d7643a0540831899d387b7",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -18145,8 +18145,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints web client continue"],
-      "body_bytes": 2909,
-      "body_sha256": "sha256:4a5e46de06ff904e03b5d69753264d9775ab7161996d828b3534e09dbcceb8f9",
+      "body_bytes": 2075,
+      "body_sha256": "sha256:7674e0260af33e02cdacfcd81e1b199190c05644dafb7b5667d90b243f9f3fbd",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -18238,8 +18238,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints web client continue add header"],
-      "body_bytes": 2002,
-      "body_sha256": "sha256:d99ab8eff47a25bb4427557a18ab2160d8da26e1dd2af31ac56dba60dd7f3456",
+      "body_bytes": 1643,
+      "body_sha256": "sha256:c7621cb00830eec57655a1e0882823a85972856e938babff923a35e148b229e0",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -18278,8 +18278,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints web client continue no header"],
-      "body_bytes": 1999,
-      "body_sha256": "sha256:13e61e5afc32c6fab1a3d03206cf317d0d704ddf4066ac2e84efbe2a48449fad",
+      "body_bytes": 1640,
+      "body_sha256": "sha256:5419fd2b05fe13d44abb525e49dcaf4a7a7f09bdd9d3591033235b675bee2226",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -18318,8 +18318,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints web client redirect"],
-      "body_bytes": 11448,
-      "body_sha256": "sha256:cc0d4ac7938e81a51905f9af94a9b6519c2f4678ddde4885717ecb4cfbc980f6",
+      "body_bytes": 11035,
+      "body_sha256": "sha256:2f34e241687793b8daae9ab40b2e06d828dd0b1cf112f867a9e715fb656105be",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -18467,8 +18467,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints web mobile client"],
-      "body_bytes": 4298,
-      "body_sha256": "sha256:04efe46f39833636d5ddec76a211ead1014eaaf56c169c306f365b057bb77649",
+      "body_bytes": 2849,
+      "body_sha256": "sha256:e24a747151e4529052972ae88d7de573d9eadc9b235bedd8e21b32777fa38df8",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -18702,8 +18702,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints web mobile client block mobile"],
-      "body_bytes": 12066,
-      "body_sha256": "sha256:91ac068bbc272d7485eea8a9f775dd77bcb2ef7b3646e09158168b9b0bc52efc",
+      "body_bytes": 11648,
+      "body_sha256": "sha256:4d6b6c9ad8672ee6407f1c93697fb78ea1f16d2a9e67896d2f07735d41ed1cba",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -18858,8 +18858,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints web mobile client block web"],
-      "body_bytes": 12037,
-      "body_sha256": "sha256:7c6a6b6dc4438d6fdbf181ff0fbb617dae8326daccada2bc976727ab73e685c1",
+      "body_bytes": 11619,
+      "body_sha256": "sha256:ce6dd6c80490ec68ba465a916def99ef1ee0a536d1722ce1ac596b5168ff25fc",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -19014,8 +19014,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints web mobile client continue mobile"],
-      "body_bytes": 3056,
-      "body_sha256": "sha256:ccc73fb51ab1150940a7528c0375e168a2ce6efd88a46f7d0c0a50fa620a3543",
+      "body_bytes": 2152,
+      "body_sha256": "sha256:3a3e9e54361c34a88310d2840664e5b0103055e34ca82ce15f458782106981a3",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -19107,8 +19107,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints web mobile client continue mobile add header"],
-      "body_bytes": 2100,
-      "body_sha256": "sha256:447fcdca2c9324bd578f0026564de66a65f72d7856e802628de6a1b0857725a5",
+      "body_bytes": 1713,
+      "body_sha256": "sha256:2332d8091f526c590c61ddd40a29d325413d4425f7b900f7b94634790f2d0c61",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -19147,8 +19147,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints web mobile client continue mobile no header"],
-      "body_bytes": 2097,
-      "body_sha256": "sha256:c933cd593605a44bbd31c8c4e204b00dd59c5c430643aeede3619711460d1665",
+      "body_bytes": 1710,
+      "body_sha256": "sha256:c180256c611cc574172e298e3bf075dcb5a584fc73131e70c11fc3e62bda86fa",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -19187,8 +19187,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints web mobile client continue web"],
-      "body_bytes": 3029,
-      "body_sha256": "sha256:42e39ed6a135b0069851b2d05fd844bc715ebc173ebddf6b4d179f2ec23baf14",
+      "body_bytes": 2137,
+      "body_sha256": "sha256:bcc7149107c28a59f0f24f79f4ce234b9c37b8b8c49e97408e0c7a5e768fc606",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -19280,8 +19280,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints web mobile client continue web add header"],
-      "body_bytes": 2082,
-      "body_sha256": "sha256:f929210fa129e728e77c0310f05efd8033155bd5c93c203bf0e566bf1c2202e8",
+      "body_bytes": 1701,
+      "body_sha256": "sha256:9947d7eb4e509139c30ddc863f7059b266a779342d5bf1714d67eb064c8a0c69",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -19320,8 +19320,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints web mobile client continue web no header"],
-      "body_bytes": 2079,
-      "body_sha256": "sha256:d80371c36b293a32d3570ba677be4502a9c7157ada4c992e2f4a50860b61a44e",
+      "body_bytes": 1698,
+      "body_sha256": "sha256:e630595750453b4c133a9feacb72f10764a3bcd9400522d32bf62a49888b140f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -19360,8 +19360,8 @@
     },
     {
       "aliases": ["cloudfront protected endpoints web mobile client redirect web"],
-      "body_bytes": 11524,
-      "body_sha256": "sha256:cf752a5b7aec1bf7a438da9ade5fd4346cb0d00407b8ff432a6cac8a3ab92c57",
+      "body_bytes": 11097,
+      "body_sha256": "sha256:16314355736c1d4eda3f9ccda6cbf1a49b42a540b4ad0fc7d2b945d74841fa93",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -19509,8 +19509,8 @@
     },
     {
       "aliases": ["cloudfront trusted clients"],
-      "body_bytes": 3836,
-      "body_sha256": "sha256:86ee1bda07519d5be0cdbfed31cb36bf3f4755239e17facf6c351221e7d41b6e",
+      "body_bytes": 3138,
+      "body_sha256": "sha256:7a278fe67671e59472b39e5e96321468ef45e0e60330a693a09cdf593406b744",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -19636,8 +19636,8 @@
     },
     {
       "aliases": ["cloudfront trusted clients http header"],
-      "body_bytes": 2062,
-      "body_sha256": "sha256:ae8ecff0baa415f47643f51ef34b9b0ee987f32e0020bda9f6a196c0437ec660",
+      "body_bytes": 1574,
+      "body_sha256": "sha256:4701b808cefe14c2b965bd45167bfc02e174550e5717ee8401f202da1917db4a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -19729,8 +19729,8 @@
     },
     {
       "aliases": ["cloudfront trusted clients http header headers"],
-      "body_bytes": 7020,
-      "body_sha256": "sha256:bad9ce2cbecce9c766f20651af89f8372cc865418939adace189e744e2670173",
+      "body_bytes": 6480,
+      "body_sha256": "sha256:ae346b7b7c73fcafdac157d1879c325d359a97d40d6cedb7d3197452fe77564d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -19843,8 +19843,8 @@
     },
     {
       "aliases": ["cloudfront trusted clients metadata"],
-      "body_bytes": 4401,
-      "body_sha256": "sha256:2d33e2685f2a6b90fa1d1b95d26e97feba2f85c3fa55ca4879ba738015110749",
+      "body_bytes": 3688,
+      "body_sha256": "sha256:f461ad13d691c2c39f895134cd18ba43f679fb1211c98c2c3d5eb1ba7554975a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -19925,8 +19925,8 @@
     },
     {
       "aliases": ["custom connector"],
-      "body_bytes": 1172,
-      "body_sha256": "sha256:063d19e7c9e962b8d0771b177a30d89c59e5366da2d6e565b33ae9baada31e61",
+      "body_bytes": 896,
+      "body_sha256": "sha256:c1c8e41e2e00afeeae3ed59f46ed7a8b8de34d8ddf32d557219a7d4a9cfa0518",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -19965,8 +19965,8 @@
     },
     {
       "aliases": ["f5 big ip"],
-      "body_bytes": 1124,
-      "body_sha256": "sha256:3958cd0da045566f4227102002ed325b3853c3c431b81d6373aeb54deb0b8294",
+      "body_bytes": 848,
+      "body_sha256": "sha256:f0c6343499ed6c16414471d7fd9521363eb4fc6b1474f0f69aacdae43651a99a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -20005,8 +20005,8 @@
     },
     {
       "aliases": ["salesforce commerce connector"],
-      "body_bytes": 1224,
-      "body_sha256": "sha256:8939c29bfc7580d2ca4f763c12f56a029772e367b57031f3c6f049c9230c7afa",
+      "body_bytes": 948,
+      "body_sha256": "sha256:66ba17acb6c5380249da0060b67b1b4799aebe852aff14cb9bef479685b34cd1",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -20045,8 +20045,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2285,
-      "body_sha256": "sha256:8bdf7f6e9bf3b091b2e979f0c17b0ac334d806f3c945f9367fe58a836e5996ad",
+      "body_bytes": 2024,
+      "body_sha256": "sha256:f6ff8a1caf06ba408536fdf4cd3992d62553b2c213c8903a7236eac40537ca96",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -20185,8 +20185,8 @@
     },
     {
       "aliases": ["protected application"],
-      "body_bytes": 687,
-      "body_sha256": "sha256:ba29896e7caa4ff5cad54f03af31ef4ccb8c991662df9a6c8f83505f38fbfe68",
+      "body_bytes": 429,
+      "body_sha256": "sha256:b0e2e5cd6a53f3d2f97cfcd446206c707ee0cfef59a159503272d8a1e2bd4613",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:resources:protected_application:example:resource"],
@@ -20225,8 +20225,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1346,
-      "body_sha256": "sha256:7f6d3655b4dc8d58f33e94b290f12d859ca0e8b8d1abcaab390def53aa34c7be",
+      "body_bytes": 1097,
+      "body_sha256": "sha256:efe6e9c9ae9f3cfe3d7195749761c17b9896d3eacafd4c40f998281dfa01ba6e",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -20272,8 +20272,8 @@
     },
     {
       "aliases": ["protected application"],
-      "body_bytes": 525,
-      "body_sha256": "sha256:b93007dc8019b842aa6c46649e08bf134c26e1b91faf43604331a0b8d82dcc01",
+      "body_bytes": 388,
+      "body_sha256": "sha256:fa29caa275275d984658ed357d4a61439f1159d9b2a4ff531f83f7ef7716005b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -20313,8 +20313,8 @@
     },
     {
       "aliases": ["protected application"],
-      "body_bytes": 613,
-      "body_sha256": "sha256:15e0a326e1bf5db4e6652e181880d040a4d27318230ccd04b4608c27b5d6c4a9",
+      "body_bytes": 476,
+      "body_sha256": "sha256:4b129810ddd37f1c14e20c4f654ff7a926426f135e096313a92c7bfab5fc244f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],

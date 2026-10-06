@@ -47,8 +47,8 @@
   "pages": [
     {
       "aliases": ["irule"],
-      "body_bytes": 1283,
-      "body_sha256": "sha256:a82d1fe263c4bd77c30e5740a33de256d4d173a86696c837c7da4f737381f074",
+      "body_bytes": 1242,
+      "body_sha256": "sha256:673abf5b261790f7b4c12e184ebd91dd51ef32bf701ee1e36013d136b7cd46bf",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:irule:reference", "xcsh-docs:data-sources:irule:examples"],
@@ -76,7 +76,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/irule/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages iRule in a given namespace. If one already exists it will give an error in F5 Distributed Cloud.",
+      "summary": "Reads Irule information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_irule",
       "unresolved_relationships": [],
@@ -88,8 +88,8 @@
     },
     {
       "aliases": ["irule"],
-      "body_bytes": 8772,
-      "body_sha256": "sha256:0021c6f7ea8b4a31802357977497e0679e27d4aba236a6a91c60d1f2c2c47809",
+      "body_bytes": 8706,
+      "body_sha256": "sha256:39df7927358a9a3e8f7c4c8bb8045b2afac20100ffcb4d734899e4f3272cba87",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -257,8 +257,8 @@
     },
     {
       "aliases": ["irule"],
-      "body_bytes": 615,
-      "body_sha256": "sha256:4aae2800f0dcbec76739ee4af37a6f8102e1dfe0b2ceca275f635b62151a7f41",
+      "body_bytes": 393,
+      "body_sha256": "sha256:d0779e1aab0cee2d876d1fb7c746ee8aab4a93f8d0917496f64a52b5c29d7c94",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:irule:example:data-source"],
@@ -297,8 +297,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1190,
-      "body_sha256": "sha256:074eb1c480b1086d8bf23678b2f150ce83061e275e74637928327eb3ab7b3a6d",
+      "body_bytes": 983,
+      "body_sha256": "sha256:ce72cdfb2d8eaf103090c5edaa6e8020ae3035431b021ec681de8da4f932a761",
       "capabilities": [],
       "category": null,
       "child_ids": [],

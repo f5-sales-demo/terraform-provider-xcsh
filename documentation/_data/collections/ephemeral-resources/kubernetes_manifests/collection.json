@@ -41,8 +41,8 @@
   "pages": [
     {
       "aliases": ["kubernetes manifests"],
-      "body_bytes": 1313,
-      "body_sha256": "sha256:d69751e4878b1b0b6575a012a19bc1079d7e589cb0dfa2ebe54346a55d124815",
+      "body_bytes": 1326,
+      "body_sha256": "sha256:e06693ae7a8859caa9f4520d9d9c797fd014556041140cf9890e21b5d2781618",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -86,8 +86,8 @@
     },
     {
       "aliases": ["kubernetes manifests"],
-      "body_bytes": 2390,
-      "body_sha256": "sha256:df20ddd69a6a4b34797275ba4407305028aeaa22ce8277ac7bd874149dcfb292",
+      "body_bytes": 2109,
+      "body_sha256": "sha256:422280ac4c65b993da4c3d3858037c13de80e6f80cd7d7cfabb6dc3bc7a38c7b",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:ephemeral-resources:kubernetes_manifests:properties:extensions"],
@@ -191,8 +191,8 @@
     },
     {
       "aliases": ["extensions"],
-      "body_bytes": 1378,
-      "body_sha256": "sha256:571e444a0af96f02c095cf569427e23085cf0158e5002ae1d3ca0268bc3d907d",
+      "body_bytes": 1100,
+      "body_sha256": "sha256:6dc9cb1088d4c375fd62b97a493acd7d0dba19c0f35a2d08a15177f257e5cb2e",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -264,8 +264,8 @@
     },
     {
       "aliases": ["kubernetes manifests"],
-      "body_bytes": 725,
-      "body_sha256": "sha256:cf3282d99ec31e7ace155c8fcf2f24784297b2eb0cc9275b189f89771493e542",
+      "body_bytes": 448,
+      "body_sha256": "sha256:279fc0131f226baf83b4832b86d8ca127b98cff8e6cd3335de0775cd00c65d28",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:ephemeral-resources:kubernetes_manifests:example:ephemeral"],
@@ -304,8 +304,8 @@
     },
     {
       "aliases": ["ephemeral"],
-      "body_bytes": 1240,
-      "body_sha256": "sha256:3de2fe482f71a88fe05964c4860c6a8360312fd8147895c5fbe28c65dd0c0ac5",
+      "body_bytes": 974,
+      "body_sha256": "sha256:9124ba91b04491bd8b2f7a377d72106619a8b362ea966b7dcf6eea525b213f61",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -351,8 +351,8 @@
     },
     {
       "aliases": ["kubernetes manifests"],
-      "body_bytes": 691,
-      "body_sha256": "sha256:a816f96c24cdffda9958f5275009a81bcdd043bb003f5d2305f54ac8cd89ee4a",
+      "body_bytes": 546,
+      "body_sha256": "sha256:274682b2e520db14743d32494ef28cf743874a210e18bd14932244aed2fb3eb7",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],

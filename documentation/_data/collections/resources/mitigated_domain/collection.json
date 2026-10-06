@@ -76,8 +76,8 @@
   "pages": [
     {
       "aliases": ["mitigated domain"],
-      "body_bytes": 1581,
-      "body_sha256": "sha256:b39f8a89f19272b5a254692e985061d488fa9a20627a75b26f36ab6cc3d00a14",
+      "body_bytes": 1594,
+      "body_sha256": "sha256:fb9080d00b3e42ba294a290cbb01679732fdde77d4936e0a380e2f46f9b6aa5e",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -122,8 +122,8 @@
     },
     {
       "aliases": ["mitigated domain"],
-      "body_bytes": 11491,
-      "body_sha256": "sha256:368016150810b2685b41f8a8175e9e39ee5a9e248663986c320f76483498c10e",
+      "body_bytes": 10878,
+      "body_sha256": "sha256:01c2f780acbe1fb9e14bc75345630589ca643f0043797de5f7efb1ff8134ec74",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:mitigated_domain:properties:timeouts"],
@@ -307,8 +307,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2255,
-      "body_sha256": "sha256:314bae7b6b65283dba1dd9289af8042f2b8b98a6fe641d3b95ff1a0b8f3a749d",
+      "body_bytes": 2009,
+      "body_sha256": "sha256:900378ac53b3451ea4466ecf82174f9fa027055c269b8ffaec5f03360fd2a5e7",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -447,8 +447,8 @@
     },
     {
       "aliases": ["mitigated domain"],
-      "body_bytes": 657,
-      "body_sha256": "sha256:fe9ba4a7162252ad951e1c766791f35e23349ca8a36d22e0f8d54686680a0ba2",
+      "body_bytes": 414,
+      "body_sha256": "sha256:79e3f5b5e352a84d3bfa6e6d5622254cdbafedcb5536b5e7fb00fedabf08c97d",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:mitigated_domain:example:resource"],
@@ -487,8 +487,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1308,
-      "body_sha256": "sha256:e41d3632d551f07c21197a86096427a4b64a8e765b323c29521070a07f12002e",
+      "body_bytes": 1074,
+      "body_sha256": "sha256:1b1503797070ac0e10c6b9b242f1d3f6941cb8b7800980b4c47e540b18c9cef2",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -534,8 +534,8 @@
     },
     {
       "aliases": ["mitigated domain"],
-      "body_bytes": 525,
-      "body_sha256": "sha256:0da4f89d0c559098f3e9235f4fd1fb751f2c4b304d6e62b8b9e7ff167888bffe",
+      "body_bytes": 398,
+      "body_sha256": "sha256:43de31edf320e87c35899e00f0df25c1bdf16bc22511264e68268afd44135c8c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -575,8 +575,8 @@
     },
     {
       "aliases": ["mitigated domain"],
-      "body_bytes": 588,
-      "body_sha256": "sha256:7907a452ecb1ffcd1da777b66de534c6e69af856caca0f3a5cf8d650480fc413",
+      "body_bytes": 461,
+      "body_sha256": "sha256:cb12b32a15f7958d42b5009ee933a2699031be16fe3df047911ab6ce75f06928",
       "capabilities": [],
       "category": null,
       "child_ids": [],

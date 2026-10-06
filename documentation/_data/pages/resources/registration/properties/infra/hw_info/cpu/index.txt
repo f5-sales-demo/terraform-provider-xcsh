@@ -2,7 +2,7 @@
 page_title: "infra.hw_info.cpu"
 subcategory: ""
 description: "CPU information."
-xcsh_docs: {"aliases": ["infra hw info cpu"], "body_bytes": 4209, "body_sha256": "sha256:7e988a496c7aef17a01861bc6996f044bf03f71da392e6d5c516953197451eed", "capabilities": ["infrastructure"], "category": "infrastructure", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:registration:collection", "completeness": "complete", "id": "xcsh-docs:resources:registration:properties:infra:hw_info:cpu", "parent_id": "xcsh-docs:resources:registration:properties:infra:hw_info", "path": "documentation/resources/registration/properties/infra/hw_info/cpu/index.md", "product": "distributed-cloud", "provider_name": "registration", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1103320311303112-1300213033101000-3022123203213331-1233010332102022-1331201213120213-3222301122300203-3200322112102333-3001102020031122", "registry_path": "docs/guides/resources--registration--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["infra", "hw_info", "cpu"], "schema_version": 1, "sections": [{"aliases": ["infra hw info cpu cache"], "anchor": "schema-infra--hw_info--cpu--cache", "description": "CPU cache size in KB.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:cpu", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "cpu", "cache"], "syntax": "attribute", "type": "number"}, {"aliases": ["infra hw info cpu cores"], "anchor": "schema-infra--hw_info--cpu--cores", "description": "Number of physical CPU cores.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:cpu", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "cpu", "cores"], "syntax": "attribute", "type": "number"}, {"aliases": ["infra hw info cpu cpus"], "anchor": "schema-infra--hw_info--cpu--cpus", "description": "Number of physical CPUs.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:cpu", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "cpu", "cpus"], "syntax": "attribute", "type": "number"}, {"aliases": ["infra hw info cpu model"], "anchor": "schema-infra--hw_info--cpu--model", "description": "CPU model", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:cpu", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "cpu", "model"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info cpu speed"], "anchor": "schema-infra--hw_info--cpu--speed", "description": "CPU clock rate in MHz.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:cpu", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "cpu", "speed"], "syntax": "attribute", "type": "number"}, {"aliases": ["infra hw info cpu threads"], "anchor": "schema-infra--hw_info--cpu--threads", "description": "Number of logical (HT) CPU cores.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:cpu", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "cpu", "threads"], "syntax": "attribute", "type": "number"}, {"aliases": ["infra hw info cpu vendor"], "anchor": "schema-infra--hw_info--cpu--vendor", "description": "CPU vendor.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:cpu", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "cpu", "vendor"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/registration/properties/infra/hw_info/cpu/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "CPU information.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["registrationCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["infra hw info cpu"], "body_bytes": 3601, "body_sha256": "sha256:a892db5197bf42f28b99aed9f72192d0f7045c9922bdfe0c0b9bff92d3fb3bd4", "capabilities": ["infrastructure"], "category": "infrastructure", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:registration:collection", "completeness": "complete", "id": "xcsh-docs:resources:registration:properties:infra:hw_info:cpu", "parent_id": "xcsh-docs:resources:registration:properties:infra:hw_info", "path": "documentation/resources/registration/properties/infra/hw_info/cpu/index.md", "product": "distributed-cloud", "provider_name": "registration", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1103320311303112-1300213033101000-3022123203213331-1233010332102022-1331201213120213-3222301122300203-3200322112102333-3001102020031122", "registry_path": "docs/guides/resources--registration--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["infra", "hw_info", "cpu"], "schema_version": 1, "sections": [{"aliases": ["infra hw info cpu cache"], "anchor": "schema-infra--hw_info--cpu--cache", "description": "CPU cache size in KB.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:cpu", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "cpu", "cache"], "syntax": "attribute", "type": "number"}, {"aliases": ["infra hw info cpu cores"], "anchor": "schema-infra--hw_info--cpu--cores", "description": "Number of physical CPU cores.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:cpu", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "cpu", "cores"], "syntax": "attribute", "type": "number"}, {"aliases": ["infra hw info cpu cpus"], "anchor": "schema-infra--hw_info--cpu--cpus", "description": "Number of physical CPUs.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:cpu", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "cpu", "cpus"], "syntax": "attribute", "type": "number"}, {"aliases": ["infra hw info cpu model"], "anchor": "schema-infra--hw_info--cpu--model", "description": "CPU model", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:cpu", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "cpu", "model"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info cpu speed"], "anchor": "schema-infra--hw_info--cpu--speed", "description": "CPU clock rate in MHz.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:cpu", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "cpu", "speed"], "syntax": "attribute", "type": "number"}, {"aliases": ["infra hw info cpu threads"], "anchor": "schema-infra--hw_info--cpu--threads", "description": "Number of logical (HT) CPU cores.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:cpu", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "cpu", "threads"], "syntax": "attribute", "type": "number"}, {"aliases": ["infra hw info cpu vendor"], "anchor": "schema-infra--hw_info--cpu--vendor", "description": "CPU vendor.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:cpu", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "cpu", "vendor"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/registration/properties/infra/hw_info/cpu/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "CPU information.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["registrationCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -24,10 +24,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 CPU Information. CPU information.
-
-Upstream description:
-
-CPU information.
 
 Receipt-pinned upstream constraints:
 
@@ -60,10 +56,6 @@ Type: `"number"`. Optional.
 
 Cache. CPU cache size in KB.
 
-Upstream description:
-
-CPU cache size in KB.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -84,10 +76,6 @@ Receipt-pinned upstream constraints:
 Type: `"number"`. Optional.
 
 Cores. Number of physical CPU cores.
-
-Upstream description:
-
-Number of physical CPU cores.
 
 Receipt-pinned upstream constraints:
 
@@ -110,10 +98,6 @@ Type: `"number"`. Optional.
 
 CPUs. Number of physical CPUs.
 
-Upstream description:
-
-Number of physical CPUs.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -134,10 +118,6 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Optional.
 
 Model. CPU model
-
-Upstream description:
-
-CPU model
 
 Receipt-pinned upstream constraints:
 
@@ -170,10 +150,6 @@ Type: `"number"`. Optional.
 
 Speed. CPU clock rate in MHz.
 
-Upstream description:
-
-CPU clock rate in MHz.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -195,10 +171,6 @@ Type: `"number"`. Optional.
 
 Threads. Number of logical (HT) CPU cores.
 
-Upstream description:
-
-Number of logical (HT) CPU cores.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -219,10 +191,6 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Optional.
 
 Vendor. CPU vendor.
-
-Upstream description:
-
-CPU vendor.
 
 Receipt-pinned upstream constraints:
 
@@ -246,8 +214,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [infra.hw_info](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/registration/properties/infra/hw_info/)
-- [xcsh_registration](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/registration/)

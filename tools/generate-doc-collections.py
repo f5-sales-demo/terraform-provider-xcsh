@@ -66,7 +66,7 @@ def prose_links(text):
 
 def description_markdown(value):
     """Publish full descriptions as plain prose without interpreting API markup."""
-    escaped = html.escape(value, quote=False)
+    escaped = html.escape(reviewed_phrases(value), quote=False)
     escaped = re.sub(r"([\\`*_{}\[\]<>#])", r"\\\1", escaped)
     escaped = re.sub(
         r"(?i)(?<![A-Za-z0-9])www\.([A-Za-z0-9.-]+)",
@@ -96,6 +96,7 @@ def description_markdown(value):
         )
         for part in paragraphs
     )
+    result = re.sub(r"(?m)^([=-]{3,})(?=\s*$)", r"&#8203;\1", result)
     return re.sub(r"(?m)^(?=[+.-] |[0-9]+[.)] )", "&#8203;", result)
 
 
@@ -111,6 +112,52 @@ def digest(data):
 
 def read_json(path):
     return json.loads(Path(path).read_text(encoding="utf-8"))
+
+
+DISPLAY_OVERRIDES = read_json(Path(__file__).with_name("doc-display-overrides.json"))
+PHRASE_OVERRIDES = read_json(Path(__file__).with_name("doc-phrase-overrides.json"))
+USED_DISPLAY_OVERRIDES: set[str] = set()
+
+
+def reviewed_phrases(value):
+    """Correct reviewed exact phrases in prose; leave schema source untouched."""
+    for original, replacement in PHRASE_OVERRIDES.items():
+        value = re.sub(r"\b" + re.escape(original) + r"\b", replacement, value)
+    return value
+
+
+def display_description(kind, name, path, value):
+    """Apply reviewed source-exact prose repairs without changing the API pin."""
+    key = "/".join((kind, name, ".".join(path) or "@root"))
+    override = DISPLAY_OVERRIDES.get(key)
+    if override is None:
+        return value
+    if value != override["original"]:
+        raise ValueError(f"display override source changed: {key}")
+    USED_DISPLAY_OVERRIDES.add(key)
+    return override["replacement"]
+
+
+def distinct_descriptions(provider, upstream):
+    """Keep each distinct sentence while avoiding repeated source descriptions."""
+
+    def normalized(text):
+        return " ".join(text.split()).casefold().strip(" .")
+
+    provider_key, upstream_key = normalized(provider), normalized(upstream)
+    if not upstream_key or upstream_key in provider_key:
+        return provider, ""
+    if provider_key and provider_key in upstream_key:
+        return upstream, ""
+
+    def sentences(text):
+        return re.split(r"(?<=[.!?])\s+(?=[A-Z])", text.strip())
+
+    seen = {normalized(sentence) for sentence in sentences(provider)}
+    additional = [
+        sentence for sentence in sentences(upstream) if normalized(sentence) not in seen
+    ]
+    return provider, " ".join(additional)
 
 
 def stable_id(kind, name, role, path=()):
@@ -351,6 +398,9 @@ class Collection:
             "description", ""
         ) or self.metadata.get(
             "description", f"Terraform {kind} configuration for xcsh_{name}."
+        )
+        self.description = display_description(
+            self.kind, self.name, (), self.description
         )
         self.category = self.metadata.get("category", "")
         self.retrieval_rules = RetrievalRules.default()
@@ -681,14 +731,22 @@ class Collection:
             "type", field.get("nested_type", {}).get("nesting_mode", "object")
         )
         lines.append(f"Type: `{json_text(typ)}`. {', '.join(flags)}.\n")
-        desc = field.get("description", block.get("description", ""))
+        desc = reviewed_phrases(
+            display_description(
+                self.kind,
+                self.name,
+                path,
+                field.get("description", block.get("description", "")),
+            )
+        )
+        spec = self.specs.field(self.spec_roots, self.spec_schemas, path)
+        long_description = reviewed_phrases(spec.get("description", ""))
+        desc, long_description = distinct_descriptions(desc, long_description)
         if desc:
             lines.append(description_markdown(desc) + "\n")
-        spec = self.specs.field(self.spec_roots, self.spec_schemas, path)
-        long_description = spec.get("description", "")
-        if long_description and long_description != desc:
+        if long_description:
             lines.append(
-                "Upstream description:\n\n"
+                "Additional upstream details:\n\n"
                 + description_markdown(long_description)
                 + "\n"
             )
@@ -850,7 +908,8 @@ class Collection:
                         path, page["section"][0], page["section"][1], heading=False
                     ),
                 ]
-            lines.append("## Direct properties\n")
+            if page["fields"]:
+                lines.append("## Direct properties\n")
             for name, field, subsection, syntax in page["fields"]:
                 exact = (*path, name)
                 if subsection:
@@ -940,15 +999,11 @@ class Collection:
                 lines.append(
                     "Terraform opens this ephemeral resource during evaluation and closes it when its lifecycle ends. Ephemeral values are not stored in plans or state. Use returned credentials only in contexts that permit ephemeral values. Sensitive flags remain visible in the property reference.\n"
                 )
-        next_ids = list(page["child_ids"])
-        if page.get("parent_id"):
-            next_ids.append(page["parent_id"])
-        if role != "fundamentals":
-            next_ids.append(stable_id(self.kind, self.name, "fundamentals"))
-        lines.append("## Next pages\n")
-        lines.extend(
-            "- " + self.link(identifier) for identifier in dict.fromkeys(next_ids)
-        )
+        if role == "fundamentals":
+            lines.append("## Explore this collection\n")
+            lines.extend(
+                "- " + self.link(identifier) for identifier in page["child_ids"]
+            )
         return (
             "<!-- Exact provider and upstream contract identifiers. -->\n\n<!-- textlint-disable terminology -->\n\n"
             + normalize_body("\n".join(lines).rstrip() + "\n")
@@ -1166,6 +1221,11 @@ def generate(root, schema_path, constraints_path):
     outputs["documentation/retrieval-enum-coverage.json"] = (
         json.dumps(enum_inventory, indent=2, sort_keys=True) + "\n"
     )
+    missing_overrides = set(DISPLAY_OVERRIDES) - USED_DISPLAY_OVERRIDES
+    if missing_overrides:
+        raise ValueError(
+            "unused display overrides: " + ", ".join(sorted(missing_overrides))
+        )
     registry_outputs, projection = grouped_project(pages, categories, SITE)
     outputs.update(registry_outputs)
     outputs["documentation/registry-projection-manifest.json"] = (

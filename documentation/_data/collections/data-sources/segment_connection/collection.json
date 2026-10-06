@@ -111,8 +111,8 @@
   "pages": [
     {
       "aliases": ["segment connection"],
-      "body_bytes": 1444,
-      "body_sha256": "sha256:26b32898058e301a16ee541585b4ec5abc7543df189690506f3405c683c4c4f3",
+      "body_bytes": 1383,
+      "body_sha256": "sha256:383d8ceabf66b8c4e15320673b813bb383b4aebcca316350a5281abb99a2ccf8",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -143,7 +143,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/segment_connection/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Segment Connection resource in F5 Distributed Cloud for segment connector specification. configuration. (read-only data source)",
+      "summary": "Reads Segment Connection information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_segment_connection",
       "unresolved_relationships": [],
@@ -155,8 +155,8 @@
     },
     {
       "aliases": ["segment connection"],
-      "body_bytes": 5790,
-      "body_sha256": "sha256:42ea9200ee0cf770a77012893cd22bc234854e1a370ac995a72880a1de3da199",
+      "body_bytes": 5527,
+      "body_sha256": "sha256:a3d959bef1afb9d1f02a25f40212a8d50427e0ad26ac18dd702eca082b99baf2",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:segment_connection:properties:connections"],
@@ -308,8 +308,8 @@
     },
     {
       "aliases": ["connections"],
-      "body_bytes": 1800,
-      "body_sha256": "sha256:776212bc49111398f346f52a362a4a46270cd536197df79807c728727a72f814",
+      "body_bytes": 1067,
+      "body_sha256": "sha256:ed0e3e3ca70ef2c944acd2b6ad411b0da1ffb77da6787388308718433a8b0446",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -401,8 +401,8 @@
     },
     {
       "aliases": ["connections destination segments"],
-      "body_bytes": 2210,
-      "body_sha256": "sha256:277effec06a5b3280956431f500e2526ca53e50908972552ca109e5787227ab8",
+      "body_bytes": 1947,
+      "body_sha256": "sha256:1daa524515239444283a825b513301ef133eb232c5415ad1e3dcb36ab2656415",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -522,8 +522,8 @@
     },
     {
       "aliases": ["connections direct"],
-      "body_bytes": 955,
-      "body_sha256": "sha256:b5fcddc9afb2fe991b3b26aaefd7a57f352fafb712e7c75dd19f94f0b08fc65e",
+      "body_bytes": 670,
+      "body_sha256": "sha256:fd044dc2b409c6e12fc3201353d37c1796a25fec1d84515bc227e09a52d5863e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -562,8 +562,8 @@
     },
     {
       "aliases": ["connections source segments"],
-      "body_bytes": 2170,
-      "body_sha256": "sha256:dff59ae318aa076c68566465f78a4c2c644baaeeabda6531a6da440ebe85dba4",
+      "body_bytes": 1907,
+      "body_sha256": "sha256:20f86f41a3813e55be8a79320a5cd699d06b4ab9a96dffbac24382617db8b9ac",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -683,8 +683,8 @@
     },
     {
       "aliases": ["segment connection"],
-      "body_bytes": 693,
-      "body_sha256": "sha256:17d7ac4313106de679437c47271e89660c09f42844a2da99b2354694ebe21526",
+      "body_bytes": 432,
+      "body_sha256": "sha256:ac404ceba7563c6e35398241eccc89be752884f99fde77f877f051fe2e194792",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:segment_connection:example:data-source"],
@@ -723,8 +723,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1357,
-      "body_sha256": "sha256:c9c6330eb28c876d24f05dffa3ca4a04ef38f245874835c7b5a04068b9d392d6",
+      "body_bytes": 1111,
+      "body_sha256": "sha256:d0b3ea50ecb617165616b207021cef78658f63cc3ff2f6884445d3bb7ae093be",
       "capabilities": [],
       "category": null,
       "child_ids": [],

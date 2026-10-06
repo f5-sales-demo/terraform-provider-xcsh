@@ -2,7 +2,7 @@
 page_title: "origin_pool.public_name"
 subcategory: "Load Balancing"
 description: "Specify origin server with public DNS name."
-xcsh_docs: {"aliases": ["origin pool public name"], "body_bytes": 4312, "body_sha256": "sha256:6a73dd8eaa1fbaa23c6a56c6808b61ef0042192f86af5bbdad4e321ffad24859", "capabilities": ["cdn"], "category": "cdn", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:cdn_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:cdn_loadbalancer:properties:origin_pool:public_name", "parent_id": "xcsh-docs:resources:cdn_loadbalancer:properties:origin_pool", "path": "documentation/resources/cdn_loadbalancer/properties/origin_pool/public_name/index.md", "product": "distributed-cloud", "provider_name": "cdn_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1002100232220132-2323022211233331-1220132030312302-2222333312210131-3203022333311220-1311221201332302-1221221333110130-1020210013322232", "registry_path": "docs/guides/resources--cdn_loadbalancer--reference--group-012.md", "relationships": [{"anchor": "schema-origin_pool--public_name--dns_name", "enforcement": "provider-schema", "group": "origin_pool.public_name:RequiredObjectAttributes:dns_name", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:cdn_loadbalancer:properties:origin_pool:public_name", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["origin_pool", "public_name"], "schema_version": 1, "sections": [{"aliases": ["origin pool public name dns name"], "anchor": "schema-origin_pool--public_name--dns_name", "description": "DNS Name", "document_id": "xcsh-docs:resources:cdn_loadbalancer:properties:origin_pool:public_name", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["origin_pool", "public_name", "dns_name"], "syntax": "attribute", "type": "string"}, {"aliases": ["origin pool public name refresh interval"], "anchor": "schema-origin_pool--public_name--refresh_interval", "description": "Interval for DNS refresh in seconds. Max value is 7 days as per https://datatracker.ietf.org/doc/HTML/rfc8767.", "document_id": "xcsh-docs:resources:cdn_loadbalancer:properties:origin_pool:public_name", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["origin_pool", "public_name", "refresh_interval"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_loadbalancer/properties/origin_pool/public_name/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Specify origin server with public DNS name.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["cdn_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["origin pool public name"], "body_bytes": 3889, "body_sha256": "sha256:7a55b03871619a17a3f514a7afd6c266753d951be91952821d097d4b59c24454", "capabilities": ["cdn"], "category": "cdn", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:cdn_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:cdn_loadbalancer:properties:origin_pool:public_name", "parent_id": "xcsh-docs:resources:cdn_loadbalancer:properties:origin_pool", "path": "documentation/resources/cdn_loadbalancer/properties/origin_pool/public_name/index.md", "product": "distributed-cloud", "provider_name": "cdn_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1002100232220132-2323022211233331-1220132030312302-2222333312210131-3203022333311220-1311221201332302-1221221333110130-1020210013322232", "registry_path": "docs/guides/resources--cdn_loadbalancer--reference--group-011.md", "relationships": [{"anchor": "schema-origin_pool--public_name--dns_name", "enforcement": "provider-schema", "group": "origin_pool.public_name:RequiredObjectAttributes:dns_name", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:cdn_loadbalancer:properties:origin_pool:public_name", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["origin_pool", "public_name"], "schema_version": 1, "sections": [{"aliases": ["origin pool public name dns name"], "anchor": "schema-origin_pool--public_name--dns_name", "description": "DNS Name", "document_id": "xcsh-docs:resources:cdn_loadbalancer:properties:origin_pool:public_name", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["origin_pool", "public_name", "dns_name"], "syntax": "attribute", "type": "string"}, {"aliases": ["origin pool public name refresh interval"], "anchor": "schema-origin_pool--public_name--refresh_interval", "description": "Interval for DNS refresh in seconds. Max value is 7 days as per https://datatracker.ietf.org/doc/HTML/rfc8767.", "document_id": "xcsh-docs:resources:cdn_loadbalancer:properties:origin_pool:public_name", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["origin_pool", "public_name", "refresh_interval"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_loadbalancer/properties/origin_pool/public_name/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Specify origin server with public DNS name.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["cdn_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -61,10 +61,6 @@ public_name {
 Type: `"string"`. Optional.
 
 DNS Name. DNS Name
-
-Upstream description:
-
-DNS Name
 
 Provider validators and defaults (from schema source):
 
@@ -133,11 +129,6 @@ Type: `"number"`. Optional.
 Interval for DNS refresh in seconds. Max value is 7 days as per
 https&#58;//datatracker.ietf.org/doc/HTML/rfc8767.
 
-Upstream description:
-
-Interval for DNS refresh in seconds. Max value is 7 days as per
-https&#58;//datatracker.ietf.org/doc/HTML/rfc8767.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -179,8 +170,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [origin_pool](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/cdn_loadbalancer/properties/origin_pool/)
-- [xcsh_cdn_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/cdn_loadbalancer/)

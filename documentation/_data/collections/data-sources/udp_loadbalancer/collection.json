@@ -512,8 +512,8 @@
   "pages": [
     {
       "aliases": ["udp loadbalancer"],
-      "body_bytes": 1399,
-      "body_sha256": "sha256:f05b0d0e2dca0a2c50c85894d29d8b4e6911bcd10900f4cdfd8d4bafc63853e3",
+      "body_bytes": 1361,
+      "body_sha256": "sha256:8b6d30228fadc4bb524c983123afd50494f3a38b2159d196e5c40fbb34e4a0ac",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -544,7 +544,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a UDP Load Balancer resource in F5 Distributed Cloud for load balancing UDP traffic across origin pools.",
+      "summary": "Reads UDP Loadbalancer information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_udp_loadbalancer",
       "unresolved_relationships": [],
@@ -556,8 +556,8 @@
     },
     {
       "aliases": ["udp loadbalancer"],
-      "body_bytes": 43825,
-      "body_sha256": "sha256:b324fdc0e999313d3ddd4057c674cb9b7ea8937edd2a2b19f564a103aebac37b",
+      "body_bytes": 41365,
+      "body_sha256": "sha256:12efbb8e223e29a7b72dc918530e19298839b04937c96e0b88d2220dc6c660eb",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -978,8 +978,8 @@
     },
     {
       "aliases": ["active service policies"],
-      "body_bytes": 2072,
-      "body_sha256": "sha256:e596927e512b3bf9c0bfcc804dd3cabd9bb92914f90740a86cb83998af18bffd",
+      "body_bytes": 1658,
+      "body_sha256": "sha256:b1c5fefaaf421914786024bf77ee042ead0d724c6a45a52cbfd53b51cd8c1349",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:udp_loadbalancer:properties:active_service_policies:policies"],
@@ -1035,8 +1035,8 @@
     },
     {
       "aliases": ["active service policies policies"],
-      "body_bytes": 6892,
-      "body_sha256": "sha256:1ed73c603d30e6a0b124279b855c790ea743488c5b3b4047347dce1ec82946a4",
+      "body_bytes": 5795,
+      "body_sha256": "sha256:540133cd57e214710e054fc801a142768aba9f9cfa13d7927cfbdb328eb126c4",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -1145,8 +1145,8 @@
     },
     {
       "aliases": ["advertise custom"],
-      "body_bytes": 2253,
-      "body_sha256": "sha256:88433887d94a50f5e07f79c92ab2bd76a3e1f6b6f6fbcc1bfdcf535ad945cab8",
+      "body_bytes": 1839,
+      "body_sha256": "sha256:a07ab6b6260957140529711a4cd1ce7a382be28448ac9a653e05f112645f14a2",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:udp_loadbalancer:properties:advertise_custom:advertise_where"],
@@ -1202,8 +1202,8 @@
     },
     {
       "aliases": ["advertise custom advertise where"],
-      "body_bytes": 8096,
-      "body_sha256": "sha256:37e56921fab00583b8770c6db3814e90d827bcabb2c2782be6faf28a33b88458",
+      "body_bytes": 5804,
+      "body_sha256": "sha256:66147721a6a2898309a54cc235e6b4158e352ee007e587eccadd7cfe55f6d3cd",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -1429,8 +1429,8 @@
     },
     {
       "aliases": ["advertise custom advertise where advertise dualstack on public"],
-      "body_bytes": 2161,
-      "body_sha256": "sha256:845e809d4f357d4ef23d3809720548b6d199bae53bfb5652d909ffcf5ad57566",
+      "body_bytes": 1424,
+      "body_sha256": "sha256:690c586feabffa1d5ef2dd2b9e066706a405d85f927aa9867395b599b9fcdb21",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -1488,8 +1488,8 @@
     },
     {
       "aliases": ["advertise custom advertise where advertise dualstack on public public ip"],
-      "body_bytes": 6122,
-      "body_sha256": "sha256:d3ab615ae8d72e49d3e796269d0325ad934d483520f4ec974c578b01f77ce66c",
+      "body_bytes": 5090,
+      "body_sha256": "sha256:6839b9eb67486dfc762d4ef07f9bbd114107d51ba733aae54cf7cc2e5d7610b4",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -1610,8 +1610,8 @@
     },
     {
       "aliases": ["advertise custom advertise where advertise on public"],
-      "body_bytes": 2111,
-      "body_sha256": "sha256:0731c69ff2904660080ed6d0c803c667da21559778defec5abe84d7a7be81e73",
+      "body_bytes": 1394,
+      "body_sha256": "sha256:6cd37d1fbf3e4467f2a531a7041aa5f1f8ec86db20f8b296f3f55833827de54f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -1669,8 +1669,8 @@
     },
     {
       "aliases": ["advertise custom advertise where advertise on public public ip"],
-      "body_bytes": 6032,
-      "body_sha256": "sha256:4d13e0fe9dbcd2f67eb0ecea016fa7d38fb3f817495ad2c812d893d2fd2c704b",
+      "body_bytes": 5020,
+      "body_sha256": "sha256:b6e8778cdd6d0624f9830649d92e2c618fc426bd9f5c6ce77a5dfd97104b065d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -1779,8 +1779,8 @@
     },
     {
       "aliases": ["advertise custom advertise where advertise v6 on public"],
-      "body_bytes": 2126,
-      "body_sha256": "sha256:ef658699a394a4c0c16aa07ebdcc9a8d2784ae5e3268c68d2415d77e23d4c7e2",
+      "body_bytes": 1403,
+      "body_sha256": "sha256:6072f7e74b862ba9ae2b70d6e138f4b64ca30623ab821b83308ed72a30196cb8",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -1838,8 +1838,8 @@
     },
     {
       "aliases": ["advertise custom advertise where advertise v6 on public public ip"],
-      "body_bytes": 6059,
-      "body_sha256": "sha256:bab7cc8319459719a6cc70163a5958151fa3cd697e6c70f51b0e7fa3bf205574",
+      "body_bytes": 5041,
+      "body_sha256": "sha256:c9caa8317e3cab7f283ebb2f33533c66f81abe1fe7ad94dc73b6f9837e2e3bce",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -1948,8 +1948,8 @@
     },
     {
       "aliases": ["advertise custom advertise where site"],
-      "body_bytes": 4551,
-      "body_sha256": "sha256:dc182f65f9dfa90cf0a26826dde7afed199e63ead5c8845836b9798052e2e9ee",
+      "body_bytes": 3839,
+      "body_sha256": "sha256:37337e88f4f5947c094a32a131554a271723c900cb2cb0057240183ae97f8f0f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:udp_loadbalancer:properties:advertise_custom:advertise_where:site:site"],
@@ -2037,8 +2037,8 @@
     },
     {
       "aliases": ["advertise custom advertise where site site"],
-      "body_bytes": 5872,
-      "body_sha256": "sha256:ec1d95de5713aba25e0c8ccfb8112fb742fe25d3a10973f198ccd2c548b2732f",
+      "body_bytes": 4890,
+      "body_sha256": "sha256:87d1dd47f259a4fd237f2e8245f1b38a55c480afce0f3a2152f79f2a4779b39f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -2147,8 +2147,8 @@
     },
     {
       "aliases": ["advertise custom advertise where use default port"],
-      "body_bytes": 1487,
-      "body_sha256": "sha256:409a391a0cad1aa410bb55d4dc714caea6822991ec1ef79084aff564582db3aa",
+      "body_bytes": 1173,
+      "body_sha256": "sha256:db953f36748b43d35387fa335bc9a38e32c44c0c39ae6de212fcf79cd9f4dc94",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -2187,8 +2187,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual network"],
-      "body_bytes": 4767,
-      "body_sha256": "sha256:f83fa3a15a5381968a07bea8e7a3a0fde23d58ec4bef140d3881cb30084c4520",
+      "body_bytes": 3563,
+      "body_sha256": "sha256:31595f6196a1b3fb2a11f95d2ca747f00172ce51d318ece351ae1b6fb5b32bae",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -2312,8 +2312,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual network default v6 vip"],
-      "body_bytes": 1748,
-      "body_sha256": "sha256:7d6e4f1e540a410ea72b0ab5539ae25d2463c22a21cbe5fc6c092b2cd4907d05",
+      "body_bytes": 1402,
+      "body_sha256": "sha256:79c95c465d5e601e66a616077bbe728541b310384d1156b994842281129dbc58",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -2352,8 +2352,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual network default vip"],
-      "body_bytes": 1742,
-      "body_sha256": "sha256:c0d8fac64eada6034bb9d1068c2ba6262fa3677dd80ea34f4dca3dfdaa5311e0",
+      "body_bytes": 1396,
+      "body_sha256": "sha256:9a97c9c7ad9b8cb9f9866c0600ccf71a413b4e7f09952fb1b8b2b849faa9168b",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -2392,8 +2392,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual network virtual network"],
-      "body_bytes": 6026,
-      "body_sha256": "sha256:5da1813a1c15c65d83b4c38bb677a474b2fa5d0640516403f9867559841c6de8",
+      "body_bytes": 5022,
+      "body_sha256": "sha256:085084f0467361e9e98ceefedf26366fdeaab56c8e629133474b992a84f3018e",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -2502,8 +2502,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual site"],
-      "body_bytes": 3837,
-      "body_sha256": "sha256:0ec97cc358c61a249946c15d29f526c94facced914d8729f50b89b81eb8e5f8d",
+      "body_bytes": 3101,
+      "body_sha256": "sha256:c15684b08d1272893e17e7b945c2558ec750bb43fd621c7fbd898f7ab8c2861b",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -2577,8 +2577,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual site virtual site"],
-      "body_bytes": 5984,
-      "body_sha256": "sha256:869ef622bc1f7ee6fd05bd3e09723bb9d045341d6fe0b63890f8ac0feda1ecd5",
+      "body_bytes": 4986,
+      "body_sha256": "sha256:f0975b1d9d63cce56c996c2736ae1629a9bba5729beb105ef06b3d70d932a2ea",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -2687,8 +2687,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual site with vip"],
-      "body_bytes": 3816,
-      "body_sha256": "sha256:f9f150e12b24b31697116221544e073ffc1008ffc6074c2b7561c534b2ba605a",
+      "body_bytes": 3114,
+      "body_sha256": "sha256:95453b32df9fd23ba56459d1014d267bd7136831b8fd0645ef8b0837d540dce8",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -2778,8 +2778,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual site with vip virtual site"],
-      "body_bytes": 6065,
-      "body_sha256": "sha256:720cea5fb3111025240d3d4393c3ede059a94f1b5897aaa56d937c032425afad",
+      "body_bytes": 5049,
+      "body_sha256": "sha256:93d7887c4e57face4b960450225dec7d9907c2759f220103d2550e8824bb083c",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -2888,8 +2888,8 @@
     },
     {
       "aliases": ["advertise custom advertise where vk8s service"],
-      "body_bytes": 2456,
-      "body_sha256": "sha256:b0770f96792fdd2ac8254e92d7d92e251b4f83fe4cf2db681c62e196d48e9b91",
+      "body_bytes": 1587,
+      "body_sha256": "sha256:267958595c31cb7ba448e6baf0db445b30fab67731d820ca2b513169f374939e",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -2964,8 +2964,8 @@
     },
     {
       "aliases": ["advertise custom advertise where vk8s service site"],
-      "body_bytes": 5944,
-      "body_sha256": "sha256:27ac1f9ca418bf645fc858fd0964de7b263a62dd5fd2e845692cfa0d4664a533",
+      "body_bytes": 4946,
+      "body_sha256": "sha256:b3d091b5c3f836473b58f9ee8e22558b831dbda4585a1f8d94cdbd5617bf61dd",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3074,8 +3074,8 @@
     },
     {
       "aliases": ["advertise custom advertise where vk8s service virtual site"],
-      "body_bytes": 5984,
-      "body_sha256": "sha256:389130ab6c56e68c6f47ed482d2e28ce095d0790729fb6b5882aa1d4d6bcb0ba",
+      "body_bytes": 4986,
+      "body_sha256": "sha256:9e4462943065d94a0ca79cb1445e5410bf3518fb04a4171fbe78fedd9801f494",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3184,8 +3184,8 @@
     },
     {
       "aliases": ["advertise on public"],
-      "body_bytes": 1593,
-      "body_sha256": "sha256:6f9d726f2939f387d723fa99c78800a798b3ad2e1c370adc4540db1a5cc77e40",
+      "body_bytes": 989,
+      "body_sha256": "sha256:49f729a4085f348c0c803d816bf942e461e4246343f7c3b244b15632d6d84587",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:udp_loadbalancer:properties:advertise_on_public:public_ip"],
@@ -3241,8 +3241,8 @@
     },
     {
       "aliases": ["advertise on public public ip"],
-      "body_bytes": 5423,
-      "body_sha256": "sha256:52539e5b7f3b4f71c7cc529ea652f0540ebbdf4246de1f30f71489c5b8b6bc35",
+      "body_bytes": 4477,
+      "body_sha256": "sha256:21cd6af1baa8deabfd5c51e7bf7f28954b3cf2f93f69aea1ca9f875a3b004df4",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3351,8 +3351,8 @@
     },
     {
       "aliases": ["advertise on public default vip"],
-      "body_bytes": 1098,
-      "body_sha256": "sha256:ee9ade362df7ed76e193d23bde491c14197ae42dd1238ba53270fbda196dee7a",
+      "body_bytes": 831,
+      "body_sha256": "sha256:6b6dd449e448eb5fda4930f5abd2128255bf0c960143d95930ad0870392016a6",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3391,8 +3391,8 @@
     },
     {
       "aliases": ["do not advertise"],
-      "body_bytes": 1095,
-      "body_sha256": "sha256:3c9c656d496f600490b8a4828d5994ea21fc1789c13cb2bf35cf6ea0a633f1a3",
+      "body_bytes": 828,
+      "body_sha256": "sha256:c2306af71491fa1144a877fa6bef04e84249df29b14cae077fbf546c15ed2adf",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3431,8 +3431,8 @@
     },
     {
       "aliases": ["hash policy choice random"],
-      "body_bytes": 1877,
-      "body_sha256": "sha256:e7ed18408543e5e74bb0bc38417eeefe0426759c21b83ed5bf42285d154b88cf",
+      "body_bytes": 1610,
+      "body_sha256": "sha256:c8015f8bdc2fd45459f73d985bb1dbeb72d362be4145b2ec0524011474f672e7",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3471,8 +3471,8 @@
     },
     {
       "aliases": ["hash policy choice round robin"],
-      "body_bytes": 1137,
-      "body_sha256": "sha256:e70b7cc362bdf5706208cc0f81845d6b46fc56fd77598f7daa792ebf6c02cb0e",
+      "body_bytes": 870,
+      "body_sha256": "sha256:9a77dfc0e4b73e84cdd29fee9fe31484753e5aebb66891264bbf94056483d994",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3511,8 +3511,8 @@
     },
     {
       "aliases": ["hash policy choice source ip stickiness"],
-      "body_bytes": 1114,
-      "body_sha256": "sha256:82dcc95e39c98217cf78f1807c94a5c0cd7bbf0ae0c94119a8c347b98cb7807a",
+      "body_bytes": 847,
+      "body_sha256": "sha256:ab7ec2e7beec5676966fa0a3fe99b017fbe824ae07e58b39b0f5880e2e226bf5",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3551,8 +3551,8 @@
     },
     {
       "aliases": ["no service policies"],
-      "body_bytes": 1104,
-      "body_sha256": "sha256:0f85cb2a0c0b4787836a4e250bbfe439c6d3e476375d90410f34c483c7900133",
+      "body_bytes": 837,
+      "body_sha256": "sha256:6bba3257f731571d173871f0261b00d36e6d1250da588959f01f705bdadd43e1",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3591,8 +3591,8 @@
     },
     {
       "aliases": ["backend servers", "origin pools weights", "origin servers", "upstream servers"],
-      "body_bytes": 4593,
-      "body_sha256": "sha256:0f672453a036214c9924d32b4fbc27c5e43195ab6aa25ff6e8bfb0276cc3f01a",
+      "body_bytes": 3530,
+      "body_sha256": "sha256:7fe13b22286fd66d2e76a90af60ebfe433f363a02f439e4e8d7562437dccc4ac",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -3716,8 +3716,8 @@
     },
     {
       "aliases": ["origin pools weights cluster"],
-      "body_bytes": 5422,
-      "body_sha256": "sha256:3418369268933787ffb65826a62de17a504c5d5e7e4df3da44f4269df31c25b3",
+      "body_bytes": 4474,
+      "body_sha256": "sha256:536462122ae31e2b659b626123a197b60596e1c08d3c9dbb27acebd1d48744e2",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3826,8 +3826,8 @@
     },
     {
       "aliases": ["origin pools weights endpoint subsets"],
-      "body_bytes": 2633,
-      "body_sha256": "sha256:ea21f7a4d1b027a66e49e431a66c180dd0ae6bb04fb69fac97c97698466db373",
+      "body_bytes": 2013,
+      "body_sha256": "sha256:f60d72ae5cb64e377be1daf62f179ca09f124981ebd7c278c303918e7518ecee",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3866,8 +3866,8 @@
     },
     {
       "aliases": ["origin pools weights pool"],
-      "body_bytes": 5407,
-      "body_sha256": "sha256:39d27307ecee63302c9debd230a07323f15ca3774ae50fea2a5f0da9507f19e1",
+      "body_bytes": 4459,
+      "body_sha256": "sha256:0697eadc2f054ea352056254bb99ba5011c9dba5b337b08ef15807efaa2730e3",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3976,8 +3976,8 @@
     },
     {
       "aliases": ["service policies from namespace"],
-      "body_bytes": 1098,
-      "body_sha256": "sha256:0c83866df001ccc92983fbc7b3a4608cbb376e028f0f72059ba3543ba21396a6",
+      "body_bytes": 831,
+      "body_sha256": "sha256:032232cfc65f816bdf4aba656075a33b3b99f9dd1ecde026722ddb6af12384ce",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4016,8 +4016,8 @@
     },
     {
       "aliases": ["udp"],
-      "body_bytes": 1036,
-      "body_sha256": "sha256:c567033041e8669067c885a45ee9ffc53b526feca4028ea8807df0518956c9a0",
+      "body_bytes": 769,
+      "body_sha256": "sha256:e6fb997b0c90b1e4f932a46435fc6e164308ae0f849c97e0b1548f8564b828dc",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4056,8 +4056,8 @@
     },
     {
       "aliases": ["udp loadbalancer"],
-      "body_bytes": 681,
-      "body_sha256": "sha256:12d6a8085693f67cfeb90a09111ba60400d644376491d3f2d24781ad37b37fdc",
+      "body_bytes": 426,
+      "body_sha256": "sha256:38d0efe64d8a819d8e4ad14bc73051d4361d012ddcced9654bf8a13cb84b10c6",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:udp_loadbalancer:example:data-source"],
@@ -4096,8 +4096,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1331,
-      "body_sha256": "sha256:f5826d8a4041734daedf4076bc065b97e31b0590f2a71a246e6132bafe599f9d",
+      "body_bytes": 1091,
+      "body_sha256": "sha256:5c2379b679cdc2b760f59332520beaa604ee94762226e6c5e27783e6a42b5560",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],

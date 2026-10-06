@@ -2,7 +2,7 @@
 page_title: "more_option.compression_params"
 subcategory: "Load Balancing"
 description: "Enables loadbalancer to compress dispatched data from an upstream service upon client request. The content is compressed and then sent to the client with the appropriate headers if either response and request allow. Only GZIP compression is supported. By default compression will be skipped when: A request does NOT"
-xcsh_docs: {"aliases": ["more option compression params"], "body_bytes": 7243, "body_sha256": "sha256:edc72b06f0fa1211e517f80a14c7e5c873407ce8481bd42900490f14418c6f43", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:compression_params", "parent_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option", "path": "documentation/data-sources/http_loadbalancer/properties/more_option/compression_params/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2302123223010202-3133131332011030-0130020210301221-1333222231121000-2323300012213030-2223330323031320-2300211101031301-2233331322213123", "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-020.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["more_option", "compression_params"], "schema_version": 1, "sections": [{"aliases": ["more option compression params content length"], "anchor": "schema-more_option--compression_params--content_length", "description": "Minimum response length, in bytes, which will trigger compression. The default value is 30.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:compression_params", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["more_option", "compression_params", "content_length"], "syntax": "attribute", "type": "number"}, {"aliases": ["more option compression params content type"], "anchor": "schema-more_option--compression_params--content_type", "description": "Set of strings that allows specifying which mime-types yield compression When this field is not defined, compression will be applied to the following mime-types: \"application/javascript\" \"application/JSON\", \"application/xhtml+XML\" \"image/svg+XML\" \"text/CSS\" \"text/HTML\" \"text/plain\" \"text/XML\"", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:compression_params", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["more_option", "compression_params", "content_type"], "syntax": "attribute", "type": "list"}, {"aliases": ["more option compression params disable on etag header"], "anchor": "schema-more_option--compression_params--disable_on_etag_header", "description": "If true, disables compression when the response contains an etag header. When it is false, weak etags will be preserved and the ones that require strong validation will be removed.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:compression_params", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["more_option", "compression_params", "disable_on_etag_header"], "syntax": "attribute", "type": "bool"}, {"aliases": ["more option compression params remove accept encoding header"], "anchor": "schema-more_option--compression_params--remove_accept_encoding_header", "description": "If true, removes accept-encoding from the request headers before dispatching it to the upstream so that responses do not GET compressed before reaching the filter.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:compression_params", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["more_option", "compression_params", "remove_accept_encoding_header"], "syntax": "attribute", "type": "bool"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/http_loadbalancer/properties/more_option/compression_params/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Enables loadbalancer to compress dispatched data from an upstream service upon client request. The content is compressed and then sent to the client with the appropriate headers if either response and request allow. Only GZIP compression is supported. By default compression will be skipped when: A request does NOT", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["more option compression params"], "body_bytes": 6261, "body_sha256": "sha256:30fe7a55e5ef018618596eca637871cf801b0352dc66606b48691f9aeba654a8", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:compression_params", "parent_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option", "path": "documentation/data-sources/http_loadbalancer/properties/more_option/compression_params/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2302123223010202-3133131332011030-0130020210301221-1333222231121000-2323300012213030-2223330323031320-2300211101031301-2233331322213123", "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-020.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["more_option", "compression_params"], "schema_version": 1, "sections": [{"aliases": ["more option compression params content length"], "anchor": "schema-more_option--compression_params--content_length", "description": "Minimum response length, in bytes, which will trigger compression. The default value is 30.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:compression_params", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["more_option", "compression_params", "content_length"], "syntax": "attribute", "type": "number"}, {"aliases": ["more option compression params content type"], "anchor": "schema-more_option--compression_params--content_type", "description": "Set of strings that allows specifying which mime-types yield compression When this field is not defined, compression will be applied to the following mime-types: \"application/javascript\" \"application/JSON\", \"application/xhtml+XML\" \"image/svg+XML\" \"text/CSS\" \"text/HTML\" \"text/plain\" \"text/XML\"", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:compression_params", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["more_option", "compression_params", "content_type"], "syntax": "attribute", "type": "list"}, {"aliases": ["more option compression params disable on etag header"], "anchor": "schema-more_option--compression_params--disable_on_etag_header", "description": "If true, disables compression when the response contains an etag header. When it is false, weak etags will be preserved and the ones that require strong validation will be removed.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:compression_params", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["more_option", "compression_params", "disable_on_etag_header"], "syntax": "attribute", "type": "bool"}, {"aliases": ["more option compression params remove accept encoding header"], "anchor": "schema-more_option--compression_params--remove_accept_encoding_header", "description": "If true, removes accept-encoding from the request headers before dispatching it to the upstream so that responses do not GET compressed before reaching the filter.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:compression_params", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["more_option", "compression_params", "remove_accept_encoding_header"], "syntax": "attribute", "type": "bool"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/http_loadbalancer/properties/more_option/compression_params/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Enables loadbalancer to compress dispatched data from an upstream service upon client request. The content is compressed and then sent to the client with the appropriate headers if either response and request allow. Only GZIP compression is supported. By default compression will be skipped when: A request does NOT", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -21,12 +21,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"single"`. Computed.
-
-Enables loadbalancer to compress dispatched data from an upstream service upon client request. The
-content is compressed and then sent to the client with the appropriate headers if either response
-and request allow. Only GZIP compression is supported.
-
-Upstream description:
 
 Enables loadbalancer to compress dispatched data from an upstream service upon client request. The
 content is compressed and then sent to the client with the appropriate headers if either response
@@ -80,9 +74,9 @@ Type: `"number"`. Computed.
 
 Minimum response length, in bytes, which will trigger compression. The. Defaults to \`30\`.
 
-Upstream description:
+Additional upstream details:
 
-Minimum response length, in bytes, which will trigger compression. The default value is 30.
+The default value is 30.
 
 Receipt-pinned upstream constraints:
 
@@ -125,7 +119,7 @@ defined, compression will be applied to the following mime-types: 'application/j
 'application/JSON', 'application/xhtml+XML' 'image/svg+XML' 'text/CSS' 'text/HTML' 'text/plain'
 'text/XML'.
 
-Upstream description:
+Additional upstream details:
 
 Set of strings that allows specifying which mime-types yield compression When this field is not
 defined, compression will be applied to the following mime-types: "application/javascript"
@@ -179,11 +173,6 @@ Type: `"bool"`. Computed.
 If true, disables compression when the response contains an etag header. When it is false, weak
 etags will be preserved and the ones that require strong validation will be removed.
 
-Upstream description:
-
-If true, disables compression when the response contains an etag header. When it is false, weak
-etags will be preserved and the ones that require strong validation will be removed.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -206,11 +195,6 @@ Type: `"bool"`. Computed.
 If true, removes accept-encoding from the request headers before dispatching it to the upstream so
 that responses do not GET compressed before reaching the filter.
 
-Upstream description:
-
-If true, removes accept-encoding from the request headers before dispatching it to the upstream so
-that responses do not GET compressed before reaching the filter.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -223,8 +207,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [more_option](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/more_option/)
-- [xcsh_http_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/)

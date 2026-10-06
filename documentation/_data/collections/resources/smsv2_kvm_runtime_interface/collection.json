@@ -66,8 +66,8 @@
   "pages": [
     {
       "aliases": ["smsv2 kvm runtime interface"],
-      "body_bytes": 1485,
-      "body_sha256": "sha256:55d640155e7fce0bada53e3aabee92cc4c4439506784b788cef556459962624f",
+      "body_bytes": 1498,
+      "body_sha256": "sha256:4d2f1bf4b52d407ce70b82531cf5fb49c440d867767f273d7c45823fb9506021",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -110,8 +110,8 @@
     },
     {
       "aliases": ["smsv2 kvm runtime interface"],
-      "body_bytes": 4770,
-      "body_sha256": "sha256:78eb9b9786313e5bbb851fb0913a600b365c0c3045ab596dfb2d58846e35dec8",
+      "body_bytes": 4621,
+      "body_sha256": "sha256:cddf5cbb8b780792d98c9a7c66cb0ac9e121826de10793e862954341c735b4c9",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -336,8 +336,8 @@
     },
     {
       "aliases": ["smsv2 kvm runtime interface"],
-      "body_bytes": 723,
-      "body_sha256": "sha256:2f7933b3a95566f3b02ae63d668a3030014956b9c9f1d432ef206aa04c2d0d2e",
+      "body_bytes": 447,
+      "body_sha256": "sha256:d8ee6ff4c79f3a7bd09eaeee2e1e5162d5347a860bf0ee4827af99c07a3c6010",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:smsv2_kvm_runtime_interface:example:resource"],
@@ -376,8 +376,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1375,
-      "body_sha256": "sha256:da3750630e7b70e8fb70010a4dd2ccb7074c952da84be85ebec31edcff52e26e",
+      "body_bytes": 1108,
+      "body_sha256": "sha256:c09c9e928ea33c45dd13b945fcac8ee2866d182d2678725d07b899d7cea4bf7e",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],

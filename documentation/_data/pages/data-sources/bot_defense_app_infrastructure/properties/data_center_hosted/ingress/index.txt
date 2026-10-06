@@ -2,7 +2,7 @@
 page_title: "data_center_hosted.ingress"
 subcategory: ""
 description: "Ingress"
-xcsh_docs: {"aliases": ["data center hosted ingress"], "body_bytes": 8169, "body_sha256": "sha256:4f54be4007d6c624d9955694ce825ec90bd5f6f681de515fbeaeb463e6829d17", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress", "parent_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted", "path": "documentation/data-sources/bot_defense_app_infrastructure/properties/data_center_hosted/ingress/index.md", "product": "distributed-cloud", "provider_name": "bot_defense_app_infrastructure", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2332132211113123-0320021203313232-3302130030312112-3002010012133101-1132123033332312-1022033303130002-2000100333021131-2121111210222313", "registry_path": "docs/guides/data-sources--bot_defense_app_infrastructure--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["data_center_hosted", "ingress"], "schema_version": 1, "sections": [{"aliases": ["data center hosted ingress host name"], "anchor": "schema-data_center_hosted--ingress--host_name", "description": "Exclusive with Ingress Host Name.", "document_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["data_center_hosted", "ingress", "host_name"], "syntax": "attribute", "type": "string"}, {"aliases": ["data center hosted ingress ip address"], "anchor": "schema-data_center_hosted--ingress--ip_address", "description": "Exclusive with Ingress IP Address.", "document_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["data_center_hosted", "ingress", "ip_address"], "syntax": "attribute", "type": "string"}, {"aliases": ["data center hosted ingress location"], "anchor": "schema-data_center_hosted--ingress--location", "description": "Region location AWS_AP_NORTHEAST_1 AWS_AP_NORTHEAST_3 AWS_AP_SOUTH_1 AWS_AP_SOUTH_2 AWS_AP_SOUTHEAST_1 AWS_AP_SOUTHEAST_2 AWS_AP_SOUTHEAST_3 AWS_EU_CENTRAL_1 AWS_EU_NORTH_1 AWS_EU_WEST_1 AWS_ME_SOUTH_1 AWS_SA_EAST_1 AWS_US_EAST_1 AWS_US_EAST_2 AWS_US_WEST_1 AWS_US_WEST_2 GCP_ASIA_EAST_1 GCP_ASIA_EAST_2", "document_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["data_center_hosted", "ingress", "location"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_defense_app_infrastructure/properties/data_center_hosted/ingress/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Ingress", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["bot_defense_app_infrastructureCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["data center hosted ingress"], "body_bytes": 7683, "body_sha256": "sha256:34958e3c60b0c38bc06c07cac36cfd68e6232e92005204c8b339844f2facf809", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress", "parent_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted", "path": "documentation/data-sources/bot_defense_app_infrastructure/properties/data_center_hosted/ingress/index.md", "product": "distributed-cloud", "provider_name": "bot_defense_app_infrastructure", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2332132211113123-0320021203313232-3302130030312112-3002010012133101-1132123033332312-1022033303130002-2000100333021131-2121111210222313", "registry_path": "docs/guides/data-sources--bot_defense_app_infrastructure--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["data_center_hosted", "ingress"], "schema_version": 1, "sections": [{"aliases": ["data center hosted ingress host name"], "anchor": "schema-data_center_hosted--ingress--host_name", "description": "Exclusive with Ingress Host Name.", "document_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["data_center_hosted", "ingress", "host_name"], "syntax": "attribute", "type": "string"}, {"aliases": ["data center hosted ingress ip address"], "anchor": "schema-data_center_hosted--ingress--ip_address", "description": "Exclusive with Ingress IP Address.", "document_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["data_center_hosted", "ingress", "ip_address"], "syntax": "attribute", "type": "string"}, {"aliases": ["data center hosted ingress location"], "anchor": "schema-data_center_hosted--ingress--location", "description": "Region location AWS_AP_NORTHEAST_1 AWS_AP_NORTHEAST_3 AWS_AP_SOUTH_1 AWS_AP_SOUTH_2 AWS_AP_SOUTHEAST_1 AWS_AP_SOUTHEAST_2 AWS_AP_SOUTHEAST_3 AWS_EU_CENTRAL_1 AWS_EU_NORTH_1 AWS_EU_WEST_1 AWS_ME_SOUTH_1 AWS_SA_EAST_1 AWS_US_EAST_1 AWS_US_EAST_2 AWS_US_WEST_1 AWS_US_WEST_2 GCP_ASIA_EAST_1 GCP_ASIA_EAST_2", "document_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["data_center_hosted", "ingress", "location"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_defense_app_infrastructure/properties/data_center_hosted/ingress/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Ingress", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["bot_defense_app_infrastructureCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,10 +23,6 @@ Breadcrumbs:
 Type: `"list"`. Computed.
 
 Ingress. Ingress
-
-Upstream description:
-
-Ingress
 
 Receipt-pinned upstream constraints:
 
@@ -78,10 +74,6 @@ Type: `"string"`. Computed.
 
 Exclusive with \[ip\_address\] Ingress Host Name.
 
-Upstream description:
-
-Exclusive with \[ip\_address\] Ingress Host Name.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -118,10 +110,6 @@ Receipt-pinned upstream constraints:
 ### ip_address property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[host\_name\] Ingress IP Address.
-
-Upstream description:
 
 Exclusive with \[host\_name\] Ingress IP Address.
 
@@ -184,7 +172,7 @@ AWS\_US\_EAST\_2 AWS\_US\_WEST\_1 AWS\_US\_WEST\_2 GCP\_ASIA\_EAST\_1.. Possible
 \`GCP\_US\_EAST\_1\`, \`GCP\_US\_EAST\_4\`, \`GCP\_US\_WEST\_1\`, \`GCP\_US\_WEST\_2\`. Defaults to
 \`AWS\_AP\_NORTHEAST\_1\`.
 
-Upstream description:
+Additional upstream details:
 
 Region location
 
@@ -250,8 +238,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [data_center_hosted](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/data_center_hosted/)
-- [xcsh_bot_defense_app_infrastructure](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/)

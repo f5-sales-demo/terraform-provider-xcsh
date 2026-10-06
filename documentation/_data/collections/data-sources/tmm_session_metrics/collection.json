@@ -131,8 +131,8 @@
   "pages": [
     {
       "aliases": ["tmm session metrics"],
-      "body_bytes": 1250,
-      "body_sha256": "sha256:bffcb5ca24df6cd26464ddacf61e22846fd63e33ef0fc176693abdb128ee2dd1",
+      "body_bytes": 1299,
+      "body_sha256": "sha256:42b7e6a7090e8980b3e061fb8c4ca36052c0a1ce71d5f0ec6be880735a3ac16b",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -163,7 +163,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tmm_session_metrics/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource creation operation.",
+      "summary": "Reads TMM session metrics information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_tmm_session_metrics",
       "unresolved_relationships": [],
@@ -175,8 +175,8 @@
     },
     {
       "aliases": ["tmm session metrics"],
-      "body_bytes": 8665,
-      "body_sha256": "sha256:9d3b38e21197c9c693ea22c07b1bb1a4d61a505456352c9b5eca979738804f28",
+      "body_bytes": 8281,
+      "body_sha256": "sha256:9ac21dbb1a408cdedeef0a468792e6a3a5e5ce2c7899160086d1d573b78ba344",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -363,8 +363,8 @@
     },
     {
       "aliases": ["data"],
-      "body_bytes": 5677,
-      "body_sha256": "sha256:bb923224fcf628fdf340698e701d19bed0aee3a0b0549860727d456d744022a1",
+      "body_bytes": 5286,
+      "body_sha256": "sha256:32cd7df8e59f414cb3540458e8f4a797b31ac6bad5e3711b22d28912ab0066d6",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric"],
@@ -508,8 +508,8 @@
     },
     {
       "aliases": ["data metric"],
-      "body_bytes": 1454,
-      "body_sha256": "sha256:0616f4ed9a0d3e7a816e1b2fbf8d6577f54443e5e5e15ef0f9eb0722ef31bca8",
+      "body_bytes": 922,
+      "body_sha256": "sha256:012bbea055f683d5d04b7c8fe4ccc4ade2f8255cdd29ffae4590440abd7a624d",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -584,8 +584,8 @@
     },
     {
       "aliases": ["data metric key"],
-      "body_bytes": 1138,
-      "body_sha256": "sha256:eef3c180d1ad1c0e2321207e7ad14a80e9c6e8e11119cd3b4b68ab9bc829c615",
+      "body_bytes": 850,
+      "body_sha256": "sha256:f3a0e8822eff2df1ec98fda1398adbc5998bcd3fdac6054fb93a91b707250c84",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -624,8 +624,8 @@
     },
     {
       "aliases": ["data metric value"],
-      "body_bytes": 1626,
-      "body_sha256": "sha256:050d3bb48c140c612e33dac7389e7bdfa37b6bad75b9859240845fbdcff14690",
+      "body_bytes": 1194,
+      "body_sha256": "sha256:e52b3c110a3f3b961c935a7b1d2d4108bddf40bffbef8ca09da03d0572ce93f4",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value:trend_value"],
@@ -713,8 +713,8 @@
     },
     {
       "aliases": ["data metric value trend value"],
-      "body_bytes": 2751,
-      "body_sha256": "sha256:5ffae8cb3abaab82ce123394d80db5fab4472ac1855bcff96ece73e4996256fd",
+      "body_bytes": 2473,
+      "body_sha256": "sha256:2e37722435de03e79045466f6a037d1d8e6df5c0ae33ffa5b28b63a55ac5c5b6",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -827,8 +827,8 @@
     },
     {
       "aliases": ["label filter"],
-      "body_bytes": 3084,
-      "body_sha256": "sha256:254d819304748b776fff0187de91425e48e4317687a679e21f120ea73208ad26",
+      "body_bytes": 2823,
+      "body_sha256": "sha256:72cb26216607ffafc1cd5cde70992be8aa510d30501ee60a3872b53db0b4350f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -934,8 +934,8 @@
     },
     {
       "aliases": ["tmm session metrics"],
-      "body_bytes": 699,
-      "body_sha256": "sha256:157ec56611aaa871d28b214104a207e98b364f2e22587c9726e8cb4f009a1472",
+      "body_bytes": 435,
+      "body_sha256": "sha256:b2b4136b4aaff0edeae655bedd935692a6f276a1fa0d1f7ba61bcce0d82b62b1",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:tmm_session_metrics:example:data-source"],
@@ -974,8 +974,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1283,
-      "body_sha256": "sha256:7eea8a11f268e2e6485370a70ebb5b354050a6f9044ac9d73be7e09f17b55432",
+      "body_bytes": 1034,
+      "body_sha256": "sha256:b475279546661ae8809c1fe74bcd1f457279692e19aa47c779e5c92625019df6",
       "capabilities": [],
       "category": null,
       "child_ids": [],

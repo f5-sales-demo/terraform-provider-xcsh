@@ -12,34 +12,25 @@ description: "Complete grouped canonical reference for xcsh_virtual_host referen
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1002220000132112-3011220112112231-1122122333133112-1113130200001130-3110310333230231-0320011201002030-2330002212000113-3000310011313132"></a>
-
-## Property reference — Property reference / 211012200223 / 2
+## Property reference
 
 Breadcrumbs:
 
 - [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
 - Property reference
 
-<a id="canonical-2302010110022001-2321103311203312-1210121312103131-1020032002201200-0033223003221200-3220001030331220-1111321000220321-0321001221012111"></a>
+<a id="canonical-1002220000132112-3011220112112231-1122122333133112-1113130200001130-3110310333230231-0320011201002030-2330002212000113-3000310011313132"></a>
 
-## Direct properties — Property reference / 211012200223 / 3
+### Direct properties for `xcsh_virtual_host`
 
 <a id="canonical-0013323330322123-3300201000211210-3132102322303022-3332302201101122-0222110233301011-1223323133333310-2102212100121313-0313003110112032"></a>
 
-<a id="canonical-1020200012133100-3200301102300123-2033320220010011-1122220200010322-1000233333011221-1023330203111000-1220103213213121-3010122110100230"></a>
-
-## add_location property — Property reference / 211012200223 / 4
+#### `add_location` property
 
 Type: `"bool"`. Optional, Computed.
 
 Add Location. X-example: true Appends header x-F5 Distributed Cloud-location = &lt;RE-site-name&gt;
 in responses. This configuration is ignored on CE sites.
-
-Upstream description:
-
-X-example: true Appends header x-F5 Distributed Cloud-location = &lt;RE-site-name&gt; in responses.
-This configuration is ignored on CE sites.
 
 Receipt-pinned upstream constraints:
 
@@ -58,16 +49,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2110200310323201-2210212033231133-1111022333112202-3033102201230032-2202310030031320-1131121321033313-3223203220233002-3003132201313211"></a>
 
-<a id="canonical-1312313012202212-1211222323103311-3303311233120220-0213013013203132-2301121211313233-2230303312113012-3313120213212132-2111201220202011"></a>
+<a id="canonical-2302010110022001-2321103311203312-1210121312103131-1020032002201200-0033223003221200-3220001030331220-1111321000220321-0321001221012111"></a>
 
-## annotations property — Property reference / 211012200223 / 5
+#### `annotations` property
 
 Type: `["map", "string"]`. Optional.
-
-Annotations is an unstructured key-value map stored with a resource that may be set by external
-tools to store and retrieve arbitrary metadata.
-
-Upstream description:
 
 Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
@@ -121,9 +107,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2032132033332212-2303220021231303-0323013021013231-2113200332010333-0210210201220233-1300002321020233-0003012010320111-0122302230222333"></a>
 
-<a id="canonical-3120121031023322-1323300302221100-1020301220103133-1232323332323233-1213322220300032-2213323003022010-2101211121202303-3211023313232330"></a>
+<a id="canonical-1020200012133100-3200301102300123-2033320220010011-1122220200010322-1000233333011221-1023330203111000-1220103213213121-3010122110100230"></a>
 
-## append_server_name property — Property reference / 211012200223 / 6
+#### `append_server_name` property
 
 Type: `"string"`. Optional, Computed.
 
@@ -131,12 +117,6 @@ Type: `"string"`. Optional, Computed.
 default\_header\] Exclusive with \[default\_header pass\_through server\_name\] Specifies the value
 to be used for Server header if it is not already present. If Server Header is already present it is
 not overwritten. It is just passed.
-
-Upstream description:
-
-Exclusive with \[default\_header pass\_through server\_name\] Specifies the value to be used for
-Server header if it is not already present. If Server Header is already present it is not
-overwritten. It is just passed.
 
 Provider validators and defaults (from schema source):
 
@@ -189,26 +169,21 @@ Select alternatives according to the provider validators above.
 
 - [authentication](resources--virtual_host--reference--group-001.md#canonical-2003102221320033-2002121330313023-0331120011300333-0213101002200303-3003330033121012-0330110020200302-3233233301001020-2111210130323123): complete subsection reference.
 
-- [buffer_policy](resources--virtual_host--reference--group-002.md#canonical-3232012230212003-3221232011020313-0202200302301332-0002323023102302-2322221023103201-3002223222331300-0233232032310121-2021012312213213): complete subsection reference.
+- [buffer_policy](resources--virtual_host--reference--group-001.md#canonical-3232012230212003-3221232011020313-0202200302301332-0002323023102302-2322221023103201-3002223222331300-0233232032310121-2021012312213213): complete subsection reference.
 
-- [captcha_challenge](resources--virtual_host--reference--group-002.md#canonical-1020312231213113-0223120010100113-3031300332310212-2210330020033311-2212131302230022-1310032130223312-2033030030001301-2312002230010203): complete subsection reference.
+- [captcha_challenge](resources--virtual_host--reference--group-001.md#canonical-1020312231213113-0223120010100113-3031300332310212-2210330020033311-2212131302230022-1310032130223312-2033030030001301-2312002230010203): complete subsection reference.
 
-- [coalescing_options](resources--virtual_host--reference--group-002.md#canonical-1133103011022022-2203323101231031-2333022101312310-0311232221002132-1112210132302130-3101211220023233-3011302023021202-3033100231101311): complete subsection reference.
+- [coalescing_options](resources--virtual_host--reference--group-001.md#canonical-1133103011022022-2203323101231031-2333022101312310-0311232221002132-1112210132302130-3101211220023233-3011302023021202-3033100231101311): complete subsection reference.
 
-- [compression_params](resources--virtual_host--reference--group-002.md#canonical-1033033121221113-3201013233022330-2031033001101131-2231201001233133-3212322221010320-2231221131030022-1003330210110233-1333033203013221): complete subsection reference.
+- [compression_params](resources--virtual_host--reference--group-001.md#canonical-1033033121221113-3201013233022330-2031033001101131-2231201001233133-3212322221010320-2231221131030022-1003330210110233-1333033203013221): complete subsection reference.
 
 <a id="canonical-3032310110300222-2000212021201213-0223203311330221-0020101110013232-3303120030031001-2010133132130000-1323033031102122-3112201220102032"></a>
 
-<a id="canonical-0322212321303232-1100031020002212-2200221013120111-3332301120310210-3022002213013113-3210311020123312-3121223231303120-3322222000003023"></a>
+<a id="canonical-1312313012202212-1211222323103311-3303311233120220-0213013013203132-2301121211313233-2230303312113012-3313120213212132-2111201220202011"></a>
 
-## connection_idle_timeout property — Property reference / 211012200223 / 7
+#### `connection_idle_timeout` property
 
 Type: `"number"`. Optional, Computed.
-
-The idle timeout for downstream connections. The idle timeout is defined as the period in which
-there are no active requests. When the idle timeout is reached the connection will be closed.
-
-Upstream description:
 
 The idle timeout for downstream connections. The idle timeout is defined as the period in which
 there are no active requests. When the idle timeout is reached the connection will be closed. Note
@@ -254,23 +229,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [cors_policy](resources--virtual_host--reference--group-002.md#canonical-3232131223002131-1100030322001210-3211031031233033-0203330020202031-0110112203211203-1312221320131310-3120133001121223-0213203230311301): complete subsection reference.
+- [cors_policy](resources--virtual_host--reference--group-001.md#canonical-3232131223002131-1100030322001210-3211031031233033-0203330020202031-0110112203211203-1312221320131310-3120133001121223-0213203230311301): complete subsection reference.
 
-- [csrf_policy](resources--virtual_host--reference--group-002.md#canonical-0032333010121002-0332331033300212-2002033020321220-2332202013303113-2313133231100331-0003222333003100-3133200232230203-0121213102202020): complete subsection reference.
+- [csrf_policy](resources--virtual_host--reference--group-001.md#canonical-0032333010121002-0332331033300212-2002033020321220-2332202013303113-2313133231100331-0003222333003100-3133200232230203-0121213102202020): complete subsection reference.
 
 <a id="canonical-0311101123310131-0113032000322132-2330012100310121-1000103023313213-3220131033131221-2323000031310313-1313130231210122-0131211113000313"></a>
 
-<a id="canonical-2112001113330321-2211000020333313-3001032303210020-1333022121100202-1112113132322130-0211231112302333-3330131013300030-2102123311003131"></a>
+<a id="canonical-3120121031023322-1323300302221100-1020301220103133-1232323332323233-1213322220300032-2213323003022010-2101211121202303-3211023313232330"></a>
 
-## custom_errors property — Property reference / 211012200223 / 8
+#### `custom_errors` property
 
 Type: `["map", "string"]`. Optional.
-
-Map of integer error codes as keys and string values that can be used to provide custom HTTP pages
-for each error code. Key of the map can be either response code class or HTTP Error code. Response
-code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx..
-
-Upstream description:
 
 Map of integer error codes as keys and string values that can be used to provide custom HTTP pages
 for each error code. Key of the map can be either response code class or HTTP Error code. Response
@@ -355,9 +324,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0030002233332331-3231212021013021-3012013122113301-2221302213223021-0230122310220033-0031202333020303-1130023120032301-1201010010332021"></a>
 
-<a id="canonical-2133010103321221-3101123032031230-3210230333313231-2010001221031112-1033103210011110-0211202321123223-3031203113212102-3320002300211010"></a>
+<a id="canonical-0322212321303232-1100031020002212-2200221013120111-3332301120310210-3022002213013113-3210311020123312-3121223231303120-3322222000003023"></a>
 
-## description property — Property reference / 211012200223 / 9
+#### `description` property
 
 Type: `"string"`. Optional.
 
@@ -403,15 +372,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2003222121102200-3023011233323121-0102220130201310-3000330003100122-2203301130331101-3303230221312121-3312020121123203-1110212000202232"></a>
 
-<a id="canonical-1002101213230303-2330331312203212-1202330021331033-3100200220331111-1110123302030003-1023112003322030-3010002302222313-2333323331303122"></a>
+<a id="canonical-2112001113330321-2211000020333313-3001032303210020-1333022121100202-1112113132322130-0211231112302333-3330131013300030-2102123311003131"></a>
 
-## disable property — Property reference / 211012200223 / 10
+#### `disable` property
 
 Type: `"bool"`. Optional.
 
 A value of true administratively disables the object.
 
-Upstream description:
+Additional upstream details:
 
 A value of true will administratively disable the object.
 
@@ -430,15 +399,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1001322231001000-0232313010110102-0202220213223333-0220001233312033-3123230200011123-2301021113221020-1330331101010221-2020113001111310"></a>
 
-<a id="canonical-1012132011323212-1322112030221133-2113021330202222-1103320220033103-0233200002220010-3001221131233100-0123232031231020-0033102131100223"></a>
+<a id="canonical-2133010103321221-3101123032031230-3210230333313231-2010001221031112-1033103210011110-0211202321123223-3031203113212102-3320002300211010"></a>
 
-## disable_default_error_pages property — Property reference / 211012200223 / 11
+#### `disable_default_error_pages` property
 
 Type: `"bool"`. Optional, Computed.
-
-Option to specify whether to disable using default F5XC error pages.
-
-Upstream description:
 
 An option to specify whether to disable using default F5XC error pages.
 
@@ -457,22 +422,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0013130302202231-2302310310120022-1101121131101321-3101012121213221-0311233303300201-3230202310203023-0012233011211200-3132021120331021"></a>
 
-<a id="canonical-0102000320303013-0012211101313110-2020121010313130-1213301221321031-3123131223111121-3121221202331230-3000101002022313-1001122213121112"></a>
+<a id="canonical-1002101213230303-2330331312203212-1202330021331033-3100200220331111-1110123302030003-1023112003322030-3010002302222313-2333323331303122"></a>
 
-## disable_dns_resolve property — Property reference / 211012200223 / 12
+#### `disable_dns_resolve` property
 
 Type: `"bool"`. Optional, Computed.
 
 Disable DNS resolution for domains specified in the virtual host When the virtual host is configured
 as Dynamive Resolve Proxy (DRP), disable DNS resolution for domains configured. This configuration
 is suitable for HTTP CONNECT proxy.
-
-Upstream description:
-
-Disable DNS resolution for domains specified in the virtual host
-
-When the virtual host is configured as Dynamive Resolve Proxy (DRP), disable DNS resolution for
-domains configured. This configuration is suitable for HTTP CONNECT proxy.
 
 Receipt-pinned upstream constraints:
 
@@ -491,34 +449,29 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3212000311330033-3332230300113221-1321030133310313-2310133120230230-2113011130011110-0212031123103320-2300100230130123-2000321302332032"></a>
 
-<a id="canonical-3123121030222200-1010323220121201-0033302111333010-2231330233022202-0323222021123223-0120320331102001-3312200300220112-2301332303122012"></a>
+<a id="canonical-1012132011323212-1322112030221133-2113021330202222-1103320220033103-0233200002220010-3001221131233100-0123232031231020-0033102131100223"></a>
 
-## domains property — Property reference / 211012200223 / 13
+#### `domains` property
 
 Type: `["list", "string"]`. Optional.
 
 List of domain names matched to this virtual host for routing incoming requests. Supports wildcard
 patterns like \*.example.com for subdomain matching.
 
-Upstream description:
+Additional upstream details:
 
 A list of Domains (host/authority header) that will be matched to this Virtual Host. Wildcard hosts
 are supported in the suffix or prefix form
 
 Supported Domains and search order: &#8203;1. Exact Domain names: www&#46;example.com. &#8203;2.
-Domains starting with a Wildcard: \*.example.com.
-
-Not supported Domains: &#8203;- Just a Wildcard: \* &#8203;- A Wildcard and TLD with no root Domain:
-\*.com. &#8203;- A Wildcard not matching a whole DNS label. E.g. \*.example.com and
-\*.bar.example.com are valid Wildcards however \*bar.example.com, \*-bar.example.com, and
-bar\*.example.com are all invalid.
-
-Additional notes: A Wildcard will not match empty string. E.g. \*.example.com will match
-bar.example.com and baz-bar.example.com but not .example.com. The longest Wildcards match first.
-Only a single virtual host in the entire route configuration can match on \*. Also a Domain must be
-unique across all virtual hosts within an advertise policy.
-
-Domains are also used for SNI matching if the virtual host proxy type is
+Domains starting with a Wildcard: \*.example.com. Not supported Domains: &#8203;- Just a Wildcard:
+\* &#8203;- A Wildcard and TLD with no root Domain: \*.com. &#8203;- A Wildcard not matching a whole
+DNS label. E.g. \*.example.com and \*.bar.example.com are valid Wildcards however \*bar.example.com,
+\*-bar.example.com, and bar\*.example.com are all invalid. Additional notes: A Wildcard will not
+match empty string. E.g. \*.example.com will match bar.example.com and baz-bar.example.com but not
+.example.com. The longest Wildcards match first. Only a single virtual host in the entire route
+configuration can match on \*. Also a Domain must be unique across all virtual hosts within an
+advertise policy. Domains are also used for SNI matching if the virtual host proxy type is
 TCP\_PROXY\_WITH\_SNI/HTTPS\_PROXY Domains also indicate the list of names for which DNS resolution
 will be automatically resolved to IP addresses by the system.
 
@@ -576,9 +529,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2100122103113131-1300210011133013-2332123120112031-0211300012113033-1002303312231332-2211231310201032-0320120311000222-2031132103332113"></a>
 
-<a id="canonical-2020311031202220-2030012221231011-1111001321300012-2232200221331200-3211230220233310-2002311320031331-0221303111202110-1322212203231321"></a>
+<a id="canonical-0102000320303013-0012211101313110-2020121010313130-1213301221321031-3123131223111121-3121221202331230-3000101002022313-1001122213121112"></a>
 
-## ID property — Property reference / 211012200223 / 14
+#### `id` property
 
 Type: `"string"`. Computed.
 
@@ -586,17 +539,11 @@ Unique identifier for the resource.
 
 <a id="canonical-2130311100021022-0231313123020200-2011301202100101-0212022023311022-2110321111203231-3133303221213013-1220001320321030-3112232011003003"></a>
 
-<a id="canonical-3212020200131301-2122333102020320-1133102031203132-1330133131003300-2221012011220311-1022002213303321-3103230103212031-3101113000200311"></a>
+<a id="canonical-3123121030222200-1010323220121201-0033302111333010-2231330233022202-0323222021123223-0120320331102001-3312200300220112-2301332303122012"></a>
 
-## idle_timeout property — Property reference / 211012200223 / 15
+#### `idle_timeout` property
 
 Type: `"number"`. Optional, Computed.
-
-Idle timeout is the amount of time that the loadbalancer will allow a stream to exist with no
-upstream or downstream activity. Idle timeout and Proxy Type: HTTP\_PROXY, HTTPS\_PROXY: Idle timer
-is started when the first byte is received on the connection. Each time an encode/decode event for..
-
-Upstream description:
 
 Idle timeout is the amount of time that the loadbalancer will allow a stream to exist with no
 upstream or downstream activity.
@@ -633,16 +580,16 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0030111302020011-3233132301130311-2223020332120120-0022233112232323-1103020111123112-2103100113321030-2003122112003113-0203121201121120"></a>
 
-<a id="canonical-0201321321330300-1003310102000300-2321023310203300-1310321020310012-1000032222303102-2001001302113032-1201221011020033-1201312110001000"></a>
+<a id="canonical-2020311031202220-2030012221231011-1111001321300012-2232200221331200-3211230220233310-2002311320031331-0221303111202110-1322212203231321"></a>
 
-## labels property — Property reference / 211012200223 / 16
+#### `labels` property
 
 Type: `["map", "string"]`. Optional.
 
 Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
-Upstream description:
+Additional upstream details:
 
 Map of string keys and values that can be used to organize and categorize (scope and select) objects
 as chosen by the user. Values specified here will be used by selector expression.
@@ -662,16 +609,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2301221233022002-1033000200231312-3302301110130013-2320013313321302-2103022203021132-3322332032100230-0300002000030230-1311310010111130"></a>
 
-<a id="canonical-2000012102313322-3013132303231031-2000011101202103-1302211022232210-3303222022330003-2232321202300312-3231131020333020-2312013011333103"></a>
+<a id="canonical-3212020200131301-2122333102020320-1133102031203132-1330133131003300-2221012011220311-1022002213303321-3103230103212031-3101113000200311"></a>
 
-## max_request_header_size property — Property reference / 211012200223 / 17
+#### `max_request_header_size` property
 
 Type: `"number"`. Optional, Computed.
-
-The maximum request header size in KiB for incoming connections. If un-configured, the default max
-request headers allowed is 60 KiB. Requests that exceed this limit will receive a 431 response.
-
-Upstream description:
 
 The maximum request header size in KiB for incoming connections.
 
@@ -726,9 +668,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3302203010032022-0312123123321211-3211010021230223-3131033301001120-0312112002101330-3323100120222113-1112211233210202-3301310201101123"></a>
 
-<a id="canonical-2130020102023213-1201310220022233-2011221203031101-2003202022012111-0200231300012132-1130131310110213-1010202232313130-1300330332133001"></a>
+<a id="canonical-0201321321330300-1003310102000300-2321023310203300-1310321020310012-1000032222303102-2001001302113032-1201221011020033-1201312110001000"></a>
 
-## max_requests_per_connection property — Property reference / 211012200223 / 18
+#### `max_requests_per_connection` property
 
 Type: `"number"`. Optional, Computed.
 
@@ -736,12 +678,6 @@ Type: `"number"`. Optional, Computed.
 no\_request\_limit\_per\_connection\] Exclusive with \[no\_request\_limit\_per\_connection\] Sets
 the maximum number of requests a downstream client can send over a single connection to Envoy. Enter
 a value &gt;=1 to define the request limit per connection.
-
-Upstream description:
-
-Exclusive with \[no\_request\_limit\_per\_connection\] Sets the maximum number of requests a
-downstream client can send over a single connection to Envoy. Enter a value &gt;=1 to define the
-request limit per connection.
 
 Provider validators and defaults (from schema source):
 
@@ -791,15 +727,15 @@ Select alternatives according to the provider validators above.
 
 <a id="canonical-3232022013210020-0331232120212123-1221211300320201-3022330213113112-1022203033321213-1322213313333121-1220232230301012-2101322111230011"></a>
 
-<a id="canonical-1312112203232121-2120001212203032-0311322031023111-1110013212120023-0131312010103123-2211213022333011-1220312113230302-0120111311033333"></a>
+<a id="canonical-2000012102313322-3013132303231031-2000011101202103-1302211022232210-3303222022330003-2232321202300312-3231131020333020-2312013011333103"></a>
 
-## name property — Property reference / 211012200223 / 19
+#### `name` property
 
 Type: `"string"`. Required.
 
 Name of the Virtual Host. Must be unique within the namespace.
 
-Upstream description:
+Additional upstream details:
 
 This is the name of configuration object. It has to be unique within the namespace. It can only be
 specified during create API and cannot be changed during replace API. The value of name has to
@@ -860,15 +796,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2323100200332233-2011102133130001-1222113033131122-2120201122213103-0313232011233313-0101303300103130-2313002000332200-1312121100313031"></a>
 
-<a id="canonical-3011001012013312-2323121031031213-1331031332103210-2331003211100233-0023223002002331-1330233232122013-0313303231100000-3300010321332133"></a>
+<a id="canonical-2130020102023213-1201310220022233-2011221203031101-2003202022012111-0200231300012132-1130131310110213-1010202232313130-1300330332133001"></a>
 
-## namespace property — Property reference / 211012200223 / 20
+#### `namespace` property
 
 Type: `"string"`. Required.
 
 Namespace where the Virtual Host is created.
 
-Upstream description:
+Additional upstream details:
 
 This defines the workspace within which each the configuration object is to be created. Must be a
 DNS\_LABEL format. For a namespace object itself, namespace value will be ""
@@ -932,9 +868,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0221100123330010-0213131020311100-0132311121102322-1031202000000222-2303221011223212-3232320210123212-3231022110202221-3223312233230221"></a>
 
-<a id="canonical-3022112030122201-3301310122001213-3110023232323201-1232233311323023-2230023202321132-0312331031322130-0021223302300003-2031202311100302"></a>
+<a id="canonical-1312112203232121-2120001212203032-0311322031023111-1110013212120023-0131312010103123-2211213022333011-1220312113230302-0120111311033333"></a>
 
-## proxy property — Property reference / 211012200223 / 21
+#### `proxy` property
 
 Type: `"string"`. Optional, Computed.
 
@@ -947,14 +883,13 @@ Possible values are \`UDP\_PROXY\`, \`SMA\_PROXY\`, \`DNS\_PROXY\`, \`ZTNA\_PROX
 \`UZTNA\_PROXY\`, \`TMM\_HTTP\_PROXY\`, \`TMM\_HTTPS\_PROXY\`, \`TMM\_TCP\_PROXY\`,
 \`TMM\_UDP\_PROXY\`, \`TMM\_QUIC\_PROXY\`.
 
-Upstream description:
+Additional upstream details:
 
-ProxyType tells the type of proxy to install for the virtual host.
-
-Only the following combination of VirtualHosts within same AdvertisePolicy is permitted (None of
-them should have "\*" in domains when used with other VirtualHosts in same AdvertisePolicy)
-&#8203;1. Multiple TCP\_PROXY\_WITH\_SNI and multiple HTTPS\_PROXY &#8203;2. Multiple HTTP\_PROXY
-&#8203;3. Multiple HTTPS\_PROXY &#8203;4. Multiple TCP\_PROXY\_WITH\_SNI
+ProxyType tells the type of proxy to install for the virtual host. Only the following combination of
+VirtualHosts within same AdvertisePolicy is permitted (None of them should have "\*" in domains when
+used with other VirtualHosts in same AdvertisePolicy) &#8203;1. Multiple TCP\_PROXY\_WITH\_SNI and
+multiple HTTPS\_PROXY &#8203;2. Multiple HTTP\_PROXY &#8203;3. Multiple HTTPS\_PROXY &#8203;4.
+Multiple TCP\_PROXY\_WITH\_SNI
 
 HTTPS\_PROXY without TLS parameters is not permitted
 HTTP\_PROXY/HTTPS\_PROXY/TCP\_PROXY\_WITH\_SNI/SMA\_PROXY with empty domains is not permitted
@@ -1049,9 +984,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1133330212300212-3331103111021021-2222211121303313-1132022022331223-0012010222330130-1323313333101330-3122002312312112-2222110220100202"></a>
 
-<a id="canonical-0202003132003133-2231123130030003-3231302203032212-2312303002323200-1230002122032112-3331301212211023-1311113302101310-3121322321233300"></a>
+<a id="canonical-3011001012013312-2323121031031213-1331031332103210-2331003211100233-0023223002002331-1330233232122013-0313303231100000-3300010321332133"></a>
 
-## request_cookies_to_remove property — Property reference / 211012200223 / 22
+#### `request_cookies_to_remove` property
 
 Type: `["list", "string"]`. Optional.
 
@@ -1108,9 +1043,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1100302332102030-2323230022003003-1330220321313332-2322002113222021-0002102022112000-1201023131232203-0031030110230320-2100220033303302"></a>
 
-<a id="canonical-2020113303113130-3032021331200211-0032323221122101-1312330010101032-1321132000331220-0231300003010130-3221133130123103-2333331302133220"></a>
+<a id="canonical-3022112030122201-3301310122001213-3110023232323201-1232233311323023-2230023202321132-0312331031322130-0021223302300003-2031202311100302"></a>
 
-## request_headers_to_remove property — Property reference / 211012200223 / 23
+#### `request_headers_to_remove` property
 
 Type: `["list", "string"]`. Optional.
 
@@ -1163,9 +1098,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0021022033103122-1202330200232333-3201001113021130-0212302323332013-0231120333031230-0200300003332213-2122022002232013-1132203333330221"></a>
 
-<a id="canonical-1322211202330213-1211330210012311-1002122210303023-1003221001021113-3110131313111311-3210101022122132-2223332132232032-2300103022201302"></a>
+<a id="canonical-0202003132003133-2231123130030003-3231302203032212-2312303002323200-1230002122032112-3331301212211023-1311113302101310-3121322321233300"></a>
 
-## response_cookies_to_remove property — Property reference / 211012200223 / 24
+#### `response_cookies_to_remove` property
 
 Type: `["list", "string"]`. Optional.
 
@@ -1219,13 +1154,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [response_headers_to_add](resources--virtual_host--reference--group-003.md#canonical-2031023100033202-2330100210303322-3113323303313133-2030111112021212-1302210011133231-0221213311321333-0210033213203311-0133030211030022): complete subsection reference.
+- [response_headers_to_add](resources--virtual_host--reference--group-002.md#canonical-2031023100033202-2330100210303322-3113323303313133-2030111112021212-1302210011133231-0221213311321333-0210033213203311-0133030211030022): complete subsection reference.
 
 <a id="canonical-2333020201013203-3202312230231313-0302112333030221-1020023111131203-1102321222121331-3100222012333100-0123033103232131-1330302200313013"></a>
 
-<a id="canonical-0211231123110012-2220212020311322-2000110303212202-0100111102201022-0121201110212331-1021130332221030-3331112213023330-0332231121200131"></a>
+<a id="canonical-2020113303113130-3032021331200211-0032323221122101-1312330010101032-1321132000331220-0231300003010130-3221133130123103-2333331302133220"></a>
 
-## response_headers_to_remove property — Property reference / 211012200223 / 25
+#### `response_headers_to_remove` property
 
 Type: `["list", "string"]`. Optional.
 
@@ -1274,25 +1209,19 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [retry_policy](resources--virtual_host--reference--group-003.md#canonical-3120210313011012-3220120012303030-2320221131003020-2003111301323011-0131032003311130-3311130033201323-1332312222032333-0100213232033200): complete subsection reference.
+- [retry_policy](resources--virtual_host--reference--group-002.md#canonical-3120210313011012-3220120012303030-2320221131003020-2003111301323011-0131032003311130-3311130033201323-1332312222032333-0100213232033200): complete subsection reference.
 
-- [routes](resources--virtual_host--reference--group-003.md#canonical-1230120312310211-1032010120013201-1323220112101321-0101321330220132-1310202220130210-3031233111323031-2123332330332300-2030220320303223): complete subsection reference.
+- [routes](resources--virtual_host--reference--group-002.md#canonical-1230120312310211-1032010120013201-1323220112101321-0101321330220132-1310202220130210-3031233111323031-2123332330332300-2030220320303223): complete subsection reference.
 
-- [sensitive_data_policy](resources--virtual_host--reference--group-003.md#canonical-1113203023200020-3223013230231323-2212021220030131-0310020233201101-0121323110323203-3122333302133331-0211123332303330-1130022122020210): complete subsection reference.
+- [sensitive_data_policy](resources--virtual_host--reference--group-002.md#canonical-1113203023200020-3223013230231323-2212021220030131-0310020233201101-0121323110323203-3122333302133331-0211123332303330-1130022122020210): complete subsection reference.
 
 <a id="canonical-3202022102332232-2133012230301013-1001202130203031-0012102010333000-0231302310211120-1101011033112211-3303110301000033-1300011110102320"></a>
 
-<a id="canonical-0032230111203031-1002022113013212-2013231311300100-3032310133331111-0121000300333012-3303130333100100-0231322100110211-1233123021013310"></a>
+<a id="canonical-1322211202330213-1211330210012311-1002122210303023-1003221001021113-3110131313111311-3210101022122132-2223332132232032-2300103022201302"></a>
 
-## server_name property — Property reference / 211012200223 / 26
+#### `server_name` property
 
 Type: `"string"`. Optional, Computed.
-
-Exclusive with \[append\_server\_name default\_header pass\_through\] Specifies the value to be used
-for Server header inserted in responses. This will overwrite existing values if any for Server
-Header.
-
-Upstream description:
 
 Exclusive with \[append\_server\_name default\_header pass\_through\] Specifies the value to be used
 for Server header inserted in responses. This will overwrite existing values if any for Server
@@ -1338,21 +1267,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [slow_ddos_mitigation](resources--virtual_host--reference--group-003.md#canonical-2333312030122121-1100330320331032-1120232213211221-3131120330330231-2221003131100222-1230211011000221-1033321202131202-1012333211023301): complete subsection reference.
+- [slow_ddos_mitigation](resources--virtual_host--reference--group-002.md#canonical-2333312030122121-1100330320331032-1120232213211221-3131120330330231-2221003131100222-1230211011000221-1033321202131202-1012333211023301): complete subsection reference.
 
-- [timeouts](resources--virtual_host--reference--group-003.md#canonical-2133311002322212-0233231012302121-3111302012013321-0301321213223223-0023120022022300-3003323023033302-0131213332220332-1033313111212310): complete subsection reference.
+- [timeouts](resources--virtual_host--reference--group-002.md#canonical-2133311002322212-0233231012302121-3111302012013321-0301321213223223-0023120022022300-3003323023033302-0131213332220332-1033313111212310): complete subsection reference.
 
-- [tls_cert_params](resources--virtual_host--reference--group-003.md#canonical-3110210131021323-3322110122123101-2111232233031031-2333002311012210-2321323210033002-2221332313013332-2032010210303312-0230121122130331): complete subsection reference.
+- [tls_cert_params](resources--virtual_host--reference--group-002.md#canonical-3110210131021323-3322110122123101-2111232233031031-2333002311012210-2321323210033002-2221332313013332-2032010210303312-0230121122130331): complete subsection reference.
 
-- [tls_parameters](resources--virtual_host--reference--group-003.md#canonical-0331211001213000-2022200002023320-0333201001301110-2110111020031121-0112102012231123-2103133133121332-1220021100301010-3112201011023323): complete subsection reference.
+- [tls_parameters](resources--virtual_host--reference--group-002.md#canonical-0331211001213000-2022200002023320-0333201001301110-2110111020031121-0112102012231123-2103133133121332-1220021100301010-3112201011023323): complete subsection reference.
 
 - [user_identification](resources--virtual_host--reference--group-003.md#canonical-1012201010031002-2232101323213000-1022110300231232-0230000221021101-1203021223001011-2301313113020120-2002021332022003-0311230002232310): complete subsection reference.
 
 - [waf_type](resources--virtual_host--reference--group-003.md#canonical-2322100101202101-2331131111122123-0200313013302211-3200032010130132-1310103000220023-2103022322122223-2311300301002030-1022212031023331): complete subsection reference.
 
-<a id="canonical-2213330103203101-1020323332302100-0110230332003321-2131223233011020-2032103110130101-2232230012223323-3002111103333113-0330231320220121"></a>
+<a id="canonical-0211231123110012-2220212020311322-2000110303212202-0100111102201022-0121201110212331-1021130332221030-3331112213023330-0332231121200131"></a>
 
-## All schema paths — Property reference / 211012200223 / 27
+### All schema paths for `xcsh_virtual_host`
 
 Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
@@ -1398,34 +1327,34 @@ Each exact path has one authoritative reference destination. Collection element 
 | `authentication.cookie_params.cookie_refresh_interval` | [authentication.cookie_params.cookie_refresh_interval](resources--virtual_host--reference--group-001.md#canonical-1000232101101000-1030122230120331-3033120323031312-1122212323210023-1132131030113231-0300220222132003-0113213210032300-0032301330002303) |
 | `authentication.cookie_params.kms_key_hmac` | [authentication.cookie_params.kms_key_hmac](resources--virtual_host--reference--group-001.md#canonical-1321333011213012-2012333300202103-3313300131313230-2031022333132100-1000323212331013-1121300333313313-0111213223021001-3230332330100111) |
 | `authentication.cookie_params.session_expiry` | [authentication.cookie_params.session_expiry](resources--virtual_host--reference--group-001.md#canonical-1212232133020110-1303101001003022-3321020102020130-3232203001330210-0121103020311110-0033112022301121-2020210030003333-3333022203322200) |
-| `authentication.redirect_dynamic` | [authentication.redirect_dynamic](resources--virtual_host--reference--group-002.md#canonical-3213102103320201-1032210310101101-1212233222123001-3120123321130021-1013220321200123-2200302302223310-3111023123021303-1320003001230120) |
+| `authentication.redirect_dynamic` | [authentication.redirect_dynamic](resources--virtual_host--reference--group-001.md#canonical-3213102103320201-1032210310101101-1212233222123001-3120123321130021-1013220321200123-2200302302223310-3111023123021303-1320003001230120) |
 | `authentication.redirect_url` | [authentication.redirect_url](resources--virtual_host--reference--group-001.md#canonical-2222102131030220-3310022313321300-3032123000123010-1213222111222003-1312131313032203-3211203102033213-3012020012200110-1031100112230312) |
-| `authentication.use_auth_object_config` | [authentication.use_auth_object_config](resources--virtual_host--reference--group-002.md#canonical-0210222011020122-3312120333231130-0123030202102320-0131112000013232-1001111002202030-0031210011002221-3011120221110231-0230321030201102) |
-| `buffer_policy` | [buffer_policy](resources--virtual_host--reference--group-002.md#canonical-3011223012232200-0033131112212212-0311032201323010-1230133111002012-1210000023123031-1120322321013011-3010101320312231-0021000020120100) |
-| `buffer_policy.disabled` | [buffer_policy.disabled](resources--virtual_host--reference--group-002.md#canonical-1121202302021000-1122211120311322-0323030302130113-1212010331301331-0332310323322023-2231003333031010-2210031112120000-2102301030203023) |
-| `buffer_policy.max_request_bytes` | [buffer_policy.max_request_bytes](resources--virtual_host--reference--group-002.md#canonical-1002323221030301-3223121130300123-0323212120223032-0131122231312320-2000021101211122-0031223322313323-1030133030303003-3203230222023012) |
-| `captcha_challenge` | [captcha_challenge](resources--virtual_host--reference--group-002.md#canonical-1301312132130220-0131231003121113-3122120112223111-3123000301131222-1330033022112332-1210203020031031-3310220022023231-0120030021010211) |
-| `captcha_challenge.cookie_expiry` | [captcha_challenge.cookie_expiry](resources--virtual_host--reference--group-002.md#canonical-0320001301322310-1312032101020021-0320302330321213-0330303223323021-1330102102330330-3220302130112121-1323332330102010-3323213100100103) |
-| `captcha_challenge.custom_page` | [captcha_challenge.custom_page](resources--virtual_host--reference--group-002.md#canonical-3211020102201311-2010132132102223-2033110322132322-0313311233122022-3000211323330210-2013021010201102-2132120101020303-0111330130133121) |
-| `coalescing_options` | [coalescing_options](resources--virtual_host--reference--group-002.md#canonical-3120121021011122-3011303310310313-1322223303233223-1001000133333132-3332113200330200-2022103003121300-0132333332101302-1122132031033100) |
-| `coalescing_options.default_coalescing` | [coalescing_options.default_coalescing](resources--virtual_host--reference--group-002.md#canonical-2022310332331113-2010031031010312-3311022321032023-3113223221113202-2022330302223001-2112132123113031-3032213302301111-0231100312011013) |
-| `coalescing_options.strict_coalescing` | [coalescing_options.strict_coalescing](resources--virtual_host--reference--group-002.md#canonical-2132210221002320-3201211031212203-3032331033323023-3333321331100021-2000323000001233-1230010301133312-2303310330203210-1113123032112131) |
-| `compression_params` | [compression_params](resources--virtual_host--reference--group-002.md#canonical-0031211031111203-2132322102121311-2321132201121110-3323300211311302-2310031121311103-3210323003130202-2310301301000301-2121120102321013) |
-| `compression_params.content_length` | [compression_params.content_length](resources--virtual_host--reference--group-002.md#canonical-0301021121011203-2323321100122010-0312130302110121-0322111010002312-1200320133020202-2000031122322120-2033201132323320-2303300123022312) |
-| `compression_params.content_type` | [compression_params.content_type](resources--virtual_host--reference--group-002.md#canonical-0110132312321221-1110032302010002-2312121020310022-2320101313301030-3022032013003330-0331320020113310-1200113122101131-0231122212310200) |
-| `compression_params.disable_on_etag_header` | [compression_params.disable_on_etag_header](resources--virtual_host--reference--group-002.md#canonical-3111303120201001-3203301320332302-1000312300113310-1323111201220011-0032232010122031-0301220301003023-3110013322121101-1112330020122213) |
-| `compression_params.remove_accept_encoding_header` | [compression_params.remove_accept_encoding_header](resources--virtual_host--reference--group-002.md#canonical-0121010310031311-1130223200113313-1221313013121223-0220202022102322-1103303312311231-3323221000133302-0013202321201021-0212102313223101) |
+| `authentication.use_auth_object_config` | [authentication.use_auth_object_config](resources--virtual_host--reference--group-001.md#canonical-0210222011020122-3312120333231130-0123030202102320-0131112000013232-1001111002202030-0031210011002221-3011120221110231-0230321030201102) |
+| `buffer_policy` | [buffer_policy](resources--virtual_host--reference--group-001.md#canonical-3011223012232200-0033131112212212-0311032201323010-1230133111002012-1210000023123031-1120322321013011-3010101320312231-0021000020120100) |
+| `buffer_policy.disabled` | [buffer_policy.disabled](resources--virtual_host--reference--group-001.md#canonical-1121202302021000-1122211120311322-0323030302130113-1212010331301331-0332310323322023-2231003333031010-2210031112120000-2102301030203023) |
+| `buffer_policy.max_request_bytes` | [buffer_policy.max_request_bytes](resources--virtual_host--reference--group-001.md#canonical-1002323221030301-3223121130300123-0323212120223032-0131122231312320-2000021101211122-0031223322313323-1030133030303003-3203230222023012) |
+| `captcha_challenge` | [captcha_challenge](resources--virtual_host--reference--group-001.md#canonical-1301312132130220-0131231003121113-3122120112223111-3123000301131222-1330033022112332-1210203020031031-3310220022023231-0120030021010211) |
+| `captcha_challenge.cookie_expiry` | [captcha_challenge.cookie_expiry](resources--virtual_host--reference--group-001.md#canonical-0320001301322310-1312032101020021-0320302330321213-0330303223323021-1330102102330330-3220302130112121-1323332330102010-3323213100100103) |
+| `captcha_challenge.custom_page` | [captcha_challenge.custom_page](resources--virtual_host--reference--group-001.md#canonical-3211020102201311-2010132132102223-2033110322132322-0313311233122022-3000211323330210-2013021010201102-2132120101020303-0111330130133121) |
+| `coalescing_options` | [coalescing_options](resources--virtual_host--reference--group-001.md#canonical-3120121021011122-3011303310310313-1322223303233223-1001000133333132-3332113200330200-2022103003121300-0132333332101302-1122132031033100) |
+| `coalescing_options.default_coalescing` | [coalescing_options.default_coalescing](resources--virtual_host--reference--group-001.md#canonical-2022310332331113-2010031031010312-3311022321032023-3113223221113202-2022330302223001-2112132123113031-3032213302301111-0231100312011013) |
+| `coalescing_options.strict_coalescing` | [coalescing_options.strict_coalescing](resources--virtual_host--reference--group-001.md#canonical-2132210221002320-3201211031212203-3032331033323023-3333321331100021-2000323000001233-1230010301133312-2303310330203210-1113123032112131) |
+| `compression_params` | [compression_params](resources--virtual_host--reference--group-001.md#canonical-0031211031111203-2132322102121311-2321132201121110-3323300211311302-2310031121311103-3210323003130202-2310301301000301-2121120102321013) |
+| `compression_params.content_length` | [compression_params.content_length](resources--virtual_host--reference--group-001.md#canonical-0301021121011203-2323321100122010-0312130302110121-0322111010002312-1200320133020202-2000031122322120-2033201132323320-2303300123022312) |
+| `compression_params.content_type` | [compression_params.content_type](resources--virtual_host--reference--group-001.md#canonical-0110132312321221-1110032302010002-2312121020310022-2320101313301030-3022032013003330-0331320020113310-1200113122101131-0231122212310200) |
+| `compression_params.disable_on_etag_header` | [compression_params.disable_on_etag_header](resources--virtual_host--reference--group-001.md#canonical-3111303120201001-3203301320332302-1000312300113310-1323111201220011-0032232010122031-0301220301003023-3110013322121101-1112330020122213) |
+| `compression_params.remove_accept_encoding_header` | [compression_params.remove_accept_encoding_header](resources--virtual_host--reference--group-001.md#canonical-0121010310031311-1130223200113313-1221313013121223-0220202022102322-1103303312311231-3323221000133302-0013202321201021-0212102313223101) |
 | `connection_idle_timeout` | [connection_idle_timeout](resources--virtual_host--reference--group-001.md#canonical-3032310110300222-2000212021201213-0223203311330221-0020101110013232-3303120030031001-2010133132130000-1323033031102122-3112201220102032) |
-| `cors_policy` | [cors_policy](resources--virtual_host--reference--group-002.md#canonical-1130200103032202-0123310333002032-1000010331032332-1022233233012013-1223232030010332-2121121130102002-2200003223011003-3232203131113100) |
-| `cors_policy.allow_credentials` | [cors_policy.allow_credentials](resources--virtual_host--reference--group-002.md#canonical-3131233213331001-1113002311133000-0010121022010303-2000233123120112-2033312130133131-0022202203023011-2001221323202301-3111120112130010) |
-| `cors_policy.allow_headers` | [cors_policy.allow_headers](resources--virtual_host--reference--group-002.md#canonical-0122013231310310-0212110121303122-3003000212303012-3002020212131011-2332310330202111-1121203201103010-0301130031310031-2231213130130230) |
-| `cors_policy.allow_methods` | [cors_policy.allow_methods](resources--virtual_host--reference--group-002.md#canonical-2101211112322121-2300103100213220-2111121132223013-3210022133013130-0310031211321202-3213231212032112-1121303133030202-3302211322201300) |
-| `cors_policy.allow_origin` | [cors_policy.allow_origin](resources--virtual_host--reference--group-002.md#canonical-1130202231311301-3330300031020110-1122101230020033-2002013310233100-2003011302022013-3102021130120221-3200021330312310-3000323213123331) |
-| `cors_policy.allow_origin_regex` | [cors_policy.allow_origin_regex](resources--virtual_host--reference--group-002.md#canonical-1022012010132013-3331001120023021-0133303321210303-1333133201123131-0233203312230322-3033022002111032-0021313003212012-1233133033133100) |
-| `cors_policy.disabled` | [cors_policy.disabled](resources--virtual_host--reference--group-002.md#canonical-1221122011312203-1232112122311221-3102003313302112-2002103210122312-1033322011200322-1212132211213233-1301010312302333-1213220111310230) |
-| `cors_policy.expose_headers` | [cors_policy.expose_headers](resources--virtual_host--reference--group-002.md#canonical-0011322302112011-1223033011121000-0330231302300223-2000132022002001-3132212033231120-0030300313032222-0013223333123311-1032322202030233) |
-| `cors_policy.maximum_age` | [cors_policy.maximum_age](resources--virtual_host--reference--group-002.md#canonical-1211222333020113-1100002102312331-3121031203111333-2111001231213323-0303133212213102-0111112133311003-3002203200101121-3300300122112302) |
-| `csrf_policy` | [csrf_policy](resources--virtual_host--reference--group-002.md#canonical-3000331031023322-3131110331302003-2320301022032003-1010232010300203-1103201100200333-0321313303002220-3023320100320230-1120102030310133) |
+| `cors_policy` | [cors_policy](resources--virtual_host--reference--group-001.md#canonical-1130200103032202-0123310333002032-1000010331032332-1022233233012013-1223232030010332-2121121130102002-2200003223011003-3232203131113100) |
+| `cors_policy.allow_credentials` | [cors_policy.allow_credentials](resources--virtual_host--reference--group-001.md#canonical-3131233213331001-1113002311133000-0010121022010303-2000233123120112-2033312130133131-0022202203023011-2001221323202301-3111120112130010) |
+| `cors_policy.allow_headers` | [cors_policy.allow_headers](resources--virtual_host--reference--group-001.md#canonical-0122013231310310-0212110121303122-3003000212303012-3002020212131011-2332310330202111-1121203201103010-0301130031310031-2231213130130230) |
+| `cors_policy.allow_methods` | [cors_policy.allow_methods](resources--virtual_host--reference--group-001.md#canonical-2101211112322121-2300103100213220-2111121132223013-3210022133013130-0310031211321202-3213231212032112-1121303133030202-3302211322201300) |
+| `cors_policy.allow_origin` | [cors_policy.allow_origin](resources--virtual_host--reference--group-001.md#canonical-1130202231311301-3330300031020110-1122101230020033-2002013310233100-2003011302022013-3102021130120221-3200021330312310-3000323213123331) |
+| `cors_policy.allow_origin_regex` | [cors_policy.allow_origin_regex](resources--virtual_host--reference--group-001.md#canonical-1022012010132013-3331001120023021-0133303321210303-1333133201123131-0233203312230322-3033022002111032-0021313003212012-1233133033133100) |
+| `cors_policy.disabled` | [cors_policy.disabled](resources--virtual_host--reference--group-001.md#canonical-1221122011312203-1232112122311221-3102003313302112-2002103210122312-1033322011200322-1212132211213233-1301010312302333-1213220111310230) |
+| `cors_policy.expose_headers` | [cors_policy.expose_headers](resources--virtual_host--reference--group-001.md#canonical-0011322302112011-1223033011121000-0330231302300223-2000132022002001-3132212033231120-0030300313032222-0013223333123311-1032322202030233) |
+| `cors_policy.maximum_age` | [cors_policy.maximum_age](resources--virtual_host--reference--group-001.md#canonical-1211222333020113-1100002102312331-3121031203111333-2111001231213323-0303133212213102-0111112133311003-3002203200101121-3300300122112302) |
+| `csrf_policy` | [csrf_policy](resources--virtual_host--reference--group-001.md#canonical-3000331031023322-3131110331302003-2320301022032003-1010232010300203-1103201100200333-0321313303002220-3023320100320230-1120102030310133) |
 | `csrf_policy.all_load_balancer_domains` | [csrf_policy.all_load_balancer_domains](resources--virtual_host--reference--group-002.md#canonical-3133102211130012-2123322312022330-0023111120020320-1231211020211130-3320222020302212-3221122332320201-0312001003320213-0121333032231313) |
 | `csrf_policy.custom_domain_list` | [csrf_policy.custom_domain_list](resources--virtual_host--reference--group-002.md#canonical-3022331111332211-0031131112222202-3131030223330302-0110001000321200-3232202013212100-1320302022121232-3001233213210200-2200323031112011) |
 | `csrf_policy.custom_domain_list.domains` | [csrf_policy.custom_domain_list.domains](resources--virtual_host--reference--group-002.md#canonical-2101300102020301-2101200313113331-0220321031323312-2230003102122130-3301001111312030-3033323303300033-0031233233321032-0321210100033133) |
@@ -1534,97 +1463,97 @@ Each exact path has one authoritative reference destination. Collection element 
 | `response_cookies_to_add.secret_value.blindfold_secret_info.decryption_provider` | [response_cookies_to_add.secret_value.blindfold_secret_info.decryption_provider](resources--virtual_host--reference--group-002.md#canonical-3310132220002331-3030312200210132-1132100302302032-0313012103112312-0320113033300302-0020030022123311-1331333021021310-2011210310030210) |
 | `response_cookies_to_add.secret_value.blindfold_secret_info.location` | [response_cookies_to_add.secret_value.blindfold_secret_info.location](resources--virtual_host--reference--group-002.md#canonical-1002013121110101-0211100012202320-2112301112231220-0222333310122230-3200010313011113-3310213213213013-0220011122131010-1220300210322031) |
 | `response_cookies_to_add.secret_value.blindfold_secret_info.store_provider` | [response_cookies_to_add.secret_value.blindfold_secret_info.store_provider](resources--virtual_host--reference--group-002.md#canonical-0032332111130133-3321030330002122-2032023012133030-0221122002222210-3201101021300313-1031020232323333-0320221302332311-1112003320121300) |
-| `response_cookies_to_add.secret_value.clear_secret_info` | [response_cookies_to_add.secret_value.clear_secret_info](resources--virtual_host--reference--group-003.md#canonical-2201120200032020-3231311213302112-1301111132002220-0202333213133220-0021121202211221-3030301001202113-1022222200202312-3003001322031221) |
-| `response_cookies_to_add.secret_value.clear_secret_info.provider_ref` | [response_cookies_to_add.secret_value.clear_secret_info.provider_ref](resources--virtual_host--reference--group-003.md#canonical-0320023110210030-0132120000023010-2003233200032232-1033033333102032-2302232311011110-2201231232310331-0220033101211311-1023031221330303) |
-| `response_cookies_to_add.secret_value.clear_secret_info.url` | [response_cookies_to_add.secret_value.clear_secret_info.url](resources--virtual_host--reference--group-003.md#canonical-0122102121020011-2032120130332333-2200123132330033-0220030130232103-0130313312010111-3220231110302223-3331313222023220-1130131333330003) |
+| `response_cookies_to_add.secret_value.clear_secret_info` | [response_cookies_to_add.secret_value.clear_secret_info](resources--virtual_host--reference--group-002.md#canonical-2201120200032020-3231311213302112-1301111132002220-0202333213133220-0021121202211221-3030301001202113-1022222200202312-3003001322031221) |
+| `response_cookies_to_add.secret_value.clear_secret_info.provider_ref` | [response_cookies_to_add.secret_value.clear_secret_info.provider_ref](resources--virtual_host--reference--group-002.md#canonical-0320023110210030-0132120000023010-2003233200032232-1033033333102032-2302232311011110-2201231232310331-0220033101211311-1023031221330303) |
+| `response_cookies_to_add.secret_value.clear_secret_info.url` | [response_cookies_to_add.secret_value.clear_secret_info.url](resources--virtual_host--reference--group-002.md#canonical-0122102121020011-2032120130332333-2200123132330033-0220030130232103-0130313312010111-3220231110302223-3331313222023220-1130131333330003) |
 | `response_cookies_to_add.value` | [response_cookies_to_add.value](resources--virtual_host--reference--group-002.md#canonical-1330120322003022-3120321110121302-2111132010331030-1130313121303303-3010330130001001-2233020120121030-3113023322023311-2312322200303101) |
 | `response_cookies_to_remove` | [response_cookies_to_remove](resources--virtual_host--reference--group-001.md#canonical-0021022033103122-1202330200232333-3201001113021130-0212302323332013-0231120333031230-0200300003332213-2122022002232013-1132203333330221) |
-| `response_headers_to_add` | [response_headers_to_add](resources--virtual_host--reference--group-003.md#canonical-1332201100013111-2211122001031301-3021122213021002-3103112322011321-1203121332113223-1233013010332233-2313001300333001-1313003003202120) |
-| `response_headers_to_add.append` | [response_headers_to_add.append](resources--virtual_host--reference--group-003.md#canonical-1002223013013103-2102120223002030-1132001311122000-0310111231212011-0030132021203103-1200302310031220-3320213123333230-2020120032130001) |
-| `response_headers_to_add.name` | [response_headers_to_add.name](resources--virtual_host--reference--group-003.md#canonical-1110020330011320-0301111023102030-0003130000010223-2001003023103133-0000032033331303-1132211333120122-2310221231211001-3013002233202111) |
-| `response_headers_to_add.secret_value` | [response_headers_to_add.secret_value](resources--virtual_host--reference--group-003.md#canonical-1022221223111302-1022022232321022-1120002030211230-1101301311000311-3111213102210232-2132233222132130-1231321212320312-3133213103111301) |
-| `response_headers_to_add.secret_value.blindfold_secret_info` | [response_headers_to_add.secret_value.blindfold_secret_info](resources--virtual_host--reference--group-003.md#canonical-0130000101120133-3330110310003133-1030200231211102-0332201203201230-3102013302233322-1212300113012200-2213203321130132-2232031310101020) |
-| `response_headers_to_add.secret_value.blindfold_secret_info.decryption_provider` | [response_headers_to_add.secret_value.blindfold_secret_info.decryption_provider](resources--virtual_host--reference--group-003.md#canonical-1111111033210122-1101122203100302-0221001130032300-3102022022333022-2330121333133333-2232210230332203-2113123220013313-3313222123232310) |
-| `response_headers_to_add.secret_value.blindfold_secret_info.location` | [response_headers_to_add.secret_value.blindfold_secret_info.location](resources--virtual_host--reference--group-003.md#canonical-1111130000031302-0133021123222020-2320332132300230-3313201201030202-2221201333312132-2323012303313133-3133323121221232-1232032332310330) |
-| `response_headers_to_add.secret_value.blindfold_secret_info.store_provider` | [response_headers_to_add.secret_value.blindfold_secret_info.store_provider](resources--virtual_host--reference--group-003.md#canonical-0022001000331301-1333032031222220-3320311321313032-0030313223332031-3003300301330300-1103101031131120-1132111233220002-0112201201312321) |
-| `response_headers_to_add.secret_value.clear_secret_info` | [response_headers_to_add.secret_value.clear_secret_info](resources--virtual_host--reference--group-003.md#canonical-3201300033031132-3102213312230110-3200121221130002-1023200120331300-3230013111301132-2030330103012213-0301003133123000-0132311302103310) |
-| `response_headers_to_add.secret_value.clear_secret_info.provider_ref` | [response_headers_to_add.secret_value.clear_secret_info.provider_ref](resources--virtual_host--reference--group-003.md#canonical-0301030202012021-1031112013213332-0020010013030001-0132201123200003-0213013101010120-3011122021023131-0011023032220332-3011103001102211) |
-| `response_headers_to_add.secret_value.clear_secret_info.url` | [response_headers_to_add.secret_value.clear_secret_info.url](resources--virtual_host--reference--group-003.md#canonical-1320102133121300-3203103220333200-3010331312220321-1133333132303110-1111330002332321-2220023213320031-3003310101013301-0130323201220222) |
-| `response_headers_to_add.value` | [response_headers_to_add.value](resources--virtual_host--reference--group-003.md#canonical-1020202333133332-0012231300003001-1303210322300100-2030022011210310-2101011223100332-0321110122110112-0100302200222313-2100011130210121) |
+| `response_headers_to_add` | [response_headers_to_add](resources--virtual_host--reference--group-002.md#canonical-1332201100013111-2211122001031301-3021122213021002-3103112322011321-1203121332113223-1233013010332233-2313001300333001-1313003003202120) |
+| `response_headers_to_add.append` | [response_headers_to_add.append](resources--virtual_host--reference--group-002.md#canonical-1002223013013103-2102120223002030-1132001311122000-0310111231212011-0030132021203103-1200302310031220-3320213123333230-2020120032130001) |
+| `response_headers_to_add.name` | [response_headers_to_add.name](resources--virtual_host--reference--group-002.md#canonical-1110020330011320-0301111023102030-0003130000010223-2001003023103133-0000032033331303-1132211333120122-2310221231211001-3013002233202111) |
+| `response_headers_to_add.secret_value` | [response_headers_to_add.secret_value](resources--virtual_host--reference--group-002.md#canonical-1022221223111302-1022022232321022-1120002030211230-1101301311000311-3111213102210232-2132233222132130-1231321212320312-3133213103111301) |
+| `response_headers_to_add.secret_value.blindfold_secret_info` | [response_headers_to_add.secret_value.blindfold_secret_info](resources--virtual_host--reference--group-002.md#canonical-0130000101120133-3330110310003133-1030200231211102-0332201203201230-3102013302233322-1212300113012200-2213203321130132-2232031310101020) |
+| `response_headers_to_add.secret_value.blindfold_secret_info.decryption_provider` | [response_headers_to_add.secret_value.blindfold_secret_info.decryption_provider](resources--virtual_host--reference--group-002.md#canonical-1111111033210122-1101122203100302-0221001130032300-3102022022333022-2330121333133333-2232210230332203-2113123220013313-3313222123232310) |
+| `response_headers_to_add.secret_value.blindfold_secret_info.location` | [response_headers_to_add.secret_value.blindfold_secret_info.location](resources--virtual_host--reference--group-002.md#canonical-1111130000031302-0133021123222020-2320332132300230-3313201201030202-2221201333312132-2323012303313133-3133323121221232-1232032332310330) |
+| `response_headers_to_add.secret_value.blindfold_secret_info.store_provider` | [response_headers_to_add.secret_value.blindfold_secret_info.store_provider](resources--virtual_host--reference--group-002.md#canonical-0022001000331301-1333032031222220-3320311321313032-0030313223332031-3003300301330300-1103101031131120-1132111233220002-0112201201312321) |
+| `response_headers_to_add.secret_value.clear_secret_info` | [response_headers_to_add.secret_value.clear_secret_info](resources--virtual_host--reference--group-002.md#canonical-3201300033031132-3102213312230110-3200121221130002-1023200120331300-3230013111301132-2030330103012213-0301003133123000-0132311302103310) |
+| `response_headers_to_add.secret_value.clear_secret_info.provider_ref` | [response_headers_to_add.secret_value.clear_secret_info.provider_ref](resources--virtual_host--reference--group-002.md#canonical-0301030202012021-1031112013213332-0020010013030001-0132201123200003-0213013101010120-3011122021023131-0011023032220332-3011103001102211) |
+| `response_headers_to_add.secret_value.clear_secret_info.url` | [response_headers_to_add.secret_value.clear_secret_info.url](resources--virtual_host--reference--group-002.md#canonical-1320102133121300-3203103220333200-3010331312220321-1133333132303110-1111330002332321-2220023213320031-3003310101013301-0130323201220222) |
+| `response_headers_to_add.value` | [response_headers_to_add.value](resources--virtual_host--reference--group-002.md#canonical-1020202333133332-0012231300003001-1303210322300100-2030022011210310-2101011223100332-0321110122110112-0100302200222313-2100011130210121) |
 | `response_headers_to_remove` | [response_headers_to_remove](resources--virtual_host--reference--group-001.md#canonical-2333020201013203-3202312230231313-0302112333030221-1020023111131203-1102321222121331-3100222012333100-0123033103232131-1330302200313013) |
-| `retry_policy` | [retry_policy](resources--virtual_host--reference--group-003.md#canonical-2030200310111133-3030032003003120-3002230020001330-3301223321122321-1312122333313220-0210331300030232-3323011033030330-1311130010323222) |
-| `retry_policy.back_off` | [retry_policy.back_off](resources--virtual_host--reference--group-003.md#canonical-2022202132020122-0313220232010302-3323220003131000-2031030233333230-3131220223033201-0011222012332112-0112320230011102-2023131003303230) |
-| `retry_policy.back_off.base_interval` | [retry_policy.back_off.base_interval](resources--virtual_host--reference--group-003.md#canonical-0000230233313210-2020102122303230-3321200120031222-1303022020310110-1013313323231311-1333003213221020-3001311030132301-3011222031210332) |
-| `retry_policy.back_off.max_interval` | [retry_policy.back_off.max_interval](resources--virtual_host--reference--group-003.md#canonical-3231131112331230-2022002123220210-3113011203301202-2302330310302201-1333332112023330-2310323300012111-1332023211003102-3032211120133331) |
-| `retry_policy.num_retries` | [retry_policy.num_retries](resources--virtual_host--reference--group-003.md#canonical-3321101220111111-0210303233310200-3322021320321323-3330223120110123-1012032303123103-2222330310020030-1321031311333220-2031130212212310) |
-| `retry_policy.per_try_timeout` | [retry_policy.per_try_timeout](resources--virtual_host--reference--group-003.md#canonical-0330120133021002-2200030001111231-1010010302211330-1110133103332012-2212201003221211-0120331032312010-1021120021131332-3013112231103000) |
-| `retry_policy.retriable_status_codes` | [retry_policy.retriable_status_codes](resources--virtual_host--reference--group-003.md#canonical-2103233032202121-2131010003130032-2113013210000222-1111110310120113-0210013031311000-3323331321011201-1030332120032200-3003202201132113) |
-| `retry_policy.retry_condition` | [retry_policy.retry_condition](resources--virtual_host--reference--group-003.md#canonical-2313310213313002-3233220321023030-0133101030030101-0310300223013100-1123210020031310-0133131313012233-3330200322311330-2011031110102212) |
-| `routes` | [routes](resources--virtual_host--reference--group-003.md#canonical-1001231111002131-3010222122130310-3000212310212132-2332312133330201-3310103133323231-3122230203211313-0231120223222120-1013010013030320) |
-| `routes.kind` | [routes.kind](resources--virtual_host--reference--group-003.md#canonical-1332302203002203-1323131112012302-3212130321233131-2222020231232012-0112202202120210-0003100001213322-2223322311313002-2012200003301002) |
-| `routes.name` | [routes.name](resources--virtual_host--reference--group-003.md#canonical-3233200101223303-0331333031002211-3222223003320121-1322231321313012-0121030223213223-0322132220323222-3021200203131133-1120233203031200) |
-| `routes.namespace` | [routes.namespace](resources--virtual_host--reference--group-003.md#canonical-2333233100103023-3300021033112020-3031120032113020-0122110223123013-0002132123121023-3033013230301313-3211201223013131-0220133132133222) |
-| `routes.tenant` | [routes.tenant](resources--virtual_host--reference--group-003.md#canonical-0103130202322010-0213301300021223-3112001333123233-0103211230330111-1321103321202003-0301023010232321-1303032013202001-2032030210101102) |
-| `routes.uid` | [routes.uid](resources--virtual_host--reference--group-003.md#canonical-2102332203002001-0323322233101200-1331003332313110-3223012300133232-1213122100320301-2020213310212303-2200001301312132-1311101333021310) |
-| `sensitive_data_policy` | [sensitive_data_policy](resources--virtual_host--reference--group-003.md#canonical-0222123113222031-2013231001121032-1101203330320312-2232211013122133-3202312112000010-0012121230102013-2101110323013332-3013221200021231) |
-| `sensitive_data_policy.kind` | [sensitive_data_policy.kind](resources--virtual_host--reference--group-003.md#canonical-0131000121302011-2211210111203202-3202112101330022-3313330121012122-2021031221310010-3111111301310100-0110013310300230-3222333202322002) |
-| `sensitive_data_policy.name` | [sensitive_data_policy.name](resources--virtual_host--reference--group-003.md#canonical-3233322232232023-0203210130330331-0303200101211000-2132112013233123-3320231200012123-2210220313133102-2232031332322121-3100231132323232) |
-| `sensitive_data_policy.namespace` | [sensitive_data_policy.namespace](resources--virtual_host--reference--group-003.md#canonical-3110012223312303-1313130030112020-0331100232120323-3321001203301003-0200233222200113-2323133010211300-1320001100121123-2233313303101100) |
-| `sensitive_data_policy.tenant` | [sensitive_data_policy.tenant](resources--virtual_host--reference--group-003.md#canonical-0113201221033133-3130332221120333-1032123330203122-2122101012020032-3103202022233021-1210012302020032-0202132120312133-2231220202012031) |
-| `sensitive_data_policy.uid` | [sensitive_data_policy.uid](resources--virtual_host--reference--group-003.md#canonical-2110331321310100-1220302312211220-2313213200133332-1303221103013133-1201323220013221-1202021020312132-2200123111300130-0103030110123330) |
+| `retry_policy` | [retry_policy](resources--virtual_host--reference--group-002.md#canonical-2030200310111133-3030032003003120-3002230020001330-3301223321122321-1312122333313220-0210331300030232-3323011033030330-1311130010323222) |
+| `retry_policy.back_off` | [retry_policy.back_off](resources--virtual_host--reference--group-002.md#canonical-2022202132020122-0313220232010302-3323220003131000-2031030233333230-3131220223033201-0011222012332112-0112320230011102-2023131003303230) |
+| `retry_policy.back_off.base_interval` | [retry_policy.back_off.base_interval](resources--virtual_host--reference--group-002.md#canonical-0000230233313210-2020102122303230-3321200120031222-1303022020310110-1013313323231311-1333003213221020-3001311030132301-3011222031210332) |
+| `retry_policy.back_off.max_interval` | [retry_policy.back_off.max_interval](resources--virtual_host--reference--group-002.md#canonical-3231131112331230-2022002123220210-3113011203301202-2302330310302201-1333332112023330-2310323300012111-1332023211003102-3032211120133331) |
+| `retry_policy.num_retries` | [retry_policy.num_retries](resources--virtual_host--reference--group-002.md#canonical-3321101220111111-0210303233310200-3322021320321323-3330223120110123-1012032303123103-2222330310020030-1321031311333220-2031130212212310) |
+| `retry_policy.per_try_timeout` | [retry_policy.per_try_timeout](resources--virtual_host--reference--group-002.md#canonical-0330120133021002-2200030001111231-1010010302211330-1110133103332012-2212201003221211-0120331032312010-1021120021131332-3013112231103000) |
+| `retry_policy.retriable_status_codes` | [retry_policy.retriable_status_codes](resources--virtual_host--reference--group-002.md#canonical-2103233032202121-2131010003130032-2113013210000222-1111110310120113-0210013031311000-3323331321011201-1030332120032200-3003202201132113) |
+| `retry_policy.retry_condition` | [retry_policy.retry_condition](resources--virtual_host--reference--group-002.md#canonical-2313310213313002-3233220321023030-0133101030030101-0310300223013100-1123210020031310-0133131313012233-3330200322311330-2011031110102212) |
+| `routes` | [routes](resources--virtual_host--reference--group-002.md#canonical-1001231111002131-3010222122130310-3000212310212132-2332312133330201-3310103133323231-3122230203211313-0231120223222120-1013010013030320) |
+| `routes.kind` | [routes.kind](resources--virtual_host--reference--group-002.md#canonical-1332302203002203-1323131112012302-3212130321233131-2222020231232012-0112202202120210-0003100001213322-2223322311313002-2012200003301002) |
+| `routes.name` | [routes.name](resources--virtual_host--reference--group-002.md#canonical-3233200101223303-0331333031002211-3222223003320121-1322231321313012-0121030223213223-0322132220323222-3021200203131133-1120233203031200) |
+| `routes.namespace` | [routes.namespace](resources--virtual_host--reference--group-002.md#canonical-2333233100103023-3300021033112020-3031120032113020-0122110223123013-0002132123121023-3033013230301313-3211201223013131-0220133132133222) |
+| `routes.tenant` | [routes.tenant](resources--virtual_host--reference--group-002.md#canonical-0103130202322010-0213301300021223-3112001333123233-0103211230330111-1321103321202003-0301023010232321-1303032013202001-2032030210101102) |
+| `routes.uid` | [routes.uid](resources--virtual_host--reference--group-002.md#canonical-2102332203002001-0323322233101200-1331003332313110-3223012300133232-1213122100320301-2020213310212303-2200001301312132-1311101333021310) |
+| `sensitive_data_policy` | [sensitive_data_policy](resources--virtual_host--reference--group-002.md#canonical-0222123113222031-2013231001121032-1101203330320312-2232211013122133-3202312112000010-0012121230102013-2101110323013332-3013221200021231) |
+| `sensitive_data_policy.kind` | [sensitive_data_policy.kind](resources--virtual_host--reference--group-002.md#canonical-0131000121302011-2211210111203202-3202112101330022-3313330121012122-2021031221310010-3111111301310100-0110013310300230-3222333202322002) |
+| `sensitive_data_policy.name` | [sensitive_data_policy.name](resources--virtual_host--reference--group-002.md#canonical-3233322232232023-0203210130330331-0303200101211000-2132112013233123-3320231200012123-2210220313133102-2232031332322121-3100231132323232) |
+| `sensitive_data_policy.namespace` | [sensitive_data_policy.namespace](resources--virtual_host--reference--group-002.md#canonical-3110012223312303-1313130030112020-0331100232120323-3321001203301003-0200233222200113-2323133010211300-1320001100121123-2233313303101100) |
+| `sensitive_data_policy.tenant` | [sensitive_data_policy.tenant](resources--virtual_host--reference--group-002.md#canonical-0113201221033133-3130332221120333-1032123330203122-2122101012020032-3103202022233021-1210012302020032-0202132120312133-2231220202012031) |
+| `sensitive_data_policy.uid` | [sensitive_data_policy.uid](resources--virtual_host--reference--group-002.md#canonical-2110331321310100-1220302312211220-2313213200133332-1303221103013133-1201323220013221-1202021020312132-2200123111300130-0103030110123330) |
 | `server_name` | [server_name](resources--virtual_host--reference--group-001.md#canonical-3202022102332232-2133012230301013-1001202130203031-0012102010333000-0231302310211120-1101011033112211-3303110301000033-1300011110102320) |
-| `slow_ddos_mitigation` | [slow_ddos_mitigation](resources--virtual_host--reference--group-003.md#canonical-0213112013313021-0210021331121222-0031003332330302-2013322310222003-2302001202130331-0023232133221022-2330101022202311-2132022201020312) |
-| `slow_ddos_mitigation.disable_request_timeout` | [slow_ddos_mitigation.disable_request_timeout](resources--virtual_host--reference--group-003.md#canonical-0032120312201033-3200032031011122-0011133112303101-1033331011003302-3232321223332332-3022232232310020-1232233310013321-0201211221133333) |
-| `slow_ddos_mitigation.request_headers_timeout` | [slow_ddos_mitigation.request_headers_timeout](resources--virtual_host--reference--group-003.md#canonical-0310121203030120-2202111030132111-3230013223020011-0232201133232112-3210322310111002-1020201320121213-2211132302123003-0003003120012112) |
-| `slow_ddos_mitigation.request_timeout` | [slow_ddos_mitigation.request_timeout](resources--virtual_host--reference--group-003.md#canonical-1010331231022331-1132221033201011-3230133101222221-2013121321230003-3031003203021123-1310310002323232-2012301111230332-3011023231213112) |
-| `timeouts` | [timeouts](resources--virtual_host--reference--group-003.md#canonical-1223303000101110-3011111313112031-1002101201030211-1001300332202033-0331102311120200-0233023330322221-2003333130122211-3310101221230210) |
-| `timeouts.create` | [timeouts.create](resources--virtual_host--reference--group-003.md#canonical-1113332021000102-1022012011032030-2313220010330013-3333310312000023-1122113130313220-1013111221012123-0032002330101330-3012130212102132) |
-| `timeouts.delete` | [timeouts.delete](resources--virtual_host--reference--group-003.md#canonical-3030233233112021-1210231122222201-0022210333223313-0013233323323122-0011321101322012-1120210233132011-3303000120023020-2313103233221213) |
-| `timeouts.read` | [timeouts.read](resources--virtual_host--reference--group-003.md#canonical-1302101300113101-2232013120221032-2130001111123003-1011023213020302-0311120111212333-1223211000133333-0210003110220230-3230132211103030) |
-| `timeouts.update` | [timeouts.update](resources--virtual_host--reference--group-003.md#canonical-1310103030131222-1332220101011001-1012020331030322-1323110131211203-1231000312020102-1331323032132213-1133012111210022-3001023220230031) |
-| `tls_cert_params` | [tls_cert_params](resources--virtual_host--reference--group-003.md#canonical-2123330110100202-3132023320131302-1212121211011102-3110211230311121-1121003310302011-2120012132033323-2102333031220302-2103213231223331) |
-| `tls_cert_params.certificates` | [tls_cert_params.certificates](resources--virtual_host--reference--group-003.md#canonical-1002330313231012-3132011231022303-2330322112320020-3333223010230220-2230020323030221-3301101101021312-0001221121123213-3222202330100022) |
-| `tls_cert_params.certificates.kind` | [tls_cert_params.certificates.kind](resources--virtual_host--reference--group-003.md#canonical-2030112331132002-3113310132003032-2331232100230000-0200230011323213-0022103130310033-1103130211221313-2003301233203132-0300301222330133) |
-| `tls_cert_params.certificates.name` | [tls_cert_params.certificates.name](resources--virtual_host--reference--group-003.md#canonical-2000100313113101-1301313210100011-2200312233122122-2221320303323322-0102032301030311-0030302132331230-2332202022231223-0112023233333321) |
-| `tls_cert_params.certificates.namespace` | [tls_cert_params.certificates.namespace](resources--virtual_host--reference--group-003.md#canonical-2320202202302103-3203100131231231-2202033310030023-3323131020333232-2202213202302212-3210222330301000-2320300010333030-1013121122130111) |
-| `tls_cert_params.certificates.tenant` | [tls_cert_params.certificates.tenant](resources--virtual_host--reference--group-003.md#canonical-0210103321000312-3101022020303002-0222032131002212-0301330303330320-0110201223120300-2323233303233003-1221103312002120-1200112220101233) |
-| `tls_cert_params.certificates.uid` | [tls_cert_params.certificates.uid](resources--virtual_host--reference--group-003.md#canonical-0033103333210122-3131033102132023-2103000002320311-2201223212010302-2003002203313230-2311333021012310-3010020111030332-3212120020301103) |
-| `tls_cert_params.cipher_suites` | [tls_cert_params.cipher_suites](resources--virtual_host--reference--group-003.md#canonical-3332232212210020-0203212331130212-1300121313102121-1221223322011312-3333022100321011-2130003130102020-3332020313022023-0321302322211331) |
-| `tls_cert_params.client_certificate_optional` | [tls_cert_params.client_certificate_optional](resources--virtual_host--reference--group-003.md#canonical-1223302233121202-2213311121111220-0322222120322002-2333330312333021-0301101302320000-1331020233022201-0301232202203023-1322033023121103) |
-| `tls_cert_params.client_certificate_required` | [tls_cert_params.client_certificate_required](resources--virtual_host--reference--group-003.md#canonical-2102010012200310-3201101313122222-3023032020132310-0123202022323332-0220210320300102-0230223003110030-3100321002312200-0300000220221331) |
-| `tls_cert_params.maximum_protocol_version` | [tls_cert_params.maximum_protocol_version](resources--virtual_host--reference--group-003.md#canonical-3202210313202032-2103210032220213-2333313310011023-3320000022101131-0032313032232223-0101023100203130-2320333202112301-0003222302323300) |
-| `tls_cert_params.minimum_protocol_version` | [tls_cert_params.minimum_protocol_version](resources--virtual_host--reference--group-003.md#canonical-3113032321331133-1323121012031212-3213020313001013-3302110032002301-2213313313322121-0230022201023101-2332323023210222-2013122300311010) |
-| `tls_cert_params.no_client_certificate` | [tls_cert_params.no_client_certificate](resources--virtual_host--reference--group-003.md#canonical-3310213000123010-3132121002122102-3103230132120112-3301100200202131-3310211001131130-2332131103111121-0010012310330323-1132323202112103) |
-| `tls_cert_params.validation_params` | [tls_cert_params.validation_params](resources--virtual_host--reference--group-003.md#canonical-1032202302300211-3001333330201033-2112023021131021-2121022110300031-2233123033220131-3032133101222000-3022121132022232-2331211111102331) |
-| `tls_cert_params.validation_params.skip_hostname_verification` | [tls_cert_params.validation_params.skip_hostname_verification](resources--virtual_host--reference--group-003.md#canonical-0110332132111203-2133212021330330-3212100333320203-0022213121203020-0233000003322130-3211110100121032-0312120230130232-1323222112100233) |
-| `tls_cert_params.validation_params.trusted_ca` | [tls_cert_params.validation_params.trusted_ca](resources--virtual_host--reference--group-003.md#canonical-1002033131101220-0211131331011102-3222212131332030-3030112200103030-2121330011020101-1333203122110120-0322323002313131-1131020202321102) |
-| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list](resources--virtual_host--reference--group-003.md#canonical-1111101121102001-0321110223122321-2230131322101220-0303201223120133-3123230230020330-3232201232300022-0001002321302333-1002213333312003) |
-| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list.kind` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list.kind](resources--virtual_host--reference--group-003.md#canonical-1333112023322221-3313100101333133-1002320321022103-0220322010211232-3200303231013330-3201333310012122-0331001331123100-0232021113032202) |
-| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list.name` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list.name](resources--virtual_host--reference--group-003.md#canonical-3323131031113030-3113210102313220-3103232022202130-3303030002230221-3323133211013021-3130223000030013-3011223210330211-0123211231100323) |
-| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list.namespace` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list.namespace](resources--virtual_host--reference--group-003.md#canonical-3121030130012330-2210330211031333-1132310012230213-1103113012210102-2213032002020302-0210123121221030-2110311331000333-1002331332001011) |
-| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list.tenant` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list.tenant](resources--virtual_host--reference--group-003.md#canonical-1100201012230233-0213301233120301-3033323121112133-1023222100113222-0002201103130021-1100313113220113-1212201220111220-1203033102002311) |
-| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list.uid` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list.uid](resources--virtual_host--reference--group-003.md#canonical-0233133023123231-3003132311323220-2110120101023033-3323303310130133-1120030212121311-1232200123221003-1121130203203202-0010210011200322) |
-| `tls_cert_params.validation_params.trusted_ca_url` | [tls_cert_params.validation_params.trusted_ca_url](resources--virtual_host--reference--group-003.md#canonical-0102232033030023-0113332012201000-1312102323333021-2031133211031031-3313020313320333-1300232331030302-3302013232323323-1011120210323103) |
-| `tls_cert_params.validation_params.verify_subject_alt_names` | [tls_cert_params.validation_params.verify_subject_alt_names](resources--virtual_host--reference--group-003.md#canonical-1330331320133131-3230022131231000-1320110033311002-0013002210032220-3201200210123011-3210101321101131-3020300122020130-3002301301100201) |
-| `tls_cert_params.xfcc_header_elements` | [tls_cert_params.xfcc_header_elements](resources--virtual_host--reference--group-003.md#canonical-3200233311230203-0032131020020012-0003320011300330-2100210331110120-2023023332113213-2013120223101120-0313131322110120-3022030102321311) |
-| `tls_parameters` | [tls_parameters](resources--virtual_host--reference--group-003.md#canonical-0221010032112232-0002311102011103-1002323023221012-1223320011202010-1100310130023232-0301233120212133-0021101133201301-2201231323313333) |
-| `tls_parameters.client_certificate_optional` | [tls_parameters.client_certificate_optional](resources--virtual_host--reference--group-003.md#canonical-0333121111220133-0323020310031210-3333011101131031-3201121301201312-3211211020311333-0123102320230100-3032302023333002-3010000221101202) |
-| `tls_parameters.client_certificate_required` | [tls_parameters.client_certificate_required](resources--virtual_host--reference--group-003.md#canonical-3130232032303203-0232011333223321-0030113131322311-0313010120132021-1001000100003301-2121210321312131-2013311200100131-1313302322110000) |
-| `tls_parameters.common_params` | [tls_parameters.common_params](resources--virtual_host--reference--group-003.md#canonical-0303120133133233-0132220103133322-1022302231330312-1302033300200132-0301031130022023-3013200203121330-3031202120031130-0010023113130121) |
-| `tls_parameters.common_params.cipher_suites` | [tls_parameters.common_params.cipher_suites](resources--virtual_host--reference--group-003.md#canonical-2310321300133003-0230000103032103-1231003120202213-3113000213210122-1131113331001110-3222122220323311-1212222013202333-0213312132100201) |
-| `tls_parameters.common_params.maximum_protocol_version` | [tls_parameters.common_params.maximum_protocol_version](resources--virtual_host--reference--group-003.md#canonical-3133332330120023-2322121212320313-2131311120313023-2222221001230020-3221112322200303-3231220021213000-0022100122003132-2333333332323110) |
-| `tls_parameters.common_params.minimum_protocol_version` | [tls_parameters.common_params.minimum_protocol_version](resources--virtual_host--reference--group-003.md#canonical-0213203310111320-3203301022001113-0203122220203000-3200302123110222-3231321112312320-1303333303122323-3232311230032312-0323311013031321) |
-| `tls_parameters.common_params.tls_certificates` | [tls_parameters.common_params.tls_certificates](resources--virtual_host--reference--group-003.md#canonical-1011323231323101-2001121311000010-1021211103001120-2203300311211232-0231231033120330-0102330323332022-1001313320010300-1222312131021200) |
-| `tls_parameters.common_params.tls_certificates.certificate_url` | [tls_parameters.common_params.tls_certificates.certificate_url](resources--virtual_host--reference--group-003.md#canonical-3302211131233331-1203311302023312-0302121312102232-2033201220322003-0033302011231110-2211111233000312-0111112211001122-2012210123233002) |
-| `tls_parameters.common_params.tls_certificates.custom_hash_algorithms` | [tls_parameters.common_params.tls_certificates.custom_hash_algorithms](resources--virtual_host--reference--group-003.md#canonical-1301331000212220-0123310303202130-1202122222101313-0021222302101313-3330133233100022-3013103103331121-2002100321130302-1031320201012133) |
-| `tls_parameters.common_params.tls_certificates.custom_hash_algorithms.hash_algorithms` | [tls_parameters.common_params.tls_certificates.custom_hash_algorithms.hash_algorithms](resources--virtual_host--reference--group-003.md#canonical-2101210120001021-3312301120323023-1100101002233120-3322221303231330-3320000311132031-1330223130103001-3302010013211200-3331031002333311) |
-| `tls_parameters.common_params.tls_certificates.description_spec` | [tls_parameters.common_params.tls_certificates.description_spec](resources--virtual_host--reference--group-003.md#canonical-1011010332212323-1313312303231200-0033031122132330-3033330310233021-3030002010001233-2123323233323022-2120221301330301-2322220212223200) |
-| `tls_parameters.common_params.tls_certificates.disable_ocsp_stapling` | [tls_parameters.common_params.tls_certificates.disable_ocsp_stapling](resources--virtual_host--reference--group-003.md#canonical-0101302010000031-3023011131112013-2233103023132011-2112211322201222-0333030013211102-1112301112212301-1323133003022312-1222332133003033) |
-| `tls_parameters.common_params.tls_certificates.private_key` | [tls_parameters.common_params.tls_certificates.private_key](resources--virtual_host--reference--group-003.md#canonical-2302212021121312-0000312312213033-0102223312230203-1231320211020201-1302122302102123-3130030311202313-1210120133033102-3012110331121213) |
-| `tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info` | [tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info](resources--virtual_host--reference--group-003.md#canonical-3231101123122320-1201100232102023-2010212231312012-1001113320211332-3213000223222222-2013031102003301-2131313102300223-3023321110213033) |
-| `tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.decryption_provider` | [tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.decryption_provider](resources--virtual_host--reference--group-003.md#canonical-3030230232232312-3303112101112320-3212030010310032-1010013100021230-3031122122133033-2220333111231020-2003122101201021-0213213332311220) |
-| `tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.location` | [tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.location](resources--virtual_host--reference--group-003.md#canonical-3100331112122311-3220232233111123-0321301322130101-2002001331113332-2202302003200313-3322032002010310-2322303201033033-2113030033012023) |
-| `tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.store_provider` | [tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.store_provider](resources--virtual_host--reference--group-003.md#canonical-0303011010303232-3221003323310310-3110111121213110-0123330223321133-2323313211311122-1233331330121300-0032333223022030-0232030103311203) |
+| `slow_ddos_mitigation` | [slow_ddos_mitigation](resources--virtual_host--reference--group-002.md#canonical-0213112013313021-0210021331121222-0031003332330302-2013322310222003-2302001202130331-0023232133221022-2330101022202311-2132022201020312) |
+| `slow_ddos_mitigation.disable_request_timeout` | [slow_ddos_mitigation.disable_request_timeout](resources--virtual_host--reference--group-002.md#canonical-0032120312201033-3200032031011122-0011133112303101-1033331011003302-3232321223332332-3022232232310020-1232233310013321-0201211221133333) |
+| `slow_ddos_mitigation.request_headers_timeout` | [slow_ddos_mitigation.request_headers_timeout](resources--virtual_host--reference--group-002.md#canonical-0310121203030120-2202111030132111-3230013223020011-0232201133232112-3210322310111002-1020201320121213-2211132302123003-0003003120012112) |
+| `slow_ddos_mitigation.request_timeout` | [slow_ddos_mitigation.request_timeout](resources--virtual_host--reference--group-002.md#canonical-1010331231022331-1132221033201011-3230133101222221-2013121321230003-3031003203021123-1310310002323232-2012301111230332-3011023231213112) |
+| `timeouts` | [timeouts](resources--virtual_host--reference--group-002.md#canonical-1223303000101110-3011111313112031-1002101201030211-1001300332202033-0331102311120200-0233023330322221-2003333130122211-3310101221230210) |
+| `timeouts.create` | [timeouts.create](resources--virtual_host--reference--group-002.md#canonical-1113332021000102-1022012011032030-2313220010330013-3333310312000023-1122113130313220-1013111221012123-0032002330101330-3012130212102132) |
+| `timeouts.delete` | [timeouts.delete](resources--virtual_host--reference--group-002.md#canonical-3030233233112021-1210231122222201-0022210333223313-0013233323323122-0011321101322012-1120210233132011-3303000120023020-2313103233221213) |
+| `timeouts.read` | [timeouts.read](resources--virtual_host--reference--group-002.md#canonical-1302101300113101-2232013120221032-2130001111123003-1011023213020302-0311120111212333-1223211000133333-0210003110220230-3230132211103030) |
+| `timeouts.update` | [timeouts.update](resources--virtual_host--reference--group-002.md#canonical-1310103030131222-1332220101011001-1012020331030322-1323110131211203-1231000312020102-1331323032132213-1133012111210022-3001023220230031) |
+| `tls_cert_params` | [tls_cert_params](resources--virtual_host--reference--group-002.md#canonical-2123330110100202-3132023320131302-1212121211011102-3110211230311121-1121003310302011-2120012132033323-2102333031220302-2103213231223331) |
+| `tls_cert_params.certificates` | [tls_cert_params.certificates](resources--virtual_host--reference--group-002.md#canonical-1002330313231012-3132011231022303-2330322112320020-3333223010230220-2230020323030221-3301101101021312-0001221121123213-3222202330100022) |
+| `tls_cert_params.certificates.kind` | [tls_cert_params.certificates.kind](resources--virtual_host--reference--group-002.md#canonical-2030112331132002-3113310132003032-2331232100230000-0200230011323213-0022103130310033-1103130211221313-2003301233203132-0300301222330133) |
+| `tls_cert_params.certificates.name` | [tls_cert_params.certificates.name](resources--virtual_host--reference--group-002.md#canonical-2000100313113101-1301313210100011-2200312233122122-2221320303323322-0102032301030311-0030302132331230-2332202022231223-0112023233333321) |
+| `tls_cert_params.certificates.namespace` | [tls_cert_params.certificates.namespace](resources--virtual_host--reference--group-002.md#canonical-2320202202302103-3203100131231231-2202033310030023-3323131020333232-2202213202302212-3210222330301000-2320300010333030-1013121122130111) |
+| `tls_cert_params.certificates.tenant` | [tls_cert_params.certificates.tenant](resources--virtual_host--reference--group-002.md#canonical-0210103321000312-3101022020303002-0222032131002212-0301330303330320-0110201223120300-2323233303233003-1221103312002120-1200112220101233) |
+| `tls_cert_params.certificates.uid` | [tls_cert_params.certificates.uid](resources--virtual_host--reference--group-002.md#canonical-0033103333210122-3131033102132023-2103000002320311-2201223212010302-2003002203313230-2311333021012310-3010020111030332-3212120020301103) |
+| `tls_cert_params.cipher_suites` | [tls_cert_params.cipher_suites](resources--virtual_host--reference--group-002.md#canonical-3332232212210020-0203212331130212-1300121313102121-1221223322011312-3333022100321011-2130003130102020-3332020313022023-0321302322211331) |
+| `tls_cert_params.client_certificate_optional` | [tls_cert_params.client_certificate_optional](resources--virtual_host--reference--group-002.md#canonical-1223302233121202-2213311121111220-0322222120322002-2333330312333021-0301101302320000-1331020233022201-0301232202203023-1322033023121103) |
+| `tls_cert_params.client_certificate_required` | [tls_cert_params.client_certificate_required](resources--virtual_host--reference--group-002.md#canonical-2102010012200310-3201101313122222-3023032020132310-0123202022323332-0220210320300102-0230223003110030-3100321002312200-0300000220221331) |
+| `tls_cert_params.maximum_protocol_version` | [tls_cert_params.maximum_protocol_version](resources--virtual_host--reference--group-002.md#canonical-3202210313202032-2103210032220213-2333313310011023-3320000022101131-0032313032232223-0101023100203130-2320333202112301-0003222302323300) |
+| `tls_cert_params.minimum_protocol_version` | [tls_cert_params.minimum_protocol_version](resources--virtual_host--reference--group-002.md#canonical-3113032321331133-1323121012031212-3213020313001013-3302110032002301-2213313313322121-0230022201023101-2332323023210222-2013122300311010) |
+| `tls_cert_params.no_client_certificate` | [tls_cert_params.no_client_certificate](resources--virtual_host--reference--group-002.md#canonical-3310213000123010-3132121002122102-3103230132120112-3301100200202131-3310211001131130-2332131103111121-0010012310330323-1132323202112103) |
+| `tls_cert_params.validation_params` | [tls_cert_params.validation_params](resources--virtual_host--reference--group-002.md#canonical-1032202302300211-3001333330201033-2112023021131021-2121022110300031-2233123033220131-3032133101222000-3022121132022232-2331211111102331) |
+| `tls_cert_params.validation_params.skip_hostname_verification` | [tls_cert_params.validation_params.skip_hostname_verification](resources--virtual_host--reference--group-002.md#canonical-0110332132111203-2133212021330330-3212100333320203-0022213121203020-0233000003322130-3211110100121032-0312120230130232-1323222112100233) |
+| `tls_cert_params.validation_params.trusted_ca` | [tls_cert_params.validation_params.trusted_ca](resources--virtual_host--reference--group-002.md#canonical-1002033131101220-0211131331011102-3222212131332030-3030112200103030-2121330011020101-1333203122110120-0322323002313131-1131020202321102) |
+| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list](resources--virtual_host--reference--group-002.md#canonical-1111101121102001-0321110223122321-2230131322101220-0303201223120133-3123230230020330-3232201232300022-0001002321302333-1002213333312003) |
+| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list.kind` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list.kind](resources--virtual_host--reference--group-002.md#canonical-1333112023322221-3313100101333133-1002320321022103-0220322010211232-3200303231013330-3201333310012122-0331001331123100-0232021113032202) |
+| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list.name` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list.name](resources--virtual_host--reference--group-002.md#canonical-3323131031113030-3113210102313220-3103232022202130-3303030002230221-3323133211013021-3130223000030013-3011223210330211-0123211231100323) |
+| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list.namespace` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list.namespace](resources--virtual_host--reference--group-002.md#canonical-3121030130012330-2210330211031333-1132310012230213-1103113012210102-2213032002020302-0210123121221030-2110311331000333-1002331332001011) |
+| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list.tenant` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list.tenant](resources--virtual_host--reference--group-002.md#canonical-1100201012230233-0213301233120301-3033323121112133-1023222100113222-0002201103130021-1100313113220113-1212201220111220-1203033102002311) |
+| `tls_cert_params.validation_params.trusted_ca.trusted_ca_list.uid` | [tls_cert_params.validation_params.trusted_ca.trusted_ca_list.uid](resources--virtual_host--reference--group-002.md#canonical-0233133023123231-3003132311323220-2110120101023033-3323303310130133-1120030212121311-1232200123221003-1121130203203202-0010210011200322) |
+| `tls_cert_params.validation_params.trusted_ca_url` | [tls_cert_params.validation_params.trusted_ca_url](resources--virtual_host--reference--group-002.md#canonical-0102232033030023-0113332012201000-1312102323333021-2031133211031031-3313020313320333-1300232331030302-3302013232323323-1011120210323103) |
+| `tls_cert_params.validation_params.verify_subject_alt_names` | [tls_cert_params.validation_params.verify_subject_alt_names](resources--virtual_host--reference--group-002.md#canonical-1330331320133131-3230022131231000-1320110033311002-0013002210032220-3201200210123011-3210101321101131-3020300122020130-3002301301100201) |
+| `tls_cert_params.xfcc_header_elements` | [tls_cert_params.xfcc_header_elements](resources--virtual_host--reference--group-002.md#canonical-3200233311230203-0032131020020012-0003320011300330-2100210331110120-2023023332113213-2013120223101120-0313131322110120-3022030102321311) |
+| `tls_parameters` | [tls_parameters](resources--virtual_host--reference--group-002.md#canonical-0221010032112232-0002311102011103-1002323023221012-1223320011202010-1100310130023232-0301233120212133-0021101133201301-2201231323313333) |
+| `tls_parameters.client_certificate_optional` | [tls_parameters.client_certificate_optional](resources--virtual_host--reference--group-002.md#canonical-0333121111220133-0323020310031210-3333011101131031-3201121301201312-3211211020311333-0123102320230100-3032302023333002-3010000221101202) |
+| `tls_parameters.client_certificate_required` | [tls_parameters.client_certificate_required](resources--virtual_host--reference--group-002.md#canonical-3130232032303203-0232011333223321-0030113131322311-0313010120132021-1001000100003301-2121210321312131-2013311200100131-1313302322110000) |
+| `tls_parameters.common_params` | [tls_parameters.common_params](resources--virtual_host--reference--group-002.md#canonical-0303120133133233-0132220103133322-1022302231330312-1302033300200132-0301031130022023-3013200203121330-3031202120031130-0010023113130121) |
+| `tls_parameters.common_params.cipher_suites` | [tls_parameters.common_params.cipher_suites](resources--virtual_host--reference--group-002.md#canonical-2310321300133003-0230000103032103-1231003120202213-3113000213210122-1131113331001110-3222122220323311-1212222013202333-0213312132100201) |
+| `tls_parameters.common_params.maximum_protocol_version` | [tls_parameters.common_params.maximum_protocol_version](resources--virtual_host--reference--group-002.md#canonical-3133332330120023-2322121212320313-2131311120313023-2222221001230020-3221112322200303-3231220021213000-0022100122003132-2333333332323110) |
+| `tls_parameters.common_params.minimum_protocol_version` | [tls_parameters.common_params.minimum_protocol_version](resources--virtual_host--reference--group-002.md#canonical-0213203310111320-3203301022001113-0203122220203000-3200302123110222-3231321112312320-1303333303122323-3232311230032312-0323311013031321) |
+| `tls_parameters.common_params.tls_certificates` | [tls_parameters.common_params.tls_certificates](resources--virtual_host--reference--group-002.md#canonical-1011323231323101-2001121311000010-1021211103001120-2203300311211232-0231231033120330-0102330323332022-1001313320010300-1222312131021200) |
+| `tls_parameters.common_params.tls_certificates.certificate_url` | [tls_parameters.common_params.tls_certificates.certificate_url](resources--virtual_host--reference--group-002.md#canonical-3302211131233331-1203311302023312-0302121312102232-2033201220322003-0033302011231110-2211111233000312-0111112211001122-2012210123233002) |
+| `tls_parameters.common_params.tls_certificates.custom_hash_algorithms` | [tls_parameters.common_params.tls_certificates.custom_hash_algorithms](resources--virtual_host--reference--group-002.md#canonical-1301331000212220-0123310303202130-1202122222101313-0021222302101313-3330133233100022-3013103103331121-2002100321130302-1031320201012133) |
+| `tls_parameters.common_params.tls_certificates.custom_hash_algorithms.hash_algorithms` | [tls_parameters.common_params.tls_certificates.custom_hash_algorithms.hash_algorithms](resources--virtual_host--reference--group-002.md#canonical-2101210120001021-3312301120323023-1100101002233120-3322221303231330-3320000311132031-1330223130103001-3302010013211200-3331031002333311) |
+| `tls_parameters.common_params.tls_certificates.description_spec` | [tls_parameters.common_params.tls_certificates.description_spec](resources--virtual_host--reference--group-002.md#canonical-1011010332212323-1313312303231200-0033031122132330-3033330310233021-3030002010001233-2123323233323022-2120221301330301-2322220212223200) |
+| `tls_parameters.common_params.tls_certificates.disable_ocsp_stapling` | [tls_parameters.common_params.tls_certificates.disable_ocsp_stapling](resources--virtual_host--reference--group-002.md#canonical-0101302010000031-3023011131112013-2233103023132011-2112211322201222-0333030013211102-1112301112212301-1323133003022312-1222332133003033) |
+| `tls_parameters.common_params.tls_certificates.private_key` | [tls_parameters.common_params.tls_certificates.private_key](resources--virtual_host--reference--group-002.md#canonical-2302212021121312-0000312312213033-0102223312230203-1231320211020201-1302122302102123-3130030311202313-1210120133033102-3012110331121213) |
+| `tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info` | [tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info](resources--virtual_host--reference--group-002.md#canonical-3231101123122320-1201100232102023-2010212231312012-1001113320211332-3213000223222222-2013031102003301-2131313102300223-3023321110213033) |
+| `tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.decryption_provider` | [tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.decryption_provider](resources--virtual_host--reference--group-002.md#canonical-3030230232232312-3303112101112320-3212030010310032-1010013100021230-3031122122133033-2220333111231020-2003122101201021-0213213332311220) |
+| `tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.location` | [tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.location](resources--virtual_host--reference--group-002.md#canonical-3100331112122311-3220232233111123-0321301322130101-2002001331113332-2202302003200313-3322032002010310-2322303201033033-2113030033012023) |
+| `tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.store_provider` | [tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.store_provider](resources--virtual_host--reference--group-002.md#canonical-0303011010303232-3221003323310310-3110111121213110-0123330223321133-2323313211311122-1233331330121300-0032333223022030-0232030103311203) |
 | `tls_parameters.common_params.tls_certificates.private_key.clear_secret_info` | [tls_parameters.common_params.tls_certificates.private_key.clear_secret_info](resources--virtual_host--reference--group-003.md#canonical-0301020201000130-1303100322320331-2223120202001311-0022210010221201-3120021103322203-3002120231130230-2002132332210033-0030221312122011) |
 | `tls_parameters.common_params.tls_certificates.private_key.clear_secret_info.provider_ref` | [tls_parameters.common_params.tls_certificates.private_key.clear_secret_info.provider_ref](resources--virtual_host--reference--group-003.md#canonical-3313010330101223-3000011030300100-1313321023120311-1230220310221010-2011111133113232-1330302100232100-0131211033333122-0102000321130332) |
 | `tls_parameters.common_params.tls_certificates.private_key.clear_secret_info.url` | [tls_parameters.common_params.tls_certificates.private_key.clear_secret_info.url](resources--virtual_host--reference--group-003.md#canonical-1022201333211033-3102322311210000-3323103323031202-1213302020101211-2330103303103001-0202000111131313-3223221132332232-1031323102102212) |
@@ -1641,7 +1570,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `tls_parameters.common_params.validation_params.trusted_ca_url` | [tls_parameters.common_params.validation_params.trusted_ca_url](resources--virtual_host--reference--group-003.md#canonical-2201330001003130-1103011331220233-0222132032022310-0202130110120123-3313013301131232-2100012011220310-2311130330033130-0310300011033013) |
 | `tls_parameters.common_params.validation_params.verify_subject_alt_names` | [tls_parameters.common_params.validation_params.verify_subject_alt_names](resources--virtual_host--reference--group-003.md#canonical-2322030231212021-2033120211323221-0300330333313200-2030313333202300-0101103133202310-2102020323122011-3120212302200022-0213121113110013) |
 | `tls_parameters.no_client_certificate` | [tls_parameters.no_client_certificate](resources--virtual_host--reference--group-003.md#canonical-2323112302311330-1200313313203222-0323031221031333-3111020121011033-0233231302132131-3303333311000121-0000010300221333-2213020222010031) |
-| `tls_parameters.xfcc_header_elements` | [tls_parameters.xfcc_header_elements](resources--virtual_host--reference--group-003.md#canonical-0213200310122130-0101300331002010-3102233222333003-2122132330021030-3201110012210001-3122300102120002-0031012231012200-2300100230221000) |
+| `tls_parameters.xfcc_header_elements` | [tls_parameters.xfcc_header_elements](resources--virtual_host--reference--group-002.md#canonical-0213200310122130-0101300331002010-3102233222333003-2122132330021030-3201110012210001-3122300102120002-0031012231012200-2300100230221000) |
 | `user_identification` | [user_identification](resources--virtual_host--reference--group-003.md#canonical-3123231102032223-3202112001213220-2323200123223203-3121212301113113-1210231333210211-1123211210111022-3223021311311112-0221103332030102) |
 | `user_identification.kind` | [user_identification.kind](resources--virtual_host--reference--group-003.md#canonical-0120222111310222-0320333030121310-1102300020313231-1030130301033323-3221101111030120-1212213333213300-1203123010003020-0211031003300033) |
 | `user_identification.name` | [user_identification.name](resources--virtual_host--reference--group-003.md#canonical-2120122131223012-0223301301103212-3223131020130310-0232232310300032-2221002122032323-3232211101011112-0231223121212011-3211100213131103) |
@@ -1659,55 +1588,13 @@ Each exact path has one authoritative reference destination. Collection element 
 | `waf_type.disable_waf` | [waf_type.disable_waf](resources--virtual_host--reference--group-003.md#canonical-0302310212030013-0311333130001103-0122210310011201-1201023311102112-0230033112133120-3001212100112231-3123023021221320-0220210212310210) |
 | `waf_type.inherit_waf` | [waf_type.inherit_waf](resources--virtual_host--reference--group-003.md#canonical-0011131120230110-2322330020322312-1011301301130303-1223322210131003-0221300000132021-1302213300322220-0231320323010231-2321222020130331) |
 
-<a id="canonical-0122000003231111-3122110012102313-0320032013101320-1133323031102200-1221101023100321-2000332123130102-1120103232333203-3130301003210222"></a>
-
-## Next pages — Property reference / 211012200223 / 28
-
-- [advertise_policies](resources--virtual_host--reference--group-001.md#canonical-3101233030000031-0230120000021132-0100111102033122-2131330301131003-3313323011111033-1133231010010122-2231321131221000-2223022121212113)
-- [authentication](resources--virtual_host--reference--group-001.md#canonical-2003102221320033-2002121330313023-0331120011300333-0213101002200303-3003330033121012-0330110020200302-3233233301001020-2111210130323123)
-- [buffer_policy](resources--virtual_host--reference--group-002.md#canonical-3232012230212003-3221232011020313-0202200302301332-0002323023102302-2322221023103201-3002223222331300-0233232032310121-2021012312213213)
-- [captcha_challenge](resources--virtual_host--reference--group-002.md#canonical-1020312231213113-0223120010100113-3031300332310212-2210330020033311-2212131302230022-1310032130223312-2033030030001301-2312002230010203)
-- [coalescing_options](resources--virtual_host--reference--group-002.md#canonical-1133103011022022-2203323101231031-2333022101312310-0311232221002132-1112210132302130-3101211220023233-3011302023021202-3033100231101311)
-- [compression_params](resources--virtual_host--reference--group-002.md#canonical-1033033121221113-3201013233022330-2031033001101131-2231201001233133-3212322221010320-2231221131030022-1003330210110233-1333033203013221)
-- [cors_policy](resources--virtual_host--reference--group-002.md#canonical-3232131223002131-1100030322001210-3211031031233033-0203330020202031-0110112203211203-1312221320131310-3120133001121223-0213203230311301)
-- [csrf_policy](resources--virtual_host--reference--group-002.md#canonical-0032333010121002-0332331033300212-2002033020321220-2332202013303113-2313133231100331-0003222333003100-3133200232230203-0121213102202020)
-- [default_header](resources--virtual_host--reference--group-002.md#canonical-1332133000210111-0223310312103001-1010233010211033-1102013020202323-2130113222000300-0232202222221101-2023022020231220-2012203012032313)
-- [default_loadbalancer](resources--virtual_host--reference--group-002.md#canonical-3121022200033310-1220301130221312-2021030331023200-1312300232120133-1231101321130312-2222300001330221-1303311113210322-3100130111300312)
-- [disable_path_normalize](resources--virtual_host--reference--group-002.md#canonical-0002023231210102-0232311230110330-2231021201011211-3000222000033100-3121230313301113-1303121121223033-1322331301232132-0220030301200000)
-- [dynamic_reverse_proxy](resources--virtual_host--reference--group-002.md#canonical-2133031213301110-2320211003030001-3300321001112212-0020212013122303-0311232110311233-2131100131212002-2313301132131310-2201010033313212)
-- [enable_path_normalize](resources--virtual_host--reference--group-002.md#canonical-1222113320121333-2000121121321100-2112033320330111-1023323321010321-0122103013112310-0102102320310031-1303320233230330-2311203122001130)
-- [http_protocol_options](resources--virtual_host--reference--group-002.md#canonical-0212202230011113-2203132220233101-1321131330330010-2030212021032322-3133023002222200-2133232330210133-3312230332103333-3123111320010133)
-- [js_challenge](resources--virtual_host--reference--group-002.md#canonical-0101231302233001-2011223111023233-0001132321323232-0221122312210111-3200231102333020-3311221202021012-2021103121020012-0121132032203123)
-- [no_authentication](resources--virtual_host--reference--group-002.md#canonical-3013320031330300-3111311312212033-2213131023230113-1110310112213020-3030011311320203-2011102330101110-1110113223010031-3121032131222123)
-- [no_challenge](resources--virtual_host--reference--group-002.md#canonical-0032230233200032-3113230021023123-1002001030322103-2001220130000333-3010022102100323-0113113322202322-2132212011203032-2132231103032230)
-- [no_request_limit_per_connection](resources--virtual_host--reference--group-002.md#canonical-1201021232211320-1113031321300211-0230223223322233-2013130232110130-1300111221111201-1102111321313123-0013222103000031-1210301000110230)
-- [non_default_loadbalancer](resources--virtual_host--reference--group-002.md#canonical-2103112131222102-3010030322132022-3211222333113012-3301232022132313-0320122322331301-1020131023201302-2322122130131023-1210231202212021)
-- [pass_through](resources--virtual_host--reference--group-002.md#canonical-0323002221202331-0013320123000331-2220112010231031-3313320111013331-3201130132130201-2323102121111212-0000301210022202-0212030313323103)
-- [rate_limiter_allowed_prefixes](resources--virtual_host--reference--group-002.md#canonical-1012012232023120-0032122201003333-2110302001323221-0232313320231102-2031333000031122-0111010022332321-0120313223113103-2321021201002203)
-- [request_cookies_to_add](resources--virtual_host--reference--group-002.md#canonical-0111131022031311-0102023300100223-2120311331022200-0220230223131102-3320022000312001-1021212300331101-1201203011120311-1323012103110312)
-- [request_headers_to_add](resources--virtual_host--reference--group-002.md#canonical-3023100112011132-2302030100320013-2030100013010220-0112333330230033-0110121200123102-2012130203132311-0221233210230001-2212303220211221)
-- [response_cookies_to_add](resources--virtual_host--reference--group-002.md#canonical-1032133033112132-0100100123122223-2232322330210321-3113210320300200-3230220212110103-1233220122033110-2010201013002320-1023011120330313)
-- [response_headers_to_add](resources--virtual_host--reference--group-003.md#canonical-2031023100033202-2330100210303322-3113323303313133-2030111112021212-1302210011133231-0221213311321333-0210033213203311-0133030211030022)
-- [retry_policy](resources--virtual_host--reference--group-003.md#canonical-3120210313011012-3220120012303030-2320221131003020-2003111301323011-0131032003311130-3311130033201323-1332312222032333-0100213232033200)
-- [routes](resources--virtual_host--reference--group-003.md#canonical-1230120312310211-1032010120013201-1323220112101321-0101321330220132-1310202220130210-3031233111323031-2123332330332300-2030220320303223)
-- [sensitive_data_policy](resources--virtual_host--reference--group-003.md#canonical-1113203023200020-3223013230231323-2212021220030131-0310020233201101-0121323110323203-3122333302133331-0211123332303330-1130022122020210)
-- [slow_ddos_mitigation](resources--virtual_host--reference--group-003.md#canonical-2333312030122121-1100330320331032-1120232213211221-3131120330330231-2221003131100222-1230211011000221-1033321202131202-1012333211023301)
-- [timeouts](resources--virtual_host--reference--group-003.md#canonical-2133311002322212-0233231012302121-3111302012013321-0301321213223223-0023120022022300-3003323023033302-0131213332220332-1033313111212310)
-- [tls_cert_params](resources--virtual_host--reference--group-003.md#canonical-3110210131021323-3322110122123101-2111232233031031-2333002311012210-2321323210033002-2221332313013332-2032010210303312-0230121122130331)
-- [tls_parameters](resources--virtual_host--reference--group-003.md#canonical-0331211001213000-2022200002023320-0333201001301110-2110111020031121-0112102012231123-2103133133121332-1220021100301010-3112201011023323)
-- [user_identification](resources--virtual_host--reference--group-003.md#canonical-1012201010031002-2232101323213000-1022110300231232-0230000221021101-1203021223001011-2301313113020120-2002021332022003-0311230002232310)
-- [waf_type](resources--virtual_host--reference--group-003.md#canonical-2322100101202101-2331131111122123-0200313013302211-3200032010130132-1310103000220023-2103022322122223-2311300301002030-1022212031023331)
-- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
-
 <a id="canonical-3101233030000031-0230120000021132-0100111102033122-2131330301131003-3313323011111033-1133231010010122-2231321131221000-2223022121212113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2033132303303230-1023031332322201-3222112202220233-3323000011301202-1331010210220003-1203303133011000-2200200320311131-1323111313302030"></a>
-
-## advertise_policies — advertise_policies / 321322110120 / 2
+## `advertise_policies` properties
 
 Breadcrumbs:
 
@@ -1718,12 +1605,6 @@ Breadcrumbs:
 <a id="canonical-0320003333012113-1133301102110223-2031213123331300-3111030302111233-2110111202320311-3330220130131102-0130210011213222-0331122101131101"></a>
 
 Type: `"object"`. list nested block, Optional.
-
-Advertise Policy allows you to define networks or sites where you want a VIP for this virtual host
-to be advertised. Each Policy rule can have different parameters, like TLS configuration, ports,
-optionally IP address to be used for VIP. If advertise policy is not specified then no VIP is..
-
-Upstream description:
 
 Advertise Policy allows you to define networks or sites where you want a VIP for this virtual host
 to be advertised. Each Policy rule can have different parameters, like TLS configuration, ports,
@@ -1751,25 +1632,23 @@ advertise_policies {
 }
 ```
 
-<a id="canonical-1211211132232330-3123010220010303-1022232223212313-3113030013033113-0233022110032213-2021330130012220-2230022013213012-3330012100301201"></a>
+<a id="canonical-2033132303303230-1023031332322201-3222112202220233-3323000011301202-1331010210220003-1203303133011000-2200200320311131-1323111313302030"></a>
 
-## Direct properties — advertise_policies / 321322110120 / 3
+### Direct properties for `advertise_policies`
 
 <a id="canonical-2032121022320021-1130023200022111-3012032332203210-3332000323131031-2212022222003131-1232333200210103-1230223313301002-3200210003130330"></a>
 
-<a id="canonical-1200032210111123-0113000332130312-2102113000301031-3322203230103033-1200230211331303-2223123011220003-3300123302121121-1300330110230012"></a>
-
-## kind property — advertise_policies / 321322110120 / 4
+#### `advertise_policies.kind` property
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
 referred object's kind (e.g. 'route').
 
-Upstream description:
+Additional upstream details:
 
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
-referred object's kind (e.g. "route")
+Virtual\_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g.
+"route")
 
 Receipt-pinned upstream constraints:
 
@@ -1796,16 +1675,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0033032333302201-1023211013311110-3121210233302220-1223102031110021-0310230013223321-3311121033101203-3122100312101311-0332210230230133"></a>
 
-<a id="canonical-0220123201110330-1202302021120012-2100133023222133-2311002312332312-2213102221020303-0033223102301310-1210300212033031-0122102000320022"></a>
+<a id="canonical-1211211132232330-3123010220010303-1022232223212313-3113030013033113-0233022110032213-2021330130012220-2230022013213012-3330012100301201"></a>
 
-## name property — advertise_policies / 321322110120 / 5
+#### `advertise_policies.name` property
 
 Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
@@ -1835,16 +1709,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3333301100211030-2032331211212030-2130131202003121-2323323010310200-3323220110122011-3323010111230321-2101203331133210-1222010221303233"></a>
 
-<a id="canonical-0331020133102122-2320001311023232-2233203233232001-0222332010031230-3122323020121301-0223332223130220-3312223322332031-0323311033120220"></a>
+<a id="canonical-1200032210111123-0113000332130312-2102113000301031-3322203230103033-1200230211331303-2223123011220003-3300123302121121-1300330110230012"></a>
 
-## namespace property — advertise_policies / 321322110120 / 6
+#### `advertise_policies.namespace` property
 
 Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -1900,16 +1769,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3121020321100200-1132203212213010-0222103313322323-0330303001022302-1023332230221213-2322032220021213-2133111232103103-0313112013201112"></a>
 
-<a id="canonical-3103010121310321-3112313233113032-3221120000112112-1132232003010001-1323012103001132-0202022321320331-0130021221022013-3212023210323333"></a>
+<a id="canonical-0220123201110330-1202302021120012-2100133023222133-2311002312332312-2213102221020303-0033223102301310-1210300212033031-0122102000320022"></a>
 
-## tenant property — advertise_policies / 321322110120 / 7
+#### `advertise_policies.tenant` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
@@ -1939,16 +1803,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3303232113332101-0322313303002201-0123111220331110-2221132010211312-1133233110302002-0211110131101133-3202030300120330-1123022332210210"></a>
 
-<a id="canonical-3312211300332330-2300122313223113-2010103331022233-0301111321103020-3010000222321303-2130032112030221-0333011321223333-3113101330113303"></a>
+<a id="canonical-0331020133102122-2320001311023232-2233203233232001-0222332010031230-3122323020121301-0223332223130220-3312223322332031-0323311033120220"></a>
 
-## uid property — advertise_policies / 321322110120 / 8
+#### `advertise_policies.uid` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
-referred object's(e.g. Route's) uid.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
 referred object's(e.g. Route's) uid.
@@ -1976,22 +1835,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1033312331333021-1202000230032211-0121300100323023-1211322330122102-3003222231232021-3312332100330221-1003202332023030-2333122303113323"></a>
-
-## Next pages — advertise_policies / 321322110120 / 9
-
-- [Property reference](resources--virtual_host--reference--group-001.md#canonical-0213223201331332-3131232310010210-0330121003120232-2120200222200312-0323331101112032-1020103022113222-1023223202200132-0323130101032220)
-- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
-
 <a id="canonical-2003102221320033-2002121330313023-0331120011300333-0213101002200303-3003330033121012-0330110020200302-3233233301001020-2111210130323123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1030320001303002-0030222031232022-1120200210231022-2233220111000020-0012320300033030-0222223311100033-0321210100213022-3121230212322323"></a>
-
-## authentication — authentication / 021120033002 / 2
+## `authentication` properties
 
 Breadcrumbs:
 
@@ -2006,11 +1856,6 @@ Type: `"object"`. single nested block, Optional.
 \[OneOf: authentication, no\_authentication; Default: no\_authentication\] Authentication related
 information. This allows to configure the URL to redirect after the authentication Authentication
 Object Reference, configuration of cookie params etc.
-
-Upstream description:
-
-Authentication related information. This allows to configure the URL to redirect after the
-authentication Authentication Object Reference, configuration of cookie params etc.
 
 Provider validators and defaults (from schema source):
 
@@ -2053,34 +1898,27 @@ authentication {
 }
 ```
 
-<a id="canonical-2333230030013201-3322012233301132-0220002220011003-1113110210303223-2133110333103002-0112133313011031-1233322300021010-2220101112002000"></a>
+<a id="canonical-1030320001303002-0030222031232022-1120200210231022-2233220111000020-0012320300033030-0222223311100033-0321210100213022-3121230212322323"></a>
 
-## Direct properties — authentication / 021120033002 / 3
+### Direct properties for `authentication`
 
 - [auth_config](resources--virtual_host--reference--group-001.md#canonical-1131122000023211-0323333123322310-2001311023102220-0321330310211031-1320221233022310-3013233100022332-0123001323131130-3112213333031223): complete subsection reference.
 
 - [cookie_params](resources--virtual_host--reference--group-001.md#canonical-1131131321312220-2012123000002311-0103102321232020-3331020223222330-3002023112000031-1310331020230210-2120111121232302-2012200122312121): complete subsection reference.
 
-- [redirect_dynamic](resources--virtual_host--reference--group-002.md#canonical-0313011103023132-2300102103031013-0232223211222030-2120102003032023-2110331132332321-1013021312110232-1200201333111012-2132031021223100): complete subsection reference.
+- [redirect_dynamic](resources--virtual_host--reference--group-001.md#canonical-0313011103023132-2300102103031013-0232223211222030-2120102003032023-2110331132332321-1013021312110232-1200201333111012-2132031021223100): complete subsection reference.
 
 <a id="canonical-2222102131030220-3310022313321300-3032123000123010-1213222111222003-1312131313032203-3211203102033213-3012020012200110-1031100112230312"></a>
 
-<a id="canonical-1333302021231131-2211103123022130-1233210031300200-1321210030000131-1313333101320313-3002101033123203-1332031302220010-1210212000013321"></a>
+<a id="canonical-2333230030013201-3322012233301132-0220002220011003-1113110210303223-2133110333103002-0112133313011031-1233322300021010-2220101112002000"></a>
 
-## redirect_url property — authentication / 021120033002 / 4
+#### `authentication.redirect_url` property
 
 Type: `"string"`. Optional.
 
 Exclusive with \[redirect\_dynamic\] user can provide a URL for e.g https&#58;//abc.xyz.com where
 user gets redirected. This URL configured here must match with the redirect URL configured with the
 OIDC provider.
-
-Upstream description:
-
-Exclusive with \[redirect\_dynamic\]
-
-user can provide a URL for e.g https&#58;//abc.xyz.com where user gets redirected. This URL
-configured here must match with the redirect URL configured with the OIDC provider.
 
 Provider validators and defaults (from schema source):
 
@@ -2129,18 +1967,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [use_auth_object_config](resources--virtual_host--reference--group-002.md#canonical-1302322221332101-3012223212012310-0220333220112221-3102201210323222-3130311012220201-1131210331201223-3021101112131200-3001112123033302): complete subsection reference.
-
-<a id="canonical-1202120213220210-1002022213210312-2232233322101333-3220122330031212-2203232302103202-0000011201033322-2000122320312333-1313102031300213"></a>
-
-## Next pages — authentication / 021120033002 / 5
-
-- [authentication.auth_config](resources--virtual_host--reference--group-001.md#canonical-1131122000023211-0323333123322310-2001311023102220-0321330310211031-1320221233022310-3013233100022332-0123001323131130-3112213333031223)
-- [authentication.cookie_params](resources--virtual_host--reference--group-001.md#canonical-1131131321312220-2012123000002311-0103102321232020-3331020223222330-3002023112000031-1310331020230210-2120111121232302-2012200122312121)
-- [authentication.redirect_dynamic](resources--virtual_host--reference--group-002.md#canonical-0313011103023132-2300102103031013-0232223211222030-2120102003032023-2110331132332321-1013021312110232-1200201333111012-2132031021223100)
-- [authentication.use_auth_object_config](resources--virtual_host--reference--group-002.md#canonical-1302322221332101-3012223212012310-0220333220112221-3102201210323222-3130311012220201-1131210331201223-3021101112131200-3001112123033302)
-- [Property reference](resources--virtual_host--reference--group-001.md#canonical-0213223201331332-3131232310010210-0330121003120232-2120200222200312-0323331101112032-1020103022113222-1023223202200132-0323130101032220)
-- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
+- [use_auth_object_config](resources--virtual_host--reference--group-001.md#canonical-1302322221332101-3012223212012310-0220333220112221-3102201210323222-3130311012220201-1131210331201223-3021101112131200-3001112123033302): complete subsection reference.
 
 <a id="canonical-1131122000023211-0323333123322310-2001311023102220-0321330310211031-1320221233022310-3013233100022332-0123001323131130-3112213333031223"></a>
 
@@ -2148,9 +1975,7 @@ Receipt-pinned upstream constraints:
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0103221313130103-1002333203221333-0223312223321033-3122203303330020-2311113102100032-0211033100301102-2032220200221103-0010013123203312"></a>
-
-## authentication.auth_config — auth_config / 132131331132 / 2
+## `authentication.auth_config` properties
 
 Breadcrumbs:
 
@@ -2206,25 +2031,23 @@ auth_config {
 }
 ```
 
-<a id="canonical-2131110332011320-1013130033133131-2310300332022310-0023300333021131-1232200030020312-2221132223320331-1033002233320101-2122333002320013"></a>
+<a id="canonical-0103221313130103-1002333203221333-0223312223321033-3122203303330020-2311113102100032-0211033100301102-2032220200221103-0010013123203312"></a>
 
-## Direct properties — auth_config / 132131331132 / 3
+### Direct properties for `authentication.auth_config`
 
 <a id="canonical-3233213030322030-0121020202133233-0101100210310322-0210203012223101-0311122012310122-2330303130323210-0333110300120000-0221130232133000"></a>
 
-<a id="canonical-3133300312013320-0311213223323020-3012111132133201-2131020020220303-2123001231333301-2330102021133030-1311223201332100-0023223013121022"></a>
-
-## kind property — auth_config / 132131331132 / 4
+#### `authentication.auth_config.kind` property
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
 referred object's kind (e.g. 'route').
 
-Upstream description:
+Additional upstream details:
 
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
-referred object's kind (e.g. "route")
+Virtual\_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g.
+"route")
 
 Receipt-pinned upstream constraints:
 
@@ -2251,16 +2074,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2210323323232133-0111330013012131-3203130303203230-1212100121113023-0233032210103000-3301111130123022-2011323020222211-2301023312103223"></a>
 
-<a id="canonical-2021311330320111-1131333121212111-2300322113133330-1312232132233112-1321032033320031-1313123202212322-2132133130120200-0003221300101123"></a>
+<a id="canonical-2131110332011320-1013130033133131-2310300332022310-0023300333021131-1232200030020312-2221132223320331-1033002233320101-2122333002320013"></a>
 
-## name property — auth_config / 132131331132 / 5
+#### `authentication.auth_config.name` property
 
 Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
@@ -2290,16 +2108,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2332312331312121-2211210330311130-3012301003100222-2200110222100223-1221300331111011-0022100212130003-3330003202032322-3311233213112122"></a>
 
-<a id="canonical-1230320001001333-0211220330001321-1111302020330032-3220121221233001-1132121032213101-2023021311010031-3231021303022123-2230132113323333"></a>
+<a id="canonical-3133300312013320-0311213223323020-3012111132133201-2131020020220303-2123001231333301-2330102021133030-1311223201332100-0023223013121022"></a>
 
-## namespace property — auth_config / 132131331132 / 6
+#### `authentication.auth_config.namespace` property
 
 Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -2355,16 +2168,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3110233221101300-1302130133021311-0330000101300320-0112320303202201-0333032332103102-2220321211213233-3131200222321323-1131121312012211"></a>
 
-<a id="canonical-1321200130133331-2113033231001220-1322222311310300-0030130201311221-1021011210000121-3133021310213013-1210001021212011-0100102021011202"></a>
+<a id="canonical-2021311330320111-1131333121212111-2300322113133330-1312232132233112-1321032033320031-1313123202212322-2132133130120200-0003221300101123"></a>
 
-## tenant property — auth_config / 132131331132 / 7
+#### `authentication.auth_config.tenant` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
@@ -2394,16 +2202,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2132011022102102-1031310123330301-1012112212032323-0313031223000223-0121322221121120-1012001233012132-1302021001023032-2210033000323001"></a>
 
-<a id="canonical-3333330102020220-3122133300130222-2020330133202112-0121212122333033-1230133133022202-0031122013301230-0231131022112003-0233103011312222"></a>
+<a id="canonical-1230320001001333-0211220330001321-1111302020330032-3220121221233001-1132121032213101-2023021311010031-3231021303022123-2230132113323333"></a>
 
-## uid property — auth_config / 132131331132 / 8
+#### `authentication.auth_config.uid` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
-referred object's(e.g. Route's) uid.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
 referred object's(e.g. Route's) uid.
@@ -2431,22 +2234,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2203121222303333-1210113300301000-1211201222323223-0100012321001013-0333223210030230-1221323111022101-3031033110213023-3011112201110331"></a>
-
-## Next pages — auth_config / 132131331132 / 9
-
-- [authentication](resources--virtual_host--reference--group-001.md#canonical-2003102221320033-2002121330313023-0331120011300333-0213101002200303-3003330033121012-0330110020200302-3233233301001020-2111210130323123)
-- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
-
 <a id="canonical-1131131321312220-2012123000002311-0103102321232020-3331020223222330-3002023112000031-1310331020230210-2120111121232302-2012200122312121"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1103131031312023-3330332231030311-3011320303032301-0303031230030023-2233222211233302-1200131321222030-0130311031113231-1330322220110323"></a>
-
-## authentication.cookie_params — cookie_params / 010121001121 / 2
+## `authentication.cookie_params` properties
 
 Breadcrumbs:
 
@@ -2491,25 +2285,19 @@ cookie_params {
 }
 ```
 
-<a id="canonical-0210010132313223-2323122212021221-0213311110013030-1112231301300320-2331230200312113-2333333332023121-1311301231110310-0212201100103002"></a>
+<a id="canonical-1103131031312023-3330332231030311-3011320303032301-0303031230030023-2233222211233302-1200131321222030-0130311031113231-1330322220110323"></a>
 
-## Direct properties — cookie_params / 010121001121 / 3
+### Direct properties for `authentication.cookie_params`
 
 - [auth_hmac](resources--virtual_host--reference--group-001.md#canonical-0112101301310321-2022233203002122-3032312032133321-3013000233012113-0013123320312230-0321123320333001-3102301133231301-3002231230330232): complete subsection reference.
 
 <a id="canonical-3332332303002333-0000320313200310-0021133232332301-1202123301110113-3333110120102220-3002230121221301-0323010100133330-0033002310102333"></a>
 
-<a id="canonical-1112122333012301-2033033123120121-0321100233120103-1211032033110233-0123023211203013-3202333022123320-1212021211223302-0120022230333030"></a>
+<a id="canonical-0210010132313223-2323122212021221-0213311110013030-1112231301300320-2331230200312113-2333333332023121-1311301231110310-0212201100103002"></a>
 
-## cookie_expiry property — cookie_params / 010121001121 / 4
+#### `authentication.cookie_params.cookie_expiry` property
 
 Type: `"number"`. Optional.
-
-Specifies in seconds max duration of the allocated cookie. This maps to “Max-Age” attribute in the
-session cookie. This will act as an expiry duration on the client-side after which client will not
-be setting the cookie as part of the request.
-
-Upstream description:
 
 Specifies in seconds max duration of the allocated cookie. This maps to “Max-Age” attribute in the
 session cookie. This will act as an expiry duration on the client-side after which client will not
@@ -2556,18 +2344,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1000232101101000-1030122230120331-3033120323031312-1122212323210023-1132131030113231-0300220222132003-0113213210032300-0032301330002303"></a>
 
-<a id="canonical-1213123003130311-3300032120223232-2332330331102203-0130013023223310-2031032330120010-3113113131010100-0323233222033330-1222110100203133"></a>
+<a id="canonical-1112122333012301-2033033123120121-0321100233120103-1211032033110233-0123023211203013-3202333022123320-1212021211223302-0120022230333030"></a>
 
-## cookie_refresh_interval property — cookie_params / 010121001121 / 5
+#### `authentication.cookie_params.cookie_refresh_interval` property
 
 Type: `"number"`. Optional.
-
-Specifies in seconds refresh interval for session cookie. This is used to keep the active user
-active and reduce RE-login. When an incoming cookie's session expiry is still valid, and time to
-expire falls behind this interval, RE-issue a cookie with new expiry and with the same original
-session..
-
-Upstream description:
 
 Specifies in seconds refresh interval for session cookie. This is used to keep the active user
 active and reduce RE-login. When an incoming cookie's session expiry is still valid, and time to
@@ -2617,16 +2398,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1212232133020110-1303101001003022-3321020102020130-3232203001330210-0121103020311110-0033112022301121-2020210030003333-3333022203322200"></a>
 
-<a id="canonical-2030100113221322-3212101233330020-0123223202023200-2131201100233101-2112112333322221-1313133132311313-1312021032200013-1023112330131332"></a>
+<a id="canonical-1213123003130311-3300032120223232-2332330331102203-0130013023223310-2031032330120010-3113113131010100-0323233222033330-1222110100203133"></a>
 
-## session_expiry property — cookie_params / 010121001121 / 6
+#### `authentication.cookie_params.session_expiry` property
 
 Type: `"number"`. Optional.
-
-Specifies in seconds max lifetime of an authenticated session after which the user will be forced to
-login again. Default session expiry is 86400 seconds(24 hours).
-
-Upstream description:
 
 Specifies in seconds max lifetime of an authenticated session after which the user will be forced to
 login again. Default session expiry is 86400 seconds(24 hours).
@@ -2670,24 +2446,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3112301033211221-1310002300333033-2103211121333122-3003002313121123-0011121103033122-1121320022030310-1120200011130331-3001100023113031"></a>
-
-## Next pages — cookie_params / 010121001121 / 7
-
-- [authentication.cookie_params.auth_hmac](resources--virtual_host--reference--group-001.md#canonical-0112101301310321-2022233203002122-3032312032133321-3013000233012113-0013123320312230-0321123320333001-3102301133231301-3002231230330232)
-- [authentication.cookie_params.kms_key_hmac](resources--virtual_host--reference--group-001.md#canonical-2230033003322103-2333330222332211-1312331010131331-3103000120330311-3302023123120232-3232131132303011-0011333001101110-3203320201201122)
-- [authentication](resources--virtual_host--reference--group-001.md#canonical-2003102221320033-2002121330313023-0331120011300333-0213101002200303-3003330033121012-0330110020200302-3233233301001020-2111210130323123)
-- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
-
 <a id="canonical-0112101301310321-2022233203002122-3032312032133321-3013000233012113-0013123320312230-0321123320333001-3102301133231301-3002231230330232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2310333310122333-0332303123230333-3210102211101113-0200010202200013-1010110201200113-0021321010312331-2120301131322133-3002303212112120"></a>
-
-## authentication.cookie_params.auth_hmac — auth_hmac / 003302202201 / 2
+## `authentication.cookie_params.auth_hmac` properties
 
 Breadcrumbs:
 
@@ -2700,11 +2465,6 @@ Breadcrumbs:
 <a id="canonical-1022310232123201-1222012330120313-0312323333230122-0222212201233030-3220103112103323-0312232123331002-3213312013312002-1220201303101120"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-HMAC primary and secondary keys to be used for hashing the Cookie. Each key also have an associated
-expiry timestamp, beyond which key is invalid.
-
-Upstream description:
 
 HMAC primary and secondary keys to be used for hashing the Cookie. Each key also have an associated
 expiry timestamp, beyond which key is invalid.
@@ -2738,25 +2498,21 @@ auth_hmac {
 }
 ```
 
-<a id="canonical-2032121211220130-0012111312102123-2033000003012310-3111122321012112-1201013332002100-3123103302020000-3002131030211200-3002200130210230"></a>
+<a id="canonical-2310333310122333-0332303123230333-3210102211101113-0200010202200013-1010110201200113-0021321010312331-2120301131322133-3002303212112120"></a>
 
-## Direct properties — auth_hmac / 003302202201 / 3
+### Direct properties for `authentication.cookie_params.auth_hmac`
 
 - [prim_key](resources--virtual_host--reference--group-001.md#canonical-3200010310233203-1210331030223203-1011131031030201-0000131311322302-3132300210320223-0302302113112202-3012111312112213-3221330010132221): complete subsection reference.
 
 <a id="canonical-1320121102131231-2003222332232201-2332202010001321-2211201210210330-2221031031123032-3321001321210303-0120022213132213-1123213131020123"></a>
 
-<a id="canonical-2313021032322013-3122013321213103-0021200012332030-1131211021020321-0010321330113112-0010201223230320-3012110130113002-1323010212123132"></a>
+<a id="canonical-2032121211220130-0012111312102123-2033000003012310-3111122321012112-1201013332002100-3123103302020000-3002131030211200-3002200130210230"></a>
 
-## prim_key_expiry property — auth_hmac / 003302202201 / 4
+#### `authentication.cookie_params.auth_hmac.prim_key_expiry` property
 
 Type: `"string"`. Optional.
 
 HMAC Primary Key Expiry. Primary HMAC Key Expiry time.
-
-Upstream description:
-
-Primary HMAC Key Expiry time.
 
 Receipt-pinned upstream constraints:
 
@@ -2792,17 +2548,13 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3013313201001112-1332312332333222-2302121022112300-0333130100301133-0131121031321110-3033013003133222-1331303313311022-2220310230333302"></a>
 
-<a id="canonical-0013223003112323-1002120311330203-1030002202000212-3102313122032211-3200330113021231-3221112030010323-1330313133103031-3212311100201323"></a>
+<a id="canonical-2313021032322013-3122013321213103-0021200012332030-1131211021020321-0010321330113112-0010201223230320-3012110130113002-1323010212123132"></a>
 
-## sec_key_expiry property — auth_hmac / 003302202201 / 5
+#### `authentication.cookie_params.auth_hmac.sec_key_expiry` property
 
 Type: `"string"`. Optional.
 
 HMAC Secondary Key Expiry. Secondary HMAC Key Expiry time.
-
-Upstream description:
-
-Secondary HMAC Key Expiry time.
 
 Receipt-pinned upstream constraints:
 
@@ -2834,24 +2586,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3311023010231302-0233120213131223-0013103021030213-0000221300223303-3012323200323133-1123131313001011-3031323223020331-0302222322120210"></a>
-
-## Next pages — auth_hmac / 003302202201 / 6
-
-- [authentication.cookie_params.auth_hmac.prim_key](resources--virtual_host--reference--group-001.md#canonical-3200010310233203-1210331030223203-1011131031030201-0000131311322302-3132300210320223-0302302113112202-3012111312112213-3221330010132221)
-- [authentication.cookie_params.auth_hmac.sec_key](resources--virtual_host--reference--group-001.md#canonical-1020112220213021-2013010221201110-1201030001102333-3203321222232303-1312012322330201-2030010101010333-0233031002023333-0022232113021301)
-- [authentication.cookie_params](resources--virtual_host--reference--group-001.md#canonical-1131131321312220-2012123000002311-0103102321232020-3331020223222330-3002023112000031-1310331020230210-2120111121232302-2012200122312121)
-- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
-
 <a id="canonical-3200010310233203-1210331030223203-1011131031030201-0000131311322302-3132300210320223-0302302113112202-3012111312112213-3221330010132221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3322312121013233-3313330010112123-3032031111203331-2303100011212120-2002233102030313-1032230031122313-1101011032302201-3331000033203221"></a>
-
-## authentication.cookie_params.auth_hmac.prim_key — prim_key / 222102233330 / 2
+## `authentication.cookie_params.auth_hmac.prim_key` properties
 
 Breadcrumbs:
 
@@ -2898,22 +2639,13 @@ prim_key {
 }
 ```
 
-<a id="canonical-0131003130231130-1230233200000203-2311201301322312-0201130032320202-1212330230012300-2221030003122321-2102213322120223-3320030112201202"></a>
+<a id="canonical-3322312121013233-3313330010112123-3032031111203331-2303100011212120-2002233102030313-1032230031122313-1101011032302201-3331000033203221"></a>
 
-## Direct properties — prim_key / 222102233330 / 3
+### Direct properties for `authentication.cookie_params.auth_hmac.prim_key`
 
 - [blindfold_secret_info](resources--virtual_host--reference--group-001.md#canonical-1203203310302023-1202221202223330-2103231310322213-1203323003120213-2210312203020110-2112030003320333-1033103222120303-1023112100110300): complete subsection reference.
 
 - [clear_secret_info](resources--virtual_host--reference--group-001.md#canonical-1312203201220310-0110323230102332-3300201310110122-0030123202333000-0330230313213330-1002230331333323-2033212010133230-2021031201101021): complete subsection reference.
-
-<a id="canonical-2131322123231330-3302313020233201-2121210131332321-3113321032020202-2200032233310022-2321322011332000-2022022000022010-1123303211333032"></a>
-
-## Next pages — prim_key / 222102233330 / 4
-
-- [authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info](resources--virtual_host--reference--group-001.md#canonical-1203203310302023-1202221202223330-2103231310322213-1203323003120213-2210312203020110-2112030003320333-1033103222120303-1023112100110300)
-- [authentication.cookie_params.auth_hmac.prim_key.clear_secret_info](resources--virtual_host--reference--group-001.md#canonical-1312203201220310-0110323230102332-3300201310110122-0030123202333000-0330230313213330-1002230331333323-2033212010133230-2021031201101021)
-- [authentication.cookie_params.auth_hmac](resources--virtual_host--reference--group-001.md#canonical-0112101301310321-2022233203002122-3032312032133321-3013000233012113-0013123320312230-0321123320333001-3102301133231301-3002231230330232)
-- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
 
 <a id="canonical-1203203310302023-1202221202223330-2103231310322213-1203323003120213-2210312203020110-2112030003320333-1033103222120303-1023112100110300"></a>
 
@@ -2921,9 +2653,7 @@ prim_key {
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3210221012200132-1101113311320032-2300231213300103-3311100132011130-3212130122333120-2233232303120300-1302112030021133-2310330330032032"></a>
-
-## authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info — blindfold_secret_info / 202302023300 / 2
+## `authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info` properties
 
 Breadcrumbs:
 
@@ -2969,15 +2699,13 @@ blindfold_secret_info {
 }
 ```
 
-<a id="canonical-0231021312202100-2123300313112200-0222130233302122-0023133113010023-1201122130130100-1233111023213030-2223121100132030-0101321213023330"></a>
+<a id="canonical-3210221012200132-1101113311320032-2300231213300103-3311100132011130-3212130122333120-2233232303120300-1302112030021133-2310330330032032"></a>
 
-## Direct properties — blindfold_secret_info / 202302023300 / 3
+### Direct properties for `authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info`
 
 <a id="canonical-2002332211202102-2102212131110320-2330101012213032-2132000311313130-3110201012211030-3322222200202223-0033231301201220-2320011032010323"></a>
 
-<a id="canonical-1321121230202122-3210031210023210-0003030022013213-2122100303333222-3212331322122323-0103132111122201-3210200010032233-3232103022010131"></a>
-
-## decryption_provider property — blindfold_secret_info / 202302023300 / 4
+#### `authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info.decryption_provider` property
 
 Type: `"string"`. Optional.
 
@@ -3009,16 +2737,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0030220120311200-2331002111032301-2003200113132032-1022311232130320-1110330000203122-1111302100222331-3003200001333303-0020232302210131"></a>
 
-<a id="canonical-0310012101300301-0201333113030013-1323030013033030-3332312123202321-0121221323131101-0331001112300303-2220133301303131-3320322032210303"></a>
+<a id="canonical-0231021312202100-2123300313112200-0222130233302122-0023133113010023-1201122130130100-1233111023213030-2223121100132030-0101321213023330"></a>
 
-## location property — blindfold_secret_info / 202302023300 / 5
+#### `authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info.location` property
 
 Type: `"string"`. Optional, Sensitive.
-
-Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
-store provider is an HTTP/HTTPS location.
-
-Upstream description:
 
 Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
@@ -3071,16 +2794,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3113112131010121-1002000231210110-3200012001322231-1300013223330312-3321023210123311-1312101110130222-3223202200002110-2122321322111021"></a>
 
-<a id="canonical-3023131020101101-2123222132001221-0313310321202212-3320322122333112-1131130110123202-2233311111022010-2130203101230120-1212220202121033"></a>
+<a id="canonical-1321121230202122-3210031210023210-0003030022013213-2122100303333222-3212331322122323-0103132111122201-3210200010032233-3232103022010131"></a>
 
-## store_provider property — blindfold_secret_info / 202302023300 / 6
+#### `authentication.cookie_params.auth_hmac.prim_key.blindfold_secret_info.store_provider` property
 
 Type: `"string"`. Optional.
-
-Name of the Secret Management Access object that contains information about the store to GET
-encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
-
-Upstream description:
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
@@ -3108,22 +2826,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3321311301102001-0132301132220200-3112021310103313-1321301121132232-1212020121023223-3301102230013023-2030230100032103-1222222321300101"></a>
-
-## Next pages — blindfold_secret_info / 202302023300 / 7
-
-- [authentication.cookie_params.auth_hmac.prim_key](resources--virtual_host--reference--group-001.md#canonical-3200010310233203-1210331030223203-1011131031030201-0000131311322302-3132300210320223-0302302113112202-3012111312112213-3221330010132221)
-- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
-
 <a id="canonical-1312203201220310-0110323230102332-3300201310110122-0030123202333000-0330230313213330-1002230331333323-2033212010133230-2021031201101021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2031113332303012-3012123332133032-1010130020021312-2301213303120122-1212312210131021-3131102333211112-1002333301213201-1100312320300231"></a>
-
-## authentication.cookie_params.auth_hmac.prim_key.clear_secret_info — clear_secret_info / 231220331032 / 2
+## `authentication.cookie_params.auth_hmac.prim_key.clear_secret_info` properties
 
 Breadcrumbs:
 
@@ -3169,15 +2878,13 @@ clear_secret_info {
 }
 ```
 
-<a id="canonical-2103111111011003-3301013120111022-0200321003321012-1301223331102323-2023201003321321-1133103112330212-3210101021200020-1023230301321010"></a>
+<a id="canonical-2031113332303012-3012123332133032-1010130020021312-2301213303120122-1212312210131021-3131102333211112-1002333301213201-1100312320300231"></a>
 
-## Direct properties — clear_secret_info / 231220331032 / 3
+### Direct properties for `authentication.cookie_params.auth_hmac.prim_key.clear_secret_info`
 
 <a id="canonical-0301130100122013-1221203201203110-2013220110132012-3221312100022211-0223320222201322-3231013132223020-2113332020013000-2110023122133233"></a>
 
-<a id="canonical-2310011031220122-1213122332010212-3311131032303030-1212000030030021-2223303323200320-0033131330222022-2202101323132031-2220321221323022"></a>
-
-## provider_ref property — clear_secret_info / 231220331032 / 4
+#### `authentication.cookie_params.auth_hmac.prim_key.clear_secret_info.provider_ref` property
 
 Type: `"string"`. Optional.
 
@@ -3186,17 +2893,11 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 
 <a id="canonical-1110002222212002-2100020303301232-2211231002020130-1102231203300321-2202021023012330-1122111313232322-0323020023231101-0112032320213112"></a>
 
-<a id="canonical-2311202322231101-0002123012022232-3103323003300311-3223003321212023-1320201031222202-3213220000313310-1001000201130112-1210113231212131"></a>
+<a id="canonical-2103111111011003-3301013120111022-0200321003321012-1301223331102323-2023201003321321-1133103112330212-3210101021200020-1023230301321010"></a>
 
-## URL property — clear_secret_info / 231220331032 / 5
+#### `authentication.cookie_params.auth_hmac.prim_key.clear_secret_info.url` property
 
 Type: `"string"`. Optional, Sensitive.
-
-URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
-base64 decoding.
-
-Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
 needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
@@ -3257,22 +2958,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0230100121100012-2001323213130131-3332311223310031-2012303033033130-3000230021103123-2303213020200210-1013322211031110-3321200032202002"></a>
-
-## Next pages — clear_secret_info / 231220331032 / 6
-
-- [authentication.cookie_params.auth_hmac.prim_key](resources--virtual_host--reference--group-001.md#canonical-3200010310233203-1210331030223203-1011131031030201-0000131311322302-3132300210320223-0302302113112202-3012111312112213-3221330010132221)
-- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
-
 <a id="canonical-1020112220213021-2013010221201110-1201030001102333-3203321222232303-1312012322330201-2030010101010333-0233031002023333-0022232113021301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2130310110311203-2210233320120300-3100231301332020-3002201100331103-3101321002320020-0001302002223130-3103303032023203-2201211123303030"></a>
-
-## authentication.cookie_params.auth_hmac.sec_key — sec_key / 011112310100 / 2
+## `authentication.cookie_params.auth_hmac.sec_key` properties
 
 Breadcrumbs:
 
@@ -3319,22 +3011,13 @@ sec_key {
 }
 ```
 
-<a id="canonical-2331213201011113-3010211030203232-3133031133323222-3011210010323102-0102331001301111-3011212020202333-3130021022001120-3202031031123330"></a>
+<a id="canonical-2130310110311203-2210233320120300-3100231301332020-3002201100331103-3101321002320020-0001302002223130-3103303032023203-2201211123303030"></a>
 
-## Direct properties — sec_key / 011112310100 / 3
+### Direct properties for `authentication.cookie_params.auth_hmac.sec_key`
 
 - [blindfold_secret_info](resources--virtual_host--reference--group-001.md#canonical-3113131201300102-2023030131011101-3132321133033312-2211303211003103-2233313203010322-1112021303203003-3103330300320111-3331000131123222): complete subsection reference.
 
 - [clear_secret_info](resources--virtual_host--reference--group-001.md#canonical-2323223221310303-3223203232303030-3202113200031133-1033322321332131-2301000332102220-0103002132021210-3301303213233013-0022223213011132): complete subsection reference.
-
-<a id="canonical-0303100310021110-1111222213103201-0122110202123212-1311030212013111-3030010203232003-2330220330122223-2130112023332130-0321012321100330"></a>
-
-## Next pages — sec_key / 011112310100 / 4
-
-- [authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info](resources--virtual_host--reference--group-001.md#canonical-3113131201300102-2023030131011101-3132321133033312-2211303211003103-2233313203010322-1112021303203003-3103330300320111-3331000131123222)
-- [authentication.cookie_params.auth_hmac.sec_key.clear_secret_info](resources--virtual_host--reference--group-001.md#canonical-2323223221310303-3223203232303030-3202113200031133-1033322321332131-2301000332102220-0103002132021210-3301303213233013-0022223213011132)
-- [authentication.cookie_params.auth_hmac](resources--virtual_host--reference--group-001.md#canonical-0112101301310321-2022233203002122-3032312032133321-3013000233012113-0013123320312230-0321123320333001-3102301133231301-3002231230330232)
-- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
 
 <a id="canonical-3113131201300102-2023030131011101-3132321133033312-2211303211003103-2233313203010322-1112021303203003-3103330300320111-3331000131123222"></a>
 
@@ -3342,9 +3025,7 @@ sec_key {
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2002112331030221-2221203123232010-1313230223233220-3212111310220022-2302211120202303-1210302202122320-2110300313013201-3001223322000213"></a>
-
-## authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info — blindfold_secret_info / 232203230030 / 2
+## `authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info` properties
 
 Breadcrumbs:
 
@@ -3390,15 +3071,13 @@ blindfold_secret_info {
 }
 ```
 
-<a id="canonical-2300221121121301-1130013030100310-2131013130331103-2000011202133331-2212220330311122-1213100113122021-0301232223123120-2132113303312233"></a>
+<a id="canonical-2002112331030221-2221203123232010-1313230223233220-3212111310220022-2302211120202303-1210302202122320-2110300313013201-3001223322000213"></a>
 
-## Direct properties — blindfold_secret_info / 232203230030 / 3
+### Direct properties for `authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info`
 
 <a id="canonical-0200013301031002-3322001010032320-2233312022102303-2130303131110132-1310121302233302-3033232302013002-2322012101010000-3311313333200233"></a>
 
-<a id="canonical-0212213201220232-2231331302032033-3201222300023013-2031232302123302-3322102023012020-1100313032300012-3032121022223011-0122220033210102"></a>
-
-## decryption_provider property — blindfold_secret_info / 232203230030 / 4
+#### `authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info.decryption_provider` property
 
 Type: `"string"`. Optional.
 
@@ -3430,16 +3109,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3311123302003210-2202021332312110-2030321000320112-0301311000131102-0302020131033330-1101121003020033-0130210101100001-0031232311300022"></a>
 
-<a id="canonical-1110212100232131-0233311203212201-1202122123103213-2231110323202111-1131001110200121-0032203322011120-3032320000230102-3031202102212120"></a>
+<a id="canonical-2300221121121301-1130013030100310-2131013130331103-2000011202133331-2212220330311122-1213100113122021-0301232223123120-2132113303312233"></a>
 
-## location property — blindfold_secret_info / 232203230030 / 5
+#### `authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info.location` property
 
 Type: `"string"`. Optional, Sensitive.
-
-Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
-store provider is an HTTP/HTTPS location.
-
-Upstream description:
 
 Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
@@ -3492,16 +3166,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1221203101000022-1201320132321031-0211013300202103-3233302332221333-3132302333220000-2323012302123103-0030031202311203-3031030121313330"></a>
 
-<a id="canonical-3332032312300031-1000313230300130-2303302310200122-1311120222022231-0100220232221112-2113131111211033-3133100012113120-3113223012303000"></a>
+<a id="canonical-0212213201220232-2231331302032033-3201222300023013-2031232302123302-3322102023012020-1100313032300012-3032121022223011-0122220033210102"></a>
 
-## store_provider property — blindfold_secret_info / 232203230030 / 6
+#### `authentication.cookie_params.auth_hmac.sec_key.blindfold_secret_info.store_provider` property
 
 Type: `"string"`. Optional.
-
-Name of the Secret Management Access object that contains information about the store to GET
-encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
-
-Upstream description:
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
@@ -3529,22 +3198,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1123013322323021-3003033200223311-2031223011010201-3310202002313211-1212030300011201-0102122233212233-1120321213012310-1003302013201131"></a>
-
-## Next pages — blindfold_secret_info / 232203230030 / 7
-
-- [authentication.cookie_params.auth_hmac.sec_key](resources--virtual_host--reference--group-001.md#canonical-1020112220213021-2013010221201110-1201030001102333-3203321222232303-1312012322330201-2030010101010333-0233031002023333-0022232113021301)
-- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
-
 <a id="canonical-2323223221310303-3223203232303030-3202113200031133-1033322321332131-2301000332102220-0103002132021210-3301303213233013-0022223213011132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0330021013110232-0003211312311310-2011122012010303-1013121211031221-2302101010321110-0331112101122310-3113033030303001-3213322313002221"></a>
-
-## authentication.cookie_params.auth_hmac.sec_key.clear_secret_info — clear_secret_info / 102213223230 / 2
+## `authentication.cookie_params.auth_hmac.sec_key.clear_secret_info` properties
 
 Breadcrumbs:
 
@@ -3590,15 +3250,13 @@ clear_secret_info {
 }
 ```
 
-<a id="canonical-2000101333311010-2220112132013012-1220330113101332-2231133202013322-0022030223111002-3113002130120113-0303230000012103-1301230120131013"></a>
+<a id="canonical-0330021013110232-0003211312311310-2011122012010303-1013121211031221-2302101010321110-0331112101122310-3113033030303001-3213322313002221"></a>
 
-## Direct properties — clear_secret_info / 102213223230 / 3
+### Direct properties for `authentication.cookie_params.auth_hmac.sec_key.clear_secret_info`
 
 <a id="canonical-0220310313202223-3022132133103130-2231000231300131-1200202032001211-3021113331210133-1020130013031112-3312130103303010-3312102123222221"></a>
 
-<a id="canonical-1021303220002332-0311221320220322-0302010302201032-0213233032113321-1201111200101002-3221301301200121-0113210021322110-2301001002003232"></a>
-
-## provider_ref property — clear_secret_info / 102213223230 / 4
+#### `authentication.cookie_params.auth_hmac.sec_key.clear_secret_info.provider_ref` property
 
 Type: `"string"`. Optional.
 
@@ -3607,17 +3265,11 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 
 <a id="canonical-1212011022331301-2032012333210310-1101301101203132-2231021320123300-0132012321133131-3232012311220100-1302033323220201-3103032313223311"></a>
 
-<a id="canonical-0210320312220001-1322003123031233-1200110003320323-1321332010302310-0230202101000301-2201031333321233-2110133200021202-1232312312110322"></a>
+<a id="canonical-2000101333311010-2220112132013012-1220330113101332-2231133202013322-0022030223111002-3113002130120113-0303230000012103-1301230120131013"></a>
 
-## URL property — clear_secret_info / 102213223230 / 5
+#### `authentication.cookie_params.auth_hmac.sec_key.clear_secret_info.url` property
 
 Type: `"string"`. Optional, Sensitive.
-
-URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
-base64 decoding.
-
-Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
 needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
@@ -3678,22 +3330,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2310322330132121-1301103110201313-3332331311023011-2121211212323201-3232211222220320-2312131030331103-1330103131313021-0133112033113020"></a>
-
-## Next pages — clear_secret_info / 102213223230 / 6
-
-- [authentication.cookie_params.auth_hmac.sec_key](resources--virtual_host--reference--group-001.md#canonical-1020112220213021-2013010221201110-1201030001102333-3203321222232303-1312012322330201-2030010101010333-0233031002023333-0022232113021301)
-- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
-
 <a id="canonical-2230033003322103-2333330222332211-1312331010131331-3103000120330311-3302023123120232-3232131132303011-0011333001101110-3203320201201122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3112203102110022-3301120103333300-2202331032031032-1201223120000001-3011000033132212-2031030110133021-3231211312312132-0333102231100001"></a>
-
-## authentication.cookie_params.kms_key_hmac — kms_key_hmac / 310013312102 / 2
+## `authentication.cookie_params.kms_key_hmac` properties
 
 Breadcrumbs:
 
@@ -3709,7 +3352,7 @@ Type: `["object", {}]`. Optional.
 
 Configuration parameter for kms key hmac.
 
-Upstream description:
+Additional upstream details:
 
 Reference to KMS Key Object.
 
@@ -3732,8 +3375,1264 @@ Terraform syntax:
 kms_key_hmac = {}
 ```
 
-<a id="canonical-2321013013312112-1323310022303130-2121303322113210-3031112110030222-1030132103131231-3222013113301331-1322301231103222-0001312230203023"></a>
+This is an empty object or choice marker. It has no direct properties.
 
-## Direct properties — kms_key_hmac / 310013312102 / 3
+<a id="canonical-0313011103023132-2300102103031013-0232223211222030-2120102003032023-2110331132332321-1013021312110232-1200201333111012-2132031021223100"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `authentication.redirect_dynamic` properties
+
+Breadcrumbs:
+
+- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
+- [Property reference](resources--virtual_host--reference--group-001.md#canonical-0213223201331332-3131232310010210-0330121003120232-2120200222200312-0323331101112032-1020103022113222-1023223202200132-0323130101032220)
+- [authentication](resources--virtual_host--reference--group-001.md#canonical-2003102221320033-2002121330313023-0331120011300333-0213101002200303-3003330033121012-0330110020200302-3233233301001020-2111210130323123)
+- authentication.redirect_dynamic
+
+<a id="canonical-3213102103320201-1032210310101101-1212233222123001-3120123321130021-1013220321200123-2200302302223310-3111023123021303-1320003001230120"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for redirect dynamic.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+redirect_dynamic = {}
+```
 
 This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1302322221332101-3012223212012310-0220333220112221-3102201210323222-3130311012220201-1131210331201223-3021101112131200-3001112123033302"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `authentication.use_auth_object_config` properties
+
+Breadcrumbs:
+
+- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
+- [Property reference](resources--virtual_host--reference--group-001.md#canonical-0213223201331332-3131232310010210-0330121003120232-2120200222200312-0323331101112032-1020103022113222-1023223202200132-0323130101032220)
+- [authentication](resources--virtual_host--reference--group-001.md#canonical-2003102221320033-2002121330313023-0331120011300333-0213101002200303-3003330033121012-0330110020200302-3233233301001020-2111210130323123)
+- authentication.use_auth_object_config
+
+<a id="canonical-0210222011020122-3312120333231130-0123030202102320-0131112000013232-1001111002202030-0031210011002221-3011120221110231-0230321030201102"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+use_auth_object_config = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3232012230212003-3221232011020313-0202200302301332-0002323023102302-2322221023103201-3002223222331300-0233232032310121-2021012312213213"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `buffer_policy` properties
+
+Breadcrumbs:
+
+- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
+- [Property reference](resources--virtual_host--reference--group-001.md#canonical-0213223201331332-3131232310010210-0330121003120232-2120200222200312-0323331101112032-1020103022113222-1023223202200132-0323130101032220)
+- buffer_policy
+
+<a id="canonical-3011223012232200-0033131112212212-0311032201323010-1230133111002012-1210000023123031-1120322321013011-3010101320312231-0021000020120100"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Some upstream applications are not capable of handling streamed data. This config enables buffering
+the entire request before sending to upstream application. We can specify the maximum buffer size
+and buffer interval with this config.
+
+Buffering can be enabled and disabled at VirtualHost and Route levels Route level buffer
+configuration takes precedence.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+buffer_policy {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1232133130130120-0110120302112113-1003230223220100-3322300213322003-0223022320130221-3020301113120333-3211323022032310-2210123321312312"></a>
+
+### Direct properties for `buffer_policy`
+
+<a id="canonical-1121202302021000-1122211120311322-0323030302130113-1212010331301331-0332310323322023-2231003333031010-2210031112120000-2102301030203023"></a>
+
+#### `buffer_policy.disabled` property
+
+Type: `"bool"`. Optional.
+
+Disable buffering for a particular route. This is useful when virtual-host has buffering, but we
+need to disable it on a specific route. The value of this field is ignored for virtual-host.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1002323221030301-3223121130300123-0323212120223032-0131122231312320-2000021101211122-0031223322313323-1030133030303003-3203230222023012"></a>
+
+<a id="canonical-3030010320310032-0023232220000023-2010331233023312-3302103322310003-2301110332121200-1100212213222000-1231032211233332-2201101301123111"></a>
+
+#### `buffer_policy.max_request_bytes` property
+
+Type: `"number"`. Optional.
+
+The maximum request size that the filter will buffer before the connection manager will stop
+buffering and return a RequestEntityTooLarge (413) response.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  int64validator.AtMost(10485760),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 10485760,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "10485760"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "10485760"
+  }
+}
+```
+
+<a id="canonical-1020312231213113-0223120010100113-3031300332310212-2210330020033311-2212131302230022-1310032130223312-2033030030001301-2312002230010203"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `captcha_challenge` properties
+
+Breadcrumbs:
+
+- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
+- [Property reference](resources--virtual_host--reference--group-001.md#canonical-0213223201331332-3131232310010210-0330121003120232-2120200222200312-0323331101112032-1020103022113222-1023223202200132-0323130101032220)
+- captcha_challenge
+
+<a id="canonical-1301312132130220-0131231003121113-3122120112223111-3123000301131222-1330033022112332-1210203020031031-3310220022023231-0120030021010211"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+\[OneOf: captcha\_challenge, js\_challenge, no\_challenge; Default: no\_challenge\] Enables
+loadbalancer to perform captcha challenge Captcha challenge will be based on Google Recaptcha. With
+this feature enabled, only clients that pass the captcha challenge will be allowed to complete the
+HTTP request. When loadbalancer is configured to do Captcha Challenge, it will redirect..
+
+Additional upstream details:
+
+Enables loadbalancer to perform captcha challenge
+
+Captcha challenge will be based on Google Recaptcha. When loadbalancer is configured to do Captcha
+Challenge, it will redirect the browser to an HTML page on every new HTTP request. This HTML page
+will have captcha challenge embedded in it. Client will be allowed to make the request only if the
+captcha challenge is successful. Loadbalancer will tag response header with a cookie to avoid
+Captcha challenge for subsequent requests. CAPTCHA is mainly used as a security check to ensure only
+human users can pass through. Generally, computers or bots are not capable of solving a captcha. You
+can enable either JavaScript challenge or Captcha challenge on a virtual host.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.RequiredObjectAttributes("cookie_expiry")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+OneOf alternatives in this subsection:
+
+- [captcha_challenge](resources--virtual_host--reference--group-001.md#canonical-1301312132130220-0131231003121113-3122120112223111-3123000301131222-1330033022112332-1210203020031031-3310220022023231-0120030021010211)
+- [js_challenge](resources--virtual_host--reference--group-002.md#canonical-2301110332123321-2201100001322312-3310232321120302-2100202013231333-1032213203023203-3311131310311320-2313310010120313-0030132221110033)
+- [no_challenge](resources--virtual_host--reference--group-002.md#canonical-1023032113232030-0020323313122121-0322301020011111-0223320231112323-1001102230211202-1023032220132002-0312223223230123-1312013321231030)
+
+Select alternatives according to the provider validators above.
+
+Terraform syntax:
+
+```terraform
+captcha_challenge {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3033001131302312-0203103010332113-0113320133322033-1020303121310112-0032232222110233-0000212021001031-1332223323033202-0003301331032330"></a>
+
+### Direct properties for `captcha_challenge`
+
+<a id="canonical-0320001301322310-1312032101020021-0320302330321213-0330303223323021-1330102102330330-3220302130112121-1323332330102010-3323213100100103"></a>
+
+#### `captcha_challenge.cookie_expiry` property
+
+Type: `"number"`. Optional.
+
+Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new
+challenge.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  int64validator.Between(1, 86400),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 86400,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "86400"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "86400"
+  }
+}
+```
+
+<a id="canonical-3211020102201311-2010132132102223-2033110322132322-0313311233122022-3000211323330210-2013021010201102-2132120101020303-0111330130133121"></a>
+
+<a id="canonical-3202020321032131-2230031023020021-3202123333101032-3023033023031330-1120120003200223-0200301113331232-0211210311101031-3201131101020123"></a>
+
+#### `captcha_challenge.custom_page` property
+
+Type: `"string"`. Optional.
+
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format. You can specify this message as base64 encoded
+plain text message e.g. "Please Wait.." or it can be HTML paragraph or a body string encoded as
+base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for this HTML is
+"PHA+IFBsZWFzZSBXYWl0IDwvcD4="
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(65536),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 65536,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "uri",
+    "maxLength": 65536,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "65536",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "65536",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  }
+}
+```
+
+<a id="canonical-1133103011022022-2203323101231031-2333022101312310-0311232221002132-1112210132302130-3101211220023233-3011302023021202-3033100231101311"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `coalescing_options` properties
+
+Breadcrumbs:
+
+- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
+- [Property reference](resources--virtual_host--reference--group-001.md#canonical-0213223201331332-3131232310010210-0330121003120232-2120200222200312-0323331101112032-1020103022113222-1023223202200132-0323130101032220)
+- coalescing_options
+
+<a id="canonical-3120121021011122-3011303310310313-1322223303233223-1001000133333132-3332113200330200-2022103003121300-0132333332101302-1122132031033100"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+TLS connection coalescing configuration (not compatible with mTLS).
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.ConflictingObjectAttributes("default_coalescing",
+    "strict_coalescing")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-coalescing_choice": "[\"default_coalescing\",\"strict_coalescing\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+coalescing_options {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3210231101321130-2211033202020312-0033112222130302-0032202332332112-0200122133223001-0203021201112031-2322203311022120-3211212210313121"></a>
+
+### Direct properties for `coalescing_options`
+
+- [default_coalescing](resources--virtual_host--reference--group-001.md#canonical-2012121230122021-0023032213020033-1233303132320033-3122023311001213-2010021213012031-1222000331003313-1020200120230101-2012231101333203): complete subsection reference.
+
+- [strict_coalescing](resources--virtual_host--reference--group-001.md#canonical-2212313210111032-2123210112200322-0120220112031321-2131321210130301-1101211101323033-3322033022302121-3313210301020200-0003230232313030): complete subsection reference.
+
+<a id="canonical-2012121230122021-0023032213020033-1233303132320033-3122023311001213-2010021213012031-1222000331003313-1020200120230101-2012231101333203"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `coalescing_options.default_coalescing` properties
+
+Breadcrumbs:
+
+- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
+- [Property reference](resources--virtual_host--reference--group-001.md#canonical-0213223201331332-3131232310010210-0330121003120232-2120200222200312-0323331101112032-1020103022113222-1023223202200132-0323130101032220)
+- [coalescing_options](resources--virtual_host--reference--group-001.md#canonical-1133103011022022-2203323101231031-2333022101312310-0311232221002132-1112210132302130-3101211220023233-3011302023021202-3033100231101311)
+- coalescing_options.default_coalescing
+
+<a id="canonical-2022310332331113-2010031031010312-3311022321032023-3113223221113202-2022330302223001-2112132123113031-3032213302301111-0231100312011013"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for default coalescing.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+default_coalescing = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2212313210111032-2123210112200322-0120220112031321-2131321210130301-1101211101323033-3322033022302121-3313210301020200-0003230232313030"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `coalescing_options.strict_coalescing` properties
+
+Breadcrumbs:
+
+- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
+- [Property reference](resources--virtual_host--reference--group-001.md#canonical-0213223201331332-3131232310010210-0330121003120232-2120200222200312-0323331101112032-1020103022113222-1023223202200132-0323130101032220)
+- [coalescing_options](resources--virtual_host--reference--group-001.md#canonical-1133103011022022-2203323101231031-2333022101312310-0311232221002132-1112210132302130-3101211220023233-3011302023021202-3033100231101311)
+- coalescing_options.strict_coalescing
+
+<a id="canonical-2132210221002320-3201211031212203-3032331033323023-3333321331100021-2000323000001233-1230010301133312-2303310330203210-1113123032112131"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for strict coalescing.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+strict_coalescing = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1033033121221113-3201013233022330-2031033001101131-2231201001233133-3212322221010320-2231221131030022-1003330210110233-1333033203013221"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `compression_params` properties
+
+Breadcrumbs:
+
+- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
+- [Property reference](resources--virtual_host--reference--group-001.md#canonical-0213223201331332-3131232310010210-0330121003120232-2120200222200312-0323331101112032-1020103022113222-1023223202200132-0323130101032220)
+- compression_params
+
+<a id="canonical-0031211031111203-2132322102121311-2321132201121110-3323300211311302-2310031121311103-3210323003130202-2310301301000301-2121120102321013"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Enables loadbalancer to compress dispatched data from an upstream service upon client request. The
+content is compressed and then sent to the client with the appropriate headers if either response
+and request allow. Only GZIP compression is supported.
+
+By default compression will be skipped when:
+
+A request does NOT contain accept-encoding header. A request includes accept-encoding header, but it
+does not contain “gzip” or “\*”. A request includes accept-encoding with “gzip” or “\*” with the
+weight “q=0”. Note that the “gzip” will have a higher weight then “\*”. For example, if
+accept-encoding is “gzip;q=0,\*;q=1”, the filter will not compress. But if the header is set to
+“\*;q=0,gzip;q=1”, the filter will compress. A request whose accept-encoding header includes
+“identity”. A response contains a content-encoding header. A response contains a cache-control
+header whose value includes “no-transform”. A response contains a transfer-encoding header whose
+value includes “gzip”. A response does not contain a content-type value that matches one of the
+selected mime-types, which default to application/JavaScript, application/JSON,
+application/xhtml+XML, image/svg+XML, text/CSS, text/HTML, text/plain, text/XML. Neither
+content-length nor transfer-encoding headers are present in the response. Response size is smaller
+than 30 bytes (only applicable when transfer-encoding is not chunked).
+
+When compression is applied:
+
+The content-length is removed from response headers. Response headers contain “transfer-encoding:
+chunked” and do not contain “content-encoding” header. The “vary: accept-encoding” header is
+inserted on every response.
+
+GZIP Compression Level:
+
+A value which is optimal balance between speed of compression and amount of compression is chosen.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.RequiredObjectAttributes("content_length")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+compression_params {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1000011020300310-1112030003313203-1033132113231003-0212112200031021-2002210221103100-0003132013203103-0123213311110110-0303331102013232"></a>
+
+### Direct properties for `compression_params`
+
+<a id="canonical-0301021121011203-2323321100122010-0312130302110121-0322111010002312-1200320133020202-2000031122322120-2033201132323320-2303300123022312"></a>
+
+#### `compression_params.content_length` property
+
+Type: `"number"`. Optional.
+
+Minimum response length, in bytes, which will trigger compression. The. Defaults to \`30\`.
+
+Additional upstream details:
+
+The default value is 30.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  int64validator.AtLeast(30),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 30
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "30"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "30"
+  }
+}
+```
+
+<a id="canonical-0110132312321221-1110032302010002-2312121020310022-2320101313301030-3022032013003330-0331320020113310-1200113122101131-0231122212310200"></a>
+
+<a id="canonical-3223022223101101-0021112131302032-3110200312200111-1013201030302113-2312332203123212-3000201303203211-3222002203112232-1112231320020200"></a>
+
+#### `compression_params.content_type` property
+
+Type: `["list", "string"]`. Optional.
+
+Set of strings that allows specifying which mime-types yield compression When this field is not
+defined, compression will be applied to the following mime-types: 'application/JavaScript'
+'application/JSON', 'application/xhtml+XML' 'image/svg+XML' 'text/CSS' 'text/HTML' 'text/plain'
+'text/XML'.
+
+Additional upstream details:
+
+Set of strings that allows specifying which mime-types yield compression When this field is not
+defined, compression will be applied to the following mime-types: "application/JavaScript"
+"application/JSON", "application/xhtml+XML" "image/svg+XML" "text/CSS" "text/HTML" "text/plain"
+"text/XML"
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.List{
+  listvalidator.SizeAtMost(50),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 50,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 50,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.items.string.min_bytes": "1",
+    "ves.io.schema.rules.repeated.max_items": "50",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.items.string.min_bytes": "1",
+    "ves.io.schema.rules.repeated.max_items": "50",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-3111303120201001-3203301320332302-1000312300113310-1323111201220011-0032232010122031-0301220301003023-3110013322121101-1112330020122213"></a>
+
+<a id="canonical-1222211031033301-1231033011222001-3332232211021203-2211103013220222-1112103012213211-1303131313220012-0130220312030201-1112200112332320"></a>
+
+#### `compression_params.disable_on_etag_header` property
+
+Type: `"bool"`. Optional.
+
+If true, disables compression when the response contains an etag header. When it is false, weak
+etags will be preserved and the ones that require strong validation will be removed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0121010310031311-1130223200113313-1221313013121223-0220202022102322-1103303312311231-3323221000133302-0013202321201021-0212102313223101"></a>
+
+<a id="canonical-2302210001020001-1012103131310333-3302122121132222-1231003111321113-1133333001230112-3120103000333003-2121000230132200-0211020210033322"></a>
+
+#### `compression_params.remove_accept_encoding_header` property
+
+Type: `"bool"`. Optional.
+
+If true, removes accept-encoding from the request headers before dispatching it to the upstream so
+that responses do not GET compressed before reaching the filter.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3232131223002131-1100030322001210-3211031031233033-0203330020202031-0110112203211203-1312221320131310-3120133001121223-0213203230311301"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `cors_policy` properties
+
+Breadcrumbs:
+
+- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
+- [Property reference](resources--virtual_host--reference--group-001.md#canonical-0213223201331332-3131232310010210-0330121003120232-2120200222200312-0323331101112032-1020103022113222-1023223202200132-0323130101032220)
+- cors_policy
+
+<a id="canonical-1130200103032202-0123310333002032-1000010331032332-1022233233012013-1223232030010332-2121121130102002-2200003223011003-3232203131113100"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route
+level configuration takes precedence.
+
+An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other
+User-Agent: Mozilla/5.0 (Macintosh; U; Intel macOS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130
+Minefield/3.1b3pre Accept: text/HTML,application/xhtml+XML,application/XML;q=0.9,\*/\*;q=0.8
+Accept-Language: en-us,en;q=0.5 Accept-Encoding: gzip,deflate Accept-Charset:
+ISO-8859-1,utf-8;q=0.7,\*;q=0.7 Connection: keep-alive Referrer:
+http&#58;//foo.example/examples/access-control/simplexsinvocation.HTML Origin:
+http&#58;//foo.example
+
+HTTP/1.1 200 OK Date: Mon, 01 Dec 2008 00:23:53 GMT Server: Apache/2.0.61
+Access-Control-Allow-Origin: \* Keep-Alive: timeout=2, max=100 Connection: Keep-Alive
+Transfer-Encoding: chunked Content-Type: application/XML
+
+An example for cross origin HTTP OPTIONS request with Access-Control-Request-\* header
+
+OPTIONS /resources/POST-here/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel
+macOS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre Accept:
+text/HTML,application/xhtml+XML,application/XML;q=0.9,\*/\*;q=0.8 Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate Accept-Charset: ISO-8859-1,utf-8;q=0.7,\*;q=0.7 Connection: keep-alive
+Origin: http&#58;//foo.example Access-Control-Request-Method: POST Access-Control-Request-Headers:
+X-PINGOTHER, Content-Type
+
+HTTP/1.1 204 No Content Date: Mon, 01 Dec 2008 01:15:39 GMT Server: Apache/2.0.61 (Unix)
+Access-Control-Allow-Origin: http&#58;//foo.example Access-Control-Allow-Methods: POST, GET, OPTIONS
+Access-Control-Allow-Headers: X-PINGOTHER, Content-Type Access-Control-Max-Age: 86400 Vary:
+Accept-Encoding, Origin Keep-Alive: timeout=2, max=100 Connection: Keep-Alive.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+cors_policy {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2112300312002210-2032203032313112-0011311223100033-1302022010131011-1231230333120021-3323003200211202-1113020331223020-2122020011030113"></a>
+
+### Direct properties for `cors_policy`
+
+<a id="canonical-3131233213331001-1113002311133000-0010121022010303-2000233123120112-2033312130133131-0022202203023011-2001221323202301-3111120112130010"></a>
+
+#### `cors_policy.allow_credentials` property
+
+Type: `"bool"`. Optional.
+
+Specifies whether the resource allows credentials.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0122013231310310-0212110121303122-3003000212303012-3002020212131011-2332310330202111-1121203201103010-0301130031310031-2231213130130230"></a>
+
+<a id="canonical-0021111202322331-3102300003110102-3220010210323030-3102122201012230-0120103030121030-3312200311023022-0103023323131301-3211001223103010"></a>
+
+#### `cors_policy.allow_headers` property
+
+Type: `"string"`. Optional.
+
+Specifies the content for the access-control-allow-headers header.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2101211112322121-2300103100213220-2111121132223013-3210022133013130-0310031211321202-3213231212032112-1121303133030202-3302211322201300"></a>
+
+<a id="canonical-3202211223230032-0013203113203302-0131232323213220-2312011302223320-3021312103003330-3000003322233100-0133223013313201-1123112103020223"></a>
+
+#### `cors_policy.allow_methods` property
+
+Type: `"string"`. Optional.
+
+Specifies the content for the access-control-allow-methods header.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.http_valid_methods": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.http_valid_methods": "true"
+  }
+}
+```
+
+<a id="canonical-1130202231311301-3330300031020110-1122101230020033-2002013310233100-2003011302022013-3102021130120221-3200021330312310-3000323213123331"></a>
+
+<a id="canonical-3332321233212122-0110031212023102-0103300220202332-0120121032033123-2023123102312321-0102121012010023-2021132322202210-2201333131122310"></a>
+
+#### `cors_policy.allow_origin` property
+
+Type: `["list", "string"]`. Optional.
+
+Specifies the origins that will be allowed to do CORS requests. An origin is allowed if either
+allow\_origin or allow\_origin\_regex match.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.List{
+  listvalidator.SizeAtMost(128),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 128,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_len": "256",
+    "ves.io.schema.rules.repeated.items.string.min_len": "1",
+    "ves.io.schema.rules.repeated.max_items": "128",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_len": "256",
+    "ves.io.schema.rules.repeated.items.string.min_len": "1",
+    "ves.io.schema.rules.repeated.max_items": "128",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-1022012010132013-3331001120023021-0133303321210303-1333133201123131-0233203312230322-3033022002111032-0021313003212012-1233133033133100"></a>
+
+<a id="canonical-0330103122223212-3310223110130110-1301003112002003-0313311313100102-1211231322133332-2323332032233203-3300000100200122-1132012323112322"></a>
+
+#### `cors_policy.allow_origin_regex` property
+
+Type: `["list", "string"]`. Optional.
+
+Specifies regular expression patterns that match allowed origins. An origin is allowed if either allow\_origin or
+allow\_origin\_regex match.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.List{
+  listvalidator.SizeAtMost(16),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 16,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 16,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.items.string.min_bytes": "1",
+    "ves.io.schema.rules.repeated.items.string.regex": "true",
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.items.string.min_bytes": "1",
+    "ves.io.schema.rules.repeated.items.string.regex": "true",
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-1221122011312203-1232112122311221-3102003313302112-2002103210122312-1033322011200322-1212132211213233-1301010312302333-1213220111310230"></a>
+
+<a id="canonical-1132110232112222-3210130120220320-0223331322021322-2031122033200321-3022001123300000-2023101100232333-0333211211200002-0020033321000113"></a>
+
+#### `cors_policy.disabled` property
+
+Type: `"bool"`. Optional.
+
+Disable the CorsPolicy for a particular route. This is useful when virtual-host has CorsPolicy, but
+we need to disable it on a specific route. The value of this field is ignored for virtual-host.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0011322302112011-1223033011121000-0330231302300223-2000132022002001-3132212033231120-0030300313032222-0013223333123311-1032322202030233"></a>
+
+<a id="canonical-0133123303212121-2320301301203011-1003331103111321-1230022012000331-1202203322311302-0203111200303021-1110031010321121-0121021200202111"></a>
+
+#### `cors_policy.expose_headers` property
+
+Type: `"string"`. Optional.
+
+Specifies the content for the access-control-expose-headers header.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1211222333020113-1100002102312331-3121031203111333-2111001231213323-0303133212213102-0111112133311003-3002203200101121-3300300122112302"></a>
+
+<a id="canonical-1202322331201020-0001220222221222-1120233120330332-1120003320103100-2133312231332312-1310131002322030-2230100221332313-0332201023120333"></a>
+
+#### `cors_policy.maximum_age` property
+
+Type: `"number"`. Optional.
+
+Specifies the content for the access-control-max-age header in seconds. This indicates the maximum
+number of seconds the results can be cached A value of -1 will disable caching. Maximum permitted
+value is 86400 seconds (24 hours).
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  int64validator.Between(-1, 86400),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 86400,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": -1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.int32.gte": "-1",
+    "ves.io.schema.rules.int32.lte": "86400"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.int32.gte": "-1",
+    "ves.io.schema.rules.int32.lte": "86400"
+  }
+}
+```
+
+<a id="canonical-0032333010121002-0332331033300212-2002033020321220-2332202013303113-2313133231100331-0003222333003100-3133200232230203-0121213102202020"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `csrf_policy` properties
+
+Breadcrumbs:
+
+- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
+- [Property reference](resources--virtual_host--reference--group-001.md#canonical-0213223201331332-3131232310010210-0330121003120232-2120200222200312-0323331101112032-1020103022113222-1023223202200132-0323130101032220)
+- csrf_policy
+
+<a id="canonical-3000331031023322-3131110331302003-2320301022032003-1010232010300203-1103201100200333-0321313303002220-3023320100320230-1120102030310133"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+To mitigate CSRF attack , the policy checks where a request is coming from to determine if the
+request's origin is the same as its destination.the policy relies on two pieces of information used
+in determining if a request originated from the same host.
+
+&#8203;1. The origin that caused the user agent to issue the request (source origin). &#8203;2. The
+origin that the request is going to (target origin). When the policy evaluating a request, it
+ensures both pieces of information are present and compare their values. If the source origin is
+missing or origins do not match the request is rejected. The exception to this being if the
+source-origin has been added to they policy as valid. Because CSRF attacks specifically target
+state-changing requests, the policy only acts on the HTTP requests that have state-changing method
+(PUT,POST, etc.).
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.ConflictingObjectAttributes("all_load_balancer_domains",
+    "custom_domain_list"),
+  validators.ConflictingObjectAttributes("all_load_balancer_domains",
+    "disabled"),
+  validators.ConflictingObjectAttributes("custom_domain_list",
+    "disabled")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-allowed_domains": "[\"all_load_balancer_domains\",\"custom_domain_list\",\"disabled\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+csrf_policy {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0223112302012100-1030233033310030-3101103101130100-1011020032312122-3321121302021133-1322010211011211-0321133100233111-3130031131331013"></a>
+
+### Direct properties for `csrf_policy`
+
+- [all_load_balancer_domains](resources--virtual_host--reference--group-002.md#canonical-0110122323300011-3202101110312103-1212210232132200-3123012203220303-0012003220313200-1100012030223133-3011220003003221-2131002333120213): complete subsection reference.
+
+- [custom_domain_list](resources--virtual_host--reference--group-002.md#canonical-0210302321013100-1300220003111020-1330033301211103-3021331002113120-2311332011003021-2100020010022101-3320121011300333-3030122322323001): complete subsection reference.
+
+- [disabled](resources--virtual_host--reference--group-002.md#canonical-1002103013312222-1311000201003223-0013030330132112-0012122333221101-2120131022311012-0030223010122223-0301322123230103-2210301232001223): complete subsection reference.

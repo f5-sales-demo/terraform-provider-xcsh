@@ -12,30 +12,26 @@ description: "Complete grouped canonical reference for xcsh_global_log_receiver 
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1301302212001110-2322313121323103-0020222221011330-1230300312311031-0113310122322211-0032333321011302-3212203000221230-2122002322200111"></a>
-
-## Property reference — Property reference / 220322330022 / 2
+## Property reference
 
 Breadcrumbs:
 
 - [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 - Property reference
 
-<a id="canonical-2320211021020003-3330113210223201-1331311231302223-1221131023332231-2031103013102221-2213303021101221-0102211030011320-1002200310220312"></a>
+<a id="canonical-1301302212001110-2322313121323103-0020222221011330-1230300312311031-0113310122322211-0032333321011302-3212203000221230-2122002322200111"></a>
 
-## Direct properties — Property reference / 220322330022 / 3
+### Direct properties for `xcsh_global_log_receiver`
 
 <a id="canonical-0020011300323223-1311001020021023-2030212233021202-3223323332113331-2010232113000000-1222310201110301-2000020201031012-3013320110021020"></a>
 
-<a id="canonical-1101111013133001-3200212123320132-2133200003313320-2131200333011110-3331332003130112-2300011103311211-3102303030331001-3032330110103022"></a>
-
-## annotations property — Property reference / 220322330022 / 4
+#### `annotations` property
 
 Type: `["map", "string"]`. Computed.
 
 Annotations applied to this resource.
 
-Upstream description:
+Additional upstream details:
 
 Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
@@ -95,19 +91,19 @@ Receipt-pinned upstream constraints:
 
 - [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-2121301220330030-1221312033213003-0320321302002303-2133212312111123-3330122101022123-0133210113001032-2201030003210013-3211030023023312): complete subsection reference.
 
-- [datadog_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-1302100131001122-2223211332130100-1000320312110323-3013111102331023-3013223003223020-1013311211012003-3231113123123120-2132312002001102): complete subsection reference.
+- [datadog_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1302100131001122-2223211332130100-1000320312110323-3013111102331023-3013223003223020-1013311211012003-3231113123123120-2132312002001102): complete subsection reference.
 
 <a id="canonical-1210131003031200-1302123200313011-3303320111231020-1030311102301232-2201122030001101-1230320233100002-0333010312223231-0233010330302113"></a>
 
-<a id="canonical-3011311120310131-3230202121030331-0022232330212001-2001013132113311-1321322102233131-0023330200332031-2213133003322201-1111201122201323"></a>
+<a id="canonical-2320211021020003-3330113210223201-1331311231302223-1221131023332231-2031103013102221-2213303021101221-0102211030011320-1002200310220312"></a>
 
-## description property — Property reference / 220322330022 / 5
+#### `description` property
 
 Type: `"string"`. Computed.
 
 Description of the GlobalLogReceiver.
 
-Upstream description:
+Additional upstream details:
 
 Human readable description for the object.
 
@@ -157,9 +153,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2200111230003002-2201231231122133-1301001313221032-0012331210330233-1303000023223013-0223130312133233-0210312022013301-1120323033330321"></a>
 
-<a id="canonical-3210132102311220-2331331223320102-0122301000011201-0121203101212000-0103122203333030-3002331220330320-0311230300230203-2200120212312221"></a>
+<a id="canonical-1101111013133001-3200212123320132-2133200003313320-2131200333011110-3331332003130112-2300011103311211-3102303030331001-3032330110103022"></a>
 
-## ID property — Property reference / 220322330022 / 6
+#### `id` property
 
 Type: `"string"`. Computed.
 
@@ -169,15 +165,15 @@ Unique identifier for the resource.
 
 <a id="canonical-2110212111112102-1220100112002313-3122230022332000-0313223100220331-1100133322321120-2321120232332320-2231113132032002-3123011133021003"></a>
 
-<a id="canonical-0212123220013113-2001122001223032-1300110202322130-2320030131132300-3112032022213033-1100113012220030-0030031111223332-1223123231321031"></a>
+<a id="canonical-3011311120310131-3230202121030331-0022232330212001-2001013132113311-1321322102233131-0023330200332031-2213133003322201-1111201122201323"></a>
 
-## labels property — Property reference / 220322330022 / 7
+#### `labels` property
 
 Type: `["map", "string"]`. Computed.
 
 Labels applied to this resource.
 
-Upstream description:
+Additional upstream details:
 
 Map of string keys and values that can be used to organize and categorize (scope and select) objects
 as chosen by the user. Values specified here will be used by selector expression.
@@ -197,15 +193,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0000131312002213-1233112220201021-2002310231232330-2230202330211020-3222221223213313-3101121233223132-0110013201123103-3201000102330023"></a>
 
-<a id="canonical-1331102033201111-0010110100131231-3002132121032223-2011120220331303-3130311303232213-1310101011130120-1322310313101130-0001120330200020"></a>
+<a id="canonical-3210132102311220-2331331223320102-0122301000011201-0121203101212000-0103122203333030-3002331220330320-0311230300230203-2200120212312221"></a>
 
-## name property — Property reference / 220322330022 / 8
+#### `name` property
 
 Type: `"string"`. Required.
 
 Name of the GlobalLogReceiver.
 
-Upstream description:
+Additional upstream details:
 
 This is the name of configuration object. It has to be unique within the namespace. It can only be
 specified during create API and cannot be changed during replace API. The value of name has to
@@ -257,15 +253,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1011201023030032-2202132102310112-1121133112301202-1203123302021102-1330333111131013-0233010133013200-0020201331003133-3200230012123121"></a>
 
-<a id="canonical-2020132311222330-2101213202132110-2103021310212310-1102010020023310-2023133332021121-3320110330313313-1221113333300200-2213310231211211"></a>
+<a id="canonical-0212123220013113-2001122001223032-1300110202322130-2320030131132300-3112032022213033-1100113012220030-0030031111223332-1223123231321031"></a>
 
-## namespace property — Property reference / 220322330022 / 9
+#### `namespace` property
 
 Type: `"string"`. Required.
 
 Namespace where the GlobalLogReceiver exists.
 
-Upstream description:
+Additional upstream details:
 
 This defines the workspace within which each the configuration object is to be created. Must be a
 DNS\_LABEL format. For a namespace object itself, namespace value will be ""
@@ -310,13 +306,13 @@ Receipt-pinned upstream constraints:
 
 - [new_relic_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-1222203022011122-1213111132203013-1201312120332200-3233301331202013-3012133313300230-3320033231321122-3201112101101230-3232031212020130): complete subsection reference.
 
-- [ns_all](data-sources--global_log_receiver--reference--group-003.md#canonical-3222301230023030-0001112112122320-3100220123111200-3201120222111311-1330032121023233-1201222312320311-1111331322201210-0133312301312020): complete subsection reference.
+- [ns_all](data-sources--global_log_receiver--reference--group-004.md#canonical-3222301230023030-0001112112122320-3100220123111200-3201120222111311-1330032121023233-1201222312320311-1111331322201210-0133312301312020): complete subsection reference.
 
-- [ns_current](data-sources--global_log_receiver--reference--group-003.md#canonical-3213312020222012-2002220201233002-0031302031132022-2311120330010033-0031032202323202-0022102301032121-0321103001233122-0001120123201310): complete subsection reference.
+- [ns_current](data-sources--global_log_receiver--reference--group-004.md#canonical-3213312020222012-2002220201233002-0031302031132022-2311120330010033-0031032202323202-0022102301032121-0321103001233122-0001120123201310): complete subsection reference.
 
-- [ns_list](data-sources--global_log_receiver--reference--group-003.md#canonical-3303120033132301-0202221321231331-0130123312332131-0202000200222232-3021322301011113-1000013103130021-2133210101223030-0302330311022122): complete subsection reference.
+- [ns_list](data-sources--global_log_receiver--reference--group-004.md#canonical-3303120033132301-0202221321231331-0130123312332131-0202000200222232-3021322301011113-1000013103130021-2133210101223030-0302330311022122): complete subsection reference.
 
-- [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2321021321022332-2312230013122032-1100112310202133-0112002300022123-2320312003031221-1122032002223023-3311231012221300-1220003101032203): complete subsection reference.
+- [qradar_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-2321021321022332-2312230013122032-1100112310202133-0112002300022123-2320312003031221-1122032002223023-3311231012221300-1220003101032203): complete subsection reference.
 
 - [request_logs](data-sources--global_log_receiver--reference--group-004.md#canonical-1320112013330301-1233300003131021-1031032331312212-0332111011101012-0110303200211110-0302300232010303-1133222333311232-3200003320210123): complete subsection reference.
 
@@ -328,9 +324,9 @@ Receipt-pinned upstream constraints:
 
 - [sumo_logic_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-1200020203302302-1231220330101021-0122330230312102-1301232213001301-0102021020111200-2000011222121120-3221012030320313-3201023130003001): complete subsection reference.
 
-<a id="canonical-1112231020332222-1300222000313220-1002003012313313-0332311221322000-1321222200000113-2223120032021311-1213133312310223-3112331023200033"></a>
+<a id="canonical-1331102033201111-0010110100131231-3002132121032223-2011120220331303-3130311303232213-1310101011130120-1322310313101130-0001120330200020"></a>
 
-## All schema paths — Property reference / 220322330022 / 10
+### All schema paths for `xcsh_global_log_receiver`
 
 Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
@@ -371,29 +367,29 @@ Each exact path has one authoritative reference destination. Collection element 
 | `azure_receiver` | [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-0303310011011220-0200131310311211-2300302321112220-1311210110210130-2100302022132032-3210212112313131-3213323010012223-2203111201011331) |
 | `azure_receiver.batch` | [azure_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-2323221120203333-2211030001033223-0010121333110011-3201032021133322-3130332033033302-2322031012132313-1202021230002111-2223313330110213) |
 | `azure_receiver.batch.max_bytes` | [azure_receiver.batch.max_bytes](data-sources--global_log_receiver--reference--group-001.md#canonical-2322030301221021-2103122000031332-3322331030122111-2023200231111133-2330213331211012-0233023012023012-2221322302000233-0120120123001312) |
-| `azure_receiver.batch.max_bytes_disabled` | [azure_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-002.md#canonical-3230320223211202-3112230121000212-1323312120200000-0222120003010130-2220103011120103-3213111103121303-2201223002001201-0031302133130121) |
+| `azure_receiver.batch.max_bytes_disabled` | [azure_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-3230320223211202-3112230121000212-1323312120200000-0222120003010130-2220103011120103-3213111103121303-2201223002001201-0031302133130121) |
 | `azure_receiver.batch.max_events` | [azure_receiver.batch.max_events](data-sources--global_log_receiver--reference--group-001.md#canonical-2220011103021002-0300030232032122-1112001113300003-3131102331313031-3303111312122130-2020223222013032-2030200122010033-0300031220132212) |
-| `azure_receiver.batch.max_events_disabled` | [azure_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-002.md#canonical-0202312312231111-0122201100123102-0020001203123303-1131212022030331-2211033221112011-2030113112302001-0122330330010330-1111013201113112) |
+| `azure_receiver.batch.max_events_disabled` | [azure_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-0202312312231111-0122201100123102-0020001203123303-1131212022030331-2211033221112011-2030113112302001-0122330330010330-1111013201113112) |
 | `azure_receiver.batch.timeout_seconds` | [azure_receiver.batch.timeout_seconds](data-sources--global_log_receiver--reference--group-001.md#canonical-3110031303113112-1220203021023112-1322303032012133-2220100302233331-2122203221213033-1132330210231232-1223002221232220-2331101112123130) |
-| `azure_receiver.batch.timeout_seconds_default` | [azure_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-002.md#canonical-1123030103200122-3233033132120003-0133122301003033-3313102012013210-1312310201103000-3301201322130222-3133122132033221-1031122131302023) |
-| `azure_receiver.compression` | [azure_receiver.compression](data-sources--global_log_receiver--reference--group-002.md#canonical-3102130320331010-2111133122010001-2231313221032223-0203312101302211-2023300113023323-1030201321200220-0223101212020133-0000311213112113) |
-| `azure_receiver.compression.compression_default` | [azure_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-002.md#canonical-0020120220203000-2012300302200002-2210202331010101-1121211311023232-1202300110121111-2020003123030312-1211103003312130-2300033302100311) |
-| `azure_receiver.compression.compression_gzip` | [azure_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-002.md#canonical-2033001210123332-0122312030030311-1020321312231131-3001211003221322-2002120021300203-1221013211312000-1312013203021313-1332000311022020) |
-| `azure_receiver.compression.compression_none` | [azure_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-002.md#canonical-3001303301131322-3020003013003220-1212300113012002-2333031022001232-3132222112213311-3001232121011132-0310231330032233-2113220032200112) |
-| `azure_receiver.connection_string` | [azure_receiver.connection_string](data-sources--global_log_receiver--reference--group-002.md#canonical-2122202223022312-1310200121011323-1202122122122000-1130202102333300-2023031010111030-1211110312000332-2123013102202112-0221120200322313) |
-| `azure_receiver.connection_string.blindfold_secret_info` | [azure_receiver.connection_string.blindfold_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-2123120222321013-2011001200110033-1301331333301323-3021310332101000-2031132232130000-3200011202120021-3213013233020232-0132020222201122) |
-| `azure_receiver.connection_string.blindfold_secret_info.decryption_provider` | [azure_receiver.connection_string.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-2213101032233021-1111001000103131-1201313032221123-3312121313022321-0030321113310013-1232010111202133-2210031131303310-0021132023010001) |
-| `azure_receiver.connection_string.blindfold_secret_info.location` | [azure_receiver.connection_string.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-002.md#canonical-2221222113333111-3313212220101102-0322000010212203-0102120121310012-3300123003313213-2331003302202312-2312322033320232-0030323103111220) |
-| `azure_receiver.connection_string.blindfold_secret_info.store_provider` | [azure_receiver.connection_string.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-1110313312022231-2303120132312332-3230123332303113-2300222123120222-1211101013112123-1231123130003220-1101122012021213-0221111121012131) |
-| `azure_receiver.connection_string.clear_secret_info` | [azure_receiver.connection_string.clear_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-2102123013221100-2231203100222021-1230321213131323-1113031031321003-0133230101203011-3233130232310032-3021222113100001-3120211121320132) |
-| `azure_receiver.connection_string.clear_secret_info.provider_ref` | [azure_receiver.connection_string.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-002.md#canonical-3322302310102202-2132032102030021-1300220302331002-3001211131302300-0302031100331131-3023300323001002-2302232110233300-3033220321313111) |
-| `azure_receiver.connection_string.clear_secret_info.url` | [azure_receiver.connection_string.clear_secret_info.url](data-sources--global_log_receiver--reference--group-002.md#canonical-2031223102332203-2213021112231031-0111020222022213-2320032310312123-3023121102122130-1323322011331022-3023000120313100-3300110000120230) |
+| `azure_receiver.batch.timeout_seconds_default` | [azure_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-001.md#canonical-1123030103200122-3233033132120003-0133122301003033-3313102012013210-1312310201103000-3301201322130222-3133122132033221-1031122131302023) |
+| `azure_receiver.compression` | [azure_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-3102130320331010-2111133122010001-2231313221032223-0203312101302211-2023300113023323-1030201321200220-0223101212020133-0000311213112113) |
+| `azure_receiver.compression.compression_default` | [azure_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-001.md#canonical-0020120220203000-2012300302200002-2210202331010101-1121211311023232-1202300110121111-2020003123030312-1211103003312130-2300033302100311) |
+| `azure_receiver.compression.compression_gzip` | [azure_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-001.md#canonical-2033001210123332-0122312030030311-1020321312231131-3001211003221322-2002120021300203-1221013211312000-1312013203021313-1332000311022020) |
+| `azure_receiver.compression.compression_none` | [azure_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-001.md#canonical-3001303301131322-3020003013003220-1212300113012002-2333031022001232-3132222112213311-3001232121011132-0310231330032233-2113220032200112) |
+| `azure_receiver.connection_string` | [azure_receiver.connection_string](data-sources--global_log_receiver--reference--group-001.md#canonical-2122202223022312-1310200121011323-1202122122122000-1130202102333300-2023031010111030-1211110312000332-2123013102202112-0221120200322313) |
+| `azure_receiver.connection_string.blindfold_secret_info` | [azure_receiver.connection_string.blindfold_secret_info](data-sources--global_log_receiver--reference--group-001.md#canonical-2123120222321013-2011001200110033-1301331333301323-3021310332101000-2031132232130000-3200011202120021-3213013233020232-0132020222201122) |
+| `azure_receiver.connection_string.blindfold_secret_info.decryption_provider` | [azure_receiver.connection_string.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-001.md#canonical-2213101032233021-1111001000103131-1201313032221123-3312121313022321-0030321113310013-1232010111202133-2210031131303310-0021132023010001) |
+| `azure_receiver.connection_string.blindfold_secret_info.location` | [azure_receiver.connection_string.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-001.md#canonical-2221222113333111-3313212220101102-0322000010212203-0102120121310012-3300123003313213-2331003302202312-2312322033320232-0030323103111220) |
+| `azure_receiver.connection_string.blindfold_secret_info.store_provider` | [azure_receiver.connection_string.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-001.md#canonical-1110313312022231-2303120132312332-3230123332303113-2300222123120222-1211101013112123-1231123130003220-1101122012021213-0221111121012131) |
+| `azure_receiver.connection_string.clear_secret_info` | [azure_receiver.connection_string.clear_secret_info](data-sources--global_log_receiver--reference--group-001.md#canonical-2102123013221100-2231203100222021-1230321213131323-1113031031321003-0133230101203011-3233130232310032-3021222113100001-3120211121320132) |
+| `azure_receiver.connection_string.clear_secret_info.provider_ref` | [azure_receiver.connection_string.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-001.md#canonical-3322302310102202-2132032102030021-1300220302331002-3001211131302300-0302031100331131-3023300323001002-2302232110233300-3033220321313111) |
+| `azure_receiver.connection_string.clear_secret_info.url` | [azure_receiver.connection_string.clear_secret_info.url](data-sources--global_log_receiver--reference--group-001.md#canonical-2031223102332203-2213021112231031-0111020222022213-2320032310312123-3023121102122130-1323322011331022-3023000120313100-3300110000120230) |
 | `azure_receiver.container_name` | [azure_receiver.container_name](data-sources--global_log_receiver--reference--group-001.md#canonical-1122122002230032-1001101212113032-0210102101211011-2133220013310021-2211211020032000-2012313301021132-1313321133323322-2002023220030010) |
-| `azure_receiver.filename_options` | [azure_receiver.filename_options](data-sources--global_log_receiver--reference--group-002.md#canonical-3103320202120000-3231111110312220-3033222232220233-3000202311220011-0222300222130203-2012132003113000-0213122020212211-1020222220000000) |
-| `azure_receiver.filename_options.custom_folder` | [azure_receiver.filename_options.custom_folder](data-sources--global_log_receiver--reference--group-002.md#canonical-0211210103230121-1123121320320130-0310120110133112-2121203301012310-3330132321033123-3110313132213000-1321312102320023-3323111201003331) |
-| `azure_receiver.filename_options.log_type_folder` | [azure_receiver.filename_options.log_type_folder](data-sources--global_log_receiver--reference--group-002.md#canonical-2023020012222102-3100222112221022-2103033012133312-3030312310322223-3011032120103032-1210322020230301-1210303001220333-2210321030300203) |
-| `azure_receiver.filename_options.no_folder` | [azure_receiver.filename_options.no_folder](data-sources--global_log_receiver--reference--group-002.md#canonical-2211300003231023-0221022012320100-2213112020100013-1112332101300003-1123222001031213-0130233203231323-3022322010332222-3130330030232000) |
-| `datadog_receiver` | [datadog_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-1030122021022232-1220312302320123-0120123303110130-0320113101000121-3332333032132102-1213013023033133-1200133200111110-3230023131300203) |
+| `azure_receiver.filename_options` | [azure_receiver.filename_options](data-sources--global_log_receiver--reference--group-001.md#canonical-3103320202120000-3231111110312220-3033222232220233-3000202311220011-0222300222130203-2012132003113000-0213122020212211-1020222220000000) |
+| `azure_receiver.filename_options.custom_folder` | [azure_receiver.filename_options.custom_folder](data-sources--global_log_receiver--reference--group-001.md#canonical-0211210103230121-1123121320320130-0310120110133112-2121203301012310-3330132321033123-3110313132213000-1321312102320023-3323111201003331) |
+| `azure_receiver.filename_options.log_type_folder` | [azure_receiver.filename_options.log_type_folder](data-sources--global_log_receiver--reference--group-001.md#canonical-2023020012222102-3100222112221022-2103033012133312-3030312310322223-3011032120103032-1210322020230301-1210303001220333-2210321030300203) |
+| `azure_receiver.filename_options.no_folder` | [azure_receiver.filename_options.no_folder](data-sources--global_log_receiver--reference--group-001.md#canonical-2211300003231023-0221022012320100-2213112020100013-1112332101300003-1123222001031213-0130233203231323-3022322010332222-3130330030232000) |
+| `datadog_receiver` | [datadog_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1030122021022232-1220312302320123-0120123303110130-0320113101000121-3332333032132102-1213013023033133-1200133200111110-3230023131300203) |
 | `datadog_receiver.batch` | [datadog_receiver.batch](data-sources--global_log_receiver--reference--group-002.md#canonical-2032303320333220-1010111220121000-3120101202200030-2303220030321331-2330002010311101-0010222032033221-3300013021300232-2311301300230111) |
 | `datadog_receiver.batch.max_bytes` | [datadog_receiver.batch.max_bytes](data-sources--global_log_receiver--reference--group-002.md#canonical-2201201300013211-1130123201032202-3033013131133212-2231013233030130-0012101030300122-0331201133230020-0301100331001202-0131010101323132) |
 | `datadog_receiver.batch.max_bytes_disabled` | [datadog_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-002.md#canonical-0300120313120120-2202221113213322-3302232200330131-3210103022220310-2313110200331111-2313101032012301-1132221333303301-3121103020212330) |
@@ -413,7 +409,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `datadog_receiver.datadog_api_key.clear_secret_info` | [datadog_receiver.datadog_api_key.clear_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-0133211001131000-0032320011101230-2020220311222112-2223201232332301-0200230312020303-3011003000322001-1311021320212112-3333102000303303) |
 | `datadog_receiver.datadog_api_key.clear_secret_info.provider_ref` | [datadog_receiver.datadog_api_key.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-002.md#canonical-0021202032020031-0230130000322130-1023230121203001-0323020230101100-2030020130311000-3222111131121313-2213030121031230-2131221311031020) |
 | `datadog_receiver.datadog_api_key.clear_secret_info.url` | [datadog_receiver.datadog_api_key.clear_secret_info.url](data-sources--global_log_receiver--reference--group-002.md#canonical-0120221103100211-1221122300302310-1231333321110210-3001202200003003-1312322132010322-3300223311332120-1013221110301102-0210221222002213) |
-| `datadog_receiver.endpoint` | [datadog_receiver.endpoint](data-sources--global_log_receiver--reference--group-002.md#canonical-0302321030210011-1122020310101231-2023131212211203-1023021002302102-3113012103312021-3203100223211332-0122330032213100-0303301203121013) |
+| `datadog_receiver.endpoint` | [datadog_receiver.endpoint](data-sources--global_log_receiver--reference--group-001.md#canonical-0302321030210011-1122020310101231-2023131212211203-1023021002302102-3113012103312021-3203100223211332-0122330032213100-0303301203121013) |
 | `datadog_receiver.no_tls` | [datadog_receiver.no_tls](data-sources--global_log_receiver--reference--group-002.md#canonical-2023313133203132-2232033120000100-2200002311023200-1232130322303112-0001332320232113-2030320120121102-1203123131022000-3120301030320321) |
 | `datadog_receiver.site` | [datadog_receiver.site](data-sources--global_log_receiver--reference--group-002.md#canonical-1133000031211321-2030321133010031-3322103330312201-0030223220233312-0121112011322112-0313111033200130-3310320331323122-1122220233121032) |
 | `datadog_receiver.use_tls` | [datadog_receiver.use_tls](data-sources--global_log_receiver--reference--group-002.md#canonical-3103323002222123-0322201230323303-2323300302110331-0132103001133223-3000020103120200-1013233302203210-3230211020130010-2210013321113013) |
@@ -469,12 +465,12 @@ Each exact path has one authoritative reference destination. Collection element 
 | `http_receiver.auth_basic.password.clear_secret_info.url` | [http_receiver.auth_basic.password.clear_secret_info.url](data-sources--global_log_receiver--reference--group-002.md#canonical-1222312013202132-1303300111321233-2031012213130203-0321211123131321-2300332102102323-3103000123332322-0011202111223300-3303002000320101) |
 | `http_receiver.auth_basic.user_name` | [http_receiver.auth_basic.user_name](data-sources--global_log_receiver--reference--group-002.md#canonical-0330300300311121-1020331111221131-3003120230031300-0222311210320101-2113003211011132-2323032021223201-1132210023233233-1130213130221233) |
 | `http_receiver.auth_none` | [http_receiver.auth_none](data-sources--global_log_receiver--reference--group-002.md#canonical-0001110103223111-1331200203113303-2333322331102123-3330222033232200-0002200002303333-2031300333230221-0120122223103023-1131311120220211) |
-| `http_receiver.auth_token` | [http_receiver.auth_token](data-sources--global_log_receiver--reference--group-002.md#canonical-2203000202112220-1133020201212101-0031233310023301-2031202223131123-2332210232322123-3320030020121211-2130301211222110-3102122202320212) |
-| `http_receiver.auth_token.token` | [http_receiver.auth_token.token](data-sources--global_log_receiver--reference--group-002.md#canonical-0201021301103231-3001330030020313-0200101121102202-2030112032102122-2300331232201200-0312111003103310-3213211323101101-3130111001031131) |
-| `http_receiver.auth_token.token.blindfold_secret_info` | [http_receiver.auth_token.token.blindfold_secret_info](data-sources--global_log_receiver--reference--group-002.md#canonical-1012012301303002-1302322301202121-1000012132031113-1231221233301310-3222313323223112-1321233122103202-1203112213203100-3001321101121302) |
-| `http_receiver.auth_token.token.blindfold_secret_info.decryption_provider` | [http_receiver.auth_token.token.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-1301032122200101-0101220020222202-2232121022203212-3311133210010123-2120313220103032-1213302200032232-1210312301312232-1210012101211312) |
-| `http_receiver.auth_token.token.blindfold_secret_info.location` | [http_receiver.auth_token.token.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-002.md#canonical-0233123013332313-1102331232332101-3020200233000213-1101102002232032-2223212020310313-0320013201212121-0333021302210103-2012201003310322) |
-| `http_receiver.auth_token.token.blindfold_secret_info.store_provider` | [http_receiver.auth_token.token.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-002.md#canonical-2020001013201213-1131120222230121-3312010002321331-1123020000321320-1312131332321203-1021213222232011-0230100110301013-0220131132200121) |
+| `http_receiver.auth_token` | [http_receiver.auth_token](data-sources--global_log_receiver--reference--group-003.md#canonical-2203000202112220-1133020201212101-0031233310023301-2031202223131123-2332210232322123-3320030020121211-2130301211222110-3102122202320212) |
+| `http_receiver.auth_token.token` | [http_receiver.auth_token.token](data-sources--global_log_receiver--reference--group-003.md#canonical-0201021301103231-3001330030020313-0200101121102202-2030112032102122-2300331232201200-0312111003103310-3213211323101101-3130111001031131) |
+| `http_receiver.auth_token.token.blindfold_secret_info` | [http_receiver.auth_token.token.blindfold_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-1012012301303002-1302322301202121-1000012132031113-1231221233301310-3222313323223112-1321233122103202-1203112213203100-3001321101121302) |
+| `http_receiver.auth_token.token.blindfold_secret_info.decryption_provider` | [http_receiver.auth_token.token.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-003.md#canonical-1301032122200101-0101220020222202-2232121022203212-3311133210010123-2120313220103032-1213302200032232-1210312301312232-1210012101211312) |
+| `http_receiver.auth_token.token.blindfold_secret_info.location` | [http_receiver.auth_token.token.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-003.md#canonical-0233123013332313-1102331232332101-3020200233000213-1101102002232032-2223212020310313-0320013201212121-0333021302210103-2012201003310322) |
+| `http_receiver.auth_token.token.blindfold_secret_info.store_provider` | [http_receiver.auth_token.token.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-003.md#canonical-2020001013201213-1131120222230121-3312010002321331-1123020000321320-1312131332321203-1021213222232011-0230100110301013-0220131132200121) |
 | `http_receiver.auth_token.token.clear_secret_info` | [http_receiver.auth_token.token.clear_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-1101010302032113-1203123130203303-3220122113321002-2113031301001331-0123112023310021-2331231311001010-2031002312030112-3203101331230122) |
 | `http_receiver.auth_token.token.clear_secret_info.provider_ref` | [http_receiver.auth_token.token.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-003.md#canonical-3133000002133303-2103223113130302-0111121112010311-0123131331213103-1223222001302020-1301132031013121-1210200123103121-0233222021201221) |
 | `http_receiver.auth_token.token.clear_secret_info.url` | [http_receiver.auth_token.token.clear_secret_info.url](data-sources--global_log_receiver--reference--group-003.md#canonical-3333011102322313-3302133232110023-3031310310133201-1212320332310130-2100131311010201-0013010331102123-2232212331112123-3233001303332101) |
@@ -548,34 +544,34 @@ Each exact path has one authoritative reference destination. Collection element 
 | `namespace` | [namespace](data-sources--global_log_receiver--reference--group-001.md#canonical-1011201023030032-2202132102310112-1121133112301202-1203123302021102-1330333111131013-0233010133013200-0020201331003133-3200230012123121) |
 | `new_relic_receiver` | [new_relic_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-3132102203031223-0300022203231020-2033232013233211-3131300201011022-0210221130300123-2213111030003231-1002103002302030-1301031211011001) |
 | `new_relic_receiver.api_key` | [new_relic_receiver.api_key](data-sources--global_log_receiver--reference--group-003.md#canonical-1300211121201200-2001033220100202-1220231130130320-0012300201031003-0332101013010033-0213323210133310-2311223210302030-2231013130131301) |
-| `new_relic_receiver.api_key.blindfold_secret_info` | [new_relic_receiver.api_key.blindfold_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-1231103320103313-0102121031223030-2020310333300022-2323333332210101-0002332301310230-0123212010130013-1211123003310003-1132310233032003) |
-| `new_relic_receiver.api_key.blindfold_secret_info.decryption_provider` | [new_relic_receiver.api_key.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-003.md#canonical-3132200230032303-0233301133220223-3032032223020331-2023113011302323-0012322003311013-2222230022123322-1101213120232013-1220321010031022) |
-| `new_relic_receiver.api_key.blindfold_secret_info.location` | [new_relic_receiver.api_key.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-003.md#canonical-0023020303322230-0331201222021023-1130131230003033-3003300320320332-1302012331211332-1101001013122122-1303121302022012-2210332312003021) |
-| `new_relic_receiver.api_key.blindfold_secret_info.store_provider` | [new_relic_receiver.api_key.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-003.md#canonical-2303332202301320-2010103010213131-1311021030310322-0302330302103011-0302313123130101-0112023013123310-3110122123330021-3211210013102210) |
-| `new_relic_receiver.api_key.clear_secret_info` | [new_relic_receiver.api_key.clear_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-2323323320223303-3313101021211333-2301212210131022-2201131020203033-3112310311333132-3213130123202303-2110301011331223-1312030212011001) |
-| `new_relic_receiver.api_key.clear_secret_info.provider_ref` | [new_relic_receiver.api_key.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-003.md#canonical-0021210323230210-0122010012121103-2132130022322213-2231300003033233-0201110023113311-3123033000133323-2023013122330331-2232103200220021) |
-| `new_relic_receiver.api_key.clear_secret_info.url` | [new_relic_receiver.api_key.clear_secret_info.url](data-sources--global_log_receiver--reference--group-003.md#canonical-1211122201032320-0213133231011120-3332212030010222-3030013103103303-0231033203102122-3231023133011302-3311231202321332-0333230323212212) |
-| `new_relic_receiver.eu` | [new_relic_receiver.eu](data-sources--global_log_receiver--reference--group-003.md#canonical-2221130203203000-3332120110030003-2022323311313023-0133113023001023-1211033233002101-3201012312233330-0301012221233111-1210121212320222) |
-| `new_relic_receiver.us` | [new_relic_receiver.us](data-sources--global_log_receiver--reference--group-003.md#canonical-3302121330210213-0222031021210020-0021100300123132-2333202101020311-2103330133110230-2021332010033231-2132332113232213-2200020021210010) |
-| `ns_all` | [ns_all](data-sources--global_log_receiver--reference--group-003.md#canonical-1030120112010331-2230012313100203-3132133213000333-1232233330012101-3233322300200100-0011332212003301-2110203211000302-1101000123003013) |
-| `ns_current` | [ns_current](data-sources--global_log_receiver--reference--group-003.md#canonical-2200320110300010-3121021332001011-2113033313031130-3212321003321130-2223103133200223-0313021133310311-2200213300131303-3022101333300002) |
-| `ns_list` | [ns_list](data-sources--global_log_receiver--reference--group-003.md#canonical-3011000200300333-3300013030233023-1333110132103131-0000012030212002-1311112102002200-3110313322002301-2002302330131301-1220022231112010) |
-| `ns_list.namespaces` | [ns_list.namespaces](data-sources--global_log_receiver--reference--group-003.md#canonical-2313233010230233-3102101333201310-0211211210103002-2031201102321311-2323001203320232-0300122212203320-2222220003322323-3130132302111012) |
-| `qradar_receiver` | [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-1203320123322112-0003220233010101-0221021023303230-1311333320232133-2123212302200211-3330303321331111-3000310130102210-0323203022331310) |
-| `qradar_receiver.batch` | [qradar_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-0120311201302311-3111210120211230-2122322000322312-3121321102322130-0201003100023323-1031310221123110-1113000112023303-1112322133203001) |
-| `qradar_receiver.batch.max_bytes` | [qradar_receiver.batch.max_bytes](data-sources--global_log_receiver--reference--group-003.md#canonical-3320011112101313-0001012302000200-2131121221330311-1333213212103130-1301023010220101-0001212321120222-3020201322000230-0213003113230003) |
-| `qradar_receiver.batch.max_bytes_disabled` | [qradar_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-3202322303333020-3303230033331023-1201223030333100-3012213120120320-2200000201122112-1032223133233331-0123331313110312-0010320310011321) |
-| `qradar_receiver.batch.max_events` | [qradar_receiver.batch.max_events](data-sources--global_log_receiver--reference--group-003.md#canonical-0113221213010220-3233322030121102-1210122003310100-1231231221201231-0003210210030030-2313311101322011-3221211230120202-1113020023013122) |
-| `qradar_receiver.batch.max_events_disabled` | [qradar_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-3101000111023132-2300323013100103-2131022300011113-2032323020123303-1100332032023321-1103303321201100-3112200011110133-0300302313213231) |
-| `qradar_receiver.batch.timeout_seconds` | [qradar_receiver.batch.timeout_seconds](data-sources--global_log_receiver--reference--group-003.md#canonical-1101001232300231-3202223232301000-2322123000330201-0333302321032133-1010322103121022-2021031201332232-2322210001131320-2100321320111120) |
-| `qradar_receiver.batch.timeout_seconds_default` | [qradar_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-003.md#canonical-2013111300311330-1132223122303330-3211202100302101-3302133113020101-2220213212112020-2223201233000102-3320020330002220-0101103133132313) |
-| `qradar_receiver.compression` | [qradar_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-0303032320311320-0122021323231033-0230220210031231-1100133131230133-2332121013033202-2023113010300300-0000121330111301-0032023111332002) |
-| `qradar_receiver.compression.compression_default` | [qradar_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-003.md#canonical-1033113110202130-1121122202002322-3010013321332001-1323131133032231-3312203100210202-2113303332112311-1102322112221223-0001213121222003) |
-| `qradar_receiver.compression.compression_gzip` | [qradar_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-003.md#canonical-3233321202021213-1230302303101303-1311033122322023-0111302223230222-3033131101333112-0023100202311013-3031312221330122-0003132100302210) |
-| `qradar_receiver.compression.compression_none` | [qradar_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-003.md#canonical-1030203010111302-0132031201202133-2130302302311311-1023013202200013-2031312021213332-3023310332121022-1201022101003101-3112332223303023) |
-| `qradar_receiver.no_tls` | [qradar_receiver.no_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-1311221010330131-0100030122201013-0123222200333120-2221022230023332-0133123010211132-0300332331311303-2303010213100302-1300031202112222) |
-| `qradar_receiver.uri` | [qradar_receiver.uri](data-sources--global_log_receiver--reference--group-003.md#canonical-1312101322230223-1133303032220313-2202202302223232-2100022232122321-2210100103132030-3120331221320220-2000210101030023-0023130122110010) |
-| `qradar_receiver.use_tls` | [qradar_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2230220303112210-1332303332023323-0303300310322223-1021010001233001-2201000221131021-3113101123232032-1210221030233301-0323022013221302) |
+| `new_relic_receiver.api_key.blindfold_secret_info` | [new_relic_receiver.api_key.blindfold_secret_info](data-sources--global_log_receiver--reference--group-004.md#canonical-1231103320103313-0102121031223030-2020310333300022-2323333332210101-0002332301310230-0123212010130013-1211123003310003-1132310233032003) |
+| `new_relic_receiver.api_key.blindfold_secret_info.decryption_provider` | [new_relic_receiver.api_key.blindfold_secret_info.decryption_provider](data-sources--global_log_receiver--reference--group-004.md#canonical-3132200230032303-0233301133220223-3032032223020331-2023113011302323-0012322003311013-2222230022123322-1101213120232013-1220321010031022) |
+| `new_relic_receiver.api_key.blindfold_secret_info.location` | [new_relic_receiver.api_key.blindfold_secret_info.location](data-sources--global_log_receiver--reference--group-004.md#canonical-0023020303322230-0331201222021023-1130131230003033-3003300320320332-1302012331211332-1101001013122122-1303121302022012-2210332312003021) |
+| `new_relic_receiver.api_key.blindfold_secret_info.store_provider` | [new_relic_receiver.api_key.blindfold_secret_info.store_provider](data-sources--global_log_receiver--reference--group-004.md#canonical-2303332202301320-2010103010213131-1311021030310322-0302330302103011-0302313123130101-0112023013123310-3110122123330021-3211210013102210) |
+| `new_relic_receiver.api_key.clear_secret_info` | [new_relic_receiver.api_key.clear_secret_info](data-sources--global_log_receiver--reference--group-004.md#canonical-2323323320223303-3313101021211333-2301212210131022-2201131020203033-3112310311333132-3213130123202303-2110301011331223-1312030212011001) |
+| `new_relic_receiver.api_key.clear_secret_info.provider_ref` | [new_relic_receiver.api_key.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-004.md#canonical-0021210323230210-0122010012121103-2132130022322213-2231300003033233-0201110023113311-3123033000133323-2023013122330331-2232103200220021) |
+| `new_relic_receiver.api_key.clear_secret_info.url` | [new_relic_receiver.api_key.clear_secret_info.url](data-sources--global_log_receiver--reference--group-004.md#canonical-1211122201032320-0213133231011120-3332212030010222-3030013103103303-0231033203102122-3231023133011302-3311231202321332-0333230323212212) |
+| `new_relic_receiver.eu` | [new_relic_receiver.eu](data-sources--global_log_receiver--reference--group-004.md#canonical-2221130203203000-3332120110030003-2022323311313023-0133113023001023-1211033233002101-3201012312233330-0301012221233111-1210121212320222) |
+| `new_relic_receiver.us` | [new_relic_receiver.us](data-sources--global_log_receiver--reference--group-004.md#canonical-3302121330210213-0222031021210020-0021100300123132-2333202101020311-2103330133110230-2021332010033231-2132332113232213-2200020021210010) |
+| `ns_all` | [ns_all](data-sources--global_log_receiver--reference--group-004.md#canonical-1030120112010331-2230012313100203-3132133213000333-1232233330012101-3233322300200100-0011332212003301-2110203211000302-1101000123003013) |
+| `ns_current` | [ns_current](data-sources--global_log_receiver--reference--group-004.md#canonical-2200320110300010-3121021332001011-2113033313031130-3212321003321130-2223103133200223-0313021133310311-2200213300131303-3022101333300002) |
+| `ns_list` | [ns_list](data-sources--global_log_receiver--reference--group-004.md#canonical-3011000200300333-3300013030233023-1333110132103131-0000012030212002-1311112102002200-3110313322002301-2002302330131301-1220022231112010) |
+| `ns_list.namespaces` | [ns_list.namespaces](data-sources--global_log_receiver--reference--group-004.md#canonical-2313233010230233-3102101333201310-0211211210103002-2031201102321311-2323001203320232-0300122212203320-2222220003322323-3130132302111012) |
+| `qradar_receiver` | [qradar_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-1203320123322112-0003220233010101-0221021023303230-1311333320232133-2123212302200211-3330303321331111-3000310130102210-0323203022331310) |
+| `qradar_receiver.batch` | [qradar_receiver.batch](data-sources--global_log_receiver--reference--group-004.md#canonical-0120311201302311-3111210120211230-2122322000322312-3121321102322130-0201003100023323-1031310221123110-1113000112023303-1112322133203001) |
+| `qradar_receiver.batch.max_bytes` | [qradar_receiver.batch.max_bytes](data-sources--global_log_receiver--reference--group-004.md#canonical-3320011112101313-0001012302000200-2131121221330311-1333213212103130-1301023010220101-0001212321120222-3020201322000230-0213003113230003) |
+| `qradar_receiver.batch.max_bytes_disabled` | [qradar_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-004.md#canonical-3202322303333020-3303230033331023-1201223030333100-3012213120120320-2200000201122112-1032223133233331-0123331313110312-0010320310011321) |
+| `qradar_receiver.batch.max_events` | [qradar_receiver.batch.max_events](data-sources--global_log_receiver--reference--group-004.md#canonical-0113221213010220-3233322030121102-1210122003310100-1231231221201231-0003210210030030-2313311101322011-3221211230120202-1113020023013122) |
+| `qradar_receiver.batch.max_events_disabled` | [qradar_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-004.md#canonical-3101000111023132-2300323013100103-2131022300011113-2032323020123303-1100332032023321-1103303321201100-3112200011110133-0300302313213231) |
+| `qradar_receiver.batch.timeout_seconds` | [qradar_receiver.batch.timeout_seconds](data-sources--global_log_receiver--reference--group-004.md#canonical-1101001232300231-3202223232301000-2322123000330201-0333302321032133-1010322103121022-2021031201332232-2322210001131320-2100321320111120) |
+| `qradar_receiver.batch.timeout_seconds_default` | [qradar_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-004.md#canonical-2013111300311330-1132223122303330-3211202100302101-3302133113020101-2220213212112020-2223201233000102-3320020330002220-0101103133132313) |
+| `qradar_receiver.compression` | [qradar_receiver.compression](data-sources--global_log_receiver--reference--group-004.md#canonical-0303032320311320-0122021323231033-0230220210031231-1100133131230133-2332121013033202-2023113010300300-0000121330111301-0032023111332002) |
+| `qradar_receiver.compression.compression_default` | [qradar_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-004.md#canonical-1033113110202130-1121122202002322-3010013321332001-1323131133032231-3312203100210202-2113303332112311-1102322112221223-0001213121222003) |
+| `qradar_receiver.compression.compression_gzip` | [qradar_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-004.md#canonical-3233321202021213-1230302303101303-1311033122322023-0111302223230222-3033131101333112-0023100202311013-3031312221330122-0003132100302210) |
+| `qradar_receiver.compression.compression_none` | [qradar_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-004.md#canonical-1030203010111302-0132031201202133-2130302302311311-1023013202200013-2031312021213332-3023310332121022-1201022101003101-3112332223303023) |
+| `qradar_receiver.no_tls` | [qradar_receiver.no_tls](data-sources--global_log_receiver--reference--group-004.md#canonical-1311221010330131-0100030122201013-0123222200333120-2221022230023332-0133123010211132-0300332331311303-2303010213100302-1300031202112222) |
+| `qradar_receiver.uri` | [qradar_receiver.uri](data-sources--global_log_receiver--reference--group-004.md#canonical-1312101322230223-1133303032220313-2202202302223232-2100022232122321-2210100103132030-3120331221320220-2000210101030023-0023130122110010) |
+| `qradar_receiver.use_tls` | [qradar_receiver.use_tls](data-sources--global_log_receiver--reference--group-004.md#canonical-2230220303112210-1332303332023323-0303300310322223-1021010001233001-2201000221131021-3113101123232032-1210221030233301-0323022013221302) |
 | `qradar_receiver.use_tls.disable_verify_certificate` | [qradar_receiver.use_tls.disable_verify_certificate](data-sources--global_log_receiver--reference--group-004.md#canonical-1010110110313311-3022111300213103-2021321201103031-0010220303330001-3120330212103221-3311222332331301-2313001223210133-3102112211323120) |
 | `qradar_receiver.use_tls.disable_verify_hostname` | [qradar_receiver.use_tls.disable_verify_hostname](data-sources--global_log_receiver--reference--group-004.md#canonical-0033032130120233-2223021003101311-3101310203222221-2100201013200230-2312010311131120-1121120223111102-1210313300121101-0222021301301201) |
 | `qradar_receiver.use_tls.enable_verify_certificate` | [qradar_receiver.use_tls.enable_verify_certificate](data-sources--global_log_receiver--reference--group-004.md#canonical-3103312302111301-1231132032330333-3021000133010132-1332232332313323-1211033212323012-0210102013132320-3201021000322220-3212331133103003) |
@@ -592,7 +588,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info.provider_ref` | [qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-004.md#canonical-0133230231030101-2220032310201011-3301300030132332-3121222122111013-2002203001121223-0100022131033210-1112000031321221-1230202330333311) |
 | `qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info.url` | [qradar_receiver.use_tls.mtls_enable.key_url.clear_secret_info.url](data-sources--global_log_receiver--reference--group-004.md#canonical-3133211121033330-0233013321011211-0020022001231222-3330023303233130-0322030301001130-2223303333312030-1110033220130211-2000002233032102) |
 | `qradar_receiver.use_tls.no_ca` | [qradar_receiver.use_tls.no_ca](data-sources--global_log_receiver--reference--group-004.md#canonical-2022312312103013-1230211221100032-2332102120220202-2023002223022230-3202111112303012-1120332111111212-0022023231311011-0001333322320123) |
-| `qradar_receiver.use_tls.trusted_ca_url` | [qradar_receiver.use_tls.trusted_ca_url](data-sources--global_log_receiver--reference--group-003.md#canonical-3323001230003112-2032112220213030-2223112202201301-2022033202030013-3103202312020201-0202121133200210-1023023220031012-3100220201130302) |
+| `qradar_receiver.use_tls.trusted_ca_url` | [qradar_receiver.use_tls.trusted_ca_url](data-sources--global_log_receiver--reference--group-004.md#canonical-3323001230003112-2032112220213030-2223112202201301-2022033202030013-3103202312020201-0202121133200210-1023023220031012-3100220201130302) |
 | `request_logs` | [request_logs](data-sources--global_log_receiver--reference--group-004.md#canonical-1032022001202310-0203211112112032-3223133020101320-1122331023331223-0011221222002323-0101233233111212-1002013321121320-1323300223110231) |
 | `request_logs.sampled` | [request_logs.sampled](data-sources--global_log_receiver--reference--group-004.md#canonical-0213000030003023-1302322002320330-1101232212233301-1333011030312222-0232332313312220-3002233121133303-1131323201303233-0201300101121120) |
 | `request_logs.unsampled` | [request_logs.unsampled](data-sources--global_log_receiver--reference--group-004.md#canonical-2302132121301121-0112133011310222-1221312213031332-3202011003220203-1221000010321133-3012123231311323-1213012233300221-1012211031332330) |
@@ -669,40 +665,13 @@ Each exact path has one authoritative reference destination. Collection element 
 | `sumo_logic_receiver.url.clear_secret_info.provider_ref` | [sumo_logic_receiver.url.clear_secret_info.provider_ref](data-sources--global_log_receiver--reference--group-004.md#canonical-1303300110310232-2312131212230133-3211332002003123-1012111001131130-3201302200320122-3231113033320302-0320333210202031-3311112222222012) |
 | `sumo_logic_receiver.url.clear_secret_info.url` | [sumo_logic_receiver.url.clear_secret_info.url](data-sources--global_log_receiver--reference--group-004.md#canonical-1213131123010212-2301033211021332-0222321211113120-0202330202030231-0320200010301032-1102121133202132-2110231032122033-1320213100220203) |
 
-<a id="canonical-2102122231133210-0022102033021322-3003211213232101-3131031031022021-1030300013113012-3311103201011132-3013200312021233-1212021132311102"></a>
-
-## Next pages — Property reference / 220322330022 / 11
-
-- [audit_logs](data-sources--global_log_receiver--reference--group-001.md#canonical-3133212020032302-0323212203031203-3200200231033010-2303311030030012-3001102312131320-3233231303203033-1101020321312133-2201321333233323)
-- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1211213330230033-0032123010133001-0201012100331222-1012011301010333-1201022022301110-2302103220201210-2100333230232120-3110032202312032)
-- [azure_event_hubs_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-0132210313021033-2221133303001132-2002201122230200-2203313221112330-3122130230230331-3110223323220223-1131013312112132-1123200222220321)
-- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-2121301220330030-1221312033213003-0320321302002303-2133212312111123-3330122101022123-0133210113001032-2201030003210013-3211030023023312)
-- [datadog_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-1302100131001122-2223211332130100-1000320312110323-3013111102331023-3013223003223020-1013311211012003-3231113123123120-2132312002001102)
-- [dns_logs](data-sources--global_log_receiver--reference--group-002.md#canonical-2313012101200221-3103103122211233-0010031133112232-3010013110321112-0132120212211113-2313113031330310-0333130212030033-3300322103021000)
-- [gcp_bucket_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-1120122010230312-1032002320321100-0101031101303121-2303120002011020-2310102000121031-0120030130012202-1331001231331332-1200111011022302)
-- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
-- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
-- [new_relic_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-1222203022011122-1213111132203013-1201312120332200-3233301331202013-3012133313300230-3320033231321122-3201112101101230-3232031212020130)
-- [ns_all](data-sources--global_log_receiver--reference--group-003.md#canonical-3222301230023030-0001112112122320-3100220123111200-3201120222111311-1330032121023233-1201222312320311-1111331322201210-0133312301312020)
-- [ns_current](data-sources--global_log_receiver--reference--group-003.md#canonical-3213312020222012-2002220201233002-0031302031132022-2311120330010033-0031032202323202-0022102301032121-0321103001233122-0001120123201310)
-- [ns_list](data-sources--global_log_receiver--reference--group-003.md#canonical-3303120033132301-0202221321231331-0130123312332131-0202000200222232-3021322301011113-1000013103130021-2133210101223030-0302330311022122)
-- [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2321021321022332-2312230013122032-1100112310202133-0112002300022123-2320312003031221-1122032002223023-3311231012221300-1220003101032203)
-- [request_logs](data-sources--global_log_receiver--reference--group-004.md#canonical-1320112013330301-1233300003131021-1031032331312212-0332111011101012-0110303200211110-0302300232010303-1133222333311232-3200003320210123)
-- [s3_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-3122321231311212-1111122011230100-1332330302001111-0100123100212313-2310312223130013-0122212111212000-1312212133311330-2113220302103202)
-- [security_events](data-sources--global_log_receiver--reference--group-004.md#canonical-1002031033031310-1233001100003213-2003102123102332-1202233033221123-1021111002311202-0121010220310110-1211132100130223-2001223323310023)
-- [splunk_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-1232310221300222-2201230233110021-2102300111113113-3000302000333013-2211233301300200-1312131021121130-3013213100020322-2132133200001300)
-- [sumo_logic_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-1200020203302302-1231220330101021-0122330230312102-1301232213001301-0102021020111200-2000011222121120-3221012030320313-3201023130003001)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
-
 <a id="canonical-3133212020032302-0323212203031203-3200200231033010-2303311030030012-3001102312131320-3233231303203033-1101020321312133-2201321333233323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2321010201031113-0133320021030000-0101022100100010-3032312110200133-0221120011313302-2032132112231101-0111130113130313-1112021003320300"></a>
-
-## audit_logs — audit_logs / 012313021002 / 2
+## `audit_logs` properties
 
 Breadcrumbs:
 
@@ -716,7 +685,7 @@ Type: `["object", {}]`. Computed.
 
 \[OneOf: audit\_logs, DNS\_logs, request\_logs, security\_events\] Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -742,18 +711,7 @@ OneOf alternatives in this subsection:
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-3211212111112210-3220311312320311-3312330323010132-0331110312312233-2313110302332211-0111331313133301-1331003322020333-3122133203330121"></a>
-
-## Direct properties — audit_logs / 012313021002 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1333221331000313-1332020100011010-3100133022220221-2223203120320000-0233211022132011-0311020123202332-3321201232130121-1231220231303133"></a>
-
-## Next pages — audit_logs / 012313021002 / 4
-
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
 <a id="canonical-1211213330230033-0032123010133001-0201012100331222-1012011301010333-1201022022301110-2302103220201210-2100333230232120-3110032202312032"></a>
 
@@ -761,9 +719,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1002233001102300-2003032030132022-3202210123013102-2111013002120033-0121223221011213-1220002010213010-3320323030233022-3322330011033221"></a>
-
-## aws_cloud_watch_receiver — aws_cloud_watch_receiver / 023300300330 / 2
+## `aws_cloud_watch_receiver` properties
 
 Breadcrumbs:
 
@@ -779,10 +735,6 @@ Type: `"single"`. Computed.
 datadog\_receiver, gcp\_bucket\_receiver, http\_receiver, kafka\_receiver, new\_relic\_receiver,
 qradar\_receiver, s3\_receiver, splunk\_receiver, sumo\_logic\_receiver\] AWS Cloudwatch Logs
 Configuration for Global Log Receiver.
-
-Upstream description:
-
-AWS Cloudwatch Logs Configuration for Global Log Receiver.
 
 Receipt-pinned upstream constraints:
 
@@ -802,29 +754,29 @@ OneOf alternatives in this subsection:
 - [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-3331110112131012-1000100132111012-1203111230222102-1230112233112113-0001200333200231-0312301323230303-1011311201201322-2301312200332113)
 - [azure_event_hubs_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1133203103010030-0213101233221030-0113301022130000-0112220222113332-2113012101223231-1210310130311121-1322212023012203-3120213302333232)
 - [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-0303310011011220-0200131310311211-2300302321112220-1311210110210130-2100302022132032-3210212112313131-3213323010012223-2203111201011331)
-- [datadog_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-1030122021022232-1220312302320123-0120123303110130-0320113101000121-3332333032132102-1213013023033133-1200133200111110-3230023131300203)
+- [datadog_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1030122021022232-1220312302320123-0120123303110130-0320113101000121-3332333032132102-1213013023033133-1200133200111110-3230023131300203)
 - [gcp_bucket_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-0101022013031032-0020202300031330-1120302112000333-1303132333330203-3020123133110130-2002133033301033-0121030230213303-3033113231031210)
 - [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-0101022033231131-0331011310223210-1113000100233231-0202310200201130-3201032123020231-1122203030212220-0223101203210223-1100223030332223)
 - [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2203013201303101-3030330033021301-1103130222112033-1122003330112030-1222132131131010-1103203132001032-2212100031032010-3020032111211321)
 - [new_relic_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-3132102203031223-0300022203231020-2033232013233211-3131300201011022-0210221130300123-2213111030003231-1002103002302030-1301031211011001)
-- [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-1203320123322112-0003220233010101-0221021023303230-1311333320232133-2123212302200211-3330303321331111-3000310130102210-0323203022331310)
+- [qradar_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-1203320123322112-0003220233010101-0221021023303230-1311333320232133-2123212302200211-3330303321331111-3000310130102210-0323203022331310)
 - [s3_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-3212111221313232-1220032220002121-1013323021001210-2102032312000332-1100102021232231-2013023201232020-2333203332302002-2022012110300003)
 - [splunk_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-2130322203222220-0110323213010302-1233212331033202-0013332333331213-2311200220221030-0313332130213320-3232333202032213-1331302023310301)
 - [sumo_logic_receiver](data-sources--global_log_receiver--reference--group-004.md#canonical-2111201203021003-1010212310123022-2023221323331032-2212330321202303-1123222120131130-2113333103311120-3110301220010121-0200302122002201)
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-1221222110330101-1111020000321202-0110300132222323-2300223120022322-0231023033222020-1220000320231320-0311201013122112-3111211211310032"></a>
+<a id="canonical-1002233001102300-2003032030132022-3202210123013102-2111013002120033-0121223221011213-1220002010213010-3320323030233022-3322330011033221"></a>
 
-## Direct properties — aws_cloud_watch_receiver / 023300300330 / 3
+### Direct properties for `aws_cloud_watch_receiver`
 
 - [aws_cred](data-sources--global_log_receiver--reference--group-001.md#canonical-0331111001222030-0221210122022212-2133313103313010-0123221213101313-0312302312110310-1201333112020001-0212301001123031-3002313011113330): complete subsection reference.
 
 <a id="canonical-3311102200012103-3032303221112130-0113102011002001-2133021101120132-1110010032220322-3312010332100033-1320120110331131-1233212302121121"></a>
 
-<a id="canonical-2213310101121030-0021331302332132-1103320012223132-3020201001112222-2100201000002210-1222002210210120-3133321100113223-3120322013013030"></a>
+<a id="canonical-1221222110330101-1111020000321202-0110300132222323-2300223120022322-0231023033222020-1220000320231320-0311201013122112-3111211211310032"></a>
 
-## aws_region property — aws_cloud_watch_receiver / 023300300330 / 4
+#### `aws_cloud_watch_receiver.aws_region` property
 
 Type: `"string"`. Computed.
 
@@ -835,10 +787,6 @@ AWS Region. AWS Region Name. Possible values are \`ap-northeast-1\`, \`ap-southe
 \`us-west-2\`, \`ca-central-1\`, \`af-south-1\`, \`ap-east-1\`, \`ap-south-1\`, \`ap-northeast-2\`,
 \`ap-southeast-2\`, \`eu-south-1\`, \`eu-north-1\`, \`eu-west-2\`, \`me-south-1\`, \`us-west-1\`,
 \`ap-southeast-3\`.
-
-Upstream description:
-
-AWS Region Name.
 
 Receipt-pinned upstream constraints:
 
@@ -900,9 +848,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0013332233001311-3323103011023333-2313200223201223-3013332031232222-3330333211033331-0220120010222303-1303222023012103-0100221120021302"></a>
 
-<a id="canonical-0322232013020010-1313303132000131-1010303211231230-2323100230212221-2131013123211021-3033112101201333-2232212223000221-0303012100232200"></a>
+<a id="canonical-2213310101121030-0021331302332132-1103320012223132-3020201001112222-2100201000002210-1222002210210120-3133321100113223-3120322013013030"></a>
 
-## group_name property — aws_cloud_watch_receiver / 023300300330 / 5
+#### `aws_cloud_watch_receiver.group_name` property
 
 Type: `"string"`. Computed.
 
@@ -950,16 +898,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1022333110331123-1031010001031013-0332110031122222-1002112102020010-1330311002201211-1301311213222120-1032013031023220-0303332030021303"></a>
 
-<a id="canonical-3133022011311220-1101001121202321-1130223032213230-0331231103001032-3112222030122331-3133331001333123-2113323203031101-3323100311330110"></a>
+<a id="canonical-0322232013020010-1313303132000131-1010303211231230-2323100230212221-2131013123211021-3033112101201333-2232212223000221-0303012100232200"></a>
 
-## stream_name property — aws_cloud_watch_receiver / 023300300330 / 6
+#### `aws_cloud_watch_receiver.stream_name` property
 
 Type: `"string"`. Computed.
-
-The stream name of the target Cloudwatch Logs stream. Note that there can only be one writer to a
-log stream at a time.
-
-Upstream description:
 
 The stream name of the target Cloudwatch Logs stream. Note that there can only be one writer to a
 log stream at a time.
@@ -1004,25 +947,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0332113110001202-2213303313302103-2033120223023222-0311022102000012-1130030202321302-0332112330212203-2311122210211022-1213213000321221"></a>
-
-## Next pages — aws_cloud_watch_receiver / 023300300330 / 7
-
-- [aws_cloud_watch_receiver.aws_cred](data-sources--global_log_receiver--reference--group-001.md#canonical-0331111001222030-0221210122022212-2133313103313010-0123221213101313-0312302312110310-1201333112020001-0212301001123031-3002313011113330)
-- [aws_cloud_watch_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-3200223321012003-3232102021300202-0101332211223132-0222310012212121-2133300120012123-1320023023321312-1333100312132133-3103321213101320)
-- [aws_cloud_watch_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-2032202232313301-1121003121131023-2131120222223220-0120202302023332-3100110313000323-2231331232011100-2221300013333022-3312201021331113)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
-
 <a id="canonical-0331111001222030-0221210122022212-2133313103313010-0123221213101313-0312302312110310-1201333112020001-0212301001123031-3002313011113330"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1023113102201012-3032003331303110-2330012111133230-3321302033232202-2211301321303323-2111112032212011-2021022023003311-0020320132231003"></a>
-
-## aws_cloud_watch_receiver.aws_cred — aws_cred / 110112023322 / 2
+## `aws_cloud_watch_receiver.aws_cred` properties
 
 Breadcrumbs:
 
@@ -1034,11 +965,6 @@ Breadcrumbs:
 <a id="canonical-3121101011123321-1230031310012031-3011202211032002-0233302301311202-1232122303112311-2232210033101011-0301200003030332-1300023211110232"></a>
 
 Type: `"single"`. Computed.
-
-Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
-reference is in form of tenant/namespace/name.
-
-Upstream description:
 
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
@@ -1056,22 +982,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3100011301100130-1310221221220201-1122221101113213-3321010310133303-3312313033122233-0221302211012232-0211102213313020-3201121202231222"></a>
+<a id="canonical-1023113102201012-3032003331303110-2330012111133230-3321302033232202-2211301321303323-2111112032212011-2021022023003311-0020320132231003"></a>
 
-## Direct properties — aws_cred / 110112023322 / 3
+### Direct properties for `aws_cloud_watch_receiver.aws_cred`
 
 <a id="canonical-0202130221020102-1002120220201021-2101131131032010-3300122130203203-2333101121121223-1332323121320200-0020000012333230-3233013202320221"></a>
 
-<a id="canonical-1011312032312303-2100021320003012-2110023200313320-0023130232320322-3023000321100320-1021031230032222-3312002312120222-2330232233022201"></a>
-
-## name property — aws_cred / 110112023322 / 4
+#### `aws_cloud_watch_receiver.aws_cred.name` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
@@ -1119,16 +1038,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1103211111032210-1321331101303301-1200323312010012-0303013330012030-1002222032321301-1101001013112323-0132232132321121-3110203220300033"></a>
 
-<a id="canonical-2322211313301203-0130031100311323-0331332110322011-0133103321211323-0200332212333203-0300213303212121-2200221010012330-3312311313333233"></a>
+<a id="canonical-3100011301100130-1310221221220201-1122221101113213-3321010310133303-3312313033122233-0221302211012232-0211102213313020-3201121202231222"></a>
 
-## namespace property — aws_cred / 110112023322 / 5
+#### `aws_cloud_watch_receiver.aws_cred.namespace` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -1183,16 +1097,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3003003123111310-3301010313313211-1012230001230313-2031032002322300-3132030211313020-2121001111202112-3132333113210113-0322331330320201"></a>
 
-<a id="canonical-1013132133223223-0213300222222211-1303102022031101-0000012012002331-3023210030331033-0013031022311032-1230001301111203-3123212302323203"></a>
+<a id="canonical-1011312032312303-2100021320003012-2110023200313320-0023130232320322-3023000321100320-1021031230032222-3312002312120222-2330232233022201"></a>
 
-## tenant property — aws_cred / 110112023322 / 6
+#### `aws_cloud_watch_receiver.aws_cred.tenant` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
@@ -1231,22 +1140,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2201332213012012-3333220022300203-2221331230123022-1103310202021320-1133130223032100-0333122031002330-2012220331231001-0231310031122102"></a>
-
-## Next pages — aws_cred / 110112023322 / 7
-
-- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1211213330230033-0032123010133001-0201012100331222-1012011301010333-1201022022301110-2302103220201210-2100333230232120-3110032202312032)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
-
 <a id="canonical-3200223321012003-3232102021300202-0101332211223132-0222310012212121-2133300120012123-1320023023321312-1333100312132133-3103321213101320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2012100020123023-0102221133121113-2102001333220123-1321202220113331-1311030110211133-3030020201302011-2203123102010201-1123221300321133"></a>
-
-## aws_cloud_watch_receiver.batch — batch / 311120311102 / 2
+## `aws_cloud_watch_receiver.batch` properties
 
 Breadcrumbs:
 
@@ -1277,22 +1177,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3323201210221000-1320300123202000-1223000233021033-3102230010302130-3302031030230210-3300233300200123-1210202232001131-0301210231303211"></a>
+<a id="canonical-2012100020123023-0102221133121113-2102001333220123-1321202220113331-1311030110211133-3030020201302011-2203123102010201-1123221300321133"></a>
 
-## Direct properties — batch / 311120311102 / 3
+### Direct properties for `aws_cloud_watch_receiver.batch`
 
 <a id="canonical-3111222320110330-0211233113013301-0130332330113333-0332103102301221-3113032313132223-0003223213322131-3333031300120331-0133313030310133"></a>
 
-<a id="canonical-3230122233320231-3312332320333001-1302110303211123-1203033020202013-2221323220002303-0011313231330303-3310213130011223-3212112231212021"></a>
-
-## max_bytes property — batch / 311120311102 / 4
+#### `aws_cloud_watch_receiver.batch.max_bytes` property
 
 Type: `"number"`. Computed.
-
-Exclusive with \[max\_bytes\_disabled\] Send batch to endpoint after the batch is equal to or larger
-than this many bytes.
-
-Upstream description:
 
 Exclusive with \[max\_bytes\_disabled\] Send batch to endpoint after the batch is equal to or larger
 than this many bytes.
@@ -1334,16 +1227,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2130002032131222-2211200213033111-2232010310021320-1310010021110130-1232311111232010-2311131202213023-3002132101110331-3000211222203220"></a>
 
-<a id="canonical-2200002011322202-1232313130233032-0103100020132020-1121322122233311-2200113131131012-1020220301332003-1012233020111211-0211331200323013"></a>
+<a id="canonical-3323201210221000-1320300123202000-1223000233021033-3102230010302130-3302031030230210-3300233300200123-1210202232001131-0301210231303211"></a>
 
-## max_events property — batch / 311120311102 / 5
+#### `aws_cloud_watch_receiver.batch.max_events` property
 
 Type: `"number"`. Computed.
-
-Exclusive with \[max\_events\_disabled\] Send batch to endpoint after this many log messages are in
-the batch.
-
-Upstream description:
 
 Exclusive with \[max\_events\_disabled\] Send batch to endpoint after this many log messages are in
 the batch.
@@ -1385,15 +1273,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0020211302321221-2113321213220001-1030001002023023-1223112032202120-1033230003020322-2000022013013333-3121121103110132-2113023121100310"></a>
 
-<a id="canonical-2021233022110221-2021123123212212-1302333031223231-3130220230131133-3121001000033133-0303231021212302-0032013203320300-2230022002201002"></a>
+<a id="canonical-3230122233320231-3312332320333001-1302110303211123-1203033020202013-2221323220002303-0011313231330303-3310213130011223-3212112231212021"></a>
 
-## timeout_seconds property — batch / 311120311102 / 6
+#### `aws_cloud_watch_receiver.batch.timeout_seconds` property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[timeout\_seconds\_default\] Send batch to the endpoint after this many seconds.
-
-Upstream description:
 
 Exclusive with \[timeout\_seconds\_default\] Send batch to the endpoint after this many seconds.
 
@@ -1431,25 +1315,13 @@ Receipt-pinned upstream constraints:
 
 - [timeout_seconds_default](data-sources--global_log_receiver--reference--group-001.md#canonical-3003032330323213-1203233233322101-0121003102110300-0121001132213002-1202302203323133-0100300120302320-1220231111213220-2032023232030033): complete subsection reference.
 
-<a id="canonical-0031211320222132-2010121101200110-3210023122123003-3322002122031110-1302122031323223-0100200330212122-2111023031300223-0311121312000310"></a>
-
-## Next pages — batch / 311120311102 / 7
-
-- [aws_cloud_watch_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-0233133132202111-2300210002003230-3210202000003311-2222112300033022-2122300200033002-3230003011021022-3302203123331233-2200233231002010)
-- [aws_cloud_watch_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-0011102000021103-2003103210221302-2233102001301032-0200211301112322-2221120330100232-2332021331300311-3310213320330001-3310033321031100)
-- [aws_cloud_watch_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-001.md#canonical-3003032330323213-1203233233322101-0121003102110300-0121001132213002-1202302203323133-0100300120302320-1220231111213220-2032023232030033)
-- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1211213330230033-0032123010133001-0201012100331222-1012011301010333-1201022022301110-2302103220201210-2100333230232120-3110032202312032)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
-
 <a id="canonical-0233133132202111-2300210002003230-3210202000003311-2222112300033022-2122300200033002-3230003011021022-3302203123331233-2200233231002010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2301231103332102-0322211322123103-2330003313102230-1011020011302223-2213023223111232-1212332111033212-2213022322322023-0000310200223122"></a>
-
-## aws_cloud_watch_receiver.batch.max_bytes_disabled — max_bytes_disabled / 032132100133 / 2
+## `aws_cloud_watch_receiver.batch.max_bytes_disabled` properties
 
 Breadcrumbs:
 
@@ -1465,7 +1337,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1482,18 +1354,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0223220300203112-1021201112012130-2322301120032200-2032133212030102-3020121101223220-1011200013100311-0031232213303011-3131111231320232"></a>
-
-## Direct properties — max_bytes_disabled / 032132100133 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0303322132011312-2010031130301201-2301311113003103-2023331022010111-3332111123211100-2132311121200133-3211022100130022-3200222202012120"></a>
-
-## Next pages — max_bytes_disabled / 032132100133 / 4
-
-- [aws_cloud_watch_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-3200223321012003-3232102021300202-0101332211223132-0222310012212121-2133300120012123-1320023023321312-1333100312132133-3103321213101320)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
 <a id="canonical-0011102000021103-2003103210221302-2233102001301032-0200211301112322-2221120330100232-2332021331300311-3310213320330001-3310033321031100"></a>
 
@@ -1501,9 +1362,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3113022331122230-3323101332132330-3023311010313212-0220121323301002-1013031310302120-3011200310213303-3111032201121300-3221123223302013"></a>
-
-## aws_cloud_watch_receiver.batch.max_events_disabled — max_events_disabled / 222212303103 / 2
+## `aws_cloud_watch_receiver.batch.max_events_disabled` properties
 
 Breadcrumbs:
 
@@ -1519,7 +1378,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1536,18 +1395,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2132031020101111-2231203223131002-0111301211232033-2232103333022310-3121233303002103-1220121013122002-2202013122220133-3112103230101302"></a>
-
-## Direct properties — max_events_disabled / 222212303103 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3002021201102210-1313003202031222-0012202330233313-2232211000223002-3220203201030211-1103010321202313-3230322212133130-3103102021123132"></a>
-
-## Next pages — max_events_disabled / 222212303103 / 4
-
-- [aws_cloud_watch_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-3200223321012003-3232102021300202-0101332211223132-0222310012212121-2133300120012123-1320023023321312-1333100312132133-3103321213101320)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
 <a id="canonical-3003032330323213-1203233233322101-0121003102110300-0121001132213002-1202302203323133-0100300120302320-1220231111213220-2032023232030033"></a>
 
@@ -1555,9 +1403,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0302120310233121-2310202123312021-2320230313300130-1210020223233022-2112010333333111-0330212232100232-2333100232330031-3022203213112322"></a>
-
-## aws_cloud_watch_receiver.batch.timeout_seconds_default — timeout_seconds_default / 331301003022 / 2
+## `aws_cloud_watch_receiver.batch.timeout_seconds_default` properties
 
 Breadcrumbs:
 
@@ -1573,7 +1419,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1590,18 +1436,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0101232102130011-2310222321313121-1010313223013330-1110233110100201-3122021023330210-3320221101323003-0101213020313131-0212311103232303"></a>
-
-## Direct properties — timeout_seconds_default / 331301003022 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1321023120303331-1231210321110131-0201211002011102-1300301323032302-2230002201231020-3303032132120233-3013013310123033-3022001220232230"></a>
-
-## Next pages — timeout_seconds_default / 331301003022 / 4
-
-- [aws_cloud_watch_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-3200223321012003-3232102021300202-0101332211223132-0222310012212121-2133300120012123-1320023023321312-1333100312132133-3103321213101320)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
 <a id="canonical-2032202232313301-1121003121131023-2131120222223220-0120202302023332-3100110313000323-2231331232011100-2221300013333022-3312201021331113"></a>
 
@@ -1609,9 +1444,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3212010303330320-3111022113310322-3212031211020201-0323220130330313-2310330310333312-0303002123133122-1113333331132323-2321003310321311"></a>
-
-## aws_cloud_watch_receiver.compression — compression / 200223212031 / 2
+## `aws_cloud_watch_receiver.compression` properties
 
 Breadcrumbs:
 
@@ -1626,7 +1459,7 @@ Type: `"single"`. Computed.
 
 Configuration parameter for compression.
 
-Upstream description:
+Additional upstream details:
 
 Compression Type.
 
@@ -1644,9 +1477,9 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0203320212221103-1231312002121111-1033112021210220-0302013122112012-1133012011313133-2012200313113123-1033003123311113-0130220320210310"></a>
+<a id="canonical-3212010303330320-3111022113310322-3212031211020201-0323220130330313-2310330310333312-0303002123133122-1113333331132323-2321003310321311"></a>
 
-## Direct properties — compression / 200223212031 / 3
+### Direct properties for `aws_cloud_watch_receiver.compression`
 
 - [compression_default](data-sources--global_log_receiver--reference--group-001.md#canonical-2133000003212110-3320102202310130-2100322333121003-1032133003101230-0211130030223311-1201012311011132-3213203330231330-0003033332113002): complete subsection reference.
 
@@ -1654,25 +1487,13 @@ Receipt-pinned upstream constraints:
 
 - [compression_none](data-sources--global_log_receiver--reference--group-001.md#canonical-3000031310000101-0320013113031101-1130102302003333-3031321332100202-3221231012122300-3033113021011013-1131023031231220-1330333013223110): complete subsection reference.
 
-<a id="canonical-2312232303002010-0132310023120013-2113223132011020-3122120120010203-0211333323201000-2321123123002220-1103101131232111-1333031320122301"></a>
-
-## Next pages — compression / 200223212031 / 4
-
-- [aws_cloud_watch_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-001.md#canonical-2133000003212110-3320102202310130-2100322333121003-1032133003101230-0211130030223311-1201012311011132-3213203330231330-0003033332113002)
-- [aws_cloud_watch_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-001.md#canonical-1233130202031121-0331011012001223-3221010100231030-2313231233210200-2320233030233223-3100101032311100-3303022312333002-3130020132232001)
-- [aws_cloud_watch_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-001.md#canonical-3000031310000101-0320013113031101-1130102302003333-3031321332100202-3221231012122300-3033113021011013-1131023031231220-1330333013223110)
-- [aws_cloud_watch_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-1211213330230033-0032123010133001-0201012100331222-1012011301010333-1201022022301110-2302103220201210-2100333230232120-3110032202312032)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
-
 <a id="canonical-2133000003212110-3320102202310130-2100322333121003-1032133003101230-0211130030223311-1201012311011132-3213203330231330-0003033332113002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3012023210123312-2202133233313203-3201021223031032-1022210320131101-1213211310310010-1023122320330220-1203002231012222-0221122333202012"></a>
-
-## aws_cloud_watch_receiver.compression.compression_default — compression_default / 313102120132 / 2
+## `aws_cloud_watch_receiver.compression.compression_default` properties
 
 Breadcrumbs:
 
@@ -1688,7 +1509,7 @@ Type: `["object", {}]`. Computed.
 
 Configuration parameter for compression default.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1705,18 +1526,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0111311200311032-3300212023203020-3302230013133101-3113122130211122-3232203122000123-2133031111002100-2320232223123030-3001013221110020"></a>
-
-## Direct properties — compression_default / 313102120132 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0111103111230123-2103232313202000-3303023001020333-2033023120123011-3111232100110113-2023130222331112-3121220030222302-2233102330013201"></a>
-
-## Next pages — compression_default / 313102120132 / 4
-
-- [aws_cloud_watch_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-2032202232313301-1121003121131023-2131120222223220-0120202302023332-3100110313000323-2231331232011100-2221300013333022-3312201021331113)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
 <a id="canonical-1233130202031121-0331011012001223-3221010100231030-2313231233210200-2320233030233223-3100101032311100-3303022312333002-3130020132232001"></a>
 
@@ -1724,9 +1534,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3022212203003021-0030130113303132-3323111301202331-1322000333030230-2322203013222313-3031223123022010-1313020201201120-3310300132333031"></a>
-
-## aws_cloud_watch_receiver.compression.compression_gzip — compression_gzip / 202100312130 / 2
+## `aws_cloud_watch_receiver.compression.compression_gzip` properties
 
 Breadcrumbs:
 
@@ -1742,7 +1550,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1759,18 +1567,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3210300221302103-1020202022011103-0110302002102103-3302033003300123-3213300031300212-0002230002023313-1021122213111100-3312310231013330"></a>
-
-## Direct properties — compression_gzip / 202100312130 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3122100322130333-1223123313200211-3312213221212301-1022002211122203-2032210301311102-1130233123220333-0323222332220300-2311200332033323"></a>
-
-## Next pages — compression_gzip / 202100312130 / 4
-
-- [aws_cloud_watch_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-2032202232313301-1121003121131023-2131120222223220-0120202302023332-3100110313000323-2231331232011100-2221300013333022-3312201021331113)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
 <a id="canonical-3000031310000101-0320013113031101-1130102302003333-3031321332100202-3221231012122300-3033113021011013-1131023031231220-1330333013223110"></a>
 
@@ -1778,9 +1575,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0031020201001331-0020011213331302-0111122001302000-1021321020110230-2010332001323103-2323023311121033-0103100312032201-1113123212132013"></a>
-
-## aws_cloud_watch_receiver.compression.compression_none — compression_none / 221313220101 / 2
+## `aws_cloud_watch_receiver.compression.compression_none` properties
 
 Breadcrumbs:
 
@@ -1796,7 +1591,7 @@ Type: `["object", {}]`. Computed.
 
 Configuration parameter for compression none.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1813,18 +1608,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1020231112330333-2322012323211213-3031033330232010-0021311220120123-3233132300001222-2101122201133031-2013001333131313-3222322013032022"></a>
-
-## Direct properties — compression_none / 221313220101 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1222130100321101-1310132102210031-3003233022102302-3113110121313102-3302300323202122-2112310023101303-1303020031132003-2010213201221012"></a>
-
-## Next pages — compression_none / 221313220101 / 4
-
-- [aws_cloud_watch_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-2032202232313301-1121003121131023-2131120222223220-0120202302023332-3100110313000323-2231331232011100-2221300013333022-3312201021331113)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
 <a id="canonical-0132210313021033-2221133303001132-2002201122230200-2203313221112330-3122130230230331-3110223323220223-1131013312112132-1123200222220321"></a>
 
@@ -1832,9 +1616,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1011100112230001-0123311320302300-1331331112312331-3321303003000032-2203310323132003-3120222022310011-2332201213202300-2032101313101222"></a>
-
-## azure_event_hubs_receiver — azure_event_hubs_receiver / 031012001301 / 2
+## `azure_event_hubs_receiver` properties
 
 Breadcrumbs:
 
@@ -1861,17 +1643,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0112300300032230-2111210323122300-0323122312222111-0222103233203032-2110103103010011-1311201222230233-0212223113110222-3303131231312010"></a>
+<a id="canonical-1011100112230001-0123311320302300-1331331112312331-3321303003000032-2203310323132003-3120222022310011-2332201213202300-2032101313101222"></a>
 
-## Direct properties — azure_event_hubs_receiver / 031012001301 / 3
+### Direct properties for `azure_event_hubs_receiver`
 
 - [connection_string](data-sources--global_log_receiver--reference--group-001.md#canonical-2223231000011202-1020213011311200-3022103320232230-1031201322122213-0102311120232012-0212311232030203-2021110113013021-2213021303231003): complete subsection reference.
 
 <a id="canonical-3233003101121100-2112231100120032-1012002220321100-0120103120021231-2301023112312020-2333231213300302-0211111022020323-2033221033211200"></a>
 
-<a id="canonical-1133331010333112-1010033210313032-2133031321122332-0233011301203300-0210020320223230-3201301012101033-2133130201121120-3330130312113320"></a>
+<a id="canonical-0112300300032230-2111210323122300-0323122312222111-0222103233203032-2110103103010011-1311201222230233-0212223113110222-3303131231312010"></a>
 
-## instance property — azure_event_hubs_receiver / 031012001301 / 4
+#### `azure_event_hubs_receiver.instance` property
 
 Type: `"string"`. Computed.
 
@@ -1919,9 +1701,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3212012100330311-0001100130100130-3323321211212101-0311033223300313-0033220010120001-0223010303230200-3012221313212321-1222232211330022"></a>
 
-<a id="canonical-2203033030333322-0302331222203323-2220221101301132-2033020000312001-0103230233002313-2001132330310312-1230020310210321-0300303100001113"></a>
+<a id="canonical-1133331010333112-1010033210313032-2133031321122332-0233011301203300-0210020320223230-3201301012101033-2133130201121120-3330130312113320"></a>
 
-## namespace property — azure_event_hubs_receiver / 031012001301 / 5
+#### `azure_event_hubs_receiver.namespace` property
 
 Type: `"string"`. Computed.
 
@@ -1979,23 +1761,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1102012323311003-1300200321201202-1033121323120100-3120331033123010-0003001121213101-2021032331330221-2333232300221210-3302212132133220"></a>
-
-## Next pages — azure_event_hubs_receiver / 031012001301 / 6
-
-- [azure_event_hubs_receiver.connection_string](data-sources--global_log_receiver--reference--group-001.md#canonical-2223231000011202-1020213011311200-3022103320232230-1031201322122213-0102311120232012-0212311232030203-2021110113013021-2213021303231003)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
-
 <a id="canonical-2223231000011202-1020213011311200-3022103320232230-1031201322122213-0102311120232012-0212311232030203-2021110113013021-2213021303231003"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1303232321300233-0213323022103210-1010321001100312-3323223230220311-0203001333011021-3101121013003221-3221030032020313-1132030202102323"></a>
-
-## azure_event_hubs_receiver.connection_string — connection_string / 031100320212 / 2
+## `azure_event_hubs_receiver.connection_string` properties
 
 Breadcrumbs:
 
@@ -2024,22 +1796,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3311011133231011-0130322200100320-2131032012130013-2220032131000020-0301312121233303-0032303222133312-0130030123132012-1300033233202023"></a>
+<a id="canonical-1303232321300233-0213323022103210-1010321001100312-3323223230220311-0203001333011021-3101121013003221-3221030032020313-1132030202102323"></a>
 
-## Direct properties — connection_string / 031100320212 / 3
+### Direct properties for `azure_event_hubs_receiver.connection_string`
 
 - [blindfold_secret_info](data-sources--global_log_receiver--reference--group-001.md#canonical-1023330331121031-3212230311231113-1222000320121132-3020003133233203-0121123033311313-2310213001022122-3110133123021302-0331210000201213): complete subsection reference.
 
 - [clear_secret_info](data-sources--global_log_receiver--reference--group-001.md#canonical-2221321220021310-3331003020030122-1312123100033002-2330032221331021-3303210111122203-2010002232110331-0113303030133300-2023000022211231): complete subsection reference.
-
-<a id="canonical-2131321000212112-3111302102103332-1002033210123202-2322032201032032-3101302031303230-2121301211233323-0222231212201020-3332130110300112"></a>
-
-## Next pages — connection_string / 031100320212 / 4
-
-- [azure_event_hubs_receiver.connection_string.blindfold_secret_info](data-sources--global_log_receiver--reference--group-001.md#canonical-1023330331121031-3212230311231113-1222000320121132-3020003133233203-0121123033311313-2310213001022122-3110133123021302-0331210000201213)
-- [azure_event_hubs_receiver.connection_string.clear_secret_info](data-sources--global_log_receiver--reference--group-001.md#canonical-2221321220021310-3331003020030122-1312123100033002-2330032221331021-3303210111122203-2010002232110331-0113303030133300-2023000022211231)
-- [azure_event_hubs_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-0132210313021033-2221133303001132-2002201122230200-2203313221112330-3122130230230331-3110223323220223-1131013312112132-1123200222220321)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
 
 <a id="canonical-1023330331121031-3212230311231113-1222000320121132-3020003133233203-0121123033311313-2310213001022122-3110133123021302-0331210000201213"></a>
 
@@ -2047,9 +1810,7 @@ Receipt-pinned upstream constraints:
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0303102320331031-0333000312023110-1111112201301223-3012031202122131-3212310303103130-2032302121020233-3131202013122303-0321312020011232"></a>
-
-## azure_event_hubs_receiver.connection_string.blindfold_secret_info — blindfold_secret_info / 123000300310 / 2
+## `azure_event_hubs_receiver.connection_string.blindfold_secret_info` properties
 
 Breadcrumbs:
 
@@ -2078,15 +1839,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2222202202333213-3021220032202010-3001121313201003-3012123011230201-0201213310210331-2023203110223313-0133220130221123-3100032211011131"></a>
+<a id="canonical-0303102320331031-0333000312023110-1111112201301223-3012031202122131-3212310303103130-2032302121020233-3131202013122303-0321312020011232"></a>
 
-## Direct properties — blindfold_secret_info / 123000300310 / 3
+### Direct properties for `azure_event_hubs_receiver.connection_string.blindfold_secret_info`
 
 <a id="canonical-2131033323211322-0200320002201333-3020130303303032-1332212123120111-2310032020200013-0112121130023211-2223210120322301-3020101111030133"></a>
 
-<a id="canonical-3102232231123120-2223111103222000-3222033131130200-2012033132313120-1030131312213012-3222123210302031-3210302031011233-2330030023100110"></a>
-
-## decryption_provider property — blindfold_secret_info / 123000300310 / 4
+#### `azure_event_hubs_receiver.connection_string.blindfold_secret_info.decryption_provider` property
 
 Type: `"string"`. Computed.
 
@@ -2118,16 +1877,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2221123102131101-3003030122112302-1322023112122132-2020330332121133-1332112033222232-2231200322310331-1100231322230011-0131103023113132"></a>
 
-<a id="canonical-2212313321231113-1003131130133123-1011001210222101-0103221100022200-3223102223232022-2113010121133302-1133023303130030-0133210110300312"></a>
+<a id="canonical-2222202202333213-3021220032202010-3001121313201003-3012123011230201-0201213310210331-2023203110223313-0133220130221123-3100032211011131"></a>
 
-## location property — blindfold_secret_info / 123000300310 / 5
+#### `azure_event_hubs_receiver.connection_string.blindfold_secret_info.location` property
 
 Type: `"string"`. Computed, Sensitive.
-
-Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
-store provider is an HTTP/HTTPS location.
-
-Upstream description:
 
 Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
@@ -2171,16 +1925,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0202201213021030-1313123303303022-3130220112012123-1302032232101313-3223231113110010-2200311112031022-1312022002221300-3233022311102233"></a>
 
-<a id="canonical-1130232323121001-0121031120033102-1232123231220111-1332021301230102-3212331023121003-2013110311011002-0102201220202001-3323332211120320"></a>
+<a id="canonical-3102232231123120-2223111103222000-3222033131130200-2012033132313120-1030131312213012-3222123210302031-3210302031011233-2330030023100110"></a>
 
-## store_provider property — blindfold_secret_info / 123000300310 / 6
+#### `azure_event_hubs_receiver.connection_string.blindfold_secret_info.store_provider` property
 
 Type: `"string"`. Computed.
-
-Name of the Secret Management Access object that contains information about the store to GET
-encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
-
-Upstream description:
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
@@ -2208,22 +1957,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1002213201212121-1031202210320032-3133020230330200-1122122131011000-0032111122230131-1111232001211310-3300200011002133-2201203213310300"></a>
-
-## Next pages — blindfold_secret_info / 123000300310 / 7
-
-- [azure_event_hubs_receiver.connection_string](data-sources--global_log_receiver--reference--group-001.md#canonical-2223231000011202-1020213011311200-3022103320232230-1031201322122213-0102311120232012-0212311232030203-2021110113013021-2213021303231003)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
-
 <a id="canonical-2221321220021310-3331003020030122-1312123100033002-2330032221331021-3303210111122203-2010002232110331-0113303030133300-2023000022211231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0303013333201321-2103313222303202-2131000323312223-2223000121323322-0133230332102112-2202203013333313-0300311121133330-2120001002121301"></a>
-
-## azure_event_hubs_receiver.connection_string.clear_secret_info — clear_secret_info / 303010123312 / 2
+## `azure_event_hubs_receiver.connection_string.clear_secret_info` properties
 
 Breadcrumbs:
 
@@ -2252,15 +1992,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2230000011200101-1023332301230110-3033301223233312-3221120120302033-1130100223300032-0100223001333323-1000201112210033-1211131310220103"></a>
+<a id="canonical-0303013333201321-2103313222303202-2131000323312223-2223000121323322-0133230332102112-2202203013333313-0300311121133330-2120001002121301"></a>
 
-## Direct properties — clear_secret_info / 303010123312 / 3
+### Direct properties for `azure_event_hubs_receiver.connection_string.clear_secret_info`
 
 <a id="canonical-3331033000310013-2231323032112021-2013021210110332-3002131323323202-0312311013032012-1220303122100231-1110101012333022-0102003132333110"></a>
 
-<a id="canonical-1213203112200310-3020210120220222-1102010200131122-0131223011133130-2332211112211210-3331000020101213-0013110100322111-3031221120300233"></a>
-
-## provider_ref property — clear_secret_info / 303010123312 / 4
+#### `azure_event_hubs_receiver.connection_string.clear_secret_info.provider_ref` property
 
 Type: `"string"`. Computed.
 
@@ -2269,17 +2007,11 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 
 <a id="canonical-2103133030323122-3301103203000210-2101212302202333-0233033123231121-2101122311233323-0033010231203302-2302301133223322-0322203202201213"></a>
 
-<a id="canonical-3111023312120120-1321311032331021-2302131000212100-3123112100213103-3203203101012131-0011022231322112-3313211022123213-0010223003133220"></a>
+<a id="canonical-2230000011200101-1023332301230110-3033301223233312-3221120120302033-1130100223300032-0100223001333323-1000201112210033-1211131310220103"></a>
 
-## URL property — clear_secret_info / 303010123312 / 5
+#### `azure_event_hubs_receiver.connection_string.clear_secret_info.url` property
 
 Type: `"string"`. Computed, Sensitive.
-
-URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
-base64 decoding.
-
-Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
 needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
@@ -2331,22 +2063,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0210323000033230-2110023220102123-2332112320110122-1320232010120030-3333013212000200-1333021032203301-1112132013223030-1032210220010203"></a>
-
-## Next pages — clear_secret_info / 303010123312 / 6
-
-- [azure_event_hubs_receiver.connection_string](data-sources--global_log_receiver--reference--group-001.md#canonical-2223231000011202-1020213011311200-3022103320232230-1031201322122213-0102311120232012-0212311232030203-2021110113013021-2213021303231003)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
-
 <a id="canonical-2121301220330030-1221312033213003-0320321302002303-2133212312111123-3330122101022123-0133210113001032-2201030003210013-3211030023023312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2113130212031313-1200222232321230-3223221113021332-2213023030331022-2010130300300202-2203200133122113-0201213010300120-1200033103311003"></a>
-
-## azure_receiver — azure_receiver / 311003033102 / 2
+## `azure_receiver` properties
 
 Breadcrumbs:
 
@@ -2373,21 +2096,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0103310012213022-3302122200333113-0330321203113310-3220111311121102-0232023311022223-3102123321013211-1130213222230001-2002021110301113"></a>
+<a id="canonical-2113130212031313-1200222232321230-3223221113021332-2213023030331022-2010130300300202-2203200133122113-0201213010300120-1200033103311003"></a>
 
-## Direct properties — azure_receiver / 311003033102 / 3
+### Direct properties for `azure_receiver`
 
 - [batch](data-sources--global_log_receiver--reference--group-001.md#canonical-2110231131123022-3210021331120313-0230130302332321-2122330301322100-0032000123010111-3000120033100202-2313222223213221-0231002202020032): complete subsection reference.
 
-- [compression](data-sources--global_log_receiver--reference--group-002.md#canonical-1301222013203232-0131031232320300-0333013231220113-1222032002300113-2232001032022102-0233013102310320-0100023112330001-0320231331113332): complete subsection reference.
+- [compression](data-sources--global_log_receiver--reference--group-001.md#canonical-1301222013203232-0131031232320300-0333013231220113-1222032002300113-2232001032022102-0233013102310320-0100023112330001-0320231331113332): complete subsection reference.
 
-- [connection_string](data-sources--global_log_receiver--reference--group-002.md#canonical-2301311003132033-3012223003123133-1213311332201031-2031121222131030-3011202200333201-1112312313312323-1202123022021223-1113232332011210): complete subsection reference.
+- [connection_string](data-sources--global_log_receiver--reference--group-001.md#canonical-2301311003132033-3012223003123133-1213311332201031-2031121222131030-3011202200333201-1112312313312323-1202123022021223-1113232332011210): complete subsection reference.
 
 <a id="canonical-1122122002230032-1001101212113032-0210102101211011-2133220013310021-2211211020032000-2012313301021132-1313321133323322-2002023220030010"></a>
 
-<a id="canonical-0220330111223022-0102001011323000-0101033210303212-1303301010322330-0223011113233103-1110202220320302-3321312011131320-1230030313111331"></a>
+<a id="canonical-0103310012213022-3302122200333113-0330321203113310-3220111311121102-0232023311022223-3102123321013211-1130213222230001-2002021110301113"></a>
 
-## container_name property — azure_receiver / 311003033102 / 4
+#### `azure_receiver.container_name` property
 
 Type: `"string"`. Computed.
 
@@ -2433,18 +2156,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [filename_options](data-sources--global_log_receiver--reference--group-002.md#canonical-1213320220313111-2133213301031032-3323200320132221-3331102313013310-3021210320112221-3123112202113322-0220322200312200-2222020203030033): complete subsection reference.
-
-<a id="canonical-1123221012022122-3132111001033331-2031333010102011-2313212320022132-2302002000133111-2233231031230301-0112332000310102-2323221230331232"></a>
-
-## Next pages — azure_receiver / 311003033102 / 5
-
-- [azure_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-2110231131123022-3210021331120313-0230130302332321-2122330301322100-0032000123010111-3000120033100202-2313222223213221-0231002202020032)
-- [azure_receiver.compression](data-sources--global_log_receiver--reference--group-002.md#canonical-1301222013203232-0131031232320300-0333013231220113-1222032002300113-2232001032022102-0233013102310320-0100023112330001-0320231331113332)
-- [azure_receiver.connection_string](data-sources--global_log_receiver--reference--group-002.md#canonical-2301311003132033-3012223003123133-1213311332201031-2031121222131030-3011202200333201-1112312313312323-1202123022021223-1113232332011210)
-- [azure_receiver.filename_options](data-sources--global_log_receiver--reference--group-002.md#canonical-1213320220313111-2133213301031032-3323200320132221-3331102313013310-3021210320112221-3123112202113322-0220322200312200-2222020203030033)
-- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [filename_options](data-sources--global_log_receiver--reference--group-001.md#canonical-1213320220313111-2133213301031032-3323200320132221-3331102313013310-3021210320112221-3123112202113322-0220322200312200-2222020203030033): complete subsection reference.
 
 <a id="canonical-2110231131123022-3210021331120313-0230130302332321-2122330301322100-0032000123010111-3000120033100202-2313222223213221-0231002202020032"></a>
 
@@ -2452,9 +2164,7 @@ Receipt-pinned upstream constraints:
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2211220333120300-3333232201012001-2302210003323200-1130313110233020-1230132331010313-1202010313301032-3210111111122132-0302233132203130"></a>
-
-## azure_receiver.batch — batch / 130300120132 / 2
+## `azure_receiver.batch` properties
 
 Breadcrumbs:
 
@@ -2485,22 +2195,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0002221313312013-1301300032033011-2012203023303023-2322323302322311-2000033001030200-1033221113303000-2030221101031100-0000112022223323"></a>
+<a id="canonical-2211220333120300-3333232201012001-2302210003323200-1130313110233020-1230132331010313-1202010313301032-3210111111122132-0302233132203130"></a>
 
-## Direct properties — batch / 130300120132 / 3
+### Direct properties for `azure_receiver.batch`
 
 <a id="canonical-2322030301221021-2103122000031332-3322331030122111-2023200231111133-2330213331211012-0233023012023012-2221322302000233-0120120123001312"></a>
 
-<a id="canonical-2023000212300023-2331110323331120-1032001100031110-0122311121212132-2332333030211332-1333311001212200-3320231032102331-2330320213221330"></a>
-
-## max_bytes property — batch / 130300120132 / 4
+#### `azure_receiver.batch.max_bytes` property
 
 Type: `"number"`. Computed.
-
-Exclusive with \[max\_bytes\_disabled\] Send batch to endpoint after the batch is equal to or larger
-than this many bytes.
-
-Upstream description:
 
 Exclusive with \[max\_bytes\_disabled\] Send batch to endpoint after the batch is equal to or larger
 than this many bytes.
@@ -2542,16 +2245,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2220011103021002-0300030232032122-1112001113300003-3131102331313031-3303111312122130-2020223222013032-2030200122010033-0300031220132212"></a>
 
-<a id="canonical-3200002312310320-2010103010312320-1310112003211310-3213310130330330-3303232022331032-1012101020332013-1111311300013110-3022121322012133"></a>
+<a id="canonical-0002221313312013-1301300032033011-2012203023303023-2322323302322311-2000033001030200-1033221113303000-2030221101031100-0000112022223323"></a>
 
-## max_events property — batch / 130300120132 / 5
+#### `azure_receiver.batch.max_events` property
 
 Type: `"number"`. Computed.
-
-Exclusive with \[max\_events\_disabled\] Send batch to endpoint after this many log messages are in
-the batch.
-
-Upstream description:
 
 Exclusive with \[max\_events\_disabled\] Send batch to endpoint after this many log messages are in
 the batch.
@@ -2589,19 +2287,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [max_events_disabled](data-sources--global_log_receiver--reference--group-002.md#canonical-2303131230201223-3021231221200101-1011333313030310-1312323311331323-1213200313002112-2103321231021313-0302030003033323-1020020312202213): complete subsection reference.
+- [max_events_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-2303131230201223-3021231221200101-1011333313030310-1312323311331323-1213200313002112-2103321231021313-0302030003033323-1020020312202213): complete subsection reference.
 
 <a id="canonical-3110031303113112-1220203021023112-1322303032012133-2220100302233331-2122203221213033-1132330210231232-1223002221232220-2331101112123130"></a>
 
-<a id="canonical-1011310332220122-3001203211200020-1312120210222023-0310321131301320-3122301220001122-1223301201310210-3020110302333300-3302212131221233"></a>
+<a id="canonical-2023000212300023-2331110323331120-1032001100031110-0122311121212132-2332333030211332-1333311001212200-3320231032102331-2330320213221330"></a>
 
-## timeout_seconds property — batch / 130300120132 / 6
+#### `azure_receiver.batch.timeout_seconds` property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[timeout\_seconds\_default\] Send batch to the endpoint after this many seconds.
-
-Upstream description:
 
 Exclusive with \[timeout\_seconds\_default\] Send batch to the endpoint after this many seconds.
 
@@ -2637,20 +2331,814 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [timeout_seconds_default](data-sources--global_log_receiver--reference--group-002.md#canonical-3132330132330110-1212133331302311-2011332003332232-1023012032310120-3210201001130002-2113201131021302-2301331000202222-1032011222011113): complete subsection reference.
-
-<a id="canonical-0311233000001000-0012031112230301-3211133310213101-0313311010210231-0002023322102302-3223331100112302-0203030013321312-1231321120231123"></a>
-
-## Next pages — batch / 130300120132 / 7
-
-- [azure_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-001.md#canonical-0303111300332213-1202311101313321-2032103010002210-1001010131030121-3220023313310212-0032232112021333-1232211101312003-3132000132033303)
-- [azure_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-002.md#canonical-2303131230201223-3021231221200101-1011333313030310-1312323311331323-1213200313002112-2103321231021313-0302030003033323-1020020312202213)
-- [azure_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-002.md#canonical-3132330132330110-1212133331302311-2011332003332232-1023012032310120-3210201001130002-2113201131021302-2301331000202222-1032011222011113)
-- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-2121301220330030-1221312033213003-0320321302002303-2133212312111123-3330122101022123-0133210113001032-2201030003210013-3211030023023312)
-- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [timeout_seconds_default](data-sources--global_log_receiver--reference--group-001.md#canonical-3132330132330110-1212133331302311-2011332003332232-1023012032310120-3210201001130002-2113201131021302-2301331000202222-1032011222011113): complete subsection reference.
 
 <a id="canonical-0303111300332213-1202311101313321-2032103010002210-1001010131030121-3220023313310212-0032232112021333-1232211101312003-3132000132033303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
+
+## `azure_receiver.batch.max_bytes_disabled` properties
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-2121301220330030-1221312033213003-0320321302002303-2133212312111123-3330122101022123-0133210113001032-2201030003210013-3211030023023312)
+- [azure_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-2110231131123022-3210021331120313-0230130302332321-2122330301322100-0032000123010111-3000120033100202-2313222223213221-0231002202020032)
+- azure_receiver.batch.max_bytes_disabled
+
+<a id="canonical-3230320223211202-3112230121000212-1323312120200000-0222120003010130-2220103011120103-3213111103121303-2201223002001201-0031302133130121"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2303131230201223-3021231221200101-1011333313030310-1312323311331323-1213200313002112-2103321231021313-0302030003033323-1020020312202213"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `azure_receiver.batch.max_events_disabled` properties
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-2121301220330030-1221312033213003-0320321302002303-2133212312111123-3330122101022123-0133210113001032-2201030003210013-3211030023023312)
+- [azure_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-2110231131123022-3210021331120313-0230130302332321-2122330301322100-0032000123010111-3000120033100202-2313222223213221-0231002202020032)
+- azure_receiver.batch.max_events_disabled
+
+<a id="canonical-0202312312231111-0122201100123102-0020001203123303-1131212022030331-2211033221112011-2030113112302001-0122330330010330-1111013201113112"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3132330132330110-1212133331302311-2011332003332232-1023012032310120-3210201001130002-2113201131021302-2301331000202222-1032011222011113"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `azure_receiver.batch.timeout_seconds_default` properties
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-2121301220330030-1221312033213003-0320321302002303-2133212312111123-3330122101022123-0133210113001032-2201030003210013-3211030023023312)
+- [azure_receiver.batch](data-sources--global_log_receiver--reference--group-001.md#canonical-2110231131123022-3210021331120313-0230130302332321-2122330301322100-0032000123010111-3000120033100202-2313222223213221-0231002202020032)
+- azure_receiver.batch.timeout_seconds_default
+
+<a id="canonical-1123030103200122-3233033132120003-0133122301003033-3313102012013210-1312310201103000-3301201322130222-3133122132033221-1031122131302023"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1301222013203232-0131031232320300-0333013231220113-1222032002300113-2232001032022102-0233013102310320-0100023112330001-0320231331113332"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `azure_receiver.compression` properties
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-2121301220330030-1221312033213003-0320321302002303-2133212312111123-3330122101022123-0133210113001032-2201030003210013-3211030023023312)
+- azure_receiver.compression
+
+<a id="canonical-3102130320331010-2111133122010001-2231313221032223-0203312101302211-2023300113023323-1030201321200220-0223101212020133-0000311213112113"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for compression.
+
+Additional upstream details:
+
+Compression Type.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-compression_choice": "[\"compression_default\",\"compression_gzip\",\"compression_none\"]"
+}
+```
+
+<a id="canonical-0211333333310232-2223123101230312-1101320300312123-0333221033301012-3123133313123301-0211003221333112-3201332201120113-0203301000112320"></a>
+
+### Direct properties for `azure_receiver.compression`
+
+- [compression_default](data-sources--global_log_receiver--reference--group-001.md#canonical-1222333300121032-1121120313120310-3303300320332020-2223110330113220-2120312312330013-3123303310213202-0111302011212333-0221131220203021): complete subsection reference.
+
+- [compression_gzip](data-sources--global_log_receiver--reference--group-001.md#canonical-1233122301110302-1002310302031321-0110100201102231-2000310301033233-2203311302101332-3023221311101122-3111110300013032-2203002322131002): complete subsection reference.
+
+- [compression_none](data-sources--global_log_receiver--reference--group-001.md#canonical-3022023211222033-0102010020210000-1221031030123300-0003101133332000-0022003213231211-1110021002023320-2323031313132010-0100102221102103): complete subsection reference.
+
+<a id="canonical-1222333300121032-1121120313120310-3303300320332020-2223110330113220-2120312312330013-3123303310213202-0111302011212333-0221131220203021"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `azure_receiver.compression.compression_default` properties
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-2121301220330030-1221312033213003-0320321302002303-2133212312111123-3330122101022123-0133210113001032-2201030003210013-3211030023023312)
+- [azure_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-1301222013203232-0131031232320300-0333013231220113-1222032002300113-2232001032022102-0233013102310320-0100023112330001-0320231331113332)
+- azure_receiver.compression.compression_default
+
+<a id="canonical-0020120220203000-2012300302200002-2210202331010101-1121211311023232-1202300110121111-2020003123030312-1211103003312130-2300033302100311"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for compression default.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1233122301110302-1002310302031321-0110100201102231-2000310301033233-2203311302101332-3023221311101122-3111110300013032-2203002322131002"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `azure_receiver.compression.compression_gzip` properties
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-2121301220330030-1221312033213003-0320321302002303-2133212312111123-3330122101022123-0133210113001032-2201030003210013-3211030023023312)
+- [azure_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-1301222013203232-0131031232320300-0333013231220113-1222032002300113-2232001032022102-0233013102310320-0100023112330001-0320231331113332)
+- azure_receiver.compression.compression_gzip
+
+<a id="canonical-2033001210123332-0122312030030311-1020321312231131-3001211003221322-2002120021300203-1221013211312000-1312013203021313-1332000311022020"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3022023211222033-0102010020210000-1221031030123300-0003101133332000-0022003213231211-1110021002023320-2323031313132010-0100102221102103"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `azure_receiver.compression.compression_none` properties
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-2121301220330030-1221312033213003-0320321302002303-2133212312111123-3330122101022123-0133210113001032-2201030003210013-3211030023023312)
+- [azure_receiver.compression](data-sources--global_log_receiver--reference--group-001.md#canonical-1301222013203232-0131031232320300-0333013231220113-1222032002300113-2232001032022102-0233013102310320-0100023112330001-0320231331113332)
+- azure_receiver.compression.compression_none
+
+<a id="canonical-3001303301131322-3020003013003220-1212300113012002-2333031022001232-3132222112213311-3001232121011132-0310231330032233-2113220032200112"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for compression none.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2301311003132033-3012223003123133-1213311332201031-2031121222131030-3011202200333201-1112312313312323-1202123022021223-1113232332011210"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `azure_receiver.connection_string` properties
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-2121301220330030-1221312033213003-0320321302002303-2133212312111123-3330122101022123-0133210113001032-2201030003210013-3211030023023312)
+- azure_receiver.connection_string
+
+<a id="canonical-2122202223022312-1310200121011323-1202122122122000-1130202102333300-2023031010111030-1211110312000332-2123013102202112-0221120200322313"></a>
+
+Type: `"single"`. Computed.
+
+SecretType is used in an object to indicate a sensitive/confidential field.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-secret_info_oneof": "[\"blindfold_secret_info\",\"clear_secret_info\"]"
+}
+```
+
+<a id="canonical-3120313130332311-1312011112222220-1302101010103220-3322230230002313-1332010023131130-3023120113300313-1302210032232201-3101300120101112"></a>
+
+### Direct properties for `azure_receiver.connection_string`
+
+- [blindfold_secret_info](data-sources--global_log_receiver--reference--group-001.md#canonical-2222113333021332-0302300221301200-2321333020122222-0000123020302023-0333303120321110-3210310320210312-2110222330101132-3123321131212231): complete subsection reference.
+
+- [clear_secret_info](data-sources--global_log_receiver--reference--group-001.md#canonical-3122300203300210-1201011230301232-2211300313113220-1031112333321102-0023203302212022-3332033323223313-0332112110030231-0123300301103201): complete subsection reference.
+
+<a id="canonical-2222113333021332-0302300221301200-2321333020122222-0000123020302023-0333303120321110-3210310320210312-2110222330101132-3123321131212231"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `azure_receiver.connection_string.blindfold_secret_info` properties
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-2121301220330030-1221312033213003-0320321302002303-2133212312111123-3330122101022123-0133210113001032-2201030003210013-3211030023023312)
+- [azure_receiver.connection_string](data-sources--global_log_receiver--reference--group-001.md#canonical-2301311003132033-3012223003123133-1213311332201031-2031121222131030-3011202200333201-1112312313312323-1202123022021223-1113232332011210)
+- azure_receiver.connection_string.blindfold_secret_info
+
+<a id="canonical-2123120222321013-2011001200110033-1301331333301323-3021310332101000-2031132232130000-3200011202120021-3213013233020232-0132020222201122"></a>
+
+Type: `"single"`. Computed.
+
+BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3332020222301232-2011213133133023-1021023323032120-2101121322102321-0132203300130221-0312121202223131-2201010010122032-0220033010333132"></a>
+
+### Direct properties for `azure_receiver.connection_string.blindfold_secret_info`
+
+<a id="canonical-2213101032233021-1111001000103131-1201313032221123-3312121313022321-0030321113310013-1232010111202133-2210031131303310-0021132023010001"></a>
+
+#### `azure_receiver.connection_string.blindfold_secret_info.decryption_provider` property
+
+Type: `"string"`. Computed.
+
+Name of the Secret Management Access object that contains information about the backend Secret
+Management service.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2221222113333111-3313212220101102-0322000010212203-0102120121310012-3300123003313213-2331003302202312-2312322033320232-0030323103111220"></a>
+
+<a id="canonical-0313131202213203-0133120112000302-1201221332102020-3010103333030131-2112223030011002-1322212333133110-3331302031311200-1122100123123012"></a>
+
+#### `azure_receiver.connection_string.blindfold_secret_info.location` property
+
+Type: `"string"`. Computed, Sensitive.
+
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
+store provider is an HTTP/HTTPS location.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "content",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "uri",
+    "maxLength": 131072,
+    "metadata": {
+      "category": "content",
+      "confidence": 1.0,
+      "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
+      "source": "manual-override",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 4
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-f5xc-sensitive": true,
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  }
+}
+```
+
+<a id="canonical-1110313312022231-2303120132312332-3230123332303113-2300222123120222-1211101013112123-1231123130003220-1101122012021213-0221111121012131"></a>
+
+<a id="canonical-2113201210231232-1101223301123003-1000021322223002-3001122302100033-2100231021112113-1023302010120010-3123031103021201-0110203301001113"></a>
+
+#### `azure_receiver.connection_string.blindfold_secret_info.store_provider` property
+
+Type: `"string"`. Computed.
+
+Name of the Secret Management Access object that contains information about the store to GET
+encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3122300203300210-1201011230301232-2211300313113220-1031112333321102-0023203302212022-3332033323223313-0332112110030231-0123300301103201"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `azure_receiver.connection_string.clear_secret_info` properties
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-2121301220330030-1221312033213003-0320321302002303-2133212312111123-3330122101022123-0133210113001032-2201030003210013-3211030023023312)
+- [azure_receiver.connection_string](data-sources--global_log_receiver--reference--group-001.md#canonical-2301311003132033-3012223003123133-1213311332201031-2031121222131030-3011202200333201-1112312313312323-1202123022021223-1113232332011210)
+- azure_receiver.connection_string.clear_secret_info
+
+<a id="canonical-2102123013221100-2231203100222021-1230321213131323-1113031031321003-0133230101203011-3233130232310032-3021222113100001-3120211121320132"></a>
+
+Type: `"single"`. Computed.
+
+ClearSecretInfoType specifies information about the Secret that is not encrypted.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1331131311223020-1020013111113232-3211013230010200-0001012333323012-0030310013130330-0100313133133032-0130022111013212-2011021200232200"></a>
+
+### Direct properties for `azure_receiver.connection_string.clear_secret_info`
+
+<a id="canonical-3322302310102202-2132032102030021-1300220302331002-3001211131302300-0302031100331131-3023300323001002-2302232110233300-3033220321313111"></a>
+
+#### `azure_receiver.connection_string.clear_secret_info.provider_ref` property
+
+Type: `"string"`. Computed.
+
+Name of the Secret Management Access object that contains information about the store to GET
+encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
+
+<a id="canonical-2031223102332203-2213021112231031-0111020222022213-2320032310312123-3023121102122130-1323322011331022-3023000120313100-3300110000120230"></a>
+
+<a id="canonical-0103332032121132-1300301111210332-1310320111313123-1312300121110032-2211332012123020-2212102330211303-3111233122131001-2100303010212300"></a>
+
+#### `azure_receiver.connection_string.clear_secret_info.url` property
+
+Type: `"string"`. Computed, Sensitive.
+
+URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 131072,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 131072
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "uri",
+    "formatDescription": "RFC 3986 URI with scheme (http, https, ftp)",
+    "maxLength": 131072,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
+    "validation": {
+      "rfc": "RFC 3986"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-f5xc-sensitive": true,
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  }
+}
+```
+
+<a id="canonical-1213320220313111-2133213301031032-3323200320132221-3331102313013310-3021210320112221-3123112202113322-0220322200312200-2222020203030033"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `azure_receiver.filename_options` properties
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-2121301220330030-1221312033213003-0320321302002303-2133212312111123-3330122101022123-0133210113001032-2201030003210013-3211030023023312)
+- azure_receiver.filename_options
+
+<a id="canonical-3103320202120000-3231111110312220-3033222232220233-3000202311220011-0222300222130203-2012132003113000-0213122020212211-1020222220000000"></a>
+
+Type: `"single"`. Computed.
+
+Filename OPTIONS allow customization of filename and folder paths used by a destination endpoint
+bucket or file.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-folder": "[\"custom_folder\",\"log_type_folder\",\"no_folder\"]"
+}
+```
+
+<a id="canonical-1110311303111221-0212102232303320-3221210021220030-3031030222030231-2220312220210222-1322331101302222-2003332323231020-2321220132321003"></a>
+
+### Direct properties for `azure_receiver.filename_options`
+
+<a id="canonical-0211210103230121-1123121320320130-0310120110133112-2121203301012310-3330132321033123-3110313132213000-1321312102320023-3323111201003331"></a>
+
+#### `azure_receiver.filename_options.custom_folder` property
+
+Type: `"string"`. Computed.
+
+Exclusive with \[log\_type\_folder no\_folder\] Use your own folder name as the name of the folder
+in the endpoint bucket or file The folder name must match \`/^\[a-z\_\]\[a-z0-9\\\\-\\\\.\_\]\*$/i\`
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "pattern": "^[A-Za-z_][A-Za-z0-9\\\\-\\\\._]*$"
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.pattern": "^[A-Za-z_][A-Za-z0-9\\\\-\\\\._]*$"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.pattern": "^[A-Za-z_][A-Za-z0-9\\\\-\\\\._]*$"
+  }
+}
+```
+
+- [log_type_folder](data-sources--global_log_receiver--reference--group-001.md#canonical-2302011023200002-2030322222221322-3311000033202231-0020011112130213-2002020212201103-0330302030001321-0101123222300332-3320033231333130): complete subsection reference.
+
+- [no_folder](data-sources--global_log_receiver--reference--group-001.md#canonical-3210232112022130-0213000220032320-1213113000231221-1130033311232331-1130321332101113-3223131122003310-2223312220133102-2221101103122311): complete subsection reference.
+
+<a id="canonical-2302011023200002-2030322222221322-3311000033202231-0020011112130213-2002020212201103-0330302030001321-0101123222300332-3320033231333130"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `azure_receiver.filename_options.log_type_folder` properties
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-2121301220330030-1221312033213003-0320321302002303-2133212312111123-3330122101022123-0133210113001032-2201030003210013-3211030023023312)
+- [azure_receiver.filename_options](data-sources--global_log_receiver--reference--group-001.md#canonical-1213320220313111-2133213301031032-3323200320132221-3331102313013310-3021210320112221-3123112202113322-0220322200312200-2222020203030033)
+- azure_receiver.filename_options.log_type_folder
+
+<a id="canonical-2023020012222102-3100222112221022-2103033012133312-3030312310322223-3011032120103032-1210322020230301-1210303001220333-2210321030300203"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for log type folder.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3210232112022130-0213000220032320-1213113000231221-1130033311232331-1130321332101113-3223131122003310-2223312220133102-2221101103122311"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `azure_receiver.filename_options.no_folder` properties
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [azure_receiver](data-sources--global_log_receiver--reference--group-001.md#canonical-2121301220330030-1221312033213003-0320321302002303-2133212312111123-3330122101022123-0133210113001032-2201030003210013-3211030023023312)
+- [azure_receiver.filename_options](data-sources--global_log_receiver--reference--group-001.md#canonical-1213320220313111-2133213301031032-3323200320132221-3331102313013310-3021210320112221-3123112202113322-0220322200312200-2222020203030033)
+- azure_receiver.filename_options.no_folder
+
+<a id="canonical-2211300003231023-0221022012320100-2213112020100013-1112332101300003-1123222001031213-0130233203231323-3022322010332222-3130330030232000"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1302100131001122-2223211332130100-1000320312110323-3013111102331023-3013223003223020-1013311211012003-3231113123123120-2132312002001102"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `datadog_receiver` properties
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- datadog_receiver
+
+<a id="canonical-1030122021022232-1220312302320123-0120123303110130-0320113101000121-3332333032132102-1213013023033133-1200133200111110-3230023131300203"></a>
+
+Type: `"single"`. Computed.
+
+Datadog Configuration. Configuration for Datadog endpoint.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-endpoint_choice": "[\"endpoint\",\"site\"]",
+  "x-ves-oneof-field-tls_choice": "[\"no_tls\",\"use_tls\"]"
+}
+```
+
+<a id="canonical-0202213201130101-2103333313200130-1303033110001001-2222120112200333-2332123332010030-2200102202101013-0111333023322020-3130313010030122"></a>
+
+### Direct properties for `datadog_receiver`
+
+- [batch](data-sources--global_log_receiver--reference--group-002.md#canonical-0313003013113333-0322321012101113-2232210232232131-1123112312130301-0323123203211301-0211311312331331-3100013213032221-3320312202113210): complete subsection reference.
+
+- [compression](data-sources--global_log_receiver--reference--group-002.md#canonical-0111332233101201-3133220000000011-2101103331333201-0011011330330330-2320103123303111-1230120233123202-2133312211313103-1002223122102203): complete subsection reference.
+
+- [datadog_api_key](data-sources--global_log_receiver--reference--group-002.md#canonical-2321202222031112-3003110221023102-3221030130122331-0233023303332023-2331003113213011-1122310102233013-1013320232010201-3030010220220212): complete subsection reference.
+
+<a id="canonical-0302321030210011-1122020310101231-2023131212211203-1023021002302102-3113012103312021-3203100223211332-0122330032213100-0303301203121013"></a>

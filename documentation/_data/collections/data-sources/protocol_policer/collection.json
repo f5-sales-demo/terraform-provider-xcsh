@@ -111,8 +111,8 @@
   "pages": [
     {
       "aliases": ["protocol policer"],
-      "body_bytes": 1439,
-      "body_sha256": "sha256:52bdbe5dfb940072694197ba3741c49c05ea52cd585e101dbd5c57185a4e29e9",
+      "body_bytes": 1356,
+      "body_sha256": "sha256:fef5230a61e8d30066b45b0166353769f64c8c241d79e07cf85ed96c12e4cd95",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -143,7 +143,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protocol_policer/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits in F5 Distributed Cloud.",
+      "summary": "Reads L4 protocol match conditions and associated traffic rate limits.",
       "tasks": ["configuration"],
       "title": "xcsh_protocol_policer",
       "unresolved_relationships": [],
@@ -155,8 +155,8 @@
     },
     {
       "aliases": ["protocol policer"],
-      "body_bytes": 10881,
-      "body_sha256": "sha256:5fb63fd95de528104de3fcae6c3140ba01279c5f263245631e57d63206035c90",
+      "body_bytes": 10649,
+      "body_sha256": "sha256:8de3a5365b47652e8480b78caab1b71d156d18a6a6928cec60ac7eefcd66ee5a",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:protocol_policer:properties:protocol_policer"],
@@ -308,8 +308,8 @@
     },
     {
       "aliases": ["protocol policer"],
-      "body_bytes": 2186,
-      "body_sha256": "sha256:0a927c3674486d3d7803936c3b75dfbfdcfe68309711dfdf034beac28c85407d",
+      "body_bytes": 1626,
+      "body_sha256": "sha256:ec20f4f90923e21747d05c2d3cc589d34604b2c05be71c5341bc5ec74dd50e32",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -384,8 +384,8 @@
     },
     {
       "aliases": ["protocol policer policer"],
-      "body_bytes": 6445,
-      "body_sha256": "sha256:4887b05557f691cd070ca99b7ed9597e5991af628445b6e969034a10ea0e577e",
+      "body_bytes": 5488,
+      "body_sha256": "sha256:364cb78a3f57536793f772582082d157188d67d0e993004d7d6f1ec9355936f0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -540,8 +540,8 @@
     },
     {
       "aliases": ["protocol policer protocol"],
-      "body_bytes": 2523,
-      "body_sha256": "sha256:d5aeec9e14985a9783171c9ed8d021514841156e48d4db156918c7fe81d1fd8c",
+      "body_bytes": 1602,
+      "body_sha256": "sha256:bf078842638ee8349a0a693620aeec56684547aee3553dd95822dc13a39c4e1d",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -650,8 +650,8 @@
     },
     {
       "aliases": ["protocol policer protocol dns"],
-      "body_bytes": 1363,
-      "body_sha256": "sha256:d40ae3f59d8017241277d4adeadb60c0e310689a69ba65a34af848f686702258",
+      "body_bytes": 1056,
+      "body_sha256": "sha256:6e0875a45eb9b3487461b9faf3284e5b87e92dacbbf94884cb3b1602cfcbe2f7",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -690,8 +690,8 @@
     },
     {
       "aliases": ["protocol policer protocol icmp"],
-      "body_bytes": 1920,
-      "body_sha256": "sha256:b4701a38d86db1240c9dc24b6e3c480e7a81a0d4cc73456d2999f4268d6d4999",
+      "body_bytes": 1506,
+      "body_sha256": "sha256:81e0843770dd0ceb745d02fa7b0555a9731780f740321187d07ab92e4dfe19c4",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -747,8 +747,8 @@
     },
     {
       "aliases": ["protocol policer protocol tcp"],
-      "body_bytes": 1898,
-      "body_sha256": "sha256:400ce20b0990098278e4e541f9ad036a665a2a83dbbced1fdea385b7eff40658",
+      "body_bytes": 1549,
+      "body_sha256": "sha256:f96db58570fdc22f4f260324b12c8050a9c3457de2220c2dd49fe96f67d477d1",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -804,8 +804,8 @@
     },
     {
       "aliases": ["protocol policer protocol udp"],
-      "body_bytes": 1401,
-      "body_sha256": "sha256:776235adfc5427fd21bf1c7649408b4dbcf9d75dfc4499b8a92a59f45de6f458",
+      "body_bytes": 1047,
+      "body_sha256": "sha256:1c6d9aecb9d30a3d7a479b4f2b0babf6470fd277192579ad4b22dda548421cc9",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -844,8 +844,8 @@
     },
     {
       "aliases": ["protocol policer"],
-      "body_bytes": 681,
-      "body_sha256": "sha256:d199aafc0a40ac166fa85a9b1977fa787190af9d7d6d392bbe7923e83b0f0c92",
+      "body_bytes": 426,
+      "body_sha256": "sha256:4596a2681a485420aee8e3cbec5e2e525438aa6e935f47e2a1d01f7be4613aa8",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:protocol_policer:example:data-source"],
@@ -884,8 +884,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1330,
-      "body_sha256": "sha256:9e458883f7aaa7b82ad236df87e945f0266af4ef757291db33e9767af2c5312c",
+      "body_bytes": 1090,
+      "body_sha256": "sha256:c68787429aea39872062d208e1d818d466bb43d8a91c5b09af8e19c10b36d3af",
       "capabilities": [],
       "category": null,
       "child_ids": [],

@@ -106,8 +106,8 @@
   "pages": [
     {
       "aliases": ["cloud elastic ip"],
-      "body_bytes": 1675,
-      "body_sha256": "sha256:f7d5db4a7ad77a0776cb6474a65ff5feeccb5c6c447a2bbccbc1305fc7159b23",
+      "body_bytes": 1688,
+      "body_sha256": "sha256:734b917808e81ef247f7b590ac6461e9392c633d29650ce748ed67100637c454",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -152,8 +152,8 @@
     },
     {
       "aliases": ["cloud elastic ip"],
-      "body_bytes": 11280,
-      "body_sha256": "sha256:1c1f587670740d921e222dc05db787c7c8e308d0a7e92688e4f2badeb8d43fed",
+      "body_bytes": 10777,
+      "body_sha256": "sha256:3da00a38cba49a0dcf42d77d6d38a5786f0aabf7bef35727e57fb607b925dc5d",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -356,8 +356,8 @@
     },
     {
       "aliases": ["site ref"],
-      "body_bytes": 6414,
-      "body_sha256": "sha256:b2158885250060f281bfb9fa1e8fefc46260ed6dbbda93a4fe0d62dd033561e5",
+      "body_bytes": 5478,
+      "body_sha256": "sha256:07ef70d24d4ec67893110bf49622f46b659c8e1dee641d2555276c4ef6e5e00e",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -512,8 +512,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2255,
-      "body_sha256": "sha256:7d7f1a25047f306e19ea952bd6cd9b818cbc11b088e37877ae47f79732eee98a",
+      "body_bytes": 2009,
+      "body_sha256": "sha256:e3de08e539dbea0f32c3e27438c49fade8be66e72c61477e2732dee6e41077b3",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -652,8 +652,8 @@
     },
     {
       "aliases": ["cloud elastic ip"],
-      "body_bytes": 657,
-      "body_sha256": "sha256:228280cc841909fd2ae2cd2f6dc35b8d4c814e0b70d687ac670f3d3b31778ce8",
+      "body_bytes": 414,
+      "body_sha256": "sha256:79d0dfc56334d274cfa992913c7a0a48ce17b1d5df11f831a8d08ca8c2f75a08",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_elastic_ip:example:resource"],
@@ -692,8 +692,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1347,
-      "body_sha256": "sha256:a73c2e3dda4f60269b5fda65ed5508b148c1450003e7e8ca6284eca4563163a4",
+      "body_bytes": 1113,
+      "body_sha256": "sha256:f4969668e473041c59952e3091ce5efebefcaf58f396d862a3e82f19d82f06af",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -739,8 +739,8 @@
     },
     {
       "aliases": ["cloud elastic ip"],
-      "body_bytes": 500,
-      "body_sha256": "sha256:2ce5c081aab8607a25a77e99c3867919cbf332c97981a9606b5e37557d52215e",
+      "body_bytes": 373,
+      "body_sha256": "sha256:71861e6d4ebe91a4f5f5eba049c1c7990fb26d3ce92614e9c6f2eaafca366313",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -780,8 +780,8 @@
     },
     {
       "aliases": ["cloud elastic ip"],
-      "body_bytes": 588,
-      "body_sha256": "sha256:7d0d1b8a75c295af76077d784c8c34e50f0b26b780db9a97c829f534eb7b3f05",
+      "body_bytes": 461,
+      "body_sha256": "sha256:40abe9fd4103ebb7108df1dcf2b76cccb265c20b4ec673f1a2ca661e8d569108",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],

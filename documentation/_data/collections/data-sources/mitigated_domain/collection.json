@@ -46,8 +46,8 @@
   "pages": [
     {
       "aliases": ["mitigated domain"],
-      "body_bytes": 1336,
-      "body_sha256": "sha256:baf813c24f97b0e25fcff4f487aacbe64ec9fe100725b40f7ef917ade7e2b379",
+      "body_bytes": 1361,
+      "body_sha256": "sha256:ea1c834d38755d06daaee097af2306534159fa081a06257db401d4c4722418cb",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -78,7 +78,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/mitigated_domain/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages Mitigated Domain in F5 Distributed Cloud.",
+      "summary": "Reads Mitigated Domain information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_mitigated_domain",
       "unresolved_relationships": [],
@@ -90,8 +90,8 @@
     },
     {
       "aliases": ["mitigated domain"],
-      "body_bytes": 9248,
-      "body_sha256": "sha256:1a737b33fcd925958a22909a70b9c7226ec9d3655f4161ce14a8c1ffe4cc8891",
+      "body_bytes": 8925,
+      "body_sha256": "sha256:e45567938660a50e5de75411b8696f078fdba69c2905e0990c15f54a50e571e6",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -243,8 +243,8 @@
     },
     {
       "aliases": ["mitigated domain"],
-      "body_bytes": 681,
-      "body_sha256": "sha256:a6817a709362a5e03cf382eb351ba96cf46d72c64c5b180ead6d4d742b0a2838",
+      "body_bytes": 426,
+      "body_sha256": "sha256:fb374f58fbc0018c9bae0b02d0a6d36275faa3674763049ce1c4331e03e1e469",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:mitigated_domain:example:data-source"],
@@ -283,8 +283,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1331,
-      "body_sha256": "sha256:4c88c91fc8940393673f8efd7a091c0e422d7c7b770b4ee3774eee328e94b8b4",
+      "body_bytes": 1091,
+      "body_sha256": "sha256:0ceeb82a3180200f680990e00ae94efd2ae8c91871ca6dec2d2f7af57b1065fe",
       "capabilities": [],
       "category": null,
       "child_ids": [],

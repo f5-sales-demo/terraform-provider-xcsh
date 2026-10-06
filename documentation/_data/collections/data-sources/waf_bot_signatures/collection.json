@@ -66,8 +66,8 @@
   "pages": [
     {
       "aliases": ["waf bot signatures"],
-      "body_bytes": 1217,
-      "body_sha256": "sha256:a5f23e4e3281d7e988c0e087a6bfa97973c123c26f2689d2a15e5863e8c44fb2",
+      "body_bytes": 1230,
+      "body_sha256": "sha256:238f66b8f186a800a08e00ce16cedc74de347a7bffd6872c42fdde67b14aa4ec",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -110,8 +110,8 @@
     },
     {
       "aliases": ["waf bot signatures"],
-      "body_bytes": 3509,
-      "body_sha256": "sha256:8e656d850e961aba154af302ac722d588a86990aaae0b75e9dbf7611ec619d40",
+      "body_bytes": 3240,
+      "body_sha256": "sha256:bc8ee5a1d4cd48050c806163e44326feaabe4c40d7a558dc5ba2fc8a3a9b1298",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:waf_bot_signatures:properties:bot_signatures"],
@@ -215,8 +215,8 @@
     },
     {
       "aliases": ["bot signatures"],
-      "body_bytes": 2267,
-      "body_sha256": "sha256:9ed91250fc92c202b9d238a17b9ce9cdc60298730507dc0cefae841bfc625668",
+      "body_bytes": 2009,
+      "body_sha256": "sha256:1eb5316fb9463cead8a78e8935022145a964fd71c51e5c09a64d084ad1d02fde",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -377,8 +377,8 @@
     },
     {
       "aliases": ["waf bot signatures"],
-      "body_bytes": 693,
-      "body_sha256": "sha256:67e48174d1e2d6609509b6c83d012c5340bb936937e848f30d8902c6a9ca58a2",
+      "body_bytes": 432,
+      "body_sha256": "sha256:9bdf8328957dcdbcb124c1739ea5104689753a9ab659f1168f399cf7f33da667",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:waf_bot_signatures:example:data-source"],
@@ -417,8 +417,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1242,
-      "body_sha256": "sha256:017a1cffe88baed049ccbd79cd698c74ae4b6e11547338fbd7dbe061f75e674b",
+      "body_bytes": 996,
+      "body_sha256": "sha256:cd3457540494b5a625319c4b0ba17d7bc090760a6deafcde9375548018366ddf",
       "capabilities": [],
       "category": null,
       "child_ids": [],

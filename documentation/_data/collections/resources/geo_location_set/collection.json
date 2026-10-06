@@ -86,8 +86,8 @@
   "pages": [
     {
       "aliases": ["geo location set"],
-      "body_bytes": 1505,
-      "body_sha256": "sha256:82c55d2f759365062e3c24ae5c6ee23d22d3331e3b01bc36c225eee94590becb",
+      "body_bytes": 1518,
+      "body_sha256": "sha256:939aa66bcedf44c5e36fccb75c7269568098117315419109a3fe9aef199e9fcd",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -132,8 +132,8 @@
     },
     {
       "aliases": ["geo location set"],
-      "body_bytes": 11174,
-      "body_sha256": "sha256:32aa5e0ee852a24657e15df8748897fccd6071d0b847c30567ae8c338696dff8",
+      "body_bytes": 10517,
+      "body_sha256": "sha256:d88d255283130490a96f520fa5a8a6ee62f90566975fda8d45d3e674d0f47072",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -355,8 +355,8 @@
     },
     {
       "aliases": ["custom geo location selector"],
-      "body_bytes": 4552,
-      "body_sha256": "sha256:ac44805dcfdf813da9075dde6ab66c8dc4c94f99f2f3c2094e4475bca44b3cf6",
+      "body_bytes": 4209,
+      "body_sha256": "sha256:6b7fd2e8f9e8beabb328e7b120fb9c19e3c00ada4654f5d574df08fb5f2b9f54",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -421,8 +421,8 @@
     },
     {
       "aliases": ["global"],
-      "body_bytes": 1085,
-      "body_sha256": "sha256:bbe4720a5b9ea5f572cf0abdc0b0b89bd4647431ec6c1857bf7747a729edc97c",
+      "body_bytes": 824,
+      "body_sha256": "sha256:3f41486c90e4a46e433cf25b93f564d8260feaded79058f33288e815efd721cc",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -461,8 +461,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2255,
-      "body_sha256": "sha256:5cbd2c0490c7cb569e360ca39f1336d0a1e6f2939e84ee32be4172f9894cf93f",
+      "body_bytes": 2009,
+      "body_sha256": "sha256:a5ab7989a48064917f1f56f75cc04399c3a780d1b80964b577c49cd61b7f23cb",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -601,8 +601,8 @@
     },
     {
       "aliases": ["geo location set"],
-      "body_bytes": 657,
-      "body_sha256": "sha256:af02dc2282e7f00b373f94f72450e2cecfc83047610c5de529ad2b6dab3c5cb2",
+      "body_bytes": 414,
+      "body_sha256": "sha256:545fae837a5aab75a9dab0576f7c7cf7081bc5ca39f1e88ad165d6eeaa6f62ce",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:geo_location_set:example:resource"],
@@ -641,8 +641,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1266,
-      "body_sha256": "sha256:868128de4ff8e9527ac1245e27e036b23285ed138f715efb95b7f7b08989bbaf",
+      "body_bytes": 1032,
+      "body_sha256": "sha256:51e4c8dbdb1b03542ba890b47633eb697e0ff90e9680fddf0ebe00f65739dd61",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -688,8 +688,8 @@
     },
     {
       "aliases": ["geo location set"],
-      "body_bytes": 500,
-      "body_sha256": "sha256:ed8fe5766de6d64fa7c4724d5f490c781b353ee5700487e62917e100f894d264",
+      "body_bytes": 373,
+      "body_sha256": "sha256:8949d85004976f8d8953d40ceaa1c1ed588add3e1e5c7425779edc3e85474ad9",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -729,8 +729,8 @@
     },
     {
       "aliases": ["geo location set"],
-      "body_bytes": 588,
-      "body_sha256": "sha256:3065bd9641341fea7c265d5df36dcb3bda703d51c2d00e7c706c66f943e7b6ba",
+      "body_bytes": 461,
+      "body_sha256": "sha256:ed8e50919f07e7d1b804aed1c91826f12bebf6dee76188fe880dd67a6d5e712c",
       "capabilities": [],
       "category": null,
       "child_ids": [],

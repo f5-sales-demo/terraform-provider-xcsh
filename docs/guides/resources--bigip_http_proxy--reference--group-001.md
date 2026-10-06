@@ -12,33 +12,26 @@ description: "Complete grouped canonical reference for xcsh_bigip_http_proxy ref
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0320011211132303-1020001003133001-0033303303011230-0022333213012200-1323020030031103-3021221232131220-0130302311103331-1313121031211232"></a>
-
-## Property reference — Property reference / 310133130301 / 2
+## Property reference
 
 Breadcrumbs:
 
 - [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
 - Property reference
 
-<a id="canonical-2011132030101211-2230121203223021-0021323010212213-3132330122332230-3002220312003112-0232330221122000-0330000300210331-2013132330010211"></a>
+<a id="canonical-0320011211132303-1020001003133001-0033303303011230-0022333213012200-1323020030031103-3021221232131220-0130302311103331-1313121031211232"></a>
 
-## Direct properties — Property reference / 310133130301 / 3
+### Direct properties for `xcsh_bigip_http_proxy`
 
 - [advanced_profile](resources--bigip_http_proxy--reference--group-001.md#canonical-2112133030313203-1202233221221323-0231033212122201-1200202122332313-2022030302010022-1221300001120300-3120211033311213-2323103320212230): complete subsection reference.
 
 <a id="canonical-2313003200321320-1322131322312032-1123031210113332-0230222303330322-3110303033332210-0102330003211132-3213223121223322-3221302223313313"></a>
 
-<a id="canonical-3022011311033022-0010222020111111-1210330212212130-0300022230321021-1332122202032202-1230222332321313-1212200312110233-2303031011311001"></a>
+<a id="canonical-2011132030101211-2230121203223021-0021323010212213-3132330122332230-3002220312003112-0232330221122000-0330000300210331-2013132330010211"></a>
 
-## annotations property — Property reference / 310133130301 / 4
+#### `annotations` property
 
 Type: `["map", "string"]`. Optional.
-
-Annotations is an unstructured key-value map stored with a resource that may be set by external
-tools to store and retrieve arbitrary metadata.
-
-Upstream description:
 
 Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
@@ -94,9 +87,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3223112011313112-2300120332112033-2323203201323103-0110010303122003-2110223323213310-3023132231200123-3213003330312322-0230032131103003"></a>
 
-<a id="canonical-1212323300003012-0023303323331123-0200233113033101-3021301332200322-1111133310012232-0232122023231320-0123001122132000-3221331300211001"></a>
+<a id="canonical-3022011311033022-0010222020111111-1210330212212130-0300022230321021-1332122202032202-1230222332321313-1212200312110233-2303031011311001"></a>
 
-## description property — Property reference / 310133130301 / 5
+#### `description` property
 
 Type: `"string"`. Optional.
 
@@ -142,15 +135,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3332330200312223-3023022231023220-0221300011102220-0030301313002013-3022031122012310-0321021013011321-1120223121302333-3201032223210133"></a>
 
-<a id="canonical-1032323302322101-1120113230020033-0122232031211000-0232111211313203-1312333131223231-0220232213111133-3230311023123203-0312200012333202"></a>
+<a id="canonical-1212323300003012-0023303323331123-0200233113033101-3021301332200322-1111133310012232-0232122023231320-0123001122132000-3221331300211001"></a>
 
-## disable property — Property reference / 310133130301 / 6
+#### `disable` property
 
 Type: `"bool"`. Optional.
 
 A value of true administratively disables the object.
 
-Upstream description:
+Additional upstream details:
 
 A value of true will administratively disable the object.
 
@@ -169,9 +162,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1113110103002001-2200212320222323-2122120023300322-2333320121311313-0323121200121312-0111233201222031-3201301002301133-0200220001100111"></a>
 
-<a id="canonical-3332023102013000-3313002301101213-3112110121110311-3213321033331132-2202303133201132-1321120113300030-0002232320310030-1123130103233300"></a>
+<a id="canonical-1032323302322101-1120113230020033-0122232031211000-0232111211313203-1312333131223231-0220232213111133-3230311023123203-0312200012333202"></a>
 
-## ID property — Property reference / 310133130301 / 7
+#### `id` property
 
 Type: `"string"`. Computed.
 
@@ -181,16 +174,16 @@ Unique identifier for the resource.
 
 <a id="canonical-2221101312132233-1222030332301331-3303031331203320-3020210001233222-1022031333013231-0333031322123322-3001210133130330-3121312232103312"></a>
 
-<a id="canonical-0231330120112123-2032330110302221-3211233232230102-1123202103213320-1322320101002103-3330031121031121-1000313003120220-3012023232330101"></a>
+<a id="canonical-3332023102013000-3313002301101213-3112110121110311-3213321033331132-2202303133201132-1321120113300030-0002232320310030-1123130103233300"></a>
 
-## labels property — Property reference / 310133130301 / 8
+#### `labels` property
 
 Type: `["map", "string"]`. Optional.
 
 Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
-Upstream description:
+Additional upstream details:
 
 Map of string keys and values that can be used to organize and categorize (scope and select) objects
 as chosen by the user. Values specified here will be used by selector expression.
@@ -212,15 +205,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2313110223120123-2330023103302100-0010031021311123-2221031311321002-1221132310231300-3012113332231120-2122203230133202-1130102001002231"></a>
 
-<a id="canonical-2113201313030133-3012121032012310-2313300001102230-0101012333023132-2300011212301203-1232331102111222-2132213211230213-2112221103021010"></a>
+<a id="canonical-0231330120112123-2032330110302221-3211233232230102-1123202103213320-1322320101002103-3330031121031121-1000313003120220-3012023232330101"></a>
 
-## name property — Property reference / 310133130301 / 9
+#### `name` property
 
 Type: `"string"`. Required.
 
 Name of the BIG-IP HTTP Proxy. Must be unique within the namespace.
 
-Upstream description:
+Additional upstream details:
 
 This is the name of configuration object. It has to be unique within the namespace. It can only be
 specified during create API and cannot be changed during replace API. The value of name has to
@@ -281,15 +274,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3220103110212201-2121223231200113-0202032322320321-2323002000212122-3233303321020013-3111222102102333-1223203001323323-1221101222203301"></a>
 
-<a id="canonical-2233020022001102-3212012112010201-3212100211223201-3002011120313133-1132032213013111-0223022203201223-0301310111132320-3020220223102022"></a>
+<a id="canonical-2113201313030133-3012121032012310-2313300001102230-0101012333023132-2300011212301203-1232331102111222-2132213211230213-2112221103021010"></a>
 
-## namespace property — Property reference / 310133130301 / 10
+#### `namespace` property
 
 Type: `"string"`. Required.
 
 Namespace where the BIG-IP HTTP Proxy is created.
 
-Upstream description:
+Additional upstream details:
 
 This defines the workspace within which each the configuration object is to be created. Must be a
 DNS\_LABEL format. For a namespace object itself, namespace value will be ""
@@ -349,9 +342,9 @@ Receipt-pinned upstream constraints:
 
 - [timeouts](resources--bigip_http_proxy--reference--group-004.md#canonical-1231333103033012-2112201220312122-2222023320130000-2122221200023233-1122012332200101-1313233133310311-3230012111033123-0101131100232102): complete subsection reference.
 
-<a id="canonical-2120200213101112-2210312120332202-2202131220102310-3010011230122023-2123110011023002-1000322223010222-2233223003002301-1132113101301323"></a>
+<a id="canonical-2233020022001102-3212012112010201-3212100211223201-3002011120313133-1132032213013111-0223022203201223-0301310111132320-3020220223102022"></a>
 
-## All schema paths — Property reference / 310133130301 / 11
+### All schema paths for `xcsh_bigip_http_proxy`
 
 Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
@@ -395,21 +388,21 @@ Each exact path has one authoritative reference destination. Collection element 
 | `origin_pools.pools.origin_servers.lb_port` | [origin_pools.pools.origin_servers.lb_port](resources--bigip_http_proxy--reference--group-001.md#canonical-3202233223233310-1201311120130333-1112100312003213-2102033002011312-0202001200023321-2111323330230120-1022021102001001-0102130001032220) |
 | `origin_pools.pools.origin_servers.origin_servers` | [origin_pools.pools.origin_servers.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-0011000100323203-3122231030111012-0303222000311211-3321333133321310-2121010221210121-0033101132030101-0213323113213313-1113220131123200) |
 | `origin_pools.pools.origin_servers.origin_servers.k8s_service` | [origin_pools.pools.origin_servers.origin_servers.k8s_service](resources--bigip_http_proxy--reference--group-001.md#canonical-0003000021001331-3303012123010331-3012201100312110-2312003113013033-0231133022022023-2233133132100330-3201322321302220-2033002231323330) |
-| `origin_pools.pools.origin_servers.origin_servers.k8s_service.inside_network` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.inside_network](resources--bigip_http_proxy--reference--group-002.md#canonical-2002213121110021-1303111211120211-1223013023211120-2030021223203320-3101103302302131-3122221023311200-3111331202202003-1311203001233000) |
-| `origin_pools.pools.origin_servers.origin_servers.k8s_service.outside_network` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.outside_network](resources--bigip_http_proxy--reference--group-002.md#canonical-2113320321333101-1300030113323322-3220012031320010-1213111002021221-0102012203023133-0333012103302102-0310032001311232-3230322021020011) |
+| `origin_pools.pools.origin_servers.origin_servers.k8s_service.inside_network` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.inside_network](resources--bigip_http_proxy--reference--group-001.md#canonical-2002213121110021-1303111211120211-1223013023211120-2030021223203320-3101103302302131-3122221023311200-3111331202202003-1311203001233000) |
+| `origin_pools.pools.origin_servers.origin_servers.k8s_service.outside_network` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.outside_network](resources--bigip_http_proxy--reference--group-001.md#canonical-2113320321333101-1300030113323322-3220012031320010-1213111002021221-0102012203023133-0333012103302102-0310032001311232-3230322021020011) |
 | `origin_pools.pools.origin_servers.origin_servers.k8s_service.protocol` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.protocol](resources--bigip_http_proxy--reference--group-001.md#canonical-1311112220202330-0001203101011022-1232022322123302-2330132112023231-2021210011110031-0220103113100210-0022322100030033-0202013213000221) |
 | `origin_pools.pools.origin_servers.origin_servers.k8s_service.service_name` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.service_name](resources--bigip_http_proxy--reference--group-001.md#canonical-2111201023220313-2111231110200032-3320333300112123-0203311311301130-3330002311221323-2232313212012301-1322230112203131-3002022322230110) |
-| `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator](resources--bigip_http_proxy--reference--group-002.md#canonical-2223011211012000-2322312131103323-1222033230230203-2330032121301233-1311031202121131-0312232021330222-0222012331130132-3323303131200101) |
-| `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site](resources--bigip_http_proxy--reference--group-002.md#canonical-2221311223231120-2102313010233223-0303131021022032-0221030001022012-3013302312213122-1302002131311000-1212310123030322-2203000202021023) |
-| `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site.name` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site.name](resources--bigip_http_proxy--reference--group-002.md#canonical-0023212223030121-2121033320111111-1020232321210030-3302201231221030-0011323010121230-2100112130221130-2113303101300310-3300220302322003) |
-| `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site.namespace` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site.namespace](resources--bigip_http_proxy--reference--group-002.md#canonical-0101113020333213-2223222320111301-2012033213123102-0332201113030223-0003210102103111-0322130211302220-2313311212133331-3133112303211210) |
-| `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site.tenant` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site.tenant](resources--bigip_http_proxy--reference--group-002.md#canonical-3310111322233202-0013031020111122-3011122230303030-2320102023300212-3331221300201101-1031113132122302-1330110122021130-3032321220100321) |
-| `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site](resources--bigip_http_proxy--reference--group-002.md#canonical-3331313230220333-1330332111221023-2032211002020313-2213003310003333-0021133331231100-1211121001220210-2222020210232331-1330112331332323) |
-| `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site.name` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site.name](resources--bigip_http_proxy--reference--group-002.md#canonical-0223002232003220-2210132010112113-0331021110020110-3002203333312200-3333222311022113-2232320120300303-2233122333223103-1220331323020100) |
-| `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site.namespace` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site.namespace](resources--bigip_http_proxy--reference--group-002.md#canonical-3122222102303000-0133132113001303-3000232332020011-3112011012121002-2232003330133030-2321213302201020-1321123321002033-2111330030031312) |
-| `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site.tenant` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site.tenant](resources--bigip_http_proxy--reference--group-002.md#canonical-0021231230231113-1300211321002230-0102000110202102-0010311320203013-3111220002022030-2302212302301112-0012223321113332-3112301123120011) |
-| `origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool](resources--bigip_http_proxy--reference--group-002.md#canonical-1210031012130200-3003222231330333-0133200303022131-1223223112102113-3210213223112122-1331002330012323-3032111213321023-3022112132102131) |
-| `origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.no_snat_pool` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.no_snat_pool](resources--bigip_http_proxy--reference--group-002.md#canonical-2123321133201330-1101022110010022-2212000130131300-3133310211302131-0030133321202301-2022230213131132-0120023221132230-3102120020000311) |
+| `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator](resources--bigip_http_proxy--reference--group-001.md#canonical-2223011211012000-2322312131103323-1222033230230203-2330032121301233-1311031202121131-0312232021330222-0222012331130132-3323303131200101) |
+| `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site](resources--bigip_http_proxy--reference--group-001.md#canonical-2221311223231120-2102313010233223-0303131021022032-0221030001022012-3013302312213122-1302002131311000-1212310123030322-2203000202021023) |
+| `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site.name` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site.name](resources--bigip_http_proxy--reference--group-001.md#canonical-0023212223030121-2121033320111111-1020232321210030-3302201231221030-0011323010121230-2100112130221130-2113303101300310-3300220302322003) |
+| `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site.namespace` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site.namespace](resources--bigip_http_proxy--reference--group-001.md#canonical-0101113020333213-2223222320111301-2012033213123102-0332201113030223-0003210102103111-0322130211302220-2313311212133331-3133112303211210) |
+| `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site.tenant` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site.tenant](resources--bigip_http_proxy--reference--group-001.md#canonical-3310111322233202-0013031020111122-3011122230303030-2320102023300212-3331221300201101-1031113132122302-1330110122021130-3032321220100321) |
+| `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site](resources--bigip_http_proxy--reference--group-001.md#canonical-3331313230220333-1330332111221023-2032211002020313-2213003310003333-0021133331231100-1211121001220210-2222020210232331-1330112331332323) |
+| `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site.name` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site.name](resources--bigip_http_proxy--reference--group-001.md#canonical-0223002232003220-2210132010112113-0331021110020110-3002203333312200-3333222311022113-2232320120300303-2233122333223103-1220331323020100) |
+| `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site.namespace` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site.namespace](resources--bigip_http_proxy--reference--group-001.md#canonical-3122222102303000-0133132113001303-3000232332020011-3112011012121002-2232003330133030-2321213302201020-1321123321002033-2111330030031312) |
+| `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site.tenant` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site.tenant](resources--bigip_http_proxy--reference--group-001.md#canonical-0021231230231113-1300211321002230-0102000110202102-0010311320203013-3111220002022030-2302212302301112-0012223321113332-3112301123120011) |
+| `origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool](resources--bigip_http_proxy--reference--group-001.md#canonical-1210031012130200-3003222231330333-0133200303022131-1223223112102113-3210213223112122-1331002330012323-3032111213321023-3022112132102131) |
+| `origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.no_snat_pool` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.no_snat_pool](resources--bigip_http_proxy--reference--group-001.md#canonical-2123321133201330-1101022110010022-2212000130131300-3133310211302131-0030133321202301-2022230213131132-0120023221132230-3102120020000311) |
 | `origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.snat_pool` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.snat_pool](resources--bigip_http_proxy--reference--group-002.md#canonical-3211300102000202-3203101313113331-0331003310300202-3303003031202201-2003013322303020-2233320301203211-1122013313021221-2101220030033123) |
 | `origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.snat_pool.prefixes` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.snat_pool.prefixes](resources--bigip_http_proxy--reference--group-002.md#canonical-3302231032122000-1312303303312013-0101003333130022-2030011323001031-2022302202032303-2323120111000321-0323332302211130-1223331130300021) |
 | `origin_pools.pools.origin_servers.origin_servers.k8s_service.vk8s_networks` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.vk8s_networks](resources--bigip_http_proxy--reference--group-002.md#canonical-0211133031012200-2011221102322000-1112030331321300-3123012032022312-3011231122213110-2012121212030310-1210231103212022-2103221310302031) |
@@ -471,23 +464,23 @@ Each exact path has one authoritative reference destination. Collection element 
 | `proxy_advertisement.advertise_custom.advertise_where.site.site.tenant` | [proxy_advertisement.advertise_custom.advertise_where.site.site.tenant](resources--bigip_http_proxy--reference--group-002.md#canonical-2130110320200002-2110133002112013-2320330233030131-3123212011010022-2302320301231122-2013100300313230-0331332100120331-0301120011332120) |
 | `proxy_advertisement.advertise_custom.advertise_where.use_default_port` | [proxy_advertisement.advertise_custom.advertise_where.use_default_port](resources--bigip_http_proxy--reference--group-002.md#canonical-2013220330230101-2003131300000130-1012200023330101-1333300111011111-2013012233321220-0203303100032221-2321301121110103-3000322103322310) |
 | `proxy_advertisement.advertise_custom.advertise_where.virtual_network` | [proxy_advertisement.advertise_custom.advertise_where.virtual_network](resources--bigip_http_proxy--reference--group-002.md#canonical-2000021012300133-0223211112310033-2331021312120301-2313132120011121-3113333332332113-1322020000320032-0200131310201213-2230332300033033) |
-| `proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_vip` | [proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_vip](resources--bigip_http_proxy--reference--group-002.md#canonical-3031102321023301-0003233200231212-2100221311200220-1021002103112311-2121132033022033-1101123331113010-3202012121110012-3213323011331103) |
-| `proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_vip` | [proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_vip](resources--bigip_http_proxy--reference--group-002.md#canonical-2333123311103322-0333002203111322-2010313023322001-0331122223103000-1222300102001212-0033200321233203-3133131011121032-1330311333132333) |
+| `proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_vip` | [proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_vip](resources--bigip_http_proxy--reference--group-003.md#canonical-3031102321023301-0003233200231212-2100221311200220-1021002103112311-2121132033022033-1101123331113010-3202012121110012-3213323011331103) |
+| `proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_vip` | [proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_vip](resources--bigip_http_proxy--reference--group-003.md#canonical-2333123311103322-0333002203111322-2010313023322001-0331122223103000-1222300102001212-0033200321233203-3133131011121032-1330311333132333) |
 | `proxy_advertisement.advertise_custom.advertise_where.virtual_network.specific_v6_vip` | [proxy_advertisement.advertise_custom.advertise_where.virtual_network.specific_v6_vip](resources--bigip_http_proxy--reference--group-002.md#canonical-3032021001323100-1300201313010310-3102031313322320-1113032020320323-1022112212210030-0322230333211300-2233112333333130-3010123031111030) |
 | `proxy_advertisement.advertise_custom.advertise_where.virtual_network.specific_vip` | [proxy_advertisement.advertise_custom.advertise_where.virtual_network.specific_vip](resources--bigip_http_proxy--reference--group-002.md#canonical-0310203013301232-0022102032113130-3300123120231130-0320021010210123-0231122000222022-2021233021330332-1120211123232010-0020111021223012) |
-| `proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network` | [proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network](resources--bigip_http_proxy--reference--group-002.md#canonical-1022031103002101-3231301032320231-1213212331322033-1122203102323223-1001122032030333-3110033020100112-1321122200333333-0202022222121102) |
-| `proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network.name` | [proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network.name](resources--bigip_http_proxy--reference--group-002.md#canonical-0320002002100211-0320000022000020-3223111021211312-1031232232221131-1231232232101020-2130313110100132-1131030330011012-0013020300001302) |
-| `proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network.namespace` | [proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network.namespace](resources--bigip_http_proxy--reference--group-002.md#canonical-3123332312122310-0331020312300103-0210332230130013-1120310123001102-0202301002200322-1003233131321123-0123222100201111-1123030300112021) |
-| `proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network.tenant` | [proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network.tenant](resources--bigip_http_proxy--reference--group-002.md#canonical-2321120232220111-0110200332222033-0123103222102023-0131312031323322-0022212331301001-1313333002300202-3002212312210311-2130303331100103) |
-| `proxy_advertisement.advertise_custom.advertise_where.virtual_site` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site](resources--bigip_http_proxy--reference--group-002.md#canonical-3123331013130022-3233130113001230-2231022020010003-1301212100030103-2112231313201100-2323230330003103-2223313213113322-2200123202013330) |
-| `proxy_advertisement.advertise_custom.advertise_where.virtual_site.network` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site.network](resources--bigip_http_proxy--reference--group-002.md#canonical-3132133303020301-2123313103311312-1221330302311101-0210211230201022-3210011232011213-1231302112130112-0220330002311000-2021012203023123) |
-| `proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site](resources--bigip_http_proxy--reference--group-002.md#canonical-3212032320331233-0110203001111003-1213113311213331-0030213020210013-3201211003302002-0133330120022102-3203131031312311-1031003122010022) |
-| `proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site.name` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site.name](resources--bigip_http_proxy--reference--group-002.md#canonical-2330020322302033-0133011231010320-2101021131302231-0111301120221212-3321012233032031-3132132221203220-0023130202211203-0331133003322230) |
-| `proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site.namespace` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site.namespace](resources--bigip_http_proxy--reference--group-002.md#canonical-2020122000310211-2023032133333312-1001001102013313-0332101210303201-1010200131233233-3003323232312320-2032311230332221-1102011231223012) |
-| `proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site.tenant` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site.tenant](resources--bigip_http_proxy--reference--group-002.md#canonical-0323332222331013-0120012112012230-2121323123232122-1221100022330002-2303211203023020-3321133120020230-0210211001311212-2211311303023322) |
-| `proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip](resources--bigip_http_proxy--reference--group-002.md#canonical-0220300231313210-3332311301321130-3030320113320313-3300310102103031-3003312001331100-2123113302222023-2000113330300331-1312213033101121) |
-| `proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.ip` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.ip](resources--bigip_http_proxy--reference--group-002.md#canonical-3023233110110223-0112012031033223-3122313322000200-3122102330023132-2330112123322313-0012021000302000-0231330203303003-0310121300110223) |
-| `proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.network` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.network](resources--bigip_http_proxy--reference--group-002.md#canonical-2011101021100212-2333221011113000-2233212112220011-0302312103123032-1220002131021311-2003010303300233-0231033033200223-0211103031323101) |
+| `proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network` | [proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network](resources--bigip_http_proxy--reference--group-003.md#canonical-1022031103002101-3231301032320231-1213212331322033-1122203102323223-1001122032030333-3110033020100112-1321122200333333-0202022222121102) |
+| `proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network.name` | [proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network.name](resources--bigip_http_proxy--reference--group-003.md#canonical-0320002002100211-0320000022000020-3223111021211312-1031232232221131-1231232232101020-2130313110100132-1131030330011012-0013020300001302) |
+| `proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network.namespace` | [proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network.namespace](resources--bigip_http_proxy--reference--group-003.md#canonical-3123332312122310-0331020312300103-0210332230130013-1120310123001102-0202301002200322-1003233131321123-0123222100201111-1123030300112021) |
+| `proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network.tenant` | [proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network.tenant](resources--bigip_http_proxy--reference--group-003.md#canonical-2321120232220111-0110200332222033-0123103222102023-0131312031323322-0022212331301001-1313333002300202-3002212312210311-2130303331100103) |
+| `proxy_advertisement.advertise_custom.advertise_where.virtual_site` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site](resources--bigip_http_proxy--reference--group-003.md#canonical-3123331013130022-3233130113001230-2231022020010003-1301212100030103-2112231313201100-2323230330003103-2223313213113322-2200123202013330) |
+| `proxy_advertisement.advertise_custom.advertise_where.virtual_site.network` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site.network](resources--bigip_http_proxy--reference--group-003.md#canonical-3132133303020301-2123313103311312-1221330302311101-0210211230201022-3210011232011213-1231302112130112-0220330002311000-2021012203023123) |
+| `proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site](resources--bigip_http_proxy--reference--group-003.md#canonical-3212032320331233-0110203001111003-1213113311213331-0030213020210013-3201211003302002-0133330120022102-3203131031312311-1031003122010022) |
+| `proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site.name` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site.name](resources--bigip_http_proxy--reference--group-003.md#canonical-2330020322302033-0133011231010320-2101021131302231-0111301120221212-3321012233032031-3132132221203220-0023130202211203-0331133003322230) |
+| `proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site.namespace` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site.namespace](resources--bigip_http_proxy--reference--group-003.md#canonical-2020122000310211-2023032133333312-1001001102013313-0332101210303201-1010200131233233-3003323232312320-2032311230332221-1102011231223012) |
+| `proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site.tenant` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site.tenant](resources--bigip_http_proxy--reference--group-003.md#canonical-0323332222331013-0120012112012230-2121323123232122-1221100022330002-2303211203023020-3321133120020230-0210211001311212-2211311303023322) |
+| `proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip](resources--bigip_http_proxy--reference--group-003.md#canonical-0220300231313210-3332311301321130-3030320113320313-3300310102103031-3003312001331100-2123113302222023-2000113330300331-1312213033101121) |
+| `proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.ip` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.ip](resources--bigip_http_proxy--reference--group-003.md#canonical-3023233110110223-0112012031033223-3122313322000200-3122102330023132-2330112123322313-0012021000302000-0231330203303003-0310121300110223) |
+| `proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.network` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.network](resources--bigip_http_proxy--reference--group-003.md#canonical-2011101021100212-2333221011113000-2233212112220011-0302312103123032-1220002131021311-2003010303300233-0231033033200223-0211103031323101) |
 | `proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site](resources--bigip_http_proxy--reference--group-003.md#canonical-1002001211210232-2213230213230221-2112321102310310-1203230222110311-3133303313213330-2000222130200222-2330233033132232-2002002311111123) |
 | `proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.name` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.name](resources--bigip_http_proxy--reference--group-003.md#canonical-3322203021211320-0032023300311101-2101202110112303-1223302233203113-1031331302200130-3311330303220332-1302111321000000-0303100123112311) |
 | `proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.namespace` | [proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.namespace](resources--bigip_http_proxy--reference--group-003.md#canonical-2011132310020120-0103301113032110-2233212221323013-1030022200322211-1100120121130111-2100302221021131-3233201230301322-3123332120032111) |
@@ -537,47 +530,47 @@ Each exact path has one authoritative reference destination. Collection element 
 | `proxy_config.https.tls_cert_params.certificates` | [proxy_config.https.tls_cert_params.certificates](resources--bigip_http_proxy--reference--group-003.md#canonical-2331102121213232-3113200110102120-2130311031232123-0023131022032013-3310110201230102-3121330232000222-1112023203131030-2233312113200011) |
 | `proxy_config.https.tls_cert_params.certificates.name` | [proxy_config.https.tls_cert_params.certificates.name](resources--bigip_http_proxy--reference--group-003.md#canonical-3020130213211231-0110022032110102-0103110201032332-3130011011102112-0000032222200003-0123132112301022-0321313310003111-2101002230132021) |
 | `proxy_config.https.tls_cert_params.certificates.namespace` | [proxy_config.https.tls_cert_params.certificates.namespace](resources--bigip_http_proxy--reference--group-003.md#canonical-2221332102220321-1233103023203000-1132122302301322-0032233310020101-1333331321231302-1120223010000332-3232003120111120-1213133331301100) |
-| `proxy_config.https.tls_cert_params.certificates.tenant` | [proxy_config.https.tls_cert_params.certificates.tenant](resources--bigip_http_proxy--reference--group-003.md#canonical-1310220210131220-0001132111131111-0320020301231232-3001111231312233-1003032012100032-2020230333123220-1220301033122022-2131101123313200) |
-| `proxy_config.https.tls_cert_params.no_mtls` | [proxy_config.https.tls_cert_params.no_mtls](resources--bigip_http_proxy--reference--group-003.md#canonical-3321313102220133-2311213030011233-0012110132133220-3203323230330000-1013313202132332-1232000110102031-0001132120123232-0210022212030103) |
-| `proxy_config.https.tls_cert_params.tls_config` | [proxy_config.https.tls_cert_params.tls_config](resources--bigip_http_proxy--reference--group-003.md#canonical-2133230230132223-0013202033222321-1032221331203013-1213030201201130-1012122111333111-0122020311333212-0030313001002123-3011211110212103) |
-| `proxy_config.https.tls_cert_params.tls_config.custom_security` | [proxy_config.https.tls_cert_params.tls_config.custom_security](resources--bigip_http_proxy--reference--group-003.md#canonical-0031303213213230-2003331031200220-2032201120012222-1300113230130211-3321122000021131-1133222112012330-2331302010011132-3122231122103321) |
-| `proxy_config.https.tls_cert_params.tls_config.custom_security.cipher_suites` | [proxy_config.https.tls_cert_params.tls_config.custom_security.cipher_suites](resources--bigip_http_proxy--reference--group-003.md#canonical-2100012232300311-1022312321330200-0320113031110201-2331220210122300-1332223301233032-3220331312020101-3010122131101022-2001023212020100) |
-| `proxy_config.https.tls_cert_params.tls_config.custom_security.max_version` | [proxy_config.https.tls_cert_params.tls_config.custom_security.max_version](resources--bigip_http_proxy--reference--group-003.md#canonical-2131110222323031-1310312332103231-0003203223032310-0211103112012003-0230231030321332-3330232003300312-3200302001020032-0032222000110130) |
-| `proxy_config.https.tls_cert_params.tls_config.custom_security.min_version` | [proxy_config.https.tls_cert_params.tls_config.custom_security.min_version](resources--bigip_http_proxy--reference--group-003.md#canonical-2120223232223003-2030201231223003-0131120133022011-3333131302213011-0322333323333033-0320321203031003-1311202231002232-1212222322102011) |
-| `proxy_config.https.tls_cert_params.tls_config.default_security` | [proxy_config.https.tls_cert_params.tls_config.default_security](resources--bigip_http_proxy--reference--group-003.md#canonical-3013330031011133-0031101232332000-3320013320321210-2022112121323010-2200333123112331-1312301032101133-0212012003303311-0031300122010323) |
-| `proxy_config.https.tls_cert_params.tls_config.low_security` | [proxy_config.https.tls_cert_params.tls_config.low_security](resources--bigip_http_proxy--reference--group-003.md#canonical-2010121312320302-0101102001333221-0103032311000230-0221230332312300-0033111103133232-2123120310213121-2002231312021323-3220230230033103) |
-| `proxy_config.https.tls_cert_params.tls_config.medium_security` | [proxy_config.https.tls_cert_params.tls_config.medium_security](resources--bigip_http_proxy--reference--group-003.md#canonical-2322331100001201-2230223332010032-2110202221222210-3220010010231032-0201023110212123-3231021120303112-1132012210021202-1231003202000130) |
-| `proxy_config.https.tls_cert_params.use_mtls` | [proxy_config.https.tls_cert_params.use_mtls](resources--bigip_http_proxy--reference--group-003.md#canonical-2002303301031111-2132312201122033-3220010121322013-0333031200101322-0203103201332033-3030000210201212-3320203123132031-1220221212230001) |
-| `proxy_config.https.tls_cert_params.use_mtls.client_certificate_optional` | [proxy_config.https.tls_cert_params.use_mtls.client_certificate_optional](resources--bigip_http_proxy--reference--group-003.md#canonical-3013302213222033-3023202323332200-2003131122120220-3031201022201333-1231332233300133-1310320201223312-0312031001032213-1303303333013133) |
-| `proxy_config.https.tls_cert_params.use_mtls.crl` | [proxy_config.https.tls_cert_params.use_mtls.crl](resources--bigip_http_proxy--reference--group-003.md#canonical-1100022302103132-2021302201320123-0122000012202212-3221132210021322-1202201031101030-1302010230302232-0323200313222132-3200011223123233) |
-| `proxy_config.https.tls_cert_params.use_mtls.crl.name` | [proxy_config.https.tls_cert_params.use_mtls.crl.name](resources--bigip_http_proxy--reference--group-003.md#canonical-3133102110030302-1230311303021030-0313313000311230-3013300130031221-0000223202221333-1310012302032123-3332202133031212-3022312213100312) |
-| `proxy_config.https.tls_cert_params.use_mtls.crl.namespace` | [proxy_config.https.tls_cert_params.use_mtls.crl.namespace](resources--bigip_http_proxy--reference--group-003.md#canonical-0321032210002011-1013222001011202-1020121230310020-2311331030000210-3332213103312212-1120303300333012-2213031203030102-2312232330311130) |
-| `proxy_config.https.tls_cert_params.use_mtls.crl.tenant` | [proxy_config.https.tls_cert_params.use_mtls.crl.tenant](resources--bigip_http_proxy--reference--group-003.md#canonical-2313032301310211-1030022122233213-3220202310322302-1300012333123332-3321222110230200-2212211102222123-1011013002020001-2333112131210302) |
-| `proxy_config.https.tls_cert_params.use_mtls.no_crl` | [proxy_config.https.tls_cert_params.use_mtls.no_crl](resources--bigip_http_proxy--reference--group-003.md#canonical-3020011320103021-1330123313300030-0012020133130110-0332032322023001-0332300202022133-3201101230021303-0211202030211323-1231220220130221) |
-| `proxy_config.https.tls_cert_params.use_mtls.trusted_ca` | [proxy_config.https.tls_cert_params.use_mtls.trusted_ca](resources--bigip_http_proxy--reference--group-003.md#canonical-2000232132011120-2011013201322020-1031122031302333-1302021203011212-2020221032312302-1331000203010313-1000222011111201-0103233332312232) |
-| `proxy_config.https.tls_cert_params.use_mtls.trusted_ca.name` | [proxy_config.https.tls_cert_params.use_mtls.trusted_ca.name](resources--bigip_http_proxy--reference--group-003.md#canonical-1003202213002313-0031002130223112-1013121001110312-3200311020323310-3102020112003321-2102022112310031-2132332310111321-0201233031302321) |
-| `proxy_config.https.tls_cert_params.use_mtls.trusted_ca.namespace` | [proxy_config.https.tls_cert_params.use_mtls.trusted_ca.namespace](resources--bigip_http_proxy--reference--group-003.md#canonical-1320010130103133-0020223220303031-3231323210000230-3023233331131231-0010223232111330-2122110013223310-2223032320210023-2302223020010120) |
-| `proxy_config.https.tls_cert_params.use_mtls.trusted_ca.tenant` | [proxy_config.https.tls_cert_params.use_mtls.trusted_ca.tenant](resources--bigip_http_proxy--reference--group-003.md#canonical-2122330320130303-0011132332121021-0203120133010320-1101300202120102-1102330010212331-2012033213121100-2032031012321023-3132131000303301) |
-| `proxy_config.https.tls_cert_params.use_mtls.trusted_ca_url` | [proxy_config.https.tls_cert_params.use_mtls.trusted_ca_url](resources--bigip_http_proxy--reference--group-003.md#canonical-0003220231231303-3130033332303332-3322310321001232-3020013321023310-0203000303200202-3302312200201110-2210302301030312-0122303302220230) |
-| `proxy_config.https.tls_cert_params.use_mtls.xfcc_disabled` | [proxy_config.https.tls_cert_params.use_mtls.xfcc_disabled](resources--bigip_http_proxy--reference--group-003.md#canonical-0111033302023221-3310003303303131-1310332121313111-1013031100131132-0130010033111122-1113222120323210-3200300013123322-3203323313213131) |
-| `proxy_config.https.tls_cert_params.use_mtls.xfcc_options` | [proxy_config.https.tls_cert_params.use_mtls.xfcc_options](resources--bigip_http_proxy--reference--group-003.md#canonical-0332212230300113-2113001211110101-1300133321321132-3203023313200121-3101231200331111-2013121011120303-2311113123200033-1003222322321120) |
-| `proxy_config.https.tls_cert_params.use_mtls.xfcc_options.xfcc_header_elements` | [proxy_config.https.tls_cert_params.use_mtls.xfcc_options.xfcc_header_elements](resources--bigip_http_proxy--reference--group-003.md#canonical-2212233001102010-0302012322301022-1331112010300111-0102001013012231-2301313011311012-3012201000313230-0123301213020113-2001130100331302) |
-| `proxy_config.https.tls_parameters` | [proxy_config.https.tls_parameters](resources--bigip_http_proxy--reference--group-003.md#canonical-0120102120100020-1100011221033102-0221220220332001-1333311021222120-2023123132110312-0002031111321112-1022231022201102-3131022230333133) |
-| `proxy_config.https.tls_parameters.no_mtls` | [proxy_config.https.tls_parameters.no_mtls](resources--bigip_http_proxy--reference--group-003.md#canonical-3310030003230002-1220330232102210-3310322322222322-3120220231131103-2013100022001031-0232220231320012-3222200121113102-2231011021001022) |
-| `proxy_config.https.tls_parameters.tls_certificates` | [proxy_config.https.tls_parameters.tls_certificates](resources--bigip_http_proxy--reference--group-003.md#canonical-0220301032330333-1323013100331100-0012033233323112-2320332311233123-3212210220220222-0112021100023210-3201100302313332-0122102311013310) |
-| `proxy_config.https.tls_parameters.tls_certificates.certificate_url` | [proxy_config.https.tls_parameters.tls_certificates.certificate_url](resources--bigip_http_proxy--reference--group-003.md#canonical-0032213100120331-0231021203102030-3023322201023331-1112010001322213-3132232010200100-0320222200322132-3211320213133323-0013323130333301) |
-| `proxy_config.https.tls_parameters.tls_certificates.custom_hash_algorithms` | [proxy_config.https.tls_parameters.tls_certificates.custom_hash_algorithms](resources--bigip_http_proxy--reference--group-003.md#canonical-2333232103133300-0103332332102100-3233300330020313-0131011021330123-1023112210330310-3321023123023210-2132112123212203-3313221233102030) |
-| `proxy_config.https.tls_parameters.tls_certificates.custom_hash_algorithms.hash_algorithms` | [proxy_config.https.tls_parameters.tls_certificates.custom_hash_algorithms.hash_algorithms](resources--bigip_http_proxy--reference--group-003.md#canonical-1100222003230221-2033331123031030-3220021020133123-3012122121031213-3002223122312312-1011012231100202-2131011223020320-2331303222311231) |
-| `proxy_config.https.tls_parameters.tls_certificates.description_spec` | [proxy_config.https.tls_parameters.tls_certificates.description_spec](resources--bigip_http_proxy--reference--group-003.md#canonical-3133310331011323-0312013011321130-3133332322303112-2232201032230200-0132020301023012-0013213132203202-2232223120002310-3221330123213032) |
-| `proxy_config.https.tls_parameters.tls_certificates.disable_ocsp_stapling` | [proxy_config.https.tls_parameters.tls_certificates.disable_ocsp_stapling](resources--bigip_http_proxy--reference--group-003.md#canonical-3233023212023113-3300203231011311-2232232201223103-2311313202200030-1313313102330213-3112331101121320-0330033210230300-0312131322102203) |
-| `proxy_config.https.tls_parameters.tls_certificates.private_key` | [proxy_config.https.tls_parameters.tls_certificates.private_key](resources--bigip_http_proxy--reference--group-003.md#canonical-3013133203032233-3112011013132000-0201232133010111-3321300130121111-0211113323130333-0223111102210233-1321012113010101-2100001101012221) |
-| `proxy_config.https.tls_parameters.tls_certificates.private_key.blindfold_secret_info` | [proxy_config.https.tls_parameters.tls_certificates.private_key.blindfold_secret_info](resources--bigip_http_proxy--reference--group-003.md#canonical-3002230331121022-2011220313320330-2221223233211031-3212133202023210-0003333232030203-1221312322100203-2110002312132312-1303232011130120) |
-| `proxy_config.https.tls_parameters.tls_certificates.private_key.blindfold_secret_info.decryption_provider` | [proxy_config.https.tls_parameters.tls_certificates.private_key.blindfold_secret_info.decryption_provider](resources--bigip_http_proxy--reference--group-003.md#canonical-0212203223200200-2113132031320133-2132003302301211-2032130301011120-3210003130222203-0312202003201033-3223002230220022-0232200033113102) |
-| `proxy_config.https.tls_parameters.tls_certificates.private_key.blindfold_secret_info.location` | [proxy_config.https.tls_parameters.tls_certificates.private_key.blindfold_secret_info.location](resources--bigip_http_proxy--reference--group-003.md#canonical-0121123033113033-1022122331121000-2300103130203112-0213310122131231-2231020003332220-3003231111321113-3232112332320231-0211321310022301) |
-| `proxy_config.https.tls_parameters.tls_certificates.private_key.blindfold_secret_info.store_provider` | [proxy_config.https.tls_parameters.tls_certificates.private_key.blindfold_secret_info.store_provider](resources--bigip_http_proxy--reference--group-003.md#canonical-0211002203112010-1101011032112213-0113213212112323-0013311030333312-2233033312212201-0211312122001100-2302320332300003-2100233231323110) |
-| `proxy_config.https.tls_parameters.tls_certificates.private_key.clear_secret_info` | [proxy_config.https.tls_parameters.tls_certificates.private_key.clear_secret_info](resources--bigip_http_proxy--reference--group-003.md#canonical-3101321102031322-2010221022033033-3110011233010102-1132312122322000-1121203302023131-3301130212231331-0313000010132021-1200121313012321) |
-| `proxy_config.https.tls_parameters.tls_certificates.private_key.clear_secret_info.provider_ref` | [proxy_config.https.tls_parameters.tls_certificates.private_key.clear_secret_info.provider_ref](resources--bigip_http_proxy--reference--group-003.md#canonical-0110203200231022-2023013001221300-2203303231020311-2032020312220302-1203232200100002-2030101223302013-3011021003132223-2201332211032312) |
-| `proxy_config.https.tls_parameters.tls_certificates.private_key.clear_secret_info.url` | [proxy_config.https.tls_parameters.tls_certificates.private_key.clear_secret_info.url](resources--bigip_http_proxy--reference--group-003.md#canonical-2023202121220333-3310223010223223-3323320130200213-2022103011011220-3022133301303232-2130320133302202-0031110032320232-3230323032122111) |
+| `proxy_config.https.tls_cert_params.certificates.tenant` | [proxy_config.https.tls_cert_params.certificates.tenant](resources--bigip_http_proxy--reference--group-004.md#canonical-1310220210131220-0001132111131111-0320020301231232-3001111231312233-1003032012100032-2020230333123220-1220301033122022-2131101123313200) |
+| `proxy_config.https.tls_cert_params.no_mtls` | [proxy_config.https.tls_cert_params.no_mtls](resources--bigip_http_proxy--reference--group-004.md#canonical-3321313102220133-2311213030011233-0012110132133220-3203323230330000-1013313202132332-1232000110102031-0001132120123232-0210022212030103) |
+| `proxy_config.https.tls_cert_params.tls_config` | [proxy_config.https.tls_cert_params.tls_config](resources--bigip_http_proxy--reference--group-004.md#canonical-2133230230132223-0013202033222321-1032221331203013-1213030201201130-1012122111333111-0122020311333212-0030313001002123-3011211110212103) |
+| `proxy_config.https.tls_cert_params.tls_config.custom_security` | [proxy_config.https.tls_cert_params.tls_config.custom_security](resources--bigip_http_proxy--reference--group-004.md#canonical-0031303213213230-2003331031200220-2032201120012222-1300113230130211-3321122000021131-1133222112012330-2331302010011132-3122231122103321) |
+| `proxy_config.https.tls_cert_params.tls_config.custom_security.cipher_suites` | [proxy_config.https.tls_cert_params.tls_config.custom_security.cipher_suites](resources--bigip_http_proxy--reference--group-004.md#canonical-2100012232300311-1022312321330200-0320113031110201-2331220210122300-1332223301233032-3220331312020101-3010122131101022-2001023212020100) |
+| `proxy_config.https.tls_cert_params.tls_config.custom_security.max_version` | [proxy_config.https.tls_cert_params.tls_config.custom_security.max_version](resources--bigip_http_proxy--reference--group-004.md#canonical-2131110222323031-1310312332103231-0003203223032310-0211103112012003-0230231030321332-3330232003300312-3200302001020032-0032222000110130) |
+| `proxy_config.https.tls_cert_params.tls_config.custom_security.min_version` | [proxy_config.https.tls_cert_params.tls_config.custom_security.min_version](resources--bigip_http_proxy--reference--group-004.md#canonical-2120223232223003-2030201231223003-0131120133022011-3333131302213011-0322333323333033-0320321203031003-1311202231002232-1212222322102011) |
+| `proxy_config.https.tls_cert_params.tls_config.default_security` | [proxy_config.https.tls_cert_params.tls_config.default_security](resources--bigip_http_proxy--reference--group-004.md#canonical-3013330031011133-0031101232332000-3320013320321210-2022112121323010-2200333123112331-1312301032101133-0212012003303311-0031300122010323) |
+| `proxy_config.https.tls_cert_params.tls_config.low_security` | [proxy_config.https.tls_cert_params.tls_config.low_security](resources--bigip_http_proxy--reference--group-004.md#canonical-2010121312320302-0101102001333221-0103032311000230-0221230332312300-0033111103133232-2123120310213121-2002231312021323-3220230230033103) |
+| `proxy_config.https.tls_cert_params.tls_config.medium_security` | [proxy_config.https.tls_cert_params.tls_config.medium_security](resources--bigip_http_proxy--reference--group-004.md#canonical-2322331100001201-2230223332010032-2110202221222210-3220010010231032-0201023110212123-3231021120303112-1132012210021202-1231003202000130) |
+| `proxy_config.https.tls_cert_params.use_mtls` | [proxy_config.https.tls_cert_params.use_mtls](resources--bigip_http_proxy--reference--group-004.md#canonical-2002303301031111-2132312201122033-3220010121322013-0333031200101322-0203103201332033-3030000210201212-3320203123132031-1220221212230001) |
+| `proxy_config.https.tls_cert_params.use_mtls.client_certificate_optional` | [proxy_config.https.tls_cert_params.use_mtls.client_certificate_optional](resources--bigip_http_proxy--reference--group-004.md#canonical-3013302213222033-3023202323332200-2003131122120220-3031201022201333-1231332233300133-1310320201223312-0312031001032213-1303303333013133) |
+| `proxy_config.https.tls_cert_params.use_mtls.crl` | [proxy_config.https.tls_cert_params.use_mtls.crl](resources--bigip_http_proxy--reference--group-004.md#canonical-1100022302103132-2021302201320123-0122000012202212-3221132210021322-1202201031101030-1302010230302232-0323200313222132-3200011223123233) |
+| `proxy_config.https.tls_cert_params.use_mtls.crl.name` | [proxy_config.https.tls_cert_params.use_mtls.crl.name](resources--bigip_http_proxy--reference--group-004.md#canonical-3133102110030302-1230311303021030-0313313000311230-3013300130031221-0000223202221333-1310012302032123-3332202133031212-3022312213100312) |
+| `proxy_config.https.tls_cert_params.use_mtls.crl.namespace` | [proxy_config.https.tls_cert_params.use_mtls.crl.namespace](resources--bigip_http_proxy--reference--group-004.md#canonical-0321032210002011-1013222001011202-1020121230310020-2311331030000210-3332213103312212-1120303300333012-2213031203030102-2312232330311130) |
+| `proxy_config.https.tls_cert_params.use_mtls.crl.tenant` | [proxy_config.https.tls_cert_params.use_mtls.crl.tenant](resources--bigip_http_proxy--reference--group-004.md#canonical-2313032301310211-1030022122233213-3220202310322302-1300012333123332-3321222110230200-2212211102222123-1011013002020001-2333112131210302) |
+| `proxy_config.https.tls_cert_params.use_mtls.no_crl` | [proxy_config.https.tls_cert_params.use_mtls.no_crl](resources--bigip_http_proxy--reference--group-004.md#canonical-3020011320103021-1330123313300030-0012020133130110-0332032322023001-0332300202022133-3201101230021303-0211202030211323-1231220220130221) |
+| `proxy_config.https.tls_cert_params.use_mtls.trusted_ca` | [proxy_config.https.tls_cert_params.use_mtls.trusted_ca](resources--bigip_http_proxy--reference--group-004.md#canonical-2000232132011120-2011013201322020-1031122031302333-1302021203011212-2020221032312302-1331000203010313-1000222011111201-0103233332312232) |
+| `proxy_config.https.tls_cert_params.use_mtls.trusted_ca.name` | [proxy_config.https.tls_cert_params.use_mtls.trusted_ca.name](resources--bigip_http_proxy--reference--group-004.md#canonical-1003202213002313-0031002130223112-1013121001110312-3200311020323310-3102020112003321-2102022112310031-2132332310111321-0201233031302321) |
+| `proxy_config.https.tls_cert_params.use_mtls.trusted_ca.namespace` | [proxy_config.https.tls_cert_params.use_mtls.trusted_ca.namespace](resources--bigip_http_proxy--reference--group-004.md#canonical-1320010130103133-0020223220303031-3231323210000230-3023233331131231-0010223232111330-2122110013223310-2223032320210023-2302223020010120) |
+| `proxy_config.https.tls_cert_params.use_mtls.trusted_ca.tenant` | [proxy_config.https.tls_cert_params.use_mtls.trusted_ca.tenant](resources--bigip_http_proxy--reference--group-004.md#canonical-2122330320130303-0011132332121021-0203120133010320-1101300202120102-1102330010212331-2012033213121100-2032031012321023-3132131000303301) |
+| `proxy_config.https.tls_cert_params.use_mtls.trusted_ca_url` | [proxy_config.https.tls_cert_params.use_mtls.trusted_ca_url](resources--bigip_http_proxy--reference--group-004.md#canonical-0003220231231303-3130033332303332-3322310321001232-3020013321023310-0203000303200202-3302312200201110-2210302301030312-0122303302220230) |
+| `proxy_config.https.tls_cert_params.use_mtls.xfcc_disabled` | [proxy_config.https.tls_cert_params.use_mtls.xfcc_disabled](resources--bigip_http_proxy--reference--group-004.md#canonical-0111033302023221-3310003303303131-1310332121313111-1013031100131132-0130010033111122-1113222120323210-3200300013123322-3203323313213131) |
+| `proxy_config.https.tls_cert_params.use_mtls.xfcc_options` | [proxy_config.https.tls_cert_params.use_mtls.xfcc_options](resources--bigip_http_proxy--reference--group-004.md#canonical-0332212230300113-2113001211110101-1300133321321132-3203023313200121-3101231200331111-2013121011120303-2311113123200033-1003222322321120) |
+| `proxy_config.https.tls_cert_params.use_mtls.xfcc_options.xfcc_header_elements` | [proxy_config.https.tls_cert_params.use_mtls.xfcc_options.xfcc_header_elements](resources--bigip_http_proxy--reference--group-004.md#canonical-2212233001102010-0302012322301022-1331112010300111-0102001013012231-2301313011311012-3012201000313230-0123301213020113-2001130100331302) |
+| `proxy_config.https.tls_parameters` | [proxy_config.https.tls_parameters](resources--bigip_http_proxy--reference--group-004.md#canonical-0120102120100020-1100011221033102-0221220220332001-1333311021222120-2023123132110312-0002031111321112-1022231022201102-3131022230333133) |
+| `proxy_config.https.tls_parameters.no_mtls` | [proxy_config.https.tls_parameters.no_mtls](resources--bigip_http_proxy--reference--group-004.md#canonical-3310030003230002-1220330232102210-3310322322222322-3120220231131103-2013100022001031-0232220231320012-3222200121113102-2231011021001022) |
+| `proxy_config.https.tls_parameters.tls_certificates` | [proxy_config.https.tls_parameters.tls_certificates](resources--bigip_http_proxy--reference--group-004.md#canonical-0220301032330333-1323013100331100-0012033233323112-2320332311233123-3212210220220222-0112021100023210-3201100302313332-0122102311013310) |
+| `proxy_config.https.tls_parameters.tls_certificates.certificate_url` | [proxy_config.https.tls_parameters.tls_certificates.certificate_url](resources--bigip_http_proxy--reference--group-004.md#canonical-0032213100120331-0231021203102030-3023322201023331-1112010001322213-3132232010200100-0320222200322132-3211320213133323-0013323130333301) |
+| `proxy_config.https.tls_parameters.tls_certificates.custom_hash_algorithms` | [proxy_config.https.tls_parameters.tls_certificates.custom_hash_algorithms](resources--bigip_http_proxy--reference--group-004.md#canonical-2333232103133300-0103332332102100-3233300330020313-0131011021330123-1023112210330310-3321023123023210-2132112123212203-3313221233102030) |
+| `proxy_config.https.tls_parameters.tls_certificates.custom_hash_algorithms.hash_algorithms` | [proxy_config.https.tls_parameters.tls_certificates.custom_hash_algorithms.hash_algorithms](resources--bigip_http_proxy--reference--group-004.md#canonical-1100222003230221-2033331123031030-3220021020133123-3012122121031213-3002223122312312-1011012231100202-2131011223020320-2331303222311231) |
+| `proxy_config.https.tls_parameters.tls_certificates.description_spec` | [proxy_config.https.tls_parameters.tls_certificates.description_spec](resources--bigip_http_proxy--reference--group-004.md#canonical-3133310331011323-0312013011321130-3133332322303112-2232201032230200-0132020301023012-0013213132203202-2232223120002310-3221330123213032) |
+| `proxy_config.https.tls_parameters.tls_certificates.disable_ocsp_stapling` | [proxy_config.https.tls_parameters.tls_certificates.disable_ocsp_stapling](resources--bigip_http_proxy--reference--group-004.md#canonical-3233023212023113-3300203231011311-2232232201223103-2311313202200030-1313313102330213-3112331101121320-0330033210230300-0312131322102203) |
+| `proxy_config.https.tls_parameters.tls_certificates.private_key` | [proxy_config.https.tls_parameters.tls_certificates.private_key](resources--bigip_http_proxy--reference--group-004.md#canonical-3013133203032233-3112011013132000-0201232133010111-3321300130121111-0211113323130333-0223111102210233-1321012113010101-2100001101012221) |
+| `proxy_config.https.tls_parameters.tls_certificates.private_key.blindfold_secret_info` | [proxy_config.https.tls_parameters.tls_certificates.private_key.blindfold_secret_info](resources--bigip_http_proxy--reference--group-004.md#canonical-3002230331121022-2011220313320330-2221223233211031-3212133202023210-0003333232030203-1221312322100203-2110002312132312-1303232011130120) |
+| `proxy_config.https.tls_parameters.tls_certificates.private_key.blindfold_secret_info.decryption_provider` | [proxy_config.https.tls_parameters.tls_certificates.private_key.blindfold_secret_info.decryption_provider](resources--bigip_http_proxy--reference--group-004.md#canonical-0212203223200200-2113132031320133-2132003302301211-2032130301011120-3210003130222203-0312202003201033-3223002230220022-0232200033113102) |
+| `proxy_config.https.tls_parameters.tls_certificates.private_key.blindfold_secret_info.location` | [proxy_config.https.tls_parameters.tls_certificates.private_key.blindfold_secret_info.location](resources--bigip_http_proxy--reference--group-004.md#canonical-0121123033113033-1022122331121000-2300103130203112-0213310122131231-2231020003332220-3003231111321113-3232112332320231-0211321310022301) |
+| `proxy_config.https.tls_parameters.tls_certificates.private_key.blindfold_secret_info.store_provider` | [proxy_config.https.tls_parameters.tls_certificates.private_key.blindfold_secret_info.store_provider](resources--bigip_http_proxy--reference--group-004.md#canonical-0211002203112010-1101011032112213-0113213212112323-0013311030333312-2233033312212201-0211312122001100-2302320332300003-2100233231323110) |
+| `proxy_config.https.tls_parameters.tls_certificates.private_key.clear_secret_info` | [proxy_config.https.tls_parameters.tls_certificates.private_key.clear_secret_info](resources--bigip_http_proxy--reference--group-004.md#canonical-3101321102031322-2010221022033033-3110011233010102-1132312122322000-1121203302023131-3301130212231331-0313000010132021-1200121313012321) |
+| `proxy_config.https.tls_parameters.tls_certificates.private_key.clear_secret_info.provider_ref` | [proxy_config.https.tls_parameters.tls_certificates.private_key.clear_secret_info.provider_ref](resources--bigip_http_proxy--reference--group-004.md#canonical-0110203200231022-2023013001221300-2203303231020311-2032020312220302-1203232200100002-2030101223302013-3011021003132223-2201332211032312) |
+| `proxy_config.https.tls_parameters.tls_certificates.private_key.clear_secret_info.url` | [proxy_config.https.tls_parameters.tls_certificates.private_key.clear_secret_info.url](resources--bigip_http_proxy--reference--group-004.md#canonical-2023202121220333-3310223010223223-3323320130200213-2022103011011220-3022133301303232-2130320133302202-0031110032320232-3230323032122111) |
 | `proxy_config.https.tls_parameters.tls_certificates.use_system_defaults` | [proxy_config.https.tls_parameters.tls_certificates.use_system_defaults](resources--bigip_http_proxy--reference--group-004.md#canonical-3300203102333201-1311112211011302-0031000102110232-2312210220211233-1002211132111022-1232202302023033-2232132100310132-0111012201021031) |
 | `proxy_config.https.tls_parameters.tls_config` | [proxy_config.https.tls_parameters.tls_config](resources--bigip_http_proxy--reference--group-004.md#canonical-2103323030031233-2211133023111033-2132023100322132-2331320220012233-0223223032201022-1301023100321302-1102000013211332-3302012003202223) |
 | `proxy_config.https.tls_parameters.tls_config.custom_security` | [proxy_config.https.tls_parameters.tls_config.custom_security](resources--bigip_http_proxy--reference--group-004.md#canonical-2210003101010303-3213302030201200-1223323223330133-1101110322332312-1322302203210230-1310233210130310-3032112312000001-1303200130311330) |
@@ -657,29 +650,13 @@ Each exact path has one authoritative reference destination. Collection element 
 | `timeouts.read` | [timeouts.read](resources--bigip_http_proxy--reference--group-004.md#canonical-3111202213100121-2023201200020303-2203123210101010-0311230012132300-2031113223221113-2311030330020320-1102202032333323-3032023221011013) |
 | `timeouts.update` | [timeouts.update](resources--bigip_http_proxy--reference--group-004.md#canonical-1102310223003003-3233021331311302-3201131102023300-0121100132013020-1203033102020030-0001010201201022-1132121332021222-3103333330003310) |
 
-<a id="canonical-1131312330022030-3213212200011002-2301123020123330-2021301220130302-1011210332220012-3200122220311112-1332120210332112-1033312322301332"></a>
-
-## Next pages — Property reference / 310133130301 / 12
-
-- [advanced_profile](resources--bigip_http_proxy--reference--group-001.md#canonical-2112133030313203-1202233221221323-0231033212122201-1200202122332313-2022030302010022-1221300001120300-3120211033311213-2323103320212230)
-- [ddos_profile](resources--bigip_http_proxy--reference--group-001.md#canonical-3223222331220311-2021021213301233-3110010022113211-1113021011323210-1100223221332333-3200220332110002-3301021103103321-3002222130011323)
-- [irules](resources--bigip_http_proxy--reference--group-001.md#canonical-1120320133323032-2322013030113130-0032022100212120-1002211211233300-1000313031332132-3203200330320300-1100023210101120-0131020312332202)
-- [lb_algorithm](resources--bigip_http_proxy--reference--group-001.md#canonical-0010233021331310-1100023120223111-0232222211022121-1032211023101301-3003123030113013-3230220310130310-0221133011233320-1132331211111231)
-- [origin_pools](resources--bigip_http_proxy--reference--group-001.md#canonical-3130302100213032-1133033213001002-2331132101322013-0203331122233331-3021113033330230-2313122333001332-0303103133232110-2002132020103202)
-- [proxy_advertisement](resources--bigip_http_proxy--reference--group-002.md#canonical-0222202123223213-1021332332331003-3333013231022023-1200013112100010-3021102122231210-1210031321121132-3303131312332322-2002012022311122)
-- [proxy_config](resources--bigip_http_proxy--reference--group-003.md#canonical-3003013220031132-0222103102123201-3133022011003320-3300031222211002-0032213213000000-1001011223312300-1133211303323330-1223230120123033)
-- [timeouts](resources--bigip_http_proxy--reference--group-004.md#canonical-1231333103033012-2112201220312122-2222023320130000-2122221200023233-1122012332200101-1313233133310311-3230012111033123-0101131100232102)
-- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
-
 <a id="canonical-2112133030313203-1202233221221323-0231033212122201-1200202122332313-2022030302010022-1221300001120300-3120211033311213-2323103320212230"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3001100202212120-2110121302221320-0122211330021333-0332221003131120-0230321211001333-1101302230001033-2320230332001233-3310011232002302"></a>
-
-## advanced_profile — advanced_profile / 102310203333 / 2
+## `advanced_profile` properties
 
 Breadcrumbs:
 
@@ -690,10 +667,6 @@ Breadcrumbs:
 <a id="canonical-2202101110120110-1303332222001222-0101031233131220-1321323001223202-0310111203221022-0121201102003320-3122213002331303-3323322131233320"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Defines various advanced Profile OPTIONS for a Loadbalancer.
-
-Upstream description:
 
 This defines various advanced Profile OPTIONS for a Loadbalancer.
 
@@ -727,22 +700,13 @@ advanced_profile {
 }
 ```
 
-<a id="canonical-3230331313103111-1313322112231003-3100320331030110-0233012100232222-2131203113031132-2232111313223323-1003123113030312-1032210122302220"></a>
+<a id="canonical-3001100202212120-2110121302221320-0122211330021333-0332221003131120-0230321211001333-1101302230001033-2320230332001233-3310011232002302"></a>
 
-## Direct properties — advanced_profile / 102310203333 / 3
+### Direct properties for `advanced_profile`
 
 - [disable_spec](resources--bigip_http_proxy--reference--group-001.md#canonical-1031030132100222-0002211222122030-3221302130313303-0312000200310233-1220010033231131-3222020210303210-3120021331103212-2132213030020010): complete subsection reference.
 
 - [enable_default_profile](resources--bigip_http_proxy--reference--group-001.md#canonical-3133021223323122-3320012200231021-3301031021103333-1013210113222003-1132233333333102-3313303211213212-1000321311333320-1011120110101032): complete subsection reference.
-
-<a id="canonical-0322220230213132-0003002101112323-3012333021123002-3032110023121211-3113130302000213-0210310123233302-2201132000230211-0203102312000133"></a>
-
-## Next pages — advanced_profile / 102310203333 / 4
-
-- [advanced_profile.disable_spec](resources--bigip_http_proxy--reference--group-001.md#canonical-1031030132100222-0002211222122030-3221302130313303-0312000200310233-1220010033231131-3222020210303210-3120021331103212-2132213030020010)
-- [advanced_profile.enable_default_profile](resources--bigip_http_proxy--reference--group-001.md#canonical-3133021223323122-3320012200231021-3301031021103333-1013210113222003-1132233333333102-3313303211213212-1000321311333320-1011120110101032)
-- [Property reference](resources--bigip_http_proxy--reference--group-001.md#canonical-0101201332222201-3302033021001322-1302101210311331-2210333210320003-0002033231003211-1133020003110203-0200133113131131-0101001111122000)
-- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
 
 <a id="canonical-1031030132100222-0002211222122030-3221302130313303-0312000200310233-1220010033231131-3222020210303210-3120021331103212-2132213030020010"></a>
 
@@ -750,9 +714,7 @@ advanced_profile {
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3120011113230033-2021032213101023-1023230133210102-2002210312221113-0302132121233132-2013012333320023-0113111233320003-3113132330120311"></a>
-
-## advanced_profile.disable_spec — disable_spec / 031322000302 / 2
+## `advanced_profile.disable_spec` properties
 
 Breadcrumbs:
 
@@ -773,18 +735,7 @@ Terraform syntax:
 disable_spec = {}
 ```
 
-<a id="canonical-0023220012003003-3322031103012113-1301002023122232-0122322221222332-1133133301000201-0201301030130011-3203003122031202-3132221132202002"></a>
-
-## Direct properties — disable_spec / 031322000302 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3310011032331032-0113323332022111-1103103011220210-1303012301231323-1301012012020300-1232322210010112-1102332311000112-2210013121021002"></a>
-
-## Next pages — disable_spec / 031322000302 / 4
-
-- [advanced_profile](resources--bigip_http_proxy--reference--group-001.md#canonical-2112133030313203-1202233221221323-0231033212122201-1200202122332313-2022030302010022-1221300001120300-3120211033311213-2323103320212230)
-- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
 
 <a id="canonical-3133021223323122-3320012200231021-3301031021103333-1013210113222003-1132233333333102-3313303211213212-1000321311333320-1011120110101032"></a>
 
@@ -792,9 +743,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2000333122120321-1101302202321101-1012000311031120-1221021320303300-1021010122132332-0212013001313032-2220203221313001-0203230111210122"></a>
-
-## advanced_profile.enable_default_profile — enable_default_profile / 123203022003 / 2
+## `advanced_profile.enable_default_profile` properties
 
 Breadcrumbs:
 
@@ -809,7 +758,7 @@ Type: `["object", {}]`. Optional.
 
 Configuration parameter for enable default profile.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -832,18 +781,7 @@ Terraform syntax:
 enable_default_profile = {}
 ```
 
-<a id="canonical-2001230123302103-0010120311121101-2002210231010320-2311102213011203-0232201030230322-3203311121021121-3232013201001101-0023030302210220"></a>
-
-## Direct properties — enable_default_profile / 123203022003 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0001023022031020-0000002021020001-0003020002330233-0230030131230213-0312312010200310-1332112330302002-3231320203311212-1212300230232002"></a>
-
-## Next pages — enable_default_profile / 123203022003 / 4
-
-- [advanced_profile](resources--bigip_http_proxy--reference--group-001.md#canonical-2112133030313203-1202233221221323-0231033212122201-1200202122332313-2022030302010022-1221300001120300-3120211033311213-2323103320212230)
-- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
 
 <a id="canonical-3223222331220311-2021021213301233-3110010022113211-1113021011323210-1100223221332333-3200220332110002-3301021103103321-3002222130011323"></a>
 
@@ -851,9 +789,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3100203030011212-3111230021010223-0101011303320332-2210333103331120-0030001332231112-3010003230100330-1231131212232100-0010122313133123"></a>
-
-## ddos_profile — ddos_profile / 213300010132 / 2
+## `ddos_profile` properties
 
 Breadcrumbs:
 
@@ -867,7 +803,7 @@ Type: `"object"`. single nested block, Optional.
 
 Configuration parameter for ddos profile.
 
-Upstream description:
+Additional upstream details:
 
 BIG-IP DDoS Protection Rules.
 
@@ -901,22 +837,13 @@ ddos_profile {
 }
 ```
 
-<a id="canonical-1322133033303022-3332221220312131-0021303122233223-2302200010202332-1230211012313331-2031332220300032-1222132030131130-2333310013322120"></a>
+<a id="canonical-3100203030011212-3111230021010223-0101011303320332-2210333103331120-0030001332231112-3010003230100330-1231131212232100-0010122313133123"></a>
 
-## Direct properties — ddos_profile / 213300010132 / 3
+### Direct properties for `ddos_profile`
 
 - [disable_ddos_mitigation](resources--bigip_http_proxy--reference--group-001.md#canonical-1302201133112223-3100013230232120-1322311122232330-0011201212302201-3313203112300311-0312030100123330-2310313231020013-2322302300131100): complete subsection reference.
 
 - [enable_ddos_mitigation](resources--bigip_http_proxy--reference--group-001.md#canonical-1033233231303030-1112023201021100-0102333202303333-1231203322220103-3121230200123000-2003022222233332-0130133200300322-2330230202020231): complete subsection reference.
-
-<a id="canonical-1003311033123313-0223022330200322-2001022312231002-1111310203221311-2111123233231120-1011233320201102-3321311003132023-3032333003230011"></a>
-
-## Next pages — ddos_profile / 213300010132 / 4
-
-- [ddos_profile.disable_ddos_mitigation](resources--bigip_http_proxy--reference--group-001.md#canonical-1302201133112223-3100013230232120-1322311122232330-0011201212302201-3313203112300311-0312030100123330-2310313231020013-2322302300131100)
-- [ddos_profile.enable_ddos_mitigation](resources--bigip_http_proxy--reference--group-001.md#canonical-1033233231303030-1112023201021100-0102333202303333-1231203322220103-3121230200123000-2003022222233332-0130133200300322-2330230202020231)
-- [Property reference](resources--bigip_http_proxy--reference--group-001.md#canonical-0101201332222201-3302033021001322-1302101210311331-2210333210320003-0002033231003211-1133020003110203-0200133113131131-0101001111122000)
-- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
 
 <a id="canonical-1302201133112223-3100013230232120-1322311122232330-0011201212302201-3313203112300311-0312030100123330-2310313231020013-2322302300131100"></a>
 
@@ -924,9 +851,7 @@ ddos_profile {
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1132312322121332-3301121130102122-1222213200121223-2003130123002003-2012211213123011-1300121222311021-1123123031233023-1330300123221300"></a>
-
-## ddos_profile.disable_ddos_mitigation — disable_ddos_mitigation / 030333212203 / 2
+## `ddos_profile.disable_ddos_mitigation` properties
 
 Breadcrumbs:
 
@@ -941,7 +866,7 @@ Type: `["object", {}]`. Optional.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -964,18 +889,7 @@ Terraform syntax:
 disable_ddos_mitigation = {}
 ```
 
-<a id="canonical-1313223313303110-3103001231311111-0320332010030112-1202301201031303-1203333210313300-2122211003032011-2221313321333102-1212111000213310"></a>
-
-## Direct properties — disable_ddos_mitigation / 030333212203 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0200001113220002-2301132230121331-1123311312203131-1320002331301200-0231121003132010-0122111310113032-1230103211212313-1101232032111130"></a>
-
-## Next pages — disable_ddos_mitigation / 030333212203 / 4
-
-- [ddos_profile](resources--bigip_http_proxy--reference--group-001.md#canonical-3223222331220311-2021021213301233-3110010022113211-1113021011323210-1100223221332333-3200220332110002-3301021103103321-3002222130011323)
-- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
 
 <a id="canonical-1033233231303030-1112023201021100-0102333202303333-1231203322220103-3121230200123000-2003022222233332-0130133200300322-2330230202020231"></a>
 
@@ -983,9 +897,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0002223331002000-3222211230310022-2012233011320202-1123032120211120-1331202013100211-0223002200120133-0002002032032113-0301111001200030"></a>
-
-## ddos_profile.enable_ddos_mitigation — enable_ddos_mitigation / 100011230113 / 2
+## `ddos_profile.enable_ddos_mitigation` properties
 
 Breadcrumbs:
 
@@ -1000,7 +912,7 @@ Type: `["object", {}]`. Optional.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1023,18 +935,7 @@ Terraform syntax:
 enable_ddos_mitigation = {}
 ```
 
-<a id="canonical-3320001203022031-0233322311003311-3230303320212023-3003322111312213-0031010222333200-0111120310311133-0123211201302231-2201333231012213"></a>
-
-## Direct properties — enable_ddos_mitigation / 100011230113 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0131312203330212-2032112301202300-0221302101010320-1211033223131330-2010332322112102-1313310311102123-3212013111020001-3003121332231033"></a>
-
-## Next pages — enable_ddos_mitigation / 100011230113 / 4
-
-- [ddos_profile](resources--bigip_http_proxy--reference--group-001.md#canonical-3223222331220311-2021021213301233-3110010022113211-1113021011323210-1100223221332333-3200220332110002-3301021103103321-3002222130011323)
-- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
 
 <a id="canonical-1120320133323032-2322013030113130-0032022100212120-1002211211233300-1000313031332132-3203200330320300-1100023210101120-0131020312332202"></a>
 
@@ -1042,9 +943,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1022103303333122-2112113311213032-2133313010001200-2032130200201320-2211020122000011-0223111233323112-0110212122022333-2310310332031132"></a>
-
-## irules — irules / 300131300333 / 2
+## `irules` properties
 
 Breadcrumbs:
 
@@ -1079,19 +978,11 @@ irules {
 }
 ```
 
-<a id="canonical-2213020232130331-3213331000231332-1202130321231123-1313032121323021-1010300323033030-0331221302331231-3122312312330331-0300320210203330"></a>
+<a id="canonical-1022103303333122-2112113311213032-2133313010001200-2032130200201320-2211020122000011-0223111233323112-0110212122022333-2310310332031132"></a>
 
-## Direct properties — irules / 300131300333 / 3
+### Direct properties for `irules`
 
 - [irules](resources--bigip_http_proxy--reference--group-001.md#canonical-1030221032303100-1301132302213012-0012213202330120-3313303203211331-1202022112230230-2223300131130022-0020002023130100-0102102221301112): complete subsection reference.
-
-<a id="canonical-3000102002101121-0121121000022102-0113313012312121-3223311322210312-0001031130011001-0332221120313210-3112330121310022-0133312113220000"></a>
-
-## Next pages — irules / 300131300333 / 4
-
-- [irules.irules](resources--bigip_http_proxy--reference--group-001.md#canonical-1030221032303100-1301132302213012-0012213202330120-3313303203211331-1202022112230230-2223300131130022-0020002023130100-0102102221301112)
-- [Property reference](resources--bigip_http_proxy--reference--group-001.md#canonical-0101201332222201-3302033021001322-1302101210311331-2210333210320003-0002033231003211-1133020003110203-0200133113131131-0101001111122000)
-- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
 
 <a id="canonical-1030221032303100-1301132302213012-0012213202330120-3313303203211331-1202022112230230-2223300131130022-0020002023130100-0102102221301112"></a>
 
@@ -1099,9 +990,7 @@ irules {
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0123223120323212-0212001321213223-2010301003113210-2022210032312031-0320121320233301-3323133011221023-2120130030310312-1032311130331002"></a>
-
-## irules.irules — irules / 131313300302 / 2
+## `irules.irules` properties
 
 Breadcrumbs:
 
@@ -1165,22 +1054,15 @@ irules {
 }
 ```
 
-<a id="canonical-1122331222031312-2301131103313112-2103322022231212-0000222103031213-0111200102202013-0222110200130330-2310010313333203-3123200213220311"></a>
+<a id="canonical-0123223120323212-0212001321213223-2010301003113210-2022210032312031-0320121320233301-3323133011221023-2120130030310312-1032311130331002"></a>
 
-## Direct properties — irules / 131313300302 / 3
+### Direct properties for `irules.irules`
 
 <a id="canonical-2031021110012102-1020100013102311-3123211213202333-3133033312013202-2121112013020033-0123020310102313-3211102123301130-2030020013111323"></a>
 
-<a id="canonical-1301200221000233-1100313001111011-2020133212121313-3100303022103130-3100113102033100-3101223320323222-0110113300031002-1220002220212031"></a>
-
-## name property — irules / 131313300302 / 4
+#### `irules.irules.name` property
 
 Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
@@ -1237,16 +1119,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2313121021230311-0101123000031022-3020323033202133-0010033330111223-2332033203133003-0100231322220232-3031223311131312-1233301302232033"></a>
 
-<a id="canonical-0031310333032100-1123130222103022-0220013013131010-3001130311111001-0030113330220333-3103230023230202-0121223310202221-1201133021201003"></a>
+<a id="canonical-1122331222031312-2301131103313112-2103322022231212-0000222103031213-0111200102202013-0222110200130330-2310010313333203-3123200213220311"></a>
 
-## namespace property — irules / 131313300302 / 5
+#### `irules.irules.namespace` property
 
 Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -1310,16 +1187,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1312211003113032-2233030002223332-3320331113102300-3320211322131000-0210023313023230-1312033330131100-0123210312230330-3023320000133030"></a>
 
-<a id="canonical-3230003312303202-0221102313201302-3330332201301113-0202201010302132-0203132331300121-1333301032120100-0020122302211310-3102012311122330"></a>
+<a id="canonical-1301200221000233-1100313001111011-2020133212121313-3100303022103130-3100113102033100-3101223320323222-0110113300031002-1220002220212031"></a>
 
-## tenant property — irules / 131313300302 / 6
+#### `irules.irules.tenant` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
@@ -1367,22 +1239,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1300102202022331-1102303013301010-0011212033223212-2121301332130100-3013133121012310-2002111302233002-0213122311220000-0331221312130031"></a>
-
-## Next pages — irules / 131313300302 / 7
-
-- [irules](resources--bigip_http_proxy--reference--group-001.md#canonical-1120320133323032-2322013030113130-0032022100212120-1002211211233300-1000313031332132-3203200330320300-1100023210101120-0131020312332202)
-- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
-
 <a id="canonical-0010233021331310-1100023120223111-0232222211022121-1032211023101301-3003123030113013-3230220310130310-0221133011233320-1132331211111231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3231011102333322-3330302120233013-2121101122223331-0120103211231312-1131323320311312-1203123311310302-1230020333003213-1033131200303010"></a>
-
-## lb_algorithm — lb_algorithm / 101330121023 / 2
+## `lb_algorithm` properties
 
 Breadcrumbs:
 
@@ -1396,7 +1259,7 @@ Type: `"object"`. single nested block, Optional.
 
 Configuration parameter for lb algorithm.
 
-Upstream description:
+Additional upstream details:
 
 Load Balancing Algorithm Type.
 
@@ -1422,19 +1285,11 @@ lb_algorithm {
 }
 ```
 
-<a id="canonical-2031232012012103-1220131333200000-0101212123222231-0113031303230003-1211301011132102-1030222301332103-3320310110233002-2023103122111123"></a>
+<a id="canonical-3231011102333322-3330302120233013-2121101122223331-0120103211231312-1131323320311312-1203123311310302-1230020333003213-1033131200303010"></a>
 
-## Direct properties — lb_algorithm / 101330121023 / 3
+### Direct properties for `lb_algorithm`
 
 - [round_robin](resources--bigip_http_proxy--reference--group-001.md#canonical-1032322331030110-3003003122311201-2203010003020020-0033132123302200-2213122211132021-0133023330113310-3102121331113002-0221302122230131): complete subsection reference.
-
-<a id="canonical-3330200232003123-3303223302232121-0213203333113222-1322330212103233-0022201131313020-2320301132321312-1031010002111011-2233122130000210"></a>
-
-## Next pages — lb_algorithm / 101330121023 / 4
-
-- [lb_algorithm.round_robin](resources--bigip_http_proxy--reference--group-001.md#canonical-1032322331030110-3003003122311201-2203010003020020-0033132123302200-2213122211132021-0133023330113310-3102121331113002-0221302122230131)
-- [Property reference](resources--bigip_http_proxy--reference--group-001.md#canonical-0101201332222201-3302033021001322-1302101210311331-2210333210320003-0002033231003211-1133020003110203-0200133113131131-0101001111122000)
-- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
 
 <a id="canonical-1032322331030110-3003003122311201-2203010003020020-0033132123302200-2213122211132021-0133023330113310-3102121331113002-0221302122230131"></a>
 
@@ -1442,9 +1297,7 @@ lb_algorithm {
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0312013132020302-1110112131321021-3002322330233322-1110000102133031-2030011230200022-2131310312223000-3300012332322123-0001132030301110"></a>
-
-## lb_algorithm.round_robin — round_robin / 020330101301 / 2
+## `lb_algorithm.round_robin` properties
 
 Breadcrumbs:
 
@@ -1459,7 +1312,7 @@ Type: `"object"`. single nested block, Optional.
 
 Configuration parameter for round robin.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1482,18 +1335,7 @@ Terraform syntax:
 round_robin {}
 ```
 
-<a id="canonical-2201312211002133-1320030202323112-2121223022130222-3121231211333013-3223302313131330-3121123010222022-0011303203132121-2103133332330111"></a>
-
-## Direct properties — round_robin / 020330101301 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0020013132033210-2323101011013310-0301202223013113-1123301013212110-2201320232332021-3220210003120220-3200122222200100-3323120301321231"></a>
-
-## Next pages — round_robin / 020330101301 / 4
-
-- [lb_algorithm](resources--bigip_http_proxy--reference--group-001.md#canonical-0010233021331310-1100023120223111-0232222211022121-1032211023101301-3003123030113013-3230220310130310-0221133011233320-1132331211111231)
-- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
 
 <a id="canonical-3130302100213032-1133033213001002-2331132101322013-0203331122233331-3021113033330230-2313122333001332-0303103133232110-2002132020103202"></a>
 
@@ -1501,9 +1343,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0200101322221231-3313312123100031-3301102301203130-1223313330032002-1230221133300201-3023331000332210-3323120002311333-2033232220102032"></a>
-
-## origin_pools — origin_pools / 322030212032 / 2
+## `origin_pools` properties
 
 Breadcrumbs:
 
@@ -1517,7 +1357,7 @@ Type: `"object"`. single nested block, Optional.
 
 Configuration parameter for origin pools.
 
-Upstream description:
+Additional upstream details:
 
 List of Origin Pools.
 
@@ -1542,19 +1382,11 @@ origin_pools {
 }
 ```
 
-<a id="canonical-0120123002130001-3120011032330030-0021322310102101-2321222221101310-1200000012302033-2323333031220000-0120031221310113-1310010113132113"></a>
+<a id="canonical-0200101322221231-3313312123100031-3301102301203130-1223313330032002-1230221133300201-3023331000332210-3323120002311333-2033232220102032"></a>
 
-## Direct properties — origin_pools / 322030212032 / 3
+### Direct properties for `origin_pools`
 
 - [pools](resources--bigip_http_proxy--reference--group-001.md#canonical-1023031131101223-0333002000010022-2011021202323002-2121003101012320-0131313002113130-0302023223110202-2203300233110313-3320003203232022): complete subsection reference.
-
-<a id="canonical-1002102323231112-1130010332200123-2103032321110301-2132332212330230-1213211303323031-0111003311230222-3230232310322133-0003311100230033"></a>
-
-## Next pages — origin_pools / 322030212032 / 4
-
-- [origin_pools.pools](resources--bigip_http_proxy--reference--group-001.md#canonical-1023031131101223-0333002000010022-2011021202323002-2121003101012320-0131313002113130-0302023223110202-2203300233110313-3320003203232022)
-- [Property reference](resources--bigip_http_proxy--reference--group-001.md#canonical-0101201332222201-3302033021001322-1302101210311331-2210333210320003-0002033231003211-1133020003110203-0200133113131131-0101001111122000)
-- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
 
 <a id="canonical-1023031131101223-0333002000010022-2011021202323002-2121003101012320-0131313002113130-0302023223110202-2203300233110313-3320003203232022"></a>
 
@@ -1562,9 +1394,7 @@ origin_pools {
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0330231223121222-0230232221331021-3211320122032120-1310311012202023-0203202301212233-1311213301123331-3130233133001121-2212132301133200"></a>
-
-## origin_pools.pools — pools / 111011131000 / 2
+## `origin_pools.pools` properties
 
 Breadcrumbs:
 
@@ -1578,10 +1408,6 @@ Breadcrumbs:
 Type: `"object"`. list nested block, Optional.
 
 Origin Pools. List of Origin Pools.
-
-Upstream description:
-
-List of Origin Pools.
 
 Provider validators and defaults (from schema source):
 
@@ -1633,23 +1459,17 @@ pools {
 }
 ```
 
-<a id="canonical-2111333322311023-3200130202200122-3310031312002031-2331100121303110-3221220100303031-3010230222310121-1310002312031102-1112332001113303"></a>
+<a id="canonical-0330231223121222-0230232221331021-3211320122032120-1310311012202023-0203202301212233-1311213301123331-3130233133001121-2212132301133200"></a>
 
-## Direct properties — pools / 111011131000 / 3
+### Direct properties for `origin_pools.pools`
 
 <a id="canonical-2311203003130200-1221121201030232-0021202021213322-0223201102200320-3211101212202221-1210000123303323-3202010310133002-2022301231331213"></a>
 
-<a id="canonical-0322100221201010-3102203300123221-2221101232032033-1231112230230020-2021103113123030-0203111321333301-0110321301200102-2202310102021103"></a>
-
-## name property — pools / 111011131000 / 4
+#### `origin_pools.pools.name` property
 
 Type: `"string"`. Optional.
 
 Name. Name of the origin pool.
-
-Upstream description:
-
-Name of the origin pool.
 
 Provider validators and defaults (from schema source):
 
@@ -1710,17 +1530,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2033230213221231-3331312031213203-0110110000100230-1112333311223123-1311000211323100-3333203032112322-3331311121323310-1300330122020302"></a>
 
-<a id="canonical-2313120030111212-3221102232330023-3221000302322131-2301112122013202-2331302233300321-0011323201023303-0232201013230020-2310030120332321"></a>
+<a id="canonical-2111333322311023-3200130202200122-3310031312002031-2331100121303110-3221220100303031-3010230222310121-1310002312031102-1112332001113303"></a>
 
-## priority property — pools / 111011131000 / 5
+#### `origin_pools.pools.priority` property
 
 Type: `"number"`. Optional.
-
-Priority of this origin pool, valid only with multiple origin pools. Value of 0 will make the pool
-as lowest priority origin pool. When active origin pool is not available, lower priority origin
-pools are made active as per the increasing priority.
-
-Upstream description:
 
 Priority of this origin pool, valid only with multiple origin pools. Value of 0 will make the pool
 as lowest priority origin pool. When active origin pool is not available, lower priority origin
@@ -1769,15 +1583,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1111202133231300-1221011120122111-1321032030113101-2232101201021311-3000211123312201-0021032203200113-3310003333301132-0113110103130103"></a>
 
-<a id="canonical-3020312331333123-0312210322013031-3102313231321113-0112203033223130-1322333012031320-3330321332323122-2110231213321201-3332233032322333"></a>
+<a id="canonical-0322100221201010-3102203300123221-2221101232032033-1231112230230020-2021103113123030-0203111321333301-0110321301200102-2202310102021103"></a>
 
-## weight property — pools / 111011131000 / 6
+#### `origin_pools.pools.weight` property
 
 Type: `"number"`. Optional.
-
-Weight of this origin pool, valid only with multiple origin pools. Value of 0 will disable the pool.
-
-Upstream description:
 
 Weight of this origin pool, valid only with multiple origin pools. Value of 0 will disable the pool.
 
@@ -1806,23 +1616,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0120213013013113-2032213000313322-1311221102232000-3303200022030003-1202032030233202-2110132021131201-0020230300323100-3312013012123231"></a>
-
-## Next pages — pools / 111011131000 / 7
-
-- [origin_pools.pools.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-1312222213103100-0321300110133131-3312031033013332-1010303313020221-3311012303023212-1010020102000132-3130213301103033-0122010331103022)
-- [origin_pools](resources--bigip_http_proxy--reference--group-001.md#canonical-3130302100213032-1133033213001002-2331132101322013-0203331122233331-3021113033330230-2313122333001332-0303103133232110-2002132020103202)
-- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
-
 <a id="canonical-1312222213103100-0321300110133131-3312031033013332-1010303313020221-3311012303023212-1010020102000132-3130213301103033-0122010331103022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2210120301022120-3023113103011311-2210133133233330-1120323223331301-2311122133120300-0022332333232000-1113233131003212-2323022331021020"></a>
-
-## origin_pools.pools.origin_servers — origin_servers / 211200003302 / 2
+## `origin_pools.pools.origin_servers` properties
 
 Breadcrumbs:
 
@@ -1873,9 +1673,9 @@ origin_servers {
 }
 ```
 
-<a id="canonical-3332320321023000-3113113221020133-0131202001212311-1122022103013333-3333012333102202-3321322131202213-3112332203300203-1300133123213222"></a>
+<a id="canonical-2210120301022120-3023113103011311-2210133133233330-1120323223331301-2311122133120300-0022332333232000-1113233131003212-2323022331021020"></a>
 
-## Direct properties — origin_servers / 211200003302 / 3
+### Direct properties for `origin_pools.pools.origin_servers`
 
 - [automatic_port](resources--bigip_http_proxy--reference--group-001.md#canonical-1333310132310233-1330123223112102-2232131212021210-2003232100032033-1213013313020301-1003021100330001-2121211110220200-3213131231023102): complete subsection reference.
 
@@ -1887,15 +1687,11 @@ origin_servers {
 
 <a id="canonical-2202121131021302-3301332301103133-1121102033022033-2123212002323211-1233322000022030-3101300213112020-2332222100311212-3213313100222210"></a>
 
-<a id="canonical-3103313232231013-1233303132300213-3131033321122110-0330003333220011-0112002201121100-3002202221103103-2332321330010232-3133332132323313"></a>
+<a id="canonical-3332320321023000-3113113221020133-0131202001212311-1122022103013333-3333012333102202-3321322131202213-3112332203300203-1300133123213222"></a>
 
-## port property — origin_servers / 211200003302 / 4
+#### `origin_pools.pools.origin_servers.port` property
 
 Type: `"number"`. Optional.
-
-Exclusive with \[automatic\_port lb\_port\] Endpoint service is available on this port.
-
-Upstream description:
 
 Exclusive with \[automatic\_port lb\_port\] Endpoint service is available on this port.
 
@@ -1942,26 +1738,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2101021301202002-1332020200012123-3012213002010010-0310331011212322-0010220013221233-3101033213212221-1033133302113310-3330101331313332"></a>
-
-## Next pages — origin_servers / 211200003302 / 5
-
-- [origin_pools.pools.origin_servers.automatic_port](resources--bigip_http_proxy--reference--group-001.md#canonical-1333310132310233-1330123223112102-2232131212021210-2003232100032033-1213013313020301-1003021100330001-2121211110220200-3213131231023102)
-- [origin_pools.pools.origin_servers.health_checks](resources--bigip_http_proxy--reference--group-001.md#canonical-1231223200203212-2223102120201210-0132023001333121-0310321020212013-2303231100301333-3231130313200203-0020112010001202-2200002131110303)
-- [origin_pools.pools.origin_servers.lb_port](resources--bigip_http_proxy--reference--group-001.md#canonical-0002232232110202-3232011212333210-3202022230001020-0012303133223111-0132230030013013-0022031310113320-1320202122011103-1122210113011222)
-- [origin_pools.pools.origin_servers.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-3122233331022000-3130002202110102-2203300321323221-1321111230302130-2010113302011332-2020303212023012-2310303023303012-3120020110120320)
-- [origin_pools.pools](resources--bigip_http_proxy--reference--group-001.md#canonical-1023031131101223-0333002000010022-2011021202323002-2121003101012320-0131313002113130-0302023223110202-2203300233110313-3320003203232022)
-- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
-
 <a id="canonical-1333310132310233-1330123223112102-2232131212021210-2003232100032033-1213013313020301-1003021100330001-2121211110220200-3213131231023102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3231230202002322-2303320201233113-2231221202232131-2323220321201310-1033000303012232-0200202103002103-3301310210330031-3021030000132322"></a>
-
-## origin_pools.pools.origin_servers.automatic_port — automatic_port / 030220303321 / 2
+## `origin_pools.pools.origin_servers.automatic_port` properties
 
 Breadcrumbs:
 
@@ -1978,7 +1761,7 @@ Type: `["object", {}]`. Optional.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -2001,18 +1784,7 @@ Terraform syntax:
 automatic_port = {}
 ```
 
-<a id="canonical-3203220312202001-2002030303300301-0320110021313130-1213200302012202-1102311131200022-2222321101202030-2023102113111313-1121222213120011"></a>
-
-## Direct properties — automatic_port / 030220303321 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2202010233303301-3203110000202313-2133200300211123-1001203030231031-2003120110010303-2030123011303202-2202102102110213-2022201101220133"></a>
-
-## Next pages — automatic_port / 030220303321 / 4
-
-- [origin_pools.pools.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-1312222213103100-0321300110133131-3312031033013332-1010303313020221-3311012303023212-1010020102000132-3130213301103033-0122010331103022)
-- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
 
 <a id="canonical-1231223200203212-2223102120201210-0132023001333121-0310321020212013-2303231100301333-3231130313200203-0020112010001202-2200002131110303"></a>
 
@@ -2020,9 +1792,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3213132002031213-0333000231301102-1213101222233102-2321313131212333-1302100012123331-1332223211220111-2213201213221313-0333010031010110"></a>
-
-## origin_pools.pools.origin_servers.health_checks — health_checks / 300211133331 / 2
+## `origin_pools.pools.origin_servers.health_checks` properties
 
 Breadcrumbs:
 
@@ -2039,7 +1809,7 @@ Type: `"object"`. single nested block, Optional.
 
 Configuration parameter for health checks.
 
-Upstream description:
+Additional upstream details:
 
 Origin Server Health Checks.
 
@@ -2075,25 +1845,19 @@ health_checks {
 }
 ```
 
-<a id="canonical-0021320100203000-1130010230022202-1130131233121223-2322310032202331-2203002131210013-2111022030130203-3003223111002332-2123222102222002"></a>
+<a id="canonical-3213132002031213-0333000231301102-1213101222233102-2321313131212333-1302100012123331-1332223211220111-2213201213221313-0333010031010110"></a>
 
-## Direct properties — health_checks / 300211133331 / 3
+### Direct properties for `origin_pools.pools.origin_servers.health_checks`
 
 - [health_check](resources--bigip_http_proxy--reference--group-001.md#canonical-2120333231121323-2003031320012101-2302210211013333-0122323100321303-1310022230223303-2202022123002231-0033332311313302-2323130331102303): complete subsection reference.
 
 <a id="canonical-2030311222030320-2233131102220000-2312113031303002-3231023133311200-0010000202111012-3131231302321333-1313003321030220-3223013312310211"></a>
 
-<a id="canonical-3321021010130100-2300211203012002-3203333112221033-0220130030000010-0013201212231123-1312211131010311-3021102211110321-1233223010210133"></a>
+<a id="canonical-0021320100203000-1130010230022202-1130131233121223-2322310032202331-2203002131210013-2111022030130203-3003223111002332-2123222102222002"></a>
 
-## healthy_threshold property — health_checks / 300211133331 / 4
+#### `origin_pools.pools.origin_servers.health_checks.healthy_threshold` property
 
 Type: `"number"`. Optional.
-
-Number of successful responses before declaring healthy. In other words, this is the number of
-healthy health checks required before a host is marked healthy. Note that during startup, only a
-single successful health check is required to mark a host healthy.
-
-Upstream description:
 
 Number of successful responses before declaring healthy. In other words, this is the number of
 healthy health checks required before a host is marked healthy. Note that during startup, only a
@@ -2145,9 +1909,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1020230310301001-1232001301033103-2011320133202203-1212212011200310-2200203211020030-3313020122121230-0103120213000230-2130120102211102"></a>
 
-<a id="canonical-3000123301022003-0310023302131330-0011323212312112-3020220033133332-2220012303303001-3133303310203021-2212223212213333-0212312303022033"></a>
+<a id="canonical-3321021010130100-2300211203012002-3203333112221033-0220130030000010-0013201212231123-1312211131010311-3021102211110321-1233223010210133"></a>
 
-## interval property — health_checks / 300211133331 / 5
+#### `origin_pools.pools.origin_servers.health_checks.interval` property
 
 Type: `"number"`. Optional.
 
@@ -2200,17 +1964,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2033230321000020-3032322202321132-0111000301020320-2123013031331010-1110212311123110-3032122220303103-1320200210312230-2010222011120101"></a>
 
-<a id="canonical-0120201222011211-0213133131022012-1332133230202303-3023330122021223-3220311113122132-2101332022031013-3133313132332031-0210101000033100"></a>
+<a id="canonical-3000123301022003-0310023302131330-0011323212312112-3020220033133332-2220012303303001-3133303310203021-2212223212213333-0212312303022033"></a>
 
-## timeout property — health_checks / 300211133331 / 6
+#### `origin_pools.pools.origin_servers.health_checks.timeout` property
 
 Type: `"number"`. Optional.
-
-Timeout in seconds to wait for successful response. In other words, it is the time to wait for a
-health check response. If the timeout is reached the health check attempt will be considered a
-failure.
-
-Upstream description:
 
 Timeout in seconds to wait for successful response. In other words, it is the time to wait for a
 health check response. If the timeout is reached the health check attempt will be considered a
@@ -2263,18 +2021,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0301211311133301-2211031123203031-0233011331213332-2003200221221111-2022312000011011-0013302021213103-0103233302113203-1321300111103122"></a>
 
-<a id="canonical-0132201101233321-3102002100200030-2322000201002223-1103312113232033-2210120020010210-2221232101323321-3003202010320310-2111213311230022"></a>
+<a id="canonical-0120201222011211-0213133131022012-1332133230202303-3023330122021223-3220311113122132-2101332022031013-3133313132332031-0210101000033100"></a>
 
-## unhealthy_threshold property — health_checks / 300211133331 / 7
+#### `origin_pools.pools.origin_servers.health_checks.unhealthy_threshold` property
 
 Type: `"number"`. Optional.
-
-Number of failed responses before declaring unhealthy. In other words, this is the number of
-unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health check
-if a host responds with 503 this threshold is ignored and the host is considered unhealthy
-immediately.
-
-Upstream description:
 
 Number of failed responses before declaring unhealthy. In other words, this is the number of
 unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health check
@@ -2325,23 +2076,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2223022231221020-3312301102020122-0313210321100312-0021111111323312-2211232322320201-1202000021013211-3120302323132032-2102033102210033"></a>
-
-## Next pages — health_checks / 300211133331 / 8
-
-- [origin_pools.pools.origin_servers.health_checks.health_check](resources--bigip_http_proxy--reference--group-001.md#canonical-2120333231121323-2003031320012101-2302210211013333-0122323100321303-1310022230223303-2202022123002231-0033332311313302-2323130331102303)
-- [origin_pools.pools.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-1312222213103100-0321300110133131-3312031033013332-1010303313020221-3311012303023212-1010020102000132-3130213301103033-0122010331103022)
-- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
-
 <a id="canonical-2120333231121323-2003031320012101-2302210211013333-0122323100321303-1310022230223303-2202022123002231-0033332311313302-2323130331102303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1203013122112300-3333201032112200-3133210301003023-2222213012310110-1123312011212032-1020123310233031-2310133302132230-0000003331201111"></a>
-
-## origin_pools.pools.origin_servers.health_checks.health_check — health_check / 300030022001 / 2
+## `origin_pools.pools.origin_servers.health_checks.health_check` properties
 
 Breadcrumbs:
 
@@ -2358,10 +2099,6 @@ Breadcrumbs:
 Type: `"object"`. list nested block, Optional.
 
 List of Health Checks. List of Health Checks.
-
-Upstream description:
-
-List of Health Checks.
 
 Provider validators and defaults (from schema source):
 
@@ -2418,22 +2155,13 @@ health_check {
 }
 ```
 
-<a id="canonical-0312021201331200-0223001013333301-3312022210210232-1011103020203010-2133333122131011-2201001132202131-2032131113222300-3133132331321333"></a>
+<a id="canonical-1203013122112300-3333201032112200-3133210301003023-2222213012310110-1123312011212032-1020123310233031-2310133302132230-0000003331201111"></a>
 
-## Direct properties — health_check / 300030022001 / 3
+### Direct properties for `origin_pools.pools.origin_servers.health_checks.health_check`
 
 - [icmp_health_check](resources--bigip_http_proxy--reference--group-001.md#canonical-3230311221233321-3113131300120012-3312221030103021-1003101031012232-1232320321011133-3123000030020221-3332122231300231-1110331012030203): complete subsection reference.
 
 - [tcp_health_check](resources--bigip_http_proxy--reference--group-001.md#canonical-0112001111130222-0002130202100220-0202302331311333-3332221001111213-1113010103001132-0031221212001123-0221330031031112-3223013011123101): complete subsection reference.
-
-<a id="canonical-3033230121333010-2333210132232310-2230121301220222-0133201030021223-3032012103221220-1232300222103121-3101220101130000-0111032110301211"></a>
-
-## Next pages — health_check / 300030022001 / 4
-
-- [origin_pools.pools.origin_servers.health_checks.health_check.icmp_health_check](resources--bigip_http_proxy--reference--group-001.md#canonical-3230311221233321-3113131300120012-3312221030103021-1003101031012232-1232320321011133-3123000030020221-3332122231300231-1110331012030203)
-- [origin_pools.pools.origin_servers.health_checks.health_check.tcp_health_check](resources--bigip_http_proxy--reference--group-001.md#canonical-0112001111130222-0002130202100220-0202302331311333-3332221001111213-1113010103001132-0031221212001123-0221330031031112-3223013011123101)
-- [origin_pools.pools.origin_servers.health_checks](resources--bigip_http_proxy--reference--group-001.md#canonical-1231223200203212-2223102120201210-0132023001333121-0310321020212013-2303231100301333-3231130313200203-0020112010001202-2200002131110303)
-- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
 
 <a id="canonical-3230311221233321-3113131300120012-3312221030103021-1003101031012232-1232320321011133-3123000030020221-3332122231300231-1110331012030203"></a>
 
@@ -2441,9 +2169,7 @@ health_check {
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1120303202111312-0301331001122011-1330203213232101-2331101023333222-1212211210102103-2102301001020313-1101011000110023-1320303002002120"></a>
-
-## origin_pools.pools.origin_servers.health_checks.health_check.icmp_health_check — icmp_health_check / 110201030212 / 2
+## `origin_pools.pools.origin_servers.health_checks.health_check.icmp_health_check` properties
 
 Breadcrumbs:
 
@@ -2462,7 +2188,7 @@ Type: `["object", {}]`. Optional.
 
 Configuration parameter for icmp health check.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -2485,18 +2211,7 @@ Terraform syntax:
 icmp_health_check = {}
 ```
 
-<a id="canonical-0022010302022131-0232032012103012-0032112211012013-0303100113312300-3313111112201113-2120130320200200-2330201211112031-1130210130033003"></a>
-
-## Direct properties — icmp_health_check / 110201030212 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0300032132023203-3010031103301211-3012203210221333-3333300132003331-0223323303322202-1332320231203032-2113211010032222-2302021223030312"></a>
-
-## Next pages — icmp_health_check / 110201030212 / 4
-
-- [origin_pools.pools.origin_servers.health_checks.health_check](resources--bigip_http_proxy--reference--group-001.md#canonical-2120333231121323-2003031320012101-2302210211013333-0122323100321303-1310022230223303-2202022123002231-0033332311313302-2323130331102303)
-- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
 
 <a id="canonical-0112001111130222-0002130202100220-0202302331311333-3332221001111213-1113010103001132-0031221212001123-0221330031031112-3223013011123101"></a>
 
@@ -2504,9 +2219,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1302303103302212-3202033300301211-1213301202300101-3210213100300011-3101201210013333-3322032311331030-2022203122333320-2103011013002032"></a>
-
-## origin_pools.pools.origin_servers.health_checks.health_check.tcp_health_check — tcp_health_check / 001011323133 / 2
+## `origin_pools.pools.origin_servers.health_checks.health_check.tcp_health_check` properties
 
 Breadcrumbs:
 
@@ -2555,15 +2268,13 @@ tcp_health_check {
 }
 ```
 
-<a id="canonical-3100000121212100-0200231222003320-2310202223301322-3012321022333022-2330301032322331-0222213221313223-3232223202121321-3301113130233022"></a>
+<a id="canonical-1302303103302212-3202033300301211-1213301202300101-3210213100300011-3101201210013333-3322032311331030-2022203122333320-2103011013002032"></a>
 
-## Direct properties — tcp_health_check / 001011323133 / 3
+### Direct properties for `origin_pools.pools.origin_servers.health_checks.health_check.tcp_health_check`
 
 <a id="canonical-1122100001101233-1320333212013101-0320120233333010-3321120033021023-3112330322332012-3022330032233120-0211010020223131-2230103033023201"></a>
 
-<a id="canonical-0311310132332210-3200130202032323-2121111302220212-0021221231221200-0122011023320110-3020122333121023-0323110132122110-0333202102020120"></a>
-
-## expected_response property — tcp_health_check / 001011323133 / 4
+#### `origin_pools.pools.origin_servers.health_checks.health_check.tcp_health_check.expected_response` property
 
 Type: `"string"`. Optional.
 
@@ -2613,17 +2324,13 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3003212330320123-0111322003203032-2103103333211012-3300321003003303-2111222120331031-0000303010022232-1332230220110101-3031021232112021"></a>
 
-<a id="canonical-2330313302312230-3213133302100023-2301120321322230-3302221201013223-2313103010122122-3100102013313033-0102010133210302-3001312203210321"></a>
+<a id="canonical-3100000121212100-0200231222003320-2310202223301322-3012321022333022-2330301032322331-0222213221313223-3232223202121321-3301113130233022"></a>
 
-## send_payload property — tcp_health_check / 001011323133 / 5
+#### `origin_pools.pools.origin_servers.health_checks.health_check.tcp_health_check.send_payload` property
 
 Type: `"string"`. Optional.
 
 Send string. Text string sent in the request.
-
-Upstream description:
-
-Text string sent in the request.
 
 Provider validators and defaults (from schema source):
 
@@ -2667,22 +2374,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2130230302302112-0002030312332320-1030313011112121-3011222130102132-0102322231110032-2300221131022010-3301022210320131-0022312012111003"></a>
-
-## Next pages — tcp_health_check / 001011323133 / 6
-
-- [origin_pools.pools.origin_servers.health_checks.health_check](resources--bigip_http_proxy--reference--group-001.md#canonical-2120333231121323-2003031320012101-2302210211013333-0122323100321303-1310022230223303-2202022123002231-0033332311313302-2323130331102303)
-- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
-
 <a id="canonical-0002232232110202-3232011212333210-3202022230001020-0012303133223111-0132230030013013-0022031310113320-1320202122011103-1122210113011222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3230213132133113-2210120322312031-1113110202311031-1110211300233223-3333012133330113-1021023121100200-0231202020021033-2122012023131301"></a>
-
-## origin_pools.pools.origin_servers.lb_port — lb_port / 223001210312 / 2
+## `origin_pools.pools.origin_servers.lb_port` properties
 
 Breadcrumbs:
 
@@ -2699,7 +2397,7 @@ Type: `["object", {}]`. Optional.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -2722,18 +2420,7 @@ Terraform syntax:
 lb_port = {}
 ```
 
-<a id="canonical-2100130232333322-1110003310222113-2020330221320311-0121231131231303-1213113223123310-1212201301002013-3321330320231330-0332011202220001"></a>
-
-## Direct properties — lb_port / 223001210312 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1211333120100120-0000301303310121-3331023200000101-1220112220223230-0303103130110301-3010012210211330-3011033233112322-0133312131230032"></a>
-
-## Next pages — lb_port / 223001210312 / 4
-
-- [origin_pools.pools.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-1312222213103100-0321300110133131-3312031033013332-1010303313020221-3311012303023212-1010020102000132-3130213301103033-0122010331103022)
-- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
 
 <a id="canonical-3122233331022000-3130002202110102-2203300321323221-1321111230302130-2010113302011332-2020303212023012-2310303023303012-3120020110120320"></a>
 
@@ -2741,9 +2428,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1122013133210032-3303332303000110-2203133222101113-1202331123112222-3103213101320323-3100003312131220-2320300212112232-2012101033320013"></a>
-
-## origin_pools.pools.origin_servers.origin_servers — origin_servers / 310331010100 / 2
+## `origin_pools.pools.origin_servers.origin_servers` properties
 
 Breadcrumbs:
 
@@ -2759,10 +2444,6 @@ Breadcrumbs:
 Type: `"object"`. list nested block, Optional.
 
 List of Origin Servers. List of origin servers for Proxy.
-
-Upstream description:
-
-List of origin servers for Proxy.
 
 Provider validators and defaults (from schema source):
 
@@ -2830,9 +2511,9 @@ origin_servers {
 }
 ```
 
-<a id="canonical-2301213012113103-0103111112312033-2213110102002033-1021321131102011-0012323031202130-2032211332010311-2012332111233022-3323303310111331"></a>
+<a id="canonical-1122013133210032-3303332303000110-2203133222101113-1202331123112222-3103213101320323-3100003312131220-2320300212112232-2012101033320013"></a>
 
-## Direct properties — origin_servers / 310331010100 / 3
+### Direct properties for `origin_pools.pools.origin_servers.origin_servers`
 
 - [k8s_service](resources--bigip_http_proxy--reference--group-001.md#canonical-0211202201221121-3001000133010112-1131111200013313-3122130332300332-1020212223330013-1311100313303320-2312112110031023-1120330330033233): complete subsection reference.
 
@@ -2842,26 +2523,13 @@ origin_servers {
 
 - [public_name](resources--bigip_http_proxy--reference--group-002.md#canonical-2002330123011211-1100203020020233-2200222203213100-0323123022123023-2303301212202330-1220032321201102-3002033230123013-0330123233202110): complete subsection reference.
 
-<a id="canonical-2001022322101330-1100003122212321-2100103021032011-3011010100232202-2211312100133311-3321121222221103-2302123132001123-3313023323212213"></a>
-
-## Next pages — origin_servers / 310331010100 / 4
-
-- [origin_pools.pools.origin_servers.origin_servers.k8s_service](resources--bigip_http_proxy--reference--group-001.md#canonical-0211202201221121-3001000133010112-1131111200013313-3122130332300332-1020212223330013-1311100313303320-2312112110031023-1120330330033233)
-- [origin_pools.pools.origin_servers.origin_servers.private_ip](resources--bigip_http_proxy--reference--group-002.md#canonical-3232131333111312-0323012101311031-0132212133331330-0022022302222023-3301101031131030-2203330111111210-0202012220323010-3232101203203320)
-- [origin_pools.pools.origin_servers.origin_servers.public_ip](resources--bigip_http_proxy--reference--group-002.md#canonical-2200332312202210-0032022133011112-0321011230001311-0210031123310011-2312030333320211-1331331202212220-0001233120122303-0011232022323133)
-- [origin_pools.pools.origin_servers.origin_servers.public_name](resources--bigip_http_proxy--reference--group-002.md#canonical-2002330123011211-1100203020020233-2200222203213100-0323123022123023-2303301212202330-1220032321201102-3002033230123013-0330123233202110)
-- [origin_pools.pools.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-1312222213103100-0321300110133131-3312031033013332-1010303313020221-3311012303023212-1010020102000132-3130213301103033-0122010331103022)
-- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
-
 <a id="canonical-0211202201221121-3001000133010112-1131111200013313-3122130332300332-1020212223330013-1311100313303320-2312112110031023-1120330330033233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3300201331203120-3033122101101122-1102112222032033-0232223302211313-0313200221302011-2201313001123031-2212332100223112-1301231203322310"></a>
-
-## origin_pools.pools.origin_servers.origin_servers.k8s_service — k8s_service / 120232210020 / 2
+## `origin_pools.pools.origin_servers.origin_servers.k8s_service` properties
 
 Breadcrumbs:
 
@@ -2914,32 +2582,24 @@ k8s_service {
 }
 ```
 
-<a id="canonical-3103103202223030-3122003323010020-3111202020121120-2023133111211200-0301322132321022-2223313113233001-2101123300313230-0012103100120220"></a>
+<a id="canonical-3300201331203120-3033122101101122-1102112222032033-0232223302211313-0313200221302011-2201313001123031-2212332100223112-1301231203322310"></a>
 
-## Direct properties — k8s_service / 120232210020 / 3
+### Direct properties for `origin_pools.pools.origin_servers.origin_servers.k8s_service`
 
-- [inside_network](resources--bigip_http_proxy--reference--group-002.md#canonical-0001201011312002-0230122321130200-2323211101112333-1002023023021030-1230100032032310-0330303232023002-3102223313011110-1232333132310000): complete subsection reference.
+- [inside_network](resources--bigip_http_proxy--reference--group-001.md#canonical-0001201011312002-0230122321130200-2323211101112333-1002023023021030-1230100032032310-0330303232023002-3102223313011110-1232333132310000): complete subsection reference.
 
-- [outside_network](resources--bigip_http_proxy--reference--group-002.md#canonical-0032102132120233-2002100110212202-0331323313232221-2000013303021212-0332300333030103-0200033233310011-0220033321023302-0132210302231220): complete subsection reference.
+- [outside_network](resources--bigip_http_proxy--reference--group-001.md#canonical-0032102132120233-2002100110212202-0331323313232221-2000013303021212-0332300333030103-0200033233310011-0220033321023302-0132210302231220): complete subsection reference.
 
 <a id="canonical-1311112220202330-0001203101011022-1232022322123302-2330132112023231-2021210011110031-0220103113100210-0022322100030033-0202013213000221"></a>
 
-<a id="canonical-0021110203301213-0032113212013033-0003223132203131-2132113223102231-3203131222012022-0020122313101112-0021032021113123-3300303213121020"></a>
+<a id="canonical-3103103202223030-3122003323010020-3111202020121120-2023133111211200-0301322132321022-2223313113233001-2101123300313230-0012103100120220"></a>
 
-## protocol property — k8s_service / 120232210020 / 4
+#### `origin_pools.pools.origin_servers.origin_servers.k8s_service.protocol` property
 
 Type: `"string"`. Optional.
 
 \[Enum: PROTOCOL\_TCP|PROTOCOL\_UDP\] Type of protocol - PROTOCOL\_TCP: TCP - PROTOCOL\_UDP: UDP.
 Possible values are \`PROTOCOL\_TCP\`, \`PROTOCOL\_UDP\`. Defaults to \`PROTOCOL\_TCP\`.
-
-Upstream description:
-
-Type of protocol
-
-&#8203;- PROTOCOL\_TCP: TCP
-
-&#8203;- PROTOCOL\_UDP: UDP.
 
 Provider validators and defaults (from schema source):
 
@@ -2972,9 +2632,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2111201023220313-2111231110200032-3320333300112123-0203311311301130-3330002311221323-2232313212012301-1322230112203131-3002022322230110"></a>
 
-<a id="canonical-1200122332332100-3203021001103220-3111003203213010-3202130330003002-1321131232202322-0221320333133102-3311310300311223-3113133303033333"></a>
+<a id="canonical-0021110203301213-0032113212013033-0003223132203131-2132113223102231-3203131222012022-0020122313101112-0021032021113123-3300303213121020"></a>
 
-## service_name property — k8s_service / 120232210020 / 5
+#### `origin_pools.pools.origin_servers.origin_servers.k8s_service.service_name` property
 
 Type: `"string"`. Optional.
 
@@ -2983,10 +2643,9 @@ and cluster-ID. For vK8s services, you need to enter a string with the format
 servicename.namespace:example-namespace'frontend', namespace is 'speedtest' and cluster-ID is
 'prod', then you will enter..
 
-Upstream description:
+Additional upstream details:
 
-Exclusive with \[\] K8s service name of the origin server will be listed, including the namespace
-and cluster-ID. For vK8s services, you need to enter a string with the format
+For vK8s services, you need to enter a string with the format
 servicename.namespace:example-namespace"frontend", namespace is "speedtest" and cluster-ID is
 "prod", then you will enter "frontend.speedtest:prod". Both namespace and cluster-ID are optional.
 
@@ -3019,8 +2678,765 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [site_locator](resources--bigip_http_proxy--reference--group-002.md#canonical-2300311000201002-3301211203010223-3023013122001213-1000230130032212-3031331011220210-0102001321020313-2130001321333332-1320131200011333): complete subsection reference.
+- [site_locator](resources--bigip_http_proxy--reference--group-001.md#canonical-2300311000201002-3301211203010223-3023013122001213-1000230130032212-3031331011220210-0102001321020313-2130001321333332-1320131200011333): complete subsection reference.
 
-- [snat_pool](resources--bigip_http_proxy--reference--group-002.md#canonical-1311211321313201-3321333332130333-1111232100201310-0132003101311310-2303103123122102-2211202330330320-0120121003102110-0330330133201010): complete subsection reference.
+- [snat_pool](resources--bigip_http_proxy--reference--group-001.md#canonical-1311211321313201-3321333332130333-1111232100201310-0132003101311310-2303103123122102-2211202330330320-0120121003102110-0330330133201010): complete subsection reference.
 
 - [vk8s_networks](resources--bigip_http_proxy--reference--group-002.md#canonical-0011302332230132-2030011302213232-3301331313023332-1231222203031121-0301012321311130-2330300102211320-1332010123131110-3020003033110321): complete subsection reference.
+
+<a id="canonical-0001201011312002-0230122321130200-2323211101112333-1002023023021030-1230100032032310-0330303232023002-3102223313011110-1232333132310000"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `origin_pools.pools.origin_servers.origin_servers.k8s_service.inside_network` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
+- [Property reference](resources--bigip_http_proxy--reference--group-001.md#canonical-0101201332222201-3302033021001322-1302101210311331-2210333210320003-0002033231003211-1133020003110203-0200133113131131-0101001111122000)
+- [origin_pools](resources--bigip_http_proxy--reference--group-001.md#canonical-3130302100213032-1133033213001002-2331132101322013-0203331122233331-3021113033330230-2313122333001332-0303103133232110-2002132020103202)
+- [origin_pools.pools](resources--bigip_http_proxy--reference--group-001.md#canonical-1023031131101223-0333002000010022-2011021202323002-2121003101012320-0131313002113130-0302023223110202-2203300233110313-3320003203232022)
+- [origin_pools.pools.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-1312222213103100-0321300110133131-3312031033013332-1010303313020221-3311012303023212-1010020102000132-3130213301103033-0122010331103022)
+- [origin_pools.pools.origin_servers.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-3122233331022000-3130002202110102-2203300321323221-1321111230302130-2010113302011332-2020303212023012-2310303023303012-3120020110120320)
+- [origin_pools.pools.origin_servers.origin_servers.k8s_service](resources--bigip_http_proxy--reference--group-001.md#canonical-0211202201221121-3001000133010112-1131111200013313-3122130332300332-1020212223330013-1311100313303320-2312112110031023-1120330330033233)
+- origin_pools.pools.origin_servers.origin_servers.k8s_service.inside_network
+
+<a id="canonical-2002213121110021-1303111211120211-1223013023211120-2030021223203320-3101103302302131-3122221023311200-3111331202202003-1311203001233000"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for inside network.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+inside_network = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0032102132120233-2002100110212202-0331323313232221-2000013303021212-0332300333030103-0200033233310011-0220033321023302-0132210302231220"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `origin_pools.pools.origin_servers.origin_servers.k8s_service.outside_network` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
+- [Property reference](resources--bigip_http_proxy--reference--group-001.md#canonical-0101201332222201-3302033021001322-1302101210311331-2210333210320003-0002033231003211-1133020003110203-0200133113131131-0101001111122000)
+- [origin_pools](resources--bigip_http_proxy--reference--group-001.md#canonical-3130302100213032-1133033213001002-2331132101322013-0203331122233331-3021113033330230-2313122333001332-0303103133232110-2002132020103202)
+- [origin_pools.pools](resources--bigip_http_proxy--reference--group-001.md#canonical-1023031131101223-0333002000010022-2011021202323002-2121003101012320-0131313002113130-0302023223110202-2203300233110313-3320003203232022)
+- [origin_pools.pools.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-1312222213103100-0321300110133131-3312031033013332-1010303313020221-3311012303023212-1010020102000132-3130213301103033-0122010331103022)
+- [origin_pools.pools.origin_servers.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-3122233331022000-3130002202110102-2203300321323221-1321111230302130-2010113302011332-2020303212023012-2310303023303012-3120020110120320)
+- [origin_pools.pools.origin_servers.origin_servers.k8s_service](resources--bigip_http_proxy--reference--group-001.md#canonical-0211202201221121-3001000133010112-1131111200013313-3122130332300332-1020212223330013-1311100313303320-2312112110031023-1120330330033233)
+- origin_pools.pools.origin_servers.origin_servers.k8s_service.outside_network
+
+<a id="canonical-2113320321333101-1300030113323322-3220012031320010-1213111002021221-0102012203023133-0333012103302102-0310032001311232-3230322021020011"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for outside network.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+outside_network = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2300311000201002-3301211203010223-3023013122001213-1000230130032212-3031331011220210-0102001321020313-2130001321333332-1320131200011333"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
+- [Property reference](resources--bigip_http_proxy--reference--group-001.md#canonical-0101201332222201-3302033021001322-1302101210311331-2210333210320003-0002033231003211-1133020003110203-0200133113131131-0101001111122000)
+- [origin_pools](resources--bigip_http_proxy--reference--group-001.md#canonical-3130302100213032-1133033213001002-2331132101322013-0203331122233331-3021113033330230-2313122333001332-0303103133232110-2002132020103202)
+- [origin_pools.pools](resources--bigip_http_proxy--reference--group-001.md#canonical-1023031131101223-0333002000010022-2011021202323002-2121003101012320-0131313002113130-0302023223110202-2203300233110313-3320003203232022)
+- [origin_pools.pools.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-1312222213103100-0321300110133131-3312031033013332-1010303313020221-3311012303023212-1010020102000132-3130213301103033-0122010331103022)
+- [origin_pools.pools.origin_servers.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-3122233331022000-3130002202110102-2203300321323221-1321111230302130-2010113302011332-2020303212023012-2310303023303012-3120020110120320)
+- [origin_pools.pools.origin_servers.origin_servers.k8s_service](resources--bigip_http_proxy--reference--group-001.md#canonical-0211202201221121-3001000133010112-1131111200013313-3122130332300332-1020212223330013-1311100313303320-2312112110031023-1120330330033233)
+- origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator
+
+<a id="canonical-2223011211012000-2322312131103323-1222033230230203-2330032121301233-1311031202121131-0312232021330222-0222012331130132-3323303131200101"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+This message defines a reference to a site or virtual site object.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.ConflictingObjectAttributes("site",
+    "virtual_site")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-choice": "[\"site\",\"virtual_site\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+site_locator {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1032222030113100-0130223003210101-2320000112131020-3021022222231213-1332322210321331-0213103110120030-2031013200100131-2221002002232121"></a>
+
+### Direct properties for `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator`
+
+- [site](resources--bigip_http_proxy--reference--group-001.md#canonical-3013112021001103-2320000033322023-3121201132111010-3232310300320100-1223100001232122-3131321002322230-1213011303111222-0101333302023011): complete subsection reference.
+
+- [virtual_site](resources--bigip_http_proxy--reference--group-001.md#canonical-1320333333202130-1021221312321213-1301302001032112-3222031210310132-0101202121033001-3231022133033030-1110200030203123-3321010023123213): complete subsection reference.
+
+<a id="canonical-3013112021001103-2320000033322023-3121201132111010-3232310300320100-1223100001232122-3131321002322230-1213011303111222-0101333302023011"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
+- [Property reference](resources--bigip_http_proxy--reference--group-001.md#canonical-0101201332222201-3302033021001322-1302101210311331-2210333210320003-0002033231003211-1133020003110203-0200133113131131-0101001111122000)
+- [origin_pools](resources--bigip_http_proxy--reference--group-001.md#canonical-3130302100213032-1133033213001002-2331132101322013-0203331122233331-3021113033330230-2313122333001332-0303103133232110-2002132020103202)
+- [origin_pools.pools](resources--bigip_http_proxy--reference--group-001.md#canonical-1023031131101223-0333002000010022-2011021202323002-2121003101012320-0131313002113130-0302023223110202-2203300233110313-3320003203232022)
+- [origin_pools.pools.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-1312222213103100-0321300110133131-3312031033013332-1010303313020221-3311012303023212-1010020102000132-3130213301103033-0122010331103022)
+- [origin_pools.pools.origin_servers.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-3122233331022000-3130002202110102-2203300321323221-1321111230302130-2010113302011332-2020303212023012-2310303023303012-3120020110120320)
+- [origin_pools.pools.origin_servers.origin_servers.k8s_service](resources--bigip_http_proxy--reference--group-001.md#canonical-0211202201221121-3001000133010112-1131111200013313-3122130332300332-1020212223330013-1311100313303320-2312112110031023-1120330330033233)
+- [origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator](resources--bigip_http_proxy--reference--group-001.md#canonical-2300311000201002-3301211203010223-3023013122001213-1000230130032212-3031331011220210-0102001321020313-2130001321333332-1320131200011333)
+- origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site
+
+<a id="canonical-2221311223231120-2102313010233223-0303131021022032-0221030001022012-3013302312213122-1302002131311000-1212310123030322-2203000202021023"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+This type establishes a direct reference from one object(the referrer) to another(the referred).
+Such a reference is in form of tenant/namespace/name.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+site {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1113232101113302-3301232300200203-0333120200300210-3333130202013001-0302032220032211-1032013100313003-1231212133131322-3301111110003330"></a>
+
+### Direct properties for `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site`
+
+<a id="canonical-0023212223030121-2121033320111111-1020232321210030-3302201231221030-0011323010121230-2100112130221130-2113303101300310-3300220302322003"></a>
+
+#### `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site.name` property
+
+Type: `"string"`. Optional.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 128),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 128,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 128,
+      "min": 1
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  }
+}
+```
+
+<a id="canonical-0101113020333213-2223222320111301-2012033213123102-0332201113030223-0003210102103111-0322130211302220-2313311212133331-3133112303211210"></a>
+
+<a id="canonical-3030102133110333-2111230232332210-1103330103201031-1001030112300203-2222003330311031-0200320212313000-3233120131313132-0232132313312201"></a>
+
+#### `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site.namespace` property
+
+Type: `"string"`. Optional, Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 63),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-3310111322233202-0013031020111122-3011122230303030-2320102023300212-3331221300201101-1031113132122302-1330110122021130-3032321220100321"></a>
+
+<a id="canonical-2200033132211201-0012213122021122-2122321302022323-1130110020013232-2111231213331331-2320311130332013-1102111221311203-1332313200100011"></a>
+
+#### `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site.tenant` property
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(64),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-1320333333202130-1021221312321213-1301302001032112-3222031210310132-0101202121033001-3231022133033030-1110200030203123-3321010023123213"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
+- [Property reference](resources--bigip_http_proxy--reference--group-001.md#canonical-0101201332222201-3302033021001322-1302101210311331-2210333210320003-0002033231003211-1133020003110203-0200133113131131-0101001111122000)
+- [origin_pools](resources--bigip_http_proxy--reference--group-001.md#canonical-3130302100213032-1133033213001002-2331132101322013-0203331122233331-3021113033330230-2313122333001332-0303103133232110-2002132020103202)
+- [origin_pools.pools](resources--bigip_http_proxy--reference--group-001.md#canonical-1023031131101223-0333002000010022-2011021202323002-2121003101012320-0131313002113130-0302023223110202-2203300233110313-3320003203232022)
+- [origin_pools.pools.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-1312222213103100-0321300110133131-3312031033013332-1010303313020221-3311012303023212-1010020102000132-3130213301103033-0122010331103022)
+- [origin_pools.pools.origin_servers.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-3122233331022000-3130002202110102-2203300321323221-1321111230302130-2010113302011332-2020303212023012-2310303023303012-3120020110120320)
+- [origin_pools.pools.origin_servers.origin_servers.k8s_service](resources--bigip_http_proxy--reference--group-001.md#canonical-0211202201221121-3001000133010112-1131111200013313-3122130332300332-1020212223330013-1311100313303320-2312112110031023-1120330330033233)
+- [origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator](resources--bigip_http_proxy--reference--group-001.md#canonical-2300311000201002-3301211203010223-3023013122001213-1000230130032212-3031331011220210-0102001321020313-2130001321333332-1320131200011333)
+- origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site
+
+<a id="canonical-3331313230220333-1330332111221023-2032211002020313-2213003310003333-0021133331231100-1211121001220210-2222020210232331-1330112331332323"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+This type establishes a direct reference from one object(the referrer) to another(the referred).
+Such a reference is in form of tenant/namespace/name.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+virtual_site {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3331320233210030-3030020312213331-3011133201211222-1232231103323130-3233133120123033-2223210023233111-0110003011023111-2203320122110330"></a>
+
+### Direct properties for `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site`
+
+<a id="canonical-0223002232003220-2210132010112113-0331021110020110-3002203333312200-3333222311022113-2232320120300303-2233122333223103-1220331323020100"></a>
+
+#### `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site.name` property
+
+Type: `"string"`. Optional.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 128),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 128,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 128,
+      "min": 1
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  }
+}
+```
+
+<a id="canonical-3122222102303000-0133132113001303-3000232332020011-3112011012121002-2232003330133030-2321213302201020-1321123321002033-2111330030031312"></a>
+
+<a id="canonical-3032301301120303-1310112111103320-2100322122203202-1211001011013213-3133320200032213-3300002333220333-1023332033031100-0123030301120101"></a>
+
+#### `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site.namespace` property
+
+Type: `"string"`. Optional, Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 63),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-0021231230231113-1300211321002230-0102000110202102-0010311320203013-3111220002022030-2302212302301112-0012223321113332-3112301123120011"></a>
+
+<a id="canonical-0012223303212012-2221303312023031-3121332133020231-0322231020010130-0112330203030021-1210301122300110-3102311300233333-2013111212032310"></a>
+
+#### `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site.tenant` property
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(64),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-1311211321313201-3321333332130333-1111232100201310-0132003101311310-2303103123122102-2211202330330320-0120121003102110-0330330133201010"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
+- [Property reference](resources--bigip_http_proxy--reference--group-001.md#canonical-0101201332222201-3302033021001322-1302101210311331-2210333210320003-0002033231003211-1133020003110203-0200133113131131-0101001111122000)
+- [origin_pools](resources--bigip_http_proxy--reference--group-001.md#canonical-3130302100213032-1133033213001002-2331132101322013-0203331122233331-3021113033330230-2313122333001332-0303103133232110-2002132020103202)
+- [origin_pools.pools](resources--bigip_http_proxy--reference--group-001.md#canonical-1023031131101223-0333002000010022-2011021202323002-2121003101012320-0131313002113130-0302023223110202-2203300233110313-3320003203232022)
+- [origin_pools.pools.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-1312222213103100-0321300110133131-3312031033013332-1010303313020221-3311012303023212-1010020102000132-3130213301103033-0122010331103022)
+- [origin_pools.pools.origin_servers.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-3122233331022000-3130002202110102-2203300321323221-1321111230302130-2010113302011332-2020303212023012-2310303023303012-3120020110120320)
+- [origin_pools.pools.origin_servers.origin_servers.k8s_service](resources--bigip_http_proxy--reference--group-001.md#canonical-0211202201221121-3001000133010112-1131111200013313-3122130332300332-1020212223330013-1311100313303320-2312112110031023-1120330330033233)
+- origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool
+
+<a id="canonical-1210031012130200-3003222231330333-0133200303022131-1223223112102113-3210213223112122-1331002330012323-3032111213321023-3022112132102131"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+SNAT Pool. SNAT Pool configuration.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.ConflictingObjectAttributes("no_snat_pool",
+    "snat_pool")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-snat_pool_choice": "[\"no_snat_pool\",\"snat_pool\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+snat_pool {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2203113031322030-2330022102103202-0211000330230112-2321023021232000-2132221020212300-2323003202003223-1033331032231323-1223000222120121"></a>
+
+### Direct properties for `origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool`
+
+- [no_snat_pool](resources--bigip_http_proxy--reference--group-001.md#canonical-1120300203220233-1323222220312211-0331031300103232-1032020031220021-0122233111303312-2300212310302333-1111201311313111-3122313000013000): complete subsection reference.
+
+- [snat_pool](resources--bigip_http_proxy--reference--group-002.md#canonical-0032212100033122-2311302103202323-1103111310103113-0223312130120302-3012020303232232-2120331002202032-0233210232332320-1011300123211203): complete subsection reference.
+
+<a id="canonical-1120300203220233-1323222220312211-0331031300103232-1032020031220021-0122233111303312-2300212310302333-1111201311313111-3122313000013000"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.no_snat_pool` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
+- [Property reference](resources--bigip_http_proxy--reference--group-001.md#canonical-0101201332222201-3302033021001322-1302101210311331-2210333210320003-0002033231003211-1133020003110203-0200133113131131-0101001111122000)
+- [origin_pools](resources--bigip_http_proxy--reference--group-001.md#canonical-3130302100213032-1133033213001002-2331132101322013-0203331122233331-3021113033330230-2313122333001332-0303103133232110-2002132020103202)
+- [origin_pools.pools](resources--bigip_http_proxy--reference--group-001.md#canonical-1023031131101223-0333002000010022-2011021202323002-2121003101012320-0131313002113130-0302023223110202-2203300233110313-3320003203232022)
+- [origin_pools.pools.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-1312222213103100-0321300110133131-3312031033013332-1010303313020221-3311012303023212-1010020102000132-3130213301103033-0122010331103022)
+- [origin_pools.pools.origin_servers.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-3122233331022000-3130002202110102-2203300321323221-1321111230302130-2010113302011332-2020303212023012-2310303023303012-3120020110120320)
+- [origin_pools.pools.origin_servers.origin_servers.k8s_service](resources--bigip_http_proxy--reference--group-001.md#canonical-0211202201221121-3001000133010112-1131111200013313-3122130332300332-1020212223330013-1311100313303320-2312112110031023-1120330330033233)
+- [origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool](resources--bigip_http_proxy--reference--group-001.md#canonical-1311211321313201-3321333332130333-1111232100201310-0132003101311310-2303103123122102-2211202330330320-0120121003102110-0330330133201010)
+- origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.no_snat_pool
+
+<a id="canonical-2123321133201330-1101022110010022-2212000130131300-3133310211302131-0030133321202301-2022230213131132-0120023221132230-3102120020000311"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for no snat pool.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_snat_pool = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.

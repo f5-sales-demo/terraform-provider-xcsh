@@ -1,10 +1,10 @@
 ---
-page_title: "xcsh_ip_prefix_set landing"
+page_title: "xcsh_ip_prefix_set"
 subcategory: ""
-description: "Complete grouped canonical reference for xcsh_ip_prefix_set landing."
+description: "Complete grouped canonical reference for xcsh_ip_prefix_set."
 ---
 
-# xcsh_ip_prefix_set landing
+# xcsh_ip_prefix_set
 
 <a id="canonical-1122102130313221-3130002203220321-3333000220303121-2220030010230000-3210200033230023-2332313003100231-3300010320213331-0132033303002232"></a>
 
@@ -12,9 +12,7 @@ description: "Complete grouped canonical reference for xcsh_ip_prefix_set landin
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2312100203021102-0223201033210232-0213121012213122-0213020123031013-1232111220332120-3313131330013302-1110330102113330-0100102301002222"></a>
-
-## xcsh_ip_prefix_set — xcsh_ip_prefix_set / 300100120231 / 2
+## Overview
 
 Breadcrumbs:
 
@@ -23,15 +21,15 @@ Breadcrumbs:
 Manages ip\_prefix\_set creates a new object in the storage backend for metadata.namespace in F5
 Distributed Cloud.
 
-<a id="canonical-1231112201022121-0122011302332132-3213020330002323-0220302202032100-0323312103013011-2222300210223112-3200210212121333-2232332313322220"></a>
+<a id="canonical-2312100203021102-0223201033210232-0213121012213122-0213020123031013-1232111220332120-3313131330013302-1110330102113330-0100102301002222"></a>
 
-## Prerequisites — xcsh_ip_prefix_set / 300100120231 / 3
+### Prerequisites for `xcsh_ip_prefix_set`
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-2112301033032202-0213210222021321-0221110122012110-1201311102031310-0003030310220011-3323123110030110-0203321120120012-2311111201022123"></a>
+<a id="canonical-1231112201022121-0122011302332132-3213020330002323-0220302202032100-0323312103013011-2222300210223112-3200210212121333-2232332313322220"></a>
 
-## Minimal configuration — xcsh_ip_prefix_set / 300100120231 / 4
+### Minimal configuration for `xcsh_ip_prefix_set`
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,15 +55,15 @@ resource "xcsh_ip_prefix_set" "example" {
 }
 ```
 
-<a id="canonical-3300233322003332-3011300231020010-2000032301130311-0020133130200223-2130303123121113-2000203233123230-2123331320020221-2010310110133111"></a>
+<a id="canonical-2112301033032202-0213210222021321-0221110122012110-1201311102031310-0003030310220011-3323123110030110-0203321120120012-2311111201022123"></a>
 
-## Root configuration — xcsh_ip_prefix_set / 300100120231 / 5
+### Root configuration for `xcsh_ip_prefix_set`
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-3112331032201200-0230022200233321-3231112131130212-3232002101230122-3121010231012112-3003221133101221-3232313310320100-3231103032201210"></a>
+<a id="canonical-3300233322003332-3011300231020010-2000032301130311-0020133130200223-2130303123121113-2000203233123230-2123331320020221-2010310110133111"></a>
 
-## Next pages — xcsh_ip_prefix_set / 300100120231 / 6
+### Explore this collection for `xcsh_ip_prefix_set`
 
 - [Property reference](../guides/resources--ip_prefix_set--reference--group-001.md#canonical-3210033133131330-2313001323000331-2132220001132203-0211120213003001-0320122300001010-2210130131231100-2130011321312131-1022023020133221)
 - [Examples](../guides/resources--ip_prefix_set--examples--group-001.md#canonical-1212030001113112-0332032221030101-1222301101333121-2213321023322222-1230232013222230-0120233121333323-3130000133022003-0021221230111132)

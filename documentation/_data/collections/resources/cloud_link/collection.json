@@ -302,8 +302,8 @@
   "pages": [
     {
       "aliases": ["cloud link"],
-      "body_bytes": 1511,
-      "body_sha256": "sha256:d8e55c19093220d046549ab9d845e4aea76ab71197499bff215614c344a4843f",
+      "body_bytes": 1524,
+      "body_sha256": "sha256:9659f921c926c9084db8d9b85f851dab91f7700ee6392a611d7ffc69c2e5cd20",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -348,8 +348,8 @@
     },
     {
       "aliases": ["cloud link"],
-      "body_bytes": 20745,
-      "body_sha256": "sha256:b683fa04fa44e7f7dc0ba3575500e51f978733ef70563efa337cd563928c4c79",
+      "body_bytes": 19952,
+      "body_sha256": "sha256:f081ca59ec886f942e76b8d28d4d7d88ad8203a8e37346bf8dec3e4da710609e",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -596,8 +596,8 @@
     },
     {
       "aliases": ["aws"],
-      "body_bytes": 3312,
-      "body_sha256": "sha256:6e1130f186e2e1e927a1ee430d0a9675698b1b75c3f3e631e46a7db9e9ded50c",
+      "body_bytes": 2689,
+      "body_sha256": "sha256:e980751ff277c86d5366fcf805b823ca5aed9a48b6e4f730c1fb3467b816e7e9",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -706,8 +706,8 @@
     },
     {
       "aliases": ["aws aws cred"],
-      "body_bytes": 6024,
-      "body_sha256": "sha256:7185225c8032dbb36737776fabae5526c921b746a3fe2832ab4707ed814f3d56",
+      "body_bytes": 5134,
+      "body_sha256": "sha256:8574ba6dc223f6bedb09e12160a2ad9ddab7db2eb44c3f20299a8fc235ddad01",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -825,8 +825,8 @@
     },
     {
       "aliases": ["aws byoc"],
-      "body_bytes": 1625,
-      "body_sha256": "sha256:a105ecf1a2daf8d1440a69542bd05fb3cb9d7d68de4047af4a2dce5b44682e1c",
+      "body_bytes": 1214,
+      "body_sha256": "sha256:7cfd1d5510b2bd30e754e57070f952d8dafabebe5901d0bac5b97c8b58d42f1d",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_link:properties:aws:byoc:connections"],
@@ -940,8 +940,8 @@
     },
     {
       "aliases": ["aws byoc connections"],
-      "body_bytes": 16954,
-      "body_sha256": "sha256:f118becae35872b9217aa024d42f4568d3c9cb8e2490076845150138c280dc61",
+      "body_bytes": 15298,
+      "body_sha256": "sha256:8c670a4ccbfcbce4264fd97e699ecc604d5f58084367e8b4f10854476e4fe554",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -1294,8 +1294,8 @@
     },
     {
       "aliases": ["aws byoc connections auth key"],
-      "body_bytes": 2527,
-      "body_sha256": "sha256:89830c72faf649afd3c2a7894b1193a4763586e2a005a04077dd3aebadadd0de",
+      "body_bytes": 1888,
+      "body_sha256": "sha256:26c581220956ec25af0a7f8c66c0cadba3ec567b1d2a6b6d177a9c6d062da4b4",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -1405,8 +1405,8 @@
     },
     {
       "aliases": ["aws byoc connections auth key blindfold secret info"],
-      "body_bytes": 5171,
-      "body_sha256": "sha256:8ded120b4cdc3e1288fb2cbbc311aaf36107f14143627cd67cca01ea890d29e8",
+      "body_bytes": 4533,
+      "body_sha256": "sha256:0bda503b3cee9f13da3afb2da3ac15017f75b3f205e37843ddc6bdd119e4142d",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1503,8 +1503,8 @@
     },
     {
       "aliases": ["aws byoc connections auth key clear secret info"],
-      "body_bytes": 4050,
-      "body_sha256": "sha256:0fc7ae6ba2d128ac1d496083851c13250095c78b1886b34771764b416cd61295",
+      "body_bytes": 3546,
+      "body_sha256": "sha256:fadffd206a83e57d8f13b9eb9c7ddae23ffcd9f38e12a4d91287b4d69e880acb",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1585,8 +1585,8 @@
     },
     {
       "aliases": ["aws byoc connections ipv4"],
-      "body_bytes": 3850,
-      "body_sha256": "sha256:e43057c5197a63abefa902fe4f044d6759961642eae9e97b57e37bfec21ae413",
+      "body_bytes": 3599,
+      "body_sha256": "sha256:6d7476e96e367161edd4c5974a05e11267e1c49c6c82969a7a5a006c2f616777",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1675,8 +1675,8 @@
     },
     {
       "aliases": ["aws byoc connections metadata"],
-      "body_bytes": 4365,
-      "body_sha256": "sha256:2fe7a6dd23e0d805066f3fde154bf96dbabef9b795363b957eaa63dfeb63fb9e",
+      "body_bytes": 3697,
+      "body_sha256": "sha256:a86f0971fe5cc0d69e2abff257db9020b71e0bc79f03c1bdb668f045dc9f3732",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1757,8 +1757,8 @@
     },
     {
       "aliases": ["aws byoc connections system generated name"],
-      "body_bytes": 1509,
-      "body_sha256": "sha256:1d077dc247d95efb8a9f679fcd6410b7133c0682cec0a1c877ad8aab3091c645",
+      "body_bytes": 1243,
+      "body_sha256": "sha256:ced4070d39a5c690ebeceed4936e33dac3d2fe4d50acce5d414d985afdbfd170",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1797,8 +1797,8 @@
     },
     {
       "aliases": ["disabled"],
-      "body_bytes": 1428,
-      "body_sha256": "sha256:cd8e92d3ca8ca7015b71f48d2e7b29e6c11d71f7c80e297b368136d36a969a3b",
+      "body_bytes": 1185,
+      "body_sha256": "sha256:343547617856a3ddcf6b455af1fb6ed28c77c9282aca9a848e9e0676fb27c54c",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1837,8 +1837,8 @@
     },
     {
       "aliases": ["enabled"],
-      "body_bytes": 2403,
-      "body_sha256": "sha256:a084e035269aa9045a6f43bac5746975979fe6700f7b2ca27cc6c60cdf03c625",
+      "body_bytes": 2175,
+      "body_sha256": "sha256:e1bc8d90edc1036b5f8aeed9e25efb21c58c8c594e34982cfa2f3f7105479df7",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1903,8 +1903,8 @@
     },
     {
       "aliases": ["gcp"],
-      "body_bytes": 1642,
-      "body_sha256": "sha256:ea3124abdab328ab04e08aaa4bdac2053cfc3819c0d61a9f9b6029da7f712e80",
+      "body_bytes": 1124,
+      "body_sha256": "sha256:69f67c0c2c4192314d541cd0fe53fc4d3dc1bc9363bdadce60be54cd7207e298",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -1997,8 +1997,8 @@
     },
     {
       "aliases": ["gcp byoc"],
-      "body_bytes": 1639,
-      "body_sha256": "sha256:ae8e8abc8b100466e7715612b440aa1dcfd7fed409913fa3c0053116b3f2daf5",
+      "body_bytes": 1223,
+      "body_sha256": "sha256:f480584ea4ecd5e339d9cf7cb25e3d60850b5438bb300a5499a053bb5098ac86",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections"],
@@ -2096,8 +2096,8 @@
     },
     {
       "aliases": ["gcp byoc connections"],
-      "body_bytes": 12265,
-      "body_sha256": "sha256:693010ab543e38719dee29366f0505dc0bfc1092e2bc4f75f0b1a74a54d489a5",
+      "body_bytes": 11355,
+      "body_sha256": "sha256:8d272e424167f8b04c60152fa54917c6e2632448b48e19aa43e7d193da2ff9c5",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -2311,8 +2311,8 @@
     },
     {
       "aliases": ["gcp byoc connections metadata"],
-      "body_bytes": 4365,
-      "body_sha256": "sha256:8dd440f9ab48434e89176e048fe15008e6dd64fe2b09db61338a424904abd9d2",
+      "body_bytes": 3697,
+      "body_sha256": "sha256:ef2ec2419d3ea3129125afbd09f7ea76d52b882f0f00928d16f41f472e534596",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2393,8 +2393,8 @@
     },
     {
       "aliases": ["authentication", "credential setup", "credentials", "gcp byoc connections same as credential"],
-      "body_bytes": 1529,
-      "body_sha256": "sha256:0f58fcba220ab6948b18e84c06319396b0d087fee8df8649a26fcec2994854aa",
+      "body_bytes": 1263,
+      "body_sha256": "sha256:0349a233647bebd774ca51d64fc457fd7312f0c4d826115e5eb891b8cdbd8b96",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2433,8 +2433,8 @@
     },
     {
       "aliases": ["gcp gcp cred"],
-      "body_bytes": 6024,
-      "body_sha256": "sha256:7f4f6c6561e5722c605b1b838e73d90a5322cfdac643283714af32fcedfb7783",
+      "body_bytes": 5134,
+      "body_sha256": "sha256:da539718b5e13b22f5ac2f7b3f6f3bf07292787ab421883721c6f8857cfe0966",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2552,8 +2552,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2219,
-      "body_sha256": "sha256:a9ca140bc1f9608eae39a92a62de49c95efd1bc02a3d5ed9cd9048af20f69ecd",
+      "body_bytes": 1991,
+      "body_sha256": "sha256:e2f2640aa4d018b577b5ef1ac72d312e89141381138441983ccca7c1e416f9c3",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2692,8 +2692,8 @@
     },
     {
       "aliases": ["cloud link"],
-      "body_bytes": 621,
-      "body_sha256": "sha256:c72dc21ed08c9002820847229861eeeaf86a0369e0518464867d051ca175419b",
+      "body_bytes": 396,
+      "body_sha256": "sha256:bfb66289a0414a49dc316968252ed3221a2e07bf7cc7cf74dc1e6ea4184ade82",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_link:example:resource"],
@@ -2732,8 +2732,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1228,
-      "body_sha256": "sha256:60e13b97f210d620d77658c8bcbac3e368d0f43450801e5b2ccfc9aa0ed12164",
+      "body_bytes": 1012,
+      "body_sha256": "sha256:16b80de7b9e3c6f7b56d56bb07ede0f2c5ff4ea8ce0a68e1bdce7fde3106be99",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2779,8 +2779,8 @@
     },
     {
       "aliases": ["cloud link"],
-      "body_bytes": 470,
-      "body_sha256": "sha256:1f79358393bc9c7864a5860512abf0d83bbfb95574b1c1f7e89b4911983ad3b9",
+      "body_bytes": 355,
+      "body_sha256": "sha256:5f63a6d18276bb1e39e432d92e5057838399aeeaf5bcdca5da4f893374dd8d28",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2820,8 +2820,8 @@
     },
     {
       "aliases": ["cloud link"],
-      "body_bytes": 558,
-      "body_sha256": "sha256:dba4455805548dde927acba085f10e8d17012c49977a49ffa7772fc9acafd559",
+      "body_bytes": 443,
+      "body_sha256": "sha256:f21b550cad63f6bbc15a30d75ad4a26d23c0477f51c6dc729a3bf21f336ce50f",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],

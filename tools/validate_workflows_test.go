@@ -522,6 +522,98 @@ func TestReleaseJobsUseManagedSocketlessARC(t *testing.T) {
 	}
 }
 
+func TestTerraformDocumentationSnapshotFollowsSealedProviderRelease(t *testing.T) {
+	root := filepath.Join("..", ".github", "workflows")
+	releaseBytes, err := os.ReadFile(filepath.Join(root, "_tag-release.yml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	var release workflowDocument
+	if err := yaml.Unmarshal(releaseBytes, &release); err != nil {
+		t.Fatal(err)
+	}
+	job, ok := release.Jobs["documentation"]
+	if !ok {
+		t.Fatal("release transaction lacks documentation publication")
+	}
+	needs, ok := job["needs"].([]any)
+	if !ok || !reflect.DeepEqual(needs, []any{"tag", "publish"}) {
+		t.Errorf("documentation dependencies = %v", job["needs"])
+	}
+	if job["uses"] != "./.github/workflows/terraform-docs-snapshot.yml" {
+		t.Errorf("documentation job uses %v", job["uses"])
+	}
+	permissions, ok := job["permissions"].(map[string]any)
+	if !ok || permissions["contents"] != "write" {
+		t.Error("documentation job lacks contents: write")
+	}
+	inputs, ok := job["with"].(map[string]any)
+	if !ok || inputs["provider_tag"] != "${{ needs.tag.outputs.new_tag }}" {
+		t.Error("documentation job does not use the exact released tag")
+	}
+	secrets, ok := job["secrets"].(map[string]any)
+	if !ok || secrets["REPO_SYNC_TOKEN"] != "${{ secrets.repository-administration-token }}" {
+		t.Error("documentation job does not pass the immutable-policy read token")
+	}
+
+	snapshotBytes, err := os.ReadFile(filepath.Join(root, "terraform-docs-snapshot.yml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	var snapshot workflowDocument
+	if err := yaml.Unmarshal(snapshotBytes, &snapshot); err != nil {
+		t.Fatal(err)
+	}
+	var triggers map[string]any
+	if err := snapshot.On.Decode(&triggers); err != nil {
+		t.Fatal(err)
+	}
+	for _, name := range []string{"workflow_call", "workflow_dispatch", "schedule"} {
+		if _, ok := triggers[name]; !ok {
+			t.Errorf("documentation snapshot lacks %s trigger", name)
+		}
+	}
+	called, ok := triggers["workflow_call"].(map[string]any)
+	if !ok {
+		t.Fatal("documentation workflow_call is malformed")
+	}
+	calledInputs, ok := called["inputs"].(map[string]any)
+	if !ok {
+		t.Fatal("documentation workflow_call inputs are missing")
+	}
+	providerTag, ok := calledInputs["provider_tag"].(map[string]any)
+	if !ok || providerTag["required"] != true {
+		t.Error("documentation workflow_call does not require the provider tag")
+	}
+	calledSecrets, ok := called["secrets"].(map[string]any)
+	if !ok || calledSecrets["REPO_SYNC_TOKEN"] == nil {
+		t.Error("documentation workflow_call lacks the policy-read secret")
+	}
+	publish := snapshot.Jobs["publish"]
+	if publish["environment"] != "terraform-documentation-publication" {
+		t.Error("documentation publication bypasses its environment")
+	}
+	steps, ok := publish["steps"].([]any)
+	if !ok {
+		t.Fatal("documentation publisher has no steps")
+	}
+	found := false
+	for _, value := range steps {
+		step, ok := value.(map[string]any)
+		if !ok || step["name"] != "Publish canonical snapshot without rebuilding schemas" {
+			continue
+		}
+		found = true
+		env, ok := step["env"].(map[string]any)
+		if !ok || env["GH_TOKEN"] != "${{ secrets.REPO_SYNC_TOKEN }}" {
+			t.Error("documentation publisher does not use the passed release credential")
+		}
+	}
+	if !found {
+		t.Fatal("documentation publish step is missing")
+	}
+}
+
 func TestAcceptanceHostedJobsPinGoToolchain(t *testing.T) {
 	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "acc-tests.yml"))
 	if err != nil {

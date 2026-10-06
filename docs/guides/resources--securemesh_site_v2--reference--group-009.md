@@ -6,3052 +6,13 @@ description: "Complete grouped canonical reference for xcsh_securemesh_site_v2 r
 
 # xcsh_securemesh_site_v2 reference
 
-<a id="canonical-2001033111213323-2102313212320020-3131111111011000-1123222122302030-3310023201300030-0211000100121003-2030200302320020-3013301013310123"></a>
-
-## equinix.not_managed.node_list.interface_list.ethernet_interface — ethernet_interface / 022021303232 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- equinix.not_managed.node_list.interface_list.ethernet_interface
-
-<a id="canonical-0101023321101321-2021312313030032-0230013132202301-1011202300111200-0102333232033112-0130333120012130-2230132201300313-0300331010101031"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Configuration parameter for ethernet interface.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("mac")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-ethernet_interface {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-1232131021321132-3120032202030030-2001203111101101-2312303033003203-2223233320000100-3103002213001302-1032103132030313-2332312222210211"></a>
-
-## Direct properties — ethernet_interface / 022021303232 / 3
-
-<a id="canonical-1233303313233130-2111122203301002-1203211302333020-0123120310000200-2221111011113123-2101323001011003-2120022322133112-3222012303110330"></a>
-
-<a id="canonical-2131231113113102-1131302001122332-2212300010111111-0311112123212100-1131301311230020-0323101330223312-3122121303330032-0210021223110021"></a>
-
-## device property — ethernet_interface / 022021303232 / 4
-
-Type: `"string"`. Optional.
-
-Select an Ethernet device from the discovered interfaces to configure. Once configured, this
-interface will be part of this sites dataplane and can participate in the networking services
-configured on this site.
-
-Upstream description:
-
-Select an Ethernet device from the discovered interfaces to configure. Once configured, this
-interface will be part of this sites dataplane and can participate in the networking services
-configured on this site.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 64),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "false",
-    "ves.io.schema.rules.string.max_len": "64",
-    "ves.io.schema.rules.string.min_len": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "false",
-    "ves.io.schema.rules.string.max_len": "64",
-    "ves.io.schema.rules.string.min_len": "1"
-  }
-}
-```
-
-<a id="canonical-3033020232100110-3012033002211033-0121010201333332-0330312002132303-0321022100200120-1110100333020213-1323110211322223-0023002232202011"></a>
-
-<a id="canonical-2101223002133302-0010232010212311-0132101330113122-2002230122100031-2222202012130022-0211301110001220-3230301103022132-0201321201312202"></a>
-
-## mac property — ethernet_interface / 022021303232 / 5
-
-Type: `"string"`. Optional.
-
-MAC Address. Configuration parameter for mac
-
-Upstream description:
-
-Configuration parameter for mac
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(1024),
-  validators.MACValidator(),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "mac-address",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.mac": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.mac": "true"
-  }
-}
-```
-
-<a id="canonical-1223201021301030-3012012001232033-3122223321312103-0100213000130020-2203212130102212-2233221133313030-0113130111022001-1233033311312233"></a>
-
-## Next pages — ethernet_interface / 022021303232 / 6
-
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-0130010230122210-0120213103010013-2111221300002310-0111131203321100-0232100021033223-3211111202030233-3132010021133331-0130033220213012"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0012022213030222-0133113131331232-0321230102211322-3012311203003021-0233311312210013-0330022112033230-2233302201023013-2201020330122303"></a>
-
-## equinix.not_managed.node_list.interface_list.ipv6_auto_config — ipv6_auto_config / 021222132332 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- equinix.not_managed.node_list.interface_list.ipv6_auto_config
-
-<a id="canonical-3301330003033013-0130203002212230-0323332112111110-2312230222113123-2001310200201103-2021222321121133-3012332220210230-2031002210020020"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-IPV6AutoConfigType.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("host",
-    "router")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-autoconfig_choice": "[\"host\",\"router\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-ipv6_auto_config {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0300122031013232-1130300031011030-3220210311323033-2311022033210031-2120100330122330-2200032301003023-1223230302320123-1331133133321311"></a>
-
-## Direct properties — ipv6_auto_config / 021222132332 / 3
-
-- [host](resources--securemesh_site_v2--reference--group-009.md#canonical-0321003321123303-2020001011330203-1302122331203121-3000330300033100-0112110331233102-2321012212311103-0101231121331303-0131012012212223): complete subsection reference.
-
-- [router](resources--securemesh_site_v2--reference--group-009.md#canonical-1011303120121001-0333333012300100-0200321132030212-0032120312032033-3132302212333321-2320121102333012-0022201311013032-3312010230313211): complete subsection reference.
-
-<a id="canonical-1212202311001200-1321131231120112-1202210130211312-3313111230230112-3131112300100100-1333220312021023-0021222101301301-2012020230201233"></a>
-
-## Next pages — ipv6_auto_config / 021222132332 / 4
-
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.host](resources--securemesh_site_v2--reference--group-009.md#canonical-0321003321123303-2020001011330203-1302122331203121-3000330300033100-0112110331233102-2321012212311103-0101231121331303-0131012012212223)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1011303120121001-0333333012300100-0200321132030212-0032120312032033-3132302212333321-2320121102333012-0022201311013032-3312010230313211)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-0321003321123303-2020001011330203-1302122331203121-3000330300033100-0112110331233102-2321012212311103-0101231121331303-0131012012212223"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2112121203201021-0203000303113010-0301323122132222-3313300312331321-1020313201131212-3222303103032303-1332310113131231-2022121213231022"></a>
-
-## equinix.not_managed.node_list.interface_list.ipv6_auto_config.host — host / 231332101000 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0130010230122210-0120213103010013-2111221300002310-0111131203321100-0232100021033223-3211111202030233-3132010021133331-0130033220213012)
-- equinix.not_managed.node_list.interface_list.ipv6_auto_config.host
-
-<a id="canonical-2201033211321231-3113311032033220-3021111121020211-1131032001130212-1110120122022212-1020113112222333-2203120320113102-2120031003211213"></a>
-
-Type: `["object", {}]`. Optional.
-
-Hostname or IP address of the target server.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-host = {}
-```
-
-<a id="canonical-2200232203100321-0211112113033200-1100133322332232-0111132132121222-1221331010302133-0311031132101120-1301111321012031-2020023311130032"></a>
-
-## Direct properties — host / 231332101000 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1310312301313321-0311132231230100-0003301020100013-3230203122110112-1120311132202303-3123212321333111-0000001320021231-3030213322020321"></a>
-
-## Next pages — host / 231332101000 / 4
-
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0130010230122210-0120213103010013-2111221300002310-0111131203321100-0232100021033223-3211111202030233-3132010021133331-0130033220213012)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-1011303120121001-0333333012300100-0200321132030212-0032120312032033-3132302212333321-2320121102333012-0022201311013032-3312010230313211"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1303102220111121-3201131023220131-3013010102030020-3030223201111132-2102321223312112-3103221002103212-1022013120301131-0103022323313131"></a>
-
-## equinix.not_managed.node_list.interface_list.ipv6_auto_config.router — router / 022301330331 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0130010230122210-0120213103010013-2111221300002310-0111131203321100-0232100021033223-3211111202030233-3132010021133331-0130033220213012)
-- equinix.not_managed.node_list.interface_list.ipv6_auto_config.router
-
-<a id="canonical-0201232012002311-2130231221000113-2120010213312010-0103220303022022-3002232132202113-0132122111122023-3013122132121313-0002131111121220"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-IPV6AutoConfigRouterType.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("network_prefix",
-    "stateful")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-address_choice": "[\"network_prefix\",\"stateful\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-router {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-1230121330021332-2322203222130230-1320030010122022-2203301203122031-1001023212131313-2222220320202132-2313223010122121-3311302000102330"></a>
-
-## Direct properties — router / 022301330331 / 3
-
-- [dns_config](resources--securemesh_site_v2--reference--group-009.md#canonical-1210021003221321-2122011211331000-3031212002021122-0002101233223202-3232301233301202-2303020223333110-2132111112303102-1212333310202222): complete subsection reference.
-
-<a id="canonical-3112310302200012-1312013030103133-0032102200320121-2233220312333233-3133220331032333-1231332200321100-3021113212111320-2222311111233002"></a>
-
-<a id="canonical-1300200131110011-3111010302232012-0112213110031211-1032002200103010-3210131133231013-2323323103031312-0200023330120102-3302101321122211"></a>
-
-## network_prefix property — router / 022301330331 / 4
-
-Type: `"string"`. Optional.
-
-Exclusive with \[stateful\] Network prefix that is used as Prefix information Allowed only /64
-prefix length as per RFC 4862.
-
-Upstream description:
-
-Exclusive with \[stateful\] Network prefix that is used as Prefix information Allowed only /64
-prefix length as per RFC 4862.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(1024),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "pattern": ".*::/64$"
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.ipv6_prefix": "true",
-    "ves.io.schema.rules.string.pattern": ".*::/64$"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.ipv6_prefix": "true",
-    "ves.io.schema.rules.string.pattern": ".*::/64$"
-  }
-}
-```
-
-- [stateful](resources--securemesh_site_v2--reference--group-009.md#canonical-3023322212003231-1310311302032003-2101133030101320-1001311021123220-3112302110030030-3113232310021021-0032022023303010-1001223000002001): complete subsection reference.
-
-<a id="canonical-3112322010112032-0310111313112122-3000312201230002-1201203231203030-1211102113131330-3321212112111130-0002320201303223-3111022013113030"></a>
-
-## Next pages — router / 022301330331 / 5
-
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](resources--securemesh_site_v2--reference--group-009.md#canonical-1210021003221321-2122011211331000-3031212002021122-0002101233223202-3232301233301202-2303020223333110-2132111112303102-1212333310202222)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-009.md#canonical-3023322212003231-1310311302032003-2101133030101320-1001311021123220-3112302110030030-3113232310021021-0032022023303010-1001223000002001)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0130010230122210-0120213103010013-2111221300002310-0111131203321100-0232100021033223-3211111202030233-3132010021133331-0130033220213012)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-1210021003221321-2122011211331000-3031212002021122-0002101233223202-3232301233301202-2303020223333110-2132111112303102-1212333310202222"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-3311301003203333-1223030123003101-1232011300102312-3030211031033210-2001022303232222-3302300212103123-3322302031010330-2122230033001330"></a>
-
-## equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config — dns_config / 130311023202 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0130010230122210-0120213103010013-2111221300002310-0111131203321100-0232100021033223-3211111202030233-3132010021133331-0130033220213012)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1011303120121001-0333333012300100-0200321132030212-0032120312032033-3132302212333321-2320121102333012-0022201311013032-3312010230313211)
-- equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config
-
-<a id="canonical-3102333320320033-3233023212222000-1200212212201233-0022123103331332-0222013210030320-1320323333231313-2011133232033312-1200323132202132"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-IPV6DnsConfig.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("configured_list",
-    "local_dns")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-dns_choice": "[\"configured_list\",\"local_dns\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-dns_config {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-1212202120002130-3302000120102013-3011201033112302-2231031201013233-2210000200221131-1110332223333123-0001300020030203-1330321011203223"></a>
-
-## Direct properties — dns_config / 130311023202 / 3
-
-- [configured_list](resources--securemesh_site_v2--reference--group-009.md#canonical-0200200312311010-3033110122302033-0220002223230211-1031113203202022-2221221320102111-2333111123222013-0122020231010233-2011333233000231): complete subsection reference.
-
-- [local_dns](resources--securemesh_site_v2--reference--group-009.md#canonical-0132121220003022-1031211233220320-3220131033313103-3111302302112123-0223200301300300-0230213031023000-3121113113123020-2003200102330113): complete subsection reference.
-
-<a id="canonical-1022220111223011-3112013131133001-0121100323011100-1020022022012220-2213333002103233-2123303002120310-3121102112032133-1222333101120311"></a>
-
-## Next pages — dns_config / 130311023202 / 4
-
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.configured_list](resources--securemesh_site_v2--reference--group-009.md#canonical-0200200312311010-3033110122302033-0220002223230211-1031113203202022-2221221320102111-2333111123222013-0122020231010233-2011333233000231)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](resources--securemesh_site_v2--reference--group-009.md#canonical-0132121220003022-1031211233220320-3220131033313103-3111302302112123-0223200301300300-0230213031023000-3121113113123020-2003200102330113)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1011303120121001-0333333012300100-0200321132030212-0032120312032033-3132302212333321-2320121102333012-0022201311013032-3312010230313211)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-0200200312311010-3033110122302033-0220002223230211-1031113203202022-2221221320102111-2333111123222013-0122020231010233-2011333233000231"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-3033133031300312-1122310003221213-3231012033310122-3123231003222330-3300113312013321-1221323000210022-0020332321203303-0131123202212232"></a>
-
-## equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.configured_list — configured_list / 221110133010 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0130010230122210-0120213103010013-2111221300002310-0111131203321100-0232100021033223-3211111202030233-3132010021133331-0130033220213012)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1011303120121001-0333333012300100-0200321132030212-0032120312032033-3132302212333321-2320121102333012-0022201311013032-3312010230313211)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](resources--securemesh_site_v2--reference--group-009.md#canonical-1210021003221321-2122011211331000-3031212002021122-0002101233223202-3232301233301202-2303020223333110-2132111112303102-1212333310202222)
-- equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.configured_list
-
-<a id="canonical-1210003001011221-0211013220321313-2133001130012232-2320322321231320-3322033200113231-1333200121122123-3121230011012300-3232103300232210"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-IPV6DnsList.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("dns_list")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-configured_list {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2203110132132201-2331130330220210-2201232331221332-3223011323023101-2302223210211113-3033001202132233-1001212023223133-0231300120110102"></a>
-
-## Direct properties — configured_list / 221110133010 / 3
-
-<a id="canonical-1131103100303010-2123120210311022-3312311330213233-0102320322203012-1211133230102122-0000020300002102-3220302102211101-3021201333130123"></a>
-
-<a id="canonical-0131000332020212-1322010023332230-3100312002233001-3032332011213330-0003212213220131-3232103020222022-0003000101313221-3113200001313231"></a>
-
-## dns_list property — configured_list / 221110133010 / 4
-
-Type: `["list", "string"]`. Optional.
-
-List of IPv6 Addresses acting as DNS servers.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{
-  listvalidator.SizeBetween(1, 4),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 4,
-  "minItems": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 4,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minItems": 1,
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.items.string.ipv6": "true",
-    "ves.io.schema.rules.repeated.max_items": "4",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.items.string.ipv6": "true",
-    "ves.io.schema.rules.repeated.max_items": "4",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-<a id="canonical-0020000310031121-3010011122130221-2011322222132222-2002002210031310-0021210203211221-1332201120013321-0010121002032023-2301130313131003"></a>
-
-## Next pages — configured_list / 221110133010 / 5
-
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](resources--securemesh_site_v2--reference--group-009.md#canonical-1210021003221321-2122011211331000-3031212002021122-0002101233223202-3232301233301202-2303020223333110-2132111112303102-1212333310202222)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-0132121220003022-1031211233220320-3220131033313103-3111302302112123-0223200301300300-0230213031023000-3121113113123020-2003200102330113"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1332020003323130-1203002003131101-1301230330301310-2210110330203221-1311233011303320-1023232202233021-1112122102132211-1301220020133121"></a>
-
-## equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns — local_dns / 132003203233 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0130010230122210-0120213103010013-2111221300002310-0111131203321100-0232100021033223-3211111202030233-3132010021133331-0130033220213012)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1011303120121001-0333333012300100-0200321132030212-0032120312032033-3132302212333321-2320121102333012-0022201311013032-3312010230313211)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](resources--securemesh_site_v2--reference--group-009.md#canonical-1210021003221321-2122011211331000-3031212002021122-0002101233223202-3232301233301202-2303020223333110-2132111112303102-1212333310202222)
-- equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns
-
-<a id="canonical-1312000020330021-2322331231123223-2202023112101212-2312311323222020-2203233321110300-3102110200102200-1110000131200202-0201112002210213"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-IPV6LocalDnsAddress.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("configured_address",
-    "first_address"),
-  validators.ConflictingObjectAttributes("configured_address",
-    "last_address"),
-  validators.ConflictingObjectAttributes("first_address",
-    "last_address")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-local_dns_choice": "[\"configured_address\",\"first_address\",\"last_address\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-local_dns {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-3302003113032100-0032133101231213-0131002021010232-2231003233330300-1302231133210010-0313233322312123-2032220111232210-3003201212213010"></a>
-
-## Direct properties — local_dns / 132003203233 / 3
-
-<a id="canonical-0211231033202011-3010121111210010-2123132103100000-0002310012033300-2001313010212111-0111033111111131-3300002320030112-1320203212221133"></a>
-
-<a id="canonical-3103000000130300-1202112301321120-3113201233202220-2021110021123213-3132213230031131-1223301310321320-0130211301103201-3010131012000301"></a>
-
-## configured_address property — local_dns / 132003203233 / 4
-
-Type: `"string"`. Optional.
-
-Exclusive with \[first\_address last\_address\] Configured address from the network prefix is chosen
-as DNS server.
-
-Upstream description:
-
-Exclusive with \[first\_address last\_address\] Configured address from the network prefix is chosen
-as DNS server.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(1024),
-  validators.IPv6Validator(),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "ipv6",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.ipv6": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.ipv6": "true"
-  }
-}
-```
-
-- [first_address](resources--securemesh_site_v2--reference--group-009.md#canonical-2210003231223113-2313130032223123-0222123312121323-1201003123223231-2321312213211330-1123033233322320-1121202010313121-3331110132303303): complete subsection reference.
-
-- [last_address](resources--securemesh_site_v2--reference--group-009.md#canonical-0012003220002220-3012023001030333-1111310233023102-1123201232020221-2221132302022301-2232112211012210-2032022330033131-1130212223320013): complete subsection reference.
-
-<a id="canonical-1332232003002001-0331213100020013-1213022231310333-3122201323102210-2102030322103221-1310210030322010-2131123103313023-3113112210101233"></a>
-
-## Next pages — local_dns / 132003203233 / 5
-
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.first_address](resources--securemesh_site_v2--reference--group-009.md#canonical-2210003231223113-2313130032223123-0222123312121323-1201003123223231-2321312213211330-1123033233322320-1121202010313121-3331110132303303)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.last_address](resources--securemesh_site_v2--reference--group-009.md#canonical-0012003220002220-3012023001030333-1111310233023102-1123201232020221-2221132302022301-2232112211012210-2032022330033131-1130212223320013)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](resources--securemesh_site_v2--reference--group-009.md#canonical-1210021003221321-2122011211331000-3031212002021122-0002101233223202-3232301233301202-2303020223333110-2132111112303102-1212333310202222)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-2210003231223113-2313130032223123-0222123312121323-1201003123223231-2321312213211330-1123033233322320-1121202010313121-3331110132303303"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-3333113310110033-3202303132220220-3103320003301233-0010310103021032-0212310201010231-1030000002131030-2203023213313320-1020121023011010"></a>
-
-## equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.first_address — first_address / 023002202112 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0130010230122210-0120213103010013-2111221300002310-0111131203321100-0232100021033223-3211111202030233-3132010021133331-0130033220213012)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1011303120121001-0333333012300100-0200321132030212-0032120312032033-3132302212333321-2320121102333012-0022201311013032-3312010230313211)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](resources--securemesh_site_v2--reference--group-009.md#canonical-1210021003221321-2122011211331000-3031212002021122-0002101233223202-3232301233301202-2303020223333110-2132111112303102-1212333310202222)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](resources--securemesh_site_v2--reference--group-009.md#canonical-0132121220003022-1031211233220320-3220131033313103-3111302302112123-0223200301300300-0230213031023000-3121113113123020-2003200102330113)
-- equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.first_address
-
-<a id="canonical-0231120231000021-2102203223220111-1222312311311102-3113003333321123-1022323020310322-2203131111110113-1331221200221111-0021133321302013"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-first_address = {}
-```
-
-<a id="canonical-2203203020021311-0111120222133220-1023030230221313-2330222311023302-3233132120120233-1021220003220103-1212031230313332-3201102310201211"></a>
-
-## Direct properties — first_address / 023002202112 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1213210230032230-2113303003212022-0130011132200202-2130230032000133-1012211313301232-3221231130013311-2210330331122131-3202232012112331"></a>
-
-## Next pages — first_address / 023002202112 / 4
-
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](resources--securemesh_site_v2--reference--group-009.md#canonical-0132121220003022-1031211233220320-3220131033313103-3111302302112123-0223200301300300-0230213031023000-3121113113123020-2003200102330113)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-0012003220002220-3012023001030333-1111310233023102-1123201232020221-2221132302022301-2232112211012210-2032022330033131-1130212223320013"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1021023001313303-1111210202120230-1012101330032122-1321101322210232-2310221122003033-3302033213021301-1123213230312202-2002202101132322"></a>
-
-## equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.last_address — last_address / 203201011120 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0130010230122210-0120213103010013-2111221300002310-0111131203321100-0232100021033223-3211111202030233-3132010021133331-0130033220213012)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1011303120121001-0333333012300100-0200321132030212-0032120312032033-3132302212333321-2320121102333012-0022201311013032-3312010230313211)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](resources--securemesh_site_v2--reference--group-009.md#canonical-1210021003221321-2122011211331000-3031212002021122-0002101233223202-3232301233301202-2303020223333110-2132111112303102-1212333310202222)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](resources--securemesh_site_v2--reference--group-009.md#canonical-0132121220003022-1031211233220320-3220131033313103-3111302302112123-0223200301300300-0230213031023000-3121113113123020-2003200102330113)
-- equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.last_address
-
-<a id="canonical-0102223222030322-0300001002030332-3101330202113322-0313332232320111-3102310000221132-1111213310031321-1300002120130031-3331021203023121"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-last_address = {}
-```
-
-<a id="canonical-2222032203023201-1120132202021330-0221131122100132-1222022031331200-2320331331223313-2323211123122331-3121110021030000-1220331300100302"></a>
-
-## Direct properties — last_address / 203201011120 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2220210220213132-2232332012330033-0312102233333132-3011201320103233-3221131212223021-2220222303321202-2232330231222032-0300033102100122"></a>
-
-## Next pages — last_address / 203201011120 / 4
-
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](resources--securemesh_site_v2--reference--group-009.md#canonical-0132121220003022-1031211233220320-3220131033313103-3111302302112123-0223200301300300-0230213031023000-3121113113123020-2003200102330113)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-3023322212003231-1310311302032003-2101133030101320-1001311021123220-3112302110030030-3113232310021021-0032022023303010-1001223000002001"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2212322331212201-0031121302230302-3233032110331302-1102113031031003-0333103033112223-1312030311230303-0120301233022112-1103322002203300"></a>
-
-## equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful — stateful / 133103012112 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0130010230122210-0120213103010013-2111221300002310-0111131203321100-0232100021033223-3211111202030233-3132010021133331-0130033220213012)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1011303120121001-0333333012300100-0200321132030212-0032120312032033-3132302212333321-2320121102333012-0022201311013032-3312010230313211)
-- equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful
-
-<a id="canonical-0200111033123022-3303032120200111-3020101001121211-2102132012300321-3331221233220032-2331212133120030-1022321022010020-2133302100320311"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-DHCPIPV6 Stateful Server.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"),
-  validators.ConflictingObjectAttributes("automatic_from_end",
-    "automatic_from_start"),
-  validators.ConflictingObjectAttributes("automatic_from_end",
-    "interface_ip_map"),
-  validators.ConflictingObjectAttributes("automatic_from_start",
-    "interface_ip_map")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-interfaces_addressing_choice": "[\"automatic_from_end\",\"automatic_from_start\",\"interface_ip_map\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-stateful {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0332012001302220-0200032301302313-1121323231213221-2220131302020103-0122132323320001-3303132213133303-2213122333000012-1032300330123331"></a>
-
-## Direct properties — stateful / 133103012112 / 3
-
-- [automatic_from_end](resources--securemesh_site_v2--reference--group-009.md#canonical-1331130023330022-0313020312223222-3220011123011230-1113111033123320-0330112312102221-0231223120301001-0100333102303022-1113232203002301): complete subsection reference.
-
-- [automatic_from_start](resources--securemesh_site_v2--reference--group-009.md#canonical-3303220011212021-3323220323103102-3301223321023200-2223121132222110-3230113221111001-2100232133100230-3131313330103002-1133103011111202): complete subsection reference.
-
-- [dhcp_networks](resources--securemesh_site_v2--reference--group-009.md#canonical-1121102023100211-3113023031103011-3031300003201213-1210110101121001-1330102113011003-2130010333013233-0321311033211001-1021320321100032): complete subsection reference.
-
-<a id="canonical-2020323002330013-3000113132033331-3230322113231110-1033102113132220-0333213012321030-3033032032131321-1032221230231313-3003231231013133"></a>
-
-<a id="canonical-3230303300113231-3103202122302002-0122302303300013-2230110122310200-0303302123030112-3332121220303020-2133202131100223-3213023212300133"></a>
-
-## fixed_ip_map property — stateful / 133103012112 / 4
-
-Type: `["map", "string"]`. Optional.
-
-Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6
-addresses based on the MAC Address of the DHCP Client.
-
-Upstream description:
-
-Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6
-addresses based on the MAC Address of the DHCP Client.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"crossEntry\":{\"uniqueValues\":true},\"deterministic\":true,\"keys\":{\"format\":\"mac-address\",\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.mac\":\"true\",\"ves.io.schema.rules.map.max_pairs\":\"128\",\"ves.io.schema.rules.map.unique_values\":\"true\",\"ves.io.schema.rules.map.values.string.ipv6\":\"true\"},\"values\":{\"format\":\"ipv6\",\"type\":\"string\"}}")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "cardinality": {
-      "maxProperties": 128
-    },
-    "category": "discovery",
-    "constraintType": "map",
-    "crossEntry": {
-      "uniqueValues": true
-    },
-    "deterministic": true,
-    "keys": {
-      "format": "mac-address",
-      "type": "string"
-    },
-    "originalRules": {
-      "ves.io.schema.rules.map.keys.string.mac": "true",
-      "ves.io.schema.rules.map.max_pairs": "128",
-      "ves.io.schema.rules.map.unique_values": "true",
-      "ves.io.schema.rules.map.values.string.ipv6": "true"
-    },
-    "values": {
-      "format": "ipv6",
-      "type": "string"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.map.keys.string.mac": "true",
-    "ves.io.schema.rules.map.max_pairs": "128",
-    "ves.io.schema.rules.map.unique_values": "true",
-    "ves.io.schema.rules.map.values.string.ipv6": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.map.keys.string.mac": "true",
-    "ves.io.schema.rules.map.max_pairs": "128",
-    "ves.io.schema.rules.map.unique_values": "true",
-    "ves.io.schema.rules.map.values.string.ipv6": "true"
-  }
-}
-```
-
-- [interface_ip_map](resources--securemesh_site_v2--reference--group-009.md#canonical-2300002323002333-1110013212111103-1332232213131020-1333031321101003-1020031100202111-3011032233000231-1223011203223230-3120021302103213): complete subsection reference.
-
-<a id="canonical-0112003232330332-3203030112010321-3111033023102121-2103232001001103-0323013030320013-1322331002323012-0102130002330321-1120111213200122"></a>
-
-## Next pages — stateful / 133103012112 / 5
-
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_end](resources--securemesh_site_v2--reference--group-009.md#canonical-1331130023330022-0313020312223222-3220011123011230-1113111033123320-0330112312102221-0231223120301001-0100333102303022-1113232203002301)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_start](resources--securemesh_site_v2--reference--group-009.md#canonical-3303220011212021-3323220323103102-3301223321023200-2223121132222110-3230113221111001-2100232133100230-3131313330103002-1133103011111202)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks](resources--securemesh_site_v2--reference--group-009.md#canonical-1121102023100211-3113023031103011-3031300003201213-1210110101121001-1330102113011003-2130010333013233-0321311033211001-1021320321100032)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map](resources--securemesh_site_v2--reference--group-009.md#canonical-2300002323002333-1110013212111103-1332232213131020-1333031321101003-1020031100202111-3011032233000231-1223011203223230-3120021302103213)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1011303120121001-0333333012300100-0200321132030212-0032120312032033-3132302212333321-2320121102333012-0022201311013032-3312010230313211)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-1331130023330022-0313020312223222-3220011123011230-1113111033123320-0330112312102221-0231223120301001-0100333102303022-1113232203002301"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0103013331033101-3111101110312101-1131023110311313-0202022323210321-2200031212322010-2013112133100211-2210323131333203-1320020123232310"></a>
-
-## equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_end — automatic_from_end / 230122321101 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0130010230122210-0120213103010013-2111221300002310-0111131203321100-0232100021033223-3211111202030233-3132010021133331-0130033220213012)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1011303120121001-0333333012300100-0200321132030212-0032120312032033-3132302212333321-2320121102333012-0022201311013032-3312010230313211)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-009.md#canonical-3023322212003231-1310311302032003-2101133030101320-1001311021123220-3112302110030030-3113232310021021-0032022023303010-1001223000002001)
-- equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_end
-
-<a id="canonical-0120022000020210-0202233223021103-0032230232202003-2020002230123220-3322000201223301-3121303031101232-3101203021133012-1320330323101312"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for automatic from end.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-automatic_from_end = {}
-```
-
-<a id="canonical-1001011103300122-2011130023102111-2110033231322303-3011301013211120-1102002003013223-1020101313101223-1332310223100201-2102113120332002"></a>
-
-## Direct properties — automatic_from_end / 230122321101 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2100202310102132-0223312120301210-1300231220222011-3333231132133012-0003031233122200-0301132012332312-1301120302203333-1221302301031130"></a>
-
-## Next pages — automatic_from_end / 230122321101 / 4
-
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-009.md#canonical-3023322212003231-1310311302032003-2101133030101320-1001311021123220-3112302110030030-3113232310021021-0032022023303010-1001223000002001)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-3303220011212021-3323220323103102-3301223321023200-2223121132222110-3230113221111001-2100232133100230-3131313330103002-1133103011111202"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0321122121210000-0212101100032322-3301313233023213-1001023030022100-2002021103210230-1201113021312212-3003122022223023-0312213202011312"></a>
-
-## equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_start — automatic_from_start / 330001231333 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0130010230122210-0120213103010013-2111221300002310-0111131203321100-0232100021033223-3211111202030233-3132010021133331-0130033220213012)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1011303120121001-0333333012300100-0200321132030212-0032120312032033-3132302212333321-2320121102333012-0022201311013032-3312010230313211)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-009.md#canonical-3023322212003231-1310311302032003-2101133030101320-1001311021123220-3112302110030030-3113232310021021-0032022023303010-1001223000002001)
-- equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_start
-
-<a id="canonical-1302011320003320-1201032300021121-3222303010321103-0130112030200203-0110031030232310-0322233301101000-3321231200132003-1100113321112333"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for automatic from start.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-automatic_from_start = {}
-```
-
-<a id="canonical-0220133031100202-3103301031220111-0321022113302112-1333211030222233-0102120230020322-2232110303100211-3322113330201021-1220122321110322"></a>
-
-## Direct properties — automatic_from_start / 330001231333 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2233001133011220-0300233321330313-1020013022001333-3200100302133002-3031221120013320-0103300303202311-3232303233303312-0031002213131002"></a>
-
-## Next pages — automatic_from_start / 330001231333 / 4
-
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-009.md#canonical-3023322212003231-1310311302032003-2101133030101320-1001311021123220-3112302110030030-3113232310021021-0032022023303010-1001223000002001)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-1121102023100211-3113023031103011-3031300003201213-1210110101121001-1330102113011003-2130010333013233-0321311033211001-1021320321100032"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2010130123110220-1021001113000121-1121332302213012-3021031201000302-3223030313322000-2110010032101131-3112031112220213-3033333023211112"></a>
-
-## equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks — dhcp_networks / 233303011021 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0130010230122210-0120213103010013-2111221300002310-0111131203321100-0232100021033223-3211111202030233-3132010021133331-0130033220213012)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1011303120121001-0333333012300100-0200321132030212-0032120312032033-3132302212333321-2320121102333012-0022201311013032-3312010230313211)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-009.md#canonical-3023322212003231-1310311302032003-2101133030101320-1001311021123220-3112302110030030-3113232310021021-0032022023303010-1001223000002001)
-- equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks
-
-<a id="canonical-2132121012320112-1220011333023210-0301203033221131-2122301112220331-2113310000023232-1101322300311211-1310302003322103-0020230330211022"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-List of networks from which DHCP server can allocate IP addresses.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 1,
-  "minItems": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 1,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minItems": 1,
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "1",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "1",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-dhcp_networks {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2300301113123213-1300200110003123-3003122312102331-2000320110231231-3020133233113002-2012120110111021-2303120301101223-1201333230023030"></a>
-
-## Direct properties — dhcp_networks / 233303011021 / 3
-
-<a id="canonical-3001333202110301-3120133213312111-1232032130310010-1210001323210312-3323022011000231-3330003001220002-0213102303021230-1102303122330133"></a>
-
-<a id="canonical-1100001302311303-1032003220132312-0111121310003122-2120301022302300-2201222201102002-1032303132220123-3203110012330101-0133031000131111"></a>
-
-## network_prefix property — dhcp_networks / 233303011021 / 4
-
-Type: `"string"`. Optional.
-
-Exclusive with \[\] Network Prefix to be used for IPv6 address auto configuration.
-
-Upstream description:
-
-Exclusive with \[\] Network Prefix to be used for IPv6 address auto configuration.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.ipv6_prefix": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.ipv6_prefix": "true"
-  }
-}
-```
-
-<a id="canonical-3203011120133230-3312123333313020-0302233222010103-0122030131330010-3232330333032301-3032022302223230-3220312231021100-0132112230000121"></a>
-
-<a id="canonical-1110131330301321-1220000001203220-0001213330230102-3000000100322211-1112223010320021-0030000223132132-3310103111320030-0211332331032012"></a>
-
-## pool_settings property — dhcp_networks / 233303011021 / 5
-
-Type: `"string"`. Optional.
-
-\[Enum: INCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS|EXCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\]
-Identifies the how to pick the network for Interface. Address ranges in DHCP pool list are used for
-IP Address allocation Address ranges in DHCP pool list are excluded from IP Address allocation.
-Possible values are \`INCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\`,
-\`EXCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\`. Defaults to
-\`INCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\`.
-
-Upstream description:
-
-Identifies the how to pick the network for Interface.
-
-Address ranges in DHCP pool list are used for IP Address allocation Address ranges in DHCP pool list
-are excluded from IP Address allocation.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS","INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
-    "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
-  "enum": [
-    "INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
-    "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-- [pools](resources--securemesh_site_v2--reference--group-009.md#canonical-0132001103100020-1300221120330231-0200300213130023-1231201023123230-1201132023201102-3120012121023320-0012103323012113-2123133013311002): complete subsection reference.
-
-<a id="canonical-0223213103322303-2110300310213230-0102131300003020-0113200121312211-3310213133230322-0302101121013303-1311300320230133-0023201030122002"></a>
-
-## Next pages — dhcp_networks / 233303011021 / 6
-
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools](resources--securemesh_site_v2--reference--group-009.md#canonical-0132001103100020-1300221120330231-0200300213130023-1231201023123230-1201132023201102-3120012121023320-0012103323012113-2123133013311002)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-009.md#canonical-3023322212003231-1310311302032003-2101133030101320-1001311021123220-3112302110030030-3113232310021021-0032022023303010-1001223000002001)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-0132001103100020-1300221120330231-0200300213130023-1231201023123230-1201132023201102-3120012121023320-0012103323012113-2123133013311002"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1020230133333202-1121213133313302-1100010131213101-0101302320210312-1330310321132302-2021003013333131-2333220302023131-0302120211313120"></a>
-
-## equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools — pools / 332323231201 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0130010230122210-0120213103010013-2111221300002310-0111131203321100-0232100021033223-3211111202030233-3132010021133331-0130033220213012)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1011303120121001-0333333012300100-0200321132030212-0032120312032033-3132302212333321-2320121102333012-0022201311013032-3312010230313211)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-009.md#canonical-3023322212003231-1310311302032003-2101133030101320-1001311021123220-3112302110030030-3113232310021021-0032022023303010-1001223000002001)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks](resources--securemesh_site_v2--reference--group-009.md#canonical-1121102023100211-3113023031103011-3031300003201213-1210110101121001-1330102113011003-2130010333013233-0321311033211001-1021320321100032)
-- equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools
-
-<a id="canonical-0100310030033301-0232312022102030-3003231000223302-2233122121123032-1022123131232122-2100221001312303-3122132223323333-1101312330202020"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-List of non overlapping IP address ranges.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 16,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 16,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minItems": 1,
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "16",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "16",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-pools {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0122212100210032-0221101201013032-3112103000330233-1201211303100323-0002220220001021-0123231103322003-2202122231220033-0301332311300112"></a>
-
-## Direct properties — pools / 332323231201 / 3
-
-<a id="canonical-3331021123321333-2113200002021301-3101232123113202-2003313322233220-2200330213300122-0033111221110133-2211102031302110-3310230233322120"></a>
-
-<a id="canonical-2320021132211001-3223312220202302-2000131121020002-0303112230121112-2003101310020033-0002022001300320-2101000020332022-3300103030323020"></a>
-
-## end_ip property — pools / 332323231201 / 4
-
-Type: `"string"`. Optional.
-
-Ending IPv6 address of the pool range. In case of address allocator, offset is derived based on
-network prefix.
-
-Upstream description:
-
-Ending IPv6 address of the pool range. In case of address allocator, offset is derived based on
-network prefix.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(1024),
-  validators.IPv6Validator(),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "ipv6",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.ipv6": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.ipv6": "true"
-  }
-}
-```
-
-<a id="canonical-2231333110301212-1112031033232033-2102313023320000-0001023010011021-0110222330212330-3323320302101301-3330120012322312-0023323003013201"></a>
-
-<a id="canonical-1001101321031330-2133011121222122-0203112201321131-1223112310131320-0233012222310132-1332301323313212-3002003013230311-1003211003002303"></a>
-
-## start_ip property — pools / 332323231201 / 5
-
-Type: `"string"`. Optional.
-
-Starting IPv6 address of the pool range. In case of address allocator, offset is derived based on
-network prefix. 2001::1 with prefix length of 64, start offset is 5.
-
-Upstream description:
-
-Starting IPv6 address of the pool range. In case of address allocator, offset is derived based on
-network prefix. 2001::1 with prefix length of 64, start offset is 5.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(1024),
-  validators.IPv6Validator(),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "ipv6",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.ipv6": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.ipv6": "true"
-  }
-}
-```
-
-<a id="canonical-2323231202022103-1231000220211110-3112223113010011-2202211031003011-1133013012232100-3023023300132121-2203033112332213-3113221113213203"></a>
-
-## Next pages — pools / 332323231201 / 6
-
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks](resources--securemesh_site_v2--reference--group-009.md#canonical-1121102023100211-3113023031103011-3031300003201213-1210110101121001-1330102113011003-2130010333013233-0321311033211001-1021320321100032)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-2300002323002333-1110013212111103-1332232213131020-1333031321101003-1020031100202111-3011032233000231-1223011203223230-3120021302103213"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-3011103002133032-1121312101012331-0320023021123010-2300011130312112-1010121121221110-0011231010213333-1023021233013200-2121320331311333"></a>
-
-## equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map — interface_ip_map / 323323231222 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0130010230122210-0120213103010013-2111221300002310-0111131203321100-0232100021033223-3211111202030233-3132010021133331-0130033220213012)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1011303120121001-0333333012300100-0200321132030212-0032120312032033-3132302212333321-2320121102333012-0022201311013032-3312010230313211)
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-009.md#canonical-3023322212003231-1310311302032003-2101133030101320-1001311021123220-3112302110030030-3113232310021021-0032022023303010-1001223000002001)
-- equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map
-
-<a id="canonical-2233110012002013-1122102333023013-0221321102001230-2112033101312120-1322011133203020-2301310333310332-3313231203021031-1303223210013210"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Map of Interface IPv6 assignments per node.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-interface_ip_map {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-1102312211002323-1021030131332331-2013130203212333-2013201332031322-2023030200031023-0330031022201213-0133311113203302-0013312312132001"></a>
-
-## Direct properties — interface_ip_map / 323323231222 / 3
-
-<a id="canonical-3313313321112213-2100312022321002-0020313100310322-0022232200002011-1333130212103213-1121223332130311-3021212303223332-2230330220121123"></a>
-
-<a id="canonical-1032322110312303-2230303203301201-0202122220223200-1021001301030200-2003131103103230-3130200323220120-3112133303212231-3113231130213012"></a>
-
-## interface_ip_map property — interface_ip_map / 323323231222 / 4
-
-Type: `["map", "string"]`. Optional.
-
-Site:Node to IPv6 Mapping. Map of Site:Node to IPv6 address.
-
-Upstream description:
-
-Map of Site:Node to IPv6 address.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":64},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"64\",\"ves.io.schema.rules.map.values.string.ipv6\":\"true\"},\"values\":{\"format\":\"ipv6\",\"type\":\"string\"}}")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "cardinality": {
-      "maxProperties": 64
-    },
-    "category": "discovery",
-    "constraintType": "map",
-    "deterministic": true,
-    "keys": {
-      "maxLength": 128,
-      "minLength": 1,
-      "type": "string"
-    },
-    "originalRules": {
-      "ves.io.schema.rules.map.keys.string.max_len": "128",
-      "ves.io.schema.rules.map.keys.string.min_len": "1",
-      "ves.io.schema.rules.map.max_pairs": "64",
-      "ves.io.schema.rules.map.values.string.ipv6": "true"
-    },
-    "values": {
-      "format": "ipv6",
-      "type": "string"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.map.keys.string.max_len": "128",
-    "ves.io.schema.rules.map.keys.string.min_len": "1",
-    "ves.io.schema.rules.map.max_pairs": "64",
-    "ves.io.schema.rules.map.values.string.ipv6": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.map.keys.string.max_len": "128",
-    "ves.io.schema.rules.map.keys.string.min_len": "1",
-    "ves.io.schema.rules.map.max_pairs": "64",
-    "ves.io.schema.rules.map.values.string.ipv6": "true"
-  }
-}
-```
-
-<a id="canonical-1113203010222110-3102211033213302-0033012330201010-3202223332130121-2221333102121112-3230303233131210-0012130320223030-3230000302332102"></a>
-
-## Next pages — interface_ip_map / 323323231222 / 5
-
-- [equinix.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-009.md#canonical-3023322212003231-1310311302032003-2101133030101320-1001311021123220-3112302110030030-3113232310021021-0032022023303010-1001223000002001)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-3323331120001023-2103203213002302-1100311012120223-3131032211023223-3322031201322212-2101212123020100-2001123011023213-0222232203101210"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-3220321111212313-3202011110233132-3321202312131232-0322123121123002-0130123321133033-0020222332321032-2321011230300201-1030231210331200"></a>
-
-## equinix.not_managed.node_list.interface_list.monitor — monitor / 311001312123 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- equinix.not_managed.node_list.interface_list.monitor
-
-<a id="canonical-3123220210331022-3010101113201000-3121011233323111-3023303031003031-1331001023222121-1111032300020330-2203132111013010-2102102201013302"></a>
-
-Type: `["object", {}]`. Optional.
-
-Link Quality Monitoring configuration for a network interface.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-monitor = {}
-```
-
-<a id="canonical-0221100321012013-3113201223330222-0121302223121130-0001202122101002-2002230013122010-3333302202231033-2012113000201012-0010113323221113"></a>
-
-## Direct properties — monitor / 311001312123 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0012033333232133-0013313302020003-0003130322300232-2102233102000030-1031133232010022-0131020030030133-3320232233132001-0031132031331130"></a>
-
-## Next pages — monitor / 311001312123 / 4
-
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-1120332122331202-0100310320123121-0010230211321301-3033030022201102-2013202121322201-0330121012102232-3221023301222122-2031133113330102"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1200130230133100-2333022100203220-0102212203120210-1103033001320221-2311023310131001-3132320321230210-2200130000320023-1111130122221230"></a>
-
-## equinix.not_managed.node_list.interface_list.monitor_disabled — monitor_disabled / 001202300211 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- equinix.not_managed.node_list.interface_list.monitor_disabled
-
-<a id="canonical-1323000132000002-3210221311102101-2120102323032300-1301023322220123-1003022011301303-1231212100300032-1323331310032100-1102001313313211"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-monitor_disabled = {}
-```
-
-<a id="canonical-0301030111010023-1322301311300230-3203322331221330-2001232131200301-2201332013013313-1320101031331233-1032320120122032-3202120002002131"></a>
-
-## Direct properties — monitor_disabled / 001202300211 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2122220211121132-3333221302323122-0233113130202100-0133122213100333-2001033333213020-1302031211233330-2222100131210323-0200001113033200"></a>
-
-## Next pages — monitor_disabled / 001202300211 / 4
-
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-1222323010131121-0131002310231222-2321230221223003-1031310022112032-0111302122303213-2032033311202322-2232230022220331-3232001031230120"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0103332300100311-3100130002133033-0001221003202300-0302221031330331-0211322101212201-2212313232010221-3330101223213022-3033013113313233"></a>
-
-## equinix.not_managed.node_list.interface_list.network_option — network_option / 220301101223 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- equinix.not_managed.node_list.interface_list.network_option
-
-<a id="canonical-1010221002202122-2013302302210321-1302202032131031-0000132132213021-1011122013213320-1123031133210201-0132031121123020-3222001133203210"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are
-local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs,
-Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is
-optional.
-
-Upstream description:
-
-Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are
-local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs,
-Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is
-optional. Global VRFs are configured via Networking &gt; Segments. A site can have multiple Network
-Segments (global VRFs).
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("site_local_inside_network",
-    "site_local_network")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-network_choice": "[\"segment_network\",\"site_local_inside_network\",\"site_local_network\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-network_option {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2202201332300222-1030000123020303-3110212220200201-3202303233011312-2032110120002310-1222320130202001-2122220210031133-2120331110100011"></a>
-
-## Direct properties — network_option / 220301101223 / 3
-
-- [site_local_inside_network](resources--securemesh_site_v2--reference--group-009.md#canonical-0113332310320110-1203312101320020-0112003212303023-2222310003330312-0321022322031313-1312211031020023-3003012111001331-1010213022031233): complete subsection reference.
-
-- [site_local_network](resources--securemesh_site_v2--reference--group-009.md#canonical-1000212202030300-1330011200003200-2233102020233002-2013002222233031-2110313321122303-2311222002223301-3011220023310212-1022300231130101): complete subsection reference.
-
-<a id="canonical-1100020222003130-2120020120322001-0002103222032323-1311203322202323-0312230021310030-0003112312303323-3012003212303000-3003122322223222"></a>
-
-## Next pages — network_option / 220301101223 / 4
-
-- [equinix.not_managed.node_list.interface_list.network_option.site_local_inside_network](resources--securemesh_site_v2--reference--group-009.md#canonical-0113332310320110-1203312101320020-0112003212303023-2222310003330312-0321022322031313-1312211031020023-3003012111001331-1010213022031233)
-- [equinix.not_managed.node_list.interface_list.network_option.site_local_network](resources--securemesh_site_v2--reference--group-009.md#canonical-1000212202030300-1330011200003200-2233102020233002-2013002222233031-2110313321122303-2311222002223301-3011220023310212-1022300231130101)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-0113332310320110-1203312101320020-0112003212303023-2222310003330312-0321022322031313-1312211031020023-3003012111001331-1010213022031233"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2313221030131211-0312310020020310-3110333220220010-2332033201030112-0320133302201103-2110201330112330-1002102323111130-0002333313102133"></a>
-
-## equinix.not_managed.node_list.interface_list.network_option.site_local_inside_network — site_local_inside_network / 210132233131 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [equinix.not_managed.node_list.interface_list.network_option](resources--securemesh_site_v2--reference--group-009.md#canonical-1222323010131121-0131002310231222-2321230221223003-1031310022112032-0111302122303213-2032033311202322-2232230022220331-3232001031230120)
-- equinix.not_managed.node_list.interface_list.network_option.site_local_inside_network
-
-<a id="canonical-3320110011111103-3122113313333113-2112213101120330-2210120323303220-3031210120012010-2013001311010222-1032100113122022-0032320330313031"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-site_local_inside_network = {}
-```
-
-<a id="canonical-0012311110302132-0302312113321233-3321000330002210-2113000012211110-0030212022030301-2210021321311030-1011231121201223-2300301122013331"></a>
-
-## Direct properties — site_local_inside_network / 210132233131 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0102230022211102-2000302021120230-0213211201010133-2120032321011232-2331303111211210-1022102003112320-3023130022123021-0202233312131000"></a>
-
-## Next pages — site_local_inside_network / 210132233131 / 4
-
-- [equinix.not_managed.node_list.interface_list.network_option](resources--securemesh_site_v2--reference--group-009.md#canonical-1222323010131121-0131002310231222-2321230221223003-1031310022112032-0111302122303213-2032033311202322-2232230022220331-3232001031230120)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-1000212202030300-1330011200003200-2233102020233002-2013002222233031-2110313321122303-2311222002223301-3011220023310212-1022300231130101"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1212123322003030-3100133131001202-3202032013320121-1201022233032310-3200221000330103-0322020213003133-0331120121331021-3301112301322213"></a>
-
-## equinix.not_managed.node_list.interface_list.network_option.site_local_network — site_local_network / 200011031213 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [equinix.not_managed.node_list.interface_list.network_option](resources--securemesh_site_v2--reference--group-009.md#canonical-1222323010131121-0131002310231222-2321230221223003-1031310022112032-0111302122303213-2032033311202322-2232230022220331-3232001031230120)
-- equinix.not_managed.node_list.interface_list.network_option.site_local_network
-
-<a id="canonical-0221331210012223-0303032212310032-2310100011311020-3003331303000120-1111332120103001-1110333000001320-1122330212331302-0331110132303113"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-site_local_network = {}
-```
-
-<a id="canonical-1110212211233010-2013200013011013-2121111022321000-0032102201311010-3200232102003333-3301113320201303-2013001102320130-1030003201331101"></a>
-
-## Direct properties — site_local_network / 200011031213 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1021323210112313-3000030323312010-1011200333033332-2001223123203012-3223300201313030-3022010331310200-0323022222103211-0230222233302113"></a>
-
-## Next pages — site_local_network / 200011031213 / 4
-
-- [equinix.not_managed.node_list.interface_list.network_option](resources--securemesh_site_v2--reference--group-009.md#canonical-1222323010131121-0131002310231222-2321230221223003-1031310022112032-0111302122303213-2032033311202322-2232230022220331-3232001031230120)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-1113123221220321-3001202320101212-1013301013311033-1011012033233210-0322231000233322-3000000333010321-0300220022322333-3200122212120133"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1011010312203003-3130300110222223-0313312103201001-3122320000123112-1201030100110331-0001331200211110-1200330311210033-3011031323121310"></a>
-
-## equinix.not_managed.node_list.interface_list.no_ipv4_address — no_ipv4_address / 321112231011 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- equinix.not_managed.node_list.interface_list.no_ipv4_address
-
-<a id="canonical-2110001100202103-1300033110120332-2030012110323213-3212033100011212-3111210101101310-1003010231320002-0233223000211301-1010111013012003"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_ipv4_address = {}
-```
-
-<a id="canonical-0222131102211030-3120211202322132-0223302133321210-0010113003231121-0002310312232131-2302321012122121-3302230303012033-1332123232002321"></a>
-
-## Direct properties — no_ipv4_address / 321112231011 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2013231321231231-3113110010213203-0112203223232030-0223312021002310-2130013132021031-1303131100100033-2001323000132310-2130230102033203"></a>
-
-## Next pages — no_ipv4_address / 321112231011 / 4
-
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-1211220320012111-1133221130312110-3030113322023323-3002020201110233-0000233011131032-0321210201001020-3002031131313100-0220310210201110"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0011211200311231-3110111300220213-0330223021332232-2030210300133131-0012123310211302-0212200001103001-3030113210221001-2002130323330222"></a>
-
-## equinix.not_managed.node_list.interface_list.no_ipv6_address — no_ipv6_address / 032120300311 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- equinix.not_managed.node_list.interface_list.no_ipv6_address
-
-<a id="canonical-0201231231111331-0332012102033330-0310011113002302-3301231022023331-2100223102112121-1011223311322021-0223103022111033-2101113321012023"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_ipv6_address = {}
-```
-
-<a id="canonical-3233122231202112-1202013210302101-3201000022021110-3210312213012313-2300211121110300-0202321222313303-1011232132101331-0310221111020330"></a>
-
-## Direct properties — no_ipv6_address / 032120300311 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2323000010122323-1100213102113022-1222223231133120-3332033132323221-3111011233031202-2010110233011201-0133122032031102-0303211210113020"></a>
-
-## Next pages — no_ipv6_address / 032120300311 / 4
-
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-1000302322130123-3211101132112110-1100312012320333-2033331000011310-3203123313213200-2120322131323103-1133023202200222-1130131331211101"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2010001320121222-1132133221201323-2000111010133011-1300010133230312-1103032222102201-3201130112300201-1000031300303231-0232301022330130"></a>
-
-## equinix.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled — site_to_site_connectivity_interface_disabled / 200303231203 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- equinix.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled
-
-<a id="canonical-3330002322023020-0123021100033113-1031311112331013-2031220213201112-2133313121210320-3210110030201222-1303333021333121-0222231310020233"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-site_to_site_connectivity_interface_disabled = {}
-```
-
-<a id="canonical-1103213303300212-2323101310013011-1111001110112231-0031122221011013-1011110103231101-3010021323311213-3210033320002131-2012323322023013"></a>
-
-## Direct properties — site_to_site_connectivity_interface_disabled / 200303231203 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3300320231112321-2111011210112331-1322210210310122-1303321313211320-1023332320221023-2331231133200111-3221231303031132-0231121013213030"></a>
-
-## Next pages — site_to_site_connectivity_interface_disabled / 200303231203 / 4
-
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-2313031021311203-0012332220211021-2322000220201103-1311103011023020-3033310110123113-1223223231112210-0130200212132323-1300112200130222"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-3202221332333323-2000200301020321-0320132132021313-2302201203321333-2220002133122313-1131121102121100-1000020322313321-2013323230012203"></a>
-
-## equinix.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled — site_to_site_connectivity_interface_enabled / 113103110321 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- equinix.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled
-
-<a id="canonical-1103203212302330-1311120102331123-3123000310121032-3022013333332112-3223232320223200-0200133220120101-3210321130122320-2111120032021312"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-site_to_site_connectivity_interface_enabled = {}
-```
-
-<a id="canonical-2311110300132211-0112013030003011-0202031210123213-1321030222230230-1312112222202113-2301012321232021-0132330330012233-2121133010100302"></a>
-
-## Direct properties — site_to_site_connectivity_interface_enabled / 113103110321 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0222002320112011-3133233221111010-0031101031033020-1133220130223210-1023313303201021-0122011030133200-2032210022320133-3320132123032132"></a>
-
-## Next pages — site_to_site_connectivity_interface_enabled / 113103110321 / 4
-
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-2021020013311333-2023023000123300-2103322212112131-3300003132202332-1001030123222102-3322101101033120-2333000113130302-3232232321120023"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0322001130012111-0232013211311122-3310211210133310-0021333112031331-3222303002120020-0331303231212333-1023331330321230-1001113032200221"></a>
-
-## equinix.not_managed.node_list.interface_list.static_ip — static_ip / 021220333310 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- equinix.not_managed.node_list.interface_list.static_ip
-
-<a id="canonical-3130203111323323-1300103101000300-3220103302000113-2233130102130032-2100331100332102-0222133230112023-1213101122233200-3323032002103313"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Configure Static IP parameters for a node.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("ip_address")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-static_ip {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0130030101201031-1023232313031030-2123120321010110-1323310130203331-0001212020120302-0011233122321120-2311012013330213-3210231320021123"></a>
-
-## Direct properties — static_ip / 021220333310 / 3
-
-<a id="canonical-3332131223113223-1002010111230311-2033222210012330-0131323100122331-2111232032000333-0011033020233103-0222100110120003-1131210011033301"></a>
-
-<a id="canonical-2220013211012200-0220011121212002-0113232202222322-0301311322122120-0102000321310300-1220222233103001-3102300323033002-1130322200332122"></a>
-
-## default_gw property — static_ip / 021220333310 / 4
-
-Type: `"string"`. Optional.
-
-Default Gateway. IP address of the default gateway.
-
-Upstream description:
-
-IP address of the default gateway.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(1024),
-  validators.IPValidator(),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "ip",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.ip": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.ip": "true"
-  }
-}
-```
-
-<a id="canonical-2330111131003001-0112020112310010-1030330111032212-3312111221111030-0000312032212130-3111131110321032-0121322001000130-0212100301032232"></a>
-
-<a id="canonical-2202200000033302-2233230300021130-0003212033122103-1122323001213332-3212230120030230-2213100102030003-1033111223130210-3211030111211323"></a>
-
-## dns_server property — static_ip / 021220333310 / 5
-
-Type: `"string"`. Optional.
-
-DNS server address for the static interface configuration.
-
-<a id="canonical-0303010201223333-3200021313323303-1330223132100030-2012010021321000-0200210131312033-2110131021123231-3102000333133033-0012022230021122"></a>
-
-<a id="canonical-1303232220100002-3020212220020112-3301121000202111-0223013020233101-1303210010233032-2103001033323123-1201221031030331-3100321010110011"></a>
-
-## ip_address property — static_ip / 021220333310 / 6
-
-Type: `"string"`. Optional.
-
-IP address of the interface and prefix length.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  stringvalidator.LengthBetween(7, 1024),
-  validators.CIDRValidator(),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "cidr",
-    "formatDescription": "IPv4 dotted-decimal notation (e.g., 192.168.1.1)",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minLength": 7,
-    "pattern": "^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$"
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.ip_prefix": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.ip_prefix": "true"
-  }
-}
-```
-
-<a id="canonical-1330033023013011-0001133213310313-2333222321302132-2230100113020333-3223100211100111-0300221002222332-1231312010100322-3032011120033302"></a>
-
-## Next pages — static_ip / 021220333310 / 7
-
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-2100222011001113-1310320111302103-1201113123233031-0120121030312023-2301313031101303-2011123303232030-0310123322310000-2232110232312330"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0130111021330310-2133123030031300-0221233100223100-0211212222310003-0222333313032122-1321130011031023-2221123112003201-3303113231113103"></a>
-
-## equinix.not_managed.node_list.interface_list.static_ipv6_address — static_ipv6_address / 221033022322 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- equinix.not_managed.node_list.interface_list.static_ipv6_address
-
-<a id="canonical-1010212233221121-3321222002002021-1123113021133203-3022320330202222-2011031031103121-1211003223301112-0032211302010300-0023213022031031"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Static IP Parameters. Configure Static IP parameters.
-
-Upstream description:
-
-Configure Static IP parameters.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip",
-    "node_static_ip")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-network_prefix_choice": "[\"cluster_static_ip\",\"node_static_ip\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-static_ipv6_address {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-3213010131100330-2123100112032213-2012211002311300-3131332233232011-3013311330001331-1031222012321202-0333030021013103-3021211112312200"></a>
-
-## Direct properties — static_ipv6_address / 221033022322 / 3
-
-- [cluster_static_ip](resources--securemesh_site_v2--reference--group-009.md#canonical-0113100223111200-3203223302133220-3033103120233300-2202301213231002-3102203002031310-2101301321210023-0031101332003300-3133133032100000): complete subsection reference.
-
-- [node_static_ip](resources--securemesh_site_v2--reference--group-009.md#canonical-2313213231331131-0020333010211021-3033130023322303-0023021303020333-3323210110002213-0312120210030301-3300210131021210-0120202232302202): complete subsection reference.
-
-<a id="canonical-1322113331112123-1031032213202331-1001210130231022-1213202230031122-2321323233303300-1131213332130033-3113300320212010-0323333230203211"></a>
-
-## Next pages — static_ipv6_address / 221033022322 / 4
-
-- [equinix.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip](resources--securemesh_site_v2--reference--group-009.md#canonical-0113100223111200-3203223302133220-3033103120233300-2202301213231002-3102203002031310-2101301321210023-0031101332003300-3133133032100000)
-- [equinix.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip](resources--securemesh_site_v2--reference--group-009.md#canonical-2313213231331131-0020333010211021-3033130023322303-0023021303020333-3323210110002213-0312120210030301-3300210131021210-0120202232302202)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-0113100223111200-3203223302133220-3033103120233300-2202301213231002-3102203002031310-2101301321210023-0031101332003300-3133133032100000"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1321112333210103-3310323121120200-0200231103023123-2211311223220232-3122310232331222-1203013233210012-0123000031113203-0312303200133011"></a>
-
-## equinix.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip — cluster_static_ip / 002000301312 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [equinix.not_managed.node_list.interface_list.static_ipv6_address](resources--securemesh_site_v2--reference--group-009.md#canonical-2100222011001113-1310320111302103-1201113123233031-0120121030312023-2301313031101303-2011123303232030-0310123322310000-2232110232312330)
-- equinix.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip
-
-<a id="canonical-2213320110021333-1302121323322230-1200231330203103-3331211312023113-0331311113033121-1003121222121300-0230023233203321-2231212310010203"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Configure Static IP parameters for cluster.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-cluster_static_ip {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-3101232222331011-1301320101122102-3210233202103321-3310111021133330-3211332322113213-3022110101231030-1312120110311112-1023112023002311"></a>
-
-## Direct properties — cluster_static_ip / 002000301312 / 3
-
-<a id="canonical-2003003132222132-0130102031102003-2222301103011320-2210121232332123-3112323331022011-1200223230331202-1310122012121231-0230300200300322"></a>
-
-<a id="canonical-3030212110223011-2221211310031131-3013000023110011-1313211022023321-1122002113101312-3202003032330310-1020120033132203-2103232320220003"></a>
-
-## interface_ip_map property — cluster_static_ip / 002000301312 / 4
-
-Type: `["map", "string"]`. Optional.
-
-Map of Node to Static IP configuration value, Key:Node, Value:IP Address.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"128\"}}")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "cardinality": {
-      "maxProperties": 128
-    },
-    "category": "discovery",
-    "constraintType": "map",
-    "deterministic": true,
-    "keys": {
-      "maxLength": 128,
-      "minLength": 1,
-      "type": "string"
-    },
-    "originalRules": {
-      "ves.io.schema.rules.map.keys.string.max_len": "128",
-      "ves.io.schema.rules.map.keys.string.min_len": "1",
-      "ves.io.schema.rules.map.max_pairs": "128"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.map.keys.string.max_len": "128",
-    "ves.io.schema.rules.map.keys.string.min_len": "1",
-    "ves.io.schema.rules.map.max_pairs": "128"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.map.keys.string.max_len": "128",
-    "ves.io.schema.rules.map.keys.string.min_len": "1",
-    "ves.io.schema.rules.map.max_pairs": "128"
-  }
-}
-```
-
-<a id="canonical-1122130120221031-2103111133032331-0010033022022232-3200230231203103-2021301223113321-0100023313031110-0010220101013100-0100012000331022"></a>
-
-## Next pages — cluster_static_ip / 002000301312 / 5
-
-- [equinix.not_managed.node_list.interface_list.static_ipv6_address](resources--securemesh_site_v2--reference--group-009.md#canonical-2100222011001113-1310320111302103-1201113123233031-0120121030312023-2301313031101303-2011123303232030-0310123322310000-2232110232312330)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-2313213231331131-0020333010211021-3033130023322303-0023021303020333-3323210110002213-0312120210030301-3300210131021210-0120202232302202"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2210213010132030-2210310331323323-0201322231302222-2312120012010311-2100031303231320-3123100020001212-0002323212330212-2330010113011311"></a>
-
-## equinix.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip — node_static_ip / 332312033122 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [equinix.not_managed.node_list.interface_list.static_ipv6_address](resources--securemesh_site_v2--reference--group-009.md#canonical-2100222011001113-1310320111302103-1201113123233031-0120121030312023-2301313031101303-2011123303232030-0310123322310000-2232110232312330)
-- equinix.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip
-
-<a id="canonical-1012230203333221-2213220033312211-2230120122102221-2300232333102012-0100133010332022-2011130223032321-0030233213303220-2112312102320102"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Configure Static IP parameters for a node.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("ip_address")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-node_static_ip {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2120132031103200-3330311201101201-0011201202302123-1000133232132113-0300100320033110-1212203000320203-1031322121300202-0110203220303313"></a>
-
-## Direct properties — node_static_ip / 332312033122 / 3
-
-<a id="canonical-2320110331202132-0102111211302330-3311230312200320-0010223100310302-0021300301233231-3103033202012102-0322010222212333-1003113323232320"></a>
-
-<a id="canonical-3012333112112300-3200010101332110-2001200203301120-3120102230030011-1221110003233120-1033010320100131-3100113210311102-3213312210333211"></a>
-
-## default_gw property — node_static_ip / 332312033122 / 4
-
-Type: `"string"`. Optional.
-
-Default Gateway. IP address of the default gateway.
-
-Upstream description:
-
-IP address of the default gateway.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(1024),
-  validators.IPValidator(),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "ip",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.ip": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.ip": "true"
-  }
-}
-```
-
-<a id="canonical-0021331023112300-1310120013113123-1222113310113203-1220310113013021-0111022230002103-2130301100211303-1233223303233222-1333313012332231"></a>
-
-<a id="canonical-1332213022030111-3211232211112332-0332300202201033-2022101231103230-3332223310132233-1313333021032002-3333130132022112-1002301113130323"></a>
-
-## dns_server property — node_static_ip / 332312033122 / 5
-
-Type: `"string"`. Optional.
-
-DNS server address for the static interface configuration.
-
-<a id="canonical-1021101110300120-0102200110121331-3232030002103223-0332320133120310-3021203222323210-3130320211132011-0123023123113212-0331122010222302"></a>
-
-<a id="canonical-3202230132122210-1220102013030213-2011011123331012-2202232001223331-3130333303200121-1300210330302313-2211132001121302-1303023232330300"></a>
-
-## ip_address property — node_static_ip / 332312033122 / 6
-
-Type: `"string"`. Optional.
-
-IP address of the interface and prefix length.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  stringvalidator.LengthBetween(7, 1024),
-  validators.CIDRValidator(),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "cidr",
-    "formatDescription": "IPv4 dotted-decimal notation (e.g., 192.168.1.1)",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minLength": 7,
-    "pattern": "^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$"
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.ip_prefix": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.ip_prefix": "true"
-  }
-}
-```
-
-<a id="canonical-1201220322110222-2123321133133222-0322121131220322-0331210020232100-2332030203122131-2021031130130101-3130002222111111-1020003210033032"></a>
-
-## Next pages — node_static_ip / 332312033122 / 7
-
-- [equinix.not_managed.node_list.interface_list.static_ipv6_address](resources--securemesh_site_v2--reference--group-009.md#canonical-2100222011001113-1310320111302103-1201113123233031-0120121030312023-2301313031101303-2011123303232030-0310123322310000-2232110232312330)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-1320201032311302-2010322011120020-2300202030302120-2310032210331223-3102333123002122-0011212110103133-2031023020012131-3013110312323121"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2310210203100011-3032010031023132-2230231231000011-2111010223031111-2003300020100100-3011221113311003-3011001332213221-0310022332213201"></a>
-
-## equinix.not_managed.node_list.interface_list.vlan_interface — vlan_interface / 230211313130 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022)
-- [equinix.not_managed](resources--securemesh_site_v2--reference--group-008.md#canonical-2021201112031032-1332002301131213-0033332113012332-3112130331312032-1120301300110231-0233232133211313-2000012123202221-0013133322312100)
-- [equinix.not_managed.node_list](resources--securemesh_site_v2--reference--group-008.md#canonical-2002210330003020-2120230332133020-1331322202202111-0102302332202201-0231320030320101-0000132322233010-2331311331011133-1112100233200333)
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- equinix.not_managed.node_list.interface_list.vlan_interface
-
-<a id="canonical-3210331030201113-1113322232221232-2111013111230011-0312100101033110-2220003233032221-0001130100212311-2302333222330123-0022330300003212"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Configuration parameter for vlan interface.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("device",
-    "vlan_id")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-vlan_interface {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-3202223211201033-3211212003023023-1120330313132313-3131131012203332-0303322212102213-3200321002212302-3310332001220013-2220022033011200"></a>
-
-## Direct properties — vlan_interface / 230211313130 / 3
-
-<a id="canonical-2111220301313103-0202332303202003-3222221303110323-2133220320012303-1103002331013012-0302211020300112-2011010333310322-1322222213223131"></a>
-
-<a id="canonical-3332310112101333-2101203100032211-3212031212202111-2002300233213321-3221320120232020-2030300110023113-2033202132231022-0310121300021201"></a>
-
-## device property — vlan_interface / 230211313130 / 4
-
-Type: `"string"`. Optional.
-
-Select a parent interface from the dropdown.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 64),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "64",
-    "ves.io.schema.rules.string.min_len": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "64",
-    "ves.io.schema.rules.string.min_len": "1"
-  }
-}
-```
-
-<a id="canonical-3120013220030313-0202022133323300-2033230011020330-3320222010223212-2300213133311212-3221103113132120-2130200132133123-0232322133233001"></a>
-
-<a id="canonical-2030101213102130-3232130213202331-3131113032213322-2121322330203301-0100120223321302-1220031331322120-0012330103023111-3121310323011320"></a>
-
-## vlan_id property — vlan_interface / 230211313130 / 5
-
-Type: `"number"`. Optional.
-
-Configure the VLAN tag for this interface.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.Between(1, 4095),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 4095,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minimum": 1,
-    "multipleOf": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.gte": "1",
-    "ves.io.schema.rules.uint32.lte": "4095"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.gte": "1",
-    "ves.io.schema.rules.uint32.lte": "4095"
-  }
-}
-```
-
-<a id="canonical-3122320110102310-2022001313200200-3333032023300032-3122221212033110-1203330110103321-1201123233221121-3012120302103130-0312013301101012"></a>
-
-## Next pages — vlan_interface / 230211313130 / 6
-
-- [equinix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-008.md#canonical-0220203221311322-0100000210112021-2203133202031013-3102133232230211-1301321320130221-3002132110301033-1123101223230320-0301300203220130)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
 <a id="canonical-3021301201330310-0230130120101310-2231211023332220-1302200202031013-3111011231130033-1300202330311330-3213031120313332-2203211111320211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1001200031313132-1313030312221322-3213020202223221-2300103002110000-0310200200102002-3313221203103123-0213210330330320-2320213131202112"></a>
-
-## f5_proxy — f5_proxy / 031123113220 / 2
+## `f5_proxy` properties
 
 Breadcrumbs:
 
@@ -3065,7 +26,7 @@ Type: `["object", {}]`. Optional.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -3088,18 +49,7 @@ Terraform syntax:
 f5_proxy = {}
 ```
 
-<a id="canonical-3110102113002100-3300011310221221-3222002330320210-3212022002033110-3201030233223123-2133112322001002-3020201022212033-2013333102212213"></a>
-
-## Direct properties — f5_proxy / 031123113220 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1133323110130000-1010021031301131-0322030312003110-0002002033033211-1303213030323003-3120002022320301-3121330233030123-3011211110232103"></a>
-
-## Next pages — f5_proxy / 031123113220 / 4
-
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 
 <a id="canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012"></a>
 
@@ -3107,9 +57,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2310331202203013-2012020331201310-2001031331232211-3321001033013310-2301110330323033-0302100123312012-3030120310131211-2212021221331313"></a>
-
-## gcp — gcp / 300011121220 / 2
+## `gcp` properties
 
 Breadcrumbs:
 
@@ -3122,10 +70,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 GCP Provider Type. GCP Provider Type.
-
-Upstream description:
-
-GCP Provider Type.
 
 Receipt-pinned upstream constraints:
 
@@ -3149,19 +93,11 @@ gcp {
 }
 ```
 
-<a id="canonical-3302022202101301-1110322023210020-2323022000212232-2213103000230002-1322330223103313-2211220010223311-3131233001210312-0033310323323130"></a>
+<a id="canonical-2310331202203013-2012020331201310-2001031331232211-3321001033013310-2301110330323033-0302100123312012-3030120310131211-2212021221331313"></a>
 
-## Direct properties — gcp / 300011121220 / 3
+### Direct properties for `gcp`
 
 - [not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101): complete subsection reference.
-
-<a id="canonical-1003312202202130-2031021030121133-1232220302100021-2303023132201031-0003030300220022-0332000220221223-0010031022312212-0123303300322222"></a>
-
-## Next pages — gcp / 300011121220 / 4
-
-- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 
 <a id="canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101"></a>
 
@@ -3169,9 +105,7 @@ gcp {
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0212122301302212-1022021211320112-1331022202121002-0313302232023231-3123021010133031-3020023233311011-0312203300133113-0212322203221231"></a>
-
-## gcp.not_managed — not_managed / 023011222000 / 2
+## `gcp.not_managed` properties
 
 Breadcrumbs:
 
@@ -3183,10 +117,6 @@ Breadcrumbs:
 <a id="canonical-1132021120011022-1120321333220211-1023331000303231-0323231023101330-2120211202102333-2020031212331013-1110313032222321-2331302113113303"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Section will show nodes associated with this site.
-
-Upstream description:
 
 This section will show nodes associated with this site. Note: For sites that are not orchestrated by
 F5XC, create nodes in the chosen provider. Once a node is created and registers with the site, it
@@ -3213,19 +143,11 @@ not_managed {
 }
 ```
 
-<a id="canonical-0231000111333100-1232333313313130-2023132222311311-1300202310320323-1220002003210110-0013203103133032-3220131230311100-0110313313212203"></a>
+<a id="canonical-0212122301302212-1022021211320112-1331022202121002-0313302232023231-3123021010133031-3020023233311011-0312203300133113-0212322203221231"></a>
 
-## Direct properties — not_managed / 023011222000 / 3
+### Direct properties for `gcp.not_managed`
 
 - [node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330): complete subsection reference.
-
-<a id="canonical-0210313213111332-3131301323210312-2020302331110113-3033311031023113-3022121130200311-0333202232232221-0220131310033021-0230010223303331"></a>
-
-## Next pages — not_managed / 023011222000 / 4
-
-- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
-- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 
 <a id="canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330"></a>
 
@@ -3233,9 +155,7 @@ not_managed {
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2332221212012321-0300321131323202-2132121330200312-2310202333131020-1221111303021213-2310113311020303-3110130101103103-0111210300303211"></a>
-
-## gcp.not_managed.node_list — node_list / 300002320331 / 2
+## `gcp.not_managed.node_list` properties
 
 Breadcrumbs:
 
@@ -3248,10 +168,6 @@ Breadcrumbs:
 <a id="canonical-2012220023132312-0323332000121312-3202233012000122-2011202212031102-3030131210133111-1332033231213213-0032121012101030-1122302212232012"></a>
 
 Type: `"object"`. list nested block, Optional.
-
-Section will show nodes associated with this site.
-
-Upstream description:
 
 This section will show nodes associated with this site. Note: For sites that are not orchestrated by
 F5XC, create nodes in the chosen provider. Once a node is created and registers with the site, it
@@ -3299,23 +215,17 @@ node_list {
 }
 ```
 
-<a id="canonical-1033313332103130-1333222031210200-0223233033110113-1020222200020131-2122202221202310-3211001032301132-0302111322102111-2021011100333010"></a>
+<a id="canonical-2332221212012321-0300321131323202-2132121330200312-2310202333131020-1221111303021213-2310113311020303-3110130101103103-0111210300303211"></a>
 
-## Direct properties — node_list / 300002320331 / 3
+### Direct properties for `gcp.not_managed.node_list`
 
 <a id="canonical-3102111110111312-3200211333101330-1221200121330111-0012313300221030-0222211211112132-3310333332111233-2221013212021330-1211313031200202"></a>
 
-<a id="canonical-1201021032003222-0201023122301132-1331232330300220-3232233320212323-0023330333223100-3110231333332221-3330303201111230-3001201303330330"></a>
-
-## hostname property — node_list / 300002320331 / 4
+#### `gcp.not_managed.node_list.hostname` property
 
 Type: `"string"`. Optional.
 
 Hostname. Hostname for this Node.
-
-Upstream description:
-
-Hostname for this Node.
 
 Provider validators and defaults (from schema source):
 
@@ -3367,17 +277,13 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0302123330000010-0311331200033000-3322031101321200-1220311103333213-0110011322031032-3032233313212122-0223021120102333-3303000133330203"></a>
 
-<a id="canonical-1031112000130311-1230202211201001-3023331110131220-1102032030032003-2112133130002030-0021233130203212-2212230121210203-1321000030223332"></a>
+<a id="canonical-1033313332103130-1333222031210200-0223233033110113-1020222200020131-2122202221202310-3211001032301132-0302111322102111-2021011100333010"></a>
 
-## public_ip property — node_list / 300002320331 / 5
+#### `gcp.not_managed.node_list.public_ip` property
 
 Type: `"string"`. Optional.
 
 Public IP. Public IP for this Node.
-
-Upstream description:
-
-Public IP for this Node.
 
 Provider validators and defaults (from schema source):
 
@@ -3421,18 +327,14 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1030021030033032-2102223202321131-0113333102333213-0201101330103102-1032120323010110-2223333202313000-0113032210332330-2313010203211322"></a>
 
-<a id="canonical-2233300123110312-2331002221333110-0020121001220332-3002332111202213-3232231133233010-2200023101233303-2231101323033111-1021213011322110"></a>
+<a id="canonical-1201021032003222-0201023122301132-1331232330300220-3232233320212323-0023330333223100-3110231333332221-3330303201111230-3001201303330330"></a>
 
-## type property — node_list / 300002320331 / 6
+#### `gcp.not_managed.node_list.type` property
 
 Type: `"string"`. Optional.
 
 \[Enum: Control|Worker\] Type for this Node, can be Control or Worker. Possible values are
 \`Control\`, \`Worker\`.
-
-Upstream description:
-
-Type for this Node, can be Control or Worker.
 
 Provider validators and defaults (from schema source):
 
@@ -3478,23 +380,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2211033213110321-3022002302113023-2101033201010130-1012030212322211-1002023210003333-0220332001031003-1203303020213110-1332102212012112"></a>
-
-## Next pages — node_list / 300002320331 / 7
-
-- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
-- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
 <a id="canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2310120033012330-1213220200132321-0223333232310100-2102221122333310-1330332221032112-0033322233132120-2303120010301231-2222100200120103"></a>
-
-## gcp.not_managed.node_list.interface_list — interface_list / 210023233032 / 2
+## `gcp.not_managed.node_list.interface_list` properties
 
 Breadcrumbs:
 
@@ -3587,17 +479,17 @@ interface_list {
 }
 ```
 
-<a id="canonical-0302001212221303-1013311313311320-0130131103002021-2031032130331002-1001301313012130-2322113001300302-2131031111112310-3131112303000021"></a>
+<a id="canonical-2310120033012330-1213220200132321-0223333232310100-2102221122333310-1330332221032112-0033322233132120-2303120010301231-2222100200120103"></a>
 
-## Direct properties — interface_list / 210023233032 / 3
+### Direct properties for `gcp.not_managed.node_list.interface_list`
 
 - [bond_interface](resources--securemesh_site_v2--reference--group-009.md#canonical-1312131101221311-2123312020201302-0323030202131210-3030102033211112-1113331330011011-1033012003223302-3330223011123101-2300121002010002): complete subsection reference.
 
 <a id="canonical-3312330221121222-3200302132110202-1231001301112003-1313112103113113-0001231312332312-0133012000203123-0131110302111113-1101123302131331"></a>
 
-<a id="canonical-0021212131201201-2000231203113321-1333003013332311-1210212022112101-2122233230230033-3013102301321231-1000130001200230-3030203231311103"></a>
+<a id="canonical-0302001212221303-1013311313311320-0130131103002021-2031032130331002-1001301313012130-2322113001300302-2131031111112310-3131112303000021"></a>
 
-## description_spec property — interface_list / 210023233032 / 4
+#### `gcp.not_managed.node_list.interface_list.description_spec` property
 
 Type: `"string"`. Optional.
 
@@ -3616,15 +508,15 @@ Validators: []validator.String{
 
 - [dhcp_server](resources--securemesh_site_v2--reference--group-009.md#canonical-3313330022031132-3223201011202123-1333210120013030-0221103213121310-0113121203231303-2110113003211302-3033122200033020-1210000032110313): complete subsection reference.
 
-- [ethernet_interface](resources--securemesh_site_v2--reference--group-010.md#canonical-2211332222002230-0122303122321113-3201122320313333-3310131113000011-1101321120213101-1203213233003121-2033310231011313-1012230033113111): complete subsection reference.
+- [ethernet_interface](resources--securemesh_site_v2--reference--group-009.md#canonical-2211332222002230-0122303122321113-3201122320313333-3310131113000011-1101321120213101-1203213233003121-2033310231011313-1012230033113111): complete subsection reference.
 
-- [ipv6_auto_config](resources--securemesh_site_v2--reference--group-010.md#canonical-0030000233303003-0323012301000003-1232112033233111-1322002021231332-3203003130030132-3012232003101220-1320232111102200-3322001220201301): complete subsection reference.
+- [ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0030000233303003-0323012301000003-1232112033233111-1322002021231332-3203003130030132-3012232003101220-1320232111102200-3322001220201301): complete subsection reference.
 
 <a id="canonical-2320031232313202-2010022000323211-1331220032100130-1312012203213033-2223233122000313-0232101000232323-3120120013222012-3303310031131033"></a>
 
-<a id="canonical-3221110130033203-0230300020223111-1222111231011223-3232111110313013-1032200321003133-1230130303010021-1322010300212230-2330123202210003"></a>
+<a id="canonical-0021212131201201-2000231203113321-1333003013332311-1210212022112101-2122233230230033-3013102301321231-1000130001200230-3030203231311103"></a>
 
-## is_management property — interface_list / 210023233032 / 5
+#### `gcp.not_managed.node_list.interface_list.is_management` property
 
 Type: `"bool"`. Computed.
 
@@ -3632,9 +524,9 @@ Configuration for is\_management.
 
 <a id="canonical-3323101032132122-2331001133323211-2223032300102223-2201102211302121-2212010210212023-0320100231321320-2311221000121331-0203323201230200"></a>
 
-<a id="canonical-3130031123311113-3032121300001311-1303221011121011-1023013111021103-0300021013121113-1223023122300302-1213313333213311-0313322021012233"></a>
+<a id="canonical-3221110130033203-0230300020223111-1222111231011223-3232111110313013-1032200321003133-1230130303010021-1322010300212230-2330123202210003"></a>
 
-## is_primary property — interface_list / 210023233032 / 6
+#### `gcp.not_managed.node_list.interface_list.is_primary` property
 
 Type: `"bool"`. Computed.
 
@@ -3642,9 +534,9 @@ Configuration for is\_primary.
 
 <a id="canonical-0133001220231023-3110021333021130-2223330321003100-0000300021222122-0203233321311321-2103232002123203-2321020232132221-1203132221120031"></a>
 
-<a id="canonical-0333320003001103-1132311212312013-0213130103021130-2133311123100102-3320130321122320-0310132022130122-3013232221013210-1031221201100120"></a>
+<a id="canonical-3130031123311113-3032121300001311-1303221011121011-1023013111021103-0300021013121113-1223023122300302-1213313333213311-0313322021012233"></a>
 
-## labels property — interface_list / 210023233032 / 7
+#### `gcp.not_managed.node_list.interface_list.labels` property
 
 Type: `["map", "string"]`. Optional.
 
@@ -3709,22 +601,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [monitor](resources--securemesh_site_v2--reference--group-010.md#canonical-1211223311200301-2113213233010230-1203012301302120-1022300331103323-0211120332111200-1030031000001303-2222221212332011-1213312211122110): complete subsection reference.
+- [monitor](resources--securemesh_site_v2--reference--group-009.md#canonical-1211223311200301-2113213233010230-1203012301302120-1022300331103323-0211120332111200-1030031000001303-2222221212332011-1213312211122110): complete subsection reference.
 
-- [monitor_disabled](resources--securemesh_site_v2--reference--group-010.md#canonical-2110013100330201-0203313102212200-0032133203312013-0101212301101020-2313122133233302-2220111322101030-0222330312032021-2111000113010023): complete subsection reference.
+- [monitor_disabled](resources--securemesh_site_v2--reference--group-009.md#canonical-2110013100330201-0203313102212200-0032133203312013-0101212301101020-2313122133233302-2220111322101030-0222330312032021-2111000113010023): complete subsection reference.
 
 <a id="canonical-3311222223203222-2022021033323201-2221200213101330-0112000022011110-2102220002322300-2310130021120003-0010301021033323-0311021022202323"></a>
 
-<a id="canonical-0311210320203101-0020223002011212-1122331002300101-0001132130332121-1111322130123110-1101021301000033-2133223020323200-0312021222102001"></a>
+<a id="canonical-0333320003001103-1132311212312013-0213130103021130-2133311123100102-3320130321122320-0310132022130122-3013232221013210-1031221201100120"></a>
 
-## mtu property — interface_list / 210023233032 / 8
+#### `gcp.not_managed.node_list.interface_list.mtu` property
 
 Type: `"number"`. Optional.
-
-Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between
-512 and 8000.
-
-Upstream description:
 
 Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between
 512 and 8000.
@@ -3773,17 +660,13 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3113333132213021-0012022322311223-0233323303300101-1103211002321021-3232202220200301-2300031223020133-3312320212121010-0001113112312233"></a>
 
-<a id="canonical-3132233231201203-3220013322113230-2312213301222001-3333020232001303-0101032103100003-3333110031333311-3302222030111033-1233321130311232"></a>
+<a id="canonical-0311210320203101-0020223002011212-1122331002300101-0001132130332121-1111322130123110-1101021301000033-2133223020323200-0312021222102001"></a>
 
-## name property — interface_list / 210023233032 / 9
+#### `gcp.not_managed.node_list.interface_list.name` property
 
 Type: `"string"`. Optional.
 
 Interface Name. Name of this Interface.
-
-Upstream description:
-
-Name of this Interface.
 
 Provider validators and defaults (from schema source):
 
@@ -3839,25 +722,19 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [network_option](resources--securemesh_site_v2--reference--group-010.md#canonical-0130223033333312-1121121211313103-3113202033331032-2233322113123200-0332010230120331-1010000111303301-0210131100330121-2332322223233223): complete subsection reference.
+- [network_option](resources--securemesh_site_v2--reference--group-009.md#canonical-0130223033333312-1121121211313103-3113202033331032-2233322113123200-0332010230120331-1010000111303301-0210131100330121-2332322223233223): complete subsection reference.
 
-- [no_ipv4_address](resources--securemesh_site_v2--reference--group-010.md#canonical-1203323220122012-2201322220300230-0230002310100030-3330031323321311-0300313103011131-2300131311231110-3013203313301020-2320101230133033): complete subsection reference.
+- [no_ipv4_address](resources--securemesh_site_v2--reference--group-009.md#canonical-1203323220122012-2201322220300230-0230002310100030-3330031323321311-0300313103011131-2300131311231110-3013203313301020-2320101230133033): complete subsection reference.
 
-- [no_ipv6_address](resources--securemesh_site_v2--reference--group-010.md#canonical-3000103023231312-2301010323330333-0333003302000002-1322000323123232-2002220330300031-1331112001201102-2321333303303203-2001023303022112): complete subsection reference.
+- [no_ipv6_address](resources--securemesh_site_v2--reference--group-009.md#canonical-3000103023231312-2301010323330333-0333003302000002-1322000323123232-2002220330300031-1331112001201102-2321333303303203-2001023303022112): complete subsection reference.
 
 <a id="canonical-0121230123100333-2233032212020112-3321110230100023-0123013202322310-0330000203301310-3122020110200211-3222201023003220-0230002011111231"></a>
 
-<a id="canonical-0020112113013220-1003313012131213-0113233213322331-2301213311112133-3233313013103232-0301130303201103-1031123212230223-2213032300323100"></a>
+<a id="canonical-3132233231201203-3220013322113230-2312213301222001-3333020232001303-0101032103100003-3333110031333311-3302222030111033-1233321130311232"></a>
 
-## priority property — interface_list / 210023233032 / 10
+#### `gcp.not_managed.node_list.interface_list.priority` property
 
 Type: `"number"`. Optional.
-
-For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be
-used as active and interfaces with lower priority will be used as backup. If multiple interfaces
-have the same priority, ECMP will be used. Greater the value, higher the priority.
-
-Upstream description:
 
 For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be
 used as active and interfaces with lower priority will be used as backup. If multiple interfaces
@@ -3906,37 +783,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [site_to_site_connectivity_interface_disabled](resources--securemesh_site_v2--reference--group-010.md#canonical-1133201233031230-3333012130033031-0221332312123131-3003211133222313-1013122333012331-0100231220131122-1212222211103002-0131010321033230): complete subsection reference.
+- [site_to_site_connectivity_interface_disabled](resources--securemesh_site_v2--reference--group-009.md#canonical-1133201233031230-3333012130033031-0221332312123131-3003211133222313-1013122333012331-0100231220131122-1212222211103002-0131010321033230): complete subsection reference.
 
-- [site_to_site_connectivity_interface_enabled](resources--securemesh_site_v2--reference--group-010.md#canonical-0220100020332132-3221320131203333-1233013032031323-3222113210012223-1121032113121201-1001013201031031-1210302012100032-0323200312201112): complete subsection reference.
+- [site_to_site_connectivity_interface_enabled](resources--securemesh_site_v2--reference--group-009.md#canonical-0220100020332132-3221320131203333-1233013032031323-3222113210012223-1121032113121201-1001013201031031-1210302012100032-0323200312201112): complete subsection reference.
 
-- [static_ip](resources--securemesh_site_v2--reference--group-010.md#canonical-1030120100013303-3022221311322001-3212222021021102-1131222030210221-2220333320001121-0123333131111212-3121032230202313-3133313121120333): complete subsection reference.
+- [static_ip](resources--securemesh_site_v2--reference--group-009.md#canonical-1030120100013303-3022221311322001-3212222021021102-1131222030210221-2220333320001121-0123333131111212-3121032230202313-3133313121120333): complete subsection reference.
 
-- [static_ipv6_address](resources--securemesh_site_v2--reference--group-010.md#canonical-2211000311220321-1300310212321311-1320211122001332-3133210132012012-0003101310213320-1320323100233021-0320003310222021-2200322311012310): complete subsection reference.
+- [static_ipv6_address](resources--securemesh_site_v2--reference--group-009.md#canonical-2211000311220321-1300310212321311-1320211122001332-3133210132012012-0003101310213320-1320323100233021-0320003310222021-2200322311012310): complete subsection reference.
 
-- [vlan_interface](resources--securemesh_site_v2--reference--group-010.md#canonical-2322033023330322-3002023133132222-1111333320023023-1223323000130112-0000221001032331-3310323132320101-1112120210112123-1112101101200111): complete subsection reference.
-
-<a id="canonical-2032230020002231-1011020013212011-1022232130310111-3233321022101200-1210230213113020-3320131101200332-2301113001013100-3303232222213122"></a>
-
-## Next pages — interface_list / 210023233032 / 11
-
-- [gcp.not_managed.node_list.interface_list.bond_interface](resources--securemesh_site_v2--reference--group-009.md#canonical-1312131101221311-2123312020201302-0323030202131210-3030102033211112-1113331330011011-1033012003223302-3330223011123101-2300121002010002)
-- [gcp.not_managed.node_list.interface_list.dhcp_client](resources--securemesh_site_v2--reference--group-009.md#canonical-0033122033012121-3302331120212023-3323021011132313-1123200320201001-0033122103112313-3030132200003013-2110330032333033-1232013121003210)
-- [gcp.not_managed.node_list.interface_list.dhcp_server](resources--securemesh_site_v2--reference--group-009.md#canonical-3313330022031132-3223201011202123-1333210120013030-0221103213121310-0113121203231303-2110113003211302-3033122200033020-1210000032110313)
-- [gcp.not_managed.node_list.interface_list.ethernet_interface](resources--securemesh_site_v2--reference--group-010.md#canonical-2211332222002230-0122303122321113-3201122320313333-3310131113000011-1101321120213101-1203213233003121-2033310231011313-1012230033113111)
-- [gcp.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-010.md#canonical-0030000233303003-0323012301000003-1232112033233111-1322002021231332-3203003130030132-3012232003101220-1320232111102200-3322001220201301)
-- [gcp.not_managed.node_list.interface_list.monitor](resources--securemesh_site_v2--reference--group-010.md#canonical-1211223311200301-2113213233010230-1203012301302120-1022300331103323-0211120332111200-1030031000001303-2222221212332011-1213312211122110)
-- [gcp.not_managed.node_list.interface_list.monitor_disabled](resources--securemesh_site_v2--reference--group-010.md#canonical-2110013100330201-0203313102212200-0032133203312013-0101212301101020-2313122133233302-2220111322101030-0222330312032021-2111000113010023)
-- [gcp.not_managed.node_list.interface_list.network_option](resources--securemesh_site_v2--reference--group-010.md#canonical-0130223033333312-1121121211313103-3113202033331032-2233322113123200-0332010230120331-1010000111303301-0210131100330121-2332322223233223)
-- [gcp.not_managed.node_list.interface_list.no_ipv4_address](resources--securemesh_site_v2--reference--group-010.md#canonical-1203323220122012-2201322220300230-0230002310100030-3330031323321311-0300313103011131-2300131311231110-3013203313301020-2320101230133033)
-- [gcp.not_managed.node_list.interface_list.no_ipv6_address](resources--securemesh_site_v2--reference--group-010.md#canonical-3000103023231312-2301010323330333-0333003302000002-1322000323123232-2002220330300031-1331112001201102-2321333303303203-2001023303022112)
-- [gcp.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled](resources--securemesh_site_v2--reference--group-010.md#canonical-1133201233031230-3333012130033031-0221332312123131-3003211133222313-1013122333012331-0100231220131122-1212222211103002-0131010321033230)
-- [gcp.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled](resources--securemesh_site_v2--reference--group-010.md#canonical-0220100020332132-3221320131203333-1233013032031323-3222113210012223-1121032113121201-1001013201031031-1210302012100032-0323200312201112)
-- [gcp.not_managed.node_list.interface_list.static_ip](resources--securemesh_site_v2--reference--group-010.md#canonical-1030120100013303-3022221311322001-3212222021021102-1131222030210221-2220333320001121-0123333131111212-3121032230202313-3133313121120333)
-- [gcp.not_managed.node_list.interface_list.static_ipv6_address](resources--securemesh_site_v2--reference--group-010.md#canonical-2211000311220321-1300310212321311-1320211122001332-3133210132012012-0003101310213320-1320323100233021-0320003310222021-2200322311012310)
-- [gcp.not_managed.node_list.interface_list.vlan_interface](resources--securemesh_site_v2--reference--group-010.md#canonical-2322033023330322-3002023133132222-1111333320023023-1223323000130112-0000221001032331-3310323132320101-1112120210112123-1112101101200111)
-- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [vlan_interface](resources--securemesh_site_v2--reference--group-009.md#canonical-2322033023330322-3002023133132222-1111333320023023-1223323000130112-0000221001032331-3310323132320101-1112120210112123-1112101101200111): complete subsection reference.
 
 <a id="canonical-1312131101221311-2123312020201302-0323030202131210-3030102033211112-1113331330011011-1033012003223302-3330223011123101-2300121002010002"></a>
 
@@ -3944,9 +799,7 @@ Receipt-pinned upstream constraints:
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2010200312032123-3221323033010132-1100001201310211-0030011200301222-2113013202230202-2003330033222030-1222003101211330-1220120310110203"></a>
-
-## gcp.not_managed.node_list.interface_list.bond_interface — bond_interface / 113331122331 / 2
+## `gcp.not_managed.node_list.interface_list.bond_interface` properties
 
 Breadcrumbs:
 
@@ -3964,7 +817,7 @@ Type: `"object"`. single nested block, Optional.
 
 Configuration parameter for bond interface.
 
-Upstream description:
+Additional upstream details:
 
 Bond devices configuration for fleet.
 
@@ -4002,17 +855,17 @@ bond_interface {
 }
 ```
 
-<a id="canonical-3200121301010101-1300321323012030-0231103001222323-3003203013013210-1230200013303112-2032002031120110-1320203120321210-0321003332133310"></a>
+<a id="canonical-2010200312032123-3221323033010132-1100001201310211-0030011200301222-2113013202230202-2003330033222030-1222003101211330-1220120310110203"></a>
 
-## Direct properties — bond_interface / 113331122331 / 3
+### Direct properties for `gcp.not_managed.node_list.interface_list.bond_interface`
 
 - [active_backup](resources--securemesh_site_v2--reference--group-009.md#canonical-2233223120230031-2320103303230112-0131121110300032-1333112312010101-2233103303000103-0332322300202330-3313021111031333-0330011212131203): complete subsection reference.
 
 <a id="canonical-3002201223003111-0011203100210201-0213333332111101-1331210331200321-1112230002122032-2011112013320310-3223211300022200-0312231013330132"></a>
 
-<a id="canonical-0313210321131001-1322223220321222-0103312030200331-0112203030223210-2120020231033232-1320313220112311-1120311332033313-2010000230123010"></a>
+<a id="canonical-3200121301010101-1300321323012030-0231103001222323-3003203013013210-1230200013303112-2032002031120110-1320203120321210-0321003332133310"></a>
 
-## devices property — bond_interface / 113331122331 / 4
+#### `gcp.not_managed.node_list.interface_list.bond_interface.devices` property
 
 Type: `["list", "string"]`. Optional.
 
@@ -4073,17 +926,13 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3332101220301211-3201332233031312-2322332232110131-3222321130131302-3131102121131313-1223211123110333-0211311010200310-2122122003013321"></a>
 
-<a id="canonical-0120312302100131-3310011111122033-2020000012001013-1122201331301013-1003021020321000-1323212023312312-0330112121030013-3301330100011330"></a>
+<a id="canonical-0313210321131001-1322223220321222-0103312030200331-0112203030223210-2120020231033232-1320313220112311-1120311332033313-2010000230123010"></a>
 
-## link_polling_interval property — bond_interface / 113331122331 / 5
+#### `gcp.not_managed.node_list.interface_list.bond_interface.link_polling_interval` property
 
 Type: `"number"`. Optional.
 
 Link Polling Interval. Link polling interval in milliseconds.
-
-Upstream description:
-
-Link polling interval in milliseconds.
 
 Provider validators and defaults (from schema source):
 
@@ -4131,9 +980,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1021322000122023-0221033322000222-0322330123012200-1132022121331212-0120303032103123-3130232132300301-1010100110010000-3000100011100012"></a>
 
-<a id="canonical-3132323202200332-2123030003101303-1002310320000222-1221302321323210-3122220112310001-1103320112101013-3132301131301023-3100311022233013"></a>
+<a id="canonical-0120312302100131-3310011111122033-2020000012001013-1122201331301013-1003021020321000-1323212023312312-0330112121030013-3301330100011330"></a>
 
-## link_up_delay property — bond_interface / 113331122331 / 6
+#### `gcp.not_managed.node_list.interface_list.bond_interface.link_up_delay` property
 
 Type: `"number"`. Optional.
 
@@ -4185,17 +1034,13 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0020011012022332-1130333220033023-2213322122032200-1102300033223222-1010201223301222-3210003101313032-0021000000233222-1010132130013303"></a>
 
-<a id="canonical-3001213123001302-0122201203313001-0100101032322100-1111323001103310-3112330110312221-2001012213311102-2032033131232123-3120230333223322"></a>
+<a id="canonical-3132323202200332-2123030003101303-1002310320000222-1221302321323210-3122220112310001-1103320112101013-3132301131301023-3100311022233013"></a>
 
-## name property — bond_interface / 113331122331 / 7
+#### `gcp.not_managed.node_list.interface_list.bond_interface.name` property
 
 Type: `"string"`. Optional.
 
 Bond Device Name. Name for the Bond. Ex 'bond0'
-
-Upstream description:
-
-Name for the Bond. Ex 'bond0'
 
 Provider validators and defaults (from schema source):
 
@@ -4253,24 +1098,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3013012100331130-2111011110002022-3201100122023200-0031221113123332-0122230020231112-3101221122313310-0201210211330122-1303121012012112"></a>
-
-## Next pages — bond_interface / 113331122331 / 8
-
-- [gcp.not_managed.node_list.interface_list.bond_interface.active_backup](resources--securemesh_site_v2--reference--group-009.md#canonical-2233223120230031-2320103303230112-0131121110300032-1333112312010101-2233103303000103-0332322300202330-3313021111031333-0330011212131203)
-- [gcp.not_managed.node_list.interface_list.bond_interface.lacp](resources--securemesh_site_v2--reference--group-009.md#canonical-3210102320303311-3232301012312300-2010032031112122-2313033032010202-3121231320032320-2222111013233230-0112231103110233-1301013211022330)
-- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
 <a id="canonical-2233223120230031-2320103303230112-0131121110300032-1333112312010101-2233103303000103-0332322300202330-3313021111031333-0330011212131203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3001313132030231-3322133232103201-3011132130210102-3311222332331211-3133202023221231-1001003000233232-2312320303033120-0121032130103033"></a>
-
-## gcp.not_managed.node_list.interface_list.bond_interface.active_backup — active_backup / 013000003322 / 2
+## `gcp.not_managed.node_list.interface_list.bond_interface.active_backup` properties
 
 Breadcrumbs:
 
@@ -4289,7 +1123,7 @@ Type: `["object", {}]`. Optional.
 
 Configuration parameter for active backup.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -4312,18 +1146,7 @@ Terraform syntax:
 active_backup = {}
 ```
 
-<a id="canonical-1001112301033311-0011113212311210-1003311023233031-1001232303031202-1022122122333202-0011131230130130-1312221203101211-2121133230012302"></a>
-
-## Direct properties — active_backup / 013000003322 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0123001112211231-2122221101313312-0103122233111333-3213113323030100-2201030111311301-2111101130101213-2312033332210330-2213311313301102"></a>
-
-## Next pages — active_backup / 013000003322 / 4
-
-- [gcp.not_managed.node_list.interface_list.bond_interface](resources--securemesh_site_v2--reference--group-009.md#canonical-1312131101221311-2123312020201302-0323030202131210-3030102033211112-1113331330011011-1033012003223302-3330223011123101-2300121002010002)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 
 <a id="canonical-3210102320303311-3232301012312300-2010032031112122-2313033032010202-3121231320032320-2222111013233230-0112231103110233-1301013211022330"></a>
 
@@ -4331,9 +1154,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1221113331023113-1103202013023013-2121200002013132-3311013032123113-1320022213010232-0233102120330031-3213100203002232-3102201201300210"></a>
-
-## gcp.not_managed.node_list.interface_list.bond_interface.lacp — lacp / 230020312123 / 2
+## `gcp.not_managed.node_list.interface_list.bond_interface.lacp` properties
 
 Breadcrumbs:
 
@@ -4351,10 +1172,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 LACP parameters. LACP parameters for the bond device.
-
-Upstream description:
-
-LACP parameters for the bond device.
 
 Provider validators and defaults (from schema source):
 
@@ -4384,15 +1201,13 @@ lacp {
 }
 ```
 
-<a id="canonical-2233231323102030-3303100113203332-1113123121212200-0331202200331313-2232222233233130-1222323000122230-1120110213030020-2131201313113033"></a>
+<a id="canonical-1221113331023113-1103202013023013-2121200002013132-3311013032123113-1320022213010232-0233102120330031-3213100203002232-3102201201300210"></a>
 
-## Direct properties — lacp / 230020312123 / 3
+### Direct properties for `gcp.not_managed.node_list.interface_list.bond_interface.lacp`
 
 <a id="canonical-3120000010132321-3322331103231003-3311300130100031-3113311202023321-2223132300203110-0221002021230313-1020200102210303-2333003123121003"></a>
 
-<a id="canonical-1301113122130010-1231230002113302-1201211212101331-0000210233321300-0011302332301112-0002302012330030-1020131031232011-3203031233112113"></a>
-
-## rate property — lacp / 230020312123 / 4
+#### `gcp.not_managed.node_list.interface_list.bond_interface.lacp.rate` property
 
 Type: `"number"`. Optional.
 
@@ -4440,22 +1255,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1310101023121103-2313101001330313-3310032021010123-1110221323212313-1311331013020133-2322013231202133-0203102321211001-0330332112320111"></a>
-
-## Next pages — lacp / 230020312123 / 5
-
-- [gcp.not_managed.node_list.interface_list.bond_interface](resources--securemesh_site_v2--reference--group-009.md#canonical-1312131101221311-2123312020201302-0323030202131210-3030102033211112-1113331330011011-1033012003223302-3330223011123101-2300121002010002)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
 <a id="canonical-0033122033012121-3302331120212023-3323021011132313-1123200320201001-0033122103112313-3030132200003013-2110330032333033-1232013121003210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0002020222312213-0230132230221002-2313321223332003-0202133012230233-2230323330203321-3020020210102013-1130121120231213-2332233133322110"></a>
-
-## gcp.not_managed.node_list.interface_list.dhcp_client — dhcp_client / 033210001030 / 2
+## `gcp.not_managed.node_list.interface_list.dhcp_client` properties
 
 Breadcrumbs:
 
@@ -4473,7 +1279,7 @@ Type: `["object", {}]`. Optional.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -4496,18 +1302,7 @@ Terraform syntax:
 dhcp_client = {}
 ```
 
-<a id="canonical-3102220032000302-1330003221200332-3100111302321200-2233300221013310-2222220222213221-1001230313031100-1322302021112002-0101032321021003"></a>
-
-## Direct properties — dhcp_client / 033210001030 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1033201323113021-1113311230203000-2010010332302032-1210232113310301-1121033333320023-1202000323002322-3203212033120221-0112120213331212"></a>
-
-## Next pages — dhcp_client / 033210001030 / 4
-
-- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 
 <a id="canonical-3313330022031132-3223201011202123-1333210120013030-0221103213121310-0113121203231303-2110113003211302-3033122200033020-1210000032110313"></a>
 
@@ -4515,9 +1310,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0221203221012201-2210212122110011-2303012002321201-0030120230310030-1232121332311231-3013131201013102-3203230013220310-1232320001203113"></a>
-
-## gcp.not_managed.node_list.interface_list.dhcp_server — dhcp_server / 002023033023 / 2
+## `gcp.not_managed.node_list.interface_list.dhcp_server` properties
 
 Breadcrumbs:
 
@@ -4535,7 +1328,7 @@ Type: `"object"`. single nested block, Optional.
 
 DHCPServerParametersType.
 
-Upstream description:
+Additional upstream details:
 
 DHCP server configuration for this interface.
 
@@ -4568,9 +1361,9 @@ dhcp_server {
 }
 ```
 
-<a id="canonical-3332333210330110-3100021002123201-3122022020131133-3220333322203331-0323003313312223-1022002103133231-2011323023222123-2223112230203021"></a>
+<a id="canonical-0221203221012201-2210212122110011-2303012002321201-0030120230310030-1232121332311231-3013131201013102-3203230013220310-1232320001203113"></a>
 
-## Direct properties — dhcp_server / 002023033023 / 3
+### Direct properties for `gcp.not_managed.node_list.interface_list.dhcp_server`
 
 - [automatic_from_end](resources--securemesh_site_v2--reference--group-009.md#canonical-3230201023201000-0031203031300322-0130003111203121-0221031120033200-2320100230310111-3203202120223003-2200122002201120-1130102300303323): complete subsection reference.
 
@@ -4580,9 +1373,9 @@ dhcp_server {
 
 <a id="canonical-0021201321301330-1022203301131303-2003200120030122-3003313111030333-2031130202021313-2032003323023021-1121200030201031-0023002131102003"></a>
 
-<a id="canonical-3110320003120102-0302310101123330-1313321021312302-3021032030322012-1301103211230123-0131131021100100-3022000133100231-2022111322203313"></a>
+<a id="canonical-3332333210330110-3100021002123201-3122022020131133-3220333322203331-0323003313312223-1022002103133231-2011323023222123-2223112230203021"></a>
 
-## dhcp_option82_tag property — dhcp_server / 002023033023 / 4
+#### `gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_option82_tag` property
 
 Type: `"string"`. Optional.
 
@@ -4590,9 +1383,9 @@ DHCP option 82 tag.
 
 <a id="canonical-0021030113311002-1331300302000301-3010330030023303-0332110313233021-2222321313023121-2101201103030113-3002230231311030-3203120301123000"></a>
 
-<a id="canonical-3233012101131323-3211311130031322-3331300312323310-2231313313003203-2210103322221313-3201123232200312-0022202211300323-1123002230210012"></a>
+<a id="canonical-3110320003120102-0302310101123330-1313321021312302-3021032030322012-1301103211230123-0131131021100100-3022000133100231-2022111322203313"></a>
 
-## fixed_ip_map property — dhcp_server / 002023033023 / 5
+#### `gcp.not_managed.node_list.interface_list.dhcp_server.fixed_ip_map` property
 
 Type: `["map", "string"]`. Optional.
 
@@ -4655,18 +1448,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [interface_ip_map](resources--securemesh_site_v2--reference--group-010.md#canonical-2111220011212201-2210211320212123-0002230223223032-0103310130311120-3030102221113221-3203102202021320-2333322310332131-2200113023033310): complete subsection reference.
-
-<a id="canonical-2000110223223313-0300220230132101-1233221321230303-0033000213220010-1002122100212310-2131322202131322-1023030102132111-3101221123300031"></a>
-
-## Next pages — dhcp_server / 002023033023 / 6
-
-- [gcp.not_managed.node_list.interface_list.dhcp_server.automatic_from_end](resources--securemesh_site_v2--reference--group-009.md#canonical-3230201023201000-0031203031300322-0130003111203121-0221031120033200-2320100230310111-3203202120223003-2200122002201120-1130102300303323)
-- [gcp.not_managed.node_list.interface_list.dhcp_server.automatic_from_start](resources--securemesh_site_v2--reference--group-009.md#canonical-3021112221211102-1120023232212220-0102020133000323-3312003300330210-2120230223212123-3221201200132033-1322200123220301-3212121021112120)
-- [gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](resources--securemesh_site_v2--reference--group-009.md#canonical-2000303313200021-2122230100001312-2101331200232322-1030323003003300-3033030003021033-3101000321032210-1301211320233010-2311333111320132)
-- [gcp.not_managed.node_list.interface_list.dhcp_server.interface_ip_map](resources--securemesh_site_v2--reference--group-010.md#canonical-2111220011212201-2210211320212123-0002230223223032-0103310130311120-3030102221113221-3203102202021320-2333322310332131-2200113023033310)
-- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [interface_ip_map](resources--securemesh_site_v2--reference--group-009.md#canonical-2111220011212201-2210211320212123-0002230223223032-0103310130311120-3030102221113221-3203102202021320-2333322310332131-2200113023033310): complete subsection reference.
 
 <a id="canonical-3230201023201000-0031203031300322-0130003111203121-0221031120033200-2320100230310111-3203202120223003-2200122002201120-1130102300303323"></a>
 
@@ -4674,9 +1456,7 @@ Receipt-pinned upstream constraints:
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2333033021020303-3211211022232212-2122301111301200-3200333302311101-0002323101210300-1231330330020233-3212330103213103-2102213202322332"></a>
-
-## gcp.not_managed.node_list.interface_list.dhcp_server.automatic_from_end — automatic_from_end / 232021103111 / 2
+## `gcp.not_managed.node_list.interface_list.dhcp_server.automatic_from_end` properties
 
 Breadcrumbs:
 
@@ -4695,7 +1475,7 @@ Type: `["object", {}]`. Optional.
 
 Configuration parameter for automatic from end.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -4718,18 +1498,7 @@ Terraform syntax:
 automatic_from_end = {}
 ```
 
-<a id="canonical-3301300003033131-3013302303333201-2210221123322211-1033032232212223-2333212131020030-0202330111103211-2030331300310320-2021011122331212"></a>
-
-## Direct properties — automatic_from_end / 232021103111 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3010311322032331-2020331332223333-2222002212113331-0020120221220012-2321212223110301-3223022210100100-2221020320002330-1230231203233101"></a>
-
-## Next pages — automatic_from_end / 232021103111 / 4
-
-- [gcp.not_managed.node_list.interface_list.dhcp_server](resources--securemesh_site_v2--reference--group-009.md#canonical-3313330022031132-3223201011202123-1333210120013030-0221103213121310-0113121203231303-2110113003211302-3033122200033020-1210000032110313)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 
 <a id="canonical-3021112221211102-1120023232212220-0102020133000323-3312003300330210-2120230223212123-3221201200132033-1322200123220301-3212121021112120"></a>
 
@@ -4737,9 +1506,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3113120311010023-2203320101213303-1202010202300110-3320022222013212-2120332031003311-0303333122320030-2212323011121021-2300221133121233"></a>
-
-## gcp.not_managed.node_list.interface_list.dhcp_server.automatic_from_start — automatic_from_start / 223311030100 / 2
+## `gcp.not_managed.node_list.interface_list.dhcp_server.automatic_from_start` properties
 
 Breadcrumbs:
 
@@ -4758,7 +1525,7 @@ Type: `["object", {}]`. Optional.
 
 Configuration parameter for automatic from start.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -4781,18 +1548,7 @@ Terraform syntax:
 automatic_from_start = {}
 ```
 
-<a id="canonical-1212002222032013-3123330330330100-3210003102100113-3100201312020331-2331330312030200-3300100223202032-2103311122201132-3321302231313212"></a>
-
-## Direct properties — automatic_from_start / 223311030100 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0011003303131120-2132333110020100-2222103013103121-3312202200101012-3320323103233001-2210110302322122-3121022002031001-1202202221102331"></a>
-
-## Next pages — automatic_from_start / 223311030100 / 4
-
-- [gcp.not_managed.node_list.interface_list.dhcp_server](resources--securemesh_site_v2--reference--group-009.md#canonical-3313330022031132-3223201011202123-1333210120013030-0221103213121310-0113121203231303-2110113003211302-3033122200033020-1210000032110313)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 
 <a id="canonical-2000303313200021-2122230100001312-2101331200232322-1030323003003300-3033030003021033-3101000321032210-1301211320233010-2311333111320132"></a>
 
@@ -4800,9 +1556,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1211212103321322-3330023320011021-1101020101222120-3023111320311122-1022311213120331-0112111021123231-2233303012302232-2000212122030332"></a>
-
-## gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks — dhcp_networks / 203031201131 / 2
+## `gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks` properties
 
 Breadcrumbs:
 
@@ -4883,22 +1637,15 @@ dhcp_networks {
 }
 ```
 
-<a id="canonical-2012311123132131-1301121030102312-1033332301232133-0230120130330301-1320322120100212-1202133111213032-0300213333011100-2231010101301133"></a>
+<a id="canonical-1211212103321322-3330023320011021-1101020101222120-3023111320311122-1022311213120331-0112111021123231-2233303012302232-2000212122030332"></a>
 
-## Direct properties — dhcp_networks / 203031201131 / 3
+### Direct properties for `gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks`
 
 <a id="canonical-2323103330202101-3313320003331123-1320131023002211-0302033213311332-3133201122013021-2021113110310033-0110020230310233-1300322203201130"></a>
 
-<a id="canonical-0132220212320222-3003132020210122-0213100321220200-2303320003111202-0232320300311013-2232033011300223-2133302030202103-1310303102312331"></a>
-
-## dgw_address property — dhcp_networks / 203031201131 / 4
+#### `gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.dgw_address` property
 
 Type: `"string"`. Optional.
-
-Exclusive with \[first\_address last\_address\] Enter a IPv4 address from the network prefix to be
-used as the default gateway.
-
-Upstream description:
 
 Exclusive with \[first\_address last\_address\] Enter a IPv4 address from the network prefix to be
 used as the default gateway.
@@ -4946,16 +1693,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0320232001133133-0211000120101202-3230113200010213-3031332203032303-3000222222030022-2033001100130012-2213120100020100-1233033313002112"></a>
 
-<a id="canonical-2302011302120220-1231323320012133-2031013123100300-0213030223311212-2223021302303322-3133011223132132-0300001011001021-3312200013022323"></a>
+<a id="canonical-2012311123132131-1301121030102312-1033332301232133-0230120130330301-1320322120100212-1202133111213032-0300213333011100-2231010101301133"></a>
 
-## dns_address property — dhcp_networks / 203031201131 / 5
+#### `gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.dns_address` property
 
 Type: `"string"`. Optional.
-
-Exclusive with \[same\_as\_dgw\] Enter a IPv4 address from the network prefix to be used as the DNS
-server.
-
-Upstream description:
 
 Exclusive with \[same\_as\_dgw\] Enter a IPv4 address from the network prefix to be used as the DNS
 server.
@@ -5001,21 +1743,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [first_address](resources--securemesh_site_v2--reference--group-010.md#canonical-0312003331312110-3111001100022001-2222300312023132-2122133211103120-0020032122130203-0112333013130301-2230113023320120-1221112300121112): complete subsection reference.
+- [first_address](resources--securemesh_site_v2--reference--group-009.md#canonical-0312003331312110-3111001100022001-2222300312023132-2122133211103120-0020032122130203-0112333013130301-2230113023320120-1221112300121112): complete subsection reference.
 
-- [last_address](resources--securemesh_site_v2--reference--group-010.md#canonical-1311222001020112-2112133132212013-0031233202312313-2013003011202013-0320120020020030-2030111033010310-1202132011310200-1222312310232123): complete subsection reference.
+- [last_address](resources--securemesh_site_v2--reference--group-009.md#canonical-1311222001020112-2112133132212013-0031233202312313-2013003011202013-0320120020020030-2030111033010310-1202132011310200-1222312310232123): complete subsection reference.
 
 <a id="canonical-1210102102322200-2111122012322032-0122020032122000-0210102023122211-2210012132213303-0201312311010302-3001233123132321-3022200321331011"></a>
 
-<a id="canonical-2030220203113130-2122330312222332-1112321123112101-2132103113122120-2223221001122323-2020230211322131-1113123203013332-2120220230122213"></a>
+<a id="canonical-0132220212320222-3003132020210122-0213100321220200-2303320003111202-0232320300311013-2232033011300223-2133302030202103-1310303102312331"></a>
 
-## network_prefix property — dhcp_networks / 203031201131 / 6
+#### `gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.network_prefix` property
 
 Type: `"string"`. Optional.
-
-Exclusive with \[\] Set the network prefix for the site. Ex: 192.0.2.0/24.
-
-Upstream description:
 
 Exclusive with \[\] Set the network prefix for the site. Ex: 192.0.2.0/24.
 
@@ -5049,3 +1787,4328 @@ Receipt-pinned upstream constraints:
 ```
 
 <a id="canonical-0201302303301202-0013021300131023-3022300123320113-2101112122011000-1221300003212110-1313231020202032-3003200002223203-2230310100233100"></a>
+
+<a id="canonical-2302011302120220-1231323320012133-2031013123100300-0213030223311212-2223021302303322-3133011223132132-0300001011001021-3312200013022323"></a>
+
+#### `gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pool_settings` property
+
+Type: `"string"`. Optional.
+
+\[Enum: INCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS|EXCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\]
+Identifies the how to pick the network for Interface. Address ranges in DHCP pool list are used for
+IP Address allocation Address ranges in DHCP pool list are excluded from IP Address allocation.
+Possible values are \`INCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\`,
+\`EXCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\`. Defaults to
+\`INCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\`.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS","INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
+Validators: []validator.String{
+  stringvalidator.OneOf("INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
+    "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
+  "enum": [
+    "INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
+    "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+- [pools](resources--securemesh_site_v2--reference--group-009.md#canonical-1230113202102212-1123120311220322-1031123313022131-0112023321111331-3301330310322223-0033132130330122-0331013200321001-1202011312012121): complete subsection reference.
+
+- [same_as_dgw](resources--securemesh_site_v2--reference--group-009.md#canonical-3131011201201112-3113332132333013-2033231312003100-1121111323123320-3120202232101232-1003132033323032-0332020332132112-3010301022003223): complete subsection reference.
+
+<a id="canonical-0312003331312110-3111001100022001-2222300312023132-2122133211103120-0020032122130203-0112333013130301-2230113023320120-1221112300121112"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_address` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- [gcp.not_managed.node_list.interface_list.dhcp_server](resources--securemesh_site_v2--reference--group-009.md#canonical-3313330022031132-3223201011202123-1333210120013030-0221103213121310-0113121203231303-2110113003211302-3033122200033020-1210000032110313)
+- [gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](resources--securemesh_site_v2--reference--group-009.md#canonical-2000303313200021-2122230100001312-2101331200232322-1030323003003300-3033030003021033-3101000321032210-1301211320233010-2311333111320132)
+- gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_address
+
+<a id="canonical-2311222320322023-0121203331023323-3130232331301011-1003332131221212-1120223203003301-1211330133011200-2000112110313311-1322002310313212"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+first_address = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1311222001020112-2112133132212013-0031233202312313-2013003011202013-0320120020020030-2030111033010310-1202132011310200-1222312310232123"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_address` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- [gcp.not_managed.node_list.interface_list.dhcp_server](resources--securemesh_site_v2--reference--group-009.md#canonical-3313330022031132-3223201011202123-1333210120013030-0221103213121310-0113121203231303-2110113003211302-3033122200033020-1210000032110313)
+- [gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](resources--securemesh_site_v2--reference--group-009.md#canonical-2000303313200021-2122230100001312-2101331200232322-1030323003003300-3033030003021033-3101000321032210-1301211320233010-2311333111320132)
+- gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_address
+
+<a id="canonical-2311120210113303-0321303213222131-3311111222032301-0303023101333300-2333213102130223-0133312031023023-3112312033321113-3303110021130312"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+last_address = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1230113202102212-1123120311220322-1031123313022131-0112023321111331-3301330310322223-0033132130330122-0331013200321001-1202011312012121"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- [gcp.not_managed.node_list.interface_list.dhcp_server](resources--securemesh_site_v2--reference--group-009.md#canonical-3313330022031132-3223201011202123-1333210120013030-0221103213121310-0113121203231303-2110113003211302-3033122200033020-1210000032110313)
+- [gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](resources--securemesh_site_v2--reference--group-009.md#canonical-2000303313200021-2122230100001312-2101331200232322-1030323003003300-3033030003021033-3101000321032210-1301211320233010-2311333111320132)
+- gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools
+
+<a id="canonical-1032321201211003-2201222210101202-2122211013112232-1101030021233021-3100331001003113-2001023220332302-3022102230103011-2013122231333031"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+List of non overlapping IP address ranges.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 16,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 16,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+pools {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2302111013221322-1101000000111230-2032221033321233-3111012000313011-2300221323322122-0311223313323110-3012323212101331-2100000322022302"></a>
+
+### Direct properties for `gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools`
+
+<a id="canonical-1330220301202033-3200322233010123-0313303112000321-3312233212222230-2012130130122203-1300322123302311-3123023013311011-2000300230100310"></a>
+
+#### `gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools.end_ip` property
+
+Type: `"string"`. Optional.
+
+Ending IP of the pool range. In case of address allocator, offset is derived based on network
+prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(1024),
+  validators.IPv4Validator(),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "ipv4",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv4": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv4": "true"
+  }
+}
+```
+
+<a id="canonical-3013303132022201-0231023021232122-3103002000323123-3012110132201310-1123313310132101-0121001120111223-3130130231210320-2313023132222311"></a>
+
+<a id="canonical-1203302333211211-2322221101102311-3321221220220203-1133212102312023-1030211123023333-3320102311330323-1202223031202300-3230003303302001"></a>
+
+#### `gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools.exclude` property
+
+Type: `"bool"`. Optional.
+
+Exclude this address range from DHCP allocation.
+
+<a id="canonical-1010220111022002-1110303130310012-0330322012310010-2001203110002031-0110101022202132-2210200333220100-3030020123320102-1213032030212321"></a>
+
+<a id="canonical-1320110333013321-0221013000032211-0111303332131012-3300011002213032-1332322211133033-3223201003301130-3121220103231302-3200200112111023"></a>
+
+#### `gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools.start_ip` property
+
+Type: `"string"`. Optional.
+
+Starting IP of the pool range. In case of address allocator, offset is derived based on network
+prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(1024),
+  validators.IPv4Validator(),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "ipv4",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv4": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv4": "true"
+  }
+}
+```
+
+<a id="canonical-3131011201201112-3113332132333013-2033231312003100-1121111323123320-3120202232101232-1003132033323032-0332020332132112-3010301022003223"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dgw` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- [gcp.not_managed.node_list.interface_list.dhcp_server](resources--securemesh_site_v2--reference--group-009.md#canonical-3313330022031132-3223201011202123-1333210120013030-0221103213121310-0113121203231303-2110113003211302-3033122200033020-1210000032110313)
+- [gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](resources--securemesh_site_v2--reference--group-009.md#canonical-2000303313200021-2122230100001312-2101331200232322-1030323003003300-3033030003021033-3101000321032210-1301211320233010-2311333111320132)
+- gcp.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dgw
+
+<a id="canonical-2311200333231211-2221202112320303-0313300221013032-2303332302201122-0322130113232031-3010232121130332-1130032033032233-3321113312312122"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for same as dgw.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+same_as_dgw = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2111220011212201-2210211320212123-0002230223223032-0103310130311120-3030102221113221-3203102202021320-2333322310332131-2200113023033310"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.dhcp_server.interface_ip_map` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- [gcp.not_managed.node_list.interface_list.dhcp_server](resources--securemesh_site_v2--reference--group-009.md#canonical-3313330022031132-3223201011202123-1333210120013030-0221103213121310-0113121203231303-2110113003211302-3033122200033020-1210000032110313)
+- gcp.not_managed.node_list.interface_list.dhcp_server.interface_ip_map
+
+<a id="canonical-1313302310211211-0113000002100212-1230302020211203-1330131333101033-1202032031212013-1220122010102001-1322323201222003-3212101223201010"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Interface IPv4 Assignments. Specify static IPv4 addresses per node.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+interface_ip_map {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3231313122013121-2311023230023202-3030203231102013-2232010210223031-2122202021201100-2101203112321322-3213221000101002-2012223322330032"></a>
+
+### Direct properties for `gcp.not_managed.node_list.interface_list.dhcp_server.interface_ip_map`
+
+<a id="canonical-0030300301030203-1120100213002013-3032021333122330-1311013303013220-1201322231023021-3011301320320303-2301333013302011-1131113201103001"></a>
+
+#### `gcp.not_managed.node_list.interface_list.dhcp_server.interface_ip_map.interface_ip_map` property
+
+Type: `["map", "string"]`. Optional.
+
+Specify static IPv4 addresses per site:node.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":64},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"64\",\"ves.io.schema.rules.map.values.string.ipv4\":\"true\"},\"values\":{\"format\":\"ipv4\",\"type\":\"string\"}}")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "cardinality": {
+      "maxProperties": 64
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "64",
+      "ves.io.schema.rules.map.values.string.ipv4": "true"
+    },
+    "values": {
+      "format": "ipv4",
+      "type": "string"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "128",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "64",
+    "ves.io.schema.rules.map.values.string.ipv4": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "128",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "64",
+    "ves.io.schema.rules.map.values.string.ipv4": "true"
+  }
+}
+```
+
+<a id="canonical-2211332222002230-0122303122321113-3201122320313333-3310131113000011-1101321120213101-1203213233003121-2033310231011313-1012230033113111"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.ethernet_interface` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- gcp.not_managed.node_list.interface_list.ethernet_interface
+
+<a id="canonical-0023133312311013-1020102120132013-2031120023102022-1211021223300330-1023121303100112-2223203122111221-2102322312220112-2111001012331101"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configuration parameter for ethernet interface.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.RequiredObjectAttributes("mac")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+ethernet_interface {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0203021110000210-3013032221122322-1302013030001012-2000001223120232-3312021321131301-1102021033101102-3212030312313021-3120113013313132"></a>
+
+### Direct properties for `gcp.not_managed.node_list.interface_list.ethernet_interface`
+
+<a id="canonical-2202131113031322-2202201233333312-2100212212322300-0120200110203310-0210133313210132-2120111033323012-1232132323300323-3332212003132231"></a>
+
+#### `gcp.not_managed.node_list.interface_list.ethernet_interface.device` property
+
+Type: `"string"`. Optional.
+
+Select an Ethernet device from the discovered interfaces to configure. Once configured, this
+interface will be part of this sites dataplane and can participate in the networking services
+configured on this site.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 64),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "false",
+    "ves.io.schema.rules.string.max_len": "64",
+    "ves.io.schema.rules.string.min_len": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "false",
+    "ves.io.schema.rules.string.max_len": "64",
+    "ves.io.schema.rules.string.min_len": "1"
+  }
+}
+```
+
+<a id="canonical-2033232212010332-3213011001213120-3320310112330011-1022111033111320-1112031131320012-1300001230032031-3100221130230213-3122323200300212"></a>
+
+<a id="canonical-3103003321201033-0110312332323131-1011222001213001-1233001133222303-2023111323321231-0211020010311031-0130301210133332-3223213311203203"></a>
+
+#### `gcp.not_managed.node_list.interface_list.ethernet_interface.mac` property
+
+Type: `"string"`. Optional.
+
+MAC Address. Configuration parameter for mac
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(1024),
+  validators.MACValidator(),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "mac-address",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.mac": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.mac": "true"
+  }
+}
+```
+
+<a id="canonical-0030000233303003-0323012301000003-1232112033233111-1322002021231332-3203003130030132-3012232003101220-1320232111102200-3322001220201301"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.ipv6_auto_config` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- gcp.not_managed.node_list.interface_list.ipv6_auto_config
+
+<a id="canonical-3121303103203100-1101323212230321-3230012332132301-0232101222130000-3122012312020000-2133013130121123-3013331110201202-2233232321003333"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+IPV6AutoConfigType.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.ConflictingObjectAttributes("host",
+    "router")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-autoconfig_choice": "[\"host\",\"router\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+ipv6_auto_config {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1310330212312213-1020322321000203-2221131002021013-0203111133111211-2333010020211010-2323200230311221-0023310120021313-2221132321123133"></a>
+
+### Direct properties for `gcp.not_managed.node_list.interface_list.ipv6_auto_config`
+
+- [host](resources--securemesh_site_v2--reference--group-009.md#canonical-2112021120030020-3231333020020100-1131200101210103-0002113133023111-0231212221103103-2232011230301021-2320301133223222-0030010301313122): complete subsection reference.
+
+- [router](resources--securemesh_site_v2--reference--group-009.md#canonical-1120330000013123-3133121330020123-1002030233012021-2330113333213200-3120202210332130-0013033120020121-1101203323010122-1310223332011020): complete subsection reference.
+
+<a id="canonical-2112021120030020-3231333020020100-1131200101210103-0002113133023111-0231212221103103-2232011230301021-2320301133223222-0030010301313122"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.ipv6_auto_config.host` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0030000233303003-0323012301000003-1232112033233111-1322002021231332-3203003130030132-3012232003101220-1320232111102200-3322001220201301)
+- gcp.not_managed.node_list.interface_list.ipv6_auto_config.host
+
+<a id="canonical-0302330002233201-0301231330211202-3230300313203330-3131120002000011-3130030003000102-3300230131112320-1023333003302222-0312220133101033"></a>
+
+Type: `["object", {}]`. Optional.
+
+Hostname or IP address of the target server.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+host = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1120330000013123-3133121330020123-1002030233012021-2330113333213200-3120202210332130-0013033120020121-1101203323010122-1310223332011020"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0030000233303003-0323012301000003-1232112033233111-1322002021231332-3203003130030132-3012232003101220-1320232111102200-3322001220201301)
+- gcp.not_managed.node_list.interface_list.ipv6_auto_config.router
+
+<a id="canonical-3210112001333003-0330021231033233-3213023112222300-1031231133322111-2310133000031301-1112133102213312-1022130100321013-2131012312110121"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+IPV6AutoConfigRouterType.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.ConflictingObjectAttributes("network_prefix",
+    "stateful")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-address_choice": "[\"network_prefix\",\"stateful\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+router {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0130123211210333-1013001111102000-1032200332203301-2020133211011322-1030231310122023-3211232101022022-2203030322113113-2010010221122332"></a>
+
+### Direct properties for `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router`
+
+- [dns_config](resources--securemesh_site_v2--reference--group-009.md#canonical-1001003103003212-2131100332301323-1032322120303112-2033322002213021-1021202022132010-3011212131333123-1203310231333011-0000331332203011): complete subsection reference.
+
+<a id="canonical-2301212332222121-1302223311302010-0301321012231103-3302110312321200-1120323333210321-0221013211111323-2333130012210221-0012220300110130"></a>
+
+<a id="canonical-1113011213030021-3201113011230222-3123113232231210-0002212332003301-0110223132021111-1233130133101210-1212023333201030-0113111130320030"></a>
+
+#### `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.network_prefix` property
+
+Type: `"string"`. Optional.
+
+Exclusive with \[stateful\] Network prefix that is used as Prefix information Allowed only /64
+prefix length as per RFC 4862.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(1024),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "pattern": ".*::/64$"
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv6_prefix": "true",
+    "ves.io.schema.rules.string.pattern": ".*::/64$"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv6_prefix": "true",
+    "ves.io.schema.rules.string.pattern": ".*::/64$"
+  }
+}
+```
+
+- [stateful](resources--securemesh_site_v2--reference--group-009.md#canonical-3223212030322111-3002302101120010-3002213133012033-0220320211200331-2330102200332301-3321213020302333-1202330303302310-3002112102332130): complete subsection reference.
+
+<a id="canonical-1001003103003212-2131100332301323-1032322120303112-2033322002213021-1021202022132010-3011212131333123-1203310231333011-0000331332203011"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0030000233303003-0323012301000003-1232112033233111-1322002021231332-3203003130030132-3012232003101220-1320232111102200-3322001220201301)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1120330000013123-3133121330020123-1002030233012021-2330113333213200-3120202210332130-0013033120020121-1101203323010122-1310223332011020)
+- gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config
+
+<a id="canonical-2213011013201101-2003230021030321-3323100213110131-3123221023310300-1001112002020010-3022032332301110-2221103300221213-3312003012121320"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+IPV6DnsConfig.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.ConflictingObjectAttributes("configured_list",
+    "local_dns")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-dns_choice": "[\"configured_list\",\"local_dns\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+dns_config {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2102213311000311-3000002320301321-2312312132302000-3023202032222003-1200331222331111-2310223201023111-3220133200133031-2013030302313012"></a>
+
+### Direct properties for `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config`
+
+- [configured_list](resources--securemesh_site_v2--reference--group-009.md#canonical-0102032310030203-1222102212030202-3102110031010021-1011113132210110-1231001002302130-1110122112302011-3013300020220032-2102312101013033): complete subsection reference.
+
+- [local_dns](resources--securemesh_site_v2--reference--group-009.md#canonical-3112133003230022-1321230122331200-2213000130222333-0033010322123331-0321111000312000-2121232333003210-2322312012021103-2100230322300010): complete subsection reference.
+
+<a id="canonical-0102032310030203-1222102212030202-3102110031010021-1011113132210110-1231001002302130-1110122112302011-3013300020220032-2102312101013033"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.configured_list` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0030000233303003-0323012301000003-1232112033233111-1322002021231332-3203003130030132-3012232003101220-1320232111102200-3322001220201301)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1120330000013123-3133121330020123-1002030233012021-2330113333213200-3120202210332130-0013033120020121-1101203323010122-1310223332011020)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](resources--securemesh_site_v2--reference--group-009.md#canonical-1001003103003212-2131100332301323-1032322120303112-2033322002213021-1021202022132010-3011212131333123-1203310231333011-0000331332203011)
+- gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.configured_list
+
+<a id="canonical-3123210121001102-3023303213112331-0331313333133230-3113031202111230-1312021301120101-0233022232000230-1322322110222010-1130023212320222"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+IPV6DnsList.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.RequiredObjectAttributes("dns_list")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+configured_list {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1013023121113213-1020012023010223-1112212213002303-3023201203123231-0333013222223301-0312230233222202-2031013100221133-0020103303102201"></a>
+
+### Direct properties for `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.configured_list`
+
+<a id="canonical-1112231303131122-2032000212231133-2121033310320230-3310312332230020-2333321310312222-2113122210130123-3212333231103033-1030020132210223"></a>
+
+#### `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.configured_list.dns_list` property
+
+Type: `["list", "string"]`. Optional.
+
+List of IPv6 Addresses acting as DNS servers.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.List{
+  listvalidator.SizeBetween(1, 4),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 4,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 4,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.ipv6": "true",
+    "ves.io.schema.rules.repeated.max_items": "4",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.ipv6": "true",
+    "ves.io.schema.rules.repeated.max_items": "4",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-3112133003230022-1321230122331200-2213000130222333-0033010322123331-0321111000312000-2121232333003210-2322312012021103-2100230322300010"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0030000233303003-0323012301000003-1232112033233111-1322002021231332-3203003130030132-3012232003101220-1320232111102200-3322001220201301)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1120330000013123-3133121330020123-1002030233012021-2330113333213200-3120202210332130-0013033120020121-1101203323010122-1310223332011020)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](resources--securemesh_site_v2--reference--group-009.md#canonical-1001003103003212-2131100332301323-1032322120303112-2033322002213021-1021202022132010-3011212131333123-1203310231333011-0000331332203011)
+- gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns
+
+<a id="canonical-1333202111011101-2322313311320030-3322221213033032-1100320130213130-0022201020232123-0313311032011212-3230323103223112-0303212322210322"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+IPV6LocalDnsAddress.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.ConflictingObjectAttributes("configured_address",
+    "first_address"),
+  validators.ConflictingObjectAttributes("configured_address",
+    "last_address"),
+  validators.ConflictingObjectAttributes("first_address",
+    "last_address")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-local_dns_choice": "[\"configured_address\",\"first_address\",\"last_address\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+local_dns {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0013002322021312-1031102021011121-2200020120031221-0300230133123001-3211032321000121-1033123003312313-2301331223200222-3323213303312221"></a>
+
+### Direct properties for `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns`
+
+<a id="canonical-0230000303331021-3330000101003213-1132221100232322-3032102013110103-1221303232312113-3120233223023003-3211303212132202-0030020013000122"></a>
+
+#### `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.configured_address` property
+
+Type: `"string"`. Optional.
+
+Exclusive with \[first\_address last\_address\] Configured address from the network prefix is chosen
+as DNS server.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(1024),
+  validators.IPv6Validator(),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "ipv6",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv6": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv6": "true"
+  }
+}
+```
+
+- [first_address](resources--securemesh_site_v2--reference--group-009.md#canonical-1232122223032023-2013112221302031-0133111212023311-1012220213120000-1200313130123323-2313031311232022-3012133131113323-1220233303023232): complete subsection reference.
+
+- [last_address](resources--securemesh_site_v2--reference--group-009.md#canonical-2210013013203202-3031130011301312-0023012332231020-2231032133323111-0220213130000200-1232011331021120-2111021033331100-0321031223002303): complete subsection reference.
+
+<a id="canonical-1232122223032023-2013112221302031-0133111212023311-1012220213120000-1200313130123323-2313031311232022-3012133131113323-1220233303023232"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.first_address` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0030000233303003-0323012301000003-1232112033233111-1322002021231332-3203003130030132-3012232003101220-1320232111102200-3322001220201301)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1120330000013123-3133121330020123-1002030233012021-2330113333213200-3120202210332130-0013033120020121-1101203323010122-1310223332011020)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](resources--securemesh_site_v2--reference--group-009.md#canonical-1001003103003212-2131100332301323-1032322120303112-2033322002213021-1021202022132010-3011212131333123-1203310231333011-0000331332203011)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](resources--securemesh_site_v2--reference--group-009.md#canonical-3112133003230022-1321230122331200-2213000130222333-0033010322123331-0321111000312000-2121232333003210-2322312012021103-2100230322300010)
+- gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.first_address
+
+<a id="canonical-2323120301123201-0031101110322311-3221210102333331-2312131030022202-2001333002123330-3113110300112102-1121313110201123-2101111230022110"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+first_address = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2210013013203202-3031130011301312-0023012332231020-2231032133323111-0220213130000200-1232011331021120-2111021033331100-0321031223002303"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.last_address` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0030000233303003-0323012301000003-1232112033233111-1322002021231332-3203003130030132-3012232003101220-1320232111102200-3322001220201301)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1120330000013123-3133121330020123-1002030233012021-2330113333213200-3120202210332130-0013033120020121-1101203323010122-1310223332011020)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](resources--securemesh_site_v2--reference--group-009.md#canonical-1001003103003212-2131100332301323-1032322120303112-2033322002213021-1021202022132010-3011212131333123-1203310231333011-0000331332203011)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](resources--securemesh_site_v2--reference--group-009.md#canonical-3112133003230022-1321230122331200-2213000130222333-0033010322123331-0321111000312000-2121232333003210-2322312012021103-2100230322300010)
+- gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.last_address
+
+<a id="canonical-2221011102121103-0302332000001202-3101322231233000-1120031101131011-3333031313320232-3310000233231301-3321223023323322-1222202130210102"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+last_address = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3223212030322111-3002302101120010-3002213133012033-0220320211200331-2330102200332301-3321213020302333-1202330303302310-3002112102332130"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0030000233303003-0323012301000003-1232112033233111-1322002021231332-3203003130030132-3012232003101220-1320232111102200-3322001220201301)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1120330000013123-3133121330020123-1002030233012021-2330113333213200-3120202210332130-0013033120020121-1101203323010122-1310223332011020)
+- gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful
+
+<a id="canonical-3001330023321311-3203102220022223-0311033020031020-2231211301120031-3110222311202121-2111123011323230-1021332132220201-3320331210022322"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+DHCPIPV6 Stateful Server.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"),
+  validators.ConflictingObjectAttributes("automatic_from_end",
+    "automatic_from_start"),
+  validators.ConflictingObjectAttributes("automatic_from_end",
+    "interface_ip_map"),
+  validators.ConflictingObjectAttributes("automatic_from_start",
+    "interface_ip_map")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-interfaces_addressing_choice": "[\"automatic_from_end\",\"automatic_from_start\",\"interface_ip_map\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+stateful {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3113001123101303-1112321112012010-2033300300012103-1112133022222212-1031120321303113-1132121000330202-0222103001000121-1223010012130331"></a>
+
+### Direct properties for `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful`
+
+- [automatic_from_end](resources--securemesh_site_v2--reference--group-009.md#canonical-3212320310102033-0301112300311120-1023311303202320-3233102100033320-2301032121021000-2230222231131023-0302320031301132-3110201000111213): complete subsection reference.
+
+- [automatic_from_start](resources--securemesh_site_v2--reference--group-009.md#canonical-2333333223310132-3110110313231231-1312033123112312-2332001202002112-2332300300203331-2300212013213232-3331122003212013-2213303000300330): complete subsection reference.
+
+- [dhcp_networks](resources--securemesh_site_v2--reference--group-009.md#canonical-2121002223100232-1123021102103010-0213321022230301-1122233023301012-1302333021001122-3131001022321212-0101033123202232-1221032200311133): complete subsection reference.
+
+<a id="canonical-0021332011031012-3110302121130110-0123223222003313-0331200121321200-0011020120202203-0012002201231322-1321333323002300-1312231302122220"></a>
+
+<a id="canonical-0330302113001023-1321212001100313-1011021211312101-0221213331133113-1232100233001331-3232321303030302-2020222131232110-1221130301002300"></a>
+
+#### `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.fixed_ip_map` property
+
+Type: `["map", "string"]`. Optional.
+
+Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6
+addresses based on the MAC Address of the DHCP Client.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"crossEntry\":{\"uniqueValues\":true},\"deterministic\":true,\"keys\":{\"format\":\"mac-address\",\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.mac\":\"true\",\"ves.io.schema.rules.map.max_pairs\":\"128\",\"ves.io.schema.rules.map.unique_values\":\"true\",\"ves.io.schema.rules.map.values.string.ipv6\":\"true\"},\"values\":{\"format\":\"ipv6\",\"type\":\"string\"}}")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "cardinality": {
+      "maxProperties": 128
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "crossEntry": {
+      "uniqueValues": true
+    },
+    "deterministic": true,
+    "keys": {
+      "format": "mac-address",
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.mac": "true",
+      "ves.io.schema.rules.map.max_pairs": "128",
+      "ves.io.schema.rules.map.unique_values": "true",
+      "ves.io.schema.rules.map.values.string.ipv6": "true"
+    },
+    "values": {
+      "format": "ipv6",
+      "type": "string"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.mac": "true",
+    "ves.io.schema.rules.map.max_pairs": "128",
+    "ves.io.schema.rules.map.unique_values": "true",
+    "ves.io.schema.rules.map.values.string.ipv6": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.mac": "true",
+    "ves.io.schema.rules.map.max_pairs": "128",
+    "ves.io.schema.rules.map.unique_values": "true",
+    "ves.io.schema.rules.map.values.string.ipv6": "true"
+  }
+}
+```
+
+- [interface_ip_map](resources--securemesh_site_v2--reference--group-009.md#canonical-2123230302111331-0223331032011030-3331322202310202-2202033132112023-0103133102323022-3233330203303323-1200202112333200-2102203333031113): complete subsection reference.
+
+<a id="canonical-3212320310102033-0301112300311120-1023311303202320-3233102100033320-2301032121021000-2230222231131023-0302320031301132-3110201000111213"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_end` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0030000233303003-0323012301000003-1232112033233111-1322002021231332-3203003130030132-3012232003101220-1320232111102200-3322001220201301)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1120330000013123-3133121330020123-1002030233012021-2330113333213200-3120202210332130-0013033120020121-1101203323010122-1310223332011020)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-009.md#canonical-3223212030322111-3002302101120010-3002213133012033-0220320211200331-2330102200332301-3321213020302333-1202330303302310-3002112102332130)
+- gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_end
+
+<a id="canonical-0212130303131131-1102021233313300-2023333013021232-1211011113311032-2120123130300011-3210320202010121-0121323331332112-3011302001300021"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for automatic from end.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+automatic_from_end = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2333333223310132-3110110313231231-1312033123112312-2332001202002112-2332300300203331-2300212013213232-3331122003212013-2213303000300330"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_start` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0030000233303003-0323012301000003-1232112033233111-1322002021231332-3203003130030132-3012232003101220-1320232111102200-3322001220201301)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1120330000013123-3133121330020123-1002030233012021-2330113333213200-3120202210332130-0013033120020121-1101203323010122-1310223332011020)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-009.md#canonical-3223212030322111-3002302101120010-3002213133012033-0220320211200331-2330102200332301-3321213020302333-1202330303302310-3002112102332130)
+- gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_start
+
+<a id="canonical-2303201111302100-3301232333111023-3301301331002202-3013011322310302-3021013121132031-3323223133323001-3030303313322303-2001102320332130"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for automatic from start.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+automatic_from_start = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2121002223100232-1123021102103010-0213321022230301-1122233023301012-1302333021001122-3131001022321212-0101033123202232-1221032200311133"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0030000233303003-0323012301000003-1232112033233111-1322002021231332-3203003130030132-3012232003101220-1320232111102200-3322001220201301)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1120330000013123-3133121330020123-1002030233012021-2330113333213200-3120202210332130-0013033120020121-1101203323010122-1310223332011020)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-009.md#canonical-3223212030322111-3002302101120010-3002213133012033-0220320211200331-2330102200332301-3321213020302333-1202330303302310-3002112102332130)
+- gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks
+
+<a id="canonical-3032131303303123-3031021131012011-1303332333121322-2021100231011123-2132132301300023-1322020110231131-0200112331213101-0213322023030112"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+List of networks from which DHCP server can allocate IP addresses.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 1,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 1,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "1",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "1",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+dhcp_networks {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1013323000100211-3322031013120032-1220311321031201-0010100231010231-2333112313111331-1300000233133231-3210123220221333-3021210010202121"></a>
+
+### Direct properties for `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks`
+
+<a id="canonical-2302110133322310-1302122313132313-1131232013211321-3001303121201112-3010302230131303-0312310133311013-1333203102302111-2023012300200222"></a>
+
+#### `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.network_prefix` property
+
+Type: `"string"`. Optional.
+
+Exclusive with \[\] Network Prefix to be used for IPv6 address auto configuration.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv6_prefix": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv6_prefix": "true"
+  }
+}
+```
+
+<a id="canonical-0222320203033033-0033111031133331-0220110232320102-3232101133010200-3302130213212232-3033112211103130-1300220100020332-0100103222232202"></a>
+
+<a id="canonical-0012110220121203-2002031103311112-3101010330302022-1030233312231000-2232101023110302-3001030111201021-3033102012333212-0213301101213312"></a>
+
+#### `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pool_settings` property
+
+Type: `"string"`. Optional.
+
+\[Enum: INCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS|EXCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\]
+Identifies the how to pick the network for Interface. Address ranges in DHCP pool list are used for
+IP Address allocation Address ranges in DHCP pool list are excluded from IP Address allocation.
+Possible values are \`INCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\`,
+\`EXCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\`. Defaults to
+\`INCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\`.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS","INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
+Validators: []validator.String{
+  stringvalidator.OneOf("INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
+    "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
+  "enum": [
+    "INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
+    "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+- [pools](resources--securemesh_site_v2--reference--group-009.md#canonical-1230002211003033-1030231113023001-3001220103002231-1203301211030111-0212030230320320-2203213023322302-0333001233001230-1323332133221101): complete subsection reference.
+
+<a id="canonical-1230002211003033-1030231113023001-3001220103002231-1203301211030111-0212030230320320-2203213023322302-0333001233001230-1323332133221101"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0030000233303003-0323012301000003-1232112033233111-1322002021231332-3203003130030132-3012232003101220-1320232111102200-3322001220201301)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1120330000013123-3133121330020123-1002030233012021-2330113333213200-3120202210332130-0013033120020121-1101203323010122-1310223332011020)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-009.md#canonical-3223212030322111-3002302101120010-3002213133012033-0220320211200331-2330102200332301-3321213020302333-1202330303302310-3002112102332130)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks](resources--securemesh_site_v2--reference--group-009.md#canonical-2121002223100232-1123021102103010-0213321022230301-1122233023301012-1302333021001122-3131001022321212-0101033123202232-1221032200311133)
+- gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools
+
+<a id="canonical-1301331111221302-2231132131002011-3202012230122031-3022201120301320-0303030221002112-3111233031010002-0300233320210100-0212203002230111"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+List of non overlapping IP address ranges.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 16,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 16,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+pools {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3132010212120013-3032303322110031-1131232102323020-2032112211220322-2120030123000102-3002112000001220-0033112010031211-2310033200100213"></a>
+
+### Direct properties for `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools`
+
+<a id="canonical-3031012131130022-2331211101022312-2301100110131311-3332120113130111-2121030013012213-1033120212301120-3120333333323131-3233000311323123"></a>
+
+#### `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools.end_ip` property
+
+Type: `"string"`. Optional.
+
+Ending IPv6 address of the pool range. In case of address allocator, offset is derived based on
+network prefix.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(1024),
+  validators.IPv6Validator(),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "ipv6",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv6": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv6": "true"
+  }
+}
+```
+
+<a id="canonical-0300021023312213-1313021321023300-2200233100033202-0233202100310330-2203200020121020-1202131310100023-1120011211123323-3030131323232310"></a>
+
+<a id="canonical-2230220112302332-2033213011101010-0131213313301333-1203110012320003-2100202112012021-3220112302200021-3301112103322302-0112022131021032"></a>
+
+#### `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools.start_ip` property
+
+Type: `"string"`. Optional.
+
+Starting IPv6 address of the pool range. In case of address allocator, offset is derived based on
+network prefix. 2001::1 with prefix length of 64, start offset is 5.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(1024),
+  validators.IPv6Validator(),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "ipv6",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv6": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv6": "true"
+  }
+}
+```
+
+<a id="canonical-2123230302111331-0223331032011030-3331322202310202-2202033132112023-0103133102323022-3233330203303323-1200202112333200-2102203333031113"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-009.md#canonical-0030000233303003-0323012301000003-1232112033233111-1322002021231332-3203003130030132-3012232003101220-1320232111102200-3322001220201301)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-009.md#canonical-1120330000013123-3133121330020123-1002030233012021-2330113333213200-3120202210332130-0013033120020121-1101203323010122-1310223332011020)
+- [gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-009.md#canonical-3223212030322111-3002302101120010-3002213133012033-0220320211200331-2330102200332301-3321213020302333-1202330303302310-3002112102332130)
+- gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map
+
+<a id="canonical-0013010012301321-1123311311233212-3001101303321311-1010131111012030-2303032020003212-0202203120213213-2322331112301301-2000023020000300"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Map of Interface IPv6 assignments per node.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+interface_ip_map {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3112120003102123-3320003022101133-0012312330120133-0303300110230230-1010113011301001-1310033303331013-2221310220333000-3200331111203011"></a>
+
+### Direct properties for `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map`
+
+<a id="canonical-1332001203121113-2131303203010000-1230133333000223-0213111001100201-3322223303331023-3002002301110021-3033323021010333-3312120001030001"></a>
+
+#### `gcp.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map.interface_ip_map` property
+
+Type: `["map", "string"]`. Optional.
+
+Site:Node to IPv6 Mapping. Map of Site:Node to IPv6 address.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":64},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"64\",\"ves.io.schema.rules.map.values.string.ipv6\":\"true\"},\"values\":{\"format\":\"ipv6\",\"type\":\"string\"}}")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "cardinality": {
+      "maxProperties": 64
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "64",
+      "ves.io.schema.rules.map.values.string.ipv6": "true"
+    },
+    "values": {
+      "format": "ipv6",
+      "type": "string"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "128",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "64",
+    "ves.io.schema.rules.map.values.string.ipv6": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "128",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "64",
+    "ves.io.schema.rules.map.values.string.ipv6": "true"
+  }
+}
+```
+
+<a id="canonical-1211223311200301-2113213233010230-1203012301302120-1022300331103323-0211120332111200-1030031000001303-2222221212332011-1213312211122110"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.monitor` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- gcp.not_managed.node_list.interface_list.monitor
+
+<a id="canonical-3011133112101111-1322133303013213-1220021130330333-2013232133102032-2211133323113012-1303332000003312-1233312330202120-2001001230310112"></a>
+
+Type: `["object", {}]`. Optional.
+
+Link Quality Monitoring configuration for a network interface.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+monitor = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2110013100330201-0203313102212200-0032133203312013-0101212301101020-2313122133233302-2220111322101030-0222330312032021-2111000113010023"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.monitor_disabled` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- gcp.not_managed.node_list.interface_list.monitor_disabled
+
+<a id="canonical-3122133323111102-0022203232223232-0101211033330010-3123332022111121-0213332222223023-2031020102303122-1013330110203130-0101312331313132"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+monitor_disabled = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0130223033333312-1121121211313103-3113202033331032-2233322113123200-0332010230120331-1010000111303301-0210131100330121-2332322223233223"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.network_option` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- gcp.not_managed.node_list.interface_list.network_option
+
+<a id="canonical-1330310330110230-0303011333132301-2230311210222301-1331313130303233-3030211121111233-0031031131020001-2232101330303303-3113130033321111"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are
+local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs,
+Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is
+optional. Global VRFs are configured via Networking &gt; Segments. A site can have multiple Network
+Segments (global VRFs).
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.ConflictingObjectAttributes("site_local_inside_network",
+    "site_local_network")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-network_choice": "[\"segment_network\",\"site_local_inside_network\",\"site_local_network\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+network_option {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3210001110232132-2023233123002131-1023120103302102-3000012331100321-2032213022213202-3213301122320300-1001230032212003-2311132303000120"></a>
+
+### Direct properties for `gcp.not_managed.node_list.interface_list.network_option`
+
+- [site_local_inside_network](resources--securemesh_site_v2--reference--group-009.md#canonical-3333320202012202-0002100001111310-0103330113000112-3112313330312312-2001110311222301-3203002120212201-0201300202312003-0120323202330110): complete subsection reference.
+
+- [site_local_network](resources--securemesh_site_v2--reference--group-009.md#canonical-1002102000211210-2202011122321031-3100013213211323-2200032023330011-0013000130200301-0012233320202130-2320203003312011-3021003110001201): complete subsection reference.
+
+<a id="canonical-3333320202012202-0002100001111310-0103330113000112-3112313330312312-2001110311222301-3203002120212201-0201300202312003-0120323202330110"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.network_option.site_local_inside_network` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- [gcp.not_managed.node_list.interface_list.network_option](resources--securemesh_site_v2--reference--group-009.md#canonical-0130223033333312-1121121211313103-3113202033331032-2233322113123200-0332010230120331-1010000111303301-0210131100330121-2332322223233223)
+- gcp.not_managed.node_list.interface_list.network_option.site_local_inside_network
+
+<a id="canonical-3232031223301220-1213100132311120-1112330021032320-3112320303030321-1022311322333030-1023231022220202-1321322333013331-2003312132323331"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+site_local_inside_network = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1002102000211210-2202011122321031-3100013213211323-2200032023330011-0013000130200301-0012233320202130-2320203003312011-3021003110001201"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.network_option.site_local_network` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- [gcp.not_managed.node_list.interface_list.network_option](resources--securemesh_site_v2--reference--group-009.md#canonical-0130223033333312-1121121211313103-3113202033331032-2233322113123200-0332010230120331-1010000111303301-0210131100330121-2332322223233223)
+- gcp.not_managed.node_list.interface_list.network_option.site_local_network
+
+<a id="canonical-1101130122001330-3200313132311102-0012333132101320-1012003123203130-1021002313023211-3101101032010201-0211013312312312-1132332022032300"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+site_local_network = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1203323220122012-2201322220300230-0230002310100030-3330031323321311-0300313103011131-2300131311231110-3013203313301020-2320101230133033"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.no_ipv4_address` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- gcp.not_managed.node_list.interface_list.no_ipv4_address
+
+<a id="canonical-1221003113232322-3112200022301210-1213101331310110-2002021133031101-0001100213131323-2103311331231201-0303222121302212-2321322032021313"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_ipv4_address = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3000103023231312-2301010323330333-0333003302000002-1322000323123232-2002220330300031-1331112001201102-2321333303303203-2001023303022112"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.no_ipv6_address` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- gcp.not_managed.node_list.interface_list.no_ipv6_address
+
+<a id="canonical-2232231013323133-3223302223010013-2303030223033313-0000223120321231-3320113130310310-3021130112031220-1333020210212230-3233012201232202"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_ipv6_address = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1133201233031230-3333012130033031-0221332312123131-3003211133222313-1013122333012331-0100231220131122-1212222211103002-0131010321033230"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- gcp.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled
+
+<a id="canonical-3201230020221132-3322132103310220-0113330033100031-2030100300232321-0303012020132333-0212222101002330-2100330100100002-1110313022130022"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+site_to_site_connectivity_interface_disabled = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0220100020332132-3221320131203333-1233013032031323-3222113210012223-1121032113121201-1001013201031031-1210302012100032-0323200312201112"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- gcp.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled
+
+<a id="canonical-0333100100202200-1032122232320002-2320331101223032-3010301203011122-1333021033220321-3302321030121220-0133000323223100-2301223332112220"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+site_to_site_connectivity_interface_enabled = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1030120100013303-3022221311322001-3212222021021102-1131222030210221-2220333320001121-0123333131111212-3121032230202313-3133313121120333"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.static_ip` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- gcp.not_managed.node_list.interface_list.static_ip
+
+<a id="canonical-3322232032012023-3111223102312021-2220310300031211-1123112210221212-3131221102230120-2022320323303220-1331013100101100-3011021002121002"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configure Static IP parameters for a node.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.RequiredObjectAttributes("ip_address")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+static_ip {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2220212000312130-1030123323222113-2313033010330311-1301011322232123-0000220021023113-3103013310312111-1011200300022133-3102033303302203"></a>
+
+### Direct properties for `gcp.not_managed.node_list.interface_list.static_ip`
+
+<a id="canonical-0012032321231030-2231232231130333-3012020210002013-1202201203330030-3102101311221332-3100032101010022-0021032303111100-3011002033201330"></a>
+
+#### `gcp.not_managed.node_list.interface_list.static_ip.default_gw` property
+
+Type: `"string"`. Optional.
+
+Default Gateway. IP address of the default gateway.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(1024),
+  validators.IPValidator(),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "ip",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ip": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ip": "true"
+  }
+}
+```
+
+<a id="canonical-3020120111232210-2102110103323202-0010231223121032-1203213213222112-0012120310230320-3331021020120323-1112112321231121-1230333110220110"></a>
+
+<a id="canonical-3302210312103131-1202101301031001-1320322332211223-2021213211301313-0011222001201132-2322111120021011-3232221232133110-1122030112323332"></a>
+
+#### `gcp.not_managed.node_list.interface_list.static_ip.dns_server` property
+
+Type: `"string"`. Optional.
+
+DNS server address for the static interface configuration.
+
+<a id="canonical-3113320003112323-2023200210222112-0231103320303012-3003333000330332-2120201113112323-1123130120312120-1111033303223320-0310223122221311"></a>
+
+<a id="canonical-0201310103313313-1012223000122123-0021320130332231-3333312020030201-2323311113330331-1032222302010331-1001030113313332-3212300230022203"></a>
+
+#### `gcp.not_managed.node_list.interface_list.static_ip.ip_address` property
+
+Type: `"string"`. Optional.
+
+IP address of the interface and prefix length.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.String{
+  stringvalidator.LengthBetween(7, 1024),
+  validators.CIDRValidator(),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "cidr",
+    "formatDescription": "IPv4 dotted-decimal notation (e.g., 192.168.1.1)",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 7,
+    "pattern": "^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$"
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.ip_prefix": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.ip_prefix": "true"
+  }
+}
+```
+
+<a id="canonical-2211000311220321-1300310212321311-1320211122001332-3133210132012012-0003101310213320-1320323100233021-0320003310222021-2200322311012310"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.static_ipv6_address` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- gcp.not_managed.node_list.interface_list.static_ipv6_address
+
+<a id="canonical-3203201112332013-2123213103300133-3111100312201222-0122232323111013-1131322330103333-3311010222120313-3031010030320213-1010212220012232"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Static IP Parameters. Configure Static IP parameters.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip",
+    "node_static_ip")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-network_prefix_choice": "[\"cluster_static_ip\",\"node_static_ip\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+static_ipv6_address {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1010303301000221-3220301322311313-1312021001323010-2220322233230222-3203013131020201-2112003322003012-3001110323323332-2110322210032311"></a>
+
+### Direct properties for `gcp.not_managed.node_list.interface_list.static_ipv6_address`
+
+- [cluster_static_ip](resources--securemesh_site_v2--reference--group-009.md#canonical-3020020320210103-3302022223103100-3202322112032131-1311112321131031-0313211102210332-2300213000303300-1200033322223220-1232222222212002): complete subsection reference.
+
+- [node_static_ip](resources--securemesh_site_v2--reference--group-009.md#canonical-3212312131231313-1103210201121200-2232230110113111-3022100023003203-2030230112233301-3002203022132033-1021303122001320-2212221313021301): complete subsection reference.
+
+<a id="canonical-3020020320210103-3302022223103100-3202322112032131-1311112321131031-0313211102210332-2300213000303300-1200033322223220-1232222222212002"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- [gcp.not_managed.node_list.interface_list.static_ipv6_address](resources--securemesh_site_v2--reference--group-009.md#canonical-2211000311220321-1300310212321311-1320211122001332-3133210132012012-0003101310213320-1320323100233021-0320003310222021-2200322311012310)
+- gcp.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip
+
+<a id="canonical-2332222231303130-3110133130001320-3122102203023232-0212000332330203-0311310133321311-2320010022302101-1320320312012210-1221101321321103"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configure Static IP parameters for cluster.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+cluster_static_ip {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3200023132232023-2232021233201212-3310310000003010-2032123031011220-2013303200311303-3001310231000022-2130201131133021-0031101022320102"></a>
+
+### Direct properties for `gcp.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip`
+
+<a id="canonical-0011332330010000-3333112302132303-3333132311113310-1331333002020330-2110303131112111-1323113132101032-2033002001332203-3323030223130321"></a>
+
+#### `gcp.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip.interface_ip_map` property
+
+Type: `["map", "string"]`. Optional.
+
+Map of Node to Static IP configuration value, Key:Node, Value:IP Address.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"128\"}}")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "cardinality": {
+      "maxProperties": 128
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "128"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "128",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "128"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "128",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "128"
+  }
+}
+```
+
+<a id="canonical-3212312131231313-1103210201121200-2232230110113111-3022100023003203-2030230112233301-3002203022132033-1021303122001320-2212221313021301"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- [gcp.not_managed.node_list.interface_list.static_ipv6_address](resources--securemesh_site_v2--reference--group-009.md#canonical-2211000311220321-1300310212321311-1320211122001332-3133210132012012-0003101310213320-1320323100233021-0320003310222021-2200322311012310)
+- gcp.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip
+
+<a id="canonical-0322132333223300-0101202020231122-1322010031300301-1133112212123112-2021031023222133-1013210110123212-0202021020323201-1332033310120130"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configure Static IP parameters for a node.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.RequiredObjectAttributes("ip_address")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+node_static_ip {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2022201003100222-0331131310001122-2311220223013333-0302003333231101-0201231011322323-0010122020302100-3031311301300131-2011000303322202"></a>
+
+### Direct properties for `gcp.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip`
+
+<a id="canonical-2133113323021033-2021231212310330-2020002122300310-3031321323220102-0023033201300221-2132231123123030-1313031123001330-0313303110233000"></a>
+
+#### `gcp.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip.default_gw` property
+
+Type: `"string"`. Optional.
+
+Default Gateway. IP address of the default gateway.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(1024),
+  validators.IPValidator(),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "ip",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ip": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ip": "true"
+  }
+}
+```
+
+<a id="canonical-2203010120021321-0012122132132023-0311001223032011-1023302201001000-2323220312032130-3330023121101312-3010121130000332-0203020210231200"></a>
+
+<a id="canonical-1113210131011231-0311122321120010-3231221223102320-0321223131000122-1121123331130203-1020211223000130-1303221030010331-3313020201000012"></a>
+
+#### `gcp.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip.dns_server` property
+
+Type: `"string"`. Optional.
+
+DNS server address for the static interface configuration.
+
+<a id="canonical-3111001121103231-3221330003020002-1120021320332011-0020302211002113-3121123113212232-3233210321312112-3302012203100121-1110200113332023"></a>
+
+<a id="canonical-3322103321303002-0230012221321010-2121010202110122-0000130131112312-0301331013210213-1331231110000023-0232100310331220-2203021330131232"></a>
+
+#### `gcp.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip.ip_address` property
+
+Type: `"string"`. Optional.
+
+IP address of the interface and prefix length.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.String{
+  stringvalidator.LengthBetween(7, 1024),
+  validators.CIDRValidator(),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "cidr",
+    "formatDescription": "IPv4 dotted-decimal notation (e.g., 192.168.1.1)",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 7,
+    "pattern": "^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$"
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.ip_prefix": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.ip_prefix": "true"
+  }
+}
+```
+
+<a id="canonical-2322033023330322-3002023133132222-1111333320023023-1223323000130112-0000221001032331-3310323132320101-1112120210112123-1112101101200111"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `gcp.not_managed.node_list.interface_list.vlan_interface` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012)
+- [gcp.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-3103301333221321-1333033221102003-1011311100022010-1320300121122300-2001220211321132-2012111110102212-1100103021003211-1330120110000101)
+- [gcp.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2311020113312212-3200122033003021-0311002021110300-3011011323130023-0310013010331013-2233120021113320-3202233332101122-3011321011103330)
+- [gcp.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-1232103210002000-2313130012212130-3002033331000231-3011123223230203-0000121220200111-2320013101322303-1231010301030223-1131101031311331)
+- gcp.not_managed.node_list.interface_list.vlan_interface
+
+<a id="canonical-1332210301322023-2303020332221120-1002032331033200-2001110113233121-2223002310212110-1320221130123100-2300113003123123-2211213003330310"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configuration parameter for vlan interface.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.RequiredObjectAttributes("device",
+    "vlan_id")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+vlan_interface {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3101331012201120-0111322330113331-0132300221232210-3012102001011010-2120020011230001-3223012022301003-2203301022000222-1310232000010112"></a>
+
+### Direct properties for `gcp.not_managed.node_list.interface_list.vlan_interface`
+
+<a id="canonical-1302030203310223-2020122133303310-0000133203122212-1033112012332322-1333222100231230-1211200120031033-2111301203131110-1222220120323133"></a>
+
+#### `gcp.not_managed.node_list.interface_list.vlan_interface.device` property
+
+Type: `"string"`. Optional.
+
+Select a parent interface from the dropdown.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 64),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "64",
+    "ves.io.schema.rules.string.min_len": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "64",
+    "ves.io.schema.rules.string.min_len": "1"
+  }
+}
+```
+
+<a id="canonical-1232101330033202-3023013122202030-2211121022020220-1300213320323300-2322021013031013-3223313021233310-3020330010320010-2131211103331023"></a>
+
+<a id="canonical-3320123210123331-2211113231003023-1022220111320332-0223202102030121-1222230112120231-3023021230022122-2032130133232330-0221113232323313"></a>
+
+#### `gcp.not_managed.node_list.interface_list.vlan_interface.vlan_id` property
+
+Type: `"number"`. Optional.
+
+Configure the VLAN tag for this interface.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  int64validator.Between(1, 4095),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 4095,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 1,
+    "multipleOf": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "4095"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "4095"
+  }
+}
+```
+
+<a id="canonical-2330221111302030-3002303131302300-2010230031111120-1101330230301332-1330202312303122-0010020230132231-3211003200310221-1112230211023123"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `kvm` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- kvm
+
+<a id="canonical-3200011220002023-3002321213101032-3320012101030001-0002211010233312-1133321102002011-0013220032121103-1330120002111201-1130031202103111"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+KVM Provider Type. KVM Provider Type.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-orchestration_choice": "[\"not_managed\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+kvm {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3222132123022222-3131320000113211-1310102203111333-0231011113211110-3133211011101210-0300223232103112-3201232130202002-3201021112330010"></a>
+
+### Direct properties for `kvm`
+
+- [not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-0312133013000012-2303232001313133-0100112232102302-2320201313200222-0221033330222231-3203021210222101-3200000131331020-2000023302101230): complete subsection reference.
+
+<a id="canonical-0312133013000012-2303232001313133-0100112232102302-2320201313200222-0221033330222231-3203021210222101-3200000131331020-2000023302101230"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `kvm.not_managed` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [kvm](resources--securemesh_site_v2--reference--group-009.md#canonical-2330221111302030-3002303131302300-2010230031111120-1101330230301332-1330202312303122-0010020230132231-3211003200310221-1112230211023123)
+- kvm.not_managed
+
+<a id="canonical-1220031302201113-0112001003002033-0111323113131021-0122330230130101-1121310000313202-1333130033213203-2111131211010322-2231022321321213"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+This section will show nodes associated with this site. Note: For sites that are not orchestrated by
+F5XC, create nodes in the chosen provider. Once a node is created and registers with the site, it
+will be shown in this section.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+not_managed {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2222103031110130-0021020320102031-3030223002321221-0330002232120321-2313121110021110-1120303223102031-3102020113032303-2003331020312202"></a>
+
+### Direct properties for `kvm.not_managed`
+
+- [node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2122230313320002-3111003313322021-1233023203103120-0311011310331203-1302330331220021-1000101220131132-1001010112002213-0133033230112112): complete subsection reference.
+
+<a id="canonical-2122230313320002-3111003313322021-1233023203103120-0311011310331203-1302330331220021-1000101220131132-1001010112002213-0133033230112112"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `kvm.not_managed.node_list` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [kvm](resources--securemesh_site_v2--reference--group-009.md#canonical-2330221111302030-3002303131302300-2010230031111120-1101330230301332-1330202312303122-0010020230132231-3211003200310221-1112230211023123)
+- [kvm.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-0312133013000012-2303232001313133-0100112232102302-2320201313200222-0221033330222231-3203021210222101-3200000131331020-2000023302101230)
+- kvm.not_managed.node_list
+
+<a id="canonical-2001222030202010-3013102220100331-2030012022032322-1032103311000332-1311200020021031-1130222311112122-1102022002301110-0021030320001133"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+This section will show nodes associated with this site. Note: For sites that are not orchestrated by
+F5XC, create nodes in the chosen provider. Once a node is created and registers with the site, it
+will be shown in this section.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 128,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "128",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "128",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+node_list {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3030311312133123-3333301122213333-1231321022123333-2323030221211212-2313001212112001-3102203022233311-0100111330202120-3201333001223202"></a>
+
+### Direct properties for `kvm.not_managed.node_list`
+
+<a id="canonical-0320232333031230-1002302023133212-3001131212020110-2013112121323030-3003222131012323-1332100233320233-1101322103332221-2111233132211321"></a>
+
+#### `kvm.not_managed.node_list.hostname` property
+
+Type: `"string"`. Optional.
+
+Hostname. Hostname for this Node.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "fqdn",
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\\.)*[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1123"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+- [interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-3313322110112303-2301203213130310-2121003323131120-2012031010232031-2012320021033113-2303311011113333-1223130321101012-1123201332020203): complete subsection reference.
+
+<a id="canonical-0123223130332203-0302210031001133-2232010300331030-0301303300103330-0300222201312331-3002023002322103-1001011310322123-1100200331001033"></a>
+
+<a id="canonical-2311313321313133-2022302203222312-0213003310302333-3011103120030003-1103101112020212-3213013332120012-1222230320310323-1130010033233302"></a>
+
+#### `kvm.not_managed.node_list.public_ip` property
+
+Type: `"string"`. Optional.
+
+Public IP. Public IP for this Node.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+<a id="canonical-2231132103032013-1203201302301021-3122012021310302-2010213110131002-3200331000121030-0011122021231303-0021100021032201-3123331011022323"></a>
+
+<a id="canonical-2023300132300022-0102303302001331-2031310320131320-1221032220012002-2323213233000201-3221213122322003-0021123320031323-0110332231233110"></a>
+
+#### `kvm.not_managed.node_list.type` property
+
+Type: `"string"`. Optional.
+
+\[Enum: Control|Worker\] Type for this Node, can be Control or Worker. Possible values are
+\`Control\`, \`Worker\`.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["Control","Worker"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
+Validators: []validator.String{
+  stringvalidator.OneOf("Control",
+    "Worker"),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "enum": [
+    "Control",
+    "Worker"
+  ],
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.in": "[\\\"Control\\\",\\\"Worker\\\"]"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.in": "[\\\"Control\\\",\\\"Worker\\\"]"
+  }
+}
+```
+
+<a id="canonical-3313322110112303-2301203213130310-2121003323131120-2012031010232031-2012320021033113-2303311011113333-1223130321101012-1123201332020203"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `kvm.not_managed.node_list.interface_list` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [kvm](resources--securemesh_site_v2--reference--group-009.md#canonical-2330221111302030-3002303131302300-2010230031111120-1101330230301332-1330202312303122-0010020230132231-3211003200310221-1112230211023123)
+- [kvm.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-0312133013000012-2303232001313133-0100112232102302-2320201313200222-0221033330222231-3203021210222101-3200000131331020-2000023302101230)
+- [kvm.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2122230313320002-3111003313322021-1233023203103120-0311011310331203-1302330331220021-1000101220131132-1001010112002213-0133033230112112)
+- kvm.not_managed.node_list.interface_list
+
+<a id="canonical-3231220113131302-1202000222223103-0320221211232311-3100212200010030-0112232120220031-3013210133001212-3311302130123011-3121121030030033"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+Manage interfaces belonging to this node.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.List{validators.ConflictingListObjectAttributes("bond_interface",
+    "ethernet_interface"),
+  validators.ConflictingListObjectAttributes("bond_interface",
+    "vlan_interface"),
+  validators.ConflictingListObjectAttributes("dhcp_client",
+    "dhcp_server"),
+  validators.ConflictingListObjectAttributes("dhcp_client",
+    "no_ipv4_address"),
+  validators.ConflictingListObjectAttributes("dhcp_client",
+    "static_ip"),
+  validators.ConflictingListObjectAttributes("dhcp_server",
+    "no_ipv4_address"),
+  validators.ConflictingListObjectAttributes("dhcp_server",
+    "static_ip"),
+  validators.ConflictingListObjectAttributes("ethernet_interface",
+    "vlan_interface"),
+  validators.ConflictingListObjectAttributes("ipv6_auto_config",
+    "no_ipv6_address"),
+  validators.ConflictingListObjectAttributes("ipv6_auto_config",
+    "static_ipv6_address"),
+  validators.ConflictingListObjectAttributes("monitor",
+    "monitor_disabled"),
+  validators.ConflictingListObjectAttributes("no_ipv4_address",
+    "static_ip"),
+  validators.ConflictingListObjectAttributes("no_ipv6_address",
+    "static_ipv6_address"),
+  validators.ConflictingListObjectAttributes("site_to_site_connectivity_interface_disabled",
+    "site_to_site_connectivity_interface_enabled")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 128,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "128",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "128",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+interface_list {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0031331333013013-0311133120003132-3233200122030233-0302312021010203-0322313321033011-0213320322110113-0332303132211000-1330003010130200"></a>
+
+### Direct properties for `kvm.not_managed.node_list.interface_list`
+
+- [bond_interface](resources--securemesh_site_v2--reference--group-009.md#canonical-0113003200331131-2200121310001132-0320130023311211-2102122300203103-0130303103023033-2232023303210312-0110310112312313-0232301132220302): complete subsection reference.
+
+<a id="canonical-1013113010203211-3222013230322010-2023320003222111-0300112111321010-1302101321033131-2310220001102031-0302103030313333-3112330330310032"></a>
+
+<a id="canonical-3023120213033103-0033313013133032-1121103031203310-0311123221031331-3010013002012222-2120101122002101-3220102223011133-1321010111030311"></a>
+
+#### `kvm.not_managed.node_list.interface_list.description_spec` property
+
+Type: `"string"`. Optional.
+
+Interface Description. Description for this Interface.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(256),
+}
+```
+
+- [dhcp_client](resources--securemesh_site_v2--reference--group-010.md#canonical-2120300022110211-0201330330303132-3312130313332333-3232322022112121-1121032202220011-0230013130201002-1102333120120132-0330321020121012): complete subsection reference.
+
+- [dhcp_server](resources--securemesh_site_v2--reference--group-010.md#canonical-2320301323000311-2112211203102131-2000111011221233-3232301120203301-3223202000113120-0320021001233231-0201202332110231-1221031203102333): complete subsection reference.
+
+- [ethernet_interface](resources--securemesh_site_v2--reference--group-010.md#canonical-3230303333012202-1021300033312101-1113102213332132-0123230310002231-3301112312020310-0003210212213203-3321200333100110-1110210321322322): complete subsection reference.
+
+- [ipv6_auto_config](resources--securemesh_site_v2--reference--group-010.md#canonical-0310013202310301-0312200201113322-3233203132331000-0010233300012231-2031210303032201-0300021222001302-2001010333101303-0130101022122311): complete subsection reference.
+
+<a id="canonical-2223310020032302-0101112133221002-1332003221200302-0021231221212023-1032002323123223-3000303110233031-1123222220212102-0131130020312211"></a>
+
+<a id="canonical-2212103123132033-3313311011112011-2223222100023003-1332020333323122-1102020300332200-2032213213021322-0012332023130131-2132013121132122"></a>
+
+#### `kvm.not_managed.node_list.interface_list.is_management` property
+
+Type: `"bool"`. Computed.
+
+Configuration for is\_management.
+
+<a id="canonical-2031133333322020-2201212133023222-0203113212121312-2302010223012101-2230321130203103-1102233102003303-3120330322301333-1123022001132201"></a>
+
+<a id="canonical-2303231303233123-3310013322131230-2231210200333221-3011331223103111-0321321111003110-0112122133211003-3303302213230313-3002121012221223"></a>
+
+#### `kvm.not_managed.node_list.interface_list.is_primary` property
+
+Type: `"bool"`. Computed.
+
+Configuration for is\_primary.
+
+<a id="canonical-3331120301013222-3113001233123322-0331002112320330-0020112311030321-0022120311131032-3323221022313123-2221202322031033-0211200331231011"></a>
+
+<a id="canonical-3120113122020230-2032230030221313-0013001320000313-3123133222131110-3121200320002301-2221331331102113-1200212020222312-3333312131020103"></a>
+
+#### `kvm.not_managed.node_list.interface_list.labels` property
+
+Type: `["map", "string"]`. Optional.
+
+Add Labels for this Interface, these labels can be used in firewall policy.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":64,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"64\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"64\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":64,\"minLength\":1,\"type\":\"string\"}}")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "cardinality": {
+      "maxProperties": 16
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "16",
+      "ves.io.schema.rules.map.values.string.max_len": "64",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "64",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "16",
+    "ves.io.schema.rules.map.values.string.max_len": "64",
+    "ves.io.schema.rules.map.values.string.min_len": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "64",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "16",
+    "ves.io.schema.rules.map.values.string.max_len": "64",
+    "ves.io.schema.rules.map.values.string.min_len": "1"
+  }
+}
+```
+
+- [monitor](resources--securemesh_site_v2--reference--group-010.md#canonical-2012311020303313-1030231232300200-2221030123233323-1122220201031103-2332220103012331-0300232332201133-2300231200212201-2020333320021213): complete subsection reference.
+
+- [monitor_disabled](resources--securemesh_site_v2--reference--group-010.md#canonical-1100202122033020-2002013131322332-3123310302210202-3133301323002113-0313101011311302-3121103222332202-0200231131113331-2121223300012122): complete subsection reference.
+
+<a id="canonical-1003103030031012-0121022032000311-3111010121030003-2003332320213011-1111231022122000-2332121031303211-3311301220130230-0300222330113212"></a>
+
+<a id="canonical-1323230010111133-3111210202012320-3230302022303223-2100001221131332-3211210022221021-1211311321213311-2222332333012323-3133300122201102"></a>
+
+#### `kvm.not_managed.node_list.interface_list.mtu` property
+
+Type: `"number"`. Optional.
+
+Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between
+512 and 8000.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  validators.Int64RangeSetValidator(
+    validators.Int64Range{Minimum: 0, Maximum: 0},
+    validators.Int64Range{Minimum: 512, Maximum: 8000},
+  ),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 8000,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.ranges": "0,512-8000"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.ranges": "0,512-8000"
+  }
+}
+```
+
+<a id="canonical-0133120023022023-3011322131222123-0001301110132312-0131013311223320-3301010200031302-2032311031222131-3003200133130211-1200012220031202"></a>
+
+<a id="canonical-0213101210203231-3323320121311202-1332120000230333-3210230330000203-2301223232033303-2002131320012203-2012020231203030-3120020223320000"></a>
+
+#### `kvm.not_managed.node_list.interface_list.name` property
+
+Type: `"string"`. Optional.
+
+Interface Name. Name of this Interface.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+- [network_option](resources--securemesh_site_v2--reference--group-010.md#canonical-2111012111300220-1101022333120303-1210013102220311-3130230133301023-2230000210021021-3003013233210230-3223322330002111-2123130321000113): complete subsection reference.
+
+- [no_ipv4_address](resources--securemesh_site_v2--reference--group-010.md#canonical-3123131131203320-0311213232102301-1111221021223032-0003223303123123-3221233231103221-0223301101112102-2323310000121122-0302333222323201): complete subsection reference.
+
+- [no_ipv6_address](resources--securemesh_site_v2--reference--group-010.md#canonical-0311010103223322-1303203103333303-3322330303011033-3111120302320230-1100013130210201-0011001111033233-1112101120100212-2202332313302101): complete subsection reference.
+
+<a id="canonical-2233230112022301-2331123302321111-0021333020130020-1301220010211322-3033220220310122-3211320122320001-0003001232230232-0321002111000221"></a>
+
+<a id="canonical-0230002111300331-2203133301233001-2313222223032212-2221201221330313-2330213021000333-2201302113012211-0333101200111332-2322223203211200"></a>
+
+#### `kvm.not_managed.node_list.interface_list.priority` property
+
+Type: `"number"`. Optional.
+
+For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be
+used as active and interfaces with lower priority will be used as backup. If multiple interfaces
+have the same priority, ECMP will be used. Greater the value, higher the priority.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  int64validator.Between(0, 255),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 255,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 0,
+    "multipleOf": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "0",
+    "ves.io.schema.rules.uint32.lte": "255"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "0",
+    "ves.io.schema.rules.uint32.lte": "255"
+  }
+}
+```
+
+- [site_to_site_connectivity_interface_disabled](resources--securemesh_site_v2--reference--group-010.md#canonical-3332312113013203-3301201000000220-2221200231232212-2203012012230202-3321023213020032-0233201012101203-0132330002212211-3013111113220233): complete subsection reference.
+
+- [site_to_site_connectivity_interface_enabled](resources--securemesh_site_v2--reference--group-010.md#canonical-3013032133102011-2021301032001100-1323130231102113-1023120032112202-1012023001233332-3220030033113122-3220021230120310-3031131022131111): complete subsection reference.
+
+- [static_ip](resources--securemesh_site_v2--reference--group-010.md#canonical-0131210010111310-2321312120022211-1112020000212131-3230212132003223-0200222021213212-0100033002013220-1222130322202101-1321121211213033): complete subsection reference.
+
+- [static_ipv6_address](resources--securemesh_site_v2--reference--group-010.md#canonical-2333320220330222-3223331321123102-1230203212000212-2200200003213010-2321301123233220-2002223331120023-3032023201233013-2313023210133321): complete subsection reference.
+
+- [vlan_interface](resources--securemesh_site_v2--reference--group-010.md#canonical-1203031212100311-0311310330301021-3222021132312202-2201122021003312-0323010310321021-1223212321312130-0322333300122112-1313302312011123): complete subsection reference.
+
+<a id="canonical-0113003200331131-2200121310001132-0320130023311211-2102122300203103-0130303103023033-2232023303210312-0110310112312313-0232301132220302"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `kvm.not_managed.node_list.interface_list.bond_interface` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [kvm](resources--securemesh_site_v2--reference--group-009.md#canonical-2330221111302030-3002303131302300-2010230031111120-1101330230301332-1330202312303122-0010020230132231-3211003200310221-1112230211023123)
+- [kvm.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-0312133013000012-2303232001313133-0100112232102302-2320201313200222-0221033330222231-3203021210222101-3200000131331020-2000023302101230)
+- [kvm.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2122230313320002-3111003313322021-1233023203103120-0311011310331203-1302330331220021-1000101220131132-1001010112002213-0133033230112112)
+- [kvm.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-3313322110112303-2301203213130310-2121003323131120-2012031010232031-2012320021033113-2303311011113333-1223130321101012-1123201332020203)
+- kvm.not_managed.node_list.interface_list.bond_interface
+
+<a id="canonical-3201312210120212-2101330120000123-0331032013302120-3323221223132131-2011202120100023-1013103122032233-1311331013100011-2310301133220333"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configuration parameter for bond interface.
+
+Additional upstream details:
+
+Bond devices configuration for fleet.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.RequiredObjectAttributes("devices",
+    "link_polling_interval",
+    "link_up_delay",
+    "name"),
+  validators.ConflictingObjectAttributes("active_backup",
+    "lacp")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-lacp_choice": "[\"active_backup\",\"lacp\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+bond_interface {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1331300312013312-0201102330121221-1133030132032102-1033211101022320-1213200121022112-3232112001001133-0122002112210133-2100020102313210"></a>
+
+### Direct properties for `kvm.not_managed.node_list.interface_list.bond_interface`
+
+- [active_backup](resources--securemesh_site_v2--reference--group-009.md#canonical-0332101012330232-1031102131202332-3133121301210002-3231023203210331-0200020121313032-0012213210320030-1003220131133320-1111330221001100): complete subsection reference.
+
+<a id="canonical-3223120311203201-3001303200231121-0332001002213232-3102321333122322-2012000231202033-3103100121331201-3031011210020001-0212323232031201"></a>
+
+<a id="canonical-3103033200110113-2113111202300030-3221101131130111-2322022220002100-1131113111013313-3131223132320202-0121231231220233-2001322311133012"></a>
+
+#### `kvm.not_managed.node_list.interface_list.bond_interface.devices` property
+
+Type: `["list", "string"]`. Optional.
+
+Ethernet devices that will make up this bond.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.List{
+  listvalidator.SizeBetween(1, 8),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 8,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 8,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.max_len": "64",
+    "ves.io.schema.rules.repeated.max_items": "8",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.max_len": "64",
+    "ves.io.schema.rules.repeated.max_items": "8",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+- [lacp](resources--securemesh_site_v2--reference--group-009.md#canonical-2030322113302030-2222013010030213-2223312220000212-1022113023332023-2313233111032021-0323121312021332-1233221013003220-2013210131130100): complete subsection reference.
+
+<a id="canonical-2011003312203302-1212303331310303-2221131002032331-3231023131333333-2313030020123130-0321313223131301-3010300000100221-3132020330131003"></a>
+
+<a id="canonical-2012123012023023-0220123223301122-1013020222121130-3012011320221001-0112222312222113-0032200011312203-2013000130233102-2121032112202020"></a>
+
+#### `kvm.not_managed.node_list.interface_list.bond_interface.link_polling_interval` property
+
+Type: `"number"`. Optional.
+
+Link Polling Interval. Link polling interval in milliseconds.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  int64validator.Between(500, 5000),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 5000,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 500
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.uint32.gte": "500",
+    "ves.io.schema.rules.uint32.lte": "5000"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.uint32.gte": "500",
+    "ves.io.schema.rules.uint32.lte": "5000"
+  }
+}
+```
+
+<a id="canonical-1321220213123023-3302321010311101-2122033301233031-3321202203000300-0321120130013002-1211300031303131-2101022330033032-1011320323121032"></a>
+
+<a id="canonical-1033322333122323-1232023102303010-0100120232332002-1210231331122200-0121311002022223-3121111200123302-1133312212312120-1101111020222121"></a>
+
+#### `kvm.not_managed.node_list.interface_list.bond_interface.link_up_delay` property
+
+Type: `"number"`. Optional.
+
+Milliseconds wait before link is declared up.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  int64validator.Between(0, 1000),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 1000,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 0
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.uint32.gte": "0",
+    "ves.io.schema.rules.uint32.lte": "1000"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.uint32.gte": "0",
+    "ves.io.schema.rules.uint32.lte": "1000"
+  }
+}
+```
+
+<a id="canonical-3122313223222000-3130210002122233-3003213033022213-0203132112311001-3211133032012131-2112103003020321-2123003330022023-3111200230201002"></a>
+
+<a id="canonical-3203310303132101-3103033133320131-0313100311332222-1131111200121133-2033331112030222-0020110121212102-2210020230132100-1221310203333211"></a>
+
+#### `kvm.not_managed.node_list.interface_list.bond_interface.name` property
+
+Type: `"string"`. Optional.
+
+Bond Device Name. Name for the Bond. Ex 'bond0'
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 64),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "64"
+  }
+}
+```
+
+<a id="canonical-0332101012330232-1031102131202332-3133121301210002-3231023203210331-0200020121313032-0012213210320030-1003220131133320-1111330221001100"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `kvm.not_managed.node_list.interface_list.bond_interface.active_backup` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [kvm](resources--securemesh_site_v2--reference--group-009.md#canonical-2330221111302030-3002303131302300-2010230031111120-1101330230301332-1330202312303122-0010020230132231-3211003200310221-1112230211023123)
+- [kvm.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-0312133013000012-2303232001313133-0100112232102302-2320201313200222-0221033330222231-3203021210222101-3200000131331020-2000023302101230)
+- [kvm.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2122230313320002-3111003313322021-1233023203103120-0311011310331203-1302330331220021-1000101220131132-1001010112002213-0133033230112112)
+- [kvm.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-3313322110112303-2301203213130310-2121003323131120-2012031010232031-2012320021033113-2303311011113333-1223130321101012-1123201332020203)
+- [kvm.not_managed.node_list.interface_list.bond_interface](resources--securemesh_site_v2--reference--group-009.md#canonical-0113003200331131-2200121310001132-0320130023311211-2102122300203103-0130303103023033-2232023303210312-0110310112312313-0232301132220302)
+- kvm.not_managed.node_list.interface_list.bond_interface.active_backup
+
+<a id="canonical-1030301102223111-2131000102132012-3112320011021101-1021202330332223-3220332123113302-2113131311303021-1113221323031301-0231221133131130"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for active backup.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+active_backup = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2030322113302030-2222013010030213-2223312220000212-1022113023332023-2313233111032021-0323121312021332-1233221013003220-2013210131130100"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `kvm.not_managed.node_list.interface_list.bond_interface.lacp` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [kvm](resources--securemesh_site_v2--reference--group-009.md#canonical-2330221111302030-3002303131302300-2010230031111120-1101330230301332-1330202312303122-0010020230132231-3211003200310221-1112230211023123)
+- [kvm.not_managed](resources--securemesh_site_v2--reference--group-009.md#canonical-0312133013000012-2303232001313133-0100112232102302-2320201313200222-0221033330222231-3203021210222101-3200000131331020-2000023302101230)
+- [kvm.not_managed.node_list](resources--securemesh_site_v2--reference--group-009.md#canonical-2122230313320002-3111003313322021-1233023203103120-0311011310331203-1302330331220021-1000101220131132-1001010112002213-0133033230112112)
+- [kvm.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-009.md#canonical-3313322110112303-2301203213130310-2121003323131120-2012031010232031-2012320021033113-2303311011113333-1223130321101012-1123201332020203)
+- [kvm.not_managed.node_list.interface_list.bond_interface](resources--securemesh_site_v2--reference--group-009.md#canonical-0113003200331131-2200121310001132-0320130023311211-2102122300203103-0130303103023033-2232023303210312-0110310112312313-0232301132220302)
+- kvm.not_managed.node_list.interface_list.bond_interface.lacp
+
+<a id="canonical-1123033111000220-3333212131033010-2012321323032222-2002221300022020-0213112313200133-1111013230231210-2013130330132223-2310021233203012"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+LACP parameters. LACP parameters for the bond device.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.RequiredObjectAttributes("rate")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+lacp {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3200202122113321-1232001310203123-2330223311111233-2003110121220011-2032133210332111-1112331123032222-0330220312320313-3311223311003030"></a>
+
+### Direct properties for `kvm.not_managed.node_list.interface_list.bond_interface.lacp`
+
+<a id="canonical-2131011301221230-1133202131203301-1103100301211011-3232100313031021-3023331233013302-1212103103002102-2011002203332212-1213031003121000"></a>
+
+#### `kvm.not_managed.node_list.interface_list.bond_interface.lacp.rate` property
+
+Type: `"number"`. Optional.
+
+Interval in seconds to transmit LACP packets.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  int64validator.Between(1, 30),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 30,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "30"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "30"
+  }
+}
+```

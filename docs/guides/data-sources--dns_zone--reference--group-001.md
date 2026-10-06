@@ -12,30 +12,26 @@ description: "Complete grouped canonical reference for xcsh_dns_zone reference."
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2200120133223003-1320023021013013-0122102132103020-1223133312200130-2032230022210312-0001321322002012-3212323203200212-3113021201232000"></a>
-
-## Property reference — Property reference / 121200323121 / 2
+## Property reference
 
 Breadcrumbs:
 
 - [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
 - Property reference
 
-<a id="canonical-2102100130111323-1230123120130122-0333232300100001-0223120021103230-0030022133030200-1201333101202210-0200301001330130-3330213322321233"></a>
+<a id="canonical-2200120133223003-1320023021013013-0122102132103020-1223133312200130-2032230022210312-0001321322002012-3212323203200212-3113021201232000"></a>
 
-## Direct properties — Property reference / 121200323121 / 3
+### Direct properties for `xcsh_dns_zone`
 
 <a id="canonical-3221313102233023-3020301321310200-0111300210103000-2202211230033103-0321320110120003-1003232312202033-3032022323011201-0321232133213221"></a>
 
-<a id="canonical-1233203333212331-1201011013101331-1203012030020123-1133313010322212-0222230332013310-0102111210111123-1231220222213321-0232213011030033"></a>
-
-## annotations property — Property reference / 121200323121 / 4
+#### `annotations` property
 
 Type: `["map", "string"]`. Computed.
 
 Annotations applied to this resource.
 
-Upstream description:
+Additional upstream details:
 
 Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
@@ -89,15 +85,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3331313120113002-1202330323333013-1113000020020211-3000103210033330-3300213221310233-2130120021202010-1002233000203300-3322000333302332"></a>
 
-<a id="canonical-1303323101002012-2313002321303222-0113212302001012-1302210233320301-3203303312230022-0210102201110310-2320011312101332-0023121123231232"></a>
+<a id="canonical-2102100130111323-1230123120130122-0333232300100001-0223120021103230-0030022133030200-1201333101202210-0200301001330130-3330213322321233"></a>
 
-## description property — Property reference / 121200323121 / 5
+#### `description` property
 
 Type: `"string"`. Computed.
 
 Description of the DNSZone.
 
-Upstream description:
+Additional upstream details:
 
 Human readable description for the object.
 
@@ -141,9 +137,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1023101021203311-3023130231010130-1322330000132330-2023230311123100-2012123002112310-2031031201102312-3231010100321200-0102022130022031"></a>
 
-<a id="canonical-2133330332332332-0020233232200331-3002100033331002-3100233011013312-3203211302033311-3133223221000123-0130012202102212-3102010232000223"></a>
+<a id="canonical-1233203333212331-1201011013101331-1203012030020123-1133313010322212-0222230332013310-0102111210111123-1231220222213321-0232213011030033"></a>
 
-## ID property — Property reference / 121200323121 / 6
+#### `id` property
 
 Type: `"string"`. Computed.
 
@@ -151,15 +147,15 @@ Unique identifier for the resource.
 
 <a id="canonical-0110100020320101-0130021310202230-2013020332220002-3000101022211122-0311203211020322-3000321020210233-3303130032213211-1221300131331333"></a>
 
-<a id="canonical-3022222102100213-1203012333332133-2303021332133230-3132003133202220-2301030012313322-1332032102200220-2332211003302020-1003230013133102"></a>
+<a id="canonical-1303323101002012-2313002321303222-0113212302001012-1302210233320301-3203303312230022-0210102201110310-2320011312101332-0023121123231232"></a>
 
-## labels property — Property reference / 121200323121 / 7
+#### `labels` property
 
 Type: `["map", "string"]`. Computed.
 
 Labels applied to this resource.
 
-Upstream description:
+Additional upstream details:
 
 Map of string keys and values that can be used to organize and categorize (scope and select) objects
 as chosen by the user. Values specified here will be used by selector expression.
@@ -179,15 +175,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3201221312031130-2310120132001323-3331220033233321-3220123113311320-3130003023320121-1103211323231200-2002020013313233-0303233223320230"></a>
 
-<a id="canonical-3232213022201221-0122102122210222-3013210222231331-2310102130203231-3113023232033220-2222322322113230-2202310322211110-3321312000301220"></a>
+<a id="canonical-2133330332332332-0020233232200331-3002100033331002-3100233011013312-3203211302033311-3133223221000123-0130012202102212-3102010232000223"></a>
 
-## name property — Property reference / 121200323121 / 8
+#### `name` property
 
 Type: `"string"`. Required.
 
 Name of the DNSZone.
 
-Upstream description:
+Additional upstream details:
 
 This is the name of configuration object. It has to be unique within the namespace. It can only be
 specified during create API and cannot be changed during replace API. The value of name has to
@@ -239,15 +235,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2220103201320323-2303320122033130-3310232030330201-0313001220012332-0213013110301102-1022302003301323-0231101321331310-0011300030103113"></a>
 
-<a id="canonical-2130013200210202-0102021300200323-2122331001101110-1233223301202011-0100013113202131-3323200032310213-3023000330110001-0131021323213301"></a>
+<a id="canonical-3022222102100213-1203012333332133-2303021332133230-3132003133202220-2301030012313322-1332032102200220-2332211003302020-1003230013133102"></a>
 
-## namespace property — Property reference / 121200323121 / 9
+#### `namespace` property
 
 Type: `"string"`. Optional, Computed.
 
 Namespace where the DNSZone exists.
 
-Upstream description:
+Additional upstream details:
 
 This defines the workspace within which each the configuration object is to be created. Must be a
 DNS\_LABEL format. For a namespace object itself, namespace value will be ""
@@ -294,9 +290,9 @@ Receipt-pinned upstream constraints:
 
 - [secondary](data-sources--dns_zone--reference--group-003.md#canonical-0110011233113032-0002112311333113-1210112333111230-3033232211331300-2300022322300333-2131100301000032-2320031122203212-3103312010003023): complete subsection reference.
 
-<a id="canonical-3021312002033220-1203102111012331-0220230100131011-3301313312210100-2000313133313021-3230313030202233-1002230202311200-2030310102101332"></a>
+<a id="canonical-3232213022201221-0122102122210222-3013210222231331-2310102130203231-3113023232033220-2222322322113230-2202310322211110-3321312000301220"></a>
 
-## All schema paths — Property reference / 121200323121 / 10
+### All schema paths for `xcsh_dns_zone`
 
 Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
@@ -357,33 +353,33 @@ Each exact path has one authoritative reference destination. Collection element 
 | `primary.default_rr_set_group.ds_record.values` | [primary.default_rr_set_group.ds_record.values](data-sources--dns_zone--reference--group-001.md#canonical-2000102011223330-2213001100022300-1100221211120111-0313312230222303-0203031212312221-0010011322110212-2131011000032101-3103301212212110) |
 | `primary.default_rr_set_group.ds_record.values.ds_key_algorithm` | [primary.default_rr_set_group.ds_record.values.ds_key_algorithm](data-sources--dns_zone--reference--group-001.md#canonical-0122212333010013-2111301021003303-2103230323033300-3333323220330332-2121323332011232-0311313230312000-2032212021031322-0212212220312213) |
 | `primary.default_rr_set_group.ds_record.values.key_tag` | [primary.default_rr_set_group.ds_record.values.key_tag](data-sources--dns_zone--reference--group-001.md#canonical-2302203310103211-2223100220132232-1032020122123322-3311133002203121-0312003313110320-2223111030000202-1303300013223313-0230131332222113) |
-| `primary.default_rr_set_group.ds_record.values.sha1_digest` | [primary.default_rr_set_group.ds_record.values.sha1_digest](data-sources--dns_zone--reference--group-002.md#canonical-1223112030310123-0221210302013131-1302031020223003-0232102210013120-0312301030233230-3011132002111230-2011112321221331-2031230100020003) |
-| `primary.default_rr_set_group.ds_record.values.sha1_digest.digest` | [primary.default_rr_set_group.ds_record.values.sha1_digest.digest](data-sources--dns_zone--reference--group-002.md#canonical-2023121103322110-3103132303130122-2323231213010203-0220231130100102-3101121223031323-3230022000013212-3230211311003023-0133203133102013) |
-| `primary.default_rr_set_group.ds_record.values.sha256_digest` | [primary.default_rr_set_group.ds_record.values.sha256_digest](data-sources--dns_zone--reference--group-002.md#canonical-1211103222131221-0032322120303010-2101302001321032-3231020200110231-3301212111210120-1102020121203303-3220031031021223-3022213213001031) |
-| `primary.default_rr_set_group.ds_record.values.sha256_digest.digest` | [primary.default_rr_set_group.ds_record.values.sha256_digest.digest](data-sources--dns_zone--reference--group-002.md#canonical-1031223323002303-2111302203323302-0012223231121122-1012003012203033-1120321223130001-0321321302003312-2210122333202000-2000010001121130) |
-| `primary.default_rr_set_group.ds_record.values.sha384_digest` | [primary.default_rr_set_group.ds_record.values.sha384_digest](data-sources--dns_zone--reference--group-002.md#canonical-1203222223031333-2213313232123133-0132023212213320-2122210011111231-3131223111200131-1123001213031032-3110211201230233-3010301332013201) |
-| `primary.default_rr_set_group.ds_record.values.sha384_digest.digest` | [primary.default_rr_set_group.ds_record.values.sha384_digest.digest](data-sources--dns_zone--reference--group-002.md#canonical-2100200132011100-3021232201132311-0110031023111230-0230311130112321-1022312111330101-1000311330010302-0011213030023103-0120313223313312) |
-| `primary.default_rr_set_group.eui48_record` | [primary.default_rr_set_group.eui48_record](data-sources--dns_zone--reference--group-002.md#canonical-1101003211112233-0020221210212232-2301212122120221-2300232221312301-1030131112022130-3022331321302121-3330012020221302-1003130221133220) |
-| `primary.default_rr_set_group.eui48_record.name` | [primary.default_rr_set_group.eui48_record.name](data-sources--dns_zone--reference--group-002.md#canonical-3013102300200103-0202323022102033-1200330200122232-1210000233003231-3231021101211002-1232001131313323-2031200010211030-2213112022200230) |
-| `primary.default_rr_set_group.eui48_record.value` | [primary.default_rr_set_group.eui48_record.value](data-sources--dns_zone--reference--group-002.md#canonical-0001211302020011-2101312333310022-1210110221303312-1000202000302121-2130300202121322-3310030321033312-2100100100120331-3101332333002001) |
-| `primary.default_rr_set_group.eui64_record` | [primary.default_rr_set_group.eui64_record](data-sources--dns_zone--reference--group-002.md#canonical-3000330130313332-3332310121201212-2130221001122010-1300301102003012-1013322223111132-2331120122013201-2312123333332202-1012112130103120) |
-| `primary.default_rr_set_group.eui64_record.name` | [primary.default_rr_set_group.eui64_record.name](data-sources--dns_zone--reference--group-002.md#canonical-1110310131032031-2121201121311221-3220103312311032-2023310333211031-3221112200122201-2212302330023321-1332231122301120-0312310130220002) |
-| `primary.default_rr_set_group.eui64_record.value` | [primary.default_rr_set_group.eui64_record.value](data-sources--dns_zone--reference--group-002.md#canonical-2222210322121023-2223222212201303-3012320021301102-2131013223033011-3131023001200320-1120233032223220-1021303201121302-3223121031211301) |
-| `primary.default_rr_set_group.lb_record` | [primary.default_rr_set_group.lb_record](data-sources--dns_zone--reference--group-002.md#canonical-3321013212110302-0023102310032001-3322010023033222-2230130001031320-3001233100201112-1020110302111000-1220132112322010-3203032000220202) |
-| `primary.default_rr_set_group.lb_record.name` | [primary.default_rr_set_group.lb_record.name](data-sources--dns_zone--reference--group-002.md#canonical-0213222223323021-1232220023221221-2113002203131303-3031102030213313-0231132333033122-2200210100232031-2003322233303023-2010000022313133) |
-| `primary.default_rr_set_group.lb_record.value` | [primary.default_rr_set_group.lb_record.value](data-sources--dns_zone--reference--group-002.md#canonical-3132203013302103-1312022333333202-3130320101313310-3303130301333122-2113200331320023-0321031213112232-0322210330021013-0121332320212031) |
-| `primary.default_rr_set_group.lb_record.value.name` | [primary.default_rr_set_group.lb_record.value.name](data-sources--dns_zone--reference--group-002.md#canonical-1131222303231032-1113322200021231-3133023102131231-1200300223133320-3311022322023333-2020231221020003-0011023000010012-3221322012121310) |
-| `primary.default_rr_set_group.lb_record.value.namespace` | [primary.default_rr_set_group.lb_record.value.namespace](data-sources--dns_zone--reference--group-002.md#canonical-1212022211001321-1200111110200222-2303103333002230-1013031323000102-0122222231132301-1333211130211121-0131132321223001-0101122332120212) |
-| `primary.default_rr_set_group.lb_record.value.tenant` | [primary.default_rr_set_group.lb_record.value.tenant](data-sources--dns_zone--reference--group-002.md#canonical-3230102333320033-2110000030300102-0300320022222021-3012013123221123-2300002232010302-1112122220233213-0102120012112220-0321103120121233) |
-| `primary.default_rr_set_group.loc_record` | [primary.default_rr_set_group.loc_record](data-sources--dns_zone--reference--group-002.md#canonical-3302122211311222-3103311102023100-3220103323100201-2123010111112323-3123113301023332-0230002213201013-0330231020002311-2321300011222312) |
-| `primary.default_rr_set_group.loc_record.name` | [primary.default_rr_set_group.loc_record.name](data-sources--dns_zone--reference--group-002.md#canonical-1103230001020130-3331023302200223-0112220003002223-1000103012121303-0222220111130123-2020333213331303-0120213102211032-0313311132021233) |
-| `primary.default_rr_set_group.loc_record.values` | [primary.default_rr_set_group.loc_record.values](data-sources--dns_zone--reference--group-002.md#canonical-3113200210231122-0221222203132301-0212030311303310-0330133133130233-2203302103302001-2132123322012331-2103102010130012-1013320022212120) |
-| `primary.default_rr_set_group.loc_record.values.altitude` | [primary.default_rr_set_group.loc_record.values.altitude](data-sources--dns_zone--reference--group-002.md#canonical-3311200200213133-2021210303021311-2133231022013130-0331120213113330-2022203010312111-1301032302320021-1313021230230100-1121013032231210) |
-| `primary.default_rr_set_group.loc_record.values.horizontal_precision` | [primary.default_rr_set_group.loc_record.values.horizontal_precision](data-sources--dns_zone--reference--group-002.md#canonical-2300120201211002-2310321321030112-2130230300003332-0231021010202202-3122130320132231-3000013013122001-0222001100232331-3001110311320213) |
-| `primary.default_rr_set_group.loc_record.values.latitude_degree` | [primary.default_rr_set_group.loc_record.values.latitude_degree](data-sources--dns_zone--reference--group-002.md#canonical-3110303113003102-1031302331030321-0323110313132003-2131313102230020-0221013012300111-3111333123101320-0010001012103212-0230030110121310) |
-| `primary.default_rr_set_group.loc_record.values.latitude_hemisphere` | [primary.default_rr_set_group.loc_record.values.latitude_hemisphere](data-sources--dns_zone--reference--group-002.md#canonical-0031230002231000-1210022311012023-0100113101103331-1101303222012222-3232112130033001-0320130022210312-1103201301000220-0102333100100110) |
-| `primary.default_rr_set_group.loc_record.values.latitude_minute` | [primary.default_rr_set_group.loc_record.values.latitude_minute](data-sources--dns_zone--reference--group-002.md#canonical-2302110130023131-3121330000331301-1003332213113101-3130231322033301-0111122301311023-1201001100203033-1023313100311211-3131233302311013) |
-| `primary.default_rr_set_group.loc_record.values.latitude_second` | [primary.default_rr_set_group.loc_record.values.latitude_second](data-sources--dns_zone--reference--group-002.md#canonical-1311022203303033-3112312100332301-3310013101031230-3202311111222113-0202330221113131-3320312123311020-2233312002213221-3100303212010301) |
+| `primary.default_rr_set_group.ds_record.values.sha1_digest` | [primary.default_rr_set_group.ds_record.values.sha1_digest](data-sources--dns_zone--reference--group-001.md#canonical-1223112030310123-0221210302013131-1302031020223003-0232102210013120-0312301030233230-3011132002111230-2011112321221331-2031230100020003) |
+| `primary.default_rr_set_group.ds_record.values.sha1_digest.digest` | [primary.default_rr_set_group.ds_record.values.sha1_digest.digest](data-sources--dns_zone--reference--group-001.md#canonical-2023121103322110-3103132303130122-2323231213010203-0220231130100102-3101121223031323-3230022000013212-3230211311003023-0133203133102013) |
+| `primary.default_rr_set_group.ds_record.values.sha256_digest` | [primary.default_rr_set_group.ds_record.values.sha256_digest](data-sources--dns_zone--reference--group-001.md#canonical-1211103222131221-0032322120303010-2101302001321032-3231020200110231-3301212111210120-1102020121203303-3220031031021223-3022213213001031) |
+| `primary.default_rr_set_group.ds_record.values.sha256_digest.digest` | [primary.default_rr_set_group.ds_record.values.sha256_digest.digest](data-sources--dns_zone--reference--group-001.md#canonical-1031223323002303-2111302203323302-0012223231121122-1012003012203033-1120321223130001-0321321302003312-2210122333202000-2000010001121130) |
+| `primary.default_rr_set_group.ds_record.values.sha384_digest` | [primary.default_rr_set_group.ds_record.values.sha384_digest](data-sources--dns_zone--reference--group-001.md#canonical-1203222223031333-2213313232123133-0132023212213320-2122210011111231-3131223111200131-1123001213031032-3110211201230233-3010301332013201) |
+| `primary.default_rr_set_group.ds_record.values.sha384_digest.digest` | [primary.default_rr_set_group.ds_record.values.sha384_digest.digest](data-sources--dns_zone--reference--group-001.md#canonical-2100200132011100-3021232201132311-0110031023111230-0230311130112321-1022312111330101-1000311330010302-0011213030023103-0120313223313312) |
+| `primary.default_rr_set_group.eui48_record` | [primary.default_rr_set_group.eui48_record](data-sources--dns_zone--reference--group-001.md#canonical-1101003211112233-0020221210212232-2301212122120221-2300232221312301-1030131112022130-3022331321302121-3330012020221302-1003130221133220) |
+| `primary.default_rr_set_group.eui48_record.name` | [primary.default_rr_set_group.eui48_record.name](data-sources--dns_zone--reference--group-001.md#canonical-3013102300200103-0202323022102033-1200330200122232-1210000233003231-3231021101211002-1232001131313323-2031200010211030-2213112022200230) |
+| `primary.default_rr_set_group.eui48_record.value` | [primary.default_rr_set_group.eui48_record.value](data-sources--dns_zone--reference--group-001.md#canonical-0001211302020011-2101312333310022-1210110221303312-1000202000302121-2130300202121322-3310030321033312-2100100100120331-3101332333002001) |
+| `primary.default_rr_set_group.eui64_record` | [primary.default_rr_set_group.eui64_record](data-sources--dns_zone--reference--group-001.md#canonical-3000330130313332-3332310121201212-2130221001122010-1300301102003012-1013322223111132-2331120122013201-2312123333332202-1012112130103120) |
+| `primary.default_rr_set_group.eui64_record.name` | [primary.default_rr_set_group.eui64_record.name](data-sources--dns_zone--reference--group-001.md#canonical-1110310131032031-2121201121311221-3220103312311032-2023310333211031-3221112200122201-2212302330023321-1332231122301120-0312310130220002) |
+| `primary.default_rr_set_group.eui64_record.value` | [primary.default_rr_set_group.eui64_record.value](data-sources--dns_zone--reference--group-001.md#canonical-2222210322121023-2223222212201303-3012320021301102-2131013223033011-3131023001200320-1120233032223220-1021303201121302-3223121031211301) |
+| `primary.default_rr_set_group.lb_record` | [primary.default_rr_set_group.lb_record](data-sources--dns_zone--reference--group-001.md#canonical-3321013212110302-0023102310032001-3322010023033222-2230130001031320-3001233100201112-1020110302111000-1220132112322010-3203032000220202) |
+| `primary.default_rr_set_group.lb_record.name` | [primary.default_rr_set_group.lb_record.name](data-sources--dns_zone--reference--group-001.md#canonical-0213222223323021-1232220023221221-2113002203131303-3031102030213313-0231132333033122-2200210100232031-2003322233303023-2010000022313133) |
+| `primary.default_rr_set_group.lb_record.value` | [primary.default_rr_set_group.lb_record.value](data-sources--dns_zone--reference--group-001.md#canonical-3132203013302103-1312022333333202-3130320101313310-3303130301333122-2113200331320023-0321031213112232-0322210330021013-0121332320212031) |
+| `primary.default_rr_set_group.lb_record.value.name` | [primary.default_rr_set_group.lb_record.value.name](data-sources--dns_zone--reference--group-001.md#canonical-1131222303231032-1113322200021231-3133023102131231-1200300223133320-3311022322023333-2020231221020003-0011023000010012-3221322012121310) |
+| `primary.default_rr_set_group.lb_record.value.namespace` | [primary.default_rr_set_group.lb_record.value.namespace](data-sources--dns_zone--reference--group-001.md#canonical-1212022211001321-1200111110200222-2303103333002230-1013031323000102-0122222231132301-1333211130211121-0131132321223001-0101122332120212) |
+| `primary.default_rr_set_group.lb_record.value.tenant` | [primary.default_rr_set_group.lb_record.value.tenant](data-sources--dns_zone--reference--group-001.md#canonical-3230102333320033-2110000030300102-0300320022222021-3012013123221123-2300002232010302-1112122220233213-0102120012112220-0321103120121233) |
+| `primary.default_rr_set_group.loc_record` | [primary.default_rr_set_group.loc_record](data-sources--dns_zone--reference--group-001.md#canonical-3302122211311222-3103311102023100-3220103323100201-2123010111112323-3123113301023332-0230002213201013-0330231020002311-2321300011222312) |
+| `primary.default_rr_set_group.loc_record.name` | [primary.default_rr_set_group.loc_record.name](data-sources--dns_zone--reference--group-001.md#canonical-1103230001020130-3331023302200223-0112220003002223-1000103012121303-0222220111130123-2020333213331303-0120213102211032-0313311132021233) |
+| `primary.default_rr_set_group.loc_record.values` | [primary.default_rr_set_group.loc_record.values](data-sources--dns_zone--reference--group-001.md#canonical-3113200210231122-0221222203132301-0212030311303310-0330133133130233-2203302103302001-2132123322012331-2103102010130012-1013320022212120) |
+| `primary.default_rr_set_group.loc_record.values.altitude` | [primary.default_rr_set_group.loc_record.values.altitude](data-sources--dns_zone--reference--group-001.md#canonical-3311200200213133-2021210303021311-2133231022013130-0331120213113330-2022203010312111-1301032302320021-1313021230230100-1121013032231210) |
+| `primary.default_rr_set_group.loc_record.values.horizontal_precision` | [primary.default_rr_set_group.loc_record.values.horizontal_precision](data-sources--dns_zone--reference--group-001.md#canonical-2300120201211002-2310321321030112-2130230300003332-0231021010202202-3122130320132231-3000013013122001-0222001100232331-3001110311320213) |
+| `primary.default_rr_set_group.loc_record.values.latitude_degree` | [primary.default_rr_set_group.loc_record.values.latitude_degree](data-sources--dns_zone--reference--group-001.md#canonical-3110303113003102-1031302331030321-0323110313132003-2131313102230020-0221013012300111-3111333123101320-0010001012103212-0230030110121310) |
+| `primary.default_rr_set_group.loc_record.values.latitude_hemisphere` | [primary.default_rr_set_group.loc_record.values.latitude_hemisphere](data-sources--dns_zone--reference--group-001.md#canonical-0031230002231000-1210022311012023-0100113101103331-1101303222012222-3232112130033001-0320130022210312-1103201301000220-0102333100100110) |
+| `primary.default_rr_set_group.loc_record.values.latitude_minute` | [primary.default_rr_set_group.loc_record.values.latitude_minute](data-sources--dns_zone--reference--group-001.md#canonical-2302110130023131-3121330000331301-1003332213113101-3130231322033301-0111122301311023-1201001100203033-1023313100311211-3131233302311013) |
+| `primary.default_rr_set_group.loc_record.values.latitude_second` | [primary.default_rr_set_group.loc_record.values.latitude_second](data-sources--dns_zone--reference--group-001.md#canonical-1311022203303033-3112312100332301-3310013101031230-3202311111222113-0202330221113131-3320312123311020-2233312002213221-3100303212010301) |
 | `primary.default_rr_set_group.loc_record.values.location_diameter` | [primary.default_rr_set_group.loc_record.values.location_diameter](data-sources--dns_zone--reference--group-002.md#canonical-1332020110030220-0110323332033122-0211221103213133-2132023210320332-3200130321302230-3113133201030012-0201213332203223-1203223113202330) |
 | `primary.default_rr_set_group.loc_record.values.longitude_degree` | [primary.default_rr_set_group.loc_record.values.longitude_degree](data-sources--dns_zone--reference--group-002.md#canonical-3120232123033331-0300133111133213-3111211323203213-3310210223031100-1131111302113223-0211120310003212-3032312321123012-0002301303031332) |
 | `primary.default_rr_set_group.loc_record.values.longitude_hemisphere` | [primary.default_rr_set_group.loc_record.values.longitude_hemisphere](data-sources--dns_zone--reference--group-002.md#canonical-2100132230332122-0112003022133101-1111223133113332-1113333203031030-0011231300022013-1210110123230003-3321212000222003-3220101322211323) |
@@ -482,79 +478,79 @@ Each exact path has one authoritative reference destination. Collection element 
 | `primary.rr_set_group.rr_set.cert_record.values.cert_key_tag` | [primary.rr_set_group.rr_set.cert_record.values.cert_key_tag](data-sources--dns_zone--reference--group-002.md#canonical-3100313120323021-3110303122033131-1131312211110202-1133031331222312-3233300031121000-0113332033231221-1003232210002310-2001111102013021) |
 | `primary.rr_set_group.rr_set.cert_record.values.cert_type` | [primary.rr_set_group.rr_set.cert_record.values.cert_type](data-sources--dns_zone--reference--group-002.md#canonical-1001133220032031-1213300121231022-1001202300323021-1232011122201033-2233112130131312-3300203202310010-2121310221121232-2033001023012003) |
 | `primary.rr_set_group.rr_set.cert_record.values.certificate` | [primary.rr_set_group.rr_set.cert_record.values.certificate](data-sources--dns_zone--reference--group-002.md#canonical-1022303100312121-2133320033312012-3220332213330112-0202030130002133-3112131122023121-2101032110003213-2222023222321232-3003020310021133) |
-| `primary.rr_set_group.rr_set.cname_record` | [primary.rr_set_group.rr_set.cname_record](data-sources--dns_zone--reference--group-003.md#canonical-1030012213303033-0002303312011021-3111130311232311-0020011033100021-0332202101323301-3133002320230131-2222332200333102-0102302112003002) |
-| `primary.rr_set_group.rr_set.cname_record.name` | [primary.rr_set_group.rr_set.cname_record.name](data-sources--dns_zone--reference--group-003.md#canonical-2003100302220033-3122311233212001-0113022310332003-3200210312121032-0000313000310133-0001200132032130-1301203111221020-0103323320203321) |
-| `primary.rr_set_group.rr_set.cname_record.value` | [primary.rr_set_group.rr_set.cname_record.value](data-sources--dns_zone--reference--group-003.md#canonical-3330130313321200-3212011323333300-3023021223312031-3210212311310232-2232213012131223-3301030123122211-2032112121113302-3021112323212230) |
+| `primary.rr_set_group.rr_set.cname_record` | [primary.rr_set_group.rr_set.cname_record](data-sources--dns_zone--reference--group-002.md#canonical-1030012213303033-0002303312011021-3111130311232311-0020011033100021-0332202101323301-3133002320230131-2222332200333102-0102302112003002) |
+| `primary.rr_set_group.rr_set.cname_record.name` | [primary.rr_set_group.rr_set.cname_record.name](data-sources--dns_zone--reference--group-002.md#canonical-2003100302220033-3122311233212001-0113022310332003-3200210312121032-0000313000310133-0001200132032130-1301203111221020-0103323320203321) |
+| `primary.rr_set_group.rr_set.cname_record.value` | [primary.rr_set_group.rr_set.cname_record.value](data-sources--dns_zone--reference--group-002.md#canonical-3330130313321200-3212011323333300-3023021223312031-3210212311310232-2232213012131223-3301030123122211-2032112121113302-3021112323212230) |
 | `primary.rr_set_group.rr_set.description_spec` | [primary.rr_set_group.rr_set.description_spec](data-sources--dns_zone--reference--group-002.md#canonical-2000320222210232-1300311103033231-3231232123032330-3001223121001231-2331332212302100-1203320111201203-0121133303013112-1110222233321033) |
-| `primary.rr_set_group.rr_set.ds_record` | [primary.rr_set_group.rr_set.ds_record](data-sources--dns_zone--reference--group-003.md#canonical-3323123231232232-3121122132113033-2010032032232020-0223223101013113-1320002203003203-0021121122213032-0110113000320310-3131320002200321) |
-| `primary.rr_set_group.rr_set.ds_record.name` | [primary.rr_set_group.rr_set.ds_record.name](data-sources--dns_zone--reference--group-003.md#canonical-2120010001021333-2330312330231221-3013231302312000-1012330233333101-2112330010102121-3230301012220311-2211313001301132-3201002122332000) |
-| `primary.rr_set_group.rr_set.ds_record.values` | [primary.rr_set_group.rr_set.ds_record.values](data-sources--dns_zone--reference--group-003.md#canonical-2002210212313213-0103320021303300-3103231001322333-2111012132002320-3231020112223333-1320100103000123-0230020232113323-1030130320013033) |
-| `primary.rr_set_group.rr_set.ds_record.values.ds_key_algorithm` | [primary.rr_set_group.rr_set.ds_record.values.ds_key_algorithm](data-sources--dns_zone--reference--group-003.md#canonical-2000112311312320-0220020111313121-0200111002020332-1212301331001213-1313232133301232-1332113323012120-1122200133112113-2122201122320213) |
-| `primary.rr_set_group.rr_set.ds_record.values.key_tag` | [primary.rr_set_group.rr_set.ds_record.values.key_tag](data-sources--dns_zone--reference--group-003.md#canonical-2230223230000300-1232232312112300-2032233211113100-0022102120111130-1120222113201100-2330003332012331-1323220230211111-0301333031331021) |
-| `primary.rr_set_group.rr_set.ds_record.values.sha1_digest` | [primary.rr_set_group.rr_set.ds_record.values.sha1_digest](data-sources--dns_zone--reference--group-003.md#canonical-1311001023013010-2120332201020300-0330303232223012-0003321111113220-3233132311300323-0331100222123203-0010100312122300-0202111211311011) |
-| `primary.rr_set_group.rr_set.ds_record.values.sha1_digest.digest` | [primary.rr_set_group.rr_set.ds_record.values.sha1_digest.digest](data-sources--dns_zone--reference--group-003.md#canonical-0211022311323301-2333203131012220-1031110301003033-1132331011133230-3030133201011313-2100123333112000-1122031102003013-1032211121233101) |
-| `primary.rr_set_group.rr_set.ds_record.values.sha256_digest` | [primary.rr_set_group.rr_set.ds_record.values.sha256_digest](data-sources--dns_zone--reference--group-003.md#canonical-3120333302320123-1021333022223330-3302111213102300-2111313030123132-0303031303033232-0210010310002012-0212000111133301-2111312021021231) |
-| `primary.rr_set_group.rr_set.ds_record.values.sha256_digest.digest` | [primary.rr_set_group.rr_set.ds_record.values.sha256_digest.digest](data-sources--dns_zone--reference--group-003.md#canonical-0000202333011311-2211122320113121-2311200101111101-3200233123201201-2222202310123300-3133121112121013-1213110333131131-3032030033221030) |
-| `primary.rr_set_group.rr_set.ds_record.values.sha384_digest` | [primary.rr_set_group.rr_set.ds_record.values.sha384_digest](data-sources--dns_zone--reference--group-003.md#canonical-3003231321331023-2130302302202211-1301303101130013-1003130313231020-1111332313312312-1033021122012133-3101033031223101-2333020010213003) |
-| `primary.rr_set_group.rr_set.ds_record.values.sha384_digest.digest` | [primary.rr_set_group.rr_set.ds_record.values.sha384_digest.digest](data-sources--dns_zone--reference--group-003.md#canonical-1101221320221223-1231332032211112-3231113020303321-0300321103023000-1133300001133003-3132032231213321-0001011320020302-2303232101212231) |
-| `primary.rr_set_group.rr_set.eui48_record` | [primary.rr_set_group.rr_set.eui48_record](data-sources--dns_zone--reference--group-003.md#canonical-2001000003012201-0103211033302211-3210331303310200-0132323302313312-2131011003203221-3101321110100030-1212121121002232-2010002212211130) |
-| `primary.rr_set_group.rr_set.eui48_record.name` | [primary.rr_set_group.rr_set.eui48_record.name](data-sources--dns_zone--reference--group-003.md#canonical-3130212232120323-1122323212113010-0001012120200023-0201130300120321-2230111012303020-1110303000001301-0000030020001230-3011110120212102) |
-| `primary.rr_set_group.rr_set.eui48_record.value` | [primary.rr_set_group.rr_set.eui48_record.value](data-sources--dns_zone--reference--group-003.md#canonical-1121220222210001-2202001311302222-3222323232333211-2020031120112200-2111201311232301-1330201121301331-3302310300220021-1123133321323333) |
-| `primary.rr_set_group.rr_set.eui64_record` | [primary.rr_set_group.rr_set.eui64_record](data-sources--dns_zone--reference--group-003.md#canonical-1212201231123200-0110310002232221-1000113123120321-1200121211201322-1123100112113002-1230103230003231-3122120313201201-3133223022301123) |
-| `primary.rr_set_group.rr_set.eui64_record.name` | [primary.rr_set_group.rr_set.eui64_record.name](data-sources--dns_zone--reference--group-003.md#canonical-3223031003000022-1301323031312210-1302322221021013-1133310210310132-1220023121201013-0220301331002032-0330103110030000-1211221101132120) |
-| `primary.rr_set_group.rr_set.eui64_record.value` | [primary.rr_set_group.rr_set.eui64_record.value](data-sources--dns_zone--reference--group-003.md#canonical-2331200101303131-2201302132103211-1310001230130200-3321132230320223-3133322100001223-1011002231031201-3112211203302113-1311103100303112) |
-| `primary.rr_set_group.rr_set.lb_record` | [primary.rr_set_group.rr_set.lb_record](data-sources--dns_zone--reference--group-003.md#canonical-1010002011111230-0030000301202311-2013002322300101-3033112001200130-3300230103231010-2032221112102132-3233310201023023-1110101302322332) |
-| `primary.rr_set_group.rr_set.lb_record.name` | [primary.rr_set_group.rr_set.lb_record.name](data-sources--dns_zone--reference--group-003.md#canonical-0000321020211220-0303010000002220-0212332120131033-2232210021012112-3213233323302222-2022012000131232-0211310122022312-0213101122333323) |
-| `primary.rr_set_group.rr_set.lb_record.value` | [primary.rr_set_group.rr_set.lb_record.value](data-sources--dns_zone--reference--group-003.md#canonical-3121320223110223-1332123103002222-2313010003220230-2012231231333302-1010223011211013-2321221233000212-0331033121313101-0023233010031111) |
-| `primary.rr_set_group.rr_set.lb_record.value.name` | [primary.rr_set_group.rr_set.lb_record.value.name](data-sources--dns_zone--reference--group-003.md#canonical-0000202220212313-3111321311123302-2131021122203101-3000230310120101-1112231002303110-1303023323321232-0013211232021121-2031223113331022) |
-| `primary.rr_set_group.rr_set.lb_record.value.namespace` | [primary.rr_set_group.rr_set.lb_record.value.namespace](data-sources--dns_zone--reference--group-003.md#canonical-3313322000321000-3113213123012211-2032012223101033-2231033201320333-1310023100033020-0100030313121201-0210333130312303-2221022213230133) |
-| `primary.rr_set_group.rr_set.lb_record.value.tenant` | [primary.rr_set_group.rr_set.lb_record.value.tenant](data-sources--dns_zone--reference--group-003.md#canonical-2330303013222230-0011223112102330-0022222023310020-2032231332020121-1232102130201023-1202203103200000-0203222211233301-3332202201032101) |
-| `primary.rr_set_group.rr_set.loc_record` | [primary.rr_set_group.rr_set.loc_record](data-sources--dns_zone--reference--group-003.md#canonical-2310233030001321-2302022120200120-2011323023012232-3330132222012231-3121102131100201-0332131311020001-2001331033212200-1023211110112202) |
-| `primary.rr_set_group.rr_set.loc_record.name` | [primary.rr_set_group.rr_set.loc_record.name](data-sources--dns_zone--reference--group-003.md#canonical-3132112120333211-2233232033231211-1000331213201310-1101220230213201-0011032113331230-1030330122200111-1031020013333310-2333122001003212) |
-| `primary.rr_set_group.rr_set.loc_record.values` | [primary.rr_set_group.rr_set.loc_record.values](data-sources--dns_zone--reference--group-003.md#canonical-1211112130033313-0001333210220013-1012303312003132-1302203221002201-1011022323200210-2103131232211132-1112322032113322-2101333131202112) |
-| `primary.rr_set_group.rr_set.loc_record.values.altitude` | [primary.rr_set_group.rr_set.loc_record.values.altitude](data-sources--dns_zone--reference--group-003.md#canonical-2222132112000030-0310330123330132-0321123120201130-0111123130111021-2322113203022132-3221101203323322-3122223211202021-1220121231133330) |
-| `primary.rr_set_group.rr_set.loc_record.values.horizontal_precision` | [primary.rr_set_group.rr_set.loc_record.values.horizontal_precision](data-sources--dns_zone--reference--group-003.md#canonical-3022330112300003-2101102102123232-2033210031113203-3002322120120220-2213030031112110-2311010213002330-3012311300031232-3021121331102103) |
-| `primary.rr_set_group.rr_set.loc_record.values.latitude_degree` | [primary.rr_set_group.rr_set.loc_record.values.latitude_degree](data-sources--dns_zone--reference--group-003.md#canonical-3110222123202312-3023302020220102-3303211313030132-2333010102201203-3221232320101031-0213101110130202-2121323110220213-1300013223030123) |
-| `primary.rr_set_group.rr_set.loc_record.values.latitude_hemisphere` | [primary.rr_set_group.rr_set.loc_record.values.latitude_hemisphere](data-sources--dns_zone--reference--group-003.md#canonical-0111330302313111-2332211212300211-3101302322000200-1233233202312011-0210232101131002-1303121021013232-3223312011021132-3201300323021120) |
-| `primary.rr_set_group.rr_set.loc_record.values.latitude_minute` | [primary.rr_set_group.rr_set.loc_record.values.latitude_minute](data-sources--dns_zone--reference--group-003.md#canonical-3200123113211231-3332120110000101-0110320132310200-0001222030032322-0310122331020230-2311203101032201-2301033033103122-2321133131203232) |
-| `primary.rr_set_group.rr_set.loc_record.values.latitude_second` | [primary.rr_set_group.rr_set.loc_record.values.latitude_second](data-sources--dns_zone--reference--group-003.md#canonical-2210102333110102-0031330021011331-3020033131333202-1033111233002220-2110211233321231-0032032001331021-3103002220111222-0202321222020020) |
-| `primary.rr_set_group.rr_set.loc_record.values.location_diameter` | [primary.rr_set_group.rr_set.loc_record.values.location_diameter](data-sources--dns_zone--reference--group-003.md#canonical-1212030312111130-1312210022310221-1010201220330032-0220302120333312-2222332330230100-0032301211312102-1011212222221011-0112212201020311) |
-| `primary.rr_set_group.rr_set.loc_record.values.longitude_degree` | [primary.rr_set_group.rr_set.loc_record.values.longitude_degree](data-sources--dns_zone--reference--group-003.md#canonical-2111001200013213-0110120330110322-0331221330203303-3102132333302121-3110020033013120-2310032301031003-2312013123323222-0010323001321223) |
-| `primary.rr_set_group.rr_set.loc_record.values.longitude_hemisphere` | [primary.rr_set_group.rr_set.loc_record.values.longitude_hemisphere](data-sources--dns_zone--reference--group-003.md#canonical-3111201232032021-1220021122201120-2033010222130000-0022210021203103-3101002332121313-1311331012330212-3000003302112111-2123010131000321) |
-| `primary.rr_set_group.rr_set.loc_record.values.longitude_minute` | [primary.rr_set_group.rr_set.loc_record.values.longitude_minute](data-sources--dns_zone--reference--group-003.md#canonical-1030211331000333-2301033202230211-1103101233121032-1032131212102230-1332223222132232-0312010111001312-3211332012212022-3020023001300003) |
-| `primary.rr_set_group.rr_set.loc_record.values.longitude_second` | [primary.rr_set_group.rr_set.loc_record.values.longitude_second](data-sources--dns_zone--reference--group-003.md#canonical-2331223312002332-2222001221322123-0102102132203110-3321230121322300-1032102220010030-0211012221133102-1011212332200333-1031221332101102) |
-| `primary.rr_set_group.rr_set.loc_record.values.vertical_precision` | [primary.rr_set_group.rr_set.loc_record.values.vertical_precision](data-sources--dns_zone--reference--group-003.md#canonical-2200331331113020-0321300301110030-1002113022231312-0123033233113033-2101130132120012-3012022111201103-2230222003012022-0332210312312211) |
-| `primary.rr_set_group.rr_set.mx_record` | [primary.rr_set_group.rr_set.mx_record](data-sources--dns_zone--reference--group-003.md#canonical-1032301230121302-2230303233101300-3200131020003011-3223231131120111-3211000013130303-3113013032123030-2313121333332032-0030212331102010) |
-| `primary.rr_set_group.rr_set.mx_record.name` | [primary.rr_set_group.rr_set.mx_record.name](data-sources--dns_zone--reference--group-003.md#canonical-3311033132001020-0102022220030111-1232031110121310-2231022232031233-1133110222101113-1132313012310030-2313023133102322-1333311331220330) |
-| `primary.rr_set_group.rr_set.mx_record.values` | [primary.rr_set_group.rr_set.mx_record.values](data-sources--dns_zone--reference--group-003.md#canonical-2010113303312310-1321103120212023-2203002233330103-3133021300012001-0313201120310203-2332220233012323-3310013003130201-2321220322121321) |
-| `primary.rr_set_group.rr_set.mx_record.values.domain` | [primary.rr_set_group.rr_set.mx_record.values.domain](data-sources--dns_zone--reference--group-003.md#canonical-2212112331311011-1102003102311101-3303301010021132-1132200332102233-1303330021322112-2102312121323021-3020103332131030-3211011300301002) |
-| `primary.rr_set_group.rr_set.mx_record.values.priority` | [primary.rr_set_group.rr_set.mx_record.values.priority](data-sources--dns_zone--reference--group-003.md#canonical-1102132003010311-2221313113001020-3201012012000233-0212222330213313-0203330131320113-1211222100232300-3202231313221013-3313300300310020) |
-| `primary.rr_set_group.rr_set.naptr_record` | [primary.rr_set_group.rr_set.naptr_record](data-sources--dns_zone--reference--group-003.md#canonical-0133232032210101-0001200232000323-1130202303131203-3331333233303332-0012131002202331-0320323131233332-0000212013233331-1011012221020233) |
-| `primary.rr_set_group.rr_set.naptr_record.name` | [primary.rr_set_group.rr_set.naptr_record.name](data-sources--dns_zone--reference--group-003.md#canonical-1212011312322322-0312203331301013-3322121111210101-2200211220000111-3032112033200333-0300322110002031-3202232010012220-1112222133303213) |
-| `primary.rr_set_group.rr_set.naptr_record.values` | [primary.rr_set_group.rr_set.naptr_record.values](data-sources--dns_zone--reference--group-003.md#canonical-2200231101020302-0013202003222102-3000130322230201-1032213200122031-0022233212211123-0021232220010203-3020201223101211-0110020030232033) |
-| `primary.rr_set_group.rr_set.naptr_record.values.flags` | [primary.rr_set_group.rr_set.naptr_record.values.flags](data-sources--dns_zone--reference--group-003.md#canonical-1031012120012113-1313312322333103-2032103222123012-2121333312111012-3031130302031121-2202230212033331-0203301113002231-2312323013113013) |
-| `primary.rr_set_group.rr_set.naptr_record.values.order` | [primary.rr_set_group.rr_set.naptr_record.values.order](data-sources--dns_zone--reference--group-003.md#canonical-2311202231301323-3121333022301101-2223030001121022-0022120312113201-0303102103310032-2220312031222320-0312013323332111-2000122301101021) |
-| `primary.rr_set_group.rr_set.naptr_record.values.preference` | [primary.rr_set_group.rr_set.naptr_record.values.preference](data-sources--dns_zone--reference--group-003.md#canonical-0032220230321232-0210110100300333-0111130031311110-3013012130120210-0211233310211013-1131033010331121-2223031133003030-2013111232122032) |
-| `primary.rr_set_group.rr_set.naptr_record.values.regexp` | [primary.rr_set_group.rr_set.naptr_record.values.regexp](data-sources--dns_zone--reference--group-003.md#canonical-0101230230333232-1332200302210321-3130112222202020-0102100120101330-0121133023313321-3112011001110013-2323021301022023-0003332310132202) |
-| `primary.rr_set_group.rr_set.naptr_record.values.replacement` | [primary.rr_set_group.rr_set.naptr_record.values.replacement](data-sources--dns_zone--reference--group-003.md#canonical-2200200231122010-1201013102211212-2301011122201231-2223033312113200-2311302021012310-3030120312101310-0121001121111000-0222110200010111) |
-| `primary.rr_set_group.rr_set.naptr_record.values.service` | [primary.rr_set_group.rr_set.naptr_record.values.service](data-sources--dns_zone--reference--group-003.md#canonical-0222322101131033-2330013302030033-2322120201123121-2313311332010213-2210100232003131-3301000021132131-1001003200202201-0313032032003033) |
-| `primary.rr_set_group.rr_set.ns_record` | [primary.rr_set_group.rr_set.ns_record](data-sources--dns_zone--reference--group-003.md#canonical-0330312201100120-2112312301203220-3230003000130221-0023232000030332-3220220102110023-1132123131100021-3103230321221112-3322223320131103) |
-| `primary.rr_set_group.rr_set.ns_record.name` | [primary.rr_set_group.rr_set.ns_record.name](data-sources--dns_zone--reference--group-003.md#canonical-0200211233030201-3122121200101333-3220202313311001-1213312221301101-2333121220001202-3100112100122322-0301211011133220-3031313202011301) |
-| `primary.rr_set_group.rr_set.ns_record.values` | [primary.rr_set_group.rr_set.ns_record.values](data-sources--dns_zone--reference--group-003.md#canonical-2121333000030022-1111112311202130-1321222312321100-0231012012113003-0022310110111233-3320111233223231-1230011103023030-3130102330101301) |
-| `primary.rr_set_group.rr_set.ptr_record` | [primary.rr_set_group.rr_set.ptr_record](data-sources--dns_zone--reference--group-003.md#canonical-3030302130012103-1031200320000313-3213320132112032-3011133211333100-2211102023313110-0000310203120132-2233122200311201-0012110010030112) |
-| `primary.rr_set_group.rr_set.ptr_record.name` | [primary.rr_set_group.rr_set.ptr_record.name](data-sources--dns_zone--reference--group-003.md#canonical-2320112321012331-2211032133102013-2012112213232302-2200312233332133-2030122012311323-3000122321100123-2301210012312211-0232130132131110) |
-| `primary.rr_set_group.rr_set.ptr_record.values` | [primary.rr_set_group.rr_set.ptr_record.values](data-sources--dns_zone--reference--group-003.md#canonical-3022000221212222-1223011132033230-1001032003202132-3013221033030122-0030010331211121-3002101102030231-2032222322202102-0122110132221302) |
-| `primary.rr_set_group.rr_set.srv_record` | [primary.rr_set_group.rr_set.srv_record](data-sources--dns_zone--reference--group-003.md#canonical-1000221220030112-2010100232132001-3022002120021130-1103323000130332-1102212231213330-0122231210232320-2020130132322232-3121222113332300) |
-| `primary.rr_set_group.rr_set.srv_record.name` | [primary.rr_set_group.rr_set.srv_record.name](data-sources--dns_zone--reference--group-003.md#canonical-2302322211300310-3222300011022310-0210330303222112-1321232112133201-1223132210322111-1213310002320301-2223302100310113-0202212113031003) |
-| `primary.rr_set_group.rr_set.srv_record.values` | [primary.rr_set_group.rr_set.srv_record.values](data-sources--dns_zone--reference--group-003.md#canonical-2212233103113113-0311022000300322-0310231201320310-1100021111230311-2303130003123100-2223332202103301-0111000113330012-1221313232200032) |
-| `primary.rr_set_group.rr_set.srv_record.values.port` | [primary.rr_set_group.rr_set.srv_record.values.port](data-sources--dns_zone--reference--group-003.md#canonical-3003201220200130-1021330232001031-2321011021133032-0002310022312232-2102213113331110-0132012022323033-1223031023100212-0321202210233230) |
-| `primary.rr_set_group.rr_set.srv_record.values.priority` | [primary.rr_set_group.rr_set.srv_record.values.priority](data-sources--dns_zone--reference--group-003.md#canonical-3210220321011103-0221123113220123-3101321201123011-3132321110103301-2232212102010012-3320012113021320-3201132330203101-1003103012001021) |
-| `primary.rr_set_group.rr_set.srv_record.values.target` | [primary.rr_set_group.rr_set.srv_record.values.target](data-sources--dns_zone--reference--group-003.md#canonical-2222300302002330-0331121232303121-1323233320131120-2101102203212132-2213100223130100-1131220022202331-2100132311031101-0210020030000301) |
-| `primary.rr_set_group.rr_set.srv_record.values.weight` | [primary.rr_set_group.rr_set.srv_record.values.weight](data-sources--dns_zone--reference--group-003.md#canonical-0313220012311033-3131021312031102-2010003303132000-2313020302003312-3301221231001320-0300103203001322-1232303020123102-3030021033312210) |
-| `primary.rr_set_group.rr_set.sshfp_record` | [primary.rr_set_group.rr_set.sshfp_record](data-sources--dns_zone--reference--group-003.md#canonical-2121012320102322-0110331111102013-2132110133203320-3100031022001321-0032102321220212-3221111323222212-3100312000000230-0120322113132122) |
-| `primary.rr_set_group.rr_set.sshfp_record.name` | [primary.rr_set_group.rr_set.sshfp_record.name](data-sources--dns_zone--reference--group-003.md#canonical-1231031000113201-3321323320010331-3323322201120313-0222231133212021-1013111310313302-1232032001323032-1233021231002103-3113110111201021) |
-| `primary.rr_set_group.rr_set.sshfp_record.values` | [primary.rr_set_group.rr_set.sshfp_record.values](data-sources--dns_zone--reference--group-003.md#canonical-2331300330310133-0031203323201200-0020002201201200-0030033113010311-3330221213323321-1321210003322111-3011230300321203-0332322021001321) |
-| `primary.rr_set_group.rr_set.sshfp_record.values.algorithm` | [primary.rr_set_group.rr_set.sshfp_record.values.algorithm](data-sources--dns_zone--reference--group-003.md#canonical-1300023031211311-3313232011221303-0122212033232122-0212102021130121-1002320332020233-2310132330313320-1231033230020221-1213001232222300) |
+| `primary.rr_set_group.rr_set.ds_record` | [primary.rr_set_group.rr_set.ds_record](data-sources--dns_zone--reference--group-002.md#canonical-3323123231232232-3121122132113033-2010032032232020-0223223101013113-1320002203003203-0021121122213032-0110113000320310-3131320002200321) |
+| `primary.rr_set_group.rr_set.ds_record.name` | [primary.rr_set_group.rr_set.ds_record.name](data-sources--dns_zone--reference--group-002.md#canonical-2120010001021333-2330312330231221-3013231302312000-1012330233333101-2112330010102121-3230301012220311-2211313001301132-3201002122332000) |
+| `primary.rr_set_group.rr_set.ds_record.values` | [primary.rr_set_group.rr_set.ds_record.values](data-sources--dns_zone--reference--group-002.md#canonical-2002210212313213-0103320021303300-3103231001322333-2111012132002320-3231020112223333-1320100103000123-0230020232113323-1030130320013033) |
+| `primary.rr_set_group.rr_set.ds_record.values.ds_key_algorithm` | [primary.rr_set_group.rr_set.ds_record.values.ds_key_algorithm](data-sources--dns_zone--reference--group-002.md#canonical-2000112311312320-0220020111313121-0200111002020332-1212301331001213-1313232133301232-1332113323012120-1122200133112113-2122201122320213) |
+| `primary.rr_set_group.rr_set.ds_record.values.key_tag` | [primary.rr_set_group.rr_set.ds_record.values.key_tag](data-sources--dns_zone--reference--group-002.md#canonical-2230223230000300-1232232312112300-2032233211113100-0022102120111130-1120222113201100-2330003332012331-1323220230211111-0301333031331021) |
+| `primary.rr_set_group.rr_set.ds_record.values.sha1_digest` | [primary.rr_set_group.rr_set.ds_record.values.sha1_digest](data-sources--dns_zone--reference--group-002.md#canonical-1311001023013010-2120332201020300-0330303232223012-0003321111113220-3233132311300323-0331100222123203-0010100312122300-0202111211311011) |
+| `primary.rr_set_group.rr_set.ds_record.values.sha1_digest.digest` | [primary.rr_set_group.rr_set.ds_record.values.sha1_digest.digest](data-sources--dns_zone--reference--group-002.md#canonical-0211022311323301-2333203131012220-1031110301003033-1132331011133230-3030133201011313-2100123333112000-1122031102003013-1032211121233101) |
+| `primary.rr_set_group.rr_set.ds_record.values.sha256_digest` | [primary.rr_set_group.rr_set.ds_record.values.sha256_digest](data-sources--dns_zone--reference--group-002.md#canonical-3120333302320123-1021333022223330-3302111213102300-2111313030123132-0303031303033232-0210010310002012-0212000111133301-2111312021021231) |
+| `primary.rr_set_group.rr_set.ds_record.values.sha256_digest.digest` | [primary.rr_set_group.rr_set.ds_record.values.sha256_digest.digest](data-sources--dns_zone--reference--group-002.md#canonical-0000202333011311-2211122320113121-2311200101111101-3200233123201201-2222202310123300-3133121112121013-1213110333131131-3032030033221030) |
+| `primary.rr_set_group.rr_set.ds_record.values.sha384_digest` | [primary.rr_set_group.rr_set.ds_record.values.sha384_digest](data-sources--dns_zone--reference--group-002.md#canonical-3003231321331023-2130302302202211-1301303101130013-1003130313231020-1111332313312312-1033021122012133-3101033031223101-2333020010213003) |
+| `primary.rr_set_group.rr_set.ds_record.values.sha384_digest.digest` | [primary.rr_set_group.rr_set.ds_record.values.sha384_digest.digest](data-sources--dns_zone--reference--group-002.md#canonical-1101221320221223-1231332032211112-3231113020303321-0300321103023000-1133300001133003-3132032231213321-0001011320020302-2303232101212231) |
+| `primary.rr_set_group.rr_set.eui48_record` | [primary.rr_set_group.rr_set.eui48_record](data-sources--dns_zone--reference--group-002.md#canonical-2001000003012201-0103211033302211-3210331303310200-0132323302313312-2131011003203221-3101321110100030-1212121121002232-2010002212211130) |
+| `primary.rr_set_group.rr_set.eui48_record.name` | [primary.rr_set_group.rr_set.eui48_record.name](data-sources--dns_zone--reference--group-002.md#canonical-3130212232120323-1122323212113010-0001012120200023-0201130300120321-2230111012303020-1110303000001301-0000030020001230-3011110120212102) |
+| `primary.rr_set_group.rr_set.eui48_record.value` | [primary.rr_set_group.rr_set.eui48_record.value](data-sources--dns_zone--reference--group-002.md#canonical-1121220222210001-2202001311302222-3222323232333211-2020031120112200-2111201311232301-1330201121301331-3302310300220021-1123133321323333) |
+| `primary.rr_set_group.rr_set.eui64_record` | [primary.rr_set_group.rr_set.eui64_record](data-sources--dns_zone--reference--group-002.md#canonical-1212201231123200-0110310002232221-1000113123120321-1200121211201322-1123100112113002-1230103230003231-3122120313201201-3133223022301123) |
+| `primary.rr_set_group.rr_set.eui64_record.name` | [primary.rr_set_group.rr_set.eui64_record.name](data-sources--dns_zone--reference--group-002.md#canonical-3223031003000022-1301323031312210-1302322221021013-1133310210310132-1220023121201013-0220301331002032-0330103110030000-1211221101132120) |
+| `primary.rr_set_group.rr_set.eui64_record.value` | [primary.rr_set_group.rr_set.eui64_record.value](data-sources--dns_zone--reference--group-002.md#canonical-2331200101303131-2201302132103211-1310001230130200-3321132230320223-3133322100001223-1011002231031201-3112211203302113-1311103100303112) |
+| `primary.rr_set_group.rr_set.lb_record` | [primary.rr_set_group.rr_set.lb_record](data-sources--dns_zone--reference--group-002.md#canonical-1010002011111230-0030000301202311-2013002322300101-3033112001200130-3300230103231010-2032221112102132-3233310201023023-1110101302322332) |
+| `primary.rr_set_group.rr_set.lb_record.name` | [primary.rr_set_group.rr_set.lb_record.name](data-sources--dns_zone--reference--group-002.md#canonical-0000321020211220-0303010000002220-0212332120131033-2232210021012112-3213233323302222-2022012000131232-0211310122022312-0213101122333323) |
+| `primary.rr_set_group.rr_set.lb_record.value` | [primary.rr_set_group.rr_set.lb_record.value](data-sources--dns_zone--reference--group-002.md#canonical-3121320223110223-1332123103002222-2313010003220230-2012231231333302-1010223011211013-2321221233000212-0331033121313101-0023233010031111) |
+| `primary.rr_set_group.rr_set.lb_record.value.name` | [primary.rr_set_group.rr_set.lb_record.value.name](data-sources--dns_zone--reference--group-002.md#canonical-0000202220212313-3111321311123302-2131021122203101-3000230310120101-1112231002303110-1303023323321232-0013211232021121-2031223113331022) |
+| `primary.rr_set_group.rr_set.lb_record.value.namespace` | [primary.rr_set_group.rr_set.lb_record.value.namespace](data-sources--dns_zone--reference--group-002.md#canonical-3313322000321000-3113213123012211-2032012223101033-2231033201320333-1310023100033020-0100030313121201-0210333130312303-2221022213230133) |
+| `primary.rr_set_group.rr_set.lb_record.value.tenant` | [primary.rr_set_group.rr_set.lb_record.value.tenant](data-sources--dns_zone--reference--group-002.md#canonical-2330303013222230-0011223112102330-0022222023310020-2032231332020121-1232102130201023-1202203103200000-0203222211233301-3332202201032101) |
+| `primary.rr_set_group.rr_set.loc_record` | [primary.rr_set_group.rr_set.loc_record](data-sources--dns_zone--reference--group-002.md#canonical-2310233030001321-2302022120200120-2011323023012232-3330132222012231-3121102131100201-0332131311020001-2001331033212200-1023211110112202) |
+| `primary.rr_set_group.rr_set.loc_record.name` | [primary.rr_set_group.rr_set.loc_record.name](data-sources--dns_zone--reference--group-002.md#canonical-3132112120333211-2233232033231211-1000331213201310-1101220230213201-0011032113331230-1030330122200111-1031020013333310-2333122001003212) |
+| `primary.rr_set_group.rr_set.loc_record.values` | [primary.rr_set_group.rr_set.loc_record.values](data-sources--dns_zone--reference--group-002.md#canonical-1211112130033313-0001333210220013-1012303312003132-1302203221002201-1011022323200210-2103131232211132-1112322032113322-2101333131202112) |
+| `primary.rr_set_group.rr_set.loc_record.values.altitude` | [primary.rr_set_group.rr_set.loc_record.values.altitude](data-sources--dns_zone--reference--group-002.md#canonical-2222132112000030-0310330123330132-0321123120201130-0111123130111021-2322113203022132-3221101203323322-3122223211202021-1220121231133330) |
+| `primary.rr_set_group.rr_set.loc_record.values.horizontal_precision` | [primary.rr_set_group.rr_set.loc_record.values.horizontal_precision](data-sources--dns_zone--reference--group-002.md#canonical-3022330112300003-2101102102123232-2033210031113203-3002322120120220-2213030031112110-2311010213002330-3012311300031232-3021121331102103) |
+| `primary.rr_set_group.rr_set.loc_record.values.latitude_degree` | [primary.rr_set_group.rr_set.loc_record.values.latitude_degree](data-sources--dns_zone--reference--group-002.md#canonical-3110222123202312-3023302020220102-3303211313030132-2333010102201203-3221232320101031-0213101110130202-2121323110220213-1300013223030123) |
+| `primary.rr_set_group.rr_set.loc_record.values.latitude_hemisphere` | [primary.rr_set_group.rr_set.loc_record.values.latitude_hemisphere](data-sources--dns_zone--reference--group-002.md#canonical-0111330302313111-2332211212300211-3101302322000200-1233233202312011-0210232101131002-1303121021013232-3223312011021132-3201300323021120) |
+| `primary.rr_set_group.rr_set.loc_record.values.latitude_minute` | [primary.rr_set_group.rr_set.loc_record.values.latitude_minute](data-sources--dns_zone--reference--group-002.md#canonical-3200123113211231-3332120110000101-0110320132310200-0001222030032322-0310122331020230-2311203101032201-2301033033103122-2321133131203232) |
+| `primary.rr_set_group.rr_set.loc_record.values.latitude_second` | [primary.rr_set_group.rr_set.loc_record.values.latitude_second](data-sources--dns_zone--reference--group-002.md#canonical-2210102333110102-0031330021011331-3020033131333202-1033111233002220-2110211233321231-0032032001331021-3103002220111222-0202321222020020) |
+| `primary.rr_set_group.rr_set.loc_record.values.location_diameter` | [primary.rr_set_group.rr_set.loc_record.values.location_diameter](data-sources--dns_zone--reference--group-002.md#canonical-1212030312111130-1312210022310221-1010201220330032-0220302120333312-2222332330230100-0032301211312102-1011212222221011-0112212201020311) |
+| `primary.rr_set_group.rr_set.loc_record.values.longitude_degree` | [primary.rr_set_group.rr_set.loc_record.values.longitude_degree](data-sources--dns_zone--reference--group-002.md#canonical-2111001200013213-0110120330110322-0331221330203303-3102132333302121-3110020033013120-2310032301031003-2312013123323222-0010323001321223) |
+| `primary.rr_set_group.rr_set.loc_record.values.longitude_hemisphere` | [primary.rr_set_group.rr_set.loc_record.values.longitude_hemisphere](data-sources--dns_zone--reference--group-002.md#canonical-3111201232032021-1220021122201120-2033010222130000-0022210021203103-3101002332121313-1311331012330212-3000003302112111-2123010131000321) |
+| `primary.rr_set_group.rr_set.loc_record.values.longitude_minute` | [primary.rr_set_group.rr_set.loc_record.values.longitude_minute](data-sources--dns_zone--reference--group-002.md#canonical-1030211331000333-2301033202230211-1103101233121032-1032131212102230-1332223222132232-0312010111001312-3211332012212022-3020023001300003) |
+| `primary.rr_set_group.rr_set.loc_record.values.longitude_second` | [primary.rr_set_group.rr_set.loc_record.values.longitude_second](data-sources--dns_zone--reference--group-002.md#canonical-2331223312002332-2222001221322123-0102102132203110-3321230121322300-1032102220010030-0211012221133102-1011212332200333-1031221332101102) |
+| `primary.rr_set_group.rr_set.loc_record.values.vertical_precision` | [primary.rr_set_group.rr_set.loc_record.values.vertical_precision](data-sources--dns_zone--reference--group-002.md#canonical-2200331331113020-0321300301110030-1002113022231312-0123033233113033-2101130132120012-3012022111201103-2230222003012022-0332210312312211) |
+| `primary.rr_set_group.rr_set.mx_record` | [primary.rr_set_group.rr_set.mx_record](data-sources--dns_zone--reference--group-002.md#canonical-1032301230121302-2230303233101300-3200131020003011-3223231131120111-3211000013130303-3113013032123030-2313121333332032-0030212331102010) |
+| `primary.rr_set_group.rr_set.mx_record.name` | [primary.rr_set_group.rr_set.mx_record.name](data-sources--dns_zone--reference--group-002.md#canonical-3311033132001020-0102022220030111-1232031110121310-2231022232031233-1133110222101113-1132313012310030-2313023133102322-1333311331220330) |
+| `primary.rr_set_group.rr_set.mx_record.values` | [primary.rr_set_group.rr_set.mx_record.values](data-sources--dns_zone--reference--group-002.md#canonical-2010113303312310-1321103120212023-2203002233330103-3133021300012001-0313201120310203-2332220233012323-3310013003130201-2321220322121321) |
+| `primary.rr_set_group.rr_set.mx_record.values.domain` | [primary.rr_set_group.rr_set.mx_record.values.domain](data-sources--dns_zone--reference--group-002.md#canonical-2212112331311011-1102003102311101-3303301010021132-1132200332102233-1303330021322112-2102312121323021-3020103332131030-3211011300301002) |
+| `primary.rr_set_group.rr_set.mx_record.values.priority` | [primary.rr_set_group.rr_set.mx_record.values.priority](data-sources--dns_zone--reference--group-002.md#canonical-1102132003010311-2221313113001020-3201012012000233-0212222330213313-0203330131320113-1211222100232300-3202231313221013-3313300300310020) |
+| `primary.rr_set_group.rr_set.naptr_record` | [primary.rr_set_group.rr_set.naptr_record](data-sources--dns_zone--reference--group-002.md#canonical-0133232032210101-0001200232000323-1130202303131203-3331333233303332-0012131002202331-0320323131233332-0000212013233331-1011012221020233) |
+| `primary.rr_set_group.rr_set.naptr_record.name` | [primary.rr_set_group.rr_set.naptr_record.name](data-sources--dns_zone--reference--group-002.md#canonical-1212011312322322-0312203331301013-3322121111210101-2200211220000111-3032112033200333-0300322110002031-3202232010012220-1112222133303213) |
+| `primary.rr_set_group.rr_set.naptr_record.values` | [primary.rr_set_group.rr_set.naptr_record.values](data-sources--dns_zone--reference--group-002.md#canonical-2200231101020302-0013202003222102-3000130322230201-1032213200122031-0022233212211123-0021232220010203-3020201223101211-0110020030232033) |
+| `primary.rr_set_group.rr_set.naptr_record.values.flags` | [primary.rr_set_group.rr_set.naptr_record.values.flags](data-sources--dns_zone--reference--group-002.md#canonical-1031012120012113-1313312322333103-2032103222123012-2121333312111012-3031130302031121-2202230212033331-0203301113002231-2312323013113013) |
+| `primary.rr_set_group.rr_set.naptr_record.values.order` | [primary.rr_set_group.rr_set.naptr_record.values.order](data-sources--dns_zone--reference--group-002.md#canonical-2311202231301323-3121333022301101-2223030001121022-0022120312113201-0303102103310032-2220312031222320-0312013323332111-2000122301101021) |
+| `primary.rr_set_group.rr_set.naptr_record.values.preference` | [primary.rr_set_group.rr_set.naptr_record.values.preference](data-sources--dns_zone--reference--group-002.md#canonical-0032220230321232-0210110100300333-0111130031311110-3013012130120210-0211233310211013-1131033010331121-2223031133003030-2013111232122032) |
+| `primary.rr_set_group.rr_set.naptr_record.values.regexp` | [primary.rr_set_group.rr_set.naptr_record.values.regexp](data-sources--dns_zone--reference--group-002.md#canonical-0101230230333232-1332200302210321-3130112222202020-0102100120101330-0121133023313321-3112011001110013-2323021301022023-0003332310132202) |
+| `primary.rr_set_group.rr_set.naptr_record.values.replacement` | [primary.rr_set_group.rr_set.naptr_record.values.replacement](data-sources--dns_zone--reference--group-002.md#canonical-2200200231122010-1201013102211212-2301011122201231-2223033312113200-2311302021012310-3030120312101310-0121001121111000-0222110200010111) |
+| `primary.rr_set_group.rr_set.naptr_record.values.service` | [primary.rr_set_group.rr_set.naptr_record.values.service](data-sources--dns_zone--reference--group-002.md#canonical-0222322101131033-2330013302030033-2322120201123121-2313311332010213-2210100232003131-3301000021132131-1001003200202201-0313032032003033) |
+| `primary.rr_set_group.rr_set.ns_record` | [primary.rr_set_group.rr_set.ns_record](data-sources--dns_zone--reference--group-002.md#canonical-0330312201100120-2112312301203220-3230003000130221-0023232000030332-3220220102110023-1132123131100021-3103230321221112-3322223320131103) |
+| `primary.rr_set_group.rr_set.ns_record.name` | [primary.rr_set_group.rr_set.ns_record.name](data-sources--dns_zone--reference--group-002.md#canonical-0200211233030201-3122121200101333-3220202313311001-1213312221301101-2333121220001202-3100112100122322-0301211011133220-3031313202011301) |
+| `primary.rr_set_group.rr_set.ns_record.values` | [primary.rr_set_group.rr_set.ns_record.values](data-sources--dns_zone--reference--group-002.md#canonical-2121333000030022-1111112311202130-1321222312321100-0231012012113003-0022310110111233-3320111233223231-1230011103023030-3130102330101301) |
+| `primary.rr_set_group.rr_set.ptr_record` | [primary.rr_set_group.rr_set.ptr_record](data-sources--dns_zone--reference--group-002.md#canonical-3030302130012103-1031200320000313-3213320132112032-3011133211333100-2211102023313110-0000310203120132-2233122200311201-0012110010030112) |
+| `primary.rr_set_group.rr_set.ptr_record.name` | [primary.rr_set_group.rr_set.ptr_record.name](data-sources--dns_zone--reference--group-002.md#canonical-2320112321012331-2211032133102013-2012112213232302-2200312233332133-2030122012311323-3000122321100123-2301210012312211-0232130132131110) |
+| `primary.rr_set_group.rr_set.ptr_record.values` | [primary.rr_set_group.rr_set.ptr_record.values](data-sources--dns_zone--reference--group-002.md#canonical-3022000221212222-1223011132033230-1001032003202132-3013221033030122-0030010331211121-3002101102030231-2032222322202102-0122110132221302) |
+| `primary.rr_set_group.rr_set.srv_record` | [primary.rr_set_group.rr_set.srv_record](data-sources--dns_zone--reference--group-002.md#canonical-1000221220030112-2010100232132001-3022002120021130-1103323000130332-1102212231213330-0122231210232320-2020130132322232-3121222113332300) |
+| `primary.rr_set_group.rr_set.srv_record.name` | [primary.rr_set_group.rr_set.srv_record.name](data-sources--dns_zone--reference--group-002.md#canonical-2302322211300310-3222300011022310-0210330303222112-1321232112133201-1223132210322111-1213310002320301-2223302100310113-0202212113031003) |
+| `primary.rr_set_group.rr_set.srv_record.values` | [primary.rr_set_group.rr_set.srv_record.values](data-sources--dns_zone--reference--group-002.md#canonical-2212233103113113-0311022000300322-0310231201320310-1100021111230311-2303130003123100-2223332202103301-0111000113330012-1221313232200032) |
+| `primary.rr_set_group.rr_set.srv_record.values.port` | [primary.rr_set_group.rr_set.srv_record.values.port](data-sources--dns_zone--reference--group-002.md#canonical-3003201220200130-1021330232001031-2321011021133032-0002310022312232-2102213113331110-0132012022323033-1223031023100212-0321202210233230) |
+| `primary.rr_set_group.rr_set.srv_record.values.priority` | [primary.rr_set_group.rr_set.srv_record.values.priority](data-sources--dns_zone--reference--group-002.md#canonical-3210220321011103-0221123113220123-3101321201123011-3132321110103301-2232212102010012-3320012113021320-3201132330203101-1003103012001021) |
+| `primary.rr_set_group.rr_set.srv_record.values.target` | [primary.rr_set_group.rr_set.srv_record.values.target](data-sources--dns_zone--reference--group-002.md#canonical-2222300302002330-0331121232303121-1323233320131120-2101102203212132-2213100223130100-1131220022202331-2100132311031101-0210020030000301) |
+| `primary.rr_set_group.rr_set.srv_record.values.weight` | [primary.rr_set_group.rr_set.srv_record.values.weight](data-sources--dns_zone--reference--group-002.md#canonical-0313220012311033-3131021312031102-2010003303132000-2313020302003312-3301221231001320-0300103203001322-1232303020123102-3030021033312210) |
+| `primary.rr_set_group.rr_set.sshfp_record` | [primary.rr_set_group.rr_set.sshfp_record](data-sources--dns_zone--reference--group-002.md#canonical-2121012320102322-0110331111102013-2132110133203320-3100031022001321-0032102321220212-3221111323222212-3100312000000230-0120322113132122) |
+| `primary.rr_set_group.rr_set.sshfp_record.name` | [primary.rr_set_group.rr_set.sshfp_record.name](data-sources--dns_zone--reference--group-002.md#canonical-1231031000113201-3321323320010331-3323322201120313-0222231133212021-1013111310313302-1232032001323032-1233021231002103-3113110111201021) |
+| `primary.rr_set_group.rr_set.sshfp_record.values` | [primary.rr_set_group.rr_set.sshfp_record.values](data-sources--dns_zone--reference--group-002.md#canonical-2331300330310133-0031203323201200-0020002201201200-0030033113010311-3330221213323321-1321210003322111-3011230300321203-0332322021001321) |
+| `primary.rr_set_group.rr_set.sshfp_record.values.algorithm` | [primary.rr_set_group.rr_set.sshfp_record.values.algorithm](data-sources--dns_zone--reference--group-002.md#canonical-1300023031211311-3313232011221303-0122212033232122-0212102021130121-1002320332020233-2310132330313320-1231033230020221-1213001232222300) |
 | `primary.rr_set_group.rr_set.sshfp_record.values.sha1_fingerprint` | [primary.rr_set_group.rr_set.sshfp_record.values.sha1_fingerprint](data-sources--dns_zone--reference--group-003.md#canonical-1310013002022232-3123100310320020-3302132323103132-3010312231002020-0322211133101202-0330130210120012-0023132001322001-0221131011332221) |
 | `primary.rr_set_group.rr_set.sshfp_record.values.sha1_fingerprint.fingerprint` | [primary.rr_set_group.rr_set.sshfp_record.values.sha1_fingerprint.fingerprint](data-sources--dns_zone--reference--group-003.md#canonical-0232000100001222-2300203103302233-3121333113330031-3221212301303111-2210323011131110-1130103021323111-0102312333130231-1103232131000330) |
 | `primary.rr_set_group.rr_set.sshfp_record.values.sha256_fingerprint` | [primary.rr_set_group.rr_set.sshfp_record.values.sha256_fingerprint](data-sources--dns_zone--reference--group-003.md#canonical-2021231231131011-2002010300220312-2013311332002322-2323103231333301-3032102030233320-0321333100133023-2223003113133021-3222311112110112) |
@@ -589,23 +585,13 @@ Each exact path has one authoritative reference destination. Collection element 
 | `secondary.tsig_key_value.clear_secret_info.provider_ref` | [secondary.tsig_key_value.clear_secret_info.provider_ref](data-sources--dns_zone--reference--group-003.md#canonical-3012021300301121-2020233020332311-3000200220320123-2000003303023023-3202331302310133-2231133310330133-3302321211300300-3300030030031111) |
 | `secondary.tsig_key_value.clear_secret_info.url` | [secondary.tsig_key_value.clear_secret_info.url](data-sources--dns_zone--reference--group-003.md#canonical-1330123220130302-2101200121133331-3010022021113122-3331023211020110-2230132031312100-0101030030100311-3213331132110111-3103103113303113) |
 
-<a id="canonical-0203331121332210-0000023210001001-2200220012012331-2022032001000120-0323122103220120-0212120213033133-0133302022333010-1133123133232122"></a>
-
-## Next pages — Property reference / 121200323121 / 11
-
-- [primary](data-sources--dns_zone--reference--group-001.md#canonical-3202300020132202-1031131002222003-2332211013000101-2012120102112221-3101102031020211-2011220131110101-1030320013331200-1333313321323331)
-- [secondary](data-sources--dns_zone--reference--group-003.md#canonical-0110011233113032-0002112311333113-1210112333111230-3033232211331300-2300022322300333-2131100301000032-2320031122203212-3103312010003023)
-- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
-
 <a id="canonical-3202300020132202-1031131002222003-2332211013000101-2012120102112221-3101102031020211-2011220131110101-1030320013331200-1333313321323331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0301220220111313-2203102101003321-1221012203131121-3123002321131032-1321330032103313-3302010213113210-1221201022213033-0131110130002023"></a>
-
-## primary — primary / 332231132222 / 2
+## `primary` properties
 
 Breadcrumbs:
 
@@ -640,15 +626,13 @@ OneOf alternatives in this subsection:
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-3132231021310111-0212111121031210-2223311112313012-3022221112111231-3032222032101122-2131122201003001-2303213211222233-0220321313331203"></a>
+<a id="canonical-0301220220111313-2203102101003321-1221012203131121-3123002321131032-1321330032103313-3302010213113210-1221201022213033-0131110130002023"></a>
 
-## Direct properties — primary / 332231132222 / 3
+### Direct properties for `primary`
 
 <a id="canonical-0011201311331332-0000001012122003-1122202131303312-2201102031231123-1020212100002012-3212210231021302-3313210321012000-2333130112103312"></a>
 
-<a id="canonical-1303221103302302-1031120233331001-1101221332101032-1320101020221300-1313000230020211-1110232032020011-2123220312011030-2120321033123113"></a>
-
-## allow_http_lb_managed_records property — primary / 332231132222 / 4
+#### `primary.allow_http_lb_managed_records` property
 
 Type: `"bool"`. Computed.
 
@@ -678,27 +662,13 @@ Receipt-pinned upstream constraints:
 
 - [soa_parameters](data-sources--dns_zone--reference--group-003.md#canonical-3111301200310120-2012211111103233-2001110322021102-1132112033133212-1100110333112313-0210200023120120-3233033130322010-1032311322222221): complete subsection reference.
 
-<a id="canonical-0003312130202111-1210212030211211-2002321303220013-1130213201020332-1222311020231301-2132111011312132-2221221002333323-3000221012110012"></a>
-
-## Next pages — primary / 332231132222 / 5
-
-- [primary.default_rr_set_group](data-sources--dns_zone--reference--group-001.md#canonical-2333233213103330-0302202110210122-3330012220203203-2012221330313213-3020122001023320-2112110122003110-2303022223102003-1030220023110111)
-- [primary.default_soa_parameters](data-sources--dns_zone--reference--group-002.md#canonical-1013032121121211-0200310230111302-2302123231122131-1132011211233131-3233303200303110-1001330123313000-0122110323001111-2131223301100220)
-- [primary.dnssec_mode](data-sources--dns_zone--reference--group-002.md#canonical-0301132310232123-0100020002231220-0220210220113100-2233333133311311-2013203003202010-1111221031021320-3202202231022031-3321200322011102)
-- [primary.rr_set_group](data-sources--dns_zone--reference--group-002.md#canonical-1123222033113212-3322310132230022-0003203213303322-3032311213113203-3003230323212030-2021000103002312-2303100332113121-0122303013013202)
-- [primary.soa_parameters](data-sources--dns_zone--reference--group-003.md#canonical-3111301200310120-2012211111103233-2001110322021102-1132112033133212-1100110333112313-0210200023120120-3233033130322010-1032311322222221)
-- [Property reference](data-sources--dns_zone--reference--group-001.md#canonical-1320000120201111-2203011021030331-2320302132022301-3231311102321211-2320003331323333-0100003331333313-2321331201112230-0113213102020011)
-- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
-
 <a id="canonical-2333233213103330-0302202110210122-3330012220203203-2012221330313213-3020122001023320-2112110122003110-2303022223102003-1030220023110111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2320121001101331-1300110132013031-3121323222022203-0122321012230031-3010112333212023-3210102002130110-3201002030121023-2123001011312300"></a>
-
-## primary.default_rr_set_group — default_rr_set_group / 131131132311 / 2
+## `primary.default_rr_set_group` properties
 
 Breadcrumbs:
 
@@ -744,9 +714,9 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0311010301221331-0113013131132013-0103133320213313-0022000012311233-0222333100111002-1023011122033121-3302320231130031-0310312201320233"></a>
+<a id="canonical-2320121001101331-1300110132013031-3121323222022203-0122321012230031-3010112333212023-3210102002130110-3201002030121023-2123001011312300"></a>
 
-## Direct properties — default_rr_set_group / 131131132311 / 3
+### Direct properties for `primary.default_rr_set_group`
 
 - [a_record](data-sources--dns_zone--reference--group-001.md#canonical-2312200030111200-1212321102221122-1303233301122023-2113100103230120-3230111301023210-1321113113303300-0311102130231112-3322113202113010): complete subsection reference.
 
@@ -766,9 +736,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0113312013210200-2113030131021323-3132103200313313-1213300120001232-0113212330132300-1123320311201132-3000210010001030-1130233112210000"></a>
 
-<a id="canonical-2313003101102232-3122030102002120-2021023221102213-0033312203011303-3002232311311111-0000022323303112-0222121300212111-2220003231121001"></a>
+<a id="canonical-0311010301221331-0113013131132013-0103133320213313-0022000012311233-0222333100111002-1023011122033121-3302320231130031-0310312201320233"></a>
 
-## description_spec property — default_rr_set_group / 131131132311 / 4
+#### `primary.default_rr_set_group.description_spec` property
 
 Type: `"string"`. Computed.
 
@@ -776,13 +746,13 @@ Comment. Human-readable description text
 
 - [ds_record](data-sources--dns_zone--reference--group-001.md#canonical-0332332020330012-1003302232123021-0022232311333132-0113122113322112-2123033321110312-3133333133301221-0121330302222103-3212000033322100): complete subsection reference.
 
-- [eui48_record](data-sources--dns_zone--reference--group-002.md#canonical-3131300332020230-3331033131000131-1121003101002330-1233102210013032-0213323303121120-0011202223031101-3113322221020122-1031012321320303): complete subsection reference.
+- [eui48_record](data-sources--dns_zone--reference--group-001.md#canonical-3131300332020230-3331033131000131-1121003101002330-1233102210013032-0213323303121120-0011202223031101-3113322221020122-1031012321320303): complete subsection reference.
 
-- [eui64_record](data-sources--dns_zone--reference--group-002.md#canonical-1001031330110020-1133122011223212-1221020310212103-2121030102103310-1031332030211201-3010332112131120-0002121331230022-3122212233332113): complete subsection reference.
+- [eui64_record](data-sources--dns_zone--reference--group-001.md#canonical-1001031330110020-1133122011223212-1221020310212103-2121030102103310-1031332030211201-3010332112131120-0002121331230022-3122212233332113): complete subsection reference.
 
-- [lb_record](data-sources--dns_zone--reference--group-002.md#canonical-1321110233323023-3033012222210110-1100112210100301-1331110010313330-0202131111030201-0031121030023110-3303012321221102-1202212120312023): complete subsection reference.
+- [lb_record](data-sources--dns_zone--reference--group-001.md#canonical-1321110233323023-3033012222210110-1100112210100301-1331110010313330-0202131111030201-0031121030023110-3303012321221102-1202212120312023): complete subsection reference.
 
-- [loc_record](data-sources--dns_zone--reference--group-002.md#canonical-3310122013002202-2201310111100013-3320132322330303-3003311222123331-1221002132100302-2122021012023311-0330301233113311-0002130121010103): complete subsection reference.
+- [loc_record](data-sources--dns_zone--reference--group-001.md#canonical-3310122013002202-2201310111100013-3320132322330303-3003311222123331-1221002132100302-2122021012023311-0330301233113311-0002130121010103): complete subsection reference.
 
 - [mx_record](data-sources--dns_zone--reference--group-002.md#canonical-1210121201311120-2131010222033122-0330222031322111-3200022000122302-0333021032123112-2220203201001212-2120030320310132-2322032202111212): complete subsection reference.
 
@@ -800,17 +770,13 @@ Comment. Human-readable description text
 
 <a id="canonical-1120233323223031-2202211123332021-0131113311112233-3133300000310331-2210010332013333-0012130212232203-3223202223302113-2300001101113012"></a>
 
-<a id="canonical-3012333303312321-3220301113221011-0130321210100113-0321223201002302-2331002303101030-3233111230332231-0323213212321113-3122023333100111"></a>
+<a id="canonical-2313003101102232-3122030102002120-2021023221102213-0033312203011303-3002232311311111-0000022323303112-0222121300212111-2220003231121001"></a>
 
-## TTL property — default_rr_set_group / 131131132311 / 5
+#### `primary.default_rr_set_group.ttl` property
 
 Type: `"number"`. Computed.
 
 Time to live. Time-to-live duration in seconds
-
-Upstream description:
-
-Time-to-live duration in seconds
 
 Receipt-pinned upstream constraints:
 
@@ -847,43 +813,13 @@ Receipt-pinned upstream constraints:
 
 - [txt_record](data-sources--dns_zone--reference--group-002.md#canonical-2023003321332312-0023132123210230-1102330021223031-3112003211020100-3031102022010133-0321133333232212-0313320223232033-0232003031030313): complete subsection reference.
 
-<a id="canonical-2200203022221312-0000223213212111-2021203322012301-3202131333212210-2102232023302300-0130130023032331-0011000000223321-2203213213000331"></a>
-
-## Next pages — default_rr_set_group / 131131132311 / 6
-
-- [primary.default_rr_set_group.a_record](data-sources--dns_zone--reference--group-001.md#canonical-2312200030111200-1212321102221122-1303233301122023-2113100103230120-3230111301023210-1321113113303300-0311102130231112-3322113202113010)
-- [primary.default_rr_set_group.aaaa_record](data-sources--dns_zone--reference--group-001.md#canonical-2122110231021031-2311002310121211-0030101131322312-2002213023010323-1003310222101102-3121232322232230-0032201201331221-2022310230031212)
-- [primary.default_rr_set_group.afsdb_record](data-sources--dns_zone--reference--group-001.md#canonical-2212321030130323-0331003210301222-1002023233203223-3001001333203330-2310200301223030-2230033302212033-1133303131313312-0102220132310223)
-- [primary.default_rr_set_group.alias_record](data-sources--dns_zone--reference--group-001.md#canonical-2201132013312310-0031120122103231-3200313312112001-2022323120201202-3021322302213003-2300121002001030-2300132201121310-0303202132032030)
-- [primary.default_rr_set_group.caa_record](data-sources--dns_zone--reference--group-001.md#canonical-2231130311212021-2231121000310210-0333021133202030-2212032233303300-2233330122101130-3300333102031111-0312302332003200-2201113110032012)
-- [primary.default_rr_set_group.cds_record](data-sources--dns_zone--reference--group-001.md#canonical-0110033330222032-0123033013030301-1302023330330311-1330232122221312-3133301300302331-0131033023022301-0230230201212031-1221311203320220)
-- [primary.default_rr_set_group.cert_record](data-sources--dns_zone--reference--group-001.md#canonical-2103113313321033-0201132202120131-1011321103103120-0212131230022211-1011221201210111-1203211223103012-3213112020013312-0122002221223221)
-- [primary.default_rr_set_group.cname_record](data-sources--dns_zone--reference--group-001.md#canonical-1210222313232023-3302132113200010-1102000331232222-1301112000130123-0332301130133312-0112100212202202-3031221112323220-3020332031122200)
-- [primary.default_rr_set_group.ds_record](data-sources--dns_zone--reference--group-001.md#canonical-0332332020330012-1003302232123021-0022232311333132-0113122113322112-2123033321110312-3133333133301221-0121330302222103-3212000033322100)
-- [primary.default_rr_set_group.eui48_record](data-sources--dns_zone--reference--group-002.md#canonical-3131300332020230-3331033131000131-1121003101002330-1233102210013032-0213323303121120-0011202223031101-3113322221020122-1031012321320303)
-- [primary.default_rr_set_group.eui64_record](data-sources--dns_zone--reference--group-002.md#canonical-1001031330110020-1133122011223212-1221020310212103-2121030102103310-1031332030211201-3010332112131120-0002121331230022-3122212233332113)
-- [primary.default_rr_set_group.lb_record](data-sources--dns_zone--reference--group-002.md#canonical-1321110233323023-3033012222210110-1100112210100301-1331110010313330-0202131111030201-0031121030023110-3303012321221102-1202212120312023)
-- [primary.default_rr_set_group.loc_record](data-sources--dns_zone--reference--group-002.md#canonical-3310122013002202-2201310111100013-3320132322330303-3003311222123331-1221002132100302-2122021012023311-0330301233113311-0002130121010103)
-- [primary.default_rr_set_group.mx_record](data-sources--dns_zone--reference--group-002.md#canonical-1210121201311120-2131010222033122-0330222031322111-3200022000122302-0333021032123112-2220203201001212-2120030320310132-2322032202111212)
-- [primary.default_rr_set_group.naptr_record](data-sources--dns_zone--reference--group-002.md#canonical-2000221213012233-1222212300001003-2201121122210020-3133301203202102-1332032202320301-1003102301122213-2203320000301213-0012113303201103)
-- [primary.default_rr_set_group.ns_record](data-sources--dns_zone--reference--group-002.md#canonical-2313231112212011-0201330312333230-1201033232031120-1123102230132211-2311130313033231-0220202113331330-3030032011212201-2022201023220103)
-- [primary.default_rr_set_group.ptr_record](data-sources--dns_zone--reference--group-002.md#canonical-0032230300312201-2330203102230021-2122122330231113-1232330231302310-3001020022321003-0100000031302303-0320002132012223-3332123310323113)
-- [primary.default_rr_set_group.srv_record](data-sources--dns_zone--reference--group-002.md#canonical-3022002303322101-2133310220222102-1221303323002002-2021320313022100-3022301033201311-3100301120122232-0121032103302112-2011211020313032)
-- [primary.default_rr_set_group.sshfp_record](data-sources--dns_zone--reference--group-002.md#canonical-2131213003100201-0112010012001002-0013220210323230-0322333202002311-1323221222033032-0212121113221221-0222110233100122-1122121333301021)
-- [primary.default_rr_set_group.tlsa_record](data-sources--dns_zone--reference--group-002.md#canonical-2101121000001100-2301010023202222-0201001332133023-3100101303202310-3001221233210201-2132313122010110-3100111130011132-3022131111200230)
-- [primary.default_rr_set_group.txt_record](data-sources--dns_zone--reference--group-002.md#canonical-2023003321332312-0023132123210230-1102330021223031-3112003211020100-3031102022010133-0321133333232212-0313320223232033-0232003031030313)
-- [primary](data-sources--dns_zone--reference--group-001.md#canonical-3202300020132202-1031131002222003-2332211013000101-2012120102112221-3101102031020211-2011220131110101-1030320013331200-1333313321323331)
-- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
-
 <a id="canonical-2312200030111200-1212321102221122-1303233301122023-2113100103230120-3230111301023210-1321113113303300-0311102130231112-3322113202113010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3222001220032131-1331210100122311-0020100300323022-0130311321110331-1313031030121232-2332301303200331-0133132210333023-1013121220222300"></a>
-
-## primary.default_rr_set_group.a_record — a_record / 323001023202 / 2
+## `primary.default_rr_set_group.a_record` properties
 
 Breadcrumbs:
 
@@ -899,10 +835,6 @@ Type: `"single"`. Computed.
 
 DNSAResourceRecord. A Records
 
-Upstream description:
-
-A Records
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -916,21 +848,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2311200232200113-1223212213110313-1002123002302322-3002332301223121-3333221010313030-0200211230203002-2220223232330101-0122322213001110"></a>
+<a id="canonical-3222001220032131-1331210100122311-0020100300323022-0130311321110331-1313031030121232-2332301303200331-0133132210333023-1013121220222300"></a>
 
-## Direct properties — a_record / 323001023202 / 3
+### Direct properties for `primary.default_rr_set_group.a_record`
 
 <a id="canonical-2213233021320010-3133010020313213-2313001313101301-2102002013301311-2202113133323321-1011203112301310-3320200211203133-3003333032001011"></a>
 
-<a id="canonical-2210330212001130-1123321020100312-1303322302033233-3310313203212232-3300033001233012-2003232330101233-0301033213323302-3130002012032210"></a>
-
-## name property — a_record / 323001023202 / 4
+#### `primary.default_rr_set_group.a_record.name` property
 
 Type: `"string"`. Computed.
-
-Record name, please provide only the specific subdomain or record name without the base domain.
-
-Upstream description:
 
 A Record name, please provide only the specific subdomain or record name without the base domain.
 
@@ -980,17 +906,13 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1210311210102033-3132330103023322-1313233121311111-2222002211303113-1131020022311300-0032131201212002-3011111312133232-0102300230123221"></a>
 
-<a id="canonical-0130022003000031-2201033120213003-2210223231300221-2320201033033021-2021020210222003-2000000311011301-0201102120021112-1120320122323220"></a>
+<a id="canonical-2311200232200113-1223212213110313-1002123002302322-3002332301223121-3333221010313030-0200211230203002-2220223232330101-0122322213001110"></a>
 
-## values property — a_record / 323001023202 / 5
+#### `primary.default_rr_set_group.a_record.values` property
 
 Type: `["list", "string"]`. Computed.
 
 IPv4 Addresses. A valid IPv4 address, for example: 192.0.2.242.
-
-Upstream description:
-
-A valid IPv4 address, for example: 192.0.2.242.
 
 Receipt-pinned upstream constraints:
 
@@ -1034,22 +956,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2002133031131220-1010123022230100-2131320102002211-0222023220203123-2130002322001130-3122021033102120-0133111311213303-2012102313222103"></a>
-
-## Next pages — a_record / 323001023202 / 6
-
-- [primary.default_rr_set_group](data-sources--dns_zone--reference--group-001.md#canonical-2333233213103330-0302202110210122-3330012220203203-2012221330313213-3020122001023320-2112110122003110-2303022223102003-1030220023110111)
-- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
-
 <a id="canonical-2122110231021031-2311002310121211-0030101131322312-2002213023010323-1003310222101102-3121232322232230-0032201201331221-2022310230031212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2332023010000213-3220121310112321-3203222023122002-1231021032212022-3203301011211321-0000112331222231-2332330122123330-0331013210110001"></a>
-
-## primary.default_rr_set_group.aaaa_record — aaaa_record / 210022300122 / 2
+## `primary.default_rr_set_group.aaaa_record` properties
 
 Breadcrumbs:
 
@@ -1065,7 +978,7 @@ Type: `"single"`. Computed.
 
 Configuration parameter for aaaa record.
 
-Upstream description:
+Additional upstream details:
 
 RecordSet for AAAA Records.
 
@@ -1082,15 +995,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3200122131332031-3222013012220310-3033332212303013-2330220211223001-1112032321302210-0133111032231132-0203001003210212-1303232221332332"></a>
+<a id="canonical-2332023010000213-3220121310112321-3203222023122002-1231021032212022-3203301011211321-0000112331222231-2332330122123330-0331013210110001"></a>
 
-## Direct properties — aaaa_record / 210022300122 / 3
+### Direct properties for `primary.default_rr_set_group.aaaa_record`
 
 <a id="canonical-3102033001011313-3312213133110031-1221232032231231-1231030232132110-3323101230131120-2032210102310203-0320231313323302-3022120111322120"></a>
 
-<a id="canonical-0120011100201212-0302010120301133-1101320020222103-0020000331030103-0323320303212331-1122230102202212-0012330201333323-2330102200121122"></a>
-
-## name property — aaaa_record / 210022300122 / 4
+#### `primary.default_rr_set_group.aaaa_record.name` property
 
 Type: `"string"`. Computed.
 
@@ -1142,17 +1053,13 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2303002320003221-3110210003001112-2112001002022133-2002203131120320-2101302123032200-2312303000022032-3212323203320221-1211023011122323"></a>
 
-<a id="canonical-3321112102103223-1032221113311220-2212010203320000-0013301110132132-3202220210021231-2103323112331212-0003331031123331-1111333320303122"></a>
+<a id="canonical-3200122131332031-3222013012220310-3033332212303013-2330220211223001-1112032321302210-0133111032231132-0203001003210212-1303232221332332"></a>
 
-## values property — aaaa_record / 210022300122 / 5
+#### `primary.default_rr_set_group.aaaa_record.values` property
 
 Type: `["list", "string"]`. Computed.
 
 IPv6 Addresses. A valid IPv6 address, for example: 2001:0db8:85a3:0000:0000:8a2e:0370:7334.
-
-Upstream description:
-
-A valid IPv6 address, for example: 2001:0db8:85a3:0000:0000:8a2e:0370:7334.
 
 Receipt-pinned upstream constraints:
 
@@ -1196,22 +1103,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2232102023211011-3002303222012332-2220223032021220-0001120202113122-3320221131333310-1002121003322201-2213213133201203-0110000101023210"></a>
-
-## Next pages — aaaa_record / 210022300122 / 6
-
-- [primary.default_rr_set_group](data-sources--dns_zone--reference--group-001.md#canonical-2333233213103330-0302202110210122-3330012220203203-2012221330313213-3020122001023320-2112110122003110-2303022223102003-1030220023110111)
-- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
-
 <a id="canonical-2212321030130323-0331003210301222-1002023233203223-3001001333203330-2310200301223030-2230033302212033-1133303131313312-0102220132310223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1101131223322330-0113313003100021-3321230012310233-1311022010321023-1133320101321000-0120312330022221-0002213232101331-0102013113112102"></a>
-
-## primary.default_rr_set_group.afsdb_record — afsdb_record / 012330133102 / 2
+## `primary.default_rr_set_group.afsdb_record` properties
 
 Breadcrumbs:
 
@@ -1227,7 +1125,7 @@ Type: `"single"`. Computed.
 
 Configuration parameter for afsdb record.
 
-Upstream description:
+Additional upstream details:
 
 DNS AFSDB Record.
 
@@ -1244,15 +1142,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1112132022012120-3002222133120120-1300330121100122-2012001302320001-2320133321111002-3001112102230311-0030130202001103-3123301301003112"></a>
+<a id="canonical-1101131223322330-0113313003100021-3321230012310233-1311022010321023-1133320101321000-0120312330022221-0002213232101331-0102013113112102"></a>
 
-## Direct properties — afsdb_record / 012330133102 / 3
+### Direct properties for `primary.default_rr_set_group.afsdb_record`
 
 <a id="canonical-0110300331130123-2132312123101333-3313303003231130-3210110311213333-1222000333101001-2331120331301321-3210032333021002-0223203023231010"></a>
 
-<a id="canonical-1003120103133332-0020112202120102-2113213230211200-2031001223033331-1000120302113331-3102303130003321-2121301231211201-1101300111310222"></a>
-
-## name property — afsdb_record / 012330133102 / 4
+#### `primary.default_rr_set_group.afsdb_record.name` property
 
 Type: `"string"`. Computed.
 
@@ -1305,23 +1201,13 @@ Receipt-pinned upstream constraints:
 
 - [values](data-sources--dns_zone--reference--group-001.md#canonical-3323233331320022-1000000300301231-2103221320301002-1003123123131031-3002312031121300-0122330002032202-1000311132321011-2013131113033310): complete subsection reference.
 
-<a id="canonical-0110123212220130-0313232111100013-2020003112311202-0133000123102200-0122122222203322-0320132013222330-3101202310023211-1203123320100320"></a>
-
-## Next pages — afsdb_record / 012330133102 / 5
-
-- [primary.default_rr_set_group.afsdb_record.values](data-sources--dns_zone--reference--group-001.md#canonical-3323233331320022-1000000300301231-2103221320301002-1003123123131031-3002312031121300-0122330002032202-1000311132321011-2013131113033310)
-- [primary.default_rr_set_group](data-sources--dns_zone--reference--group-001.md#canonical-2333233213103330-0302202110210122-3330012220203203-2012221330313213-3020122001023320-2112110122003110-2303022223102003-1030220023110111)
-- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
-
 <a id="canonical-3323233331320022-1000000300301231-2103221320301002-1003123123131031-3002312031121300-0122330002032202-1000311132321011-2013131113033310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3220013201300130-0323333302023120-3202033331010023-1210031003101032-0312100212031130-1210100120011011-3122012103221222-3201200320030020"></a>
-
-## primary.default_rr_set_group.afsdb_record.values — values / 221133320202 / 2
+## `primary.default_rr_set_group.afsdb_record.values` properties
 
 Breadcrumbs:
 
@@ -1337,10 +1223,6 @@ Breadcrumbs:
 Type: `"list"`. Computed.
 
 AFSDB Value. Configuration parameter for values
-
-Upstream description:
-
-Configuration parameter for values
 
 Receipt-pinned upstream constraints:
 
@@ -1379,15 +1261,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0022123213201213-2010000101113111-0303323320111313-2132221302320121-3002131223322111-3330220130031320-1321020322033100-2123110103322130"></a>
+<a id="canonical-3220013201300130-0323333302023120-3202033331010023-1210031003101032-0312100212031130-1210100120011011-3122012103221222-3201200320030020"></a>
 
-## Direct properties — values / 221133320202 / 3
+### Direct properties for `primary.default_rr_set_group.afsdb_record.values`
 
 <a id="canonical-1002033312212101-2331120003311212-1112012311020212-3131132231320032-2131001021113100-3013333100122233-2332101002131012-1330211130110103"></a>
 
-<a id="canonical-0113111312023022-3202132320203333-2331312102033101-2312210030311320-1220200212330201-1312030333030321-3100223323020212-1332212032203332"></a>
-
-## hostname property — values / 221133320202 / 4
+#### `primary.default_rr_set_group.afsdb_record.values.hostname` property
 
 Type: `"string"`. Computed.
 
@@ -1433,9 +1313,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1321311233222302-0032022013222201-1222322121032202-3331031020302221-2230133312111312-2100330331332211-2030101201212121-2022100230311220"></a>
 
-<a id="canonical-3320023113112102-0033200203222120-3302313230011321-1033012233113202-3312223322112030-2200103103130131-3101022030300310-0233232033020303"></a>
+<a id="canonical-0022123213201213-2010000101113111-0303323320111313-2132221302320121-3002131223322111-3330220130031320-1321020322033100-2123110103322130"></a>
 
-## subtype property — values / 221133320202 / 5
+#### `primary.default_rr_set_group.afsdb_record.values.subtype` property
 
 Type: `"string"`. Computed.
 
@@ -1443,16 +1323,6 @@ Type: `"string"`. Computed.
 Authentication Server. - NONE: NONE - AFSVolumeLocationServer: AFS Volume Location Server -
 DCEAuthenticationServer: DCE Authentication Server. Possible values are \`NONE\`,
 \`AFSVolumeLocationServer\`, \`DCEAuthenticationServer\`.
-
-Upstream description:
-
-AFS Volume Location Server or DCE Authentication Server.
-
-&#8203;- NONE: NONE
-
-&#8203;- AFSVolumeLocationServer: AFS Volume Location Server
-
-&#8203;- DCEAuthenticationServer: DCE Authentication Server.
 
 Receipt-pinned upstream constraints:
 
@@ -1473,22 +1343,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0312213332331102-0033230123220011-2332220121023101-3103000230010332-3201133011013202-1022302100011323-0322023030011303-1113211020202230"></a>
-
-## Next pages — values / 221133320202 / 6
-
-- [primary.default_rr_set_group.afsdb_record](data-sources--dns_zone--reference--group-001.md#canonical-2212321030130323-0331003210301222-1002023233203223-3001001333203330-2310200301223030-2230033302212033-1133303131313312-0102220132310223)
-- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
-
 <a id="canonical-2201132013312310-0031120122103231-3200313312112001-2022323120201202-3021322302213003-2300121002001030-2300132201121310-0303202132032030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0133203021022221-2112000211022210-3321023121200112-3002103311233021-1123302300131201-3023312233211221-2033201022311302-2130000001020221"></a>
-
-## primary.default_rr_set_group.alias_record — alias_record / 222120021131 / 2
+## `primary.default_rr_set_group.alias_record` properties
 
 Breadcrumbs:
 
@@ -1517,23 +1378,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3130200232032300-3002323332302301-2030213030203032-2020330033012320-0332313333031000-0303303132033033-1230020300111031-3230003312303332"></a>
+<a id="canonical-0133203021022221-2112000211022210-3321023121200112-3002103311233021-1123302300131201-3023312233211221-2033201022311302-2130000001020221"></a>
 
-## Direct properties — alias_record / 222120021131 / 3
+### Direct properties for `primary.default_rr_set_group.alias_record`
 
 <a id="canonical-0003333310003211-0232300123200202-3310313300103201-2001033302312032-3012303310010222-3100122323030303-3202303122022202-1230220121111033"></a>
 
-<a id="canonical-0330301113323030-3102301113300132-3232211010031121-0330303331200212-2203321201313123-0223221201123332-3002120101003030-1222222212000111"></a>
-
-## value property — alias_record / 222120021131 / 4
+#### `primary.default_rr_set_group.alias_record.value` property
 
 Type: `"string"`. Computed.
 
 Domain. A valid domain name, for example: example.com.
-
-Upstream description:
-
-A valid domain name, for example: example.com.
 
 Receipt-pinned upstream constraints:
 
@@ -1569,22 +1424,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2113320212202010-3313031332120332-1312232032121332-2112122122332302-2233133330320010-1033212231302211-2022223301323310-2331110222231211"></a>
-
-## Next pages — alias_record / 222120021131 / 5
-
-- [primary.default_rr_set_group](data-sources--dns_zone--reference--group-001.md#canonical-2333233213103330-0302202110210122-3330012220203203-2012221330313213-3020122001023320-2112110122003110-2303022223102003-1030220023110111)
-- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
-
 <a id="canonical-2231130311212021-2231121000310210-0333021133202030-2212032233303300-2233330122101130-3300333102031111-0312302332003200-2201113110032012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1203211313130213-3112101220301323-2202132111012132-0131331023323031-3310332031302023-2333120123322220-2320200221112201-3112011010220112"></a>
-
-## primary.default_rr_set_group.caa_record — caa_record / 102102312022 / 2
+## `primary.default_rr_set_group.caa_record` properties
 
 Breadcrumbs:
 
@@ -1613,15 +1459,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2302023012013033-3212132231123201-0120312321202220-0032121223100201-0232202030222033-0031213000032223-1201020232010002-2000330231300302"></a>
+<a id="canonical-1203211313130213-3112101220301323-2202132111012132-0131331023323031-3310332031302023-2333120123322220-2320200221112201-3112011010220112"></a>
 
-## Direct properties — caa_record / 102102312022 / 3
+### Direct properties for `primary.default_rr_set_group.caa_record`
 
 <a id="canonical-3000003332023313-1123310023302312-3132100123333110-2330122120332011-2103222122330321-3211022322100131-0122033110321331-2012101200211130"></a>
 
-<a id="canonical-3211200021203313-0330320233323123-3110331122202120-1121032321302333-3131200110103300-2320013132131110-2220013203332332-1332212132013130"></a>
-
-## name property — caa_record / 102102312022 / 4
+#### `primary.default_rr_set_group.caa_record.name` property
 
 Type: `"string"`. Computed.
 
@@ -1673,23 +1517,13 @@ Receipt-pinned upstream constraints:
 
 - [values](data-sources--dns_zone--reference--group-001.md#canonical-1003010210202332-3333202023033313-3202310332302023-0113323111021000-0323333203102112-2302123311023320-0110332132200102-3322102013001203): complete subsection reference.
 
-<a id="canonical-0122110003000322-2033330300020000-1121213032332221-1222311323102020-2220332322313223-1032320320310010-3313120000002331-1133233022120233"></a>
-
-## Next pages — caa_record / 102102312022 / 5
-
-- [primary.default_rr_set_group.caa_record.values](data-sources--dns_zone--reference--group-001.md#canonical-1003010210202332-3333202023033313-3202310332302023-0113323111021000-0323333203102112-2302123311023320-0110332132200102-3322102013001203)
-- [primary.default_rr_set_group](data-sources--dns_zone--reference--group-001.md#canonical-2333233213103330-0302202110210122-3330012220203203-2012221330313213-3020122001023320-2112110122003110-2303022223102003-1030220023110111)
-- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
-
 <a id="canonical-1003010210202332-3333202023033313-3202310332302023-0113323111021000-0323333203102112-2302123311023320-0110332132200102-3322102013001203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1212102112111123-2321331110312200-1100131013322030-1323310321132101-1120110221102032-1203130130131220-1132320000110031-0212302002121100"></a>
-
-## primary.default_rr_set_group.caa_record.values — values / 301121213203 / 2
+## `primary.default_rr_set_group.caa_record.values` properties
 
 Breadcrumbs:
 
@@ -1705,10 +1539,6 @@ Breadcrumbs:
 Type: `"list"`. Computed.
 
 CAA Record Value. Configuration parameter for values
-
-Upstream description:
-
-Configuration parameter for values
 
 Receipt-pinned upstream constraints:
 
@@ -1741,21 +1571,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3310311010331001-3220303301232230-1111330320103301-2031130331001030-3133203223310113-1113121312020002-0132031210122300-0003120130211321"></a>
+<a id="canonical-1212102112111123-2321331110312200-1100131013322030-1323310321132101-1120110221102032-1203130130131220-1132320000110031-0212302002121100"></a>
 
-## Direct properties — values / 301121213203 / 3
+### Direct properties for `primary.default_rr_set_group.caa_record.values`
 
 <a id="canonical-2323311312222001-0013120300311322-3331332101313022-3010113010130212-3203101022000313-3332211000313010-1211133333223132-1200133111131111"></a>
 
-<a id="canonical-0231233011120100-1001111101122311-3230020001010110-0200023213130132-2323312020011131-2223323321310103-3322010023000201-2200220232222130"></a>
-
-## flags property — values / 301121213203 / 4
+#### `primary.default_rr_set_group.caa_record.values.flags` property
 
 Type: `"number"`. Computed.
-
-Flag should be an integer between 0 and 255.
-
-Upstream description:
 
 This flag should be an integer between 0 and 255.
 
@@ -1794,18 +1618,14 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3310212311323301-2103133002233110-0311220022301230-3012331211003302-1120010102201103-1213323032331123-1131130222211113-3130023313233130"></a>
 
-<a id="canonical-3000001310222022-1122012010120201-3021130311120331-3101100020300033-2230321302002132-1201320320311323-2103323310233131-0223132012201022"></a>
+<a id="canonical-3310311010331001-3220303301232230-1111330320103301-2031130331001030-3133203223310113-1113121312020002-0132031210122300-0003120130211321"></a>
 
-## tag property — values / 301121213203 / 5
+#### `primary.default_rr_set_group.caa_record.values.tag` property
 
 Type: `"string"`. Computed.
 
 \[Enum: issue|issuewild|iodef\] Tag. Tag for categorization and filtering. Possible values are
 \`issue\`, \`issuewild\`, \`iodef\`.
-
-Upstream description:
-
-Tag for categorization and filtering
 
 Receipt-pinned upstream constraints:
 
@@ -1843,17 +1663,13 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3300221002010112-1222221230022020-0133301132310033-0322101220101113-1013000300312121-0202011010101102-1212100222220323-1301102033110132"></a>
 
-<a id="canonical-2210232320213333-3103201213313303-2212022322032212-0023312321102120-3003002330221313-1012311313332020-1133330032122213-0202130321222133"></a>
+<a id="canonical-0231233011120100-1001111101122311-3230020001010110-0200023213130132-2323312020011131-2223323321310103-3322010023000201-2200220232222130"></a>
 
-## value property — values / 301121213203 / 6
+#### `primary.default_rr_set_group.caa_record.values.value` property
 
 Type: `"string"`. Computed.
 
 Value. Configuration parameter for value
-
-Upstream description:
-
-Configuration parameter for value
 
 Receipt-pinned upstream constraints:
 
@@ -1890,22 +1706,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2312201320011101-3300213213203000-3330112220002202-2103233031031310-2121130202030211-1012012310020303-3033023321023010-2332302132022020"></a>
-
-## Next pages — values / 301121213203 / 7
-
-- [primary.default_rr_set_group.caa_record](data-sources--dns_zone--reference--group-001.md#canonical-2231130311212021-2231121000310210-0333021133202030-2212032233303300-2233330122101130-3300333102031111-0312302332003200-2201113110032012)
-- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
-
 <a id="canonical-0110033330222032-0123033013030301-1302023330330311-1330232122221312-3133301300302331-0131033023022301-0230230201212031-1221311203320220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2210223023303133-2112230302132202-3121210030020121-0100033231230101-1332123212200003-1323201010103000-3302011033021210-0032203133233301"></a>
-
-## primary.default_rr_set_group.cds_record — cds_record / 002202301001 / 2
+## `primary.default_rr_set_group.cds_record` properties
 
 Breadcrumbs:
 
@@ -1921,10 +1728,6 @@ Type: `"single"`. Computed.
 
 DNS CDS Record. DNS CDS Record.
 
-Upstream description:
-
-DNS CDS Record.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1938,15 +1741,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3331132330223233-0002022123231233-0200023030230120-1332031220111230-0223212011332131-3121013333210213-0112203112023212-3230300210321120"></a>
+<a id="canonical-2210223023303133-2112230302132202-3121210030020121-0100033231230101-1332123212200003-1323201010103000-3302011033021210-0032203133233301"></a>
 
-## Direct properties — cds_record / 002202301001 / 3
+### Direct properties for `primary.default_rr_set_group.cds_record`
 
 <a id="canonical-1201233312111231-1312223013101111-3000233222220130-0203330022131200-2111132003323200-2331110300033223-2031011031110210-2203031110220001"></a>
 
-<a id="canonical-0233233230322033-2330003210121121-3031133022101200-2303122010203212-3223331233332003-3333023300033200-0132030211132031-0301310230200113"></a>
-
-## name property — cds_record / 002202301001 / 4
+#### `primary.default_rr_set_group.cds_record.name` property
 
 Type: `"string"`. Computed.
 
@@ -1998,23 +1799,13 @@ Receipt-pinned upstream constraints:
 
 - [values](data-sources--dns_zone--reference--group-001.md#canonical-1320030231302213-2013220000302201-2213201212323011-1001112012013200-2201010011202112-3030303221322101-2001002102213022-0231200030313213): complete subsection reference.
 
-<a id="canonical-1012102003033222-1223303320032030-0031201110320122-1301303211003130-0203113011331021-1220213220331030-3203323311131303-0122132030301031"></a>
-
-## Next pages — cds_record / 002202301001 / 5
-
-- [primary.default_rr_set_group.cds_record.values](data-sources--dns_zone--reference--group-001.md#canonical-1320030231302213-2013220000302201-2213201212323011-1001112012013200-2201010011202112-3030303221322101-2001002102213022-0231200030313213)
-- [primary.default_rr_set_group](data-sources--dns_zone--reference--group-001.md#canonical-2333233213103330-0302202110210122-3330012220203203-2012221330313213-3020122001023320-2112110122003110-2303022223102003-1030220023110111)
-- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
-
 <a id="canonical-1320030231302213-2013220000302201-2213201212323011-1001112012013200-2201010011202112-3030303221322101-2001002102213022-0231200030313213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0020200231211201-3010220303123002-2302300310233313-0323312210131011-0302303133331210-2012213210112323-3222111001010210-1111133312120031"></a>
-
-## primary.default_rr_set_group.cds_record.values — values / 220022032200 / 2
+## `primary.default_rr_set_group.cds_record.values` properties
 
 Breadcrumbs:
 
@@ -2030,10 +1821,6 @@ Breadcrumbs:
 Type: `"list"`. Computed.
 
 DS Value. Configuration parameter for values
-
-Upstream description:
-
-Configuration parameter for values
 
 Receipt-pinned upstream constraints:
 
@@ -2072,15 +1859,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3033123222211322-2201211100333320-0132032130131302-3203132200020200-0212023202013322-0100102313323301-2002030030012311-3110233212133320"></a>
+<a id="canonical-0020200231211201-3010220303123002-2302300310233313-0323312210131011-0302303133331210-2012213210112323-3222111001010210-1111133312120031"></a>
 
-## Direct properties — values / 220022032200 / 3
+### Direct properties for `primary.default_rr_set_group.cds_record.values`
 
 <a id="canonical-3233213123322010-1211232312021001-1321021030302312-2130010311131123-1230122033211101-2032310133202201-3121332323122032-0100202220221311"></a>
 
-<a id="canonical-1313111100223012-1301100311002123-2221333011022331-2010202222103131-1022202232333201-2023332132131032-1323300331311202-3132123220023301"></a>
-
-## ds_key_algorithm property — values / 220022032200 / 4
+#### `primary.default_rr_set_group.cds_record.values.ds_key_algorithm` property
 
 Type: `"string"`. Computed.
 
@@ -2091,28 +1876,6 @@ RSASHA1 - RSASHA1NSEC3SHA1: RSASHA1-NSEC3-SHA1 - RSASHA256: RSASHA256 - RSASHA51
 ECDSAP256SHA256: ECDSAP256SHA256 - ECDSAP384SHA384: ECDSAP384SHA384 - ED25519: ED25519 - ED448:
 ED448. Possible values are \`UNSPECIFIED\`, \`RSASHA1\`, \`RSASHA1NSEC3SHA1\`, \`RSASHA256\`,
 \`RSASHA512\`, \`ECDSAP256SHA256\`, \`ECDSAP384SHA384\`, \`ED25519\`, \`ED448\`.
-
-Upstream description:
-
-DS key-value must be compatible with the specified algorithm.
-
-&#8203;- UNSPECIFIED: UNSPECIFIED
-
-&#8203;- RSASHA1: RSASHA1
-
-&#8203;- RSASHA1NSEC3SHA1: RSASHA1-NSEC3-SHA1
-
-&#8203;- RSASHA256: RSASHA256
-
-&#8203;- RSASHA512: RSASHA512
-
-&#8203;- ECDSAP256SHA256: ECDSAP256SHA256
-
-&#8203;- ECDSAP384SHA384: ECDSAP384SHA384
-
-&#8203;- ED25519: ED25519
-
-&#8203;- ED448: ED448.
 
 Receipt-pinned upstream constraints:
 
@@ -2141,15 +1904,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1013003310003321-0233033113131202-2030122110213212-2032012121113032-2220021001032001-1302233023132021-0023230203033212-0120111303021020"></a>
 
-<a id="canonical-0233031002311200-3320321232030300-3021000211033223-2110320203102032-2120311332030132-2003230223122110-3301320332220222-2233100303223102"></a>
+<a id="canonical-3033123222211322-2201211100333320-0132032130131302-3203132200020200-0212023202013322-0100102313323301-2002030030012311-3110233212133320"></a>
 
-## key_tag property — values / 220022032200 / 5
+#### `primary.default_rr_set_group.cds_record.values.key_tag` property
 
 Type: `"number"`. Computed.
-
-Short numeric value which can help quickly identify the referenced DNSKEY-record.
-
-Upstream description:
 
 A short numeric value which can help quickly identify the referenced DNSKEY-record.
 
@@ -2194,25 +1953,13 @@ Receipt-pinned upstream constraints:
 
 - [sha384_digest](data-sources--dns_zone--reference--group-001.md#canonical-2101320332232333-1300033130101121-1223311220002300-1021130021021331-3013020122210230-1000211022231110-2001013303211320-3121322232302331): complete subsection reference.
 
-<a id="canonical-1030020232103303-2221000011331221-2200101131323211-0332321213331232-2213112230210133-2132133101302133-2033230101021330-0313321120333312"></a>
-
-## Next pages — values / 220022032200 / 6
-
-- [primary.default_rr_set_group.cds_record.values.sha1_digest](data-sources--dns_zone--reference--group-001.md#canonical-2133022302012123-0220323023301322-3323231013023302-3212011312223012-1102220100330322-3330030001112321-2113203332012033-3023101320100111)
-- [primary.default_rr_set_group.cds_record.values.sha256_digest](data-sources--dns_zone--reference--group-001.md#canonical-2231130131103101-0130122012121130-3211003230012003-0130223100003331-3223211002130320-1332012313033213-0203122220232300-3301303321003311)
-- [primary.default_rr_set_group.cds_record.values.sha384_digest](data-sources--dns_zone--reference--group-001.md#canonical-2101320332232333-1300033130101121-1223311220002300-1021130021021331-3013020122210230-1000211022231110-2001013303211320-3121322232302331)
-- [primary.default_rr_set_group.cds_record](data-sources--dns_zone--reference--group-001.md#canonical-0110033330222032-0123033013030301-1302023330330311-1330232122221312-3133301300302331-0131033023022301-0230230201212031-1221311203320220)
-- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
-
 <a id="canonical-2133022302012123-0220323023301322-3323231013023302-3212011312223012-1102220100330322-3330030001112321-2113203332012033-3023101320100111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1101100200130301-1021310332102033-3033201100112111-3230220220021012-1320013003103111-1302331331302202-1233300033332233-1030133001122213"></a>
-
-## primary.default_rr_set_group.cds_record.values.sha1_digest — sha1_digest / 321231230211 / 2
+## `primary.default_rr_set_group.cds_record.values.sha1_digest` properties
 
 Breadcrumbs:
 
@@ -2243,15 +1990,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0130322201222303-0001300330100123-1331011122001030-1131113210303012-1230321102211200-0003033111233231-3303031002112332-2221331013320301"></a>
+<a id="canonical-1101100200130301-1021310332102033-3033201100112111-3230220220021012-1320013003103111-1302331331302202-1233300033332233-1030133001122213"></a>
 
-## Direct properties — sha1_digest / 321231230211 / 3
+### Direct properties for `primary.default_rr_set_group.cds_record.values.sha1_digest`
 
 <a id="canonical-1120131122112210-0130233133221023-1202331310003101-3200323303211222-2232202233101230-1012013122122111-2112101103333222-2001111220211112"></a>
 
-<a id="canonical-0121031031233232-3221320103303131-1203131203211020-1101011012331021-3033112103232331-0213322012213320-2320122201031100-2111003231213010"></a>
-
-## digest property — sha1_digest / 321231230211 / 4
+#### `primary.default_rr_set_group.cds_record.values.sha1_digest.digest` property
 
 Type: `"string"`. Computed.
 
@@ -2294,22 +2039,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0022310122000302-3312200132323030-2130123213020332-3300011203031311-0320111301122301-2120121121222112-3230202331010310-2311233331012110"></a>
-
-## Next pages — sha1_digest / 321231230211 / 5
-
-- [primary.default_rr_set_group.cds_record.values](data-sources--dns_zone--reference--group-001.md#canonical-1320030231302213-2013220000302201-2213201212323011-1001112012013200-2201010011202112-3030303221322101-2001002102213022-0231200030313213)
-- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
-
 <a id="canonical-2231130131103101-0130122012121130-3211003230012003-0130223100003331-3223211002130320-1332012313033213-0203122220232300-3301303321003311"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1003203212012131-3002000012311123-1120213002213131-2003112103130323-2020332302123011-1220301312131222-2202100123121103-3220221010331233"></a>
-
-## primary.default_rr_set_group.cds_record.values.sha256_digest — sha256_digest / 020031331133 / 2
+## `primary.default_rr_set_group.cds_record.values.sha256_digest` properties
 
 Breadcrumbs:
 
@@ -2340,15 +2076,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3312220030010111-1020203130211321-2333320130230122-3221011213031200-0202131220203322-1221133123022223-3021203102032321-3113310300232100"></a>
+<a id="canonical-1003203212012131-3002000012311123-1120213002213131-2003112103130323-2020332302123011-1220301312131222-2202100123121103-3220221010331233"></a>
 
-## Direct properties — sha256_digest / 020031331133 / 3
+### Direct properties for `primary.default_rr_set_group.cds_record.values.sha256_digest`
 
 <a id="canonical-0330110211220103-0112233012302321-0320000301011010-0301013311202131-3102130303001111-0000023002230313-1032013222121111-3201032233202022"></a>
 
-<a id="canonical-1111131123322101-3031233230331202-1220033113223003-1231032031330321-1100020103030310-1003310300231131-2022203112123332-2021133013001313"></a>
-
-## digest property — sha256_digest / 020031331133 / 4
+#### `primary.default_rr_set_group.cds_record.values.sha256_digest.digest` property
 
 Type: `"string"`. Computed.
 
@@ -2391,22 +2125,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0010020310133120-1133132313321003-3002001010300010-0301222202011312-2103300302031103-3323212323320203-1230020322212232-2130201123223110"></a>
-
-## Next pages — sha256_digest / 020031331133 / 5
-
-- [primary.default_rr_set_group.cds_record.values](data-sources--dns_zone--reference--group-001.md#canonical-1320030231302213-2013220000302201-2213201212323011-1001112012013200-2201010011202112-3030303221322101-2001002102213022-0231200030313213)
-- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
-
 <a id="canonical-2101320332232333-1300033130101121-1223311220002300-1021130021021331-3013020122210230-1000211022231110-2001013303211320-3121322232302331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0133010002210230-1112302011302300-0233332210212221-3221231321021320-3132332113103012-1112001013033332-2211113312031232-3103321332213100"></a>
-
-## primary.default_rr_set_group.cds_record.values.sha384_digest — sha384_digest / 200313001313 / 2
+## `primary.default_rr_set_group.cds_record.values.sha384_digest` properties
 
 Breadcrumbs:
 
@@ -2437,15 +2162,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1223113302101112-2312002333021011-2303131103032321-3322131101230222-3111101233200221-3101213113020322-1001120003302032-0000222302131020"></a>
+<a id="canonical-0133010002210230-1112302011302300-0233332210212221-3221231321021320-3132332113103012-1112001013033332-2211113312031232-3103321332213100"></a>
 
-## Direct properties — sha384_digest / 200313001313 / 3
+### Direct properties for `primary.default_rr_set_group.cds_record.values.sha384_digest`
 
 <a id="canonical-0302321003303001-0122012011100300-1121323322030303-1301010313100320-2101220130023133-3132221310321100-2011333230130233-2202031120302103"></a>
 
-<a id="canonical-2023101331223001-1132333022303201-3220323322033222-0301233233102220-3331331231110033-0233110113230211-0030021013223001-3312133210202130"></a>
-
-## digest property — sha384_digest / 200313001313 / 4
+#### `primary.default_rr_set_group.cds_record.values.sha384_digest.digest` property
 
 Type: `"string"`. Computed.
 
@@ -2488,22 +2211,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3301331320111123-2230001202201101-3223132333022132-1310010122301312-2100331002222332-0120100100013110-1322000121331201-2321020333102323"></a>
-
-## Next pages — sha384_digest / 200313001313 / 5
-
-- [primary.default_rr_set_group.cds_record.values](data-sources--dns_zone--reference--group-001.md#canonical-1320030231302213-2013220000302201-2213201212323011-1001112012013200-2201010011202112-3030303221322101-2001002102213022-0231200030313213)
-- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
-
 <a id="canonical-2103113313321033-0201132202120131-1011321103103120-0212131230022211-1011221201210111-1203211223103012-3213112020013312-0122002221223221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3320220203010133-2101103030133130-0033111030302133-1131331113122202-1103313201212030-2223012300203331-3033102233220011-2311020023011103"></a>
-
-## primary.default_rr_set_group.cert_record — cert_record / 300222232320 / 2
+## `primary.default_rr_set_group.cert_record` properties
 
 Breadcrumbs:
 
@@ -2519,7 +2233,7 @@ Type: `"single"`. Computed.
 
 Configuration parameter for cert record.
 
-Upstream description:
+Additional upstream details:
 
 DNS CERT Record.
 
@@ -2536,15 +2250,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2020231111300122-2332003222112330-1031220333301001-0233032231301213-2130000110323111-2220003333101230-1003110330033301-3211221313011032"></a>
+<a id="canonical-3320220203010133-2101103030133130-0033111030302133-1131331113122202-1103313201212030-2223012300203331-3033102233220011-2311020023011103"></a>
 
-## Direct properties — cert_record / 300222232320 / 3
+### Direct properties for `primary.default_rr_set_group.cert_record`
 
 <a id="canonical-3312220333221031-3220130201031212-2002110032020233-1201230221201312-2000101303322310-3311330031230311-0111131011310213-3312210201113022"></a>
 
-<a id="canonical-3213311033210112-0121132231130323-1321102320120323-0012021231122023-0222232310030011-0011212320003332-3222003111101031-3132231203322330"></a>
-
-## name property — cert_record / 300222232320 / 4
+#### `primary.default_rr_set_group.cert_record.name` property
 
 Type: `"string"`. Computed.
 
@@ -2596,23 +2308,13 @@ Receipt-pinned upstream constraints:
 
 - [values](data-sources--dns_zone--reference--group-001.md#canonical-1120031120230330-2222022101310233-1110032021010231-3321311203222233-1320112010302133-3232100311322323-1103102112030310-2120132302312320): complete subsection reference.
 
-<a id="canonical-1023301113210130-0132110111003301-0123220031103332-3200230233230123-0330333000033220-3120120231231022-0123312023201002-1220023031122311"></a>
-
-## Next pages — cert_record / 300222232320 / 5
-
-- [primary.default_rr_set_group.cert_record.values](data-sources--dns_zone--reference--group-001.md#canonical-1120031120230330-2222022101310233-1110032021010231-3321311203222233-1320112010302133-3232100311322323-1103102112030310-2120132302312320)
-- [primary.default_rr_set_group](data-sources--dns_zone--reference--group-001.md#canonical-2333233213103330-0302202110210122-3330012220203203-2012221330313213-3020122001023320-2112110122003110-2303022223102003-1030220023110111)
-- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
-
 <a id="canonical-1120031120230330-2222022101310233-1110032021010231-3321311203222233-1320112010302133-3232100311322323-1103102112030310-2120132302312320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1133122311230213-0121333131111320-0011203303120313-2222203311321132-0300231333131231-3200320221331330-0010022321320220-1200223211332020"></a>
-
-## primary.default_rr_set_group.cert_record.values — values / 101323202103 / 2
+## `primary.default_rr_set_group.cert_record.values` properties
 
 Breadcrumbs:
 
@@ -2628,10 +2330,6 @@ Breadcrumbs:
 Type: `"list"`. Computed.
 
 CERT Value. Configuration parameter for values
-
-Upstream description:
-
-Configuration parameter for values
 
 Receipt-pinned upstream constraints:
 
@@ -2670,15 +2368,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2112223032331210-2300130220233222-0011232112003003-3231211032011030-2302003102111221-3303331023211232-0012213000131322-3231322223031200"></a>
+<a id="canonical-1133122311230213-0121333131111320-0011203303120313-2222203311321132-0300231333131231-3200320221331330-0010022321320220-1200223211332020"></a>
 
-## Direct properties — values / 101323202103 / 3
+### Direct properties for `primary.default_rr_set_group.cert_record.values`
 
 <a id="canonical-2110103123313222-3133011311023130-1330323122011122-0100032000232133-2122211311121031-1231120200000132-3031230301321010-2323313000212112"></a>
 
-<a id="canonical-3323132311112301-1302202031322230-1210003213222332-2131302230232020-2102232332210210-3030121230130201-0311030010331322-0102230001110003"></a>
-
-## algorithm property — values / 101323202103 / 4
+#### `primary.default_rr_set_group.cert_record.values.algorithm` property
 
 Type: `"string"`. Computed.
 
@@ -2688,28 +2384,6 @@ RESERVEDALGORITHM - RSAMD5: RSAMD5 - DH: DH - DSASHA1: DSASHA1 - ECC: ECC - RSAS
 RSA-SHA1 - INDIRECT: INDIRECT - PRIVATEDNS: PRIVATEDNS - PRIVATEOID: PRIVATEOID. Possible values are
 \`RESERVEDALGORITHM\`, \`RSAMD5\`, \`DH\`, \`DSASHA1\`, \`ECC\`, \`RSASHA1ALGORITHM\`, \`INDIRECT\`,
 \`PRIVATEDNS\`, \`PRIVATEOID\`. Defaults to \`RESERVEDALGORITHM\`.
-
-Upstream description:
-
-CERT algorithm value must be compatible with the specified algorithm.
-
-&#8203;- RESERVEDALGORITHM: RESERVEDALGORITHM
-
-&#8203;- RSAMD5: RSAMD5
-
-&#8203;- DH: DH
-
-&#8203;- DSASHA1: DSASHA1
-
-&#8203;- ECC: ECC
-
-&#8203;- RSASHA1ALGORITHM: RSA-SHA1
-
-&#8203;- INDIRECT: INDIRECT
-
-&#8203;- PRIVATEDNS: PRIVATEDNS
-
-&#8203;- PRIVATEOID: PRIVATEOID.
 
 Receipt-pinned upstream constraints:
 
@@ -2738,17 +2412,13 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2200300230131231-1333023020230233-0133020022321030-3033103233010112-1000022211020301-0101212100002200-1010100100013130-1100013000013031"></a>
 
-<a id="canonical-0331323131303130-0202232203132022-2321301133113131-3001201232101030-1100202132030120-2103130111232031-1321133023103011-3133121213231301"></a>
+<a id="canonical-2112223032331210-2300130220233222-0011232112003003-3231211032011030-2302003102111221-3303331023211232-0012213000131322-3231322223031200"></a>
 
-## cert_key_tag property — values / 101323202103 / 5
+#### `primary.default_rr_set_group.cert_record.values.cert_key_tag` property
 
 Type: `"number"`. Computed.
 
 Key Tag. Tag for categorization and filtering
-
-Upstream description:
-
-Tag for categorization and filtering
 
 Receipt-pinned upstream constraints:
 
@@ -2787,9 +2457,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1002200101302031-2132212233210101-1311100333232013-2333200133211232-3223303003302033-2303111213110322-2122330221223223-1222220212311011"></a>
 
-<a id="canonical-3033313000110213-2131011002010333-3000100032113311-2010113003300302-2220003302002223-3033110321313313-3003122003310010-1023123021302301"></a>
+<a id="canonical-3323132311112301-1302202031322230-1210003213222332-2131302230232020-2102232332210210-3030121230130201-0311030010331322-0102230001110003"></a>
 
-## cert_type property — values / 101323202103 / 6
+#### `primary.default_rr_set_group.cert_record.values.cert_type` property
 
 Type: `"string"`. Computed.
 
@@ -2799,32 +2469,6 @@ SPKI - PGP: PGP - IPKIX: IPKIX - ISPKI: ISPKI - IPGP: IPGP - ACPKIX: ACPKIX - IA
 URI\_: URI - OID: OID. Possible values are \`INVALIDCERTTYPE\`, \`PKIX\`, \`SPKI\`, \`PGP\`,
 \`IPKIX\`, \`ISPKI\`, \`IPGP\`, \`ACPKIX\`, \`IACPKIX\`, \`URI\_\`, \`OID\`. Defaults to
 \`INVALIDCERTTYPE\`.
-
-Upstream description:
-
-CERT type value must be compatible with the specified types.
-
-&#8203;- INVALIDCERTTYPE: INVALIDCERTTYPE
-
-&#8203;- PKIX: PKIX
-
-&#8203;- SPKI: SPKI
-
-&#8203;- PGP: PGP
-
-&#8203;- IPKIX: IPKIX
-
-&#8203;- ISPKI: ISPKI
-
-&#8203;- IPGP: IPGP
-
-&#8203;- ACPKIX: ACPKIX
-
-&#8203;- IACPKIX: IACPKIX
-
-&#8203;- URI\_: URI
-
-&#8203;- OID: OID.
 
 Receipt-pinned upstream constraints:
 
@@ -2855,17 +2499,13 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3122321133333333-1313311023321310-2110012323101232-1320010313330122-3203211011023331-1101001120332021-0110112311122320-3311310102211311"></a>
 
-<a id="canonical-1321221332011323-1001120023220101-2302102221211323-0330221332303110-2210303031333130-2132101122011233-3113212313011130-0321213033303002"></a>
+<a id="canonical-0331323131303130-0202232203132022-2321301133113131-3001201232101030-1100202132030120-2103130111232031-1321133023103011-3133121213231301"></a>
 
-## certificate property — values / 101323202103 / 7
+#### `primary.default_rr_set_group.cert_record.values.certificate` property
 
 Type: `"string"`. Computed.
 
 Certificate. Certificate in base 64 format.
-
-Upstream description:
-
-Certificate in base 64 format.
 
 Receipt-pinned upstream constraints:
 
@@ -2914,22 +2554,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3332230012101230-0330022330330230-2331323323010302-3231031100013311-2331303321101322-0033100000212020-1211133023321110-2232010303132123"></a>
-
-## Next pages — values / 101323202103 / 8
-
-- [primary.default_rr_set_group.cert_record](data-sources--dns_zone--reference--group-001.md#canonical-2103113313321033-0201132202120131-1011321103103120-0212131230022211-1011221201210111-1203211223103012-3213112020013312-0122002221223221)
-- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
-
 <a id="canonical-1210222313232023-3302132113200010-1102000331232222-1301112000130123-0332301130133312-0112100212202202-3031221112323220-3020332031122200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3233133211212200-2131001032221103-0302213031112200-3313303321320021-2330233322201321-2333221311330032-3011022003123301-0132100001223033"></a>
-
-## primary.default_rr_set_group.cname_record — cname_record / 220200132223 / 2
+## `primary.default_rr_set_group.cname_record` properties
 
 Breadcrumbs:
 
@@ -2958,15 +2589,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2321310211122231-2112300220000021-0103111202032031-1323110101310220-1112212103320121-3020300021112230-3201200111120022-3103103330032023"></a>
+<a id="canonical-3233133211212200-2131001032221103-0302213031112200-3313303321320021-2330233322201321-2333221311330032-3011022003123301-0132100001223033"></a>
 
-## Direct properties — cname_record / 220200132223 / 3
+### Direct properties for `primary.default_rr_set_group.cname_record`
 
 <a id="canonical-3020113003202222-3332121000120002-0233003201323021-3031130003001032-0313022212232211-1133110132212202-0123303011210313-3131311203223010"></a>
 
-<a id="canonical-1211211031023103-3221002300333111-3121123100220200-2221103323231332-3301001133330122-0033133012013310-0323002212221300-1210332330001312"></a>
-
-## name property — cname_record / 220200132223 / 4
+#### `primary.default_rr_set_group.cname_record.name` property
 
 Type: `"string"`. Computed.
 
@@ -3021,17 +2650,13 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1310203013003032-2033100230131202-1013032123032013-0223122123333120-1303232300121302-1111013312202312-3021302322110300-3212003110312100"></a>
 
-<a id="canonical-2003222321233201-1322101122320232-3220000021130112-3031020203013210-0230110233303100-2211133132212312-2033020132203301-2331003113023020"></a>
+<a id="canonical-2321310211122231-2112300220000021-0103111202032031-1323110101310220-1112212103320121-3020300021112230-3201200111120022-3103103330032023"></a>
 
-## value property — cname_record / 220200132223 / 5
+#### `primary.default_rr_set_group.cname_record.value` property
 
 Type: `"string"`. Computed.
 
 Domain. Configuration parameter for value
-
-Upstream description:
-
-Configuration parameter for value
 
 Receipt-pinned upstream constraints:
 
@@ -3067,22 +2692,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1213213303000200-1321233130021120-2012303200112333-2223211220303130-0113001100120030-3023023202302302-2102202102131331-1203010112122211"></a>
-
-## Next pages — cname_record / 220200132223 / 6
-
-- [primary.default_rr_set_group](data-sources--dns_zone--reference--group-001.md#canonical-2333233213103330-0302202110210122-3330012220203203-2012221330313213-3020122001023320-2112110122003110-2303022223102003-1030220023110111)
-- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
-
 <a id="canonical-0332332020330012-1003302232123021-0022232311333132-0113122113322112-2123033321110312-3133333133301221-0121330302222103-3212000033322100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3133122031230201-3001301222020030-2322111231231300-0301023313300101-2103023323313100-1131003131033003-1101321221112122-2233311010313121"></a>
-
-## primary.default_rr_set_group.ds_record — ds_record / 113310202233 / 2
+## `primary.default_rr_set_group.ds_record` properties
 
 Breadcrumbs:
 
@@ -3098,10 +2714,6 @@ Type: `"single"`. Computed.
 
 DNS DS Record. DNS DS Record.
 
-Upstream description:
-
-DNS DS Record.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3115,15 +2727,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1120221223113002-1331030103022333-3012220330312310-2112102022210221-3003103320010122-3122123120001001-1332333123223132-3020132023333020"></a>
+<a id="canonical-3133122031230201-3001301222020030-2322111231231300-0301023313300101-2103023323313100-1131003131033003-1101321221112122-2233311010313121"></a>
 
-## Direct properties — ds_record / 113310202233 / 3
+### Direct properties for `primary.default_rr_set_group.ds_record`
 
 <a id="canonical-2210113100211302-3023013321210022-3333000201102313-0132020301300332-3213330302032230-0032313022031123-2333123021331230-0220332230231321"></a>
 
-<a id="canonical-2303002110222030-1133022203210322-3231133103123201-0023030301331231-1023012320110233-2132330012203023-3202321203110222-0303223122211231"></a>
-
-## name property — ds_record / 113310202233 / 4
+#### `primary.default_rr_set_group.ds_record.name` property
 
 Type: `"string"`. Computed.
 
@@ -3175,23 +2785,13 @@ Receipt-pinned upstream constraints:
 
 - [values](data-sources--dns_zone--reference--group-001.md#canonical-1133333130110222-2223102021122311-2113332033031230-1100201102003302-3122213102212223-1032103101022120-2000002000223200-2023321023200100): complete subsection reference.
 
-<a id="canonical-2221200010212012-3223230012113012-3221300303003310-1333220322122101-3022102020102022-0322001313010113-0023030202030321-2302122003013102"></a>
-
-## Next pages — ds_record / 113310202233 / 5
-
-- [primary.default_rr_set_group.ds_record.values](data-sources--dns_zone--reference--group-001.md#canonical-1133333130110222-2223102021122311-2113332033031230-1100201102003302-3122213102212223-1032103101022120-2000002000223200-2023321023200100)
-- [primary.default_rr_set_group](data-sources--dns_zone--reference--group-001.md#canonical-2333233213103330-0302202110210122-3330012220203203-2012221330313213-3020122001023320-2112110122003110-2303022223102003-1030220023110111)
-- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
-
 <a id="canonical-1133333130110222-2223102021122311-2113332033031230-1100201102003302-3122213102212223-1032103101022120-2000002000223200-2023321023200100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3331210213020210-2131231303132312-0031201003012023-3023130110213223-2223312133201120-2220010210220112-0032200302111220-1302230021001000"></a>
-
-## primary.default_rr_set_group.ds_record.values — values / 320132011321 / 2
+## `primary.default_rr_set_group.ds_record.values` properties
 
 Breadcrumbs:
 
@@ -3207,10 +2807,6 @@ Breadcrumbs:
 Type: `"list"`. Computed.
 
 DS Value. Configuration parameter for values
-
-Upstream description:
-
-Configuration parameter for values
 
 Receipt-pinned upstream constraints:
 
@@ -3249,15 +2845,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2323130320231121-3103320330330332-0311021120310232-2112332012030120-1213133122020111-1210300312223011-3202103020222110-1200012021000202"></a>
+<a id="canonical-3331210213020210-2131231303132312-0031201003012023-3023130110213223-2223312133201120-2220010210220112-0032200302111220-1302230021001000"></a>
 
-## Direct properties — values / 320132011321 / 3
+### Direct properties for `primary.default_rr_set_group.ds_record.values`
 
 <a id="canonical-0122212333010013-2111301021003303-2103230323033300-3333323220330332-2121323332011232-0311313230312000-2032212021031322-0212212220312213"></a>
 
-<a id="canonical-1302223033013132-0332221113120123-0200332302101121-1303103100023312-2331120030311123-1010213202000120-2201323321032003-0302201333323231"></a>
-
-## ds_key_algorithm property — values / 320132011321 / 4
+#### `primary.default_rr_set_group.ds_record.values.ds_key_algorithm` property
 
 Type: `"string"`. Computed.
 
@@ -3268,28 +2862,6 @@ RSASHA1 - RSASHA1NSEC3SHA1: RSASHA1-NSEC3-SHA1 - RSASHA256: RSASHA256 - RSASHA51
 ECDSAP256SHA256: ECDSAP256SHA256 - ECDSAP384SHA384: ECDSAP384SHA384 - ED25519: ED25519 - ED448:
 ED448. Possible values are \`UNSPECIFIED\`, \`RSASHA1\`, \`RSASHA1NSEC3SHA1\`, \`RSASHA256\`,
 \`RSASHA512\`, \`ECDSAP256SHA256\`, \`ECDSAP384SHA384\`, \`ED25519\`, \`ED448\`.
-
-Upstream description:
-
-DS key-value must be compatible with the specified algorithm.
-
-&#8203;- UNSPECIFIED: UNSPECIFIED
-
-&#8203;- RSASHA1: RSASHA1
-
-&#8203;- RSASHA1NSEC3SHA1: RSASHA1-NSEC3-SHA1
-
-&#8203;- RSASHA256: RSASHA256
-
-&#8203;- RSASHA512: RSASHA512
-
-&#8203;- ECDSAP256SHA256: ECDSAP256SHA256
-
-&#8203;- ECDSAP384SHA384: ECDSAP384SHA384
-
-&#8203;- ED25519: ED25519
-
-&#8203;- ED448: ED448.
 
 Receipt-pinned upstream constraints:
 
@@ -3318,15 +2890,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2302203310103211-2223100220132232-1032020122123322-3311133002203121-0312003313110320-2223111030000202-1303300013223313-0230131332222113"></a>
 
-<a id="canonical-0122212312301220-1112002133000303-0210203121012223-2300100300210210-3231230331022323-2201303120212122-0231213020000021-0012230200330213"></a>
+<a id="canonical-2323130320231121-3103320330330332-0311021120310232-2112332012030120-1213133122020111-1210300312223011-3202103020222110-1200012021000202"></a>
 
-## key_tag property — values / 320132011321 / 5
+#### `primary.default_rr_set_group.ds_record.values.key_tag` property
 
 Type: `"number"`. Computed.
-
-Short numeric value which can help quickly identify the referenced DNSKEY-record.
-
-Upstream description:
 
 A short numeric value which can help quickly identify the referenced DNSKEY-record.
 
@@ -3365,8 +2933,1186 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [sha1_digest](data-sources--dns_zone--reference--group-002.md#canonical-2330211211113323-0133320000331330-3212111101203123-1220330011232233-1300320223102222-3211311200130210-1032213010030230-1222030202212313): complete subsection reference.
+- [sha1_digest](data-sources--dns_zone--reference--group-001.md#canonical-2330211211113323-0133320000331330-3212111101203123-1220330011232233-1300320223102222-3211311200130210-1032213010030230-1222030202212313): complete subsection reference.
 
-- [sha256_digest](data-sources--dns_zone--reference--group-002.md#canonical-1020002003030032-1130201032112031-3010331300321220-3320103121300300-0331321313303330-1310231231013013-1320221110333110-2202021210002033): complete subsection reference.
+- [sha256_digest](data-sources--dns_zone--reference--group-001.md#canonical-1020002003030032-1130201032112031-3010331300321220-3320103121300300-0331321313303330-1310231231013013-1320221110333110-2202021210002033): complete subsection reference.
 
-- [sha384_digest](data-sources--dns_zone--reference--group-002.md#canonical-2022232333211100-0121202021103121-2302000333012022-1232200321013202-0201321121130123-3310311330202123-2022000220113232-0111002333132313): complete subsection reference.
+- [sha384_digest](data-sources--dns_zone--reference--group-001.md#canonical-2022232333211100-0121202021103121-2302000333012022-1232200321013202-0201321121130123-3310311330202123-2022000220113232-0111002333132313): complete subsection reference.
+
+<a id="canonical-2330211211113323-0133320000331330-3212111101203123-1220330011232233-1300320223102222-3211311200130210-1032213010030230-1222030202212313"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `primary.default_rr_set_group.ds_record.values.sha1_digest` properties
+
+Breadcrumbs:
+
+- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
+- [Property reference](data-sources--dns_zone--reference--group-001.md#canonical-1320000120201111-2203011021030331-2320302132022301-3231311102321211-2320003331323333-0100003331333313-2321331201112230-0113213102020011)
+- [primary](data-sources--dns_zone--reference--group-001.md#canonical-3202300020132202-1031131002222003-2332211013000101-2012120102112221-3101102031020211-2011220131110101-1030320013331200-1333313321323331)
+- [primary.default_rr_set_group](data-sources--dns_zone--reference--group-001.md#canonical-2333233213103330-0302202110210122-3330012220203203-2012221330313213-3020122001023320-2112110122003110-2303022223102003-1030220023110111)
+- [primary.default_rr_set_group.ds_record](data-sources--dns_zone--reference--group-001.md#canonical-0332332020330012-1003302232123021-0022232311333132-0113122113322112-2123033321110312-3133333133301221-0121330302222103-3212000033322100)
+- [primary.default_rr_set_group.ds_record.values](data-sources--dns_zone--reference--group-001.md#canonical-1133333130110222-2223102021122311-2113332033031230-1100201102003302-3122213102212223-1032103101022120-2000002000223200-2023321023200100)
+- primary.default_rr_set_group.ds_record.values.sha1_digest
+
+<a id="canonical-1223112030310123-0221210302013131-1302031020223003-0232102210013120-0312301030233230-3011132002111230-2011112321221331-2031230100020003"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for sha1 digest.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2211210023030002-0001323210232221-0022113122311023-0311111011300330-0132030102113333-1033011321012203-1023200121323210-2102330033330213"></a>
+
+### Direct properties for `primary.default_rr_set_group.ds_record.values.sha1_digest`
+
+<a id="canonical-2023121103322110-3103132303130122-2323231213010203-0220231130100102-3101121223031323-3230022000013212-3230211311003023-0133203133102013"></a>
+
+#### `primary.default_rr_set_group.ds_record.values.sha1_digest.digest` property
+
+Type: `"string"`. Computed.
+
+The 'digest' is the DS key and the actual contents of the DS record.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 40,
+  "minLength": 40,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 40,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 40
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "40",
+    "ves.io.schema.rules.string.min_len": "40"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "40",
+    "ves.io.schema.rules.string.min_len": "40"
+  }
+}
+```
+
+<a id="canonical-1020002003030032-1130201032112031-3010331300321220-3320103121300300-0331321313303330-1310231231013013-1320221110333110-2202021210002033"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `primary.default_rr_set_group.ds_record.values.sha256_digest` properties
+
+Breadcrumbs:
+
+- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
+- [Property reference](data-sources--dns_zone--reference--group-001.md#canonical-1320000120201111-2203011021030331-2320302132022301-3231311102321211-2320003331323333-0100003331333313-2321331201112230-0113213102020011)
+- [primary](data-sources--dns_zone--reference--group-001.md#canonical-3202300020132202-1031131002222003-2332211013000101-2012120102112221-3101102031020211-2011220131110101-1030320013331200-1333313321323331)
+- [primary.default_rr_set_group](data-sources--dns_zone--reference--group-001.md#canonical-2333233213103330-0302202110210122-3330012220203203-2012221330313213-3020122001023320-2112110122003110-2303022223102003-1030220023110111)
+- [primary.default_rr_set_group.ds_record](data-sources--dns_zone--reference--group-001.md#canonical-0332332020330012-1003302232123021-0022232311333132-0113122113322112-2123033321110312-3133333133301221-0121330302222103-3212000033322100)
+- [primary.default_rr_set_group.ds_record.values](data-sources--dns_zone--reference--group-001.md#canonical-1133333130110222-2223102021122311-2113332033031230-1100201102003302-3122213102212223-1032103101022120-2000002000223200-2023321023200100)
+- primary.default_rr_set_group.ds_record.values.sha256_digest
+
+<a id="canonical-1211103222131221-0032322120303010-2101302001321032-3231020200110231-3301212111210120-1102020121203303-3220031031021223-3022213213001031"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for sha256 digest.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1231220330220023-2313213001223231-3212221130222121-2103300132222102-2100222232312230-1122321330210301-1003321331102312-3201312222113223"></a>
+
+### Direct properties for `primary.default_rr_set_group.ds_record.values.sha256_digest`
+
+<a id="canonical-1031223323002303-2111302203323302-0012223231121122-1012003012203033-1120321223130001-0321321302003312-2210122333202000-2000010001121130"></a>
+
+#### `primary.default_rr_set_group.ds_record.values.sha256_digest.digest` property
+
+Type: `"string"`. Computed.
+
+The 'digest' is the DS key and the actual contents of the DS record.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "minLength": 64,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 64
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "64",
+    "ves.io.schema.rules.string.min_len": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "64",
+    "ves.io.schema.rules.string.min_len": "64"
+  }
+}
+```
+
+<a id="canonical-2022232333211100-0121202021103121-2302000333012022-1232200321013202-0201321121130123-3310311330202123-2022000220113232-0111002333132313"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `primary.default_rr_set_group.ds_record.values.sha384_digest` properties
+
+Breadcrumbs:
+
+- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
+- [Property reference](data-sources--dns_zone--reference--group-001.md#canonical-1320000120201111-2203011021030331-2320302132022301-3231311102321211-2320003331323333-0100003331333313-2321331201112230-0113213102020011)
+- [primary](data-sources--dns_zone--reference--group-001.md#canonical-3202300020132202-1031131002222003-2332211013000101-2012120102112221-3101102031020211-2011220131110101-1030320013331200-1333313321323331)
+- [primary.default_rr_set_group](data-sources--dns_zone--reference--group-001.md#canonical-2333233213103330-0302202110210122-3330012220203203-2012221330313213-3020122001023320-2112110122003110-2303022223102003-1030220023110111)
+- [primary.default_rr_set_group.ds_record](data-sources--dns_zone--reference--group-001.md#canonical-0332332020330012-1003302232123021-0022232311333132-0113122113322112-2123033321110312-3133333133301221-0121330302222103-3212000033322100)
+- [primary.default_rr_set_group.ds_record.values](data-sources--dns_zone--reference--group-001.md#canonical-1133333130110222-2223102021122311-2113332033031230-1100201102003302-3122213102212223-1032103101022120-2000002000223200-2023321023200100)
+- primary.default_rr_set_group.ds_record.values.sha384_digest
+
+<a id="canonical-1203222223031333-2213313232123133-0132023212213320-2122210011111231-3131223111200131-1123001213031032-3110211201230233-3010301332013201"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for sha384 digest.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0101212322133202-1033201010203131-2300200122230023-0010301322322203-3021010201213210-3010021113103031-3220111211033223-2020220313031203"></a>
+
+### Direct properties for `primary.default_rr_set_group.ds_record.values.sha384_digest`
+
+<a id="canonical-2100200132011100-3021232201132311-0110031023111230-0230311130112321-1022312111330101-1000311330010302-0011213030023103-0120313223313312"></a>
+
+#### `primary.default_rr_set_group.ds_record.values.sha384_digest.digest` property
+
+Type: `"string"`. Computed.
+
+The 'digest' is the DS key and the actual contents of the DS record.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 96,
+  "minLength": 96,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 96,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 96
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "96",
+    "ves.io.schema.rules.string.min_len": "96"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "96",
+    "ves.io.schema.rules.string.min_len": "96"
+  }
+}
+```
+
+<a id="canonical-3131300332020230-3331033131000131-1121003101002330-1233102210013032-0213323303121120-0011202223031101-3113322221020122-1031012321320303"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `primary.default_rr_set_group.eui48_record` properties
+
+Breadcrumbs:
+
+- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
+- [Property reference](data-sources--dns_zone--reference--group-001.md#canonical-1320000120201111-2203011021030331-2320302132022301-3231311102321211-2320003331323333-0100003331333313-2321331201112230-0113213102020011)
+- [primary](data-sources--dns_zone--reference--group-001.md#canonical-3202300020132202-1031131002222003-2332211013000101-2012120102112221-3101102031020211-2011220131110101-1030320013331200-1333313321323331)
+- [primary.default_rr_set_group](data-sources--dns_zone--reference--group-001.md#canonical-2333233213103330-0302202110210122-3330012220203203-2012221330313213-3020122001023320-2112110122003110-2303022223102003-1030220023110111)
+- primary.default_rr_set_group.eui48_record
+
+<a id="canonical-1101003211112233-0020221210212232-2301212122120221-2300232221312301-1030131112022130-3022331321302121-3330012020221302-1003130221133220"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for eui48 record.
+
+Additional upstream details:
+
+DNS EUI48 Record.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0002312221010002-2013311313320320-1121202103303210-0122222202210021-1012211132312122-2023222012010000-1112011322022322-0121013032330032"></a>
+
+### Direct properties for `primary.default_rr_set_group.eui48_record`
+
+<a id="canonical-3013102300200103-0202323022102033-1200330200122232-1210000233003231-3231021101211002-1232001131313323-2031200010211030-2213112022200230"></a>
+
+#### `primary.default_rr_set_group.eui48_record.name` property
+
+Type: `"string"`. Computed.
+
+EUI48 Record name, please provide only the specific subdomain or record name without the base
+domain.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^([a-zA-Z0-9*?]|([a-zA-Z0-9?*]+-[a-zA-Z0-9*?]+)){0,253}",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.pattern": "^([a-zA-Z0-9*?]|([a-zA-Z0-9?*]+-[a-zA-Z0-9*?]+)){0,253}"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.pattern": "^([a-zA-Z0-9*?]|([a-zA-Z0-9?*]+-[a-zA-Z0-9*?]+)){0,253}"
+  }
+}
+```
+
+<a id="canonical-0001211302020011-2101312333310022-1210110221303312-1000202000302121-2130300202121322-3310030321033312-2100100100120331-3101332333002001"></a>
+
+<a id="canonical-0203020133112301-0320123312221200-3000211012321333-1222223212202013-1303013332123123-0331203300120212-2203233101331312-1233101013321032"></a>
+
+#### `primary.default_rr_set_group.eui48_record.value` property
+
+Type: `"string"`. Computed.
+
+EUI48 Identifier. A valid eui48 identifier, for example: 01-23-45-67-89-ab.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 17,
+  "minLength": 17,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 17,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 17,
+    "pattern": "^([0-9A-Fa-f]{2}-){5}([0-9A-Fa-f]{2})$"
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "17",
+    "ves.io.schema.rules.string.min_len": "17",
+    "ves.io.schema.rules.string.pattern": "^([0-9A-Fa-f]{2}-){5}([0-9A-Fa-f]{2})$"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "17",
+    "ves.io.schema.rules.string.min_len": "17",
+    "ves.io.schema.rules.string.pattern": "^([0-9A-Fa-f]{2}-){5}([0-9A-Fa-f]{2})$"
+  }
+}
+```
+
+<a id="canonical-1001031330110020-1133122011223212-1221020310212103-2121030102103310-1031332030211201-3010332112131120-0002121331230022-3122212233332113"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `primary.default_rr_set_group.eui64_record` properties
+
+Breadcrumbs:
+
+- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
+- [Property reference](data-sources--dns_zone--reference--group-001.md#canonical-1320000120201111-2203011021030331-2320302132022301-3231311102321211-2320003331323333-0100003331333313-2321331201112230-0113213102020011)
+- [primary](data-sources--dns_zone--reference--group-001.md#canonical-3202300020132202-1031131002222003-2332211013000101-2012120102112221-3101102031020211-2011220131110101-1030320013331200-1333313321323331)
+- [primary.default_rr_set_group](data-sources--dns_zone--reference--group-001.md#canonical-2333233213103330-0302202110210122-3330012220203203-2012221330313213-3020122001023320-2112110122003110-2303022223102003-1030220023110111)
+- primary.default_rr_set_group.eui64_record
+
+<a id="canonical-3000330130313332-3332310121201212-2130221001122010-1300301102003012-1013322223111132-2331120122013201-2312123333332202-1012112130103120"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for eui64 record.
+
+Additional upstream details:
+
+DNS EUI64 Record.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3023002101212112-1231230202012111-0122021000323331-0330303330321202-2220211301003210-1013302332100203-0112322323020333-1031003323213312"></a>
+
+### Direct properties for `primary.default_rr_set_group.eui64_record`
+
+<a id="canonical-1110310131032031-2121201121311221-3220103312311032-2023310333211031-3221112200122201-2212302330023321-1332231122301120-0312310130220002"></a>
+
+#### `primary.default_rr_set_group.eui64_record.name` property
+
+Type: `"string"`. Computed.
+
+EUI64 Record name, please provide only the specific subdomain or record name without the base
+domain.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^([a-zA-Z0-9*?]|([a-zA-Z0-9?*]+-[a-zA-Z0-9*?]+)){0,253}",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.pattern": "^([a-zA-Z0-9*?]|([a-zA-Z0-9?*]+-[a-zA-Z0-9*?]+)){0,253}"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.pattern": "^([a-zA-Z0-9*?]|([a-zA-Z0-9?*]+-[a-zA-Z0-9*?]+)){0,253}"
+  }
+}
+```
+
+<a id="canonical-2222210322121023-2223222212201303-3012320021301102-2131013223033011-3131023001200320-1120233032223220-1021303201121302-3223121031211301"></a>
+
+<a id="canonical-3101220323313030-2133223122211231-0001021223200323-1203112312303311-1210232131031333-1233131221332013-0313202212021030-0000023120221212"></a>
+
+#### `primary.default_rr_set_group.eui64_record.value` property
+
+Type: `"string"`. Computed.
+
+EUI64 Identifier. A valid EUI64 identifier, for example: 01-23-45-67-89-ab-cd-ef.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 23,
+  "minLength": 23,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 23,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 23,
+    "pattern": "^([0-9A-Fa-f]{2}-){7}([0-9A-Fa-f]{2})$"
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "23",
+    "ves.io.schema.rules.string.min_len": "23",
+    "ves.io.schema.rules.string.pattern": "^([0-9A-Fa-f]{2}-){7}([0-9A-Fa-f]{2})$"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "23",
+    "ves.io.schema.rules.string.min_len": "23",
+    "ves.io.schema.rules.string.pattern": "^([0-9A-Fa-f]{2}-){7}([0-9A-Fa-f]{2})$"
+  }
+}
+```
+
+<a id="canonical-1321110233323023-3033012222210110-1100112210100301-1331110010313330-0202131111030201-0031121030023110-3303012321221102-1202212120312023"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `primary.default_rr_set_group.lb_record` properties
+
+Breadcrumbs:
+
+- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
+- [Property reference](data-sources--dns_zone--reference--group-001.md#canonical-1320000120201111-2203011021030331-2320302132022301-3231311102321211-2320003331323333-0100003331333313-2321331201112230-0113213102020011)
+- [primary](data-sources--dns_zone--reference--group-001.md#canonical-3202300020132202-1031131002222003-2332211013000101-2012120102112221-3101102031020211-2011220131110101-1030320013331200-1333313321323331)
+- [primary.default_rr_set_group](data-sources--dns_zone--reference--group-001.md#canonical-2333233213103330-0302202110210122-3330012220203203-2012221330313213-3020122001023320-2112110122003110-2303022223102003-1030220023110111)
+- primary.default_rr_set_group.lb_record
+
+<a id="canonical-3321013212110302-0023102310032001-3322010023033222-2230130001031320-3001233100201112-1020110302111000-1220132112322010-3203032000220202"></a>
+
+Type: `"single"`. Computed.
+
+DNS Load Balancer Record. DNS Load Balancer Record.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0101202310310222-3022003313310220-2201003100021022-2123213230222200-2201020122323012-3020103010012233-1323110133130111-3020131000100333"></a>
+
+### Direct properties for `primary.default_rr_set_group.lb_record`
+
+<a id="canonical-0213222223323021-1232220023221221-2113002203131303-3031102030213313-0231132333033122-2200210100232031-2003322233303023-2010000022313133"></a>
+
+#### `primary.default_rr_set_group.lb_record.name` property
+
+Type: `"string"`. Computed.
+
+Load Balancer record name (except for SRV DNS Load balancer record) should be a simple record name
+and not a subdomain of a subdomain.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 255,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 255,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "255"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "255"
+  }
+}
+```
+
+- [value](data-sources--dns_zone--reference--group-001.md#canonical-2311130033030021-2003222210122210-2020122132030012-2213211110331023-0222122311203110-2022333003013121-0100233211220113-2210120022302133): complete subsection reference.
+
+<a id="canonical-2311130033030021-2003222210122210-2020122132030012-2213211110331023-0222122311203110-2022333003013121-0100233211220113-2210120022302133"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `primary.default_rr_set_group.lb_record.value` properties
+
+Breadcrumbs:
+
+- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
+- [Property reference](data-sources--dns_zone--reference--group-001.md#canonical-1320000120201111-2203011021030331-2320302132022301-3231311102321211-2320003331323333-0100003331333313-2321331201112230-0113213102020011)
+- [primary](data-sources--dns_zone--reference--group-001.md#canonical-3202300020132202-1031131002222003-2332211013000101-2012120102112221-3101102031020211-2011220131110101-1030320013331200-1333313321323331)
+- [primary.default_rr_set_group](data-sources--dns_zone--reference--group-001.md#canonical-2333233213103330-0302202110210122-3330012220203203-2012221330313213-3020122001023320-2112110122003110-2303022223102003-1030220023110111)
+- [primary.default_rr_set_group.lb_record](data-sources--dns_zone--reference--group-001.md#canonical-1321110233323023-3033012222210110-1100112210100301-1331110010313330-0202131111030201-0031121030023110-3303012321221102-1202212120312023)
+- primary.default_rr_set_group.lb_record.value
+
+<a id="canonical-3132203013302103-1312022333333202-3130320101313310-3303130301333122-2113200331320023-0321031213112232-0322210330021013-0121332320212031"></a>
+
+Type: `"single"`. Computed.
+
+This type establishes a direct reference from one object(the referrer) to another(the referred).
+Such a reference is in form of tenant/namespace/name.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0312011302323310-1220010030202220-2333132131031233-3302032211323222-3220210013320300-2232100012012102-3230000200003200-0110101211202221"></a>
+
+### Direct properties for `primary.default_rr_set_group.lb_record.value`
+
+<a id="canonical-1131222303231032-1113322200021231-3133023102131231-1200300223133320-3311022322023333-2020231221020003-0011023000010012-3221322012121310"></a>
+
+#### `primary.default_rr_set_group.lb_record.value.name` property
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 128,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 128,
+      "min": 1
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  }
+}
+```
+
+<a id="canonical-1212022211001321-1200111110200222-2303103333002230-1013031323000102-0122222231132301-1333211130211121-0131132321223001-0101122332120212"></a>
+
+<a id="canonical-3100121013300220-0232021120213332-1120033030321332-3221312222201301-1003333323100332-1333203023211031-0320312000030323-3020301223101121"></a>
+
+#### `primary.default_rr_set_group.lb_record.value.namespace` property
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-3230102333320033-2110000030300102-0300320022222021-3012013123221123-2300002232010302-1112122220233213-0102120012112220-0321103120121233"></a>
+
+<a id="canonical-2200023111022330-1013022223322033-1131133103112332-0113200320020300-1233300121333312-2023322120100303-2210011313303131-2203021220113022"></a>
+
+#### `primary.default_rr_set_group.lb_record.value.tenant` property
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-3310122013002202-2201310111100013-3320132322330303-3003311222123331-1221002132100302-2122021012023311-0330301233113311-0002130121010103"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `primary.default_rr_set_group.loc_record` properties
+
+Breadcrumbs:
+
+- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
+- [Property reference](data-sources--dns_zone--reference--group-001.md#canonical-1320000120201111-2203011021030331-2320302132022301-3231311102321211-2320003331323333-0100003331333313-2321331201112230-0113213102020011)
+- [primary](data-sources--dns_zone--reference--group-001.md#canonical-3202300020132202-1031131002222003-2332211013000101-2012120102112221-3101102031020211-2011220131110101-1030320013331200-1333313321323331)
+- [primary.default_rr_set_group](data-sources--dns_zone--reference--group-001.md#canonical-2333233213103330-0302202110210122-3330012220203203-2012221330313213-3020122001023320-2112110122003110-2303022223102003-1030220023110111)
+- primary.default_rr_set_group.loc_record
+
+<a id="canonical-3302122211311222-3103311102023100-3220103323100201-2123010111112323-3123113301023332-0230002213201013-0330231020002311-2321300011222312"></a>
+
+Type: `"single"`. Computed.
+
+DNS LOC Record. DNS LOC Record.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3312331122230232-0000202022002122-0311223000110010-2203112121033301-0312011200003323-3102010011320111-3300112303311122-3213302231220223"></a>
+
+### Direct properties for `primary.default_rr_set_group.loc_record`
+
+<a id="canonical-1103230001020130-3331023302200223-0112220003002223-1000103012121303-0222220111130123-2020333213331303-0120213102211032-0313311132021233"></a>
+
+#### `primary.default_rr_set_group.loc_record.name` property
+
+Type: `"string"`. Computed.
+
+LOC Record name, please provide only the specific subdomain or record name without the base domain.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^([a-zA-Z0-9*?]|([a-zA-Z0-9?*]+-[a-zA-Z0-9*?]+)){0,253}",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.pattern": "^([a-zA-Z0-9*?]|([a-zA-Z0-9?*]+-[a-zA-Z0-9*?]+)){0,253}"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.pattern": "^([a-zA-Z0-9*?]|([a-zA-Z0-9?*]+-[a-zA-Z0-9*?]+)){0,253}"
+  }
+}
+```
+
+- [values](data-sources--dns_zone--reference--group-001.md#canonical-0332210330031101-0030003323333000-0122030130330130-0013312101002233-1233230131230102-0300231310030003-0331020120103023-0133320311021203): complete subsection reference.
+
+<a id="canonical-0332210330031101-0030003323333000-0122030130330130-0013312101002233-1233230131230102-0300231310030003-0331020120103023-0133320311021203"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `primary.default_rr_set_group.loc_record.values` properties
+
+Breadcrumbs:
+
+- [xcsh_dns_zone](../data-sources/dns_zone.md#canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131)
+- [Property reference](data-sources--dns_zone--reference--group-001.md#canonical-1320000120201111-2203011021030331-2320302132022301-3231311102321211-2320003331323333-0100003331333313-2321331201112230-0113213102020011)
+- [primary](data-sources--dns_zone--reference--group-001.md#canonical-3202300020132202-1031131002222003-2332211013000101-2012120102112221-3101102031020211-2011220131110101-1030320013331200-1333313321323331)
+- [primary.default_rr_set_group](data-sources--dns_zone--reference--group-001.md#canonical-2333233213103330-0302202110210122-3330012220203203-2012221330313213-3020122001023320-2112110122003110-2303022223102003-1030220023110111)
+- [primary.default_rr_set_group.loc_record](data-sources--dns_zone--reference--group-001.md#canonical-3310122013002202-2201310111100013-3320132322330303-3003311222123331-1221002132100302-2122021012023311-0330301233113311-0002130121010103)
+- primary.default_rr_set_group.loc_record.values
+
+<a id="canonical-3113200210231122-0221222203132301-0212030311303310-0330133133130233-2203302103302001-2132123322012331-2103102010130012-1013320022212120"></a>
+
+Type: `"list"`. Computed.
+
+LOC Value. Configuration parameter for values
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 100,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 100,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minItems": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "100",
+    "ves.io.schema.rules.repeated.min_items": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "100",
+    "ves.io.schema.rules.repeated.min_items": "1"
+  }
+}
+```
+
+<a id="canonical-1113113223103111-2320222030223202-1020002023000022-2132131222002203-2322301132312211-3033232100122111-2223000313032203-2001002313102011"></a>
+
+### Direct properties for `primary.default_rr_set_group.loc_record.values`
+
+<a id="canonical-3311200200213133-2021210303021311-2133231022013130-0331120213113330-2022203010312111-1301032302320021-1313021230230100-1121013032231210"></a>
+
+#### `primary.default_rr_set_group.loc_record.values.altitude` property
+
+Type: `"number"`. Computed.
+
+Altitude. Altitude in meters.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.float.gte": "-100000.00",
+    "ves.io.schema.rules.float.lte": "42849672.95",
+    "ves.io.schema.rules.message.required": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.float.gte": "-100000.00",
+    "ves.io.schema.rules.float.lte": "42849672.95",
+    "ves.io.schema.rules.message.required": "true"
+  }
+}
+```
+
+<a id="canonical-2300120201211002-2310321321030112-2130230300003332-0231021010202202-3122130320132231-3000013013122001-0222001100232331-3001110311320213"></a>
+
+<a id="canonical-2101003213302130-3123302102002330-2302102222232200-2130033111212133-0130212000331022-0021203202012213-1211301103122101-3012321031233332"></a>
+
+#### `primary.default_rr_set_group.loc_record.values.horizontal_precision` property
+
+Type: `"number"`. Computed.
+
+Horizontal Precision. Horizontal Precision in meters.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.float.gte": "0.0",
+    "ves.io.schema.rules.float.lte": "90000000.00"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.float.gte": "0.0",
+    "ves.io.schema.rules.float.lte": "90000000.00"
+  }
+}
+```
+
+<a id="canonical-3110303113003102-1031302331030321-0323110313132003-2131313102230020-0221013012300111-3111333123101320-0010001012103212-0230030110121310"></a>
+
+<a id="canonical-1323233021021113-0203113300312320-2012220321321001-3131210312013111-2013121311010012-1320112132031201-0032002023032313-0321031123030022"></a>
+
+#### `primary.default_rr_set_group.loc_record.values.latitude_degree` property
+
+Type: `"number"`. Computed.
+
+Latitude degree, an integer between 0 and 90, including 0 and 90.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 90,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 0
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.int32.gte": "0",
+    "ves.io.schema.rules.int32.lte": "90",
+    "ves.io.schema.rules.message.required": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.int32.gte": "0",
+    "ves.io.schema.rules.int32.lte": "90",
+    "ves.io.schema.rules.message.required": "true"
+  }
+}
+```
+
+<a id="canonical-0031230002231000-1210022311012023-0100113101103331-1101303222012222-3232112130033001-0320130022210312-1103201301000220-0102333100100110"></a>
+
+<a id="canonical-3033333030111201-2313010322321332-0023311130210303-3021001311030110-0002023111233320-1310331112333221-0220013121012202-2311313223320112"></a>
+
+#### `primary.default_rr_set_group.loc_record.values.latitude_hemisphere` property
+
+Type: `"string"`. Computed.
+
+\[Enum: N|S\] Latitude hemisphere can only be N or S - N: North Hemisphere - S: South Hemisphere.
+Possible values are \`N\`, \`S\`. Defaults to \`N\`.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "N",
+  "enum": [
+    "N",
+    "S"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2302110130023131-3121330000331301-1003332213113101-3130231322033301-0111122301311023-1201001100203033-1023313100311211-3131233302311013"></a>
+
+<a id="canonical-3110000002223213-3020310310222010-1313011232121221-0101321032233021-2230221021122332-1102210100100221-2121313333333200-2221321000113031"></a>
+
+#### `primary.default_rr_set_group.loc_record.values.latitude_minute` property
+
+Type: `"number"`. Computed.
+
+Latitude minute, an integer between 0 and 59, including 0 and 59.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 59,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 0
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.int32.gte": "0",
+    "ves.io.schema.rules.int32.lte": "59"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.int32.gte": "0",
+    "ves.io.schema.rules.int32.lte": "59"
+  }
+}
+```
+
+<a id="canonical-1311022203303033-3112312100332301-3310013101031230-3202311111222113-0202330221113131-3320312123311020-2233312002213221-3100303212010301"></a>

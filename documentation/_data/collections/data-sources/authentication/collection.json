@@ -236,8 +236,8 @@
   "pages": [
     {
       "aliases": ["authentication", "credential setup", "credentials"],
-      "body_bytes": 1327,
-      "body_sha256": "sha256:55b1fb0aa19b6037105f4b5e40048d13c05a1f70ef4c565af3c3f7055edb3205",
+      "body_bytes": 1341,
+      "body_sha256": "sha256:0ec8af24a47b71b7c3ee99e5a70a90fa79fd63be9b91864269b7d94d4f419399",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -268,7 +268,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Authentication resource in F5 Distributed Cloud.",
+      "summary": "Reads Authentication information from F5 Distributed Cloud.",
       "tasks": ["authentication", "configuration"],
       "title": "xcsh_authentication",
       "unresolved_relationships": [],
@@ -280,8 +280,8 @@
     },
     {
       "aliases": ["authentication", "credential setup", "credentials"],
-      "body_bytes": 18901,
-      "body_sha256": "sha256:53a422e928911e17b21a48cc72245136a70497cf57c2c43220e714e449ab0e26",
+      "body_bytes": 18560,
+      "body_sha256": "sha256:1cf015efc278ea47a477e765d51cca4349eb7804a89f72f60c60a0121781a17a",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -452,8 +452,8 @@
     },
     {
       "aliases": ["cookie params"],
-      "body_bytes": 5405,
-      "body_sha256": "sha256:fba7af3d155a4151e921f209479deaef6298e655221363c454f702aa4c3e89ff",
+      "body_bytes": 4072,
+      "body_sha256": "sha256:6e8aba20311512916891966a7b577a9bdd4aa2232cc8dc17e412fc195efc57e7",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -576,8 +576,8 @@
     },
     {
       "aliases": ["cookie params auth hmac"],
-      "body_bytes": 3713,
-      "body_sha256": "sha256:c129c5eb6b604846a6782082fe571f5cf790597033d886be4d6d3f09838c176e",
+      "body_bytes": 2845,
+      "body_sha256": "sha256:7d9610e50cec1fdc4b852083f2a124c7d307c5ab4686fa69b7fd60479e9292cd",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -684,8 +684,8 @@
     },
     {
       "aliases": ["cookie params auth hmac prim key"],
-      "body_bytes": 2214,
-      "body_sha256": "sha256:a492c6c79a3de0f37ebb47cc69aa31e2c1e06c3d16934e41d8542959745fdb00",
+      "body_bytes": 1525,
+      "body_sha256": "sha256:85de038ca9f2983b3a4ad0e688555007017ecb0cd0b80d658365bec144a886a8",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -760,8 +760,8 @@
     },
     {
       "aliases": ["cookie params auth hmac prim key blindfold secret info"],
-      "body_bytes": 4685,
-      "body_sha256": "sha256:3de9aede47b595acc652a411e6948020c7bd9ee0b4c04b89a2c5c91de4595222",
+      "body_bytes": 4023,
+      "body_sha256": "sha256:5f1b397b104d3620e159854a1bc0c8e24e21712ead183f83a31c0e03be145a55",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -849,8 +849,8 @@
     },
     {
       "aliases": ["cookie params auth hmac prim key clear secret info"],
-      "body_bytes": 3571,
-      "body_sha256": "sha256:5b592d52a1c1c151b452bbd79f5eea2bf4db64bdd4d5ee5a2281d962ec50f276",
+      "body_bytes": 3043,
+      "body_sha256": "sha256:11995b0b4f37b674e0ff17e7edf5865b26929b2ba272e1585cfdb44229c9f8a6",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -922,8 +922,8 @@
     },
     {
       "aliases": ["cookie params auth hmac sec key"],
-      "body_bytes": 2206,
-      "body_sha256": "sha256:73a71a3b2a6634990a9404fd821fafac8472b9b9837581f4fb9f4bbf07a01b97",
+      "body_bytes": 1521,
+      "body_sha256": "sha256:c8c7d78ab7ff418c24a6e48f0b2cfbc14cbba4f2644875034f423c3143081047",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -998,8 +998,8 @@
     },
     {
       "aliases": ["cookie params auth hmac sec key blindfold secret info"],
-      "body_bytes": 4676,
-      "body_sha256": "sha256:24ce520f6e00b34b9ea36de738abc9fa79da5c849ba1acf2c0bbcc4c189bac3f",
+      "body_bytes": 4016,
+      "body_sha256": "sha256:8ad742c1dd8a057c3c4c525d81dcf41ff2cd513808af3cb3ad239af1ab299e44",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -1087,8 +1087,8 @@
     },
     {
       "aliases": ["cookie params auth hmac sec key clear secret info"],
-      "body_bytes": 3563,
-      "body_sha256": "sha256:6153e4e9bed09796ee913e23fde2f3f844ddbcde23304ba433390bc9bb29de6a",
+      "body_bytes": 3037,
+      "body_sha256": "sha256:bc81c9cce8e3677a2f6f37bcee784332027a6e4a002ff8fb9307019e61f6304c",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -1160,8 +1160,8 @@
     },
     {
       "aliases": ["cookie params kms key hmac"],
-      "body_bytes": 1208,
-      "body_sha256": "sha256:af36b11e7d0c99147ad6f79cce978845a0849795383dbf04111b920435cd3509",
+      "body_bytes": 938,
+      "body_sha256": "sha256:3113a0ecad88c158de35d54e488db53fe66fb9afd4a54a8ea21ae8759001bd3d",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -1200,8 +1200,8 @@
     },
     {
       "aliases": ["oidc auth"],
-      "body_bytes": 3972,
-      "body_sha256": "sha256:b2c08c568f10002918f9385545342a517afd726784a956ea14ddbd82fd61a696",
+      "body_bytes": 3262,
+      "body_sha256": "sha256:b12c359f596a53b2d9002af578ab8203b8011367a5a8f7c8863e93d6dbd46224",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -1308,8 +1308,8 @@
     },
     {
       "aliases": ["oidc auth client secret"],
-      "body_bytes": 1957,
-      "body_sha256": "sha256:ad7141b1541923ffe12ddb450a4e0ad86c1051247b34ce04a6c5cc047d848d56",
+      "body_bytes": 1332,
+      "body_sha256": "sha256:06eab4d64825088dc325c732b402c53ac6002916a1d20d3fb1a74757b7204a2c",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -1384,8 +1384,8 @@
     },
     {
       "aliases": ["oidc auth client secret blindfold secret info"],
-      "body_bytes": 4444,
-      "body_sha256": "sha256:0cb817ce31b27277025d04c6c2465523091c9464d2312f9acc5b6ecabd8a8f3d",
+      "body_bytes": 3800,
+      "body_sha256": "sha256:efeed2d42a7c8cc903f78bd056522151b68762b0918d6d10750f82b7058d9627",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -1473,8 +1473,8 @@
     },
     {
       "aliases": ["oidc auth client secret clear secret info"],
-      "body_bytes": 3340,
-      "body_sha256": "sha256:f8e590be2b531c3b25f408d02f3cebabc8db0c87bfae4c1f9a23ea11b0d7b794",
+      "body_bytes": 2830,
+      "body_sha256": "sha256:8f9eb5987798c17de5b2fee342ab2124cfeb0a9006abd904a823fdc99bbd4051",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -1546,8 +1546,8 @@
     },
     {
       "aliases": ["oidc auth oidc auth params"],
-      "body_bytes": 4573,
-      "body_sha256": "sha256:945114f6e2be5790d3001ea190721a165dc8015004900cf83843cb4fb2d9d503",
+      "body_bytes": 4326,
+      "body_sha256": "sha256:4beafc7742c9b5e2d3f4b608fc5d338360ada8741bdb3876d8fdf66bc5cca96a",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -1635,8 +1635,8 @@
     },
     {
       "aliases": ["authentication", "credential setup", "credentials"],
-      "body_bytes": 669,
-      "body_sha256": "sha256:61a0519fc04e0a04ac8b2995dc50ccd365977229cf38a2780d6374e73781711d",
+      "body_bytes": 420,
+      "body_sha256": "sha256:e85cabd29aff9f906c06646fd532d36aa145fd1ac8e1e7f7ffbeeaaccb6ec6e1",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": ["xcsh-docs:data-sources:authentication:example:data-source"],
@@ -1675,8 +1675,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1307,
-      "body_sha256": "sha256:9e3aa75ad6a908f486c8323a188bbe3b786f74fd5c8f3da8d40e0270ad83d326",
+      "body_bytes": 1073,
+      "body_sha256": "sha256:dc094c42be0ccc1a91d53c0a5345ef4e2429551d2a698783aca0d1b24c4f2324",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],

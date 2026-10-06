@@ -2,7 +2,7 @@
 page_title: "rules.spec.domain_matcher"
 subcategory: "Security"
 description: "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions."
-xcsh_docs: {"aliases": ["rules spec domain matcher", "succeeded", "success", "successful"], "body_bytes": 4372, "body_sha256": "sha256:a18ade1df3eec119732a485b79426018b8cc6d8417746bd4335c937c8fca4620", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:domain_matcher", "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec", "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/domain_matcher/index.md", "product": "distributed-cloud", "provider_name": "rate_limiter_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2303121332011111-1232200221302002-3022032030001130-0230223111223022-3222030310332321-1010210020132012-0203313330323112-2222011312021032", "registry_path": "docs/guides/data-sources--rate_limiter_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["rules", "spec", "domain_matcher"], "schema_version": 1, "sections": [{"aliases": ["rules spec domain matcher exact values"], "anchor": "schema-rules--spec--domain_matcher--exact_values", "description": "A list of exact values to match the input against.", "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:domain_matcher", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "spec", "domain_matcher", "exact_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["rules spec domain matcher regex values"], "anchor": "schema-rules--spec--domain_matcher--regex_values", "description": "A list of regular expressions to match the input against.", "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:domain_matcher", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "spec", "domain_matcher", "regex_values"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/domain_matcher/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["rate_limiter_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["rules spec domain matcher", "succeeded", "success", "successful"], "body_bytes": 3689, "body_sha256": "sha256:76ad6b0913711dc0e67d4ce9c87ec1af5eca7c40b53c6c88739e08c50029df7d", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:domain_matcher", "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec", "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/domain_matcher/index.md", "product": "distributed-cloud", "provider_name": "rate_limiter_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2303121332011111-1232200221302002-3022032030001130-0230223111223022-3222030310332321-1010210020132012-0203313330323112-2222011312021032", "registry_path": "docs/guides/data-sources--rate_limiter_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["rules", "spec", "domain_matcher"], "schema_version": 1, "sections": [{"aliases": ["rules spec domain matcher exact values"], "anchor": "schema-rules--spec--domain_matcher--exact_values", "description": "A list of exact values to match the input against.", "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:domain_matcher", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "spec", "domain_matcher", "exact_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["rules spec domain matcher regex values"], "anchor": "schema-rules--spec--domain_matcher--regex_values", "description": "A list of regular expressions to match the input against.", "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:domain_matcher", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "spec", "domain_matcher", "regex_values"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/domain_matcher/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["rate_limiter_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -22,12 +22,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"single"`. Computed.
-
-Matcher specifies multiple criteria for matching an input string. The match is considered successful
-if any of the criteria are satisfied. The set of supported match criteria includes a list of exact
-values and a list of regular expressions.
-
-Upstream description:
 
 A matcher specifies multiple criteria for matching an input string. The match is considered
 successful if any of the criteria are satisfied. The set of supported match criteria includes a list
@@ -53,10 +47,6 @@ Receipt-pinned upstream constraints:
 ### exact_values property
 
 Type: `["list", "string"]`. Computed.
-
-List of exact values to match the input against.
-
-Upstream description:
 
 A list of exact values to match the input against.
 
@@ -104,10 +94,6 @@ Receipt-pinned upstream constraints:
 
 Type: `["list", "string"]`. Computed.
 
-List of regular expressions to match the input against.
-
-Upstream description:
-
 A list of regular expressions to match the input against.
 
 Receipt-pinned upstream constraints:
@@ -149,8 +135,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [rules.spec](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/rate_limiter_policy/properties/rules/spec/)
-- [xcsh_rate_limiter_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/rate_limiter_policy/)

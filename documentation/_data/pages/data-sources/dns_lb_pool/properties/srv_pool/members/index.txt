@@ -2,7 +2,7 @@
 page_title: "srv_pool.members"
 subcategory: ""
 description: "Configuration parameter for members"
-xcsh_docs: {"aliases": ["srv pool members"], "body_bytes": 8808, "body_sha256": "sha256:e518ad2c1da94e196ed2458cdd70ebd1a94072961dddd44e74468279086247f8", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members", "parent_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool", "path": "documentation/data-sources/dns_lb_pool/properties/srv_pool/members/index.md", "product": "distributed-cloud", "provider_name": "dns_lb_pool", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-3031023030220301-3022123033323001-0301300001121231-3000313222022100-1023111122233311-1332221313300122-0223023303212221-1030323202331332", "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["srv_pool", "members"], "schema_version": 1, "sections": [{"aliases": ["srv pool members final translation"], "anchor": "schema-srv_pool--members--final_translation", "description": "If this flag is true, the SRV record will not be translated further.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["srv_pool", "members", "final_translation"], "syntax": "attribute", "type": "bool"}, {"aliases": ["srv pool members name"], "anchor": "schema-srv_pool--members--name", "description": "Pool member name.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["srv_pool", "members", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["srv pool members port"], "anchor": "schema-srv_pool--members--port", "description": "Port on which the service can be found.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["srv_pool", "members", "port"], "syntax": "attribute", "type": "number"}, {"aliases": ["srv pool members priority"], "anchor": "schema-srv_pool--members--priority", "description": "Priority of the target. A lower number indicates a higher preference.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["srv_pool", "members", "priority"], "syntax": "attribute", "type": "number"}, {"aliases": ["srv pool members ratio"], "anchor": "schema-srv_pool--members--ratio", "description": "Configuration parameter for ratio", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["srv_pool", "members", "ratio"], "syntax": "attribute", "type": "number"}, {"aliases": ["srv pool members target"], "anchor": "schema-srv_pool--members--target", "description": "Domain name of the machine providing the service.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["srv_pool", "members", "target"], "syntax": "attribute", "type": "string"}, {"aliases": ["srv pool members weight"], "anchor": "schema-srv_pool--members--weight", "description": "Weight of the target. A higher number indicates a higher preference.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["srv_pool", "members", "weight"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/srv_pool/members/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Configuration parameter for members", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["dns_lb_poolCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["srv pool members"], "body_bytes": 8348, "body_sha256": "sha256:474b0fe0e32820062981e314d1c1648e5f011a5a8266f04273969e0c0ab1fdcb", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members", "parent_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool", "path": "documentation/data-sources/dns_lb_pool/properties/srv_pool/members/index.md", "product": "distributed-cloud", "provider_name": "dns_lb_pool", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-3031023030220301-3022123033323001-0301300001121231-3000313222022100-1023111122233311-1332221313300122-0223023303212221-1030323202331332", "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["srv_pool", "members"], "schema_version": 1, "sections": [{"aliases": ["srv pool members final translation"], "anchor": "schema-srv_pool--members--final_translation", "description": "If this flag is true, the SRV record will not be translated further.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["srv_pool", "members", "final_translation"], "syntax": "attribute", "type": "bool"}, {"aliases": ["srv pool members name"], "anchor": "schema-srv_pool--members--name", "description": "Pool member name.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["srv_pool", "members", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["srv pool members port"], "anchor": "schema-srv_pool--members--port", "description": "Port on which the service can be found.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["srv_pool", "members", "port"], "syntax": "attribute", "type": "number"}, {"aliases": ["srv pool members priority"], "anchor": "schema-srv_pool--members--priority", "description": "Priority of the target. A lower number indicates a higher preference.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["srv_pool", "members", "priority"], "syntax": "attribute", "type": "number"}, {"aliases": ["srv pool members ratio"], "anchor": "schema-srv_pool--members--ratio", "description": "Configuration parameter for ratio", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["srv_pool", "members", "ratio"], "syntax": "attribute", "type": "number"}, {"aliases": ["srv pool members target"], "anchor": "schema-srv_pool--members--target", "description": "Domain name of the machine providing the service.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["srv_pool", "members", "target"], "syntax": "attribute", "type": "string"}, {"aliases": ["srv pool members weight"], "anchor": "schema-srv_pool--members--weight", "description": "Weight of the target. A higher number indicates a higher preference.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["srv_pool", "members", "weight"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/srv_pool/members/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Configuration parameter for members", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["dns_lb_poolCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,10 +23,6 @@ Breadcrumbs:
 Type: `"list"`. Computed.
 
 Pool Members. Configuration parameter for members
-
-Upstream description:
-
-Configuration parameter for members
 
 Receipt-pinned upstream constraints:
 
@@ -99,10 +95,6 @@ Type: `"string"`. Computed.
 
 Name. Pool member name.
 
-Upstream description:
-
-Pool member name.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -155,10 +147,6 @@ Receipt-pinned upstream constraints:
 Type: `"number"`. Computed.
 
 Port. Port on which the service can be found.
-
-Upstream description:
-
-Port on which the service can be found.
 
 Receipt-pinned upstream constraints:
 
@@ -247,10 +235,6 @@ Receipt-pinned upstream constraints:
 Type: `"number"`. Computed.
 
 Load Balancing Ratio. Configuration parameter for ratio
-
-Upstream description:
-
-Configuration parameter for ratio
 
 Receipt-pinned upstream constraints:
 
@@ -369,8 +353,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [srv_pool](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_lb_pool/properties/srv_pool/)
-- [xcsh_dns_lb_pool](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_lb_pool/)

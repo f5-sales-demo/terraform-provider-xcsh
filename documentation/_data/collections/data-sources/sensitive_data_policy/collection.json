@@ -76,8 +76,8 @@
   "pages": [
     {
       "aliases": ["sensitive data policy"],
-      "body_bytes": 1492,
-      "body_sha256": "sha256:3e0ab4540cad012ad5fe9276651a115dbea75410aef0f5dfdd1b5f91fbdc6df1",
+      "body_bytes": 1448,
+      "body_sha256": "sha256:eade5c907867130a00e60bdb812fc7afb8784245df45b725bb753a527396d0d8",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -108,7 +108,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/sensitive_data_policy/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages sensitive_data_policy creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
+      "summary": "Reads Sensitive Data Policy information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_sensitive_data_policy",
       "unresolved_relationships": [],
@@ -120,8 +120,8 @@
     },
     {
       "aliases": ["sensitive data policy"],
-      "body_bytes": 12761,
-      "body_sha256": "sha256:7a12576a72c05cd037f1f716ae95e76154813deb7cb113e5d6d73b86988dd6e3",
+      "body_bytes": 12210,
+      "body_sha256": "sha256:cc0ccae0c70522e145d9e75a5786f93e32cec713018dad99c0ac03f6e2df664e",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:sensitive_data_policy:properties:custom_data_types"],
@@ -305,8 +305,8 @@
     },
     {
       "aliases": ["custom data types"],
-      "body_bytes": 1962,
-      "body_sha256": "sha256:3c62e5d5c831e89cb5e4492ec39141ea8d7667510e0f70cafb5d5a0d22afa7e8",
+      "body_bytes": 1417,
+      "body_sha256": "sha256:5ce23b92f9374872fa20734ee136065f7456c1f61f7d8d09006115bce660c6ff",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:sensitive_data_policy:properties:custom_data_types:custom_data_type_ref"],
@@ -362,8 +362,8 @@
     },
     {
       "aliases": ["custom data types custom data type ref"],
-      "body_bytes": 5495,
-      "body_sha256": "sha256:9f0041374deef73f2a4bb4043020c9bc1a19497b2ee5171b0740b384e739c2a9",
+      "body_bytes": 4538,
+      "body_sha256": "sha256:6cc38a32dfc19701cedc923bba9441ce80cc78165c1e0e8bede51085bdb28991",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -472,8 +472,8 @@
     },
     {
       "aliases": ["sensitive data policy"],
-      "body_bytes": 711,
-      "body_sha256": "sha256:fb9c7dde07d69333bb27f416f6f4f2de90af866cf47ee112fbda4005056dcd32",
+      "body_bytes": 441,
+      "body_sha256": "sha256:90fd7e8326a20373ccac18ae1debdecdb46ce2e20c10aaa4856e185c09f2bd58",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:sensitive_data_policy:example:data-source"],
@@ -512,8 +512,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1394,
-      "body_sha256": "sha256:b3f9bdb20857b30744f463cf2952f41fcbf52417f94d9547c2e9b3edcde80290",
+      "body_bytes": 1139,
+      "body_sha256": "sha256:e93fe50b039b398aa66e93511ab7d9f545770a96f30a3f2d8dc4a6b7c3c32064",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],

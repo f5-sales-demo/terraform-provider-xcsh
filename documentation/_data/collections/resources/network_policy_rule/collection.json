@@ -161,8 +161,8 @@
   "pages": [
     {
       "aliases": ["network policy rule"],
-      "body_bytes": 1657,
-      "body_sha256": "sha256:22b8a69ad2026f837c43018d0754f974b82965d034d179733651d7854ecefe23",
+      "body_bytes": 1670,
+      "body_sha256": "sha256:2c2dbef0e45f074dc852fa33d575bcd003f757f8bdb5f4c8d537f8ed6c9c417a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -207,8 +207,8 @@
     },
     {
       "aliases": ["network policy rule"],
-      "body_bytes": 18013,
-      "body_sha256": "sha256:7d3c287586a61edb0d644ee4206e620c238d9771a790ee1d3a2126e2ff84a72f",
+      "body_bytes": 16698,
+      "body_sha256": "sha256:cab62ea0d8f7164ddec60e6fc48bd8bca8c61f3802a5e2af4dde511b0795cf56",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -538,8 +538,8 @@
     },
     {
       "aliases": ["advanced action"],
-      "body_bytes": 2591,
-      "body_sha256": "sha256:62591f2994e188078c385fdfa4f9563020a2ae3a86bc75050241c7dd0b053e2f",
+      "body_bytes": 2343,
+      "body_sha256": "sha256:4ddefaf84dc7edf4027c22bad8dc3193db356a312477d0f57251572a4b176435",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -604,8 +604,8 @@
     },
     {
       "aliases": ["ip prefix set"],
-      "body_bytes": 1994,
-      "body_sha256": "sha256:6a4c429041dd8e83050c02939ae8d5cd76c0d33e87079298b1fc100340dd82fa",
+      "body_bytes": 1607,
+      "body_sha256": "sha256:5bfbf252fbe964aec059ecf2c3493238db5c79b54a667575d9fe9b52efa9c02d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:resources:network_policy_rule:properties:ip_prefix_set:ref"],
@@ -661,8 +661,8 @@
     },
     {
       "aliases": ["ip prefix set ref"],
-      "body_bytes": 6597,
-      "body_sha256": "sha256:9c74d421682c12d131fecefe71b3ef1e34929ff82b9d93bec0aa7e3275d8cc43",
+      "body_bytes": 5572,
+      "body_sha256": "sha256:fd53fb367894f8ae87db0f85e08e626dc8007d3a02a093aecd09477a0136af3a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -817,8 +817,8 @@
     },
     {
       "aliases": ["label matcher"],
-      "body_bytes": 2848,
-      "body_sha256": "sha256:004331f320d5fae7abf8359d509175ec714156748948dc01b5006f1555b9908e",
+      "body_bytes": 2320,
+      "body_sha256": "sha256:28eabb8ee6da4ba29ebe8ba5bf56c96c08049353a1e62cf8286b84e05880e894",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -874,8 +874,8 @@
     },
     {
       "aliases": ["prefix"],
-      "body_bytes": 2401,
-      "body_sha256": "sha256:fc0355c53acd88f40e46dcfbceba3f0ce65b5623cee3903f73caf75d5988df33",
+      "body_bytes": 1986,
+      "body_sha256": "sha256:bfef4e7f6a19dbe7cf49e757363b229ee977312b8bc594e4fe5dcf9f92eeefc8",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -931,8 +931,8 @@
     },
     {
       "aliases": ["prefix selector"],
-      "body_bytes": 4073,
-      "body_sha256": "sha256:a8410d363bae3b944e289c56a8210ab41abdabf773d0fd85a81950d5682a4fb9",
+      "body_bytes": 3525,
+      "body_sha256": "sha256:55d63bb6f0de313b2609f75c2008ecbe04e4a2874e8e9792da9495edce542df3",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -997,8 +997,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2273,
-      "body_sha256": "sha256:bd6a2bfa37041fb7d66c90cee6503b80039a34870d3cb1055b3aa08e034d65cd",
+      "body_bytes": 2018,
+      "body_sha256": "sha256:6d46c2c359e3ea9c1d464ac5f200efed10f77149e29cdf3dcbe028bebb9e9faa",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1137,8 +1137,8 @@
     },
     {
       "aliases": ["network policy rule"],
-      "body_bytes": 675,
-      "body_sha256": "sha256:a7ef303082d64b20f358b3ab97f8c3ed6357b7e73cbbb5a562007bd57a2a80e7",
+      "body_bytes": 423,
+      "body_sha256": "sha256:4e54fba909395cceb207ecc6eea2225b89163d1159ca92e6a72de45916033466",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:resources:network_policy_rule:example:resource"],
@@ -1177,8 +1177,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1354,
-      "body_sha256": "sha256:a9902c6363642c5e61fa7005b14d332ae8a6f1c796036883e986fbfc5b3b2ca5",
+      "body_bytes": 1111,
+      "body_sha256": "sha256:c8e7a1b3f3d83cdc380660e93eca0fb071d232b37ba54be7597ec55103c3cb12",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1224,8 +1224,8 @@
     },
     {
       "aliases": ["network policy rule"],
-      "body_bytes": 515,
-      "body_sha256": "sha256:64ac790ce72aeeaaf75e48219f5fb12b9036b0ad44a8020510b0497bde0f7270",
+      "body_bytes": 382,
+      "body_sha256": "sha256:a193de948c777757342c7c34e378ad262bb0c37fecb03b4d8a7cf7a6d67b3c88",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1265,8 +1265,8 @@
     },
     {
       "aliases": ["network policy rule"],
-      "body_bytes": 603,
-      "body_sha256": "sha256:1f49975e4b1c8647a38fbbf8d9bff20e176d66cdf2bd250737f533d28d23354a",
+      "body_bytes": 470,
+      "body_sha256": "sha256:228f7b351a95b95c8f701b9527dedbde840c415dc37d9d28963b371cc8d99baf",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],

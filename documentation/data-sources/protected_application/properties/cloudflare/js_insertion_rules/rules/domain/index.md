@@ -2,7 +2,7 @@
 page_title: "cloudflare.js_insertion_rules.rules.domain"
 subcategory: ""
 description: "Domains names."
-xcsh_docs: {"aliases": ["cloudflare js insertion rules rules domain"], "body_bytes": 5337, "body_sha256": "sha256:78c96668c2302097f2b65abb1f44fcf7490e83c5c4c5998c4c11a45d41097a75", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:protected_application:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:js_insertion_rules:rules:domain", "parent_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:js_insertion_rules:rules", "path": "documentation/data-sources/protected_application/properties/cloudflare/js_insertion_rules/rules/domain/index.md", "product": "distributed-cloud", "provider_name": "protected_application", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1332112120332003-3233312030032232-0131121203222333-3312020123010303-2130233130103031-3020331232131002-3313123113210003-0010200131013010", "registry_path": "docs/guides/data-sources--protected_application--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["cloudflare", "js_insertion_rules", "rules", "domain"], "schema_version": 1, "sections": [{"aliases": ["cloudflare js insertion rules rules domain exact value"], "anchor": "schema-cloudflare--js_insertion_rules--rules--domain--exact_value", "description": "Exclusive with Exact domain name.", "document_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:js_insertion_rules:rules:domain", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudflare", "js_insertion_rules", "rules", "domain", "exact_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["cloudflare js insertion rules rules domain regex value"], "anchor": "schema-cloudflare--js_insertion_rules--rules--domain--regex_value", "description": "Exclusive with Regular Expression value for the domain name.", "document_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:js_insertion_rules:rules:domain", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudflare", "js_insertion_rules", "rules", "domain", "regex_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["cloudflare js insertion rules rules domain suffix value"], "anchor": "schema-cloudflare--js_insertion_rules--rules--domain--suffix_value", "description": "Exclusive with Suffix of domain name e.g \"xyz.com\" will match \"*.xyz.com\" and \"xyz.com\"", "document_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:js_insertion_rules:rules:domain", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudflare", "js_insertion_rules", "rules", "domain", "suffix_value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protected_application/properties/cloudflare/js_insertion_rules/rules/domain/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Domains names.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["protected_applicationCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["cloudflare js insertion rules rules domain"], "body_bytes": 4826, "body_sha256": "sha256:569e14b56d5f6c1e7efc510214145104505a4deafecc6a53e93ec9d820730f37", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:protected_application:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:js_insertion_rules:rules:domain", "parent_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:js_insertion_rules:rules", "path": "documentation/data-sources/protected_application/properties/cloudflare/js_insertion_rules/rules/domain/index.md", "product": "distributed-cloud", "provider_name": "protected_application", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1332112120332003-3233312030032232-0131121203222333-3312020123010303-2130233130103031-3020331232131002-3313123113210003-0010200131013010", "registry_path": "docs/guides/data-sources--protected_application--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["cloudflare", "js_insertion_rules", "rules", "domain"], "schema_version": 1, "sections": [{"aliases": ["cloudflare js insertion rules rules domain exact value"], "anchor": "schema-cloudflare--js_insertion_rules--rules--domain--exact_value", "description": "Exclusive with Exact domain name.", "document_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:js_insertion_rules:rules:domain", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudflare", "js_insertion_rules", "rules", "domain", "exact_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["cloudflare js insertion rules rules domain regex value"], "anchor": "schema-cloudflare--js_insertion_rules--rules--domain--regex_value", "description": "Exclusive with Regular Expression value for the domain name.", "document_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:js_insertion_rules:rules:domain", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudflare", "js_insertion_rules", "rules", "domain", "regex_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["cloudflare js insertion rules rules domain suffix value"], "anchor": "schema-cloudflare--js_insertion_rules--rules--domain--suffix_value", "description": "Exclusive with Suffix of domain name e.g \"xyz.com\" will match \"*.xyz.com\" and \"xyz.com\"", "document_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:js_insertion_rules:rules:domain", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudflare", "js_insertion_rules", "rules", "domain", "suffix_value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protected_application/properties/cloudflare/js_insertion_rules/rules/domain/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Domains names.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["protected_applicationCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -26,7 +26,7 @@ Type: `"single"`. Computed.
 
 Domain name for routing and identification.
 
-Upstream description:
+Additional upstream details:
 
 Domains names.
 
@@ -51,10 +51,6 @@ Receipt-pinned upstream constraints:
 ### exact_value property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
-
-Upstream description:
 
 Exclusive with \[regex\_value suffix\_value\] Exact domain name.
 
@@ -104,10 +100,6 @@ Type: `"string"`. Computed.
 
 Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
 
-Upstream description:
-
-Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -154,7 +146,7 @@ Type: `"string"`. Computed.
 Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
-Upstream description:
+Additional upstream details:
 
 Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
@@ -196,8 +188,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [cloudflare.js_insertion_rules.rules](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/js_insertion_rules/rules/)
-- [xcsh_protected_application](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/)

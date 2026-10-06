@@ -41,8 +41,8 @@
   "pages": [
     {
       "aliases": ["shape bot defense instance"],
-      "body_bytes": 1536,
-      "body_sha256": "sha256:b9a431e6ad220c49f1b29ebba7a651de45cb111b130298ac3cf33923bb9a566c",
+      "body_bytes": 1467,
+      "body_sha256": "sha256:907984c80e7c94636e45d0ff61058d6693f218782f101169a9e9646f48db18ef",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -73,7 +73,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/shape_bot_defense_instance/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Shape Bot Defense Instance resource in F5 Distributed Cloud for get virtual host from a given namespace. configuration. (read-only data source)",
+      "summary": "Reads Shape Bot Defense Instance information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_shape_bot_defense_instance",
       "unresolved_relationships": [],
@@ -85,8 +85,8 @@
     },
     {
       "aliases": ["shape bot defense instance"],
-      "body_bytes": 2233,
-      "body_sha256": "sha256:c3e1dea88966c801ae7b1221eadd49e505b985e33d77676614789ce437058b07",
+      "body_bytes": 2083,
+      "body_sha256": "sha256:a2fa8454b385fa9d25f1d35d483d77a7b49a5369c4fb7a07876894293070a6b2",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -222,8 +222,8 @@
     },
     {
       "aliases": ["shape bot defense instance"],
-      "body_bytes": 741,
-      "body_sha256": "sha256:fe4cfad73d802b1b059084a67d768888d6b20a25f8ff32f341fb23c13bb45623",
+      "body_bytes": 456,
+      "body_sha256": "sha256:c42dfbd0635b8edebd0e2b5e7fb1e560bdbf07038e07b6dde5e8047711ef21a6",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:shape_bot_defense_instance:example:data-source"],
@@ -262,8 +262,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1457,
-      "body_sha256": "sha256:0446de403af20f1fc10394ee973fa5eb43424758275ffd04d8b0f9f1d4e9cd65",
+      "body_bytes": 1187,
+      "body_sha256": "sha256:27d11a4b251de5201f85022fa5bea438ad1eb6f6b0afde027758073c3f49c4d8",
       "capabilities": [],
       "category": null,
       "child_ids": [],

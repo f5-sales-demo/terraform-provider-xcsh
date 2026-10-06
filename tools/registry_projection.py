@@ -7,13 +7,17 @@ import os
 import re
 from collections import defaultdict
 from collections.abc import Callable
-from pathlib import PurePosixPath
+from pathlib import Path, PurePosixPath
 from typing import Any
 
 TARGET = 450_000
 LIMIT = 500_000
+PROPERTY_HEADING_LEVEL = 3
 LINK = re.compile(r"\[([^\]\n]+)\]\(([^)\n]+)\)")
 ANCHOR = re.compile(r'<a id="([^"]+)"')
+ROUTE_LAYOUT = json.loads(
+    Path(__file__).with_name("registry-route-layout.json").read_text()
+)["minimum_groups"]
 
 
 def sha(text: str) -> str:
@@ -62,7 +66,17 @@ def sections(body: str, budget: int) -> list[str]:
                 fence = run
             elif run[0] == fence[0] and len(run) >= len(fence):
                 fence = None
-        if fence is None and re.match(r"^#{1,3} ", line) and current:
+        if (
+            fence is None
+            and re.match(r"^#{1,3} ", line)
+            and any(
+                part.strip()
+                and not part.lstrip().startswith("<!--")
+                and not ANCHOR.match(part)
+                and not re.match(r"^#{1,3} ", part)
+                for part in current
+            )
+        ):
             blocks.append("".join(current))
             current = []
         current.append(line)
@@ -201,16 +215,43 @@ def collect_sections(pages: list[dict[str, Any]], site: str) -> tuple[dict, list
                     "record": record,
                     "text": publication_body(
                         '<a id="' + anchor + '"></a>\n\n' + body + "\n\n",
-                        page["title"].split(".")[-1]
-                        + " / "
-                        + token(page["id"])[-12:]
-                        + " / "
-                        + str(number + 1),
+                        page,
                     ),
                 }
             )
             records.append(record)
     return buckets, records
+
+
+def group_items(items: list[dict], header: str, layout_key: str) -> list[list[dict]]:
+    """Pack sections and retain the published group-route count."""
+    groups: list[list[dict]] = []
+    group: list[dict] = []
+    size = len(header.encode())
+    for item in items:
+        # Bound link expansion conservatively before destinations are known.
+        item_size = len(item["text"].encode()) + 512 * len(LINK.findall(item["text"]))
+        if group and size + item_size > TARGET:
+            groups.append(group)
+            group, size = [], len(header.encode())
+        group.append(item)
+        size += item_size
+    if group:
+        groups.append(group)
+    minimum_groups = ROUTE_LAYOUT.get(layout_key, 1)
+    while len(groups) < minimum_groups:
+        candidates = [
+            (sum(len(item["text"].encode()) for item in group), index)
+            for index, group in enumerate(groups)
+            if len(group) > 1
+        ]
+        if not candidates:
+            raise ValueError("cannot preserve Registry routes for " + layout_key)
+        index = max(candidates)[1]
+        original = groups.pop(index)
+        middle = len(original) // 2
+        groups[index:index] = [original[:middle], original[middle:]]
+    return groups
 
 
 def assign_groups(buckets: dict, categories: dict[str, str]) -> tuple[dict, dict]:
@@ -219,23 +260,12 @@ def assign_groups(buckets: dict, categories: dict[str, str]) -> tuple[dict, dict
     destinations: dict[Any, tuple[str, str]] = {}
     for (_, family), items in sorted(buckets.items()):
         page = items[0]["page"]
-        title = "xcsh_" + page["provider_name"] + " " + family
+        title = "xcsh_" + page["provider_name"]
+        if family != "landing":
+            title += " " + family
         header = wrapper(title, categories[page["collection_id"]])
-        groups: list[list[dict]] = []
-        group: list[dict] = []
-        size = len(header.encode())
-        for item in items:
-            # Bound link expansion conservatively before destinations are known.
-            item_size = len(item["text"].encode()) + 512 * len(
-                LINK.findall(item["text"])
-            )
-            if group and size + item_size > TARGET:
-                groups.append(group)
-                group, size = [], len(header.encode())
-            group.append(item)
-            size += item_size
-        if group:
-            groups.append(group)
+        layout_key = "/".join((page["provider_type"], page["provider_name"], family))
+        groups = group_items(items, header, layout_key)
         for number, group in enumerate(groups, 1):
             path = (
                 f"docs/{page['provider_type']}/{page['provider_name']}.md"
@@ -255,15 +285,34 @@ def assign_groups(buckets: dict, categories: dict[str, str]) -> tuple[dict, dict
     return outputs, destinations
 
 
-def publication_body(text: str, context: str) -> str:
+def publication_body(text: str, page: dict[str, Any]) -> str:
     """Give embedded headings context and normalize only prose spacing."""
     parts = re.split(r"(?ms)(^```[^\n]*\n.*?^```\s*$|^~~~[^\n]*\n.*?^~~~\s*$)", text)
     for index in range(0, len(parts), 2):
-        part = re.sub(
-            r"(?m)^#{1,3} (.+)$",
-            lambda match: "## " + match.group(1) + " — " + context,
-            parts[index],
-        )
+
+        def heading(match: re.Match) -> str:
+            level, label = len(match.group(1)), match.group(2)
+            path = page["schema_path"]
+            context = (
+                "`"
+                + (".".join(path) if path else "xcsh_" + page["provider_name"])
+                + "`"
+            )
+            if level == 1:
+                role = page["role"]
+                if role == "fundamentals":
+                    label = "Overview"
+                elif role == "properties":
+                    label = context + " properties"
+                elif role == "example":
+                    label += " example"
+                return "## " + label
+            if level == PROPERTY_HEADING_LEVEL and label.endswith(" property"):
+                name = label.removesuffix(" property")
+                return "#### `" + ".".join([*path, name]) + "` property"
+            return "#" * (level + 1) + " " + label + " for " + context
+
+        part = re.sub(r"(?m)^(#{1,3}) (.+)$", heading, parts[index])
         terms = {
             "Javascript": "JavaScript",
             "dns": "DNS",
@@ -340,6 +389,42 @@ def publication_body(text: str, context: str) -> str:
     return "\n\n".join(part.strip() for part in parts if part.strip()) + "\n\n"
 
 
+def normalize_group_headings(text: str) -> str:
+    """Start each grouped document at h2 and keep every heading increment valid."""
+    lines = text.splitlines(keepends=True)
+    headings: list[tuple[int, int]] = []
+    in_frontmatter = bool(lines and lines[0].strip() == "---")
+    fence = None
+    for index, line in enumerate(lines):
+        if in_frontmatter:
+            if index and line.strip() == "---":
+                in_frontmatter = False
+            continue
+        marker = re.match(r"^\s{0,3}(`{3,}|~{3,})", line)
+        if marker:
+            run = marker.group(1)
+            if fence is None:
+                fence = run
+            elif run[0] == fence[0] and len(run) >= len(fence):
+                fence = None
+            continue
+        if fence is not None:
+            continue
+        heading = re.match(r"^(#{2,4}) ", line)
+        if heading:
+            headings.append((index, len(heading.group(1))))
+    if not headings:
+        return text
+    shift = max(0, headings[0][1] - 2)
+    previous = 1
+    for index, level in headings:
+        shift = min(shift, max(0, level - 2))
+        adjusted = min(max(2, level - shift), previous + 1)
+        lines[index] = "#" * adjusted + lines[index][level:]
+        previous = adjusted
+    return "".join(lines)
+
+
 def project(
     pages: list[dict[str, Any]],
     categories: dict[str, str],
@@ -371,7 +456,7 @@ def project(
             return f"[{label}]({relative}#{fragment})"
 
         text = header + "".join(rewrite_prose(item["text"], rewrite) for item in items)
-        text = text.rstrip() + "\n"
+        text = normalize_group_headings(text.rstrip() + "\n")
         if len(text.encode()) > LIMIT:
             raise ValueError("Registry document exceeds 500,000 bytes: " + path)
         outputs[path] = text

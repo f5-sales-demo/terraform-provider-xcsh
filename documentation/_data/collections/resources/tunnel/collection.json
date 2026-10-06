@@ -307,8 +307,8 @@
   "pages": [
     {
       "aliases": ["tunnel"],
-      "body_bytes": 1466,
-      "body_sha256": "sha256:ac63b94faf6a0f3dab7b6d32eba55712d382f0e15dfd03fac13d0c81237a2512",
+      "body_bytes": 1479,
+      "body_sha256": "sha256:eca50c50f3eceb265983dfd91d1374fc8e618db9699ef6726e36795e65931e2f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -353,8 +353,8 @@
     },
     {
       "aliases": ["tunnel"],
-      "body_bytes": 21563,
-      "body_sha256": "sha256:e3388a35e337c54e9a308dfad1a3834f39ee417384bb2d80dda7a856ebc1cac6",
+      "body_bytes": 20784,
+      "body_sha256": "sha256:d5b8b71ece04f3bfcb290399d8bddc58ecaf8c5610f8700feba613d83a8ddad0",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -634,8 +634,8 @@
     },
     {
       "aliases": ["local ip"],
-      "body_bytes": 2287,
-      "body_sha256": "sha256:f59588347fcd80ff02d5063cad2d1871cb8263702417194e176d4c23cf99f7f7",
+      "body_bytes": 1517,
+      "body_sha256": "sha256:66a87a504e9f0079fd3c333bccda98c837e00a8018cd3ba2c74530cb46da61b6",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -744,8 +744,8 @@
     },
     {
       "aliases": ["local ip intf"],
-      "body_bytes": 1430,
-      "body_sha256": "sha256:46d01543e5b792a6eb0398c83b85e2435778830714b628a1b4d6e500088d1031",
+      "body_bytes": 1075,
+      "body_sha256": "sha256:9c83ecd0ab22ff424f9069381c20fdff0587bbd0a7a49f4cda0fa16b72489638",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf"],
@@ -801,8 +801,8 @@
     },
     {
       "aliases": ["local ip intf local intf"],
-      "body_bytes": 6649,
-      "body_sha256": "sha256:6e000c38bdfb1ace649d5888b42c3ac0ad801ffd0bfe9e6e0aed6c33089f4c0f",
+      "body_bytes": 5734,
+      "body_sha256": "sha256:8dc864eb3fa0e40f0045c19c5485328fa0578534e4988595d27e8c57886adda9",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -957,8 +957,8 @@
     },
     {
       "aliases": ["local ip ip address"],
-      "body_bytes": 2365,
-      "body_sha256": "sha256:08b89f208c86f6d7dc31305860f8ae6dabf3c5cf0c0ab5fb2778986c3ed718fd",
+      "body_bytes": 1686,
+      "body_sha256": "sha256:a22b9bf15bddeb6ef70b10fadc49532e5ed0beba11aa198ee723f7715e8cb3b7",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1165,8 +1165,8 @@
     },
     {
       "aliases": ["local ip ip address auto"],
-      "body_bytes": 1318,
-      "body_sha256": "sha256:6f07d138aed410c86a255df8f6e963c69633fe743153511187a3c1f142573a9d",
+      "body_bytes": 1066,
+      "body_sha256": "sha256:d601b3a280edcbc3f0f83aa76c5cb71085207772132890e7583922e87dddc3c8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1205,8 +1205,8 @@
     },
     {
       "aliases": ["local ip ip address ip address"],
-      "body_bytes": 2666,
-      "body_sha256": "sha256:dfb858c8ca302a9ff0ef98322cbc545244c79a3a40a1e62731efa816af01ebaf",
+      "body_bytes": 1931,
+      "body_sha256": "sha256:525151f7ba72d38b6ec80bd5758b87aa9048e69f56dfdc718b4de6527e4af821",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1347,8 +1347,8 @@
     },
     {
       "aliases": ["local ip ip address ip address dual stack"],
-      "body_bytes": 2198,
-      "body_sha256": "sha256:497b3c289a88230d620b1942488cabd0c87c99ab0fa9fc54fa916f27c16a9814",
+      "body_bytes": 1571,
+      "body_sha256": "sha256:4948bcdcef9a53218ab704a6931f881afbf2643089a881dacfa8a8e799b0aba8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1423,8 +1423,8 @@
     },
     {
       "aliases": ["local ip ip address ip address dual stack ipv4"],
-      "body_bytes": 2746,
-      "body_sha256": "sha256:f8405b8fc4d92659d82445043a1cb0b98fe6a0b6072a0934add1f8ba0fe7e3fb",
+      "body_bytes": 2472,
+      "body_sha256": "sha256:813f723f29f79813ee03eec4ac268521e0eb4ac726d1b9839a773ecc14a72e97",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1480,8 +1480,8 @@
     },
     {
       "aliases": ["local ip ip address ip address dual stack ipv6"],
-      "body_bytes": 3256,
-      "body_sha256": "sha256:840571f0d0a77ea02b9ccd25d83d220b56a878292c606476af3ec230bc4cded6",
+      "body_bytes": 2609,
+      "body_sha256": "sha256:95f4a4bd4701cccced68c0802c0d1753ad6718952834d33514424608f3f4c39c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1537,8 +1537,8 @@
     },
     {
       "aliases": ["local ip ip address ip address ipv4"],
-      "body_bytes": 2516,
-      "body_sha256": "sha256:789b6a30f621a926dcc9899ba93afe1304f08b892b0695c604f75a3053d5d396",
+      "body_bytes": 2264,
+      "body_sha256": "sha256:e5ddb22d39a1843fab1aa0f4ba7139ea6ac1f019e69c394180d1bff3ea3c9f9a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1594,8 +1594,8 @@
     },
     {
       "aliases": ["local ip ip address ip address ipv6"],
-      "body_bytes": 3026,
-      "body_sha256": "sha256:314578699c00174cfb652177059609ba0bb98ca91bb29aaf419952efac49b73a",
+      "body_bytes": 2401,
+      "body_sha256": "sha256:c61807c4a18eff5feba1e632df9a00b5f137c1ed5d526e34b9467f619ee8d671",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1651,8 +1651,8 @@
     },
     {
       "aliases": ["local ip ip address virtual network type"],
-      "body_bytes": 2912,
-      "body_sha256": "sha256:80e21111d0f8b67eb54315a89c9f1433353466e1aafcc3fb3505751a5c7c8f68",
+      "body_bytes": 2087,
+      "body_sha256": "sha256:4d5ad144142fdaa6878eca31f0cc9441b40d11c2316a40ab64a9cb9581f30345",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1793,8 +1793,8 @@
     },
     {
       "aliases": ["local ip ip address virtual network type public"],
-      "body_bytes": 1580,
-      "body_sha256": "sha256:1d9837d58da8902b1ced0dd88350c9b019f6b5319ba8c2b526f629625e828afd",
+      "body_bytes": 1286,
+      "body_sha256": "sha256:cf91ea5f914fd7d28249b2c976f98f783563d228231b0ac13f2e69ccafd77ce5",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1833,8 +1833,8 @@
     },
     {
       "aliases": ["local ip ip address virtual network type site local"],
-      "body_bytes": 1592,
-      "body_sha256": "sha256:f5a1f3b8a4f0b98234390b1385d344a904939408fbf5b0e7c59a8cfa7e2bd998",
+      "body_bytes": 1298,
+      "body_sha256": "sha256:0a318a7b14e1468a905e27c03f723c32a00e2ea66d420e31a0c2c372fab6d02f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1873,8 +1873,8 @@
     },
     {
       "aliases": ["local ip ip address virtual network type site local inside"],
-      "body_bytes": 1613,
-      "body_sha256": "sha256:d9859906dc7eb7aaf4101dc2d5bf965ad27b01591ab9a62b112096b4ed499e00",
+      "body_bytes": 1319,
+      "body_sha256": "sha256:fb09540d746d94064da1c78a795889bac206dcabcd13f8e137109c3a870ea093",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1913,8 +1913,8 @@
     },
     {
       "aliases": ["params"],
-      "body_bytes": 1492,
-      "body_sha256": "sha256:32ace857029c50e31e5e48dc1a5912fbc601d0fe24211c303e694c430247fed4",
+      "body_bytes": 1005,
+      "body_sha256": "sha256:3901d4605f757163cab5713ff511a72aa5748cf2b7dfa19e3bb2df0cce30ad6a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:tunnel:properties:params:ipsec"],
@@ -1970,8 +1970,8 @@
     },
     {
       "aliases": ["params ipsec"],
-      "body_bytes": 1517,
-      "body_sha256": "sha256:f08fb6750b6b8a0604c47df891c6728ed1f821e61f55b2978d76b8869ea1cc26",
+      "body_bytes": 1053,
+      "body_sha256": "sha256:6000c71911a629cb83f2189a215145a4fec39bd87ac4136b38ec0a97916e91b7",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk"],
@@ -2044,8 +2044,8 @@
     },
     {
       "aliases": ["params ipsec ipsec psk"],
-      "body_bytes": 2286,
-      "body_sha256": "sha256:a635184b1ce7af591b880fdf9adeadbe7ffdd7f2e2672fbc4cb6b00741f6c8fd",
+      "body_bytes": 1711,
+      "body_sha256": "sha256:1107b1d5aae7da63684e79322637122940cd9b438d3dfde65caafb18e60a494a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2155,8 +2155,8 @@
     },
     {
       "aliases": ["params ipsec ipsec psk blindfold secret info"],
-      "body_bytes": 4947,
-      "body_sha256": "sha256:3590f2f8503f2ff5cc5db81368828598672f2ab269a412ee7cbd190a5e10a3e7",
+      "body_bytes": 4335,
+      "body_sha256": "sha256:785a9e29acb26402eac2b2652092f63877edb6375c527997c6f461d843f006a8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2253,8 +2253,8 @@
     },
     {
       "aliases": ["params ipsec ipsec psk clear secret info"],
-      "body_bytes": 3834,
-      "body_sha256": "sha256:04ce53c53da56a4a08378da956ff55bdfbda19bbe77536565069bd93fbcbf2c7",
+      "body_bytes": 3356,
+      "body_sha256": "sha256:fa366c4e07960748094e8e2bfe110e1b7aa702cc0048e3ae164fa1e512c7b6a2",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2335,8 +2335,8 @@
     },
     {
       "aliases": ["remote ip"],
-      "body_bytes": 2208,
-      "body_sha256": "sha256:fb2aacbf45b73537b3e6d245cd491bfae3ba31b2ee669682245f77983bd01db1",
+      "body_bytes": 1475,
+      "body_sha256": "sha256:fb28e55d79e2333bfaec4710cde71418a36626222080959f4d4669e0e6800374",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2477,8 +2477,8 @@
     },
     {
       "aliases": ["remote ip endpoints"],
-      "body_bytes": 1641,
-      "body_sha256": "sha256:4ceb56a5a2843022aab81cf05aacbe73903f503db8285bec347760a388158d8a",
+      "body_bytes": 1124,
+      "body_sha256": "sha256:3913c65289b3b190420b90c585885f1552a2fabd7275c73eca785cdb18d3a544",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:tunnel:properties:remote_ip:endpoints:endpoints"],
@@ -2534,8 +2534,8 @@
     },
     {
       "aliases": ["remote ip endpoints endpoints"],
-      "body_bytes": 2544,
-      "body_sha256": "sha256:7c162f0d974deb028ed717f6e445a7a3008ce4260a7c5e2d490454d04c31e53a",
+      "body_bytes": 2047,
+      "body_sha256": "sha256:35b2dd11ee05a8c9e7ac2f393ea9d572d7e6cedf83e04a2de4b26323b7228191",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2574,8 +2574,8 @@
     },
     {
       "aliases": ["remote ip ip"],
-      "body_bytes": 2312,
-      "body_sha256": "sha256:cfdac440c259f7d9a8b548bbd251766795df64f31e58be9bd89f2cf972e8c490",
+      "body_bytes": 1705,
+      "body_sha256": "sha256:01f8544101add5828d189ea1d04cf2258d3625e839cb7bfcd587dad93472843f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2716,8 +2716,8 @@
     },
     {
       "aliases": ["remote ip ip dual stack"],
-      "body_bytes": 1854,
-      "body_sha256": "sha256:79bac51dfac1a47e1f97aa2d0b667b311c5690039bfd58add346413e0a3dadaa",
+      "body_bytes": 1335,
+      "body_sha256": "sha256:34d1e9a37462aeb46f821116e8c6c749ec9713c9414b56ade4f1247720d7a0fb",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2792,8 +2792,8 @@
     },
     {
       "aliases": ["remote ip ip dual stack ipv4"],
-      "body_bytes": 2455,
-      "body_sha256": "sha256:e5265ec72a77e156179b563ef7bc52ded12c23131aac5b224f7fd976e7cf6f38",
+      "body_bytes": 2217,
+      "body_sha256": "sha256:a8326948bdf6ee9cb3bfba431af4ebb575e589f42bb951f670988a1b15c7097d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2849,8 +2849,8 @@
     },
     {
       "aliases": ["remote ip ip dual stack ipv6"],
-      "body_bytes": 2965,
-      "body_sha256": "sha256:febad1c3ce21fb00b28b4310a655cd6ff304c158159ff4e256116e6acd03cb6f",
+      "body_bytes": 2354,
+      "body_sha256": "sha256:30a47fbd94304ac59ca55a470eff4c5261e63f80379121dde689ad4a8e51d41d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2906,8 +2906,8 @@
     },
     {
       "aliases": ["remote ip ip ipv4"],
-      "body_bytes": 2261,
-      "body_sha256": "sha256:43e4f09184314dfe0606692461f55ab16797662ac7c28f2acaf4b3f89b04fbe6",
+      "body_bytes": 2045,
+      "body_sha256": "sha256:123dd894166e6289fca90b572a10839ab980d56d18d058ac48f1e8cbec44c504",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2963,8 +2963,8 @@
     },
     {
       "aliases": ["remote ip ip ipv6"],
-      "body_bytes": 2771,
-      "body_sha256": "sha256:c977cc6f9850a06edc956cee50d903893cb748c8fcf0e43cfbb5d56d8ff8900f",
+      "body_bytes": 2182,
+      "body_sha256": "sha256:4b92ae272f46901b57fe71f06169e5cbb512eea1cde9729ce0ff39b3b0215de2",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3020,8 +3020,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2195,
-      "body_sha256": "sha256:0d52417f966048b4e0514f646f2b16fc2f7374eff8130be5c746a14ef30985a3",
+      "body_bytes": 1979,
+      "body_sha256": "sha256:bc452d3a9ee8522f27f8653ab984bcad2aa56bc5446d20738952ad73a32ae9b2",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3160,8 +3160,8 @@
     },
     {
       "aliases": ["tunnel"],
-      "body_bytes": 597,
-      "body_sha256": "sha256:3da06493677d0386131f71c727b3e9a07b9c74f1bfaf26da22bfcc0fa5786205",
+      "body_bytes": 384,
+      "body_sha256": "sha256:1f75a63ca9bd5814604a1b2650655abe23855c62df3358c2dc697a87914c88c6",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:tunnel:example:resource"],
@@ -3200,8 +3200,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1149,
-      "body_sha256": "sha256:4ad2373f1100278d74c10cca1b4d6f7d742c1780e5355a8f1964c309d2f03cf1",
+      "body_bytes": 945,
+      "body_sha256": "sha256:8fe5ed0f5b8d836b3173c5169668498165b9e3040908e9566eac8e4db100b3ba",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3247,8 +3247,8 @@
     },
     {
       "aliases": ["tunnel"],
-      "body_bytes": 450,
-      "body_sha256": "sha256:efbe522831c287e6c874f972e5b6976cf2b14a262c7b9cdc5756d3b106ba22c5",
+      "body_bytes": 343,
+      "body_sha256": "sha256:73e2301b31de8b8f3b4c35a4032d9eb8fad066afe665db54f6a64d98739da0d3",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3288,8 +3288,8 @@
     },
     {
       "aliases": ["tunnel"],
-      "body_bytes": 538,
-      "body_sha256": "sha256:450a49704c37e54660c31a12495d83b249544204c8809b8524cea789784f6a4f",
+      "body_bytes": 431,
+      "body_sha256": "sha256:e7a0ce698b38f35d080d879c64485cb8f439dc085dd1eaf5fdff4e92330cde56",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],

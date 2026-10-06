@@ -81,8 +81,8 @@
   "pages": [
     {
       "aliases": ["waf attack signatures"],
-      "body_bytes": 1230,
-      "body_sha256": "sha256:4847079ecd5311af55397d3529976e9cf5c1ca1effc85c4b584cf83a71a65bd9",
+      "body_bytes": 1280,
+      "body_sha256": "sha256:f042d777dae39ced8deb9081b282a46fbd63bd77a15476f65692d030e2f0d476",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -113,7 +113,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_attack_signatures/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource retrieval operation.",
+      "summary": "Reads WAF attack signatures information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_waf_attack_signatures",
       "unresolved_relationships": [],
@@ -125,8 +125,8 @@
     },
     {
       "aliases": ["waf attack signatures"],
-      "body_bytes": 4352,
-      "body_sha256": "sha256:6e4969572d250ab8d19b249710b1b51a51fa900f4b788bf3ee307262b115981a",
+      "body_bytes": 4068,
+      "body_sha256": "sha256:80646321fc9d3705abf5f4e4b1dbfd5d802a54cbb4f01ecd2ebdfb48123f0e1d",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:waf_attack_signatures:properties:attack_signatures"],
@@ -230,8 +230,8 @@
     },
     {
       "aliases": ["attack signatures"],
-      "body_bytes": 2435,
-      "body_sha256": "sha256:69b076a6d6e0ba0ea00ea9bc6de010693b8329c9f91a04f5920a36210d0f7cf1",
+      "body_bytes": 2168,
+      "body_sha256": "sha256:e0c5fc9ad8bb8f2d0e512129d5754ff7131af9eead7125e1c75713655b0a85d1",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -431,8 +431,8 @@
     },
     {
       "aliases": ["waf attack signatures"],
-      "body_bytes": 711,
-      "body_sha256": "sha256:a74b97620203f850dc86477a159806f907ee4559af0e9d138a3c807c89b745d3",
+      "body_bytes": 441,
+      "body_sha256": "sha256:932eba27a08d553787e8db2c6df89a5861eae413cc54661e46dff6746f68d63c",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:waf_attack_signatures:example:data-source"],
@@ -471,8 +471,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1275,
-      "body_sha256": "sha256:52f7adf3d3da57efff90a419b6db0207080a199b2a590f60709d1b15d6831533",
+      "body_bytes": 1020,
+      "body_sha256": "sha256:0c1025acd4aa5eea0e9ae46da088d8582175fa2e2bd013fd68d2739f13de30bb",
       "capabilities": [],
       "category": null,
       "child_ids": [],

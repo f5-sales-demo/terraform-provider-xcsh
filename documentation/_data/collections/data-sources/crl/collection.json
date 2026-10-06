@@ -67,8 +67,8 @@
   "pages": [
     {
       "aliases": ["crl"],
-      "body_bytes": 1250,
-      "body_sha256": "sha256:d967e46ea0f0df3afb8f4e58aeb4889b7b81ec980243c512f0bc87dec2c7143d",
+      "body_bytes": 1220,
+      "body_sha256": "sha256:98f594a89c53f38092cfd952039386675015ea1858565775c3c3af4134affbe7",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:crl:reference", "xcsh-docs:data-sources:crl:examples"],
@@ -96,7 +96,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/crl/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a CRL resource in F5 Distributed Cloud for api to create crl object. configuration.",
+      "summary": "Reads CRL information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_crl",
       "unresolved_relationships": [],
@@ -108,8 +108,8 @@
     },
     {
       "aliases": ["crl"],
-      "body_bytes": 12213,
-      "body_sha256": "sha256:36dd4f5032e8dbefc9b4435ee9122e4b88f4c8d2dc4ae4070ca95da2ac6735b1",
+      "body_bytes": 11806,
+      "body_sha256": "sha256:b1d37131b427c6976b01ac57a6a56dd9b36351930d5e623ea6f0275c4ed7d60b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:crl:properties:http_access"],
@@ -325,8 +325,8 @@
     },
     {
       "aliases": ["http access"],
-      "body_bytes": 1794,
-      "body_sha256": "sha256:7bb213f12d2f4178fade0cae5decb8f784f036c8fea3b9ee97db037b129f5150",
+      "body_bytes": 1538,
+      "body_sha256": "sha256:a08d082fb61533b05fecdae8ed1a77947236dd63d99cdbdbde463f993b248e30",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -382,8 +382,8 @@
     },
     {
       "aliases": ["crl"],
-      "body_bytes": 603,
-      "body_sha256": "sha256:4075bb29a520ca5de2853862759acf111201f7eaf5c31d2dff21b7b03514eda1",
+      "body_bytes": 387,
+      "body_sha256": "sha256:7bd0c07575fbfba8529e887d4a419c2a1631be6bbe06228dd11120d7397fcb15",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:crl:example:data-source"],
@@ -422,8 +422,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1164,
-      "body_sha256": "sha256:36b3920214bb18a96df4f7e7518c8ca0c44155b7e4e6e734e89ed726ce45d7f2",
+      "body_bytes": 963,
+      "body_sha256": "sha256:7dc85fe758d0c6e5be09f6f040e3ca0544e7dbb0d15d3f6ab8141a05a930418d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],

@@ -2,7 +2,7 @@
 page_title: "ddos_mitigation_rules.ip_prefix_list"
 subcategory: "Load Balancing"
 description: "List of IP Prefix strings to match against."
-xcsh_docs: {"aliases": ["ddos mitigation rules ip prefix list"], "body_bytes": 3088, "body_sha256": "sha256:860747f4fc6e875efe72f190e0f9171690a139f2e526466727b99ec3d2e7b899", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:http_loadbalancer:properties:ddos_mitigation_rules:ip_prefix_list", "parent_id": "xcsh-docs:resources:http_loadbalancer:properties:ddos_mitigation_rules", "path": "documentation/resources/http_loadbalancer/properties/ddos_mitigation_rules/ip_prefix_list/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1321132311131313-2033121331313303-3130133112123221-3130131220230331-1321011002332303-0231002203033031-0101022331300202-0033031003200210", "registry_path": "docs/guides/resources--http_loadbalancer--reference--group-015.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["ddos_mitigation_rules", "ip_prefix_list"], "schema_version": 1, "sections": [{"aliases": ["ddos mitigation rules ip prefix list invert match"], "anchor": "schema-ddos_mitigation_rules--ip_prefix_list--invert_match", "description": "Invert the match result.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:ddos_mitigation_rules:ip_prefix_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["ddos_mitigation_rules", "ip_prefix_list", "invert_match"], "syntax": "attribute", "type": "bool"}, {"aliases": ["ddos mitigation rules ip prefix list ip prefixes"], "anchor": "schema-ddos_mitigation_rules--ip_prefix_list--ip_prefixes", "description": "List of IPv4 prefix strings.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:ddos_mitigation_rules:ip_prefix_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["ddos_mitigation_rules", "ip_prefix_list", "ip_prefixes"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/http_loadbalancer/properties/ddos_mitigation_rules/ip_prefix_list/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of IP Prefix strings to match against.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["ddos mitigation rules ip prefix list"], "body_bytes": 2712, "body_sha256": "sha256:13fdfdb475bbc11af5d28e50b95b4f6253fbbcfdd6af061ecc3113feb05b8448", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:http_loadbalancer:properties:ddos_mitigation_rules:ip_prefix_list", "parent_id": "xcsh-docs:resources:http_loadbalancer:properties:ddos_mitigation_rules", "path": "documentation/resources/http_loadbalancer/properties/ddos_mitigation_rules/ip_prefix_list/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1321132311131313-2033121331313303-3130133112123221-3130131220230331-1321011002332303-0231002203033031-0101022331300202-0033031003200210", "registry_path": "docs/guides/resources--http_loadbalancer--reference--group-014.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["ddos_mitigation_rules", "ip_prefix_list"], "schema_version": 1, "sections": [{"aliases": ["ddos mitigation rules ip prefix list invert match"], "anchor": "schema-ddos_mitigation_rules--ip_prefix_list--invert_match", "description": "Invert the match result.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:ddos_mitigation_rules:ip_prefix_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["ddos_mitigation_rules", "ip_prefix_list", "invert_match"], "syntax": "attribute", "type": "bool"}, {"aliases": ["ddos mitigation rules ip prefix list ip prefixes"], "anchor": "schema-ddos_mitigation_rules--ip_prefix_list--ip_prefixes", "description": "List of IPv4 prefix strings.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:ddos_mitigation_rules:ip_prefix_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["ddos_mitigation_rules", "ip_prefix_list", "ip_prefixes"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/http_loadbalancer/properties/ddos_mitigation_rules/ip_prefix_list/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of IP Prefix strings to match against.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -55,10 +55,6 @@ Type: `"bool"`. Optional.
 
 Invert Match Result. Invert the match result.
 
-Upstream description:
-
-Invert the match result.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -79,10 +75,6 @@ Receipt-pinned upstream constraints:
 Type: `["list", "string"]`. Optional.
 
 IPv4 Prefix List. List of IPv4 prefix strings.
-
-Upstream description:
-
-List of IPv4 prefix strings.
 
 Provider validators and defaults (from schema source):
 
@@ -130,8 +122,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [ddos_mitigation_rules](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/http_loadbalancer/properties/ddos_mitigation_rules/)
-- [xcsh_http_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/http_loadbalancer/)

@@ -2,7 +2,7 @@
 page_title: "path"
 subcategory: ""
 description: "A path matcher specifies multiple criteria for matching an HTTP path string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of path prefixes, a list of exact path values and a list of regular expressions."
-xcsh_docs: {"aliases": ["path", "succeeded", "success", "successful"], "body_bytes": 9979, "body_sha256": "sha256:9f1ec5d371d4a838fde65a07c856e490a7d105daf5d3c5b25d6c8b37036e3b73", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:service_policy_rule:collection", "completeness": "complete", "id": "xcsh-docs:resources:service_policy_rule:properties:path", "parent_id": "xcsh-docs:resources:service_policy_rule:reference", "path": "documentation/resources/service_policy_rule/properties/path/index.md", "product": "distributed-cloud", "provider_name": "service_policy_rule", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3010110322330023-1103101211122201-1133323113223332-1313232321223110-0101110303212213-1030200111110001-0302033113300012-0303132213131330", "registry_path": "docs/guides/resources--service_policy_rule--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["path"], "schema_version": 1, "sections": [{"aliases": ["path encoded path matcher"], "anchor": "schema-path--encoded_path_matcher", "description": "Match against the encoded, escaped path.", "document_id": "xcsh-docs:resources:service_policy_rule:properties:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["path", "encoded_path_matcher"], "syntax": "attribute", "type": "bool"}, {"aliases": ["path exact values"], "anchor": "schema-path--exact_values", "description": "A list of exact path values to match the input HTTP path against.", "document_id": "xcsh-docs:resources:service_policy_rule:properties:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["path", "exact_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["path invert matcher"], "anchor": "schema-path--invert_matcher", "description": "Invert the match result.", "document_id": "xcsh-docs:resources:service_policy_rule:properties:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["path", "invert_matcher"], "syntax": "attribute", "type": "bool"}, {"aliases": ["path prefix values"], "anchor": "schema-path--prefix_values", "description": "A list of path prefix values to match the input HTTP path against.", "document_id": "xcsh-docs:resources:service_policy_rule:properties:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["path", "prefix_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["path regex values"], "anchor": "schema-path--regex_values", "description": "A list of regular expressions to match the input HTTP path against.", "document_id": "xcsh-docs:resources:service_policy_rule:properties:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["path", "regex_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["path suffix values"], "anchor": "schema-path--suffix_values", "description": "A list of path suffix values to match the input HTTP path against.", "document_id": "xcsh-docs:resources:service_policy_rule:properties:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["path", "suffix_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["path transformers"], "anchor": "schema-path--transformers", "description": "An ordered list of transformers (starting from index 0) to be applied to the path before matching.", "document_id": "xcsh-docs:resources:service_policy_rule:properties:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["path", "transformers"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/path/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A path matcher specifies multiple criteria for matching an HTTP path string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of path prefixes, a list of exact path values and a list of regular expressions.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["service_policy_ruleCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["path", "succeeded", "success", "successful"], "body_bytes": 9021, "body_sha256": "sha256:568da13f6728baac6776cf127759521a0a0f12e7e151a0426dd1588dc9b42a2c", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:service_policy_rule:collection", "completeness": "complete", "id": "xcsh-docs:resources:service_policy_rule:properties:path", "parent_id": "xcsh-docs:resources:service_policy_rule:reference", "path": "documentation/resources/service_policy_rule/properties/path/index.md", "product": "distributed-cloud", "provider_name": "service_policy_rule", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3010110322330023-1103101211122201-1133323113223332-1313232321223110-0101110303212213-1030200111110001-0302033113300012-0303132213131330", "registry_path": "docs/guides/resources--service_policy_rule--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["path"], "schema_version": 1, "sections": [{"aliases": ["path encoded path matcher"], "anchor": "schema-path--encoded_path_matcher", "description": "Match against the encoded, escaped path.", "document_id": "xcsh-docs:resources:service_policy_rule:properties:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["path", "encoded_path_matcher"], "syntax": "attribute", "type": "bool"}, {"aliases": ["path exact values"], "anchor": "schema-path--exact_values", "description": "A list of exact path values to match the input HTTP path against.", "document_id": "xcsh-docs:resources:service_policy_rule:properties:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["path", "exact_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["path invert matcher"], "anchor": "schema-path--invert_matcher", "description": "Invert the match result.", "document_id": "xcsh-docs:resources:service_policy_rule:properties:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["path", "invert_matcher"], "syntax": "attribute", "type": "bool"}, {"aliases": ["path prefix values"], "anchor": "schema-path--prefix_values", "description": "A list of path prefix values to match the input HTTP path against.", "document_id": "xcsh-docs:resources:service_policy_rule:properties:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["path", "prefix_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["path regex values"], "anchor": "schema-path--regex_values", "description": "A list of regular expressions to match the input HTTP path against.", "document_id": "xcsh-docs:resources:service_policy_rule:properties:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["path", "regex_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["path suffix values"], "anchor": "schema-path--suffix_values", "description": "A list of path suffix values to match the input HTTP path against.", "document_id": "xcsh-docs:resources:service_policy_rule:properties:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["path", "suffix_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["path transformers"], "anchor": "schema-path--transformers", "description": "An ordered list of transformers (starting from index 0) to be applied to the path before matching.", "document_id": "xcsh-docs:resources:service_policy_rule:properties:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["path", "transformers"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/path/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A path matcher specifies multiple criteria for matching an HTTP path string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of path prefixes, a list of exact path values and a list of regular expressions.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["service_policy_ruleCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -20,12 +20,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Path matcher specifies multiple criteria for matching an HTTP path string. The match is considered
-successful if any of the criteria are satisfied. The set of supported match criteria includes a list
-of path prefixes, a list of exact path values and a list of regular expressions.
-
-Upstream description:
 
 A path matcher specifies multiple criteria for matching an HTTP path string. The match is considered
 successful if any of the criteria are satisfied. The set of supported match criteria includes a list
@@ -80,10 +74,6 @@ Receipt-pinned upstream constraints:
 ### exact_values property
 
 Type: `["list", "string"]`. Optional.
-
-List of exact path values to match the input HTTP path against.
-
-Upstream description:
 
 A list of exact path values to match the input HTTP path against.
 
@@ -144,10 +134,6 @@ Type: `"bool"`. Optional.
 
 Invert Path Matcher. Invert the match result.
 
-Upstream description:
-
-Invert the match result.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -166,10 +152,6 @@ Receipt-pinned upstream constraints:
 ### prefix_values property
 
 Type: `["list", "string"]`. Optional.
-
-List of path prefix values to match the input HTTP path against.
-
-Upstream description:
 
 A list of path prefix values to match the input HTTP path against.
 
@@ -228,10 +210,6 @@ Receipt-pinned upstream constraints:
 
 Type: `["list", "string"]`. Optional.
 
-List of regular expressions to match the input HTTP path against.
-
-Upstream description:
-
 A list of regular expressions to match the input HTTP path against.
 
 Provider validators and defaults (from schema source):
@@ -288,10 +266,6 @@ Receipt-pinned upstream constraints:
 ### suffix_values property
 
 Type: `["list", "string"]`. Optional.
-
-List of path suffix values to match the input HTTP path against.
-
-Upstream description:
 
 A list of path suffix values to match the input HTTP path against.
 
@@ -354,7 +328,7 @@ Ordered list of transformers (starting from index 0) to be applied to the path b
 Possible values are \`LOWER\_CASE\`, \`UPPER\_CASE\`, \`BASE64\_DECODE\`, \`NORMALIZE\_PATH\`,
 \`REMOVE\_WHITESPACE\`, \`URL\_DECODE\`, \`TRIM\_LEFT\`, \`TRIM\_RIGHT\`, \`TRIM\`.
 
-Upstream description:
+Additional upstream details:
 
 An ordered list of transformers (starting from index 0) to be applied to the path before matching.
 
@@ -400,8 +374,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/service_policy_rule/properties/)
-- [xcsh_service_policy_rule](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/service_policy_rule/)

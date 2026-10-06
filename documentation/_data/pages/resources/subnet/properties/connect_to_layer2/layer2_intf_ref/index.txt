@@ -2,7 +2,7 @@
 page_title: "connect_to_layer2.layer2_intf_ref"
 subcategory: ""
 description: "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name."
-xcsh_docs: {"aliases": ["connect to layer2 layer2 intf ref"], "body_bytes": 6164, "body_sha256": "sha256:d160f4aae440f70a441e9612aa4aa1988015f8ffbb304e301378dbcdf32802d8", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:subnet:collection", "completeness": "complete", "id": "xcsh-docs:resources:subnet:properties:connect_to_layer2:layer2_intf_ref", "parent_id": "xcsh-docs:resources:subnet:properties:connect_to_layer2", "path": "documentation/resources/subnet/properties/connect_to_layer2/layer2_intf_ref/index.md", "product": "distributed-cloud", "provider_name": "subnet", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0121201100331010-2020211020103022-2212030020121300-3231222332300013-3302101232320020-3312110332310300-3221131133221210-2112311313020300", "registry_path": "docs/guides/resources--subnet--reference--group-001.md", "relationships": [{"anchor": "schema-connect_to_layer2--layer2_intf_ref--name", "enforcement": "provider-schema", "group": "connect_to_layer2.layer2_intf_ref:RequiredObjectAttributes:name", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:subnet:properties:connect_to_layer2:layer2_intf_ref", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["connect_to_layer2", "layer2_intf_ref"], "schema_version": 1, "sections": [{"aliases": ["connect to layer2 layer2 intf ref name"], "anchor": "schema-connect_to_layer2--layer2_intf_ref--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:subnet:properties:connect_to_layer2:layer2_intf_ref", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "reference_identity": {"member": "name", "scope_path": ["connect_to_layer2", "layer2_intf_ref"], "source": "receipt-pinned-schema-identity", "upstream_message": "ves.io.schema.views.ObjectRefType", "version": 1}, "relationships": [], "schema_path": ["connect_to_layer2", "layer2_intf_ref", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["connect to layer2 layer2 intf ref namespace"], "anchor": "schema-connect_to_layer2--layer2_intf_ref--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:subnet:properties:connect_to_layer2:layer2_intf_ref", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "reference_identity": {"member": "namespace", "scope_path": ["connect_to_layer2", "layer2_intf_ref"], "source": "receipt-pinned-schema-identity", "upstream_message": "ves.io.schema.views.ObjectRefType", "version": 1}, "relationships": [], "schema_path": ["connect_to_layer2", "layer2_intf_ref", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["connect to layer2 layer2 intf ref tenant"], "anchor": "schema-connect_to_layer2--layer2_intf_ref--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:subnet:properties:connect_to_layer2:layer2_intf_ref", "enum_extraction_complete": true, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "reference_identity": {"member": "tenant", "scope_path": ["connect_to_layer2", "layer2_intf_ref"], "source": "receipt-pinned-schema-identity", "upstream_message": "ves.io.schema.views.ObjectRefType", "version": 1}, "relationships": [], "schema_path": ["connect_to_layer2", "layer2_intf_ref", "tenant"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/subnet/properties/connect_to_layer2/layer2_intf_ref/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["subnetCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["connect to layer2 layer2 intf ref"], "body_bytes": 5258, "body_sha256": "sha256:6a2e9edcf0dbc2838925ce84e3d666671daca5e57ecb0d891a110a73ad42274f", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:subnet:collection", "completeness": "complete", "id": "xcsh-docs:resources:subnet:properties:connect_to_layer2:layer2_intf_ref", "parent_id": "xcsh-docs:resources:subnet:properties:connect_to_layer2", "path": "documentation/resources/subnet/properties/connect_to_layer2/layer2_intf_ref/index.md", "product": "distributed-cloud", "provider_name": "subnet", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0121201100331010-2020211020103022-2212030020121300-3231222332300013-3302101232320020-3312110332310300-3221131133221210-2112311313020300", "registry_path": "docs/guides/resources--subnet--reference--group-001.md", "relationships": [{"anchor": "schema-connect_to_layer2--layer2_intf_ref--name", "enforcement": "provider-schema", "group": "connect_to_layer2.layer2_intf_ref:RequiredObjectAttributes:name", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:subnet:properties:connect_to_layer2:layer2_intf_ref", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["connect_to_layer2", "layer2_intf_ref"], "schema_version": 1, "sections": [{"aliases": ["connect to layer2 layer2 intf ref name"], "anchor": "schema-connect_to_layer2--layer2_intf_ref--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:subnet:properties:connect_to_layer2:layer2_intf_ref", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "reference_identity": {"member": "name", "scope_path": ["connect_to_layer2", "layer2_intf_ref"], "source": "receipt-pinned-schema-identity", "upstream_message": "ves.io.schema.views.ObjectRefType", "version": 1}, "relationships": [], "schema_path": ["connect_to_layer2", "layer2_intf_ref", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["connect to layer2 layer2 intf ref namespace"], "anchor": "schema-connect_to_layer2--layer2_intf_ref--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:subnet:properties:connect_to_layer2:layer2_intf_ref", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "reference_identity": {"member": "namespace", "scope_path": ["connect_to_layer2", "layer2_intf_ref"], "source": "receipt-pinned-schema-identity", "upstream_message": "ves.io.schema.views.ObjectRefType", "version": 1}, "relationships": [], "schema_path": ["connect_to_layer2", "layer2_intf_ref", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["connect to layer2 layer2 intf ref tenant"], "anchor": "schema-connect_to_layer2--layer2_intf_ref--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:subnet:properties:connect_to_layer2:layer2_intf_ref", "enum_extraction_complete": true, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "reference_identity": {"member": "tenant", "scope_path": ["connect_to_layer2", "layer2_intf_ref"], "source": "receipt-pinned-schema-identity", "upstream_message": "ves.io.schema.views.ObjectRefType", "version": 1}, "relationships": [], "schema_path": ["connect_to_layer2", "layer2_intf_ref", "tenant"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/subnet/properties/connect_to_layer2/layer2_intf_ref/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["subnetCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -21,11 +21,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
-reference is in form of tenant/namespace/name.
-
-Upstream description:
 
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
@@ -65,11 +60,6 @@ layer2_intf_ref {
 ### name property
 
 Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
@@ -129,11 +119,6 @@ Receipt-pinned upstream constraints:
 ### namespace property
 
 Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -204,11 +189,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -251,8 +231,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [connect_to_layer2](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/subnet/properties/connect_to_layer2/)
-- [xcsh_subnet](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/subnet/)

@@ -26,8 +26,8 @@
   "pages": [
     {
       "aliases": ["artifact registry token"],
-      "body_bytes": 1354,
-      "body_sha256": "sha256:bd31a9c9f89b5a30de03dc24cf0a82521e8bbba4a126cedce7a57969b5230fd9",
+      "body_bytes": 1367,
+      "body_sha256": "sha256:76a1d147a17315b93a69e5d043ecdbb2abd2026431dec15fe16a2dd6e63a1a52",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -71,8 +71,8 @@
     },
     {
       "aliases": ["artifact registry token"],
-      "body_bytes": 1705,
-      "body_sha256": "sha256:02adc11374d708ee63882384d92540be109e9e5393f7eb28c1bf14bb0e9c0f44",
+      "body_bytes": 1554,
+      "body_sha256": "sha256:1009cfaf9fa1da2e3b174e0f3912829beb1984c37f828447f506d28540a6ef5c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -160,8 +160,8 @@
     },
     {
       "aliases": ["artifact registry token"],
-      "body_bytes": 743,
-      "body_sha256": "sha256:81481b541e803e3bd4b41a1c7a1f006009f727c0d8690460329530be5a584bcb",
+      "body_bytes": 457,
+      "body_sha256": "sha256:9d50389c5c95698f55215cf7944c5ac45f9e302b7afa5dc2e9e227d37406d9ac",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:ephemeral-resources:artifact_registry_token:example:ephemeral"],
@@ -200,8 +200,8 @@
     },
     {
       "aliases": ["ephemeral"],
-      "body_bytes": 1271,
-      "body_sha256": "sha256:ceaa9a96e51177777816c92a406a50411fe7d6959f8d2eeb53029709b6a8c539",
+      "body_bytes": 996,
+      "body_sha256": "sha256:82a4ac3e034345a906f9803bbc3b0e8ed6987a0187a9d2e4a4a00cd5363df2bb",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -247,8 +247,8 @@
     },
     {
       "aliases": ["artifact registry token"],
-      "body_bytes": 703,
-      "body_sha256": "sha256:0df246802288ee7d5f18ab58bd02631ceb1e186dcb02de31202694cde5a7ff93",
+      "body_bytes": 552,
+      "body_sha256": "sha256:f03680f7d1f5bad51145385c683e6d46cb9a89397a5eed3165a442d425e82502",
       "capabilities": [],
       "category": null,
       "child_ids": [],

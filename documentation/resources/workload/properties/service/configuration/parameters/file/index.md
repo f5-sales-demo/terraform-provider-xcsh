@@ -2,7 +2,7 @@
 page_title: "service.configuration.parameters.file"
 subcategory: "Container"
 description: "Configuration File for the workload."
-xcsh_docs: {"aliases": ["service configuration parameters file"], "body_bytes": 5938, "body_sha256": "sha256:de9a438923a260a83d5954d76743d8cdc8e3476e1fd10be40292709bb8579395", "capabilities": ["container"], "category": "container", "child_ids": ["xcsh-docs:resources:workload:properties:service:configuration:parameters:file:mount"], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:workload:collection", "completeness": "complete", "id": "xcsh-docs:resources:workload:properties:service:configuration:parameters:file", "parent_id": "xcsh-docs:resources:workload:properties:service:configuration:parameters", "path": "documentation/resources/workload/properties/service/configuration/parameters/file/index.md", "product": "distributed-cloud", "provider_name": "workload", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0021330302133213-0100230320121003-2021132302312123-1030102101111211-3003210002310101-2201203320301212-2213131323001333-0231100302122010", "registry_path": "docs/guides/resources--workload--reference--group-015.md", "relationships": [{"anchor": "schema-service--configuration--parameters--file--name", "enforcement": "provider-schema", "group": "service.configuration.parameters.file:RequiredObjectAttributes:name,volume_name", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:workload:properties:service:configuration:parameters:file", "type": "requires"}, {"anchor": "schema-service--configuration--parameters--file--volume_name", "enforcement": "provider-schema", "group": "service.configuration.parameters.file:RequiredObjectAttributes:name,volume_name", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:workload:properties:service:configuration:parameters:file", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["service", "configuration", "parameters", "file"], "schema_version": 1, "sections": [{"aliases": ["service configuration parameters file data"], "anchor": "schema-service--configuration--parameters--file--data", "description": "File data", "document_id": "xcsh-docs:resources:workload:properties:service:configuration:parameters:file", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["service", "configuration", "parameters", "file", "data"], "syntax": "attribute", "type": "string"}, {"aliases": ["service configuration parameters file mount"], "anchor": "section", "description": "Volume mount describes how volume is mounted inside a workload.", "document_id": "xcsh-docs:resources:workload:properties:service:configuration:parameters:file:mount", "enum_extraction_complete": false, "enum_validators": [], "flags": [], "max_items": null, "min_items": null, "nesting": "single", "relationships": [{"anchor": "schema-service--configuration--parameters--file--mount--mount_path", "enforcement": "provider-schema", "group": "service.configuration.parameters.file.mount:RequiredObjectAttributes:mount_path", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:workload:properties:service:configuration:parameters:file:mount", "type": "requires"}], "schema_path": ["service", "configuration", "parameters", "file", "mount"], "syntax": "block", "type": "object"}, {"aliases": ["service configuration parameters file name"], "anchor": "schema-service--configuration--parameters--file--name", "description": "Name of the file.", "document_id": "xcsh-docs:resources:workload:properties:service:configuration:parameters:file", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["service", "configuration", "parameters", "file", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["service configuration parameters file volume name"], "anchor": "schema-service--configuration--parameters--file--volume_name", "description": "Name of the Volume.", "document_id": "xcsh-docs:resources:workload:properties:service:configuration:parameters:file", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["service", "configuration", "parameters", "file", "volume_name"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/workload/properties/service/configuration/parameters/file/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Configuration File for the workload.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["workloadCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["service configuration parameters file"], "body_bytes": 5308, "body_sha256": "sha256:024dd78828fa07f7515ed16cfdeec85bfc8c8f24e706de62a1b05aac0144c69d", "capabilities": ["container"], "category": "container", "child_ids": ["xcsh-docs:resources:workload:properties:service:configuration:parameters:file:mount"], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:workload:collection", "completeness": "complete", "id": "xcsh-docs:resources:workload:properties:service:configuration:parameters:file", "parent_id": "xcsh-docs:resources:workload:properties:service:configuration:parameters", "path": "documentation/resources/workload/properties/service/configuration/parameters/file/index.md", "product": "distributed-cloud", "provider_name": "workload", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0021330302133213-0100230320121003-2021132302312123-1030102101111211-3003210002310101-2201203320301212-2213131323001333-0231100302122010", "registry_path": "docs/guides/resources--workload--reference--group-014.md", "relationships": [{"anchor": "schema-service--configuration--parameters--file--name", "enforcement": "provider-schema", "group": "service.configuration.parameters.file:RequiredObjectAttributes:name,volume_name", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:workload:properties:service:configuration:parameters:file", "type": "requires"}, {"anchor": "schema-service--configuration--parameters--file--volume_name", "enforcement": "provider-schema", "group": "service.configuration.parameters.file:RequiredObjectAttributes:name,volume_name", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:workload:properties:service:configuration:parameters:file", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["service", "configuration", "parameters", "file"], "schema_version": 1, "sections": [{"aliases": ["service configuration parameters file data"], "anchor": "schema-service--configuration--parameters--file--data", "description": "File data", "document_id": "xcsh-docs:resources:workload:properties:service:configuration:parameters:file", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["service", "configuration", "parameters", "file", "data"], "syntax": "attribute", "type": "string"}, {"aliases": ["service configuration parameters file mount"], "anchor": "section", "description": "Volume mount describes how volume is mounted inside a workload.", "document_id": "xcsh-docs:resources:workload:properties:service:configuration:parameters:file:mount", "enum_extraction_complete": false, "enum_validators": [], "flags": [], "max_items": null, "min_items": null, "nesting": "single", "relationships": [{"anchor": "schema-service--configuration--parameters--file--mount--mount_path", "enforcement": "provider-schema", "group": "service.configuration.parameters.file.mount:RequiredObjectAttributes:mount_path", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:workload:properties:service:configuration:parameters:file:mount", "type": "requires"}], "schema_path": ["service", "configuration", "parameters", "file", "mount"], "syntax": "block", "type": "object"}, {"aliases": ["service configuration parameters file name"], "anchor": "schema-service--configuration--parameters--file--name", "description": "Name of the file.", "document_id": "xcsh-docs:resources:workload:properties:service:configuration:parameters:file", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["service", "configuration", "parameters", "file", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["service configuration parameters file volume name"], "anchor": "schema-service--configuration--parameters--file--volume_name", "description": "Name of the Volume.", "document_id": "xcsh-docs:resources:workload:properties:service:configuration:parameters:file", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["service", "configuration", "parameters", "file", "volume_name"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/workload/properties/service/configuration/parameters/file/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Configuration File for the workload.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["workloadCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -25,10 +25,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Configuration File. Configuration File for the workload.
-
-Upstream description:
-
-Configuration File for the workload.
 
 Provider validators and defaults (from schema source):
 
@@ -68,10 +64,6 @@ file {
 Type: `"string"`. Optional.
 
 Data. File data
-
-Upstream description:
-
-File data
 
 Provider validators and defaults (from schema source):
 
@@ -125,10 +117,6 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Optional.
 
 Name. Name of the file.
-
-Upstream description:
-
-Name of the file.
 
 Provider validators and defaults (from schema source):
 
@@ -194,10 +182,6 @@ Type: `"string"`. Optional.
 
 Volume Name. Name of the Volume.
 
-Upstream description:
-
-Name of the Volume.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -239,9 +223,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [service.configuration.parameters.file.mount](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/service/configuration/parameters/file/mount/)
-- [service.configuration.parameters](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/service/configuration/parameters/)
-- [xcsh_workload](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/)

@@ -81,8 +81,8 @@
   "pages": [
     {
       "aliases": ["device intelligence high risk transactions"],
-      "body_bytes": 1432,
-      "body_sha256": "sha256:b4a574dac97c7b98d6b3e0afc13ffc021a93d1d261a2d7d7dfc341a1f17d5726",
+      "body_bytes": 1504,
+      "body_sha256": "sha256:e1e40b3bc48a7117429d3adc100569a66694162b87d161e1f1d26c7402a2d158",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -113,7 +113,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_high_risk_transactions/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource creation operation.",
+      "summary": "Reads Device Intelligence High Risk Transactions information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_device_intelligence_high_risk_transactions",
       "unresolved_relationships": [],
@@ -125,8 +125,8 @@
     },
     {
       "aliases": ["device intelligence high risk transactions"],
-      "body_bytes": 5693,
-      "body_sha256": "sha256:1973ed23f209f09befc2fcfa71b03ec2cb6a220df1d2abcc18fc0afcb3402fdc",
+      "body_bytes": 5197,
+      "body_sha256": "sha256:de4ef01fda1b5bf2faf4aea9ba170c8ba9844dde7ffc7a2008dd9013e17ecf49",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -249,8 +249,8 @@
     },
     {
       "aliases": ["filters"],
-      "body_bytes": 2030,
-      "body_sha256": "sha256:565edcff0d096325cfa21b9c8d8be152d97e8d0bf98fc7163166e3b93d8afb1b",
+      "body_bytes": 1525,
+      "body_sha256": "sha256:b83e5c397d57c9d5f51fcbe83a888ea3f41cc41adf181fc17cfe5234146410ed",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -333,8 +333,8 @@
     },
     {
       "aliases": ["filters global filters"],
-      "body_bytes": 6953,
-      "body_sha256": "sha256:e2610ff77288a74e0c6c7701ed714c0f96ad4f1fa4270de2944e435a2dc02cec",
+      "body_bytes": 6626,
+      "body_sha256": "sha256:25facf09cee0dc32b89fe121f5b6f997d758b2d044295f5734eda6f600c324a8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -502,8 +502,8 @@
     },
     {
       "aliases": ["time series results"],
-      "body_bytes": 1494,
-      "body_sha256": "sha256:49f345a53d025b2dc7ef0df8fb8861d5ba543433f8c719e6d1323e6454c0e09c",
+      "body_bytes": 971,
+      "body_sha256": "sha256:d17ea77446464ea58f719e580209acbc1f0fdbbb4a1ab0d3bc2e25929221ecd8",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -577,8 +577,8 @@
     },
     {
       "aliases": ["time series results time series"],
-      "body_bytes": 1759,
-      "body_sha256": "sha256:9ccf55bc971f984d5d4dce0f1281ba7c41a351fc6b35eeac38467f644ed550bb",
+      "body_bytes": 1408,
+      "body_sha256": "sha256:dac5a352371149a7770163164255497c189e5838c988e8a82fe1ee4bea21d748",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -650,8 +650,8 @@
     },
     {
       "aliases": ["device intelligence high risk transactions"],
-      "body_bytes": 837,
-      "body_sha256": "sha256:9a5b027eec29c87a07b668a23229255c7df1ad6492ee03c796cf78ac2de42cf9",
+      "body_bytes": 504,
+      "body_sha256": "sha256:247f619c15e1891070390a0153a27d0550fb18a54ba43b6498fc15af6137e9b6",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:device_intelligence_high_risk_transactions:example:data-source"],
@@ -690,8 +690,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1534,
-      "body_sha256": "sha256:e2f7bf2ca4be8cd78eadbc0e68624e0285bdfdbb779a231d4e9fb71929d552dc",
+      "body_bytes": 1216,
+      "body_sha256": "sha256:247bfe01a17b0dd7eafd0fd12944b323484f52d18f3b499079db60cb659488cb",
       "capabilities": [],
       "category": null,
       "child_ids": [],

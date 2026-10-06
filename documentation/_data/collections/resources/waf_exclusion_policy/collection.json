@@ -261,8 +261,8 @@
   "pages": [
     {
       "aliases": ["waf exclusion policy"],
-      "body_bytes": 1569,
-      "body_sha256": "sha256:55a1b3d4f77224e9c39758d910482ec467da5dfe1beb772673c890e7777cb3a3",
+      "body_bytes": 1582,
+      "body_sha256": "sha256:6ec3701cc6f38c7089f36616edd55d964484708eeffb50928289ee5466756f41",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -307,8 +307,8 @@
     },
     {
       "aliases": ["waf exclusion policy"],
-      "body_bytes": 19343,
-      "body_sha256": "sha256:b25f7f67341091ea74b7c0686cf7a1bfd3cb75c34f968dff54b7ae0c9ce194f1",
+      "body_bytes": 18802,
+      "body_sha256": "sha256:e833c976de46d8caab389d40df6719c9e6166fda30601a84b25c743afaf7335b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -608,8 +608,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2279,
-      "body_sha256": "sha256:07309d17343ca102ad7f472f2f79aed4b2cd1778c8cb54a509d117c2eba88802",
+      "body_bytes": 2021,
+      "body_sha256": "sha256:498550d93d0b92635bf81048171278fcc76f396480cba3062df616228e6853e6",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -748,8 +748,8 @@
     },
     {
       "aliases": ["waf exclusion rules"],
-      "body_bytes": 12139,
-      "body_sha256": "sha256:3ae131f0ec0d07de19fcd887bf596771db4c932ee371f3524346120f699e69a2",
+      "body_bytes": 10472,
+      "body_sha256": "sha256:54014eb51dfad79e98ce368f1b8d3ba1a5bb9665383ebcf678bb17d2ffd2ba67",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -1093,8 +1093,8 @@
     },
     {
       "aliases": ["waf exclusion rules any domain"],
-      "body_bytes": 1326,
-      "body_sha256": "sha256:25c9409b48ea8b6adc6e2217ac33ab20f6b621ad79a993902385209ae7f10eb7",
+      "body_bytes": 1032,
+      "body_sha256": "sha256:45959d010689191e9fce0b4f0dda8d28d7b92711b9645b40c4efcd8345dc1f2d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1133,8 +1133,8 @@
     },
     {
       "aliases": ["waf exclusion rules any path"],
-      "body_bytes": 1320,
-      "body_sha256": "sha256:522d2f3bdbad38189b783ee656c3e0346445298fcabf35900a2b2dcdf87c998c",
+      "body_bytes": 1026,
+      "body_sha256": "sha256:d48984de5bcc209c6acb03b2361311499750c631d8bc7214b5417df1b822eb76",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1173,8 +1173,8 @@
     },
     {
       "aliases": ["waf exclusion rules app firewall detection control"],
-      "body_bytes": 3429,
-      "body_sha256": "sha256:84fe67777eaf90693a99e8683dc37298c9c4bcb82ae89f390fb172e417b0eb9d",
+      "body_bytes": 2108,
+      "body_sha256": "sha256:2f197f074005b47b889d3ff10c839f7cf9c7109810cc3d282b72556dcf8aa96d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -1301,8 +1301,8 @@
     },
     {
       "aliases": ["waf exclusion rules app firewall detection control exclude attack type contexts"],
-      "body_bytes": 11891,
-      "body_sha256": "sha256:fc3e9132ae01ae7701d2d8ad8ad6f9b958f4646996dc8cff70264013830efbc5",
+      "body_bytes": 11564,
+      "body_sha256": "sha256:bb21445bd3d11930f9728f4efb7575bc791760f9c83636f96603fe871e67831f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1463,8 +1463,8 @@
     },
     {
       "aliases": ["waf exclusion rules app firewall detection control exclude bot name contexts"],
-      "body_bytes": 3253,
-      "body_sha256": "sha256:939a157d91fec59c08ec940cfc920ab7cf1ddf12a562031c5466b135c7263205",
+      "body_bytes": 2851,
+      "body_sha256": "sha256:f37cc9dcdb253290298969a6026fb46c55efda1063260cad5d523b8320e6c558",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1534,8 +1534,8 @@
     },
     {
       "aliases": ["waf exclusion rules app firewall detection control exclude signature contexts"],
-      "body_bytes": 8481,
-      "body_sha256": "sha256:0c300206f5cdf70935184674039980916369d22518d8d038487bb04a3728e201",
+      "body_bytes": 7718,
+      "body_sha256": "sha256:dc3558747ca0d3710574f037fee455a97e7ecd9ff314e7d686a77407accb8270",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1666,8 +1666,8 @@
     },
     {
       "aliases": ["waf exclusion rules app firewall detection control exclude violation contexts"],
-      "body_bytes": 15378,
-      "body_sha256": "sha256:12a1f67c219829e364d2a920d82addd578a39e8baa316c7a793205c4ac239969",
+      "body_bytes": 14803,
+      "body_sha256": "sha256:7ab3e5e9639a79d7d70f0c6cdb0f99b9c20e6b54753c139ca648f19ef4df3fd1",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1835,8 +1835,8 @@
     },
     {
       "aliases": ["waf exclusion rules metadata"],
-      "body_bytes": 4209,
-      "body_sha256": "sha256:9c6f55a9e2e806fbeb47eaa3c6dbb2a5b595c316d0b82d1582290cc8552703f3",
+      "body_bytes": 3513,
+      "body_sha256": "sha256:04012df626124b4aaa70c659856cca2de9500139fee450781c1793950fa391ac",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1917,8 +1917,8 @@
     },
     {
       "aliases": ["waf exclusion rules waf skip processing"],
-      "body_bytes": 1353,
-      "body_sha256": "sha256:5d26b35b03200b9daa20ea58e929f6b1817404f76bc23c2654c228fbff48a274",
+      "body_bytes": 1059,
+      "body_sha256": "sha256:eb2be3dd3b64f3c300d6373ec824857bdba836d08a23dc8ef43627dc58f41a94",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1957,8 +1957,8 @@
     },
     {
       "aliases": ["waf exclusion policy"],
-      "body_bytes": 681,
-      "body_sha256": "sha256:ee8d94cc8d8d357db29960942be90a1a1441ff906bbfa10e60e8ec043036f003",
+      "body_bytes": 426,
+      "body_sha256": "sha256:3cac14102b17bc91c9321b99186631ef486a05e74e29adcb6b99c83e7ff30c97",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:resources:waf_exclusion_policy:example:resource"],
@@ -1997,8 +1997,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1316,
-      "body_sha256": "sha256:b160eeeda103ec3e932f13a0fd6a9cec9b8f974e39b31e5888bb9ba77f93b4bb",
+      "body_bytes": 1070,
+      "body_sha256": "sha256:c3b79157ee1611742fc8a15421c5fe02e6f38b01db7ed1bfc5e1d1925b5b0cf6",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -2044,8 +2044,8 @@
     },
     {
       "aliases": ["waf exclusion policy"],
-      "body_bytes": 520,
-      "body_sha256": "sha256:be57fb902a7aa0876233a78f613be0e9a79512480d2720e234931a2a01902dd4",
+      "body_bytes": 385,
+      "body_sha256": "sha256:98e29b9596a5d94989b88c96af73935a0bf563199f887182c7cc10466d1af3e3",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -2085,8 +2085,8 @@
     },
     {
       "aliases": ["waf exclusion policy"],
-      "body_bytes": 608,
-      "body_sha256": "sha256:c1baa1ff87f0ea07de220f29dbd3e13ea65ff31d495a546270bdc8a0131dd9b7",
+      "body_bytes": 473,
+      "body_sha256": "sha256:2aba954aa1cb7f4f0d257005f22e413f8ccf3a6a63b190bbc3fc59553d9b0e5d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],

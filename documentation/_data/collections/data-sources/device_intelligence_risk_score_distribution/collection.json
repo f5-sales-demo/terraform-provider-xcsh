@@ -71,8 +71,8 @@
   "pages": [
     {
       "aliases": ["device intelligence risk score distribution"],
-      "body_bytes": 1440,
-      "body_sha256": "sha256:4702530f920d72381412994c5df501ef646e5ba9d609f86542e0a91f3eee203b",
+      "body_bytes": 1513,
+      "body_sha256": "sha256:b880b45670542a93a1cae0088dd99ee133299dab724ee16b7889efd939bb8cca",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -103,7 +103,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_risk_score_distribution/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource creation operation.",
+      "summary": "Reads Device Intelligence Risk Score Distribution information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_device_intelligence_risk_score_distribution",
       "unresolved_relationships": [],
@@ -115,8 +115,8 @@
     },
     {
       "aliases": ["device intelligence risk score distribution"],
-      "body_bytes": 5201,
-      "body_sha256": "sha256:6055e46ab4c346e685d80a6e675044dca34b410b5489793f19b52558641157d4",
+      "body_bytes": 4693,
+      "body_sha256": "sha256:7a29e7181ee51e292f1b178799ddb3cda745647ec10d25a82e6e87cc4cf0837d",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -239,8 +239,8 @@
     },
     {
       "aliases": ["filters"],
-      "body_bytes": 2038,
-      "body_sha256": "sha256:8a84dd7987fb011dccff849fafbcfbf84dec7f6999e6bfa17e1505dc871bfa34",
+      "body_bytes": 1529,
+      "body_sha256": "sha256:4e692b9dd782f24dfa2f71a0f0c5386277acdb2e36eeb56b44216b20b9b7ff8a",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -323,8 +323,8 @@
     },
     {
       "aliases": ["filters global filters"],
-      "body_bytes": 6960,
-      "body_sha256": "sha256:67d325ff969bad243f43f9094c243e018b1a26687808020624f7448a54e0f037",
+      "body_bytes": 6630,
+      "body_sha256": "sha256:da646f650b3115561b465d274d03a8cde4e26d87d9065b0e8ca5638f268ba543",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -492,8 +492,8 @@
     },
     {
       "aliases": ["risk score distribution"],
-      "body_bytes": 1251,
-      "body_sha256": "sha256:cc52e15e16d65082dcd9808c308edcc16da3ab887e6a1c15a3a72204b62d83d5",
+      "body_bytes": 918,
+      "body_sha256": "sha256:8af559ea8a8a48af24014ebd9c92eee5323488ef61241df4980bc7999f59b8bb",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -565,8 +565,8 @@
     },
     {
       "aliases": ["device intelligence risk score distribution"],
-      "body_bytes": 843,
-      "body_sha256": "sha256:cba682b9bb63b5108baa57f08a0f174b3d05e45a6b0a48c2d4cb0cd180f762e9",
+      "body_bytes": 507,
+      "body_sha256": "sha256:ed8f5828aacddc95c18b1c44a5dab787106c92c131ffdf4811f00155e8c0823f",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:device_intelligence_risk_score_distribution:example:data-source"],
@@ -605,8 +605,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1545,
-      "body_sha256": "sha256:a7d4606a71e1a8d5d5cd57b3de29d1b18316dd8c5bc58155f32bc4ef55b8d43f",
+      "body_bytes": 1224,
+      "body_sha256": "sha256:263030e9a54b7886aef452937e7fadc30e6b477b287b70dc04e1676a60f1d269",
       "capabilities": [],
       "category": null,
       "child_ids": [],

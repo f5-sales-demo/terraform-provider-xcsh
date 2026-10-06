@@ -51,8 +51,8 @@
   "pages": [
     {
       "aliases": ["registration approval"],
-      "body_bytes": 1604,
-      "body_sha256": "sha256:e9e4d3025cb857be8bfcc9e854b6e01baec6124f972bc5792980a170d33160d6",
+      "body_bytes": 1617,
+      "body_sha256": "sha256:9544141a6c4c1c54f1e091439197adcc44a075ceb222f22f74e1af7fc1407fbd",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -96,8 +96,8 @@
     },
     {
       "aliases": ["registration approval"],
-      "body_bytes": 3376,
-      "body_sha256": "sha256:7a43e1675e36640f5e30f7f8cfb6e41d6192a5283df261fcb70f22e0224fc9dd",
+      "body_bytes": 3239,
+      "body_sha256": "sha256:733522018a023a208c3635a1e7ef3f061de6d789702c5ef4fb320ddb974b36cd",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -265,8 +265,8 @@
     },
     {
       "aliases": ["registration approval"],
-      "body_bytes": 687,
-      "body_sha256": "sha256:6101c95e9277952cb597d062070291e5bc5858ee7634063797b4f64c60df83ef",
+      "body_bytes": 429,
+      "body_sha256": "sha256:e8b3be24d84cf589d5c156419a3027b3ddd30a8ccba9a523d65abd0b97cf6ada",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:registration_approval:example:resource"],
@@ -305,8 +305,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1396,
-      "body_sha256": "sha256:87f0daac83784060e9bb662aac376d107f15395a9482a6bf742fa649c8af5514",
+      "body_bytes": 1147,
+      "body_sha256": "sha256:8d3872c4988e5177f400c4ab60b470dc87b49bce5fe53a0216e7aba0261156a8",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -352,8 +352,8 @@
     },
     {
       "aliases": ["registration approval"],
-      "body_bytes": 525,
-      "body_sha256": "sha256:cf2d67a8e6190f2f0a5d4e428807112605feed1d360cce878d0298b30f21d949",
+      "body_bytes": 388,
+      "body_sha256": "sha256:341d643065fca69830454768dccc409e1c808d4afefdd2af7d049880a9935528",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],

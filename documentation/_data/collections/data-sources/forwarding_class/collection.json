@@ -106,8 +106,8 @@
   "pages": [
     {
       "aliases": ["forwarding class"],
-      "body_bytes": 1423,
-      "body_sha256": "sha256:40470a43698f6fb4687cf5cedac7135ddbf3d93c72a4926df58dfd440710e45e",
+      "body_bytes": 1361,
+      "body_sha256": "sha256:d152c9e409a8bb9dce0c6401dfed6f004dd0fe042134bf5157bb92cd0eafecdb",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -138,7 +138,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forwarding_class/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Forwarding Class resource in F5 Distributed Cloud for forwarding class is created by users in system namespace. configuration.",
+      "summary": "Reads Forwarding Class information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_forwarding_class",
       "unresolved_relationships": [],
@@ -150,8 +150,8 @@
     },
     {
       "aliases": ["forwarding class"],
-      "body_bytes": 14638,
-      "body_sha256": "sha256:bdfeceab9cc493558827445944749e2ddd978e17f3f7e5969de41296f4610e64",
+      "body_bytes": 13514,
+      "body_sha256": "sha256:04d7564abdce505ab0552a40389af979155e0df0ba8249b0985c5430a42383bb",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -421,8 +421,8 @@
     },
     {
       "aliases": ["dscp"],
-      "body_bytes": 3988,
-      "body_sha256": "sha256:821dee8a6677a75262b19ea3f8fce070a8d3ffee09f7d3d336ef43dccc80d502",
+      "body_bytes": 3481,
+      "body_sha256": "sha256:c48a8b3521ded9214f7d1a0f70815fce5e117248d37b50e066fd0b869bba43eb",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -494,8 +494,8 @@
     },
     {
       "aliases": ["dscp based queue"],
-      "body_bytes": 1538,
-      "body_sha256": "sha256:06f96d7ea9dd93336e40d8d4d370e85a8e7b636a5ac9981138110f91a10c9b34",
+      "body_bytes": 1271,
+      "body_sha256": "sha256:82f9561e7150831f770082d4ffb2f90b362569df08b089461d7f0aa73fe23b50",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -534,8 +534,8 @@
     },
     {
       "aliases": ["no marking"],
-      "body_bytes": 1056,
-      "body_sha256": "sha256:d05213ffc307aa90e026ceb69f540f2b775ef37219b371f1b8111555e912bd6b",
+      "body_bytes": 789,
+      "body_sha256": "sha256:a7cbf8c1a4a0318920603f790757244efc5e19585fe65e8ca931762251853c00",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -574,8 +574,8 @@
     },
     {
       "aliases": ["no policer"],
-      "body_bytes": 1476,
-      "body_sha256": "sha256:8b14b1ec751da309e0160b09c7baa0a88229e8897b0eefe75d36bc9ab8379288",
+      "body_bytes": 1209,
+      "body_sha256": "sha256:31f22c41b18d317956d22e7a9926c747915ee01b8735f39030d8424484b8a5fb",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -614,8 +614,8 @@
     },
     {
       "aliases": ["policer"],
-      "body_bytes": 5146,
-      "body_sha256": "sha256:1874a7626578c0b4599be2387da7329da2150607c103253b308b23a66450ef5c",
+      "body_bytes": 4221,
+      "body_sha256": "sha256:4a6f556d18e1203ef7d4a44eb9187862751cb40ac6d5f9f0e562c04bc7da3ae5",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -724,8 +724,8 @@
     },
     {
       "aliases": ["forwarding class"],
-      "body_bytes": 681,
-      "body_sha256": "sha256:d0684d587d4b6667ae7dd9129994cf84d6ad0a37098ed4dfd0efe0c1d41e35b4",
+      "body_bytes": 426,
+      "body_sha256": "sha256:a4d5f879d5818464c7f2e929deb47af141484e365ad9c005c9152b97eb809d8b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:forwarding_class:example:data-source"],
@@ -764,8 +764,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1331,
-      "body_sha256": "sha256:719bf67a57476adc67bc53f9ed8876cea919888175745dd766e3363415be305d",
+      "body_bytes": 1091,
+      "body_sha256": "sha256:414ad5d4a95fabcb7996dff8f6ee0eaf8f2c8ef86e6799203bdebffc6251a78e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],

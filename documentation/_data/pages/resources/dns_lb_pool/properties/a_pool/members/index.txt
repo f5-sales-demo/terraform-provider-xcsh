@@ -2,7 +2,7 @@
 page_title: "a_pool.members"
 subcategory: ""
 description: "Configuration parameter for members"
-xcsh_docs: {"aliases": ["a pool members"], "body_bytes": 7009, "body_sha256": "sha256:71749f0ffd378b6be87bf9ab43612d63e8fd3a08a5b8dc785e0a5cb25c17f35b", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:dns_lb_pool:collection", "completeness": "complete", "id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members", "parent_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool", "path": "documentation/resources/dns_lb_pool/properties/a_pool/members/index.md", "product": "distributed-cloud", "provider_name": "dns_lb_pool", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2122022111130320-0001001323110101-3210200302200311-2323100330302110-0013332212221000-3332301300232022-2211213222110222-1102213000320130", "registry_path": "docs/guides/resources--dns_lb_pool--reference--group-001.md", "relationships": [{"anchor": "schema-a_pool--members--ip_endpoint", "enforcement": "provider-schema", "group": "a_pool.members:RequiredListObjectAttributes:ip_endpoint", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["a_pool", "members"], "schema_version": 1, "sections": [{"aliases": ["a pool members disable spec"], "anchor": "schema-a_pool--members--disable_spec", "description": "Value of true will disable the pool-member.", "document_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["a_pool", "members", "disable_spec"], "syntax": "attribute", "type": "bool"}, {"aliases": ["a pool members ip endpoint"], "anchor": "schema-a_pool--members--ip_endpoint", "description": "Public IP address.", "document_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["a_pool", "members", "ip_endpoint"], "syntax": "attribute", "type": "string"}, {"aliases": ["a pool members name"], "anchor": "schema-a_pool--members--name", "description": "Pool member name.", "document_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["a_pool", "members", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["a pool members priority"], "anchor": "schema-a_pool--members--priority", "description": "Used if the pool’s load balancing mode is set to Priority.", "document_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["a_pool", "members", "priority"], "syntax": "attribute", "type": "number"}, {"aliases": ["a pool members ratio"], "anchor": "schema-a_pool--members--ratio", "description": "Used if the pool’s load balancing mode is set to Ratio-Member.", "document_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["a_pool", "members", "ratio"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_lb_pool/properties/a_pool/members/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Configuration parameter for members", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["dns_lb_poolCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["a pool members"], "body_bytes": 6638, "body_sha256": "sha256:9f78f5d5882f0a9807244b83bde793896a3519c872ac87dba7976ab655073da2", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:dns_lb_pool:collection", "completeness": "complete", "id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members", "parent_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool", "path": "documentation/resources/dns_lb_pool/properties/a_pool/members/index.md", "product": "distributed-cloud", "provider_name": "dns_lb_pool", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2122022111130320-0001001323110101-3210200302200311-2323100330302110-0013332212221000-3332301300232022-2211213222110222-1102213000320130", "registry_path": "docs/guides/resources--dns_lb_pool--reference--group-001.md", "relationships": [{"anchor": "schema-a_pool--members--ip_endpoint", "enforcement": "provider-schema", "group": "a_pool.members:RequiredListObjectAttributes:ip_endpoint", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["a_pool", "members"], "schema_version": 1, "sections": [{"aliases": ["a pool members disable spec"], "anchor": "schema-a_pool--members--disable_spec", "description": "Value of true will disable the pool-member.", "document_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["a_pool", "members", "disable_spec"], "syntax": "attribute", "type": "bool"}, {"aliases": ["a pool members ip endpoint"], "anchor": "schema-a_pool--members--ip_endpoint", "description": "Public IP address.", "document_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["a_pool", "members", "ip_endpoint"], "syntax": "attribute", "type": "string"}, {"aliases": ["a pool members name"], "anchor": "schema-a_pool--members--name", "description": "Pool member name.", "document_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["a_pool", "members", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["a pool members priority"], "anchor": "schema-a_pool--members--priority", "description": "Used if the pool’s load balancing mode is set to Priority.", "document_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["a_pool", "members", "priority"], "syntax": "attribute", "type": "number"}, {"aliases": ["a pool members ratio"], "anchor": "schema-a_pool--members--ratio", "description": "Used if the pool’s load balancing mode is set to Ratio-Member.", "document_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["a_pool", "members", "ratio"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_lb_pool/properties/a_pool/members/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Configuration parameter for members", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["dns_lb_poolCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,10 +23,6 @@ Breadcrumbs:
 Type: `"object"`. list nested block, Optional.
 
 Pool Members. Configuration parameter for members
-
-Upstream description:
-
-Configuration parameter for members
 
 Provider validators and defaults (from schema source):
 
@@ -101,10 +97,6 @@ Type: `"string"`. Optional.
 
 Public IP. Public IP address.
 
-Upstream description:
-
-Public IP address.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -155,10 +147,6 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Optional.
 
 Name. Pool member name.
-
-Upstream description:
-
-Pool member name.
 
 Provider validators and defaults (from schema source):
 
@@ -314,8 +302,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [a_pool](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/dns_lb_pool/properties/a_pool/)
-- [xcsh_dns_lb_pool](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/dns_lb_pool/)

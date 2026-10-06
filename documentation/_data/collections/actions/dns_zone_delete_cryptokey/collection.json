@@ -26,8 +26,8 @@
   "pages": [
     {
       "aliases": ["dns zone delete cryptokey"],
-      "body_bytes": 1278,
-      "body_sha256": "sha256:97ccc6dcfe6f010a92b0b54fba97452cb163899b18cce0400b4cf331e0307354",
+      "body_bytes": 1307,
+      "body_sha256": "sha256:15a16013dcc138679c7eb8504fe0dd3ea9c24819bf52ed414c503f1736ab1a81",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -59,7 +59,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/dns_zone_delete_cryptokey/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource creation operation.",
+      "summary": "Deletes a cryptographic key from a DNS zone.",
       "tasks": ["configuration"],
       "title": "xcsh_dns_zone_delete_cryptokey",
       "unresolved_relationships": [],
@@ -71,8 +71,8 @@
     },
     {
       "aliases": ["dns zone delete cryptokey"],
-      "body_bytes": 1754,
-      "body_sha256": "sha256:d3b14eee9f63c64c1e9c9eaa08a64253bb18c7e99e6a2e340410c3c3bc6fac2a",
+      "body_bytes": 1611,
+      "body_sha256": "sha256:f8432140fd1a777241b28af41e575298ea7526f8dd55abcb2e9a67ffdda55e06",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -160,8 +160,8 @@
     },
     {
       "aliases": ["dns zone delete cryptokey"],
-      "body_bytes": 695,
-      "body_sha256": "sha256:5e6c63f4e1606258e5127bfad7e36135948c07a77c2f81cd44534b5e34092731",
+      "body_bytes": 433,
+      "body_sha256": "sha256:9fc6ecd3c448bdcf59f6e45012f0a07832b3b230811dbd56091d49ee45ba0ac8",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:actions:dns_zone_delete_cryptokey:example:action"],
@@ -200,8 +200,8 @@
     },
     {
       "aliases": ["action"],
-      "body_bytes": 1190,
-      "body_sha256": "sha256:68e437fa6563dd3784aa12cc8b0fe7f056af675471ad43616f9b4bf38e65cbd1",
+      "body_bytes": 933,
+      "body_sha256": "sha256:b8215cf05111d9116a6b8081d4ecf2592d9c9af97bf62548cfaf5d4d812fd00c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -247,8 +247,8 @@
     },
     {
       "aliases": ["dns zone delete cryptokey"],
-      "body_bytes": 650,
-      "body_sha256": "sha256:db5cf749d9bd683890bc044710457e18216bc93c4980c847e6a516bb2a23b3d8",
+      "body_bytes": 507,
+      "body_sha256": "sha256:c1512b820968279b40e14377d2fbe65aaefab0385f82aa6294f371630d3b8906",
       "capabilities": [],
       "category": null,
       "child_ids": [],

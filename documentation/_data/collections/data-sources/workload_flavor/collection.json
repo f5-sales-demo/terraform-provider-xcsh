@@ -56,8 +56,8 @@
   "pages": [
     {
       "aliases": ["workload flavor"],
-      "body_bytes": 1312,
-      "body_sha256": "sha256:fffa8352613084c40f0c823f3fdeb2ce9b7ecb7c497c7ab27f2b272869e42b42",
+      "body_bytes": 1336,
+      "body_sha256": "sha256:de3a41946e05cedde0402494578f518791312b2dfa7c0e72249da03973abb036",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -88,7 +88,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/workload_flavor/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages workload_flavor in F5 Distributed Cloud.",
+      "summary": "Reads Workload Flavor information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_workload_flavor",
       "unresolved_relationships": [],
@@ -100,8 +100,8 @@
     },
     {
       "aliases": ["workload flavor"],
-      "body_bytes": 10021,
-      "body_sha256": "sha256:dd0ae333aa4ecfe64d8c9c35561e855a6f405b9915551b1845b350a7b4977c0d",
+      "body_bytes": 9928,
+      "body_sha256": "sha256:63574a7764497f1faf14593bfb475e681c587726bee4529f9361576bf17053fc",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -285,8 +285,8 @@
     },
     {
       "aliases": ["workload flavor"],
-      "body_bytes": 675,
-      "body_sha256": "sha256:030334f115bc55cfd372a45f08d004e14daffbf2701eb1f654866451aa21f2ff",
+      "body_bytes": 423,
+      "body_sha256": "sha256:f19e22c8c5f9edf22c2a0d0fd5add4739ee41188237a22bdb956e17472eade21",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:workload_flavor:example:data-source"],
@@ -325,8 +325,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1317,
-      "body_sha256": "sha256:877eea152a98fe12abd1ba56833d68884d4ddb00e31154db3bd24b916261977d",
+      "body_bytes": 1080,
+      "body_sha256": "sha256:ed4ee3d76156bbdfb699d99c7c9cd40b1af4685adb5a71062f66242ebf3370ae",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],

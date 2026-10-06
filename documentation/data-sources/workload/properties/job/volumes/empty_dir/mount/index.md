@@ -2,7 +2,7 @@
 page_title: "job.volumes.empty_dir.mount"
 subcategory: "Container"
 description: "Volume mount describes how volume is mounted inside a workload."
-xcsh_docs: {"aliases": ["job volumes empty dir mount"], "body_bytes": 4415, "body_sha256": "sha256:fa996fde648eb278eb51ec212519bd253e3290da4e1399f6594836b6ef6d6141", "capabilities": ["container"], "category": "container", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:workload:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:workload:properties:job:volumes:empty_dir:mount", "parent_id": "xcsh-docs:data-sources:workload:properties:job:volumes:empty_dir", "path": "documentation/data-sources/workload/properties/job/volumes/empty_dir/mount/index.md", "product": "distributed-cloud", "provider_name": "workload", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-0101212202101110-3211221011321012-1321002221302231-0011232010322023-0213312120301331-2131211330303312-0021201120020221-3023211232310311", "registry_path": "docs/guides/data-sources--workload--reference--group-004.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["job", "volumes", "empty_dir", "mount"], "schema_version": 1, "sections": [{"aliases": ["job volumes empty dir mount mode"], "anchor": "schema-job--volumes--empty_dir--mount--mode", "description": "Mode in which the volume should be mounted to the workload - VOLUME_MOUNT_READ_ONLY: ReadOnly Mount the volume in read-only mode - VOLUME_MOUNT_READ_WRITE: Read Write Mount the volume in read-write mode.", "document_id": "xcsh-docs:data-sources:workload:properties:job:volumes:empty_dir:mount", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["job", "volumes", "empty_dir", "mount", "mode"], "syntax": "attribute", "type": "string"}, {"aliases": ["job volumes empty dir mount mount path"], "anchor": "schema-job--volumes--empty_dir--mount--mount_path", "description": "Path within the workload container at which the volume should be mounted. Must not contain ':'.", "document_id": "xcsh-docs:data-sources:workload:properties:job:volumes:empty_dir:mount", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["job", "volumes", "empty_dir", "mount", "mount_path"], "syntax": "attribute", "type": "string"}, {"aliases": ["job volumes empty dir mount sub path"], "anchor": "schema-job--volumes--empty_dir--mount--sub_path", "description": "Path within the volume from which the workload's volume should be mounted. Defaults to \"\" (volume's root).", "document_id": "xcsh-docs:data-sources:workload:properties:job:volumes:empty_dir:mount", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["job", "volumes", "empty_dir", "mount", "sub_path"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/workload/properties/job/volumes/empty_dir/mount/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Volume mount describes how volume is mounted inside a workload.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["workloadCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["job volumes empty dir mount"], "body_bytes": 3843, "body_sha256": "sha256:0a33d4f3531fdc18952a02958efb9f32f7efc36066ea1254c2e2251b7fe66342", "capabilities": ["container"], "category": "container", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:workload:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:workload:properties:job:volumes:empty_dir:mount", "parent_id": "xcsh-docs:data-sources:workload:properties:job:volumes:empty_dir", "path": "documentation/data-sources/workload/properties/job/volumes/empty_dir/mount/index.md", "product": "distributed-cloud", "provider_name": "workload", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-0101212202101110-3211221011321012-1321002221302231-0011232010322023-0213312120301331-2131211330303312-0021201120020221-3023211232310311", "registry_path": "docs/guides/data-sources--workload--reference--group-005.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["job", "volumes", "empty_dir", "mount"], "schema_version": 1, "sections": [{"aliases": ["job volumes empty dir mount mode"], "anchor": "schema-job--volumes--empty_dir--mount--mode", "description": "Mode in which the volume should be mounted to the workload - VOLUME_MOUNT_READ_ONLY: ReadOnly Mount the volume in read-only mode - VOLUME_MOUNT_READ_WRITE: Read Write Mount the volume in read-write mode.", "document_id": "xcsh-docs:data-sources:workload:properties:job:volumes:empty_dir:mount", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["job", "volumes", "empty_dir", "mount", "mode"], "syntax": "attribute", "type": "string"}, {"aliases": ["job volumes empty dir mount mount path"], "anchor": "schema-job--volumes--empty_dir--mount--mount_path", "description": "Path within the workload container at which the volume should be mounted. Must not contain ':'.", "document_id": "xcsh-docs:data-sources:workload:properties:job:volumes:empty_dir:mount", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["job", "volumes", "empty_dir", "mount", "mount_path"], "syntax": "attribute", "type": "string"}, {"aliases": ["job volumes empty dir mount sub path"], "anchor": "schema-job--volumes--empty_dir--mount--sub_path", "description": "Path within the volume from which the workload's volume should be mounted. Defaults to \"\" (volume's root).", "document_id": "xcsh-docs:data-sources:workload:properties:job:volumes:empty_dir:mount", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["job", "volumes", "empty_dir", "mount", "sub_path"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/workload/properties/job/volumes/empty_dir/mount/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Volume mount describes how volume is mounted inside a workload.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["workloadCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -52,16 +52,6 @@ mounted to the workload - VOLUME\_MOUNT\_READ\_ONLY: ReadOnly Mount the volume i
 VOLUME\_MOUNT\_READ\_WRITE: Read Write Mount the volume in read-write mode. Possible values are
 \`VOLUME\_MOUNT\_READ\_ONLY\`, \`VOLUME\_MOUNT\_READ\_WRITE\`. Defaults to
 \`VOLUME\_MOUNT\_READ\_ONLY\`.
-
-Upstream description:
-
-Mode in which the volume should be mounted to the workload
-
-&#8203;- VOLUME\_MOUNT\_READ\_ONLY: ReadOnly
-
-Mount the volume in read-only mode &#8203;- VOLUME\_MOUNT\_READ\_WRITE: Read Write
-
-Mount the volume in read-write mode.
 
 Receipt-pinned upstream constraints:
 
@@ -134,10 +124,9 @@ Type: `"string"`. Computed.
 Path within the volume from which the workload's volume should be mounted. Defaults to '' (volume's
 root).
 
-Upstream description:
+Additional upstream details:
 
-Path within the volume from which the workload's volume should be mounted. Defaults to "" (volume's
-root).
+Defaults to "" (volume's root).
 
 Receipt-pinned upstream constraints:
 
@@ -169,8 +158,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [job.volumes.empty_dir](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/job/volumes/empty_dir/)
-- [xcsh_workload](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/)

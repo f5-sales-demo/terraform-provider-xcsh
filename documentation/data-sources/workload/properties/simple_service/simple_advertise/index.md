@@ -2,7 +2,7 @@
 page_title: "simple_service.simple_advertise"
 subcategory: "Container"
 description: "Advertise OPTIONS for Simple Service."
-xcsh_docs: {"aliases": ["simple service simple advertise"], "body_bytes": 5030, "body_sha256": "sha256:eaa2dff582ce9d67f92a9f55a5a7ea9169f0969754b962d3ed50dbb2725f3f49", "capabilities": ["container"], "category": "container", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:workload:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:workload:properties:simple_service:simple_advertise", "parent_id": "xcsh-docs:data-sources:workload:properties:simple_service", "path": "documentation/data-sources/workload/properties/simple_service/simple_advertise/index.md", "product": "distributed-cloud", "provider_name": "workload", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1332023020220230-0231312012221313-1132321323222002-2223303033022101-2220302230211001-0323332011222312-2312021312021221-1032021121111230", "registry_path": "docs/guides/data-sources--workload--reference--group-017.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["simple_service", "simple_advertise"], "schema_version": 1, "sections": [{"aliases": ["simple service simple advertise domains"], "anchor": "schema-simple_service--simple_advertise--domains", "description": "A list of Domains (host/authority header) that will be matched to Load Balancer. Wildcard hosts are supported in the suffix or prefix form Supported Domains and search order: 1. Exact Domain names: www.example.com. 2. Domains starting with a Wildcard: *.example.com. Not supported Domains: - Just a Wildcard: * - A", "document_id": "xcsh-docs:data-sources:workload:properties:simple_service:simple_advertise", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["simple_service", "simple_advertise", "domains"], "syntax": "attribute", "type": "list"}, {"aliases": ["simple service simple advertise service port"], "anchor": "schema-simple_service--simple_advertise--service_port", "description": "Service port to advertise on Internet via HTTP loadbalancer using port 80.", "document_id": "xcsh-docs:data-sources:workload:properties:simple_service:simple_advertise", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["simple_service", "simple_advertise", "service_port"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/workload/properties/simple_service/simple_advertise/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Advertise OPTIONS for Simple Service.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["workloadCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["simple service simple advertise"], "body_bytes": 4554, "body_sha256": "sha256:ba581b75179981ee531fc77b09d3897fa6294bead806d00420c08cb95d768252", "capabilities": ["container"], "category": "container", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:workload:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:workload:properties:simple_service:simple_advertise", "parent_id": "xcsh-docs:data-sources:workload:properties:simple_service", "path": "documentation/data-sources/workload/properties/simple_service/simple_advertise/index.md", "product": "distributed-cloud", "provider_name": "workload", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1332023020220230-0231312012221313-1132321323222002-2223303033022101-2220302230211001-0323332011222312-2312021312021221-1032021121111230", "registry_path": "docs/guides/data-sources--workload--reference--group-016.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["simple_service", "simple_advertise"], "schema_version": 1, "sections": [{"aliases": ["simple service simple advertise domains"], "anchor": "schema-simple_service--simple_advertise--domains", "description": "A list of Domains (host/authority header) that will be matched to Load Balancer. Wildcard hosts are supported in the suffix or prefix form Supported Domains and search order: 1. Exact Domain names: www.example.com. 2. Domains starting with a Wildcard: *.example.com. Not supported Domains: - Just a Wildcard: * - A", "document_id": "xcsh-docs:data-sources:workload:properties:simple_service:simple_advertise", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["simple_service", "simple_advertise", "domains"], "syntax": "attribute", "type": "list"}, {"aliases": ["simple service simple advertise service port"], "anchor": "schema-simple_service--simple_advertise--service_port", "description": "Service port to advertise on Internet via HTTP loadbalancer using port 80.", "document_id": "xcsh-docs:data-sources:workload:properties:simple_service:simple_advertise", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["simple_service", "simple_advertise", "service_port"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/workload/properties/simple_service/simple_advertise/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Advertise OPTIONS for Simple Service.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["workloadCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -24,7 +24,7 @@ Type: `"single"`. Computed.
 
 Configuration parameter for simple advertise.
 
-Upstream description:
+Additional upstream details:
 
 Advertise OPTIONS for Simple Service.
 
@@ -48,12 +48,6 @@ Receipt-pinned upstream constraints:
 ### domains property
 
 Type: `["list", "string"]`. Computed.
-
-List of Domains (host/authority header) that will be matched to Load Balancer. Wildcard hosts are
-supported in the suffix or prefix form Supported Domains and search order: 1. Exact Domain names:
-www&#46;example.com. 2.
-
-Upstream description:
 
 A list of Domains (host/authority header) that will be matched to Load Balancer. Wildcard hosts are
 supported in the suffix or prefix form
@@ -162,8 +156,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [simple_service](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/simple_service/)
-- [xcsh_workload](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/)

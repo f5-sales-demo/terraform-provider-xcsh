@@ -1769,8 +1769,8 @@
   "pages": [
     {
       "aliases": ["global log receiver"],
-      "body_bytes": 1579,
-      "body_sha256": "sha256:c6aecf14693c6171d1fb8181c92127a91e94b119474d4880c3a9db332a4015d4",
+      "body_bytes": 1592,
+      "body_sha256": "sha256:2e4313f7b6e89b1167113849d20c989778eacdfee9a42b51520651dfee0d41a2",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -1815,8 +1815,8 @@
     },
     {
       "aliases": ["global log receiver"],
-      "body_bytes": 101962,
-      "body_sha256": "sha256:37a9687df228630355f2b2cbf1eccd6950ad1a12ea8786ed62d2ecd046bf3dee",
+      "body_bytes": 99031,
+      "body_sha256": "sha256:72ec9b6b2fe529bddeee433205b406f7306836916f2373601cc418ed169de6eb",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -2618,8 +2618,8 @@
     },
     {
       "aliases": ["audit logs"],
-      "body_bytes": 1830,
-      "body_sha256": "sha256:ac33acd7093ef9d460658c0e5b8a82f95da922e0b9fe7185b9b626f350f4b1a6",
+      "body_bytes": 1560,
+      "body_sha256": "sha256:2ed7c77686649917a73487a0873c7413349f2bc6871560a6034cd8cb4e153df7",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -2658,8 +2658,8 @@
     },
     {
       "aliases": ["aws cloud watch receiver"],
-      "body_bytes": 11261,
-      "body_sha256": "sha256:6aa96c0a4b5fe0fecb375e36c59f684c9f26287f758c944664b5afc151ec62c0",
+      "body_bytes": 10225,
+      "body_sha256": "sha256:fe41b4bf2fc5e7bad7d7ee7fbe9d83fe09c0348830fd14a7941be003c0278b37",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -2962,8 +2962,8 @@
     },
     {
       "aliases": ["aws cloud watch receiver aws cred"],
-      "body_bytes": 6276,
-      "body_sha256": "sha256:99106d9bc059124bfdc9c5a531de1a30cc68b29682dae2b29b556ee95e6d2065",
+      "body_bytes": 5317,
+      "body_sha256": "sha256:3b86ce0ccaa81d644330a559a54b8e5aa963523d478fe321e6610b590e1f84c3",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -3081,8 +3081,8 @@
     },
     {
       "aliases": ["aws cloud watch receiver batch"],
-      "body_bytes": 6731,
-      "body_sha256": "sha256:d60b5a3061d7c1f3bddaef91ecbe9700465cd3501200a17898fe2df295d4ec43",
+      "body_bytes": 5421,
+      "body_sha256": "sha256:df80d7d096e0b7ec826c11bdc339d1bf27385112fc5d5413a3ccdd25a3f71ac5",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -3271,8 +3271,8 @@
     },
     {
       "aliases": ["aws cloud watch receiver batch max bytes disabled"],
-      "body_bytes": 1562,
-      "body_sha256": "sha256:adbd4d7a999f281e9e8830b246db422f9a3841f949ce77bd38dd06b8ee5f9bc8",
+      "body_bytes": 1249,
+      "body_sha256": "sha256:929753ac6da15405ef9c88ab44a070ce8bb4c5f75e3d34f4a63b486a081e512a",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -3311,8 +3311,8 @@
     },
     {
       "aliases": ["aws cloud watch receiver batch max events disabled"],
-      "body_bytes": 1565,
-      "body_sha256": "sha256:24fefebb669e5dbf3d62bdc72b5749937b3a5b284b0b57a7804f50a8a5118c1f",
+      "body_bytes": 1252,
+      "body_sha256": "sha256:844e4a19fef56eb2de27fc559f9109e5cc7274d889871fe46cabe5c2330a864e",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -3351,8 +3351,8 @@
     },
     {
       "aliases": ["aws cloud watch receiver batch timeout seconds default", "duration"],
-      "body_bytes": 1577,
-      "body_sha256": "sha256:1c345eee906cd4f8a0fdebf212a554f2b7a93e2d73b76ce4a9eb17acda851a4d",
+      "body_bytes": 1264,
+      "body_sha256": "sha256:405fa958e073c31f79b1635ae41943675888c24509d4b15053542159c83e99cb",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -3391,8 +3391,8 @@
     },
     {
       "aliases": ["aws cloud watch receiver compression"],
-      "body_bytes": 3091,
-      "body_sha256": "sha256:75fa700c98ea4a13edc794d455da4c12c5b1ce85c194f92c175903191ce89659",
+      "body_bytes": 2173,
+      "body_sha256": "sha256:da2b082ab4b309c5ecdb21bce82378e50f97c76b2afafcd5aef0432028e09bdd",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -3533,8 +3533,8 @@
     },
     {
       "aliases": ["aws cloud watch receiver compression compression default"],
-      "body_bytes": 1631,
-      "body_sha256": "sha256:75ea374ad9e228ae763811a8b7ef702ff896a1e93e7be2fa4c21eaf82308fb77",
+      "body_bytes": 1306,
+      "body_sha256": "sha256:dcec441ff99edd4fa255fa978c5e0b4501e859bcff9c00f9df652efbb24372c4",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -3573,8 +3573,8 @@
     },
     {
       "aliases": ["aws cloud watch receiver compression compression gzip"],
-      "body_bytes": 1592,
-      "body_sha256": "sha256:392882db9dec3f1ba9fdbe291a5881b8ba6f0bea98d2bf8fcaa33737b25e1580",
+      "body_bytes": 1267,
+      "body_sha256": "sha256:39cd515a8a779202cd79b5ec08d91e1d8161841fc28d398319dd3e37079e579e",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -3613,8 +3613,8 @@
     },
     {
       "aliases": ["aws cloud watch receiver compression compression none"],
-      "body_bytes": 1619,
-      "body_sha256": "sha256:852648deb0a545875c85fd8bf10111cd37d2a642b441a227ab5cbc14dbbd50dd",
+      "body_bytes": 1294,
+      "body_sha256": "sha256:577170a5159e76bbd1307736dab2cf18c50652b0cfc3b8fc1a7a0050d87d7bb6",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -3653,8 +3653,8 @@
     },
     {
       "aliases": ["azure event hubs receiver"],
-      "body_bytes": 4976,
-      "body_sha256": "sha256:543658e7d9fc8068b2daa3d570707f83cca1bb451931686295833296bcabcbb1",
+      "body_bytes": 4530,
+      "body_sha256": "sha256:88d14429b7affdb5cab4377f15a19d18b814fc10b2d66f288626c145c16f1470",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:global_log_receiver:properties:azure_event_hubs_receiver:connection_string"],
@@ -3776,8 +3776,8 @@
     },
     {
       "aliases": ["azure event hubs receiver connection string"],
-      "body_bytes": 2553,
-      "body_sha256": "sha256:cd86876e9c228801c6497c91a12fe3ba416c89e0c3c2cf58eefedb92b5cce3fc",
+      "body_bytes": 1803,
+      "body_sha256": "sha256:045f2150424d2abbb564aeef6f7f4ef6e99debb99183009826f8bf6cb7e273ed",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -3887,8 +3887,8 @@
     },
     {
       "aliases": ["azure event hubs receiver connection string blindfold secret info"],
-      "body_bytes": 5159,
-      "body_sha256": "sha256:8034573e635788758bb2455cab418d0d006f305a6a7dc9e5d257c19c87fe2472",
+      "body_bytes": 4466,
+      "body_sha256": "sha256:dcead6a2bbb10406aac4131e501f3950b314fb4aae65cd0be511abd5d30ed131",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -3990,8 +3990,8 @@
     },
     {
       "aliases": ["azure event hubs receiver connection string clear secret info"],
-      "body_bytes": 4026,
-      "body_sha256": "sha256:30fea497949f5e8c86fda774aff72c5da58462f10399e67f3cc43770007a5dad",
+      "body_bytes": 3467,
+      "body_sha256": "sha256:697b739058783ae09b738679d0a1391e58fd582f744aa3c4cfe456b6252563dd",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -4072,8 +4072,8 @@
     },
     {
       "aliases": ["azure receiver"],
-      "body_bytes": 4032,
-      "body_sha256": "sha256:1c8c0e5cd8d6dcd0eb38809f4a90495b61763b23656bf30f4ae531a547d9b46a",
+      "body_bytes": 3139,
+      "body_sha256": "sha256:e72b0c9dd412d34608eb95bddfb35b105ddb651c3c0d039583298de802215acf",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -4371,8 +4371,8 @@
     },
     {
       "aliases": ["azure receiver batch"],
-      "body_bytes": 6551,
-      "body_sha256": "sha256:de530a69720b2b26853918c9bc47894c7b0f808bfc21065383992aacc2cc0519",
+      "body_bytes": 5321,
+      "body_sha256": "sha256:af2c0b29433c28171610a5659aef050e18ca63cae5cb079bf67943d1d2dc0159",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -4561,8 +4561,8 @@
     },
     {
       "aliases": ["azure receiver batch max bytes disabled"],
-      "body_bytes": 1482,
-      "body_sha256": "sha256:c214c1a279646d7ba17e6570324b0b56fb87913507e59532496ac448080583cb",
+      "body_bytes": 1189,
+      "body_sha256": "sha256:545762173a973268f72f46d4b5c74d6c1062cd0728292fe893d45fc73e80b6e4",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -4582,7 +4582,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2323232230013213-2102123301122133-0010201111031123-0111301103031030-1031223110311200-3302030203321120-0033113310231123-0123231211021010",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-002.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4601,8 +4601,8 @@
     },
     {
       "aliases": ["azure receiver batch max events disabled"],
-      "body_bytes": 1485,
-      "body_sha256": "sha256:734165d8bc65377656a36d81984abce1764f646d5c161a2599907afabbec867a",
+      "body_bytes": 1192,
+      "body_sha256": "sha256:b38bef7c06cfd7b9d8e07f60d83f5824882f98e810fd1ab89b39c4725b8c7814",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -4622,7 +4622,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3202130000101301-0130300012332222-0100131320011200-2110203321001303-3001130100020302-0330131233123020-3030110031002102-1333211333132133",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-002.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4641,8 +4641,8 @@
     },
     {
       "aliases": ["azure receiver batch timeout seconds default", "duration"],
-      "body_bytes": 1497,
-      "body_sha256": "sha256:fd9fd5dd4f273d8ade760f93c7e914f18354becd778b4611dd7fa09a1e2d149b",
+      "body_bytes": 1204,
+      "body_sha256": "sha256:9cca4f07cb8b8169ba4f646ed0b069b7a4650b2c627a465000416e8f153c99b3",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -4662,7 +4662,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2332203312010110-3110223100311230-2012010223131123-1313133310123212-3330330133312030-0232001132321132-3130311013011021-2221000211210332",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-002.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4681,8 +4681,8 @@
     },
     {
       "aliases": ["azure receiver compression"],
-      "body_bytes": 2941,
-      "body_sha256": "sha256:9afb17ce0b5cd919d372797697157e8e0fb4ce8bd4de2f0e0fe4aa9bc46fff2e",
+      "body_bytes": 2103,
+      "body_sha256": "sha256:5d53073b3cfe61024800c61fd38f0bf3483cad76cbec2c140dbfbf8e023f3975",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -4706,7 +4706,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2212231022022020-2232331232100113-0300233311201203-3300213121033120-1133003222102120-1310021311213323-1001131113123113-1002030321000210",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-002.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-001.md",
       "relationships": [
         {
           "anchor": "section",
@@ -4823,8 +4823,8 @@
     },
     {
       "aliases": ["azure receiver compression compression default"],
-      "body_bytes": 1551,
-      "body_sha256": "sha256:c4efea9cc7c8ae7d29e56ec38a42bfd426be2889ad21c995318d6b06c2762a03",
+      "body_bytes": 1246,
+      "body_sha256": "sha256:7d6936a4502cd0b075990ac7764a9cb9b1cda89d2752dc1542df783de83e9050",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -4844,7 +4844,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3232331330012133-0123122303230003-3013223100122003-3121201332122311-3000311003113012-1310010220130000-0223232130321023-0202110010213033",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-002.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4863,8 +4863,8 @@
     },
     {
       "aliases": ["azure receiver compression compression gzip"],
-      "body_bytes": 1512,
-      "body_sha256": "sha256:f5f53e6f5d21586211f994ef73c56a31b2b95dbef78e9dbed1219d917334f6d0",
+      "body_bytes": 1207,
+      "body_sha256": "sha256:4dadf32459c250142909d58a5a3d43e8bfea3ad4df56c34a24e30d97e6b88459",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -4884,7 +4884,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2030313311323220-0311111231121231-2102300203330013-2121330003000032-2222103331022012-0202020213202220-2111211123033021-2133300111020333",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-002.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4903,8 +4903,8 @@
     },
     {
       "aliases": ["azure receiver compression compression none"],
-      "body_bytes": 1539,
-      "body_sha256": "sha256:d46087ce224a2910c20d303e42e2d4ae73b7ba79e802c1beaaf06cb5492222a6",
+      "body_bytes": 1234,
+      "body_sha256": "sha256:3d50c2fee0eabaa3c0e3db136092193f64ef070079368e44ccb05c0c5fa0bafd",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -4924,7 +4924,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2231210233121311-3020230230003001-3013013213303130-1213320232232030-3132132023332102-3231232103222210-2013320022030013-1133220333202200",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-002.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4943,8 +4943,8 @@
     },
     {
       "aliases": ["azure receiver connection string"],
-      "body_bytes": 2421,
-      "body_sha256": "sha256:3b5f177897f3a87bd7123c3c25a1790bc22d9061f053d024b29e4962f95dafab",
+      "body_bytes": 1737,
+      "body_sha256": "sha256:3219582a65fbe0cf76a8dc851364d13286b27fb4963598afed057d541045fdf7",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -4967,7 +4967,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3321122021101233-0323300002001002-2212120302013221-2231302210203201-3121310031113020-0111200312123321-2120030012123003-0212312323022131",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-002.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-001.md",
       "relationships": [
         {
           "anchor": "section",
@@ -5054,8 +5054,8 @@
     },
     {
       "aliases": ["azure receiver connection string blindfold secret info"],
-      "body_bytes": 5038,
-      "body_sha256": "sha256:a95cd4502f23dfe24a5c8a6b308f6b8a76fd0365dc1be5bef372bda1a85c023d",
+      "body_bytes": 4367,
+      "body_sha256": "sha256:60fe09b8c7cfd889e7eb082798b6184dd6b528288002ff0c4d3521f5373c23de",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -5075,7 +5075,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3301301211103100-3023131033302123-2100020223130301-1320000300200223-3312021100331312-2333202300231031-2023202001022032-1232020103330131",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-002.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-azure_receiver--connection_string--blindfold_secret_info--location",
@@ -5152,8 +5152,8 @@
     },
     {
       "aliases": ["azure receiver connection string clear secret info"],
-      "body_bytes": 3916,
-      "body_sha256": "sha256:0e1bc3bf2ae4731b6542feb37ce7ed8d9bdbb2f3bc90d76076ebca694d2b3240",
+      "body_bytes": 3379,
+      "body_sha256": "sha256:7535d5b1c568c0bf8a47d5aa3f39bfb38a2aabfd0d06ec6d261d240a986de5cf",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -5173,7 +5173,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0133302123223211-2203020213301031-1000122113023013-1233312131032003-0301112011103022-0002313213131020-3113031231233023-2313102210222302",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-002.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-azure_receiver--connection_string--clear_secret_info--url",
@@ -5234,8 +5234,8 @@
     },
     {
       "aliases": ["azure receiver filename options"],
-      "body_bytes": 3929,
-      "body_sha256": "sha256:c03cf5bb9d176b0a3b4ab6755f4f74e0a99e4928f6ad3b66277eabcd9e764857",
+      "body_bytes": 3095,
+      "body_sha256": "sha256:2f97f8313678ed00e644ee6341a776137a510b15676b5e6c0af07d2b661d783a",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -5258,7 +5258,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3110031023120033-1213230103132203-2110113022103201-0132031102313032-0222333230033201-2320000331022303-3233031321002010-2110103103010001",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-002.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-azure_receiver--filename_options--custom_folder",
@@ -5375,8 +5375,8 @@
     },
     {
       "aliases": ["azure receiver filename options log type folder"],
-      "body_bytes": 1565,
-      "body_sha256": "sha256:d12221724ef8f8463ba5dd0cf975b4d719288c9fa2a4c5ef57605dfc49f80d07",
+      "body_bytes": 1250,
+      "body_sha256": "sha256:f109093fe1942b9b054d1ab88ea09dbcc396b9c0a147d479902ca44c4b7351e0",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -5415,8 +5415,8 @@
     },
     {
       "aliases": ["azure receiver filename options no folder"],
-      "body_bytes": 1521,
-      "body_sha256": "sha256:860bc5a58796491afb2d1755e04970a34cabe6bf48a4356bf5f57ab23c55274c",
+      "body_bytes": 1206,
+      "body_sha256": "sha256:5920b7f0b86241eac120cd8da7c2db2f4ba1fea0c8826fa9d5b15ba1b04b6ff1",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -5455,8 +5455,8 @@
     },
     {
       "aliases": ["datadog receiver"],
-      "body_bytes": 4975,
-      "body_sha256": "sha256:be0776321fa1ed97895bb98cda31977eecdbfb80eb28300257b439e0a5539820",
+      "body_bytes": 3743,
+      "body_sha256": "sha256:d3601a018e084ad18c8cd3be3f34a096ff9b659704cb5c7304b2f1434565696b",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -5827,8 +5827,8 @@
     },
     {
       "aliases": ["datadog receiver batch"],
-      "body_bytes": 6587,
-      "body_sha256": "sha256:c25035b5cb65a0ab8884a33d2ce03acf3d42d6ba79ebc74575d138d839c0c78c",
+      "body_bytes": 5341,
+      "body_sha256": "sha256:d48a504bbe0fcdd62c9c2c3180b5770ed616711c67fd8361d1a4d983840d0978",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -6017,8 +6017,8 @@
     },
     {
       "aliases": ["datadog receiver batch max bytes disabled"],
-      "body_bytes": 1498,
-      "body_sha256": "sha256:f344f9ec33ac491c7f080d678ed420500bee5565fd2a6311578b2e93bf563981",
+      "body_bytes": 1201,
+      "body_sha256": "sha256:2f77f28fcc5a9dab182a927d3e1e87ce7d45acb73c5a3fd9c1e655e8afb0d23b",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -6057,8 +6057,8 @@
     },
     {
       "aliases": ["datadog receiver batch max events disabled"],
-      "body_bytes": 1501,
-      "body_sha256": "sha256:03bfdeb29c5ecda6860f8c500b11f985db411a9976e249d990e67c46abfda0c8",
+      "body_bytes": 1204,
+      "body_sha256": "sha256:0af5f02f5d166ab0cf12d9a823db1e524ca56c16366441480fd1a5da5b485a72",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -6097,8 +6097,8 @@
     },
     {
       "aliases": ["datadog receiver batch timeout seconds default", "duration"],
-      "body_bytes": 1513,
-      "body_sha256": "sha256:7d36aee57ef5f10e632053587f13ce0033e08f86c0c920c46e641a9a21a6c6a1",
+      "body_bytes": 1216,
+      "body_sha256": "sha256:d59355a6629777f574f275058e5f03f11bfa738ba3088cb2cd3a7874617cea84",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -6137,8 +6137,8 @@
     },
     {
       "aliases": ["datadog receiver compression"],
-      "body_bytes": 2971,
-      "body_sha256": "sha256:61ed19193104936fc34f9b3e1f433d5665cc217c639d8a7c60db9fb1a61096c5",
+      "body_bytes": 2117,
+      "body_sha256": "sha256:038573415554daa39ab59de8aec446d51f45cd37788bb4a5e4e620697f5d5abc",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -6279,8 +6279,8 @@
     },
     {
       "aliases": ["datadog receiver compression compression default"],
-      "body_bytes": 1567,
-      "body_sha256": "sha256:ad72bf749993a5a1dabddb695d6faae87a46701148072c75c2963c899eef7950",
+      "body_bytes": 1258,
+      "body_sha256": "sha256:0edd8856c0a24ba54cd85424fda78299f1ad7b68cbea87b0b9cdda050cb2d43e",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -6319,8 +6319,8 @@
     },
     {
       "aliases": ["datadog receiver compression compression gzip"],
-      "body_bytes": 1528,
-      "body_sha256": "sha256:56e6bb47b69c40b4985c19f609f21f172d01b8b5ae4e0d899b7463a385457573",
+      "body_bytes": 1219,
+      "body_sha256": "sha256:0b2265f7b5c46101ae3faeca8b9ff4242c23ab99ce24036552cce7976ea08ab0",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -6359,8 +6359,8 @@
     },
     {
       "aliases": ["datadog receiver compression compression none"],
-      "body_bytes": 1555,
-      "body_sha256": "sha256:8c244107774affa999b396d5a019d320caa8b1b742ed00d9b04dd983a328695c",
+      "body_bytes": 1246,
+      "body_sha256": "sha256:5889bd64aebd0759f8e771b01b522552638a13e294eb558022d8cd28c236cebc",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -6399,8 +6399,8 @@
     },
     {
       "aliases": ["datadog receiver datadog api key"],
-      "body_bytes": 2427,
-      "body_sha256": "sha256:f866b2e15b276e2f87ace1cf51ebe4277ca791c3d491d5eac5f3e291e90eeace",
+      "body_bytes": 1739,
+      "body_sha256": "sha256:2abca78d17ca36510b6ab6498a33c1f3a5fd0ee396e79f52fb9c31ce67a288e2",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -6510,8 +6510,8 @@
     },
     {
       "aliases": ["datadog receiver datadog api key blindfold secret info"],
-      "body_bytes": 5042,
-      "body_sha256": "sha256:88210b6cf97ee584f227f0aebb6b90fb45f5e9f4e840b12558f1a64b212fab27",
+      "body_bytes": 4371,
+      "body_sha256": "sha256:39537d3a6f85feca8501116c22ca4deef0896ae29a9a2a0e7f42e22165c154fc",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -6608,8 +6608,8 @@
     },
     {
       "aliases": ["datadog receiver datadog api key clear secret info"],
-      "body_bytes": 3920,
-      "body_sha256": "sha256:5574ae9b1fa7d9cb9ae658aee97348d5d47ad459f214f4f27893a36816bd04e4",
+      "body_bytes": 3383,
+      "body_sha256": "sha256:ef2bae89086651fa3fe98101c6c5f7b98aba1ebbd4671511cd133fc89f8bf7e4",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -6690,8 +6690,8 @@
     },
     {
       "aliases": ["datadog receiver no tls"],
-      "body_bytes": 1289,
-      "body_sha256": "sha256:a33f9c4a2ed775e4da9ef435b3bd19b02a6ef13aada93658faa800f6d7508e8e",
+      "body_bytes": 1004,
+      "body_sha256": "sha256:b00a099609e1f1a136cc3979c34ad93285a8023e85f3a15f36d276c3a8d4b4df",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -6730,8 +6730,8 @@
     },
     {
       "aliases": ["datadog receiver use tls"],
-      "body_bytes": 6211,
-      "body_sha256": "sha256:59789e518495aca4c980f82d5fea9452a3b94ba62f6d0ebc1b2f681761517927",
+      "body_bytes": 4430,
+      "body_sha256": "sha256:d5e22e47509f8be1d717726c5e8f387aa42a6b65bd9d1b499ee89f0355f20248",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -6972,8 +6972,8 @@
     },
     {
       "aliases": ["datadog receiver use tls disable verify certificate"],
-      "body_bytes": 1571,
-      "body_sha256": "sha256:3bacedaaa037b7436afe7ec2e4bf3c047a18d33b067bee125c15088090fa3d74",
+      "body_bytes": 1270,
+      "body_sha256": "sha256:bb9a9284fcff3cf28e531e4d9bfa64ff3e5546fa92ba2fd800e83d1167373037",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -7012,8 +7012,8 @@
     },
     {
       "aliases": ["datadog receiver use tls disable verify hostname"],
-      "body_bytes": 1525,
-      "body_sha256": "sha256:230d8622de5b34a62169cff4b61a6ef38da061d0f76ad1bbe6f8e55366455a4e",
+      "body_bytes": 1224,
+      "body_sha256": "sha256:7688235367a03a6b4e85bd9f37f39557fe51ab945ffb86311825f9fd5e6ce56a",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -7052,8 +7052,8 @@
     },
     {
       "aliases": ["datadog receiver use tls enable verify certificate"],
-      "body_bytes": 1567,
-      "body_sha256": "sha256:6f0f54b9c9bb9b53cb9ef2599cc399bef4c2cbdefe7a51019a8c3af2b0e301b0",
+      "body_bytes": 1266,
+      "body_sha256": "sha256:a12a92b29c38b10d07aa160a6bdd0f09a33682ca35d1834fcec590d066a97de7",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -7092,8 +7092,8 @@
     },
     {
       "aliases": ["datadog receiver use tls enable verify hostname"],
-      "body_bytes": 1522,
-      "body_sha256": "sha256:5584f1fa514fb297a265d9e6bc74cea772f0b767a53e6670463a024c0c9bf6fb",
+      "body_bytes": 1221,
+      "body_sha256": "sha256:5ad593232fe1074b700937b8959fc7d59fee8dd57b59213a352c9cdc9a5c76b2",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -7132,8 +7132,8 @@
     },
     {
       "aliases": ["datadog receiver use tls mtls disabled"],
-      "body_bytes": 1495,
-      "body_sha256": "sha256:641644e552d13e7d880afc989bda96017a357950290db1549a6a98619eb11be9",
+      "body_bytes": 1194,
+      "body_sha256": "sha256:675c026591e42edcb7a3077820f2b1969711e9ce71ab6a55c1354813f32b186f",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -7172,8 +7172,8 @@
     },
     {
       "aliases": ["datadog receiver use tls mtls enable"],
-      "body_bytes": 3226,
-      "body_sha256": "sha256:57a694fae0893c12397559a20be169aa1aae216986dd3dfb807ce5dd332ef85f",
+      "body_bytes": 2747,
+      "body_sha256": "sha256:15556031d77a391c9d0dad5c92cb033d77b1c7965e427e8929b3e2ad07fbc0bd",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:global_log_receiver:properties:datadog_receiver:use_tls:mtls_enable:key_url"],
@@ -7262,8 +7262,8 @@
     },
     {
       "aliases": ["datadog receiver use tls mtls enable key url"],
-      "body_bytes": 2885,
-      "body_sha256": "sha256:042b7332e40968aa9f0463e0df17c50df647b16ccf60144a5cd3f48d12278b4e",
+      "body_bytes": 2109,
+      "body_sha256": "sha256:149de9393b59c3adb215f82f9d82f9aff56ca4dfef69d9dbfb92a95913b6da46",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -7373,8 +7373,8 @@
     },
     {
       "aliases": ["datadog receiver use tls mtls enable key url blindfold secret info"],
-      "body_bytes": 5486,
-      "body_sha256": "sha256:37df4c57f388fc12f8ed3fea8487576384ce229a7af6d9dc8835783e282fe967",
+      "body_bytes": 4791,
+      "body_sha256": "sha256:5e751da43ac720b3289f3721f749624876430b34626aff8a567f15ff5e7fbac8",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -7485,8 +7485,8 @@
     },
     {
       "aliases": ["datadog receiver use tls mtls enable key url clear secret info"],
-      "body_bytes": 4350,
-      "body_sha256": "sha256:8e7254ee3c5dd4fc71872695161e79299f1b1ec50686a02f7a403470ce482389",
+      "body_bytes": 3789,
+      "body_sha256": "sha256:a91fbf4ea39d9f01c9ee432f2cc7bee616491ccbb8176faab51fcb7de18914e6",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -7567,8 +7567,8 @@
     },
     {
       "aliases": ["datadog receiver use tls no ca"],
-      "body_bytes": 1471,
-      "body_sha256": "sha256:b1cb5ef775dcb06c8532715effaa28d7a8eee57b54ebff80ed80154b7e68545f",
+      "body_bytes": 1170,
+      "body_sha256": "sha256:b242c627d98c1ed6fd86c05bec53dc086bb542d0eec72580350b9ea870638f10",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -7607,8 +7607,8 @@
     },
     {
       "aliases": ["dns logs"],
-      "body_bytes": 1109,
-      "body_sha256": "sha256:6bf81c7bf4d95a1223ef2ea8015b2af2d1948806dc65b0cf3bb06c6b46751677",
+      "body_bytes": 839,
+      "body_sha256": "sha256:a7de6e804860723de3f52e997a2ca12de0aa801b544b33d76be64ff2c0e2ce3e",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -7647,8 +7647,8 @@
     },
     {
       "aliases": ["gcp bucket receiver"],
-      "body_bytes": 4048,
-      "body_sha256": "sha256:8d842252faa3859ef28ad304781f9eb4ea164b16b2805eda8c7a5fd9e65f67d8",
+      "body_bytes": 3092,
+      "body_sha256": "sha256:b726e2363219b834044d1140df7e65bbbbf2cd852df407cda8b9df5d116a6573",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -7938,8 +7938,8 @@
     },
     {
       "aliases": ["gcp bucket receiver batch"],
-      "body_bytes": 6641,
-      "body_sha256": "sha256:9cc772c3108182d337f93f7c7951faab696b26b0e052634fb54195ae308550ec",
+      "body_bytes": 5371,
+      "body_sha256": "sha256:68e50d3818e193329bc4302b076c852a888f914e16984f3ff7be213ae0a27ef4",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -8128,8 +8128,8 @@
     },
     {
       "aliases": ["gcp bucket receiver batch max bytes disabled"],
-      "body_bytes": 1522,
-      "body_sha256": "sha256:3efe36267b7dfb3584c0635a0b511e20169c773a18737ea76ec64282ddc277ea",
+      "body_bytes": 1219,
+      "body_sha256": "sha256:deb5e9b7b219824ffd375090df36ffec63ab3b847c45ef60fdb9a4d2b3d83ba9",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -8168,8 +8168,8 @@
     },
     {
       "aliases": ["gcp bucket receiver batch max events disabled"],
-      "body_bytes": 1525,
-      "body_sha256": "sha256:5800c6b47956d63a023c3f4219e98a4b678b3eb9c0ef9996656c815125793d61",
+      "body_bytes": 1222,
+      "body_sha256": "sha256:1a6f70eacb2db48a4fe2574c69d4d10c98e66fa2b578e3311904504bbf061861",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -8208,8 +8208,8 @@
     },
     {
       "aliases": ["duration", "gcp bucket receiver batch timeout seconds default"],
-      "body_bytes": 1537,
-      "body_sha256": "sha256:c187ea36afa19e2cd36db089b852718325f5be2b7c16d553e15afd2ba9f3d3b7",
+      "body_bytes": 1234,
+      "body_sha256": "sha256:20d1b80446124d35af714b991e914f7e47a139dcebc7dbf0c0638592150c1739",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -8248,8 +8248,8 @@
     },
     {
       "aliases": ["gcp bucket receiver compression"],
-      "body_bytes": 3016,
-      "body_sha256": "sha256:b821f2fdc2e718b878012e0ea6305e55d5954cc27fc98d8f5483d443c8ae2be5",
+      "body_bytes": 2138,
+      "body_sha256": "sha256:14a73bb9f5611fc5631550ba75a0d4520df6f04b8b3a8194bf35d2acef278a12",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -8390,8 +8390,8 @@
     },
     {
       "aliases": ["gcp bucket receiver compression compression default"],
-      "body_bytes": 1591,
-      "body_sha256": "sha256:9660e37f3fc4642095841c4d4641867a514b33d315722edfecd1f35d37bbd380",
+      "body_bytes": 1276,
+      "body_sha256": "sha256:ceab8bc427276f24a77cd85602699edba69f9efdeb3d9e551354714a90a270a8",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -8430,8 +8430,8 @@
     },
     {
       "aliases": ["gcp bucket receiver compression compression gzip"],
-      "body_bytes": 1552,
-      "body_sha256": "sha256:703ecc7143ae67ea2492ff1fffcea2c5a096dfcf8cfe1cc8b3c6ff8dda93ae34",
+      "body_bytes": 1237,
+      "body_sha256": "sha256:c0e2b78d4f58dc2c5295e4ea256bbd6d25be6f16b6e4c83941f70a46900b13ea",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -8470,8 +8470,8 @@
     },
     {
       "aliases": ["gcp bucket receiver compression compression none"],
-      "body_bytes": 1579,
-      "body_sha256": "sha256:4612175ac70614677111d7261028442df241248ab4c34e9e3eb2dbdce89e6dcf",
+      "body_bytes": 1264,
+      "body_sha256": "sha256:90836357facb61276db41a07e9dc0752805897711c84175d771532d027216f6f",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -8510,8 +8510,8 @@
     },
     {
       "aliases": ["gcp bucket receiver filename options"],
-      "body_bytes": 3994,
-      "body_sha256": "sha256:97a2939307f6e1dd200536571b6370670759bf92765c27e9c14a15e7841521fe",
+      "body_bytes": 3130,
+      "body_sha256": "sha256:5c55d91742e7724f13c55872701a096bdba66ab681ed6037067f3504960058e8",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -8651,8 +8651,8 @@
     },
     {
       "aliases": ["gcp bucket receiver filename options log type folder"],
-      "body_bytes": 1605,
-      "body_sha256": "sha256:99ff262638ba61f12c063c52a5097496302bbd7de3b17ba3df14819befea9285",
+      "body_bytes": 1280,
+      "body_sha256": "sha256:c7363740d474863103171a0d83611b600bcf46b2347177151c5b8004d5d950bd",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -8691,8 +8691,8 @@
     },
     {
       "aliases": ["gcp bucket receiver filename options no folder"],
-      "body_bytes": 1561,
-      "body_sha256": "sha256:aa8a34655efb3a03fc809af34a46a0c5dd26539b33635f60a97036a47cca27d7",
+      "body_bytes": 1236,
+      "body_sha256": "sha256:a91f15b5d691aaf3b78e471e0832f20fb9858ad57a956a4b73c716ddf069e7f1",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -8731,8 +8731,8 @@
     },
     {
       "aliases": ["gcp bucket receiver gcp cred"],
-      "body_bytes": 6231,
-      "body_sha256": "sha256:1a94a93b0d3ec5cf9f9645c1be79b66b02aaa6f36c55288c6c69cb40cdc66d22",
+      "body_bytes": 5282,
+      "body_sha256": "sha256:00f5fd7a40a805bc049b47fc41782b34d95b6d01686286756907345316bb2058",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -8850,8 +8850,8 @@
     },
     {
       "aliases": ["http receiver"],
-      "body_bytes": 4990,
-      "body_sha256": "sha256:d63bb4973a24dd57aec897f6d37b4ad77a563f1c27f846413b2cd4f9bb56ef2a",
+      "body_bytes": 3695,
+      "body_sha256": "sha256:dbc498743932cab940208756d54e9d364660c2d4456a99b75b9ab9cbf998fa0e",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -9263,8 +9263,8 @@
     },
     {
       "aliases": ["http receiver auth basic"],
-      "body_bytes": 2573,
-      "body_sha256": "sha256:b7b635b4a7bd15a63f5ec4dd22c3b786df60404543bf1dbeb25c46124e6ba247",
+      "body_bytes": 2087,
+      "body_sha256": "sha256:7fbd686f186aa0b6b93f674f09d35159fac6ebbdf4e5c67a6fe5cb28a56be726",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:global_log_receiver:properties:http_receiver:auth_basic:password"],
@@ -9353,8 +9353,8 @@
     },
     {
       "aliases": ["http receiver auth basic password"],
-      "body_bytes": 2591,
-      "body_sha256": "sha256:4001156e9e998e41cec6565242ad906d726c2f806e4eb1262cb5a0eb763e0197",
+      "body_bytes": 1883,
+      "body_sha256": "sha256:c5d273f9af42eda05a466ef596190e0b44d1f7db06bc4dda7c8f1640e18fc72b",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -9377,7 +9377,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1033323112022211-3003201200310311-3010321003132310-1213101100232030-1130010321211202-3321121122113013-0110212000322033-2023303300123230",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-002.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -9464,8 +9464,8 @@
     },
     {
       "aliases": ["http receiver auth basic password blindfold secret info"],
-      "body_bytes": 5201,
-      "body_sha256": "sha256:2cb212aade026fe127b0f7dec4e1e017a7c4c08cb5cb82683e82fd486960bd80",
+      "body_bytes": 4528,
+      "body_sha256": "sha256:ed90c2b9bd3abb08c68e348de4c89919c1170dd7eeb1bb897c0764730d471aae",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -9485,7 +9485,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0113112210111023-0200001333020232-3103313213132311-1113313220011133-2001121131112113-0123330111113002-3121122212223132-2331311211102223",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-002.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-http_receiver--auth_basic--password--blindfold_secret_info--location",
@@ -9562,8 +9562,8 @@
     },
     {
       "aliases": ["http receiver auth basic password clear secret info"],
-      "body_bytes": 4077,
-      "body_sha256": "sha256:062acf0439471351026e3cc82789e416e07753975a14d2b54273d7b62b25aded",
+      "body_bytes": 3538,
+      "body_sha256": "sha256:763c73a4d41ae3c694b741055d4c9213550f046d70d9547e76f51626c535ab9e",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -9583,7 +9583,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2033102031312132-3201120320220222-1001232213300230-1220223033333221-3130212312220010-0000222323110231-1201311013023031-1133302032233013",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-002.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-http_receiver--auth_basic--password--clear_secret_info--url",
@@ -9644,8 +9644,8 @@
     },
     {
       "aliases": ["http receiver auth none"],
-      "body_bytes": 1280,
-      "body_sha256": "sha256:86402ba610f32971b97d4de7ae996ab0e2f7564333561d6960da7deb17643b0e",
+      "body_bytes": 1001,
+      "body_sha256": "sha256:aa8b4b98e1145e510b62ec1dcbd65930ab00f05d779ea0a69db9cbbdbd1cc6c1",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -9665,7 +9665,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3331330032301033-3102210321202122-3212212113000230-1203031121110232-3301023022023030-1033012130200332-3101222021333330-1303103201031213",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-002.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9684,8 +9684,8 @@
     },
     {
       "aliases": ["http receiver auth token"],
-      "body_bytes": 1612,
-      "body_sha256": "sha256:2252d42c4925350f4900b4ed5dcb62d187c51e127c29bfbd59c1ebb22933f074",
+      "body_bytes": 1126,
+      "body_sha256": "sha256:8b731ecc2c14b57dc79f34b6e0e10e87975b8a2cc47c766f4aa336620db7d829",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:global_log_receiver:properties:http_receiver:auth_token:token"],
@@ -9758,8 +9758,8 @@
     },
     {
       "aliases": ["http receiver auth token token"],
-      "body_bytes": 2564,
-      "body_sha256": "sha256:0bfe41330c42ce43c6f5b31acabeb3e1c9a399b83ab694c4db04dd4445d69239",
+      "body_bytes": 1868,
+      "body_sha256": "sha256:48a564b693f89bc138565747be84e1faea087dcd5ac6ae682c56387f14794b31",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -9869,8 +9869,8 @@
     },
     {
       "aliases": ["http receiver auth token token blindfold secret info"],
-      "body_bytes": 5174,
-      "body_sha256": "sha256:d8819a18950331268b5b07ef5eb322e151c8a18c830f054886dd52bea3a4fec2",
+      "body_bytes": 4507,
+      "body_sha256": "sha256:329cdf71c88537b3e9fb87562daffb513e6896d70ab30bf7846d865fc4683287",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -9967,8 +9967,8 @@
     },
     {
       "aliases": ["http receiver auth token token clear secret info"],
-      "body_bytes": 4053,
-      "body_sha256": "sha256:066fff28800fe4d9d5e3af145c3af69e30651035bfd4b455fc58eca4be3183ef",
+      "body_bytes": 3520,
+      "body_sha256": "sha256:90fc480f8840a130165cd518bf2c818e001a946eedbd63518c39fc733c078873",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -10049,8 +10049,8 @@
     },
     {
       "aliases": ["http receiver batch"],
-      "body_bytes": 6533,
-      "body_sha256": "sha256:a2e8d269a2a5c004a4619d9af097d8a9dc263b33a0e588d34b7f452e99f082fb",
+      "body_bytes": 5311,
+      "body_sha256": "sha256:75ab5233a2b67bda9f1f4b8e3bd11801db53f5a449fe1b9d9cc2123fcfaf73fc",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -10239,8 +10239,8 @@
     },
     {
       "aliases": ["http receiver batch max bytes disabled"],
-      "body_bytes": 1474,
-      "body_sha256": "sha256:1454e6c1a351428389122f84f0c4eadf100d1f3ac63acb0ed24f6989e6d8fc0b",
+      "body_bytes": 1183,
+      "body_sha256": "sha256:7a802eca1531d3f817088b03a4abd316acd2de5b6ecc9407278a8124e6e03557",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -10279,8 +10279,8 @@
     },
     {
       "aliases": ["http receiver batch max events disabled"],
-      "body_bytes": 1477,
-      "body_sha256": "sha256:30a365e2f2f6196afac58d652a66fbac67e0a92c74510bccc3ee99efb53ed699",
+      "body_bytes": 1186,
+      "body_sha256": "sha256:e25d82b10b85cab1cd9cbcf7adc12a65b4d7deb6d0ce4e1b4016be80b608bc29",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -10319,8 +10319,8 @@
     },
     {
       "aliases": ["duration", "http receiver batch timeout seconds default"],
-      "body_bytes": 1489,
-      "body_sha256": "sha256:7e37d12fcf9035293d14101338d59cda2eb68ce12ca62ee8e77e7e69adff4d28",
+      "body_bytes": 1198,
+      "body_sha256": "sha256:2d50d3ceaba1cf20cd992f434fa54aa56c5f06f6e8f891e16f307a8a5f6673e4",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -10359,8 +10359,8 @@
     },
     {
       "aliases": ["http receiver compression"],
-      "body_bytes": 2926,
-      "body_sha256": "sha256:2abec34aade865a90cb149f19c6520365e8625240b2d15475b84d9aa49a33f40",
+      "body_bytes": 2096,
+      "body_sha256": "sha256:58ddd3ba50375c6a73cbed0d9e124c490622ee11fa3b18f3fca47a4dbc92cdf3",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -10501,8 +10501,8 @@
     },
     {
       "aliases": ["http receiver compression compression default"],
-      "body_bytes": 1543,
-      "body_sha256": "sha256:01751354f0ec92b3683b0a8758bbb407c3e8306e8ccf6b0b46958c814953e173",
+      "body_bytes": 1240,
+      "body_sha256": "sha256:e2235f4b14479047a585a46a3390758ae6946f9aa787e50e2b4404c334758588",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -10541,8 +10541,8 @@
     },
     {
       "aliases": ["http receiver compression compression gzip"],
-      "body_bytes": 1504,
-      "body_sha256": "sha256:fe1ff11b19d1d0fa353685b0d02c51bc28237751394d3c503b20591fe3a07aa3",
+      "body_bytes": 1201,
+      "body_sha256": "sha256:cc0e32c99d24669921f7e3c6795a052dcd197811477ae74e7c1919d1cf9b9c42",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -10581,8 +10581,8 @@
     },
     {
       "aliases": ["http receiver compression compression none"],
-      "body_bytes": 1531,
-      "body_sha256": "sha256:f3d6e31d82c736378bb9506f079959df6d44c40c66b454375eaa64f103afe0cf",
+      "body_bytes": 1228,
+      "body_sha256": "sha256:2f3f69ed01db300c3a6a22e33f413f81d3298a51d8602fc3e3c3667113dd9b59",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -10621,8 +10621,8 @@
     },
     {
       "aliases": ["http receiver no tls"],
-      "body_bytes": 1271,
-      "body_sha256": "sha256:52e219c33dad77dc43e95d99ae04af564bbe6af7eca20b165fb4804ef27d1f69",
+      "body_bytes": 992,
+      "body_sha256": "sha256:df15b4e46b06167867fdf7ca4258cb49e48dfb8bae9aa69c7fb8aaedd96c652c",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -10661,8 +10661,8 @@
     },
     {
       "aliases": ["http receiver use tls"],
-      "body_bytes": 6127,
-      "body_sha256": "sha256:9cc3fa44e55acaa8a5a7ba02f7f19964d192e8fcc25671bb48b730f753cc1428",
+      "body_bytes": 4394,
+      "body_sha256": "sha256:02f168f9876430e2c73feaa06b2449e86cfbd68f4f64d417f7ce2fa9003d6f7a",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -10903,8 +10903,8 @@
     },
     {
       "aliases": ["http receiver use tls disable verify certificate"],
-      "body_bytes": 1547,
-      "body_sha256": "sha256:0ba48db45742770625c6a0d192c0f30ec29369327156f4a3e04d0c367e81a09b",
+      "body_bytes": 1252,
+      "body_sha256": "sha256:dd9614e5ac6a2a6834fd4f95bcd76a4d287b8328e27144b2904469725caac6df",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -10943,8 +10943,8 @@
     },
     {
       "aliases": ["http receiver use tls disable verify hostname"],
-      "body_bytes": 1501,
-      "body_sha256": "sha256:8b168b45f54bd9bfe6994c860ec5c67b1ed8855ab757d85747bd628e805065d9",
+      "body_bytes": 1206,
+      "body_sha256": "sha256:9f676aef2c8483065994ac522f79a3c1c88b6d087d1d34220bed96e0bb255b6f",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -10983,8 +10983,8 @@
     },
     {
       "aliases": ["http receiver use tls enable verify certificate"],
-      "body_bytes": 1543,
-      "body_sha256": "sha256:087bddc269ce3ba2b53d639e1a0db8fc61e0c01b2e4b1e67a8ed9f369af4e165",
+      "body_bytes": 1248,
+      "body_sha256": "sha256:97eb55417edd11f0a8f4badc9be1fa09a3ada6376b41a324946ea4e2428e59eb",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -11023,8 +11023,8 @@
     },
     {
       "aliases": ["http receiver use tls enable verify hostname"],
-      "body_bytes": 1498,
-      "body_sha256": "sha256:570cbc1d54f8c18f281f18d93c0896186e5471c7475bda3649bc2be9763ebf48",
+      "body_bytes": 1203,
+      "body_sha256": "sha256:118444c7f3339d582a95ff94672ae52d0b20430e538f7b88ed5ad32d122bef01",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -11063,8 +11063,8 @@
     },
     {
       "aliases": ["http receiver use tls mtls disabled"],
-      "body_bytes": 1471,
-      "body_sha256": "sha256:824f5bc505cbfd59efa289c01d373794f1f4c793ccf73dcce39c00a686b8dbd5",
+      "body_bytes": 1176,
+      "body_sha256": "sha256:11e81b839a2872a64377a9d66e1917ed10399ea55069bb91f3419ce444662f81",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -11103,8 +11103,8 @@
     },
     {
       "aliases": ["http receiver use tls mtls enable"],
-      "body_bytes": 3190,
-      "body_sha256": "sha256:491a56ebe172b00ee9aa54da7246bf57be24523ee129d3c8e9bf975f4cd472bf",
+      "body_bytes": 2723,
+      "body_sha256": "sha256:c701f6f8db54ee4fc22a0c5dd7df9c23784274647f1a65e39263bc06940ba9f7",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:global_log_receiver:properties:http_receiver:use_tls:mtls_enable:key_url"],
@@ -11193,8 +11193,8 @@
     },
     {
       "aliases": ["http receiver use tls mtls enable key url"],
-      "body_bytes": 2837,
-      "body_sha256": "sha256:b539b4938889f052d98e4a94090097f1cb4eb196538c3c482d91865631bae1ee",
+      "body_bytes": 2079,
+      "body_sha256": "sha256:f53dd6aab6065926292f8bd3725ac25695d4dceebb2bbf0cd8f444a3b37b23b6",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -11304,8 +11304,8 @@
     },
     {
       "aliases": ["http receiver use tls mtls enable key url blindfold secret info"],
-      "body_bytes": 5441,
-      "body_sha256": "sha256:41307fee73684b7c425a1010ff3be834cb15d9b7e8e34cd42edfd7c7a8d3f73c",
+      "body_bytes": 4752,
+      "body_sha256": "sha256:566929676be01af8c922cd6510aa55fc4806d1ec3b871dc63df785e92cac1a85",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -11416,8 +11416,8 @@
     },
     {
       "aliases": ["http receiver use tls mtls enable key url clear secret info"],
-      "body_bytes": 4308,
-      "body_sha256": "sha256:b6ed2b1194694b9b6ccbe5d9181ffcbd3bae637a201fcef9ac69c3101c9463d4",
+      "body_bytes": 3753,
+      "body_sha256": "sha256:a81754a1eb171075b08318c2903d8a32e65f042efb7b5349089e3b7ef1e93ec0",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -11498,8 +11498,8 @@
     },
     {
       "aliases": ["http receiver use tls no ca"],
-      "body_bytes": 1447,
-      "body_sha256": "sha256:afac195e15fae375fa3973356d8b09d3e8783e059348451d5022662fd0827031",
+      "body_bytes": 1152,
+      "body_sha256": "sha256:6babdceb5840b194bde9f52c26ef4f7bcf7c0dbfdf4b215102c07b13fc03af41",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -11538,8 +11538,8 @@
     },
     {
       "aliases": ["kafka receiver"],
-      "body_bytes": 5615,
-      "body_sha256": "sha256:9afc251c5580dc055850c0548287ceecd718a12075a1e8f1ca306536eefffd94",
+      "body_bytes": 4762,
+      "body_sha256": "sha256:f6a798066490b29e02938d68d10f4f64db37743a90fc6359983202dfdfd930a5",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -11876,8 +11876,8 @@
     },
     {
       "aliases": ["kafka receiver batch"],
-      "body_bytes": 6551,
-      "body_sha256": "sha256:001c7f8d24d917e923e094fd7ff1aed24b8bb6db71c0d416c6c4f9177fe51d81",
+      "body_bytes": 5321,
+      "body_sha256": "sha256:277d27ca8ae1188d818733cb266eb22df32807816a2b2788d56fd3a24a1088e1",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -12066,8 +12066,8 @@
     },
     {
       "aliases": ["kafka receiver batch max bytes disabled"],
-      "body_bytes": 1482,
-      "body_sha256": "sha256:7bddffcea929a958db26b259678b2820075bec8bc36be8ee7b6ec76d82131d92",
+      "body_bytes": 1189,
+      "body_sha256": "sha256:0880de919d34b8d3daf731f1502e6e7ccedb2bf31ed9deef38a43de68456eda5",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -12106,8 +12106,8 @@
     },
     {
       "aliases": ["kafka receiver batch max events disabled"],
-      "body_bytes": 1485,
-      "body_sha256": "sha256:31a0de0a9f37af2bdad59587d31162ef7a6191abee6727c2565f8a06780bd2d9",
+      "body_bytes": 1192,
+      "body_sha256": "sha256:6ab85050e54980fbf489513edd78b2928867c9ccbb7b8732acf7b956a138c029",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -12146,8 +12146,8 @@
     },
     {
       "aliases": ["duration", "kafka receiver batch timeout seconds default"],
-      "body_bytes": 1497,
-      "body_sha256": "sha256:f78ac1d0481072fbc5716b3ab6ef90d99856f8b9b442e98299a7069ce649302c",
+      "body_bytes": 1204,
+      "body_sha256": "sha256:914fe34d853961087a117ceba176147d5eefc271f6ce6c7614bcfb02d3e3294e",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -12186,8 +12186,8 @@
     },
     {
       "aliases": ["kafka receiver compression"],
-      "body_bytes": 2941,
-      "body_sha256": "sha256:2b01f8e47088521f86093cb2b73612b193b37398c6016ecf572ec79f266b99eb",
+      "body_bytes": 2103,
+      "body_sha256": "sha256:e7906bb3209d4195996b03c7e5a626fd184301a1e78cbfd3da32d530669df1f8",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -12328,8 +12328,8 @@
     },
     {
       "aliases": ["kafka receiver compression compression default"],
-      "body_bytes": 1551,
-      "body_sha256": "sha256:390171a7e40796c51a6f8d73cac5947692141003512a9396085c04eaca1bdc98",
+      "body_bytes": 1246,
+      "body_sha256": "sha256:9bb23a3c853c99c8defa85c359b243f08efcff1948644da3c1bb0952344bd1c0",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -12368,8 +12368,8 @@
     },
     {
       "aliases": ["kafka receiver compression compression gzip"],
-      "body_bytes": 1512,
-      "body_sha256": "sha256:8a92c6c6a66895e1b8f0a6d66296f70291fb722c4e0c90f663da3b547cab79a8",
+      "body_bytes": 1207,
+      "body_sha256": "sha256:beacb9e3bc0fda18a7e09e76a9802516c084813cc3529b21848eec86ec9eb6a8",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -12408,8 +12408,8 @@
     },
     {
       "aliases": ["kafka receiver compression compression none"],
-      "body_bytes": 1539,
-      "body_sha256": "sha256:162663b7d28e94012e87f79379c6480dcf842ddde1c4b913ac12506a9227d9da",
+      "body_bytes": 1234,
+      "body_sha256": "sha256:5bf88d79f9cd213236d4eb387d04f6aca35d99ebcebca6ca2be5e7748acaee37",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -12448,8 +12448,8 @@
     },
     {
       "aliases": ["kafka receiver no tls"],
-      "body_bytes": 1277,
-      "body_sha256": "sha256:7187cd727ccfd78fa8b4c211357e5e9f6532d12572e244608873712940981733",
+      "body_bytes": 996,
+      "body_sha256": "sha256:4a1ee978f8e205735cdcaccab1e52729f3a4a05b4bc423c5bd0005f043061b48",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -12488,8 +12488,8 @@
     },
     {
       "aliases": ["kafka receiver use tls"],
-      "body_bytes": 6155,
-      "body_sha256": "sha256:99dd022eb53086000b55064288c294c8e23ca3a3fc99512d8de3c55755863650",
+      "body_bytes": 4406,
+      "body_sha256": "sha256:69083526dbccd768d3f4d92b87a58183cd3b19f59e24ee9ab3fb1237f3d4e535",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -12730,8 +12730,8 @@
     },
     {
       "aliases": ["kafka receiver use tls disable verify certificate"],
-      "body_bytes": 1555,
-      "body_sha256": "sha256:a0de130b25425fb23e4fab767aac36564c59a2c87896198a807c6f1c24d9ee3c",
+      "body_bytes": 1258,
+      "body_sha256": "sha256:18255fd1aac8aca7967db1922d084d03ee66d77fb0c950f51519229b4ad41c85",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -12770,8 +12770,8 @@
     },
     {
       "aliases": ["kafka receiver use tls disable verify hostname"],
-      "body_bytes": 1509,
-      "body_sha256": "sha256:33abd79d3d6a8d0b349e04ccd95ca8075a9777e42d56bc9c75ff1fd21e5fb0ef",
+      "body_bytes": 1212,
+      "body_sha256": "sha256:c1c1adb53e3f680e042469629a9be795157002773a5dd2f08aa24cd57bc87220",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -12810,8 +12810,8 @@
     },
     {
       "aliases": ["kafka receiver use tls enable verify certificate"],
-      "body_bytes": 1551,
-      "body_sha256": "sha256:5f5ee9c06aab89cda3d31b007b357bb1bfcc49144fad73677f1ae05c79f0ef4b",
+      "body_bytes": 1254,
+      "body_sha256": "sha256:c7ce4456378571fe381255ffd8dd29fdc9df23e1d4a8d9d729a058aeae9b4afe",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -12850,8 +12850,8 @@
     },
     {
       "aliases": ["kafka receiver use tls enable verify hostname"],
-      "body_bytes": 1506,
-      "body_sha256": "sha256:4610025a18626215f913da0f06dd927660c82d67804bbc66d148097c3a41cead",
+      "body_bytes": 1209,
+      "body_sha256": "sha256:dae86168690e946c6affde30e43595dd85fbfbcc37b061e8322ad6cb45f6e19a",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -12890,8 +12890,8 @@
     },
     {
       "aliases": ["kafka receiver use tls mtls disabled"],
-      "body_bytes": 1479,
-      "body_sha256": "sha256:a58615c441fe9578a5c12f387fa1215816f630a5fbd1a39431a43475b2ac39ab",
+      "body_bytes": 1182,
+      "body_sha256": "sha256:6613deda458cf82edbe86002669efeb7ef44fea1321c32f2168dd09969b89af2",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -12930,8 +12930,8 @@
     },
     {
       "aliases": ["kafka receiver use tls mtls enable"],
-      "body_bytes": 3202,
-      "body_sha256": "sha256:aa36d26e19af9964350d571bf91e5ed58acf9c2f7dd384f4a4672981dfe0e1d6",
+      "body_bytes": 2731,
+      "body_sha256": "sha256:fdde3a0bea4fd189be342371ee98272f1e7605266f3e48214a5e6d3f043b9b54",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:global_log_receiver:properties:kafka_receiver:use_tls:mtls_enable:key_url"],
@@ -13020,8 +13020,8 @@
     },
     {
       "aliases": ["kafka receiver use tls mtls enable key url"],
-      "body_bytes": 2853,
-      "body_sha256": "sha256:969cd0af01e9ee619608dbd29d6c5aaf5239df6df82d0bbb122b1009ba27e0fc",
+      "body_bytes": 2089,
+      "body_sha256": "sha256:46379fb5e719931d29b5af070817bc1049820c3c4c480c444009ea9788c057fd",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -13044,7 +13044,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1203010003330300-2010101220321003-0021123021012301-2331213102112133-1130002332012220-3233203321210031-2012131213331222-1011100231010100",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
       "relationships": [
         {
           "anchor": "section",
@@ -13131,8 +13131,8 @@
     },
     {
       "aliases": ["kafka receiver use tls mtls enable key url blindfold secret info"],
-      "body_bytes": 5456,
-      "body_sha256": "sha256:96b4973f3a1e290342c6a5e6eb278895029bb5ff6d151d83f1642a0ad6d5d0d3",
+      "body_bytes": 4765,
+      "body_sha256": "sha256:660a417e15c46456bb713e10a948d40c99a9c46e76da3eb140a96ce5f9dd1dd1",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -13152,7 +13152,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2323123022132202-0223213323323201-3313313233120121-1221021100320302-2211311020332132-1113210232233133-2010222012020023-0331201000333023",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
       "relationships": [
         {
           "anchor": "schema-kafka_receiver--use_tls--mtls_enable--key_url--blindfold_secret_info--location",
@@ -13243,8 +13243,8 @@
     },
     {
       "aliases": ["kafka receiver use tls mtls enable key url clear secret info"],
-      "body_bytes": 4322,
-      "body_sha256": "sha256:66bbd37550e9f364031a2c7b4230e45f13b2dcaa8df65a43de8ec58ac325514d",
+      "body_bytes": 3765,
+      "body_sha256": "sha256:ebf7e39de5c492d423e2b03d383421c80a7d608537a1d7e2f325e50abf1739c9",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -13264,7 +13264,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1212021111021103-0213311023223223-2121122231113102-2203321212030000-2022033313220132-3320211002201033-1302120231102331-2211223100002011",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
       "relationships": [
         {
           "anchor": "schema-kafka_receiver--use_tls--mtls_enable--key_url--clear_secret_info--url",
@@ -13325,8 +13325,8 @@
     },
     {
       "aliases": ["kafka receiver use tls no ca"],
-      "body_bytes": 1455,
-      "body_sha256": "sha256:51ab4f2dd82549df7de54a950316c46480a308c2f499d756649fa5cd51156ee4",
+      "body_bytes": 1158,
+      "body_sha256": "sha256:92788e282aed9823d4619f45c26a5a4103851afbc5af64ba64f3e47e9eeb4a29",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -13346,7 +13346,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1003222302113131-3020001323322130-2003312222122100-2203013200001021-3223010100323333-2303133002013033-1011312223111120-0302222010210022",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -13365,8 +13365,8 @@
     },
     {
       "aliases": ["new relic receiver"],
-      "body_bytes": 2321,
-      "body_sha256": "sha256:75cddc0368711e202ab3a3f3690bd8d8ab1b1b13056045d4d029882c88b279f8",
+      "body_bytes": 1622,
+      "body_sha256": "sha256:37a9371c6211dcbee857baefea6d645387c2564a8a92ae841327e274079ee66d",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -13390,7 +13390,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1100211030222001-0303013102201103-2231212213022013-2332111223302311-3300333000130122-3030322200000211-3002103202031202-2313122113032020",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
       "relationships": [
         {
           "anchor": "section",
@@ -13492,8 +13492,8 @@
     },
     {
       "aliases": ["new relic receiver api key"],
-      "body_bytes": 2379,
-      "body_sha256": "sha256:d9999dcb01163dc14e9e74b3c2200d1ebbfa56961d5bc356ab62ecaed08e9889",
+      "body_bytes": 1711,
+      "body_sha256": "sha256:bad78b810ff04294adf7512882af1af24fc9478e4acff080774c6ac6fdff3f5f",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -13516,7 +13516,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0201310023231230-2120100303231131-3301021302020311-1211131102102120-0322221232320303-1001013121310000-2233031021323020-3231333132321300",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
       "relationships": [
         {
           "anchor": "section",
@@ -13603,8 +13603,8 @@
     },
     {
       "aliases": ["new relic receiver api key blindfold secret info"],
-      "body_bytes": 4992,
-      "body_sha256": "sha256:f8b22276e8f63d1c1d3c58f820ad681d27837fb70895ba180758bb9cc5a128be",
+      "body_bytes": 4333,
+      "body_sha256": "sha256:fa86c0a22b6f9babd5e58334427f71f0967fbbd9ae396d60ef83066b31cfdbe5",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -13624,7 +13624,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0312211120000312-0322322322111220-1103110331000011-0123030020200031-1030213100103200-1033200303231210-0021220300121233-3313021331211210",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
       "relationships": [
         {
           "anchor": "schema-new_relic_receiver--api_key--blindfold_secret_info--location",
@@ -13701,8 +13701,8 @@
     },
     {
       "aliases": ["new relic receiver api key clear secret info"],
-      "body_bytes": 3876,
-      "body_sha256": "sha256:b77d4df6cd08eb6007f73ae51c6478780705d93e824312f695a7409f7557ecf5",
+      "body_bytes": 3351,
+      "body_sha256": "sha256:d207b328c28ac0765c4a142eb34e2db8983c0e3634e850c127b78bf70251d344",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -13722,7 +13722,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2033113111202231-2211303110023112-0011123201132123-0222303230312333-2131100001321221-1301313200201112-0131031333212002-2210301321033121",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
       "relationships": [
         {
           "anchor": "schema-new_relic_receiver--api_key--clear_secret_info--url",
@@ -13783,8 +13783,8 @@
     },
     {
       "aliases": ["new relic receiver eu"],
-      "body_bytes": 1289,
-      "body_sha256": "sha256:432654610cf0db3bf087272be34226fabd3b748ef3459049e914e7f751db32d6",
+      "body_bytes": 1000,
+      "body_sha256": "sha256:a7a75b80dde54a774f3e81d4b88054f00c61338174644f0ff822e4a59c595671",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -13804,7 +13804,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0111332302103311-2231321210233231-3312031102230011-1222123203220300-3022101201022312-3033002110232322-1212003333010131-0331232213123100",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -13823,8 +13823,8 @@
     },
     {
       "aliases": ["new relic receiver us"],
-      "body_bytes": 1289,
-      "body_sha256": "sha256:d379c77c9d47ef320437906a9c5712d121cae70843aaf8f6b8b11a26cad07ed0",
+      "body_bytes": 1000,
+      "body_sha256": "sha256:2804d227fdaa680f54adea65b7fc60f44a022a69042d003e333cf95ba93de6b0",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -13844,7 +13844,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1012122103003011-0312131130200120-1312311010011133-1000220032230110-2330033223201123-0121312311122030-1103322213300021-3102320222222220",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -13863,8 +13863,8 @@
     },
     {
       "aliases": ["ns all"],
-      "body_bytes": 1636,
-      "body_sha256": "sha256:77c99e923813caad27b38f829381d585028e816b95202dc60a6d00c9dc9c7104",
+      "body_bytes": 1366,
+      "body_sha256": "sha256:fcc6f67b9e8a66bb48afadd40b3a444444d8ba4ce80ab939b48539dd1e062222",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -13884,7 +13884,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2110223021133332-2001211101313323-3012032332230023-3123201031102303-3033233222010310-0322300301310121-1032103033320210-2132202001210101",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -13903,8 +13903,8 @@
     },
     {
       "aliases": ["ns current"],
-      "body_bytes": 1188,
-      "body_sha256": "sha256:c10dec56eebc872485003d6520fe2b6aff2ad9becba2c4218e3f266bb4b28c0c",
+      "body_bytes": 918,
+      "body_sha256": "sha256:01d36ec9de0c9f4e633e111e64acde43b1f2d95f8dbd0befebaa5e944f662eea",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -13924,7 +13924,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1131102221232000-0300222020002322-0302133211001210-2101203323112122-0311121123102201-1122110013312213-1303121113303221-1111202320322233",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -13943,8 +13943,8 @@
     },
     {
       "aliases": ["ns list"],
-      "body_bytes": 2354,
-      "body_sha256": "sha256:a36cecdf45e469315145d0e7592583cdb0ff3e803c7a67467c96d9ee61b70d12",
+      "body_bytes": 1996,
+      "body_sha256": "sha256:e8eb453def6d0d5a5219fcdd915e908f26009cec8d0056f22caa9eed10115066",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -13964,7 +13964,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1323013202223030-2213130333303312-1001111102133131-1001220102221312-3002003012031130-3113012231221100-0102230132130332-0202133321133203",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
       "relationships": [
         {
           "anchor": "schema-ns_list--namespaces",
@@ -14009,8 +14009,8 @@
     },
     {
       "aliases": ["qradar receiver"],
-      "body_bytes": 3789,
-      "body_sha256": "sha256:8a9430e6a09732c99df26cccd59c9cb94b1a6cb84248c40a79abac9794880c83",
+      "body_bytes": 2935,
+      "body_sha256": "sha256:8b17a00713f0eb55a8c557749790e4d10bb573b3ab5817e56bbfdf1afb393d47",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -14035,7 +14035,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2233230320023023-0332103111321202-3233300302103030-0310133012303210-0303100301030123-1001211010333123-0231302220101210-1330301133202332",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
       "relationships": [
         {
           "anchor": "section",
@@ -14323,8 +14323,8 @@
     },
     {
       "aliases": ["qradar receiver batch"],
-      "body_bytes": 6569,
-      "body_sha256": "sha256:922d172ac2935df6a8197d9226cfa661ab264c6e9b22b8b6521dac261aa73787",
+      "body_bytes": 5331,
+      "body_sha256": "sha256:baa7d53ea136347c9427b1fdec7cb10cfba3cb06d47bfabc8d31e5ac935d6134",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -14348,7 +14348,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2012101000101222-0131312232201201-1131331132111333-2032013223002221-3322201011301201-0021101300330031-1221211203330320-1210300330022011",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
       "relationships": [
         {
           "anchor": "schema-qradar_receiver--batch--max_bytes",
@@ -14513,8 +14513,8 @@
     },
     {
       "aliases": ["qradar receiver batch max bytes disabled"],
-      "body_bytes": 1490,
-      "body_sha256": "sha256:a1274a61af4d187fa5822f39ad593155c2439a1b6ff8c507a9d098652a4fe6f2",
+      "body_bytes": 1195,
+      "body_sha256": "sha256:518a55130b764f4961497c39dc6d9ab96f8d87bf412457c4b7ed158d87836b86",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -14534,7 +14534,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3330220031010112-1100331333200220-2202201021110333-2223131121033302-0011021222010200-0021322123202133-0130032213120222-0023203323022333",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14553,8 +14553,8 @@
     },
     {
       "aliases": ["qradar receiver batch max events disabled"],
-      "body_bytes": 1493,
-      "body_sha256": "sha256:13f0e7ccea5415337ad2f6b3a6a54959a46bba29af00cfa6e794087ad58eb154",
+      "body_bytes": 1198,
+      "body_sha256": "sha256:599ce82de4c9a0497b92371585ee72ab7565d2268e596cf2eba508e8a47c082a",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -14574,7 +14574,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0231123133131030-1120332010312103-1311321020022210-0321021200012200-1003323330323211-0322202210013001-1332013132130003-1111101101123031",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14593,8 +14593,8 @@
     },
     {
       "aliases": ["duration", "qradar receiver batch timeout seconds default"],
-      "body_bytes": 1505,
-      "body_sha256": "sha256:fe91ab83bbe2e5c9ccef1fe4fda896cd0810a63f3923245754ca0afc51400be9",
+      "body_bytes": 1210,
+      "body_sha256": "sha256:c64099d6fa67b341b20b750f807c313271cb38769be95ca1014508b1775e7849",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -14614,7 +14614,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0221001212321231-3231100121130222-0012231333122312-3010022032021101-3232100330213302-2220020300102210-3322001231033302-0310300313133301",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14633,8 +14633,8 @@
     },
     {
       "aliases": ["qradar receiver compression"],
-      "body_bytes": 2956,
-      "body_sha256": "sha256:a16f56ff97a16e0a0a90edd98866578bb6cf05e69cf3b3f43a07319445c660f4",
+      "body_bytes": 2110,
+      "body_sha256": "sha256:c7f3f785ea5e89299c0091327d2e88d2fecfac63683a6a597c0bba51a2839756",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -14775,8 +14775,8 @@
     },
     {
       "aliases": ["qradar receiver compression compression default"],
-      "body_bytes": 1559,
-      "body_sha256": "sha256:1918c9a36ec895056bf756c153e55a9334597a1c7b1fb25158c3ec49e52a7aac",
+      "body_bytes": 1252,
+      "body_sha256": "sha256:b7dfd238af048403c093e72fe5257140a3d5ecc1df284a621199e682def247b1",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -14815,8 +14815,8 @@
     },
     {
       "aliases": ["qradar receiver compression compression gzip"],
-      "body_bytes": 1520,
-      "body_sha256": "sha256:7a15629574842f935c9b5e6533fcf0ca1190aa75c63bd8e8fab296022a63dda1",
+      "body_bytes": 1213,
+      "body_sha256": "sha256:414ae6270c8b4c02b6c3bfbc5ddfc152e56965ae8a8b6996158638e53dc3d479",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -14855,8 +14855,8 @@
     },
     {
       "aliases": ["qradar receiver compression compression none"],
-      "body_bytes": 1547,
-      "body_sha256": "sha256:6f362a95de0303bfcd2a1b875eb2a90e621ae3246c5b6e9c79647babb6cda19e",
+      "body_bytes": 1240,
+      "body_sha256": "sha256:28e285fcf802f1d5909037b71698c14d7f3f2e52510afb378229527d54668ed8",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -14895,8 +14895,8 @@
     },
     {
       "aliases": ["qradar receiver no tls"],
-      "body_bytes": 1283,
-      "body_sha256": "sha256:76bb1a5aca399a7effc0c9378398997c0a06c09c4133daf24a3ac204f13456b1",
+      "body_bytes": 1000,
+      "body_sha256": "sha256:62b8d7e39ff631683dcabdaf29ddaa7bcb63f962455c096b77f5b985c1733ece",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -14935,8 +14935,8 @@
     },
     {
       "aliases": ["qradar receiver use tls"],
-      "body_bytes": 6183,
-      "body_sha256": "sha256:48b0be5b701093b94549f36ceebd4778f3f98bd2a43ea3529c040900c02d9487",
+      "body_bytes": 4418,
+      "body_sha256": "sha256:5f18f032cbaeff1ac3204e6940998c504caaf6ce88c197b2680302bf9ecfab19",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -15177,8 +15177,8 @@
     },
     {
       "aliases": ["qradar receiver use tls disable verify certificate"],
-      "body_bytes": 1563,
-      "body_sha256": "sha256:75bf199a7d280d6441c8c87e99f3fffa356a2b686d7f1993c0c9935a755adee7",
+      "body_bytes": 1264,
+      "body_sha256": "sha256:14469b269b934f1e6d68876821a5da0c4bb8b67042914c5d667614cfa4090cc6",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -15217,8 +15217,8 @@
     },
     {
       "aliases": ["qradar receiver use tls disable verify hostname"],
-      "body_bytes": 1517,
-      "body_sha256": "sha256:35f1fb24130c985d0649faa082b116375a0f6f1eee887699de14b359b909cb28",
+      "body_bytes": 1218,
+      "body_sha256": "sha256:cd53958cda2cb255e30afe8dc905cafd9887482878a5bac44e28eba4d604beb9",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -15257,8 +15257,8 @@
     },
     {
       "aliases": ["qradar receiver use tls enable verify certificate"],
-      "body_bytes": 1559,
-      "body_sha256": "sha256:8a74841dd9a931972491f41aacc116ad20498b61d22a765a9aff427ff9f08487",
+      "body_bytes": 1260,
+      "body_sha256": "sha256:226d1fe201cf61df9a326533c33076e394a31c1503e3e068fe975cd2b4f2226f",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -15297,8 +15297,8 @@
     },
     {
       "aliases": ["qradar receiver use tls enable verify hostname"],
-      "body_bytes": 1514,
-      "body_sha256": "sha256:c94813a80654949926cd2e910fe5a7bf7af655b6a02f3bb05d6901adfcb2e7d9",
+      "body_bytes": 1215,
+      "body_sha256": "sha256:286ff0473b14e2b40bb7fca4588a3ade9beaa8a9ea3cd89bda7cfc55c4b8dc0f",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -15337,8 +15337,8 @@
     },
     {
       "aliases": ["qradar receiver use tls mtls disabled"],
-      "body_bytes": 1487,
-      "body_sha256": "sha256:3ff63df3044be6e169a85a13645cb70d89a1146d60f4c107538a96040ae66644",
+      "body_bytes": 1188,
+      "body_sha256": "sha256:09d1344630ca5662083ea312a996d3f82725a4b02731200f2ffbe5c03c33b5c8",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -15377,8 +15377,8 @@
     },
     {
       "aliases": ["qradar receiver use tls mtls enable"],
-      "body_bytes": 3214,
-      "body_sha256": "sha256:611b5b63a491065a9e0e99c9234556274822b1b0c99a5f1c7ce0cc126973f216",
+      "body_bytes": 2739,
+      "body_sha256": "sha256:d926de5f5a370188c18ad96b9d0f3867c3d802b8b2139785b8b00b1ccd62d15c",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:global_log_receiver:properties:qradar_receiver:use_tls:mtls_enable:key_url"],
@@ -15467,8 +15467,8 @@
     },
     {
       "aliases": ["qradar receiver use tls mtls enable key url"],
-      "body_bytes": 2869,
-      "body_sha256": "sha256:576a78a9b5b2d37913fffcab370b373c0f8916619ee6062932e91679762d786a",
+      "body_bytes": 2099,
+      "body_sha256": "sha256:aaf9a53edb3a200c38b5ac90021d11f47df892e90bb7c23cb2c8b10cf84f0eee",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -15578,8 +15578,8 @@
     },
     {
       "aliases": ["qradar receiver use tls mtls enable key url blindfold secret info"],
-      "body_bytes": 5471,
-      "body_sha256": "sha256:5d5d5a68b2557138389f065c1166c8cfced6bfd1656655c3bd962aa685d5eb2e",
+      "body_bytes": 4778,
+      "body_sha256": "sha256:961a69d01142a066dc988e14ab54d0ca3099acd051524524f60c73833129acd6",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -15690,8 +15690,8 @@
     },
     {
       "aliases": ["qradar receiver use tls mtls enable key url clear secret info"],
-      "body_bytes": 4336,
-      "body_sha256": "sha256:cc2beb5957373d6310d06954e67d39d215293149e0f32eeea29409a285e91e7c",
+      "body_bytes": 3777,
+      "body_sha256": "sha256:8104dfc3a917d6c4bf984e315068f12baf14a4b64dae2b6f254dd8e64f3c1a98",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -15772,8 +15772,8 @@
     },
     {
       "aliases": ["qradar receiver use tls no ca"],
-      "body_bytes": 1463,
-      "body_sha256": "sha256:e08f6df854a1718dddce3ba5ad1f7fca91a41dab8d85b216709623b6ce575160",
+      "body_bytes": 1164,
+      "body_sha256": "sha256:8013dd905189d4e2389136a9e04823b97f33639a4783012187b5fe1c04cc383a",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -15812,8 +15812,8 @@
     },
     {
       "aliases": ["request logs"],
-      "body_bytes": 2186,
-      "body_sha256": "sha256:f00d8e4f115541870c3bfccfc46ea3e42fddba6ebab47e9c88c7f37d1d538a16",
+      "body_bytes": 1483,
+      "body_sha256": "sha256:dbc8c98690f2bd263cf5fb940c862b454f971ad3acf5ce4f3fbf9bf6233209b4",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -15905,8 +15905,8 @@
     },
     {
       "aliases": ["request logs sampled"],
-      "body_bytes": 1341,
-      "body_sha256": "sha256:a61123d1d306ba9855289b5fbe64d0bdc2cb2fcc87fcb36a3f2ecb657b7a9537",
+      "body_bytes": 1064,
+      "body_sha256": "sha256:b53a2ea8ebd877eda4454c6904e303521eb2f1b5d8aa55e61d24b2e0087f6407",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -15945,8 +15945,8 @@
     },
     {
       "aliases": ["request logs unsampled"],
-      "body_bytes": 1274,
-      "body_sha256": "sha256:22a730e89012fee7f91b02a6007ed279e67b6425af810161d16b5008fbc9d267",
+      "body_bytes": 997,
+      "body_sha256": "sha256:f58b623f8b46b5327749388e449b5b2b2d947803add067f7c21735c97d458b46",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -15985,8 +15985,8 @@
     },
     {
       "aliases": ["s3 receiver"],
-      "body_bytes": 7662,
-      "body_sha256": "sha256:b71f2b032b4571b735d991072d32dca8c60148529a398875e8296edfcc1a06ad",
+      "body_bytes": 6730,
+      "body_sha256": "sha256:5316bde833f1bfbc0eb6addcf72110d58186876c7dcae1d92fd0f7409e8a4d89",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -16331,8 +16331,8 @@
     },
     {
       "aliases": ["s3 receiver aws cred"],
-      "body_bytes": 6159,
-      "body_sha256": "sha256:4bf0aaf4960283d16b064a7de28ecb79a1ad8c7aceb4574c49726e82e3cd6141",
+      "body_bytes": 5226,
+      "body_sha256": "sha256:8442019c5f05bd37bbf3fc230920a53f7ca50ea2dea0c5dda6f3244bdb8623ba",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -16450,8 +16450,8 @@
     },
     {
       "aliases": ["s3 receiver batch"],
-      "body_bytes": 6497,
-      "body_sha256": "sha256:9e76878811dcb16df81ee1549c0894b0c857614cbe650180ca4d950a4aa40f09",
+      "body_bytes": 5291,
+      "body_sha256": "sha256:7a5bd04be06f25b304fe29e8fe24cc626dd850307dcdf3ed3b66370119304115",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -16640,8 +16640,8 @@
     },
     {
       "aliases": ["s3 receiver batch max bytes disabled"],
-      "body_bytes": 1458,
-      "body_sha256": "sha256:fc44b8349d93e34d81d436027ae2cbb0a97a5f031c250c883db3e88366d238bd",
+      "body_bytes": 1171,
+      "body_sha256": "sha256:fb6bf9486daf469782face8ac5a83c7356d5a8a71d066d09100145c3d862cca4",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -16661,7 +16661,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0321130201332121-0213022012232031-2020331310122110-2000223111132213-1030001032023110-2100132111010221-3130020201010130-0332212321311332",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -16680,8 +16680,8 @@
     },
     {
       "aliases": ["s3 receiver batch max events disabled"],
-      "body_bytes": 1461,
-      "body_sha256": "sha256:3a64b063f743df8d6a7649be422d09957714e5cfe0333b66d31740e6c41fca2f",
+      "body_bytes": 1174,
+      "body_sha256": "sha256:25a1bc5d42fdd7aa9b9de456bee55531d189d57ada7782e63523fc0816e86364",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -16701,7 +16701,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0332011113233200-3103031331111220-1320310112330301-1011331220111200-2003030013103122-0131033023121031-3001330121223023-1020030200022033",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -16720,8 +16720,8 @@
     },
     {
       "aliases": ["duration", "s3 receiver batch timeout seconds default"],
-      "body_bytes": 1473,
-      "body_sha256": "sha256:714d25145d1429779c9feef5816fb336a7e19b88922c761909d0b6a26a2ac7a7",
+      "body_bytes": 1186,
+      "body_sha256": "sha256:ff8eda07ae0087d42d768c2c12907109478971b18bd690fd0f9ce94558230524",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -16741,7 +16741,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1003000213233232-1120203302312111-3023323111233222-2223122312233020-3023012202202123-2111011202202222-0002200031113010-1213002003130212",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -16760,8 +16760,8 @@
     },
     {
       "aliases": ["s3 receiver compression"],
-      "body_bytes": 2896,
-      "body_sha256": "sha256:ad74338336d1df66811f9930bdedc11d08990678ce0a411043a54f3561680a48",
+      "body_bytes": 2082,
+      "body_sha256": "sha256:8fa5c146e589510f02215bdacdcd16ca8b7b7d5d1fb3145218fa38f7ec6bc92e",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -16785,7 +16785,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2111330022112232-1022203012213032-2120111001213003-2321001220303202-0130300211313331-3300322120302121-3012320000202120-1022011011101303",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [
         {
           "anchor": "section",
@@ -16902,8 +16902,8 @@
     },
     {
       "aliases": ["s3 receiver compression compression default"],
-      "body_bytes": 1527,
-      "body_sha256": "sha256:98dc7e2d52b1db02abd9abe971b64365b76ab2f6eb11d34d317ed8d1245c7f15",
+      "body_bytes": 1228,
+      "body_sha256": "sha256:656048118bb66cede8d336d2a5ac248133f76b53d19ae17441d2c01675a1a286",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -16923,7 +16923,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2232000223310212-2310002112201211-1031110231211300-2230132313120112-1213330033213213-3303010112011300-0322020312001203-1230113100111322",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -16942,8 +16942,8 @@
     },
     {
       "aliases": ["s3 receiver compression compression gzip"],
-      "body_bytes": 1488,
-      "body_sha256": "sha256:2541a628deb65fada47858f5772c00de1a323d0cf4b5f2e6e5b82bbe7b8ce090",
+      "body_bytes": 1189,
+      "body_sha256": "sha256:7706f156c95f6e0d10a6d42577810de47f215d1be07dde81272caca051f368f2",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -16963,7 +16963,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0220003103110012-2222211113033102-2231212202011213-2021133201033311-3032131333321201-3033131012232102-0101111223213122-2212231002313011",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -16982,8 +16982,8 @@
     },
     {
       "aliases": ["s3 receiver compression compression none"],
-      "body_bytes": 1515,
-      "body_sha256": "sha256:66f505eec28d43581a4002e8bcac37f07dd8f48f75f7ff918b0cc9449a6f4705",
+      "body_bytes": 1216,
+      "body_sha256": "sha256:c338cc833b6b783b6e078be51509848869ae7eef2999c6cc0b06ef164978f249",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -17003,7 +17003,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3132203120123222-1012333132232200-3111222120312212-1202230112213103-1332010311313300-3201132003112010-0301232111130122-0301123200130210",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -17022,8 +17022,8 @@
     },
     {
       "aliases": ["s3 receiver filename options"],
-      "body_bytes": 3890,
-      "body_sha256": "sha256:863d11445806a8074b2c416de4a000c1c00ca3790fad3d24c29ea9a48643dfa7",
+      "body_bytes": 3074,
+      "body_sha256": "sha256:87062b527c98ae8d0af4d364ab3da252528cf554a9ed7b51c1be8b7e0e0db234",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -17046,7 +17046,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0310300212301021-1030032312012230-0231233231132003-0310010220111031-0000031333323200-1103211313320310-2031132312223122-1323220303231200",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [
         {
           "anchor": "schema-s3_receiver--filename_options--custom_folder",
@@ -17163,8 +17163,8 @@
     },
     {
       "aliases": ["s3 receiver filename options log type folder"],
-      "body_bytes": 1541,
-      "body_sha256": "sha256:c37b0546aa9f9a97c74fddd55bea1092fd4a7573b1e0c56e2933e0605fe9f4d0",
+      "body_bytes": 1232,
+      "body_sha256": "sha256:d79008e77d60aa4f57aeebb0225e838fdb30f0422f9890512042b083e867e6a3",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -17184,7 +17184,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3202111322221322-3121013110333310-0231110020021123-0310333132302001-3301232303212210-0320212321230212-0212113012012101-1001312320303212",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -17203,8 +17203,8 @@
     },
     {
       "aliases": ["s3 receiver filename options no folder"],
-      "body_bytes": 1497,
-      "body_sha256": "sha256:81d6e4371ace9c269545d7f646058d36512b1fe6fd06b039217193673e440813",
+      "body_bytes": 1188,
+      "body_sha256": "sha256:6fba5cd449e7a9650280c907795bb55d13fcc24382fd92952161164fba787de2",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -17224,7 +17224,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1102332322222222-2220303310013101-2221110100220123-2013021201120200-3301330231212102-1103030022200320-3213202213031211-0332021021333302",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -17243,8 +17243,8 @@
     },
     {
       "aliases": ["security events"],
-      "body_bytes": 1130,
-      "body_sha256": "sha256:cb309d3bb945fc01f15324b90f5c36516f74f5c51f264e2ce0b9d4c1698047c8",
+      "body_bytes": 860,
+      "body_sha256": "sha256:88b2059371ab8351a94e27bf2a9ac424e2f247ed57e85530e191a7f6f14bb82f",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -17264,7 +17264,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3211022021302113-1000032210211020-3113000022100301-1332120310011110-2113003230211310-2211212131301002-0201111232112322-1122230010302122",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -17283,8 +17283,8 @@
     },
     {
       "aliases": ["splunk receiver"],
-      "body_bytes": 4275,
-      "body_sha256": "sha256:8a608c9f8eadf0bea8af8808182f8f9bfc25a008b36bd8b13bdc54990938bdc0",
+      "body_bytes": 3146,
+      "body_sha256": "sha256:9b7d1faec95c4e0bcddc28ebfc2bf04fdb7e59867d4d64d2ef4346271bdb1a95",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -17310,7 +17310,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1331121330211320-3112333223033312-2132001103010221-1001332023230013-2111133323303322-0033030200222023-3130031113012002-3332101331003130",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [
         {
           "anchor": "section",
@@ -17631,8 +17631,8 @@
     },
     {
       "aliases": ["splunk receiver batch"],
-      "body_bytes": 6569,
-      "body_sha256": "sha256:8bee51570dde56912dff003ef2a4d34c13751c3e7fe53b2fcb006a9aabe303ca",
+      "body_bytes": 5331,
+      "body_sha256": "sha256:0f37ec6d364826c70815e64d0f0a8b2a415cd926fca483807e136c61ff68e760",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -17656,7 +17656,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3022103112101030-3030322221021011-1100211102020311-3203210031202132-3132332232211032-1120213321203332-0011203200220120-0203203310213313",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [
         {
           "anchor": "schema-splunk_receiver--batch--max_bytes",
@@ -17821,8 +17821,8 @@
     },
     {
       "aliases": ["splunk receiver batch max bytes disabled"],
-      "body_bytes": 1490,
-      "body_sha256": "sha256:874098c95ba5b88d658c489132fb86585c4714b6d3d9541e9e957faf2d72aa96",
+      "body_bytes": 1195,
+      "body_sha256": "sha256:87ad20ad8e888e88ad98e7a4cf6d8fc2e51e846567f32e80d2101689bd5b8843",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -17842,7 +17842,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2231210211002131-2100003222320311-2132101201122032-0211120312220210-2200303132122202-3111120030210130-0213221102332330-0003323302322232",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -17861,8 +17861,8 @@
     },
     {
       "aliases": ["splunk receiver batch max events disabled"],
-      "body_bytes": 1493,
-      "body_sha256": "sha256:4c6a252a837c73a4ea31e7679237bfe0d48bf22064269a42a5030bf62daf9fc8",
+      "body_bytes": 1198,
+      "body_sha256": "sha256:32cae5dd5d488995a0d162baab7c6823926693f2ac7622880d27092efb73bd83",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -17882,7 +17882,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2021000121032012-1203321203120000-2301123211221222-1213331111031130-1111031211320300-2320122020210012-2321010003210231-3100022001323231",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -17901,8 +17901,8 @@
     },
     {
       "aliases": ["duration", "splunk receiver batch timeout seconds default"],
-      "body_bytes": 1505,
-      "body_sha256": "sha256:ec97db6dd053675448b0eba509448d65f6c3a2ac64bb3725c3df8cda4b46b57c",
+      "body_bytes": 1210,
+      "body_sha256": "sha256:ac70a45c978e5665d3ab574cceb0fdf24db67771a87aba3652d83675036e1b7a",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -17922,7 +17922,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3320110000122221-2333131323230303-0231000203212230-2200111311011121-1012332022020310-0330232103223221-1301220223103132-3233031032230333",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -17941,8 +17941,8 @@
     },
     {
       "aliases": ["splunk receiver compression"],
-      "body_bytes": 2956,
-      "body_sha256": "sha256:95c2fdd5768cf9436f8127a11e7a0b284a284b5fb49ca260e71bacd0a8349c98",
+      "body_bytes": 2110,
+      "body_sha256": "sha256:0513777195471eea31e90e3afbb569d2e244c746d7ed73dd38a4b320693562ae",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -17966,7 +17966,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2010123313311221-1030023122002032-3012203213310221-3131203202200000-2221302102003322-0021032303110122-2021131210112022-3211201020320223",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [
         {
           "anchor": "section",
@@ -18083,8 +18083,8 @@
     },
     {
       "aliases": ["splunk receiver compression compression default"],
-      "body_bytes": 1559,
-      "body_sha256": "sha256:02e3dfe469eed3f5f7a03e5475e3141c09f397877a3883e3e22e76485e9ac076",
+      "body_bytes": 1252,
+      "body_sha256": "sha256:a047884465c88b4b39eec02bfab8149a4401135e7393655a481228a1ba9857ea",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -18104,7 +18104,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0210233011102313-3002003003223202-3102223130132102-1333213021021132-2322220101121112-2321011331302032-0013203310001012-3310220111230110",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -18123,8 +18123,8 @@
     },
     {
       "aliases": ["splunk receiver compression compression gzip"],
-      "body_bytes": 1520,
-      "body_sha256": "sha256:a0f1dba2d5a725be1c08067ec6f50e1dd1b9c7f7002c1682eaa08e7833bf7d4f",
+      "body_bytes": 1213,
+      "body_sha256": "sha256:2265e00f8a762804070f1200d0321e09e5d95d41d502bfce164b43e190870336",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -18144,7 +18144,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2311223300303300-3122033133012121-3303021121121232-0120010002232320-1300103332301133-2312333033202121-3131023103223200-2130333313100321",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -18163,8 +18163,8 @@
     },
     {
       "aliases": ["splunk receiver compression compression none"],
-      "body_bytes": 1547,
-      "body_sha256": "sha256:0cb5247e043f6fce8421526a6f493b99692abc83cf76629d8fbeb4fe90c1a9a1",
+      "body_bytes": 1240,
+      "body_sha256": "sha256:c29d2b1d9b6e0d78a794901fed5d34feec2a42b4eb5d75509dae7281c8abd17e",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -18184,7 +18184,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1022202221213102-3202310322223210-2313031212333312-1233013312001113-3312320030101233-2302003102012330-1220223121030132-1113022021211203",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -18203,8 +18203,8 @@
     },
     {
       "aliases": ["splunk receiver no tls"],
-      "body_bytes": 1283,
-      "body_sha256": "sha256:739d13f481f91844081eafac84213f36367eeaf017a6b8cfa81af5c255e177b9",
+      "body_bytes": 1000,
+      "body_sha256": "sha256:b633ca1b72a887e656a440bc38c856a676307de042970191b79f82e638d6f4f7",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -18224,7 +18224,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2310330213200023-2211313133003121-0113031232323320-0313002113212330-0023230223320230-3232313110110311-2013022321212133-1302202110323132",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -18243,8 +18243,8 @@
     },
     {
       "aliases": ["splunk receiver splunk hec token"],
-      "body_bytes": 2424,
-      "body_sha256": "sha256:2b919587634edfaf79bd54e8f1d6a0cda2c431625195b6b05d137f3592b945d6",
+      "body_bytes": 1738,
+      "body_sha256": "sha256:131aa3b4b2671ae7a1935e824f47c9914bf96f03a0e7c8b3a774c417d0449749",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -18267,7 +18267,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0000330110231330-2023201131210100-3101201332111030-0210121333201332-3000210133232120-1003111101031000-3313010103012022-2103123333112310",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [
         {
           "anchor": "section",
@@ -18354,8 +18354,8 @@
     },
     {
       "aliases": ["splunk receiver splunk hec token blindfold secret info"],
-      "body_bytes": 5040,
-      "body_sha256": "sha256:38fb8375a477e62ad7d6d81c56fc051a66302fe1389656d03aad175cf612f553",
+      "body_bytes": 4369,
+      "body_sha256": "sha256:a68799d8ac3ace5a8ecf78eabb284ea665018727de1f7c496a51241929b4f069",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -18375,7 +18375,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1232203330123312-2130100122003202-3230233312023131-0113001223230220-1030322233122101-0003003221233313-3020110011322333-0221223311103131",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [
         {
           "anchor": "schema-splunk_receiver--splunk_hec_token--blindfold_secret_info--location",
@@ -18452,8 +18452,8 @@
     },
     {
       "aliases": ["splunk receiver splunk hec token clear secret info"],
-      "body_bytes": 3918,
-      "body_sha256": "sha256:93a0b22f40c9084f6cbdbd2653a19b3ad1da74c111a6455ca2dc51114721726f",
+      "body_bytes": 3381,
+      "body_sha256": "sha256:39c5136d97784e288b964f89e430e1a01a5b9f6880611c42b1c72d5bd7526a70",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -18473,7 +18473,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3021122321113120-0112313030231122-3131321002113011-2000320132332000-1312031133332220-2030101220312332-0301003221302330-3031031121302312",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [
         {
           "anchor": "schema-splunk_receiver--splunk_hec_token--clear_secret_info--url",
@@ -18534,8 +18534,8 @@
     },
     {
       "aliases": ["splunk receiver use tls"],
-      "body_bytes": 6183,
-      "body_sha256": "sha256:8f87d263936edd0a7d3f6bbab677e7338578275d7847bfe0f31f6b5536d44001",
+      "body_bytes": 4418,
+      "body_sha256": "sha256:0c3467fa4dec8e6b52010059365b92fe5e69cf553400655d6870ec86c556994c",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -18563,7 +18563,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1032311130223211-1300102100202101-0200123213003120-1021210202000030-0002113312200122-1000220323112123-0100032221032310-1111233222310112",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [
         {
           "anchor": "schema-splunk_receiver--use_tls--trusted_ca_url",
@@ -18776,8 +18776,8 @@
     },
     {
       "aliases": ["splunk receiver use tls disable verify certificate"],
-      "body_bytes": 1563,
-      "body_sha256": "sha256:8093fb66918685f2e41e8878d39fc43144e9c7e5c36e21ff8cdac15610e598b9",
+      "body_bytes": 1264,
+      "body_sha256": "sha256:43be688d1a6a2a72393b9b336305c1b5d4b8c80349df681321b5a462735484a7",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -18797,7 +18797,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2213212021232300-3202331322322312-3101230031330303-1313002302211122-3332322231213333-0203123200010012-0300303002232020-0230100113203010",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -18816,8 +18816,8 @@
     },
     {
       "aliases": ["splunk receiver use tls disable verify hostname"],
-      "body_bytes": 1517,
-      "body_sha256": "sha256:e4dd41acede7e4d4350ad46c13e5f68c49012041044b678945b09e6efa6cae82",
+      "body_bytes": 1218,
+      "body_sha256": "sha256:98cc5087d28acfe82d65e5360ab14b409ca7b12fffd45090785dfe3765bf7aa5",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -18837,7 +18837,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2311003200321032-1013121033023113-1013012132323231-1221110032020211-3311000312103230-1321233223300032-1101303120300323-3311003100110100",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -18856,8 +18856,8 @@
     },
     {
       "aliases": ["splunk receiver use tls enable verify certificate"],
-      "body_bytes": 1559,
-      "body_sha256": "sha256:5d3dd143c63ee0b018b2d3d6309c9b78e1348d8de0ba287ccabe7cf99711b5ab",
+      "body_bytes": 1260,
+      "body_sha256": "sha256:69e050479057f1bdba54b627993c10274e837e6eeaed18b76531ce1d63810a3a",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -18877,7 +18877,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2313311322031201-3110232231033011-0101233100132222-0302233021012320-3333132000201323-0203103130033100-3211000133220211-2020101112010232",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -18896,8 +18896,8 @@
     },
     {
       "aliases": ["splunk receiver use tls enable verify hostname"],
-      "body_bytes": 1514,
-      "body_sha256": "sha256:3a5dad2293f604623b1b8fde870d011c80cf347f7cc8c6d0211ee9920a5996a2",
+      "body_bytes": 1215,
+      "body_sha256": "sha256:3f4eb9b84e19f61444580f789560b1084c4d6c73fb3afe7b1954949e5565c4ed",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -18917,7 +18917,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2312113311100230-3101001302023100-1211020310032023-2213012003221010-0000002003330000-2311013211133102-3000111011233111-1311002320030321",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -18936,8 +18936,8 @@
     },
     {
       "aliases": ["splunk receiver use tls mtls disabled"],
-      "body_bytes": 1487,
-      "body_sha256": "sha256:79f5cd2a557a442d0a76742e51e71883243b03060a459cf50d4a511afdf5e278",
+      "body_bytes": 1188,
+      "body_sha256": "sha256:d8666383be6c286d4073587ea1a7aab5dd680af99b7ffa9a8b19d7313a936e35",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -18957,7 +18957,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0012011230002113-2012120013030000-1230322202121223-0320201331332032-1010120300131033-1030010120313201-3011112001230333-3003212212220331",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -18976,8 +18976,8 @@
     },
     {
       "aliases": ["splunk receiver use tls mtls enable"],
-      "body_bytes": 3214,
-      "body_sha256": "sha256:d19e9bb474edb8f0ed5efcd983b12bf8b449b9247e2d9fcb61e25df008714085",
+      "body_bytes": 2739,
+      "body_sha256": "sha256:cd37087b717e6cadf22132e98123602c094772649ab60c829125f71d218aa736",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:global_log_receiver:properties:splunk_receiver:use_tls:mtls_enable:key_url"],
@@ -18997,7 +18997,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0211331211121211-3221211003312312-3003211030203121-0121213303021100-0320111011202003-2100103032101123-3313131301003122-0223111011311131",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -19066,8 +19066,8 @@
     },
     {
       "aliases": ["splunk receiver use tls mtls enable key url"],
-      "body_bytes": 2869,
-      "body_sha256": "sha256:ba2ce53ca2bd32201595eef41d3b877672cc2cdde7944a19b98f6a65cd1f89f0",
+      "body_bytes": 2099,
+      "body_sha256": "sha256:3339694bb1d581b666e62f285ffa729d857f042bb08f0dc49da1571b5cf11e80",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -19090,7 +19090,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1231103203102133-1122221303110021-3131210322111210-3000131101103222-0221110310122120-1321133312100310-1000323201221013-2300132321100032",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [
         {
           "anchor": "section",
@@ -19177,8 +19177,8 @@
     },
     {
       "aliases": ["splunk receiver use tls mtls enable key url blindfold secret info"],
-      "body_bytes": 5471,
-      "body_sha256": "sha256:183182da368b052cc2f4140e23e3f9df615df02cf43c02e441fd83c5be0b5ee4",
+      "body_bytes": 4778,
+      "body_sha256": "sha256:0781b4233c110effa83a8e40fb4b20f97514f250b4e0d460988057341dc1b39d",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -19198,7 +19198,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0133103010210311-1020222322100133-1011330210321111-0311313231302133-2310221333033320-3321112012220032-3322103230121232-1311333311131300",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [
         {
           "anchor": "schema-splunk_receiver--use_tls--mtls_enable--key_url--blindfold_secret_info--location",
@@ -19289,8 +19289,8 @@
     },
     {
       "aliases": ["splunk receiver use tls mtls enable key url clear secret info"],
-      "body_bytes": 4336,
-      "body_sha256": "sha256:3c59eb8b81c572450617755f7dac7864da05d8b44c3fddcd756f67af32b0a1e0",
+      "body_bytes": 3777,
+      "body_sha256": "sha256:0e539ac71d00cd93bc81b0493db4a1144ece7de73077ad25ae304f4bcb77bad7",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -19310,7 +19310,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2102031113102202-3022333231113202-2311032000102101-0203030322203200-2002313122232020-0130323221203223-2122312320320332-3300330300002132",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [
         {
           "anchor": "schema-splunk_receiver--use_tls--mtls_enable--key_url--clear_secret_info--url",
@@ -19371,8 +19371,8 @@
     },
     {
       "aliases": ["splunk receiver use tls no ca"],
-      "body_bytes": 1463,
-      "body_sha256": "sha256:05d3c7cbd061dd5bfbd5741483cd02b61de31c0488eda75869c8090febccd102",
+      "body_bytes": 1164,
+      "body_sha256": "sha256:742ea2c7cd38e75954f58b18eed12943cac1ca2502a74c440c9031a812453a95",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -19392,7 +19392,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3001101302222020-1100211020222002-1133112021111032-2132310333310102-1233111322201101-2313330203233223-1200333202223332-0331001121001000",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -19411,8 +19411,8 @@
     },
     {
       "aliases": ["sumo logic receiver"],
-      "body_bytes": 1455,
-      "body_sha256": "sha256:7946430204224efd1115462586892ffb937f2ff0fc1f9259eed9a225bc5c125e",
+      "body_bytes": 1056,
+      "body_sha256": "sha256:e8a73cfdc7f38a58db790677113aad7b3f27205aebb07d1a21a13fd791840eab",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:global_log_receiver:properties:sumo_logic_receiver:url"],
@@ -19432,7 +19432,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3133110202111331-3110012132230231-1313311200132200-3313312202001233-0330332232223132-0100032000033300-1111310013112123-0303121102330130",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -19485,8 +19485,8 @@
     },
     {
       "aliases": ["sumo logic receiver url"],
-      "body_bytes": 2355,
-      "body_sha256": "sha256:2b2274796f0f0c922e1f5520c0f581e557e0a1ba9f4c83cbb848d7dae2d69dba",
+      "body_bytes": 1697,
+      "body_sha256": "sha256:2f54d98e59dbac2545543698393c56a07905ff70fc87e2b975cf94f098bf2e21",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -19509,7 +19509,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1211232133011100-3311220123122001-2231031332221030-2311333131201230-3030311013102130-1320012132103022-0212200323121201-1213232003112030",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-004.md",
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-005.md",
       "relationships": [
         {
           "anchor": "section",
@@ -19596,8 +19596,8 @@
     },
     {
       "aliases": ["sumo logic receiver url blindfold secret info"],
-      "body_bytes": 4967,
-      "body_sha256": "sha256:925f26d670f7992fcc766874df670c1dc36c6337b4bed6aa8a1aeec4c9ae35f5",
+      "body_bytes": 4314,
+      "body_sha256": "sha256:2ad0aa619f6b67dddd064d3cd8b70abc6d71264ece9a217578793b2d706667b1",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -19694,8 +19694,8 @@
     },
     {
       "aliases": ["sumo logic receiver url clear secret info"],
-      "body_bytes": 3854,
-      "body_sha256": "sha256:f9f1480b86d1a69c1458a045b37cbb91c356a3963e6834bedf8079394b700fa7",
+      "body_bytes": 3335,
+      "body_sha256": "sha256:8c2f0a0f19ce6ad6fa1a626ec2717a297cf048db5956fce5a3aeca9c615fd116",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -19776,8 +19776,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2273,
-      "body_sha256": "sha256:c54491c3f5643f8411ca69c2fa85c65dc8e937daa524e40a64a641678db4a977",
+      "body_bytes": 2018,
+      "body_sha256": "sha256:ae692fd5c019c9ca002a14dc68ca5b27a1f476c869b87c2632bf65b03316fa0e",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -19916,8 +19916,8 @@
     },
     {
       "aliases": ["global log receiver"],
-      "body_bytes": 675,
-      "body_sha256": "sha256:85b8b4dd2d7b147d689e4ba36498509da8e54794d4b868d771ad6bbba0cfc244",
+      "body_bytes": 423,
+      "body_sha256": "sha256:6fd7f3db81a6257dae840ecbccb10c1a04a80eec7b92c04478a2c32de50866b7",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:global_log_receiver:example:resource"],
@@ -19956,8 +19956,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1315,
-      "body_sha256": "sha256:9a559c57808455cceba3270f10556f3db32811e6dc151f7186bb9ca099830e0b",
+      "body_bytes": 1072,
+      "body_sha256": "sha256:e1e9cac478cb9e1e56fd7eedc6a41d619a761a950bad859966be60abf9d4839b",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -20003,8 +20003,8 @@
     },
     {
       "aliases": ["global log receiver"],
-      "body_bytes": 515,
-      "body_sha256": "sha256:8d04995cabe3d385fec591cd61145dec08631ecd8e1a930c97a91776e1a4a4f1",
+      "body_bytes": 382,
+      "body_sha256": "sha256:0ca5d7c2749905b660266fe55b674276f58438dc0e01ee0f1d2b8101c41ea9be",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -20044,8 +20044,8 @@
     },
     {
       "aliases": ["global log receiver"],
-      "body_bytes": 603,
-      "body_sha256": "sha256:bc4d52e8c12b4ca5545f420b77541961050ee72da89cc1b7033fce55e67e5b37",
+      "body_bytes": 470,
+      "body_sha256": "sha256:31b7ebd6672b0039d072ebdc2ff5dd8eb07c960d456ecf6d2e51a920f76b994e",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],

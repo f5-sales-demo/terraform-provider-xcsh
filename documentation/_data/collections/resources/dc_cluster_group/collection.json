@@ -86,8 +86,8 @@
   "pages": [
     {
       "aliases": ["dc cluster group"],
-      "body_bytes": 1545,
-      "body_sha256": "sha256:f829d2788aff45334299466f1011cdac3d6e16a5e223ac4be0196b658b3fd711",
+      "body_bytes": 1558,
+      "body_sha256": "sha256:36a153869560a887c89acb5335535daa894b2e62e9366fc7a87e91e6c0fba37d",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -132,8 +132,8 @@
     },
     {
       "aliases": ["dc cluster group"],
-      "body_bytes": 10734,
-      "body_sha256": "sha256:62fa21a4325b99f395001617d46d126cad4405b34671a3c3fe64e98404b4ed5c",
+      "body_bytes": 10239,
+      "body_sha256": "sha256:4f6090aca129bc9f97cf9053d3524418269b1716aacfcc9f67c4e9c7fa305ffe",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -346,8 +346,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2255,
-      "body_sha256": "sha256:d938ae1f910721ea5fc83bffa07a45b51f04b1a9e9a93fc7a16e4fc9e773c196",
+      "body_bytes": 2009,
+      "body_sha256": "sha256:3b736ecf383beee5337cc8298eb2fefb9fc82fef8387a4d851763bf3110886de",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -486,8 +486,8 @@
     },
     {
       "aliases": ["type"],
-      "body_bytes": 2099,
-      "body_sha256": "sha256:74fbd7ac89a1a747f37649f90f64275ba298b4cbe1b9d7489bfe1803ee4feee4",
+      "body_bytes": 1482,
+      "body_sha256": "sha256:debca9464f5ef23a41bf4781bf20ea32b02e0a26f22585e4934ff649c896a0f5",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -579,8 +579,8 @@
     },
     {
       "aliases": ["type control and data plane mesh"],
-      "body_bytes": 1259,
-      "body_sha256": "sha256:f670acb9f90f51160000e860627e6ea9194c5ec01a016437b63c6d7466e1d902",
+      "body_bytes": 1007,
+      "body_sha256": "sha256:bc6829cfa8534e57e163b6d3e17b226e151346125e9c1f44772f98e796efc77f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -619,8 +619,8 @@
     },
     {
       "aliases": ["type data plane mesh"],
-      "body_bytes": 1223,
-      "body_sha256": "sha256:20deed471b20f60684fe1684ad99add4f45e89627ae9eb574248ce1c771480ad",
+      "body_bytes": 971,
+      "body_sha256": "sha256:1c50d0e69af0301a8de3999ad2b7bf1b5a9084cc646a56272abc7dc67aff95ba",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -659,8 +659,8 @@
     },
     {
       "aliases": ["dc cluster group"],
-      "body_bytes": 657,
-      "body_sha256": "sha256:f65b14288e90fd1b9e55924eb91b4d0fca9c0cf2ce7529307f4fc703fb2edf32",
+      "body_bytes": 414,
+      "body_sha256": "sha256:9699a6ba98c5af068d63b180d8d213307e021930100050380c3d3e2a0e765766",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:dc_cluster_group:example:resource"],
@@ -699,8 +699,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1286,
-      "body_sha256": "sha256:0e4c3037d1dd7b21815745a234af5ccb6ba7d84e631938b0ba01e410cd20c4cd",
+      "body_bytes": 1052,
+      "body_sha256": "sha256:c8b4dfbf62d33d268360880ee31ffdef3d238095c50d0c1389484f4b0ba68509",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -746,8 +746,8 @@
     },
     {
       "aliases": ["dc cluster group"],
-      "body_bytes": 500,
-      "body_sha256": "sha256:9cc76fd7c8d825e5eea7efc5e119045f406a4f88a05bb351f454fc6946710e1e",
+      "body_bytes": 373,
+      "body_sha256": "sha256:d616f68fe390a7bb108914d36c347b8d40e7db9528a197e5ace8b3c648edb6be",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -787,8 +787,8 @@
     },
     {
       "aliases": ["dc cluster group"],
-      "body_bytes": 588,
-      "body_sha256": "sha256:8c8551cc6e417b59d059ee95c56f751722e574155d4c76ede6203a53b51ee058",
+      "body_bytes": 461,
+      "body_sha256": "sha256:9372c59ae93e0a1c432a13301ca6fd556a8da68589ef7ee702ecacd4a0c077ac",
       "capabilities": [],
       "category": null,
       "child_ids": [],

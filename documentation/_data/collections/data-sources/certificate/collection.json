@@ -126,8 +126,8 @@
   "pages": [
     {
       "aliases": ["certificate"],
-      "body_bytes": 1359,
-      "body_sha256": "sha256:4f2bae471026afe5b87058ff608a4d5a0f9ca636fdbf5d6512ade24a3248a6d8",
+      "body_bytes": 1342,
+      "body_sha256": "sha256:8d4f95c5a984ab92c92e8c21c0d22960fc17ee83b328a0cf59f4bf9aae802868",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:certificate:reference", "xcsh-docs:data-sources:certificate:examples"],
@@ -155,7 +155,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certificate/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Certificate resource in F5 Distributed Cloud for certificate. configuration.",
+      "summary": "Reads Certificate information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_certificate",
       "unresolved_relationships": [],
@@ -167,8 +167,8 @@
     },
     {
       "aliases": ["certificate"],
-      "body_bytes": 13983,
-      "body_sha256": "sha256:f9444f2271a3ea916b1a09b23b93b13eecf1b672dcfac95fafadf162bc7ab7cb",
+      "body_bytes": 13107,
+      "body_sha256": "sha256:413eff9957ecb02829230789465bb2184a2ccb85a5735a6ca8d2e1815155e5df",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -406,8 +406,8 @@
     },
     {
       "aliases": ["cert", "certificate", "certificate chain", "existing certificates", "tls certificates"],
-      "body_bytes": 5166,
-      "body_sha256": "sha256:1fb4e87745b1a0bd7b9cf95774d63636feff730169ec6cb37c7983d40a926fca",
+      "body_bytes": 4256,
+      "body_sha256": "sha256:1a70c3c824170c52545e64d624c4074f89b1c9a22915934cdc483500dc1b9df9",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -516,8 +516,8 @@
     },
     {
       "aliases": ["custom hash algorithms"],
-      "body_bytes": 3043,
-      "body_sha256": "sha256:a4fed0f7c8e6d6adf3294aefc5fcc27ab35278633e086bb719b89931412dc55f",
+      "body_bytes": 2672,
+      "body_sha256": "sha256:bd9ddeedc31254c8598dfc4cf2dbeed9060998406c2d59e8b273d253716c75d7",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -573,8 +573,8 @@
     },
     {
       "aliases": ["disable ocsp stapling"],
-      "body_bytes": 1080,
-      "body_sha256": "sha256:4c9a5b50228518ed9c2ac29ba68c1a55a869c21c2ead6d21be18cb4f979b91cf",
+      "body_bytes": 828,
+      "body_sha256": "sha256:4f189f3be202a6dcdf8e4c2259a2203f0d9e176dd3d2acd7cb3875b7b5bec25a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -613,8 +613,8 @@
     },
     {
       "aliases": ["private key"],
-      "body_bytes": 1709,
-      "body_sha256": "sha256:645637f06de6b79188ff5b1687bb0aaa5a19c4f4984352725e2920106fd868ce",
+      "body_bytes": 1148,
+      "body_sha256": "sha256:104c93b696d571bc26457088b9a3aabaa6f57727fea61b6b964c02b6896bcaa4",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -689,8 +689,8 @@
     },
     {
       "aliases": ["private key blindfold secret info"],
-      "body_bytes": 4191,
-      "body_sha256": "sha256:4e6b7b9d001b2a94420b9176d947cbee782949d572a140e0de6201866f83515f",
+      "body_bytes": 3580,
+      "body_sha256": "sha256:d4b498e5f5344149108068e8597e89e639df38c9c3da4df4960eae0a0c9446d3",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -778,8 +778,8 @@
     },
     {
       "aliases": ["private key clear secret info"],
-      "body_bytes": 3100,
-      "body_sha256": "sha256:3923626fb5c2db20cf05aee8f2dfb0bf6fee321e9a635218c24b4d126f00a787",
+      "body_bytes": 2623,
+      "body_sha256": "sha256:18bb487f55da51c5e4960c60643540bb2640b08da0df11e01a3058199bdd9b8b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -851,8 +851,8 @@
     },
     {
       "aliases": ["use system defaults"],
-      "body_bytes": 1074,
-      "body_sha256": "sha256:7ead2607e48b6404a6b32913acab7cf2768623c6174c45f2661fe307a186dc0c",
+      "body_bytes": 822,
+      "body_sha256": "sha256:b502ed5abda17a512b6d0047cfdadbd34aaa870810ab85446efee1da54d45e52",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -891,8 +891,8 @@
     },
     {
       "aliases": ["certificate"],
-      "body_bytes": 651,
-      "body_sha256": "sha256:2bff38e4f046df7f1f818d160d974d12161f0c92572b2b39b45bc5a3f3a8d161",
+      "body_bytes": 411,
+      "body_sha256": "sha256:e71e01a945b47a9505143a1185df3c4088b16a97cc0cce07c770e4e4376237d4",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:certificate:example:data-source"],
@@ -931,8 +931,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1268,
-      "body_sha256": "sha256:fadfaa8ab73f0b43e81ffc40647068889b9a5da7b3567fb78d19cf4b21e73633",
+      "body_bytes": 1043,
+      "body_sha256": "sha256:654e62a42680bb52304f1352ead1149fe29a103f179b7242c1617970a246a392",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],

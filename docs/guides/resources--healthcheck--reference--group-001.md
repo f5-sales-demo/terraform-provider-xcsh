@@ -12,31 +12,22 @@ description: "Complete grouped canonical reference for xcsh_healthcheck referenc
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2131300333311323-1223132032211132-3012211321331210-2321333010033321-1331122001312200-2123120011232210-1032131211133121-1300000120030011"></a>
-
-## Property reference — Property reference / 223220002212 / 2
+## Property reference
 
 Breadcrumbs:
 
 - [xcsh_healthcheck](../resources/healthcheck.md#canonical-3300320023110233-3202122221011131-2102110331222313-3011102021101332-1311231011303011-1030300103121111-0010331313321201-0112100103120100)
 - Property reference
 
-<a id="canonical-3020120220031210-3231023301031101-2003121313121213-0313232230030100-2002112323130211-3211310111232232-3021022120103333-1230100330213120"></a>
+<a id="canonical-2131300333311323-1223132032211132-3012211321331210-2321333010033321-1331122001312200-2123120011232210-1032131211133121-1300000120030011"></a>
 
-## Direct properties — Property reference / 223220002212 / 3
+### Direct properties for `xcsh_healthcheck`
 
 <a id="canonical-2203101331123201-2120121303223323-0103221320112202-1323332201002303-2010001132302221-3131002202101200-3320120111011313-2010132112120123"></a>
 
-<a id="canonical-0112200330321331-0010012332311332-3031320001113132-2000113220030110-1001001032221100-2020322301310320-1132101110002122-3121303323123030"></a>
-
-## annotations property — Property reference / 223220002212 / 4
+#### `annotations` property
 
 Type: `["map", "string"]`. Optional.
-
-Annotations is an unstructured key-value map stored with a resource that may be set by external
-tools to store and retrieve arbitrary metadata.
-
-Upstream description:
 
 Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
@@ -92,9 +83,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3013132123023221-3133230132123101-1113220133020112-3303012232212011-3103222312033320-0011103311110100-0230022120110031-3231311332201330"></a>
 
-<a id="canonical-1331302030112013-0211202123103033-2133311313101203-0002003222203323-3331231011113220-3121312311020013-1123321310133203-2010020220323202"></a>
+<a id="canonical-3020120220031210-3231023301031101-2003121313121213-0313232230030100-2002112323130211-3211310111232232-3021022120103333-1230100330213120"></a>
 
-## description property — Property reference / 223220002212 / 5
+#### `description` property
 
 Type: `"string"`. Optional.
 
@@ -140,15 +131,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3213001201013001-0322010112321233-3102321110032210-1310310101011012-3121100023020331-1222323031010332-1021100220223000-2130302120323303"></a>
 
-<a id="canonical-0201010231312002-1123132012303231-3213213122102301-2112013223132021-2301230030223132-2300312221022230-3001221220033323-3013031130000333"></a>
+<a id="canonical-0112200330321331-0010012332311332-3031320001113132-2000113220030110-1001001032221100-2020322301310320-1132101110002122-3121303323123030"></a>
 
-## disable property — Property reference / 223220002212 / 6
+#### `disable` property
 
 Type: `"bool"`. Optional.
 
 A value of true administratively disables the object.
 
-Upstream description:
+Additional upstream details:
 
 A value of true will administratively disable the object.
 
@@ -167,21 +158,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1031012320312201-0111230102112201-3102132123310301-0320111021322210-2301011111012013-2232101133013331-0100130312312220-2322112123223113"></a>
 
-<a id="canonical-3211332100333131-0311123310033132-0310123003220301-1323131030220301-2232331023110301-2120001102010332-2031322002032011-1002030031330231"></a>
+<a id="canonical-1331302030112013-0211202123103033-2133311313101203-0002003222203323-3331231011113220-3121312311020013-1123321310133203-2010020220323202"></a>
 
-## healthy_threshold property — Property reference / 223220002212 / 7
+#### `healthy_threshold` property
 
 Type: `"number"`. Required.
 
 Number of successful responses before declaring healthy. In other words, this is the number of
 healthy health checks required before a host is marked healthy. Note that during startup, only a
 single successful health check is required to mark a host healthy. Recommended: \`3\`.
-
-Upstream description:
-
-Number of successful responses before declaring healthy. In other words, this is the number of
-healthy health checks required before a host is marked healthy. Note that during startup, only a
-single successful health check is required to mark a host healthy.
 
 Provider validators and defaults (from schema source):
 
@@ -233,9 +218,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2222130130220201-2120132100223220-3331210011010012-2122223221020221-3011212030100311-1112001313330202-2203212113201211-3301101323122002"></a>
 
-<a id="canonical-3222230132131331-0011113033201011-2033200233311123-3110331113120233-3332011003322310-3201033133030110-3130002231102313-3022202320322023"></a>
+<a id="canonical-0201010231312002-1123132012303231-3213213122102301-2112013223132021-2301230030223132-2300312221022230-3001221220033323-3013031130000333"></a>
 
-## ID property — Property reference / 223220002212 / 8
+#### `id` property
 
 Type: `"string"`. Computed.
 
@@ -243,17 +228,13 @@ Unique identifier for the resource.
 
 <a id="canonical-0003230220211112-1210231132321001-0002133130321220-2210201233322020-2332032203313102-1210121010010020-0022131021111013-2013002100201130"></a>
 
-<a id="canonical-2130303102321303-1213121010022330-0232133202331303-1323132303000103-2301133210310232-0312222003120201-2212320223332220-0210313011023223"></a>
+<a id="canonical-3211332100333131-0311123310033132-0310123003220301-1323131030220301-2232331023110301-2120001102010332-2031322002032011-1002030031330231"></a>
 
-## interval property — Property reference / 223220002212 / 9
+#### `interval` property
 
 Type: `"number"`. Required.
 
 Time interval in seconds between two healthcheck requests. Recommended: \`15\`.
-
-Upstream description:
-
-Time interval in seconds between two healthcheck requests.
 
 Provider validators and defaults (from schema source):
 
@@ -302,20 +283,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3000001222021000-2201312333201211-0023103120321122-2201002003310320-1203020313101122-3131300100120232-3220211203311211-0211112232122010"></a>
 
-<a id="canonical-0201113220000121-2211133230030321-0023202023123130-1300211232110012-1321231000002023-0032031101120313-2001323330100210-1111323200303210"></a>
+<a id="canonical-3222230132131331-0011113033201011-2033200233311123-3110331113120233-3332011003322310-3201033133030110-3130002231102313-3022202320322023"></a>
 
-## jitter_percent property — Property reference / 223220002212 / 10
+#### `jitter_percent` property
 
 Type: `"number"`. Optional, Computed.
 
 Exclusive with \[default\_jitter\] Specify a custom jitter value as a percentage of the health check
 interval. Valid values are 0 (to disable jitter) and 10 to 50. Server applies default when omitted.
 Recommended: \`30\`.
-
-Upstream description:
-
-Exclusive with \[default\_jitter\] Specify a custom jitter value as a percentage of the health check
-interval. Valid values are 0 (to disable jitter) and 10 to 50.
 
 Provider validators and defaults (from schema source):
 
@@ -373,16 +349,16 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1312222101230303-3021312110133001-3110010022213013-3331333310011233-1232332023100232-2212100021313133-0122311331000303-0311230313030033"></a>
 
-<a id="canonical-0230201312303002-2333122123010330-1231332330101021-3231030133331103-3213032331001220-0123312121032012-1223133331100100-2113132010012030"></a>
+<a id="canonical-2130303102321303-1213121010022330-0232133202331303-1323132303000103-2301133210310232-0312222003120201-2212320223332220-0210313011023223"></a>
 
-## labels property — Property reference / 223220002212 / 11
+#### `labels` property
 
 Type: `["map", "string"]`. Optional.
 
 Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
-Upstream description:
+Additional upstream details:
 
 Map of string keys and values that can be used to organize and categorize (scope and select) objects
 as chosen by the user. Values specified here will be used by selector expression.
@@ -402,15 +378,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3102220313032110-1003213202332221-1231010122121001-1212112110213023-3001300302120333-3133300001202022-2330223111030213-0102210321100002"></a>
 
-<a id="canonical-0122110033001033-3002230031123220-2222112202112201-0201313223332131-2331013331221112-0330310330100321-1003311230021210-2222123201231333"></a>
+<a id="canonical-0201113220000121-2211133230030321-0023202023123130-1300211232110012-1321231000002023-0032031101120313-2001323330100210-1111323200303210"></a>
 
-## name property — Property reference / 223220002212 / 12
+#### `name` property
 
 Type: `"string"`. Required.
 
 Name of the Healthcheck. Must be unique within the namespace.
 
-Upstream description:
+Additional upstream details:
 
 This is the name of configuration object. It has to be unique within the namespace. It can only be
 specified during create API and cannot be changed during replace API. The value of name has to
@@ -471,15 +447,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3210010312333322-0233333000322211-0221303010331211-3313132322330220-0023211113303111-0332031012330112-2321033130231333-3323323100221123"></a>
 
-<a id="canonical-1332202032223301-3003033000331221-0210210313301200-2301122012202321-2210121232100212-1133001221100221-1201200023210001-1330121212033320"></a>
+<a id="canonical-0230201312303002-2333122123010330-1231332330101021-3231030133331103-3213032331001220-0123312121032012-1223133331100100-2113132010012030"></a>
 
-## namespace property — Property reference / 223220002212 / 13
+#### `namespace` property
 
 Type: `"string"`. Required.
 
 Namespace where the Healthcheck is created.
 
-Upstream description:
+Additional upstream details:
 
 This defines the workspace within which each the configuration object is to be created. Must be a
 DNS\_LABEL format. For a namespace object itself, namespace value will be ""
@@ -535,21 +511,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0032101320311333-2022331203112121-2020022310312110-0211020003230331-2311130320202323-1103111330202111-1132232311213301-1213003332131102"></a>
 
-<a id="canonical-0002002311200000-1323120213323113-3110233313112032-2123223100030012-2133303131323033-2320100322131031-1330032032211123-2332010131010201"></a>
+<a id="canonical-0122110033001033-3002230031123220-2222112202112201-0201313223332131-2331013331221112-0330310330100321-1003311230021210-2222123201231333"></a>
 
-## timeout property — Property reference / 223220002212 / 14
+#### `timeout` property
 
 Type: `"number"`. Required.
 
 Timeout in seconds to wait for successful response. In other words, it is the time to wait for a
 health check response. If the timeout is reached the health check attempt will be considered a
 failure. Recommended: \`3\`.
-
-Upstream description:
-
-Timeout in seconds to wait for successful response. In other words, it is the time to wait for a
-health check response. If the timeout is reached the health check attempt will be considered a
-failure.
 
 Provider validators and defaults (from schema source):
 
@@ -604,9 +574,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1233323330321210-0232012111200330-0201130333202021-1212102121231231-0013113310202102-0230231033031230-2211121220002022-2132120313330223"></a>
 
-<a id="canonical-1211202301021131-2122223323000011-2221102210331212-3010121313330031-1222120103301213-0032130322112131-1132212012321321-3200331213203323"></a>
+<a id="canonical-1332202032223301-3003033000331221-0210210313301200-2301122012202321-2210121232100212-1133001221100221-1201200023210001-1330121212033320"></a>
 
-## unhealthy_threshold property — Property reference / 223220002212 / 15
+#### `unhealthy_threshold` property
 
 Type: `"number"`. Required.
 
@@ -614,13 +584,6 @@ Number of failed responses before declaring unhealthy. In other words, this is t
 unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health
 checking if a host responds with 503 this threshold is ignored and the host is considered unhealthy
 immediately. Recommended: \`1\`.
-
-Upstream description:
-
-Number of failed responses before declaring unhealthy. In other words, this is the number of
-unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health
-checking if a host responds with 503 this threshold is ignored and the host is considered unhealthy
-immediately.
 
 Provider validators and defaults (from schema source):
 
@@ -668,9 +631,9 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1212322230232120-0210102323200312-3211332220120303-1312230133223012-0212002000310312-1313201330333233-2210210013302303-1332323111023210"></a>
+<a id="canonical-0002002311200000-1323120213323113-3110233313112032-2123223100030012-2133303131323033-2320100322131031-1330032032211123-2332010131010201"></a>
 
-## All schema paths — Property reference / 223220002212 / 16
+### All schema paths for `xcsh_healthcheck`
 
 Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
@@ -708,26 +671,13 @@ Each exact path has one authoritative reference destination. Collection element 
 | `udp_icmp_health_check` | [udp_icmp_health_check](resources--healthcheck--reference--group-001.md#canonical-0130020323011213-3113002311300330-0023131320312023-1201330200333001-2200033021212210-3111012111121130-3302002023201121-2311123301333321) |
 | `unhealthy_threshold` | [unhealthy_threshold](resources--healthcheck--reference--group-001.md#canonical-1233323330321210-0232012111200330-0201130333202021-1212102121231231-0013113310202102-0230231033031230-2211121220002022-2132120313330223) |
 
-<a id="canonical-0301230311212023-0213320222020231-2030211213302022-1303002230112333-2121103222211330-3322311310320010-3103022323313203-3011203203102033"></a>
-
-## Next pages — Property reference / 223220002212 / 17
-
-- [default_jitter](resources--healthcheck--reference--group-001.md#canonical-0032121011311030-1110312231031233-0202202123002100-2121330323303003-2222200101211120-2333213303331031-2332113211331332-0103331322333130)
-- [http_health_check](resources--healthcheck--reference--group-001.md#canonical-0212103111002213-0133110113331310-1231103331113202-3131112210303202-2022303102133021-2222120211122220-2222303221233210-0103203232220230)
-- [tcp_health_check](resources--healthcheck--reference--group-001.md#canonical-3103201213110121-0000211233303022-2112302331133111-1001213022123321-3021132031330212-3210101201133230-2323313331201022-0113112312002002)
-- [timeouts](resources--healthcheck--reference--group-001.md#canonical-1013101312032330-0120233023300220-1310333032113231-0132003013113332-1032210331013111-2100310230131132-2130033023103312-1010020313220122)
-- [udp_icmp_health_check](resources--healthcheck--reference--group-001.md#canonical-2113132323233313-0012332121130131-0221300000220210-3133200021330003-1022130321212233-1211101310120213-3323202003303021-0302001212112303)
-- [xcsh_healthcheck](../resources/healthcheck.md#canonical-3300320023110233-3202122221011131-2102110331222313-3011102021101332-1311231011303011-1030300103121111-0010331313321201-0112100103120100)
-
 <a id="canonical-0032121011311030-1110312231031233-0202202123002100-2121330323303003-2222200101211120-2333213303331031-2332113211331332-0103331322333130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1312321012033010-1022132331132133-3303311031223000-3110100331210223-2323220232320010-3220112210322302-1211333223110213-0333023122202002"></a>
-
-## default_jitter — default_jitter / 112011210120 / 2
+## `default_jitter` properties
 
 Breadcrumbs:
 
@@ -742,7 +692,7 @@ Type: `["object", {}]`. Optional.
 \[OneOf: default\_jitter, jitter\_percent; Default: default\_jitter\] Configuration parameter for
 default jitter.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -772,18 +722,7 @@ Terraform syntax:
 default_jitter = {}
 ```
 
-<a id="canonical-3220131013132122-3223313223310131-1122222002023213-2210013203130031-0220021221233122-2231102111030323-1211300212003333-0103031210100132"></a>
-
-## Direct properties — default_jitter / 112011210120 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1210123311223012-1332002033100302-3202113222333121-0223100233200013-2123003110030332-2211202100313222-0203001001303223-0203020223132011"></a>
-
-## Next pages — default_jitter / 112011210120 / 4
-
-- [Property reference](resources--healthcheck--reference--group-001.md#canonical-1221303312230102-1010122132313112-0112020000032300-3233231221210023-0111020022032002-3313323101102012-2003313311113022-2311311312333213)
-- [xcsh_healthcheck](../resources/healthcheck.md#canonical-3300320023110233-3202122221011131-2102110331222313-3011102021101332-1311231011303011-1030300103121111-0010331313321201-0112100103120100)
 
 <a id="canonical-0212103111002213-0133110113331310-1231103331113202-3131112210303202-2022303102133021-2222120211122220-2222303221233210-0103203232220230"></a>
 
@@ -791,9 +730,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2332112223302300-3133013233332023-0212133213210322-2202233221120122-0311333003110300-3132311330001222-0320332020220020-0112312102121113"></a>
-
-## http_health_check — http_health_check / 220120010222 / 2
+## `http_health_check` properties
 
 Breadcrumbs:
 
@@ -809,10 +746,10 @@ Type: `"object"`. single nested block, Optional.
 on URL 'HTTP(s)://&lt;host&gt;/&lt;path&gt;' with optional '&lt;header&gt;' returns success. 'host'
 is not used for DNS resolution. It is used as HTTP Header in the request.
 
-Upstream description:
+Additional upstream details:
 
 Healthy if "GET" method on URL "HTTP(s)://&lt;host&gt;/&lt;path&gt;" with optional "&lt;header&gt;"
-returns success. "host" is not used for DNS resolution. It is used as HTTP Header in the request.
+returns success. "host" is not used for DNS resolution.
 
 Provider validators and defaults (from schema source):
 
@@ -853,26 +790,19 @@ http_health_check {
 }
 ```
 
-<a id="canonical-2200002221120221-0101203223131013-0132203001100123-0022220210023112-2323030030233312-2002211323330113-0020303122303333-1123012301122013"></a>
+<a id="canonical-2332112223302300-3133013233332023-0212133213210322-2202233221120122-0311333003110300-3132311330001222-0320332020220020-0112312102121113"></a>
 
-## Direct properties — http_health_check / 220120010222 / 3
+### Direct properties for `http_health_check`
 
 <a id="canonical-0333301210131320-2303211100322333-0230302212021023-0020321020011233-3131312320030220-2200001200032332-0003120121322332-1323112231111301"></a>
 
-<a id="canonical-2130010122110123-2213231120133322-3003323002203103-2002113233113211-2333023012120023-2232220011023103-0231222033110111-3132012132110120"></a>
-
-## expected_response property — http_health_check / 220120010222 / 4
+#### `http_health_check.expected_response` property
 
 Type: `"string"`. Optional, Computed.
 
 Raw bytes expected in the response of HTTP health check. Input is to be given in Hex encoded format.
 If left empty, then response body is not considered for evaluating health check status. Server
 applies default when omitted.
-
-Upstream description:
-
-Raw bytes expected in the response of HTTP health check. Input is to be given in Hex encoded format.
-If left empty, then response body is not considered for evaluating health check status.
 
 Provider validators and defaults (from schema source):
 
@@ -919,9 +849,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0212120000203023-0311300310302012-2320231100223213-0332101002110101-2333220332301102-2313233030211331-3333100121012332-2021332113123023"></a>
 
-<a id="canonical-0212121032301031-1012331223012010-3121103310223220-2323101221312112-0032012201130312-1122230112022100-1011130221013101-3111032101330130"></a>
+<a id="canonical-2200002221120221-0101203223131013-0132203001100123-0022220210023112-2323030030233312-2002211323330113-0020303122303333-1123012301122013"></a>
 
-## expected_status_codes property — http_health_check / 220120010222 / 5
+#### `http_health_check.expected_status_codes` property
 
 Type: `["list", "string"]`. Optional, Computed.
 
@@ -930,11 +860,10 @@ status code 200 as healthy, user has to configure it explicitly. This is a list 
 which is single HTTP status code or a range with start and end values separated by '-'. Defaults to
 \`\[\]\`. Server applies default when omitted.
 
-Upstream description:
+Additional upstream details:
 
-Specifies a list of HTTP response status codes considered healthy. To treat default HTTP expected
-status code 200 as healthy, user has to configure it explicitly. This is a list of strings, each of
-which is single HTTP status code or a range with start and end values separated by "-".
+This is a list of strings, each of which is single HTTP status code or a range with start and end
+values separated by "-".
 
 Provider validators and defaults (from schema source):
 
@@ -987,20 +916,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2212011132321101-1113131132300120-1303023111321111-2020033321030123-3132110310010132-3321102201330021-0320011302303321-1101303231112000"></a>
 
-<a id="canonical-2221011232213301-2330201321301301-3120322012323201-1321113333320132-3130221322203323-2103100332312131-3030002203212331-2103303302222233"></a>
+<a id="canonical-2130010122110123-2213231120133322-3003323002203103-2002113233113211-2333023012120023-2232220011023103-0231222033110111-3132012132110120"></a>
 
-## headers property — http_health_check / 220120010222 / 6
+#### `http_health_check.headers` property
 
 Type: `["map", "string"]`. Optional, Computed.
 
 Specifies a list of HTTP headers that should be added to each request that is sent to the health
 checked cluster. This is a list of key-value pairs. Defaults to \`map\[\]\`. Server applies default
 when omitted.
-
-Upstream description:
-
-Specifies a list of HTTP headers that should be added to each request that is sent to the health
-checked cluster. This is a list of key-value pairs.
 
 Provider validators and defaults (from schema source):
 
@@ -1063,15 +987,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0022303311211021-3332110203030120-0033013312130323-3121002031022020-2230133031212121-3223212111113022-3202120202101001-3101122231310203"></a>
 
-<a id="canonical-1202230210133022-0310221123322322-2020023323323012-0310011021333223-1021321230102310-1112002201132101-2223203320201001-3002001323231012"></a>
+<a id="canonical-0212121032301031-1012331223012010-3121103310223220-2323101221312112-0032012201130312-1122230112022100-1011130221013101-3111032101330130"></a>
 
-## host_header property — http_health_check / 220120010222 / 7
+#### `http_health_check.host_header` property
 
 Type: `"string"`. Optional.
-
-Exclusive with \[use\_origin\_server\_name\] The value of the host header.
-
-Upstream description:
 
 Exclusive with \[use\_origin\_server\_name\] The value of the host header.
 
@@ -1119,17 +1039,13 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1322121201313220-1012103203333220-1222130312333132-0322100331231231-0122223200322032-1111130030133123-0313312030000311-3230330302120022"></a>
 
-<a id="canonical-0022310022230231-1130200123100202-2030203210203313-3110113301131003-1001120001331232-1011231333323120-1131012303223302-2003100103203231"></a>
+<a id="canonical-2221011232213301-2330201321301301-3120322012323201-1321113333320132-3130221322203323-2103100332312131-3030002203212331-2103303302222233"></a>
 
-## path property — http_health_check / 220120010222 / 8
+#### `http_health_check.path` property
 
 Type: `"string"`. Optional.
 
 Specifies the HTTP path that will be requested during health checking. Recommended: \`/\`.
-
-Upstream description:
-
-Specifies the HTTP path that will be requested during health checking.
 
 Provider validators and defaults (from schema source):
 
@@ -1179,20 +1095,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2111112133121033-1002313220002030-3121302033033103-0300032023123211-1122321310321330-3100103133111101-2321111303122313-3101123230223112"></a>
 
-<a id="canonical-2202012123101302-2021301231102230-2233233103020332-3021133323313102-3300232323023130-3330321223103022-3111032031222110-3221330101302033"></a>
+<a id="canonical-1202230210133022-0310221123322322-2020023323323012-0310011021333223-1021321230102310-1112002201132101-2223203320201001-3002001323231012"></a>
 
-## request_headers_to_remove property — http_health_check / 220120010222 / 9
+#### `http_health_check.request_headers_to_remove` property
 
 Type: `["list", "string"]`. Optional, Computed.
 
 Specifies a list of HTTP headers that should be removed from each request that is sent to the health
 checked cluster. This is a list of keys of headers. Defaults to \`\[\]\`. Server applies default
 when omitted.
-
-Upstream description:
-
-Specifies a list of HTTP headers that should be removed from each request that is sent to the health
-checked cluster. This is a list of keys of headers.
 
 Provider validators and defaults (from schema source):
 
@@ -1238,18 +1149,14 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3101303220221333-0222002031202030-2130311002203232-0003313130031121-1030003112301122-2211201033011211-0210110202012313-3333203113133122"></a>
 
-<a id="canonical-1001112223020321-3101032103210232-2012231330230123-3200110203320011-2210323331220130-0300302212210310-0310322203002022-0310213100012033"></a>
+<a id="canonical-0022310022230231-1130200123100202-2030203210203313-3110113301131003-1001120001331232-1011231333323120-1131012303223302-2003100103203231"></a>
 
-## use_http2 property — http_health_check / 220120010222 / 10
+#### `http_health_check.use_http2` property
 
 Type: `"bool"`. Optional, Computed.
 
 If set, health checks will be made using HTTP/2. Defaults to \`false\`. Server applies default when
 omitted. Recommended: \`false\`.
-
-Upstream description:
-
-If set, health checks will be made using HTTP/2.
 
 Receipt-pinned upstream constraints:
 
@@ -1266,23 +1173,13 @@ Receipt-pinned upstream constraints:
 
 - [use_origin_server_name](resources--healthcheck--reference--group-001.md#canonical-2132133223202302-3212113232122201-0322200101231130-3023020122113221-1213112133312113-2313100320200122-0211103112310313-0300123102313030): complete subsection reference.
 
-<a id="canonical-1130123202020110-2313333302020102-3302021303010213-1130123021122321-1030300321200303-1002201320233330-0002032130121320-1010121121031023"></a>
-
-## Next pages — http_health_check / 220120010222 / 11
-
-- [http_health_check.use_origin_server_name](resources--healthcheck--reference--group-001.md#canonical-2132133223202302-3212113232122201-0322200101231130-3023020122113221-1213112133312113-2313100320200122-0211103112310313-0300123102313030)
-- [Property reference](resources--healthcheck--reference--group-001.md#canonical-1221303312230102-1010122132313112-0112020000032300-3233231221210023-0111020022032002-3313323101102012-2003313311113022-2311311312333213)
-- [xcsh_healthcheck](../resources/healthcheck.md#canonical-3300320023110233-3202122221011131-2102110331222313-3011102021101332-1311231011303011-1030300103121111-0010331313321201-0112100103120100)
-
 <a id="canonical-2132133223202302-3212113232122201-0322200101231130-3023020122113221-1213112133312113-2313100320200122-0211103112310313-0300123102313030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0101233212000123-1020110233303031-1332332132021031-1312220230221221-3102221002331300-3000230132113323-2102321323030112-2202321221320311"></a>
-
-## http_health_check.use_origin_server_name — use_origin_server_name / 300123033233 / 2
+## `http_health_check.use_origin_server_name` properties
 
 Breadcrumbs:
 
@@ -1297,7 +1194,7 @@ Type: `["object", {}]`. Optional, Computed.
 
 Enable this option. Defaults to \`map\[\]\`. Server applies default when omitted.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1320,18 +1217,7 @@ Terraform syntax:
 use_origin_server_name = {}
 ```
 
-<a id="canonical-0000030031020333-0032132121113223-1231232212331110-0103223011011203-3101113030110223-1021102311113210-1311232221111023-1301223312302203"></a>
-
-## Direct properties — use_origin_server_name / 300123033233 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2323010123023302-3023320332110233-0200313003233000-3010132331211033-3212112001332011-3103221203021010-1131110202122011-0001131332122023"></a>
-
-## Next pages — use_origin_server_name / 300123033233 / 4
-
-- [http_health_check](resources--healthcheck--reference--group-001.md#canonical-0212103111002213-0133110113331310-1231103331113202-3131112210303202-2022303102133021-2222120211122220-2222303221233210-0103203232220230)
-- [xcsh_healthcheck](../resources/healthcheck.md#canonical-3300320023110233-3202122221011131-2102110331222313-3011102021101332-1311231011303011-1030300103121111-0010331313321201-0112100103120100)
 
 <a id="canonical-3103201213110121-0000211233303022-2112302331133111-1001213022123321-3021132031330212-3210101201133230-2323313331201022-0113112312002002"></a>
 
@@ -1339,9 +1225,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1232303221132003-3101300122300301-3332203202122020-1230301103320311-0122032202000330-3323200232122220-0310322301233212-1331111003011131"></a>
-
-## tcp_health_check — tcp_health_check / 210021213012 / 2
+## `tcp_health_check` properties
 
 Breadcrumbs:
 
@@ -1354,10 +1238,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Healthy if TCP connection is successful and response payload matches &lt;expected\_response&gt;.
-
-Upstream description:
-
-Healthy if TCP connection is successful and response payload matches &lt;expected\_response&gt;
 
 Receipt-pinned upstream constraints:
 
@@ -1380,22 +1260,15 @@ tcp_health_check {
 }
 ```
 
-<a id="canonical-2201312300022111-3002231011212210-1301230330332221-3021112013133323-1023102130011311-0220032210133220-1103201131103202-3320323122103213"></a>
+<a id="canonical-1232303221132003-3101300122300301-3332203202122020-1230301103320311-0122032202000330-3323200232122220-0310322301233212-1331111003011131"></a>
 
-## Direct properties — tcp_health_check / 210021213012 / 3
+### Direct properties for `tcp_health_check`
 
 <a id="canonical-1111003332210203-2331133212331120-1322202302130312-1030132120231030-1112233023022322-3012313330133111-3030122331213010-1123202233200200"></a>
 
-<a id="canonical-3002101232232133-1302100313132303-1032331020003103-0220130012003330-2031221320202222-0233301110013300-0011112031033233-3111320220312030"></a>
-
-## expected_response property — tcp_health_check / 210021213012 / 4
+#### `tcp_health_check.expected_response` property
 
 Type: `"string"`. Optional.
-
-Raw bytes expected in the request. Describes the encoding of the payload bytes in the payload. Hex
-encoded payload.
-
-Upstream description:
 
 Raw bytes expected in the request. Describes the encoding of the payload bytes in the payload. Hex
 encoded payload.
@@ -1445,16 +1318,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3011321332113000-1301201122120232-1322133230112233-0310123323130210-3100110033231123-2311220320221303-2103022013203021-3313300322331320"></a>
 
-<a id="canonical-3101102111011010-1130022231221123-2011102013332100-2120013000323001-0230233001220102-3102303321311221-3201202130032303-3333020131321033"></a>
+<a id="canonical-2201312300022111-3002231011212210-1301230330332221-3021112013133323-1023102130011311-0220032210133220-1103201131103202-3320323122103213"></a>
 
-## send_payload property — tcp_health_check / 210021213012 / 5
+#### `tcp_health_check.send_payload` property
 
 Type: `"string"`. Optional.
-
-Raw bytes sent in the request. Empty payloads imply a connect-only health check. Describes the
-encoding of the payload bytes in the payload. Hex encoded payload.
-
-Upstream description:
 
 Raw bytes sent in the request. Empty payloads imply a connect-only health check. Describes the
 encoding of the payload bytes in the payload. Hex encoded payload.
@@ -1502,22 +1370,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0202210101002221-3030023332322203-3020312002013301-1133300033030201-0012232321203223-0201120311030302-2102112320103233-1210200003320021"></a>
-
-## Next pages — tcp_health_check / 210021213012 / 6
-
-- [Property reference](resources--healthcheck--reference--group-001.md#canonical-1221303312230102-1010122132313112-0112020000032300-3233231221210023-0111020022032002-3313323101102012-2003313311113022-2311311312333213)
-- [xcsh_healthcheck](../resources/healthcheck.md#canonical-3300320023110233-3202122221011131-2102110331222313-3011102021101332-1311231011303011-1030300103121111-0010331313321201-0112100103120100)
-
 <a id="canonical-1013101312032330-0120233023300220-1310333032113231-0132003013113332-1032210331013111-2100310230131132-2130033023103312-1010020313220122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1033022132122102-2023113012203210-2111013221130022-3001132202212203-3221330300011230-2013312311230323-2221201132033333-3303311223221300"></a>
-
-## timeouts — timeouts / 023202112112 / 2
+## `timeouts` properties
 
 Breadcrumbs:
 
@@ -1537,15 +1396,13 @@ timeouts {
 }
 ```
 
-<a id="canonical-0212031211021011-0301001303002003-2102100303132110-1322030320231212-3033222213311023-3233330022033031-2013210301111022-3101233023013123"></a>
+<a id="canonical-1033022132122102-2023113012203210-2111013221130022-3001132202212203-3221330300011230-2013312311230323-2221201132033333-3303311223221300"></a>
 
-## Direct properties — timeouts / 023202112112 / 3
+### Direct properties for `timeouts`
 
 <a id="canonical-3303030301230002-0210332301000213-0132021231130113-0011300111032002-1013012332120312-2123233303020323-3110013301231232-3212123013012311"></a>
 
-<a id="canonical-3203221111133103-0211022001202111-0203011033023001-0211033312233020-3100033200002102-1001033201322032-1203300030132101-3021312233300003"></a>
-
-## create property — timeouts / 023202112112 / 4
+#### `timeouts.create` property
 
 Type: `"string"`. Optional.
 
@@ -1555,9 +1412,9 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 
 <a id="canonical-0120013301310031-2030123031222030-1112203003102100-1113131100112033-1130321213232122-2130021231222000-1010031011021301-1321330103000312"></a>
 
-<a id="canonical-0311230031230123-1232022000111033-1012300120311310-3302222130100030-0023301303013010-0003332330130212-1030311323320001-0203230103220121"></a>
+<a id="canonical-0212031211021011-0301001303002003-2102100303132110-1322030320231212-3033222213311023-3233330022033031-2013210301111022-3101233023013123"></a>
 
-## delete property — timeouts / 023202112112 / 5
+#### `timeouts.delete` property
 
 Type: `"string"`. Optional.
 
@@ -1568,9 +1425,9 @@ saved into state before the destroy operation occurs.
 
 <a id="canonical-2203311002212023-0200101002202333-1021322310211313-0012112311331022-3230032100211130-1101001230022212-3222201023002132-2221312212132131"></a>
 
-<a id="canonical-2211132320122221-3233321132321111-3013223201000320-3232222231202023-1313103320213222-0300023302130110-3213323002103213-3331220030220313"></a>
+<a id="canonical-3203221111133103-0211022001202111-0203011033023001-0211033312233020-3100033200002102-1001033201322032-1203300030132101-3021312233300003"></a>
 
-## read property — timeouts / 023202112112 / 6
+#### `timeouts.read` property
 
 Type: `"string"`. Optional.
 
@@ -1581,9 +1438,9 @@ is enabled.
 
 <a id="canonical-3311331203230203-3201301010200030-2331110333330301-1100121332323333-1313203322030222-1111123321100103-2032131131110100-2003120330130002"></a>
 
-<a id="canonical-1010023202001031-2200211303203303-0210311101020031-1222322203133103-3012131302032203-2200010231223232-0202130333210310-3101333131230333"></a>
+<a id="canonical-0311230031230123-1232022000111033-1012300120311310-3302222130100030-0023301303013010-0003332330130212-1030311323320001-0203230103220121"></a>
 
-## update property — timeouts / 023202112112 / 7
+#### `timeouts.update` property
 
 Type: `"string"`. Optional.
 
@@ -1591,22 +1448,13 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-2120221202201111-3021202320003312-0332303000202200-2020211113203022-3200220022331132-1322112201303013-3321311023010113-2003112230011102"></a>
-
-## Next pages — timeouts / 023202112112 / 8
-
-- [Property reference](resources--healthcheck--reference--group-001.md#canonical-1221303312230102-1010122132313112-0112020000032300-3233231221210023-0111020022032002-3313323101102012-2003313311113022-2311311312333213)
-- [xcsh_healthcheck](../resources/healthcheck.md#canonical-3300320023110233-3202122221011131-2102110331222313-3011102021101332-1311231011303011-1030300103121111-0010331313321201-0112100103120100)
-
 <a id="canonical-2113132323233313-0012332121130131-0221300000220210-3133200021330003-1022130321212233-1211101310120213-3323202003303021-0302001212112303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2001101000203333-3201332312203131-2202122210232132-3100011232222100-0022322300330333-2002010201102003-2323211021221300-3211133333022013"></a>
-
-## udp_icmp_health_check — udp_icmp_health_check / 131211221022 / 2
+## `udp_icmp_health_check` properties
 
 Breadcrumbs:
 
@@ -1620,7 +1468,7 @@ Type: `["object", {}]`. Optional.
 
 Configuration parameter for udp icmp health check.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1643,15 +1491,4 @@ Terraform syntax:
 udp_icmp_health_check = {}
 ```
 
-<a id="canonical-2330213012022100-0203012201023203-0032231120230030-1131313132232333-2110113303302103-1310002223122122-0112100131331021-3211022333201133"></a>
-
-## Direct properties — udp_icmp_health_check / 131211221022 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0113311200023131-1310221031113023-2123023312331101-3121233100013222-2131332103301000-3030203201030131-1102300210311103-1110122212033332"></a>
-
-## Next pages — udp_icmp_health_check / 131211221022 / 4
-
-- [Property reference](resources--healthcheck--reference--group-001.md#canonical-1221303312230102-1010122132313112-0112020000032300-3233231221210023-0111020022032002-3313323101102012-2003313311113022-2311311312333213)
-- [xcsh_healthcheck](../resources/healthcheck.md#canonical-3300320023110233-3202122221011131-2102110331222313-3011102021101332-1311231011303011-1030300103121111-0010331313321201-0112100103120100)

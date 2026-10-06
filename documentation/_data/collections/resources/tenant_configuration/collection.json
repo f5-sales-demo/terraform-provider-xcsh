@@ -191,8 +191,8 @@
   "pages": [
     {
       "aliases": ["tenant configuration"],
-      "body_bytes": 1686,
-      "body_sha256": "sha256:bcf9f67dd3daba158a0aa4be944054c96d31549fe7232818777e6a52f3e98ab5",
+      "body_bytes": 1699,
+      "body_sha256": "sha256:5a1dd86aec6b9f7c5fa6cef142e3149c4ed9c9aff5d3c6f704037243a97d4981",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [
@@ -237,8 +237,8 @@
     },
     {
       "aliases": ["tenant configuration"],
-      "body_bytes": 11294,
-      "body_sha256": "sha256:1fd135559ef66d6c407cba111dc0b27d70a94cfe2e5fc6b33ade6b860931e1c6",
+      "body_bytes": 10467,
+      "body_sha256": "sha256:da50d8a40501d06222c6288523091a055e5563cde5ae78b3e8ef4cee18aa17e3",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [
@@ -494,8 +494,8 @@
     },
     {
       "aliases": ["brute force detection"],
-      "body_bytes": 2281,
-      "body_sha256": "sha256:ba448c781ecadaff58c31a1b4192a7909d7ab71511157b5f9d841f01661f5c9a",
+      "body_bytes": 1856,
+      "body_sha256": "sha256:c52fdfdcd9c5ea5e7f47ac2e80c364ba562df32ce8776a07157a2dd814705048",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
@@ -551,8 +551,8 @@
     },
     {
       "aliases": ["password policy"],
-      "body_bytes": 8243,
-      "body_sha256": "sha256:db38840abfe0b1d4ca1076ee63e680ae3fb21086c125e43cece093e5696d1f9c",
+      "body_bytes": 7585,
+      "body_sha256": "sha256:ccb74ba981d96616d1a7912ef87e1d1c1777295fd4d0a1a9243f9a107d1f1a3f",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
@@ -729,8 +729,8 @@
     },
     {
       "aliases": ["tenant details"],
-      "body_bytes": 2573,
-      "body_sha256": "sha256:8c034dd3da9e472130deba3b4e859429dd2482abdb389d3ae20858f23adc77dc",
+      "body_bytes": 2315,
+      "body_sha256": "sha256:1d17a492a68069cfa39f778e1a785908a912557ab812973bb384a752be203b52",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
@@ -795,8 +795,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2279,
-      "body_sha256": "sha256:e6a33b15fe186cc2012cee5e928f2c7abd5fbea0d6420d6985c303b9ccf294ae",
+      "body_bytes": 2021,
+      "body_sha256": "sha256:4450c99a3ecc99a68be7396cddff0f0167543139307f4d6c3116cf570cf0e93d",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
@@ -935,8 +935,8 @@
     },
     {
       "aliases": ["duration", "user session expiration"],
-      "body_bytes": 2647,
-      "body_sha256": "sha256:fdc644056c8682d048b652b0d489907748cf1e3807dfcbbf067f919db938c53f",
+      "body_bytes": 1706,
+      "body_sha256": "sha256:7164c1a019baf6dbe089f5c100a8cce18476ad55be8de3101ac7b2073eb13d3f",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [
@@ -1045,8 +1045,8 @@
     },
     {
       "aliases": ["duration", "user session expiration absolute timeout"],
-      "body_bytes": 2338,
-      "body_sha256": "sha256:f2ff796efdca1f047ff8eb13d43177efc89d12c81067570c197b30e6495db7ae",
+      "body_bytes": 1651,
+      "body_sha256": "sha256:fde7fe8c31d0b5f2803b40c99763cc64a8e1bd8f82f325242e30475dbdebce93",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [
@@ -1156,8 +1156,8 @@
     },
     {
       "aliases": ["duration", "user session expiration absolute timeout hours"],
-      "body_bytes": 2903,
-      "body_sha256": "sha256:43868d868e0fba4375132c5d97d757742caf980cbe15c2315d25992010dca52f",
+      "body_bytes": 2521,
+      "body_sha256": "sha256:c4b13a99c5b8e62f04700cf65cf28199ec32204fda765ee03f6285348ea4d0d9",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
@@ -1222,8 +1222,8 @@
     },
     {
       "aliases": ["duration", "user session expiration absolute timeout minutes"],
-      "body_bytes": 2921,
-      "body_sha256": "sha256:e74963084b8ddfd7e8b05df7694c51d8aee1b564cfdf05ae022af89027ea38a2",
+      "body_bytes": 2539,
+      "body_sha256": "sha256:e3a54e9256334f634e4e6b7faec1a6156b0f98c50287da53566d9316f748d0c7",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
@@ -1288,8 +1288,8 @@
     },
     {
       "aliases": ["duration", "user session expiration idle timeout"],
-      "body_bytes": 2301,
-      "body_sha256": "sha256:c618a51bcce5e06d802fbeae692c777205cfc6c7308a03908b5a0612fb5edd3b",
+      "body_bytes": 1630,
+      "body_sha256": "sha256:2e76168e0b40359a86c94ea801b549d75ff31944972d399e3b95ce8d884b30ff",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [
@@ -1411,8 +1411,8 @@
         "session idle timeout hours",
         "user session expiration idle timeout hours"
       ],
-      "body_bytes": 2874,
-      "body_sha256": "sha256:c072b66f44eaa86a212c744eeb620f063d9a0fcb21c608616f271b6a0be8750a",
+      "body_bytes": 2500,
+      "body_sha256": "sha256:73d1a3a1ae885811936bb0bfcf8e628f8565852f9d4571f63091fdfda4917dc3",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
@@ -1477,8 +1477,8 @@
     },
     {
       "aliases": ["duration", "user session expiration idle timeout minutes"],
-      "body_bytes": 2892,
-      "body_sha256": "sha256:d2ae2e31d9fb97aa5db52db95f320ed6c6d5f1982ee51726132112e1eeadf800",
+      "body_bytes": 2518,
+      "body_sha256": "sha256:fef2788f21195c76815b5529f5d30a0cd269a2cb8c0dee0da90929a9a502d72b",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
@@ -1543,8 +1543,8 @@
     },
     {
       "aliases": ["tenant configuration"],
-      "body_bytes": 681,
-      "body_sha256": "sha256:ffe456823870b17c9781fc7aeb5e1c9b8c9739f16fbce26f281232e512e09740",
+      "body_bytes": 426,
+      "body_sha256": "sha256:6122d3fdbccd4fb0a93f197ccfc70f6f055aa0ebdb2387e69c574cfd739e08df",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": ["xcsh-docs:resources:tenant_configuration:example:resource"],
@@ -1583,8 +1583,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1368,
-      "body_sha256": "sha256:791ef781da87c35be08e0815c772b461703230cdc1d8c6daaabbe6a35cb2c8b2",
+      "body_bytes": 1122,
+      "body_sha256": "sha256:a03c99764b3d578629d428a68a76c0f4d547eb5d7b4ad0fdd5abb55eba92151c",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
@@ -1630,8 +1630,8 @@
     },
     {
       "aliases": ["tenant configuration"],
-      "body_bytes": 520,
-      "body_sha256": "sha256:e55081c3db08cdcd112fd291f12f8cb597a85623e599b4b2c9d93b7d25b0a73d",
+      "body_bytes": 385,
+      "body_sha256": "sha256:fb86bef73aeabdc656e4acf4e753597dc273f281d204d525786c1cc8fe19de70",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
@@ -1671,8 +1671,8 @@
     },
     {
       "aliases": ["tenant configuration"],
-      "body_bytes": 608,
-      "body_sha256": "sha256:09467e156d31ef486c8c0efe2d07674bd92cd756292c0a09a8e0a55a7201428a",
+      "body_bytes": 473,
+      "body_sha256": "sha256:96bf02a3b71c7d3c32b44345c6f1824acf56e1aa9ff6696795314661d41d6b95",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],

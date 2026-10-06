@@ -56,8 +56,8 @@
   "pages": [
     {
       "aliases": ["geo location set"],
-      "body_bytes": 1319,
-      "body_sha256": "sha256:e4266991310d74a55094fd677bdbcdf6280a599b546a9f7751eb703811fe546e",
+      "body_bytes": 1345,
+      "body_sha256": "sha256:62f74bd1220a07f656fe57e4e2ed52265e09c93e013ff7fa94a6931df076d8a7",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -88,7 +88,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/geo_location_set/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages Geolocation Set in F5 Distributed Cloud.",
+      "summary": "Reads Geo Location Set information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_geo_location_set",
       "unresolved_relationships": [],
@@ -100,8 +100,8 @@
     },
     {
       "aliases": ["geo location set"],
-      "body_bytes": 8720,
-      "body_sha256": "sha256:b2e275cade25d0091922c55ab1dfc437ea8a2ddf014abb47df425c6ea78c301b",
+      "body_bytes": 8347,
+      "body_sha256": "sha256:83450bb723b0b5a7c93893ffe6297a3bb42e9a7c4ebb86089dd2cb4b6c752faa",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -272,8 +272,8 @@
     },
     {
       "aliases": ["custom geo location selector"],
-      "body_bytes": 4093,
-      "body_sha256": "sha256:d4338c7c3f531367418fb2f7c96ddb2dc53e5fba5ebec86f4066b83df41a726a",
+      "body_bytes": 3744,
+      "body_sha256": "sha256:fdc2ec1eec24827d74c4464ea4826157a591a6fceb986c456f0d38090785ba79",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -329,8 +329,8 @@
     },
     {
       "aliases": ["global"],
-      "body_bytes": 1048,
-      "body_sha256": "sha256:945785164e6b5321a47d0b5cc67ca65185ec8bd2904f1ea087985ab1bc68e126",
+      "body_bytes": 781,
+      "body_sha256": "sha256:206c6aea29661832011f2aee601c136068367748d233c94c08b2056ff93b9b82",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -369,8 +369,8 @@
     },
     {
       "aliases": ["geo location set"],
-      "body_bytes": 681,
-      "body_sha256": "sha256:754b5a3b1b580278710a7d2116af0912980b4f930d1b05b15e97a4c809491561",
+      "body_bytes": 426,
+      "body_sha256": "sha256:0716292af1c1e0f362e9a2c13d0f4bed3c3630f1a1db5c95b791fb1bfd4408a2",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:geo_location_set:example:data-source"],
@@ -409,8 +409,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1328,
-      "body_sha256": "sha256:ff4e9fcf40154ff4fba45cb067ad9c82d7cdd7641052750aa0a60d5ed4f0bbbc",
+      "body_bytes": 1088,
+      "body_sha256": "sha256:7d7f729e312f37c010353e91ac7ecf4b69427a425f1398abcbf8d23faa9fa99b",
       "capabilities": [],
       "category": null,
       "child_ids": [],

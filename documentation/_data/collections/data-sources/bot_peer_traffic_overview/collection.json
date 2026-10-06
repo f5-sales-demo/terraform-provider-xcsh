@@ -86,8 +86,8 @@
   "pages": [
     {
       "aliases": ["bot peer traffic overview"],
-      "body_bytes": 1297,
-      "body_sha256": "sha256:7e504aee140d6867aaa523c08193cc12e7958dca514b34ac3e3f66aafc33530e",
+      "body_bytes": 1352,
+      "body_sha256": "sha256:fad665394aa9f671cbd4c7691553593001810adfb36bac8d4f2ef8fe0c7fafd9",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -118,7 +118,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_peer_traffic_overview/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource creation operation.",
+      "summary": "Reads Bot Peer Traffic Overview information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_bot_peer_traffic_overview",
       "unresolved_relationships": [],
@@ -130,8 +130,8 @@
     },
     {
       "aliases": ["bot peer traffic overview"],
-      "body_bytes": 5596,
-      "body_sha256": "sha256:ce2917f37c686897f53aff334479e4f068daca265490cd4e998c4474ba3a7749",
+      "body_bytes": 5320,
+      "body_sha256": "sha256:e7f204d707874414319e08ceab8aa7a4e079562b1068f47e393ccd6931233a5d",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_peer_traffic_overview:properties:details"],
@@ -340,8 +340,8 @@
     },
     {
       "aliases": ["details"],
-      "body_bytes": 1782,
-      "body_sha256": "sha256:38ac3a00bc7d9350496b6a1cd92046e3854e09bc115d61cd70552b792f30490e",
+      "body_bytes": 1503,
+      "body_sha256": "sha256:467665a2b5ef6043e07521bb744d88c73177331c8dcf48e82e1439fd718827ef",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -461,8 +461,8 @@
     },
     {
       "aliases": ["bot peer traffic overview"],
-      "body_bytes": 735,
-      "body_sha256": "sha256:f3790392cd8c9fc4ef7017701f026e55751379f747d561ca53e30c5402b07757",
+      "body_bytes": 453,
+      "body_sha256": "sha256:bc1d7f156aaf0e6b5cc635bb6d171f3e2c46fd28d764c4f72bc9accc5073376b",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_peer_traffic_overview:example:data-source"],
@@ -501,8 +501,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1348,
-      "body_sha256": "sha256:e6ffb38f58e7adebceb1c9806c90376c74f4251e3c5d5ef602cb45bec812ac60",
+      "body_bytes": 1081,
+      "body_sha256": "sha256:33794a6602efc38ed038c93ee474ddca23a9a8fe82b195bd8979654e74197484",
       "capabilities": [],
       "category": null,
       "child_ids": [],

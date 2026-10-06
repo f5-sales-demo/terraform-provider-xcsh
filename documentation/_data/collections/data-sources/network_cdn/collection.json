@@ -46,8 +46,8 @@
   "pages": [
     {
       "aliases": ["network cdn"],
-      "body_bytes": 1445,
-      "body_sha256": "sha256:e9a24d4a0a36b1998315da56381e06bd2518e87cbff9477d877d5b0d169ccd14",
+      "body_bytes": 1458,
+      "body_sha256": "sha256:79aadef7819f3cf31e6d528ae348f24c6bec72df74cfd28421c1d8607ddfb126",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:network_cdn:reference", "xcsh-docs:data-sources:network_cdn:examples"],
@@ -87,8 +87,8 @@
     },
     {
       "aliases": ["network cdn"],
-      "body_bytes": 2851,
-      "body_sha256": "sha256:5354cecfae81c2e6abbe6a60547ca0b604ce821dfe28f1fdacb12186cac940c5",
+      "body_bytes": 2731,
+      "body_sha256": "sha256:72c8cfe9ca01140323c1b1b6846f82759a4b830ed530928281ad4cf801075937",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -240,8 +240,8 @@
     },
     {
       "aliases": ["network cdn"],
-      "body_bytes": 651,
-      "body_sha256": "sha256:88ae90ea56e9c4cd59ba2ca7b65964fa1ad54547f06f760e82c091ebd0a800db",
+      "body_bytes": 411,
+      "body_sha256": "sha256:29242389f20af7182a84ddf8cd4302c187383a383234bf4e4f1f8733a0b4b5f7",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:network_cdn:example:data-source"],
@@ -280,8 +280,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1262,
-      "body_sha256": "sha256:c329dfe067afedf15acea8cd1ebaa5e263648d3b0093a97ce28f95f8d3348c80",
+      "body_bytes": 1037,
+      "body_sha256": "sha256:7199ad5d6c4531b86713670ef2102b3342ad92ee1295dfd9275660d0ae2a49dd",
       "capabilities": [],
       "category": null,
       "child_ids": [],

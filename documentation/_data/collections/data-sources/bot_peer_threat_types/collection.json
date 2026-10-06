@@ -66,8 +66,8 @@
   "pages": [
     {
       "aliases": ["bot peer threat types"],
-      "body_bytes": 1265,
-      "body_sha256": "sha256:01f4d8726afe9d6340300f490b060a0906fcd98a9e01b2a583358287785f6fb0",
+      "body_bytes": 1316,
+      "body_sha256": "sha256:955dcde9d9d71a2c46af54ff05f8ff74dacae0d5701b1d6697f52a338e0f9449",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -98,7 +98,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_peer_threat_types/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource creation operation.",
+      "summary": "Reads Bot Peer Threat Types information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_bot_peer_threat_types",
       "unresolved_relationships": [],
@@ -110,8 +110,8 @@
     },
     {
       "aliases": ["bot peer threat types"],
-      "body_bytes": 4298,
-      "body_sha256": "sha256:b7ab23c10622073ba33eade853762ed71514892292639bdee436c7000ee2e454",
+      "body_bytes": 4034,
+      "body_sha256": "sha256:0cce31d55a98ad66d6a22da1b7a524cfad970de626b47312447bb7528e41f3f4",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_peer_threat_types:properties:details"],
@@ -256,8 +256,8 @@
     },
     {
       "aliases": ["details"],
-      "body_bytes": 1755,
-      "body_sha256": "sha256:1437ba2db4a10067abdf8f635307e844aeea8591d1478746551d19322b7678a7",
+      "body_bytes": 1488,
+      "body_sha256": "sha256:8ac2cd677158565a98237fae97b7ece90f73ec6e6b557f063300209ce2d50bcd",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -377,8 +377,8 @@
     },
     {
       "aliases": ["bot peer threat types"],
-      "body_bytes": 711,
-      "body_sha256": "sha256:446c1f6da6c89d44e243eaf5624ad5c055f612e86f67f5eb92f70c54412d060f",
+      "body_bytes": 441,
+      "body_sha256": "sha256:301863cc5f8a5b321c527f7a8dcb5892be30b66a8c98331278a307178500866e",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_peer_threat_types:example:data-source"],
@@ -417,8 +417,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1304,
-      "body_sha256": "sha256:821b65f3fbf51c09c060ccf17f3f78b3e7b936715fc3350fcf5eca24a1d669f0",
+      "body_bytes": 1049,
+      "body_sha256": "sha256:57e518873078e2ac3fef9dbcbb1a90eb80d743c46df9b0d8ade6dc831f7e3fff",
       "capabilities": [],
       "category": null,
       "child_ids": [],

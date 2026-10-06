@@ -61,8 +61,8 @@
   "pages": [
     {
       "aliases": ["srv6 network slice"],
-      "body_bytes": 1411,
-      "body_sha256": "sha256:918a46c0cf6107068479a1f54233f45165cbf53c3991d7339f90c8ed4ec0e952",
+      "body_bytes": 1367,
+      "body_sha256": "sha256:6943dec366846eef433978a904962a5e6f7526028b2e6b41b27aec979533783a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -93,7 +93,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/srv6_network_slice/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages srv6_network_slice creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
+      "summary": "Reads Srv6 Network Slice information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_srv6_network_slice",
       "unresolved_relationships": [],
@@ -105,8 +105,8 @@
     },
     {
       "aliases": ["srv6 network slice"],
-      "body_bytes": 11775,
-      "body_sha256": "sha256:c126b14f74f4898f67c6bbe166ceeb1326e4934d56994aff3f97c62467ffba04",
+      "body_bytes": 11072,
+      "body_sha256": "sha256:fa96b9ffbfbdb4e599b1b128ac7a565e09b15859b748eea23306c9df2f8b3dd0",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -306,8 +306,8 @@
     },
     {
       "aliases": ["srv6 network slice"],
-      "body_bytes": 693,
-      "body_sha256": "sha256:c8ca9795178b4d7eeb90803e9a86080e3948090219d8f44b2ed4b6a078c51d6c",
+      "body_bytes": 432,
+      "body_sha256": "sha256:cd50ca91b2946febb3255738b215533b16bf8203e11d84386c443212d4027419",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:srv6_network_slice:example:data-source"],
@@ -346,8 +346,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1354,
-      "body_sha256": "sha256:911dea919f59d95b6d7c7573726192bbc7c9e3215f9f1dc5c82777c62393058a",
+      "body_bytes": 1108,
+      "body_sha256": "sha256:2bdac929e8748959718d2d5a507f19ca0d568fae38a5f7b2bfb22f9fe8246c39",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],

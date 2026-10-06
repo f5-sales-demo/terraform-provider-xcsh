@@ -66,8 +66,8 @@
   "pages": [
     {
       "aliases": ["cloud region"],
-      "body_bytes": 1369,
-      "body_sha256": "sha256:439768a4ad01607f8ee681e374bc2628314c6fa823544e2d0bb4313b8ebe5644",
+      "body_bytes": 1317,
+      "body_sha256": "sha256:8c93b5e1b771ace311e84734e9e45509bb9aba957aa4cab4bd78f52f29dc42ad",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:cloud_region:reference", "xcsh-docs:data-sources:cloud_region:examples"],
@@ -95,7 +95,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_region/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Cloud Region resource in F5 Distributed Cloud for cloud re specification. configuration. (read-only data source)",
+      "summary": "Reads Cloud Region information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_cloud_region",
       "unresolved_relationships": [],
@@ -107,8 +107,8 @@
     },
     {
       "aliases": ["cloud region"],
-      "body_bytes": 3556,
-      "body_sha256": "sha256:0b80a385c64e2e35085537ef05f28642930b49def992b78a926bc53248186ed5",
+      "body_bytes": 3168,
+      "body_sha256": "sha256:ea93d94ae08ce5645db8f49366a9a05a0a4f17926a13ae4ba6c86e5759e6e7fa",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -279,8 +279,8 @@
     },
     {
       "aliases": ["default policy group"],
-      "body_bytes": 826,
-      "body_sha256": "sha256:9a5345a0a507c10ff52459dc402b2dda711babc4ce41113ff7b9d6a678e2f9e9",
+      "body_bytes": 564,
+      "body_sha256": "sha256:2b1c4e11adad23f974d622305cf219c36c5bac3327789a045872cb4f2857467c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -319,8 +319,8 @@
     },
     {
       "aliases": ["policy group"],
-      "body_bytes": 1540,
-      "body_sha256": "sha256:0d63402a5c27c826985854a6495b038aea32706cd86dd3d3c94736b68d720462",
+      "body_bytes": 1300,
+      "body_sha256": "sha256:58cd4735a0b5d16480988edd1daa91bfd0ccf09d0807b998f1adae934fa811d0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -408,8 +408,8 @@
     },
     {
       "aliases": ["cloud region"],
-      "body_bytes": 657,
-      "body_sha256": "sha256:c6144c1ed237aea85c973c99274d268b8d5bc1404a3079a72867e7e72a5b5930",
+      "body_bytes": 414,
+      "body_sha256": "sha256:0e1d236b918f961f50d4b23ed1129d4459f0aa7a559ddbb606ec1fdee88897b4",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:cloud_region:example:data-source"],
@@ -448,8 +448,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1279,
-      "body_sha256": "sha256:f19a520b7cd634bf48ad9770d07d60962a60b76ffe74cb8c09ab08ce372c94f7",
+      "body_bytes": 1051,
+      "body_sha256": "sha256:01827be179c01e8d12bc9fa88cc852e07394b3bcf212b87076f024f9514bf65e",
       "capabilities": [],
       "category": null,
       "child_ids": [],

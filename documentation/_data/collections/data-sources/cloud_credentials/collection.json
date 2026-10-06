@@ -301,8 +301,8 @@
   "pages": [
     {
       "aliases": ["authentication", "cloud credentials", "credential setup", "credentials"],
-      "body_bytes": 1451,
-      "body_sha256": "sha256:c86c705e5645461d229bfbd47db5e3e4ebc3fb4b96e5ab1684b0bec7eb3e7f95",
+      "body_bytes": 1406,
+      "body_sha256": "sha256:4c810e9124321270947df47aa3ced47ad767b2beb1c846af9a8071508d68386d",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -333,7 +333,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Cloud Credentials resource in F5 Distributed Cloud for api to create cloud_credentials object. configuration.",
+      "summary": "Reads Cloud Credentials information from F5 Distributed Cloud.",
       "tasks": ["authentication", "configuration"],
       "title": "xcsh_cloud_credentials",
       "unresolved_relationships": [],
@@ -345,8 +345,8 @@
     },
     {
       "aliases": ["authentication", "cloud credentials", "credential setup", "credentials"],
-      "body_bytes": 23561,
-      "body_sha256": "sha256:37241cf59467e5b7874a8b3418642803045386ad48e43b50100a317edaa39787",
+      "body_bytes": 22770,
+      "body_sha256": "sha256:7c90bcaf5d480271a57bf9e20aee19c807509330d1c1fbb3b068c2975c58ae6b",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -568,8 +568,8 @@
     },
     {
       "aliases": ["aws assume role"],
-      "body_bytes": 8770,
-      "body_sha256": "sha256:0c7645091418a8b896fd3cbdea129b2164e8426578bc8e98ad67917b41dde5fe",
+      "body_bytes": 7755,
+      "body_sha256": "sha256:051904226f2329d0c00be86c3b297b37cbdd4fc1b6e0042b26b53a586f0d9596",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -724,8 +724,8 @@
     },
     {
       "aliases": ["aws assume role external id is optional"],
-      "body_bytes": 1303,
-      "body_sha256": "sha256:a1a0f9183d9a673e688d3018787afa53fb8020e5bd1705a6d860963162b86d6c",
+      "body_bytes": 1020,
+      "body_sha256": "sha256:014994360b13cbed0a9ef3f1daabeff62f74688b7b7c0bfadc98fe3c2cb93959",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -764,8 +764,8 @@
     },
     {
       "aliases": ["aws assume role external id is tenant id"],
-      "body_bytes": 1271,
-      "body_sha256": "sha256:93e7dd055cb4ac26978e03b2d396a380a1367a0ccb040252600f08122845ce66",
+      "body_bytes": 988,
+      "body_sha256": "sha256:049dcc97d5c7051fcb231ef9f8b6413e8af1ec9742fd395d8bce26bfee378dc3",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -804,8 +804,8 @@
     },
     {
       "aliases": ["aws secret key"],
-      "body_bytes": 2205,
-      "body_sha256": "sha256:64c9da26c4e8b18d2d880e456980afbce649495845f0206ae6bae9835267f871",
+      "body_bytes": 1734,
+      "body_sha256": "sha256:828185266ae9ceee4bf48b54fd9faa4cf3f7e1a73d4025f04fbd76be0bbcc9ae",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key:secret_key"],
@@ -877,8 +877,8 @@
     },
     {
       "aliases": ["aws secret key secret key"],
-      "body_bytes": 2026,
-      "body_sha256": "sha256:cffde9f426593c150b0a8aa1290f4ddfd2337928893d48802de1ad632b453bef",
+      "body_bytes": 1368,
+      "body_sha256": "sha256:579881894bce7bba953a81ccb0dcf9d1bf7f364e8c81bdd2300e0bd1c2e241a7",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -953,8 +953,8 @@
     },
     {
       "aliases": ["aws secret key secret key blindfold secret info"],
-      "body_bytes": 4496,
-      "body_sha256": "sha256:5425549dd159a35495cb9f0d464b3e4fe6f8b00123525909313303ab699d279f",
+      "body_bytes": 3839,
+      "body_sha256": "sha256:079749a7843a7df84e676ca15f46fa20d774fe493999045a72b4ec03e16d0c84",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1042,8 +1042,8 @@
     },
     {
       "aliases": ["aws secret key secret key clear secret info"],
-      "body_bytes": 3390,
-      "body_sha256": "sha256:b6ad92032507894f96f2768517c605fcc6ce6cf80a1b5b4cbed4a149fd70c659",
+      "body_bytes": 2867,
+      "body_sha256": "sha256:6c781cdf55d0d0a4be57cabec02baa3dd5b1ea08dd7719a9c9daf665255e9334",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1115,8 +1115,8 @@
     },
     {
       "aliases": ["azure client secret"],
-      "body_bytes": 4019,
-      "body_sha256": "sha256:a79a2e57f59a7fffda9244e19a950776bc563c1fc143831cf69f57b025dddaa4",
+      "body_bytes": 3530,
+      "body_sha256": "sha256:969b89cb5d71787c21147bc752de1e24b94b1a84da633c30ac9b03cf7e69ad0b",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret:client_secret"],
@@ -1220,8 +1220,8 @@
     },
     {
       "aliases": ["azure client secret client secret"],
-      "body_bytes": 2110,
-      "body_sha256": "sha256:48cbfce9e9991a7dac1267a31b6e988df5fbe78f86ff67dda313f5ee865d59ac",
+      "body_bytes": 1410,
+      "body_sha256": "sha256:23d71032cbffaf2a5892311b1ae719e45288cf2fb2d384db266b4247ff6acccc",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -1296,8 +1296,8 @@
     },
     {
       "aliases": ["azure client secret client secret blindfold secret info"],
-      "body_bytes": 4578,
-      "body_sha256": "sha256:84322845ad50f20f55e51083ec3ee8255ae183a25ac3f56b8923c9d5232f7a09",
+      "body_bytes": 3905,
+      "body_sha256": "sha256:a5c65811ed392026bd340bf0ee5754a8254ac4cee3e0290c4ea67d3a49cd9025",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1385,8 +1385,8 @@
     },
     {
       "aliases": ["azure client secret client secret clear secret info"],
-      "body_bytes": 3464,
-      "body_sha256": "sha256:f6f07d589d0daf1c79e898c9542c3736c42be33f8639b372ffe0ea96e179a41e",
+      "body_bytes": 2925,
+      "body_sha256": "sha256:4cc624a94eec5149ab8ddccc41284b6c5d203dfeced5a307241a6fc2e357f698",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1458,8 +1458,8 @@
     },
     {
       "aliases": ["azure pfx certificate"],
-      "body_bytes": 5492,
-      "body_sha256": "sha256:8e1ce9d3ce6c7713d2a5f21f831b99dbd9776aa6d661f7eed05385ddc836cedf",
+      "body_bytes": 4768,
+      "body_sha256": "sha256:df53f41a10e44866a375633b752ae28ba8c9af490aff6bc7e5877bb32eefdc17",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate:password"],
@@ -1585,8 +1585,8 @@
     },
     {
       "aliases": ["azure pfx certificate password"],
-      "body_bytes": 2094,
-      "body_sha256": "sha256:c6b6ab4c33823e1e46d65c59dbe946ebd616ff5225fd6800d0e8e5a8efee3558",
+      "body_bytes": 1402,
+      "body_sha256": "sha256:580b16419388fcf7bb2e3870119df4fa6ff575c1ec754fcbc0dfc88e7b617238",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -1661,8 +1661,8 @@
     },
     {
       "aliases": ["azure pfx certificate password blindfold secret info"],
-      "body_bytes": 4555,
-      "body_sha256": "sha256:1ce29eb0ed92f51f736d5cf38794e8d5e73e5a90ea430dfe8afaa49d3caf8fb3",
+      "body_bytes": 3888,
+      "body_sha256": "sha256:4c3cf587575be5865c9bd8ed1e33d56c8dcd0eb1bcbacb86d1584d00fc31f04a",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1750,8 +1750,8 @@
     },
     {
       "aliases": ["azure pfx certificate password clear secret info"],
-      "body_bytes": 3444,
-      "body_sha256": "sha256:499035c52d0f0fbd1c3dc0dec9bfcf8a6a39f48eeecc3edd08ac8b8a8b8e7127",
+      "body_bytes": 2911,
+      "body_sha256": "sha256:de5b21b2abb41f8fddc25a7593aa2406b25fb3e400fca8f20b4b43421ed89ea5",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1823,8 +1823,8 @@
     },
     {
       "aliases": ["gcp cred file"],
-      "body_bytes": 1325,
-      "body_sha256": "sha256:d41e0e6935cf9c30e30e9fe80f688ded01e2fc2346ceaf5c578cd9a08962f3ca",
+      "body_bytes": 913,
+      "body_sha256": "sha256:0cb505840554738f53dee1b15fe25bb40bc8b2f0af68662cad402c7a36a98eaa",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file:credential_file"],
@@ -1880,8 +1880,8 @@
     },
     {
       "aliases": ["authentication", "credential setup", "credentials", "gcp cred file credential file"],
-      "body_bytes": 2054,
-      "body_sha256": "sha256:1c7af369a798a1aeac9704f518b4194d3ecca3921ebca493b35cb6a283b93435",
+      "body_bytes": 1382,
+      "body_sha256": "sha256:02c748dd7ba64187db58de8051060c45e8774ab86a8ea060f802acf1b333c7ff",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -1956,8 +1956,8 @@
     },
     {
       "aliases": ["gcp cred file credential file blindfold secret info"],
-      "body_bytes": 4530,
-      "body_sha256": "sha256:bae559166b41acef395b9d82db0aef48b82605084ef74bdfde6bc304dc72c64d",
+      "body_bytes": 3865,
+      "body_sha256": "sha256:bfc7cd8b3d360b1fc58591d9b6ccb79cb0dc2169e5567e1d7390167ca96f5d62",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2045,8 +2045,8 @@
     },
     {
       "aliases": ["gcp cred file credential file clear secret info"],
-      "body_bytes": 3420,
-      "body_sha256": "sha256:06f3fb7e4a540988a9b7d0402bf6ee3681a4077efdee4ee027078338e82570b4",
+      "body_bytes": 2889,
+      "body_sha256": "sha256:82a1f0a88825ea72306269227d59777e7cd65e772a92832a0ea1ee67c6ef6f34",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2118,8 +2118,8 @@
     },
     {
       "aliases": ["authentication", "cloud credentials", "credential setup", "credentials"],
-      "body_bytes": 687,
-      "body_sha256": "sha256:1ed83c7e6e7e438fd046d0bbc8b5f3090bc81f83a94c39a06a9a8e0ec13df99e",
+      "body_bytes": 429,
+      "body_sha256": "sha256:f2b4440d24120f8779e8638dad959dc40a7bce8b380872d180f0358bc34c26ac",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:cloud_credentials:example:data-source"],
@@ -2158,8 +2158,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1344,
-      "body_sha256": "sha256:7240e33e0d42ebf1e4f292210e3cdcf3a1d2e83058e6755d92463ec8bb9f2c52",
+      "body_bytes": 1101,
+      "body_sha256": "sha256:a422a21ab563b653d7fd5eaad20dce23674e0ff043bb00a2eab447fbb2f21296",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],

@@ -171,8 +171,8 @@
   "pages": [
     {
       "aliases": ["site mesh group"],
-      "body_bytes": 1464,
-      "body_sha256": "sha256:482f77f39130047aece9b877def066bf96e97640879eb3a6e7aa0303b8f27708",
+      "body_bytes": 1461,
+      "body_sha256": "sha256:5976ce9f5cdedfee5acf51e5eb07b8ea0f926a6578e1e1b397c16bf44e508a6a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -203,7 +203,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_mesh_group/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages Site Mesh Group in system namespace of user in F5 Distributed Cloud.",
+      "summary": "Reads Site Mesh Group information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_site_mesh_group",
       "unresolved_relationships": [{ "name": "site", "source": "receipt-pinned-dependency:required" }],
@@ -215,8 +215,8 @@
     },
     {
       "aliases": ["site mesh group"],
-      "body_bytes": 14873,
-      "body_sha256": "sha256:2a0a01e0755b1f195737d69dd37fce2475ef0f06873403126743dab04eacb2c8",
+      "body_bytes": 13750,
+      "body_sha256": "sha256:45de016610d098a04806b4bca3339da2ad2cfd0a2155dd39b04ca88d44673304",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -489,8 +489,8 @@
     },
     {
       "aliases": ["bfd disabled"],
-      "body_bytes": 1469,
-      "body_sha256": "sha256:c513de9fe9930e937d7785f04bbc98b6e7e50fcd6eccf519df5ceacb82b566f0",
+      "body_bytes": 1205,
+      "body_sha256": "sha256:1b0cbf7b549042fe224bbcbede6ffa8ded4b8df024d565c92758de0e6f22cbee",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -529,8 +529,8 @@
     },
     {
       "aliases": ["bfd enabled"],
-      "body_bytes": 3973,
-      "body_sha256": "sha256:77af2bc00d9d095a1d921dc54f2da3cf9527b4d3c30269da13ff13d734988374",
+      "body_bytes": 3691,
+      "body_sha256": "sha256:95eaf0a464c7c268f72b2b99ce637c1f6d718ecd8dce3b2ea12b60c11549a70d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -618,8 +618,8 @@
     },
     {
       "aliases": ["disable re fallback"],
-      "body_bytes": 1589,
-      "body_sha256": "sha256:833f1baa6051d48e276df20f12e269aa762168f3f599bb4832148d60329c63e6",
+      "body_bytes": 1325,
+      "body_sha256": "sha256:bd07b86719c0df79910cfd6f025a40ed3edf16c174c4c9dc3319a079f15797c5",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -658,8 +658,8 @@
     },
     {
       "aliases": ["enable re fallback"],
-      "body_bytes": 1095,
-      "body_sha256": "sha256:7bd8b2ebd3cab11c007a77b732b45bc796c70f49fbcf19de7863ea04b330f314",
+      "body_bytes": 831,
+      "body_sha256": "sha256:466452149df77625760b98c160537a1fb9028b940a046d314723799fe8f70f42",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -698,8 +698,8 @@
     },
     {
       "aliases": ["full mesh"],
-      "body_bytes": 2319,
-      "body_sha256": "sha256:763bde2ad1369fd85c45b498d345385a536549b5ab3f9291bca2bbfa7cdd00db",
+      "body_bytes": 1681,
+      "body_sha256": "sha256:6e567d7aa69d0c45d04c541c8a979e9cd5bdcdb87d7e0a9a6add304d98427a19",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -774,8 +774,8 @@
     },
     {
       "aliases": ["full mesh control and data plane mesh"],
-      "body_bytes": 1227,
-      "body_sha256": "sha256:f3d3ea8a4c636f0fbe43515511a1ea17c287f92e42e853feb795d12f008bf8e5",
+      "body_bytes": 962,
+      "body_sha256": "sha256:a5a3d15406b9e83d1470724271fa5d3326b2f4129739ff697aaee85d3106ad7f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -814,8 +814,8 @@
     },
     {
       "aliases": ["full mesh data plane mesh"],
-      "body_bytes": 1203,
-      "body_sha256": "sha256:6babcd1e777db33e4bb8b94c788fa4242ad679442d2c4954c6aa7b9d2413652d",
+      "body_bytes": 938,
+      "body_sha256": "sha256:10763fa60b626cb39338441da17ff23c9005acc908f120007b1b430eba34c2e6",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -854,8 +854,8 @@
     },
     {
       "aliases": ["hub mesh"],
-      "body_bytes": 1785,
-      "body_sha256": "sha256:136839bf764d337eb5872f372adde56d192d8b8d3dc66b80a01ad1c10c3883d4",
+      "body_bytes": 1147,
+      "body_sha256": "sha256:6b3c4c30c9378af5554caf7cefb1d344b3470b49179d1b68225fc836dda2ffb6",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -930,8 +930,8 @@
     },
     {
       "aliases": ["hub mesh control and data plane mesh"],
-      "body_bytes": 1221,
-      "body_sha256": "sha256:11891e26960dde6c5b743f98d46cdffd186d7f75b855abf895bf9acb5ccc2e13",
+      "body_bytes": 958,
+      "body_sha256": "sha256:aff408e3d04ac2d1d2a1cc1c2ac778dc0a78994759e5529d26853ae2d1bace81",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -970,8 +970,8 @@
     },
     {
       "aliases": ["hub mesh data plane mesh"],
-      "body_bytes": 1197,
-      "body_sha256": "sha256:50b2c6cfcd5c61aa582f9c0bc52857828e500ef483bfa5e6e9929d9d08e9ec05",
+      "body_bytes": 934,
+      "body_sha256": "sha256:3e40c3dbdcaeb3ed85caddda601099594b56a957d076d97051e4a34389ba1246",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1010,8 +1010,8 @@
     },
     {
       "aliases": ["spoke mesh"],
-      "body_bytes": 2118,
-      "body_sha256": "sha256:e1f8d6e4ef5f29d784d6c9acfe2856d6b88ed70cb126920699565a3276653dfc",
+      "body_bytes": 1321,
+      "body_sha256": "sha256:fa7bef561d245654cf60cfabd238311bde860f6ec0c5d07af6301f64667c1a20",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1103,8 +1103,8 @@
     },
     {
       "aliases": ["spoke mesh control and data plane mesh"],
-      "body_bytes": 1233,
-      "body_sha256": "sha256:87687ec084779ab180bebd96efb4372e23bd0b6f2990f9b201b22a630af7c094",
+      "body_bytes": 966,
+      "body_sha256": "sha256:919889dc0f3c79495367dfe41c4674f75e0330784a1cef817ef34998ddb60625",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1143,8 +1143,8 @@
     },
     {
       "aliases": ["spoke mesh data plane mesh"],
-      "body_bytes": 1209,
-      "body_sha256": "sha256:1b11bc38bc283647abee64372975d00397a582b211d1267cb1c6b6dfc64ae312",
+      "body_bytes": 942,
+      "body_sha256": "sha256:11d8496a4662fc1135ef77a5bcc60ef6d7158e3f7b2e0f0a7a78c934f4d14184",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1183,8 +1183,8 @@
     },
     {
       "aliases": ["spoke mesh hub mesh group"],
-      "body_bytes": 5360,
-      "body_sha256": "sha256:143cc03b5b8692980efec836294c2863ca7bd0900a050d29a898872812e37714",
+      "body_bytes": 4435,
+      "body_sha256": "sha256:a93d02257a905850aab35bc280fc1f33935355a14ccfdba8b6462143cb1b31ce",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1293,8 +1293,8 @@
     },
     {
       "aliases": ["virtual site"],
-      "body_bytes": 6328,
-      "body_sha256": "sha256:761efc9b0a7cde7e28a7a410e66aa4c0cc2761e8a167c251e255dafd90c98a9e",
+      "body_bytes": 5205,
+      "body_sha256": "sha256:88f14d42a2dbf28341ebed9e3fce7e66680361c3445e7e935d96f4d0f956e561",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1449,8 +1449,8 @@
     },
     {
       "aliases": ["site mesh group"],
-      "body_bytes": 675,
-      "body_sha256": "sha256:6537ebcb5bac1a7060b993cf8d123e78a0add4e23a38d1b00e6ccccd10257c50",
+      "body_bytes": 423,
+      "body_sha256": "sha256:13922a092200bf575026fcf14bb7066f8c3e0326d09877d6792dc70f0c470bf2",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:site_mesh_group:example:data-source"],
@@ -1489,8 +1489,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1316,
-      "body_sha256": "sha256:a1d7111a52ef4677d25b9f60ed1e274e838a79fab90216235a32751002cf0cce",
+      "body_bytes": 1079,
+      "body_sha256": "sha256:014094bd21b8848b950edc9db0c314cb8a88185d1cca578a67a132325e52f20a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],

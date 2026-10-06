@@ -1809,8 +1809,8 @@
   "pages": [
     {
       "aliases": ["aws tgw site"],
-      "body_bytes": 1609,
-      "body_sha256": "sha256:c869158b1105bba509519aef684ec1e0d7493574d8b42a296fae88e658922a6f",
+      "body_bytes": 1623,
+      "body_sha256": "sha256:1b98f1dcb056e005790b27e60f0d77bd105904e3c84ea76ea6a92ddf72cfdcbb",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -1843,7 +1843,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/aws_tgw_site/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a AWS TGW Site resource in F5 Distributed Cloud for deploying F5 sites connected via AWS Transit Gateway.",
+      "summary": "Manages an AWS TGW Site resource in F5 Distributed Cloud for deploying F5 sites connected via AWS Transit Gateway.",
       "tasks": ["configuration"],
       "title": "xcsh_aws_tgw_site",
       "unresolved_relationships": [],
@@ -1855,8 +1855,8 @@
     },
     {
       "aliases": ["aws tgw site"],
-      "body_bytes": 94904,
-      "body_sha256": "sha256:11246a0a51030a0ac12f2bcdfe8c2896a08183dc847e12809de997d417caf8c8",
+      "body_bytes": 91744,
+      "body_sha256": "sha256:12f91378815cdc3c20dee21986dda8fee2c19cb9dcf1bd735d4bdccd0aae2711",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -2978,8 +2978,8 @@
     },
     {
       "aliases": ["aws parameters"],
-      "body_bytes": 15231,
-      "body_sha256": "sha256:2619e0ad0e66840ae3103b7c7a1f552ac7e929dd319a2018a953a7a9206715fb",
+      "body_bytes": 12244,
+      "body_sha256": "sha256:15ee3444dc1b545f91335eb3f8f9fed535d4ed769def601a4029fe9f0521299c",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -3675,8 +3675,8 @@
     },
     {
       "aliases": ["aws parameters admin password"],
-      "body_bytes": 2317,
-      "body_sha256": "sha256:c5cc699fe08c1fc6f32d1d53180f5fc8ebd50cc35a37371c582ba2c3d27ebd7d",
+      "body_bytes": 1680,
+      "body_sha256": "sha256:a1260a339fce2506b627ef9df5071ea7c653614b5b42c5a6fed714cdc2437818",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -3786,8 +3786,8 @@
     },
     {
       "aliases": ["aws parameters admin password blindfold secret info"],
-      "body_bytes": 4955,
-      "body_sha256": "sha256:742d7dfe7c6e2d1abb94f10cde8dc8340a89935dd857efbcb45b995c34b036b3",
+      "body_bytes": 4311,
+      "body_sha256": "sha256:aa494ff252d81d3c3ddac76764f3bb4f1f39a9440171111d3e10d9f35b4bff4a",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -3884,8 +3884,8 @@
     },
     {
       "aliases": ["aws parameters admin password clear secret info"],
-      "body_bytes": 3836,
-      "body_sha256": "sha256:de150bef934a38307bdaa52a2347f63ec8d1f433b4951bb106fdf40764212d8e",
+      "body_bytes": 3326,
+      "body_sha256": "sha256:b7699643d2dcd13668fcaf832578de6ac5ff4395272c73e6a44f130f9a9a0e3a",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -3966,8 +3966,8 @@
     },
     {
       "aliases": ["aws parameters aws cred"],
-      "body_bytes": 6137,
-      "body_sha256": "sha256:1dd876513e4a7922f714ecaa63daee276108131a68e63acec4e1d3c54dcf2bca",
+      "body_bytes": 5219,
+      "body_sha256": "sha256:ace3a5669206ce96a0b329f1b91739aec76dd4fcbb2598feddcc4b1ea67e6941",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -4085,8 +4085,8 @@
     },
     {
       "aliases": ["aws parameters az nodes"],
-      "body_bytes": 3955,
-      "body_sha256": "sha256:6d1fb83ba4980d9c0d84a996c61ddc030cb8339c5a17776acdb4e6629823e892",
+      "body_bytes": 2998,
+      "body_sha256": "sha256:f6b535e912df27578358c7d07481939a630edebf9cb544709b3b2325d939f43c",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -4287,8 +4287,8 @@
     },
     {
       "aliases": ["aws parameters az nodes inside subnet"],
-      "body_bytes": 3406,
-      "body_sha256": "sha256:fe5c031e8d662fb0cffd530de67c56e72f985eee8dd94749d48ad57b52740fab",
+      "body_bytes": 2857,
+      "body_sha256": "sha256:20d298c47f8781a6d4fbf1ddad5a3a79a63b032230515f18478e0bee3dd94051",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:aws_tgw_site:properties:aws_parameters:az_nodes:inside_subnet:subnet_param"],
@@ -4386,8 +4386,8 @@
     },
     {
       "aliases": ["aws parameters az nodes inside subnet subnet param"],
-      "body_bytes": 2830,
-      "body_sha256": "sha256:c6170b988d8f1d8e27b20e8cf50fa611fae7c326ece38d09beee2aea5be67316",
+      "body_bytes": 2479,
+      "body_sha256": "sha256:7ae3e107b573ce6e74c65e9837136ee255c96218e995e21901c6bebe2f8e1339",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -4452,8 +4452,8 @@
     },
     {
       "aliases": ["aws parameters az nodes outside subnet"],
-      "body_bytes": 3414,
-      "body_sha256": "sha256:88341f1656113c59e94b174e6a38b3393bff75778361186101b067c0433c9e9d",
+      "body_bytes": 2863,
+      "body_sha256": "sha256:57e3a722296c9d7dfe3959bb929d02ea382ba7d202df6b523693d6533ad0d24b",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:aws_tgw_site:properties:aws_parameters:az_nodes:outside_subnet:subnet_param"],
@@ -4551,8 +4551,8 @@
     },
     {
       "aliases": ["aws parameters az nodes outside subnet subnet param"],
-      "body_bytes": 2837,
-      "body_sha256": "sha256:e136971e7deb5e2e6208296a692687fc51c05e79683aff0f222bd955c9e120ff",
+      "body_bytes": 2484,
+      "body_sha256": "sha256:49dc184a7d156cf9228f6d992703dfc9d568d38cdd98985d1546979ee1e481f9",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -4617,8 +4617,8 @@
     },
     {
       "aliases": ["aws parameters az nodes reserved inside subnet"],
-      "body_bytes": 1489,
-      "body_sha256": "sha256:6811ef718d544a05a7020f2a3eea873a62c7541921ea03f3dda58c2b75cb941b",
+      "body_bytes": 1211,
+      "body_sha256": "sha256:3b3b54731f3a587a8c31f7038e346d0303bacaa856bec0a538b2ea4bcadfd313",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -4657,8 +4657,8 @@
     },
     {
       "aliases": ["aws parameters az nodes workload subnet"],
-      "body_bytes": 3422,
-      "body_sha256": "sha256:276c2f7f372dc7111a1c27dc9980c42b1e2208f6cb2648a5f45e4077eaeff164",
+      "body_bytes": 2869,
+      "body_sha256": "sha256:623a25924e95e60117d8e5bc0ddce1eee211195ebfa509d1feb98fdc769f6699",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:aws_tgw_site:properties:aws_parameters:az_nodes:workload_subnet:subnet_param"],
@@ -4756,8 +4756,8 @@
     },
     {
       "aliases": ["aws parameters az nodes workload subnet subnet param"],
-      "body_bytes": 2844,
-      "body_sha256": "sha256:e43b2ba0dc07fb56a67ecf9817e645fc59a5bc61806f852bbcb165388e95597c",
+      "body_bytes": 2489,
+      "body_sha256": "sha256:075bbdb365706eb153c9b20323cd7a8c4f6be5032f6e1ecb2dcbf52d4e77a80b",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -4822,8 +4822,8 @@
     },
     {
       "aliases": ["aws parameters custom security group"],
-      "body_bytes": 3776,
-      "body_sha256": "sha256:5550456b7baca34c7f0322da93a4a756811f687b1055eacc1b8ccef34f777e85",
+      "body_bytes": 3531,
+      "body_sha256": "sha256:ae22ab5036e8420a8500a4d08c783ad12f644dac2d715bde6b456086d02f71ff",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -4895,8 +4895,8 @@
     },
     {
       "aliases": ["aws parameters disable encryption"],
-      "body_bytes": 1293,
-      "body_sha256": "sha256:8b4e785e735e4fbd94bdf16c70690574fbdc27706273c1db1cd956869e056407",
+      "body_bytes": 1033,
+      "body_sha256": "sha256:fa2239c262721784bcd614e14057cb6fdbcfe3fd82016887f593b6de54e55ef3",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -4935,8 +4935,8 @@
     },
     {
       "aliases": ["aws parameters disable internet vip"],
-      "body_bytes": 1270,
-      "body_sha256": "sha256:e47db050537dd0fb3a319aacda5f29de15baae4a5daa021059d0167b8578953b",
+      "body_bytes": 1010,
+      "body_sha256": "sha256:f1678ddd68904f0ea156b9fa418f8283d40f3f18f9f0317afb8adea05763fbbd",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -4975,8 +4975,8 @@
     },
     {
       "aliases": ["aws parameters enable encryption"],
-      "body_bytes": 2204,
-      "body_sha256": "sha256:4cb9b6feb4e6727b09bb6f72bee4a506338365f5aac4d1c33f97db860e19a601",
+      "body_bytes": 1966,
+      "body_sha256": "sha256:d89c21de6edf94b1bed421c514631784fd79cc2c0643b1d21f101de26528bdc4",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -5041,8 +5041,8 @@
     },
     {
       "aliases": ["aws parameters enable internet vip"],
-      "body_bytes": 1267,
-      "body_sha256": "sha256:d9f29ae176022367f46b9b09bda97e0fb868534708c86446830b9bbae552d881",
+      "body_bytes": 1007,
+      "body_sha256": "sha256:1d8787ca85acbb809b5be61aebfdea768e2a4b01af5fc563e0763f6fe9215132",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -5081,8 +5081,8 @@
     },
     {
       "aliases": ["aws parameters existing tgw"],
-      "body_bytes": 4537,
-      "body_sha256": "sha256:358c2b67cceae404ed0b97fd7b10ac515140b6d6380b611736fa56414f3ff070",
+      "body_bytes": 4186,
+      "body_sha256": "sha256:e626d524989011714f6d11ef0eee701907987f4251be79b88b404fabddae160d",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -5170,8 +5170,8 @@
     },
     {
       "aliases": ["aws parameters f5xc security group"],
-      "body_bytes": 1267,
-      "body_sha256": "sha256:7ed396387fad2956b70f1ed81a14a0ea8e61ec9af88974a5c33c6043d66c6b69",
+      "body_bytes": 1007,
+      "body_sha256": "sha256:809f442f36c48508e3b9ae0b463f8070baf7e50b158b0b7937ae34fc65902cd3",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -5210,8 +5210,8 @@
     },
     {
       "aliases": ["aws parameters new tgw"],
-      "body_bytes": 2132,
-      "body_sha256": "sha256:9c09d3b4edabdd15498148a49581c04ef8ee714b5f12ef450fd3628cc3badca2",
+      "body_bytes": 1541,
+      "body_sha256": "sha256:1d2abaaed2af6db916206b6d239714dd72e7212557c31bac2f5c44fcc8f51128",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -5303,8 +5303,8 @@
     },
     {
       "aliases": ["aws parameters new tgw system generated"],
-      "body_bytes": 1459,
-      "body_sha256": "sha256:9bce9eb3313f9706b1f9530b68d914590f088ba80f5bd0c239566fbca40457cf",
+      "body_bytes": 1183,
+      "body_sha256": "sha256:781a1dd9d897f02c0181ab9a5ffa5c88b284ada067eea21a67c65593d7dcbd62",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -5324,7 +5324,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0103221113020220-1023032300110200-1122320003021100-3301223110103000-1232122010031200-2123003310013320-0101220201312303-1332330322113022",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-002.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5343,8 +5343,8 @@
     },
     {
       "aliases": ["aws parameters new tgw user assigned"],
-      "body_bytes": 3531,
-      "body_sha256": "sha256:0fabbd67e34fcbceb67305c6679e50181b2d530675c2fe1c6a451c3b9e8b46b4",
+      "body_bytes": 3231,
+      "body_sha256": "sha256:0aba4c5bb17b909c8a56718c04ccdcc6cee15034431d282113831835dc1d086b",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -5364,7 +5364,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1012321201321212-3333210011321220-1300013121113023-2010222022103120-1331133131000231-2010332022011311-0221120300323130-1130322133020332",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-002.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5416,8 +5416,8 @@
     },
     {
       "aliases": ["aws parameters new vpc"],
-      "body_bytes": 4352,
-      "body_sha256": "sha256:ba7f28824d01e92cd07bbc7e2c6cf5e31638f68a93b2d7cc9682c28236bec8ed",
+      "body_bytes": 3604,
+      "body_sha256": "sha256:afc297efe74beca16fc606f379c167e7ca5c1af2810767b671f12d7feb1c6188",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:aws_tgw_site:properties:aws_parameters:new_vpc:autogenerate"],
@@ -5437,7 +5437,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0220020323123321-0313220113210230-0113310122202133-2213030113313113-2003203010103222-0032202230121212-2000112223330031-2120322213130322",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-002.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-aws_parameters--new_vpc--name_tag",
@@ -5530,8 +5530,8 @@
     },
     {
       "aliases": ["aws parameters new vpc autogenerate"],
-      "body_bytes": 1443,
-      "body_sha256": "sha256:738ddfdf57b32a841d1e51ed68e2570b272dbbfd134603fbccb7d63e0e20ea86",
+      "body_bytes": 1167,
+      "body_sha256": "sha256:4b06aae401d4cbcbb89abea59f48d166a733f7b6adbebb4c865ece8d3267a9c9",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -5551,7 +5551,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1202212102332103-2130320110010101-3030031132133003-0203112230312220-1031032300311121-2022201222313202-3111232110333201-1332220130120323",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-002.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5570,8 +5570,8 @@
     },
     {
       "aliases": ["aws parameters no worker nodes"],
-      "body_bytes": 1281,
-      "body_sha256": "sha256:736629bb78e95dcbd04e94c491b3d48f6fd99e100999764fcc4b1c990272b695",
+      "body_bytes": 1021,
+      "body_sha256": "sha256:6a415ed9729fb864b48ccadfc1cb2a215b2ea6254c0ddf1d8b08a7f7ab52d21d",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -5591,7 +5591,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2221202120101010-2021301212311032-1333222232212320-0013032102113003-0302100203333220-1333213231210112-0133010203022110-3321330223121101",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-002.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5610,8 +5610,8 @@
     },
     {
       "aliases": ["aws parameters reserved tgw cidr"],
-      "body_bytes": 1289,
-      "body_sha256": "sha256:2792f643aac3d7d6b40196be1409cf4ae05c3506e2583fda6501809f56405cec",
+      "body_bytes": 1029,
+      "body_sha256": "sha256:e8dadc19743f5ae4f5cc847c7e4e087147309b76e86df48ca4129ad06c38f84c",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -5631,7 +5631,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3121213320330121-3012221332212132-3211100230303323-0221132120130330-0212223211102331-2031212313332200-1211230111210012-3023322021210301",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-002.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5650,8 +5650,8 @@
     },
     {
       "aliases": ["aws parameters tgw cidr"],
-      "body_bytes": 2381,
-      "body_sha256": "sha256:3dbc59908bf5ffcba841d7621ba6d1f6c3c841eb1e23c8620721bf2263347fea",
+      "body_bytes": 2076,
+      "body_sha256": "sha256:324d65bb7ed0080491579fdd452749b3123413926c235997590caa4391626940",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -5671,7 +5671,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3131221233111313-0201223031103232-3231330222212320-3200313300213211-3332131122121033-2101311133231111-0111222033131212-1030022202322120",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-002.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-aws_parameters--tgw_cidr--ipv4",
@@ -5716,8 +5716,8 @@
     },
     {
       "aliases": ["block all services"],
-      "body_bytes": 1753,
-      "body_sha256": "sha256:a905c3ec7c1aaa6406bd8142deaf7e9d35e783f62e692f3c6db20da6103b71a8",
+      "body_bytes": 1504,
+      "body_sha256": "sha256:c944b653f003954f79bd2fb2b70dd61c6bac1a909e961340acf97e2e15853e76",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -5737,7 +5737,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3303203233101111-1231211011103232-0133220301212023-0131322023033222-3032123223330012-1020121030201121-2102031230301211-3211000022222033",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-002.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5756,8 +5756,8 @@
     },
     {
       "aliases": ["blocked services"],
-      "body_bytes": 1496,
-      "body_sha256": "sha256:45f728c5fe1ba110d5ce9b062b662ac9a007b9809495b8d77a3d3204720c7b42",
+      "body_bytes": 1034,
+      "body_sha256": "sha256:b91392becc448f9fa428d6eba2cc3f822853ecedefa3ce55501f3774fe379da0",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:aws_tgw_site:properties:blocked_services:blocked_service"],
@@ -5777,7 +5777,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3220312023213323-0222323213213020-3313231022111310-1322001320032202-1021333312223203-0100222312131310-2203300011012010-3103320210301101",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-002.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5862,8 +5862,8 @@
     },
     {
       "aliases": ["blocked services blocked service"],
-      "body_bytes": 9977,
-      "body_sha256": "sha256:1c10bf7d2667561b686abf415b0d692d4ef4a346205a9bc949ac93671d7158af",
+      "body_bytes": 9135,
+      "body_sha256": "sha256:d6a8b4c65aff20ba3ca984998bf4184603ca9ad9b50178e239564586f0fd5119",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -5887,7 +5887,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3330321021120220-0211220102310003-2312323202103000-1212113200003211-1110303112200210-1003321013202112-3202030102311132-2210312332310310",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-002.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-001.md",
       "relationships": [
         {
           "anchor": "section",
@@ -6044,8 +6044,8 @@
     },
     {
       "aliases": ["blocked services blocked service dns"],
-      "body_bytes": 1457,
-      "body_sha256": "sha256:b82c1b9d82c59481703648cd46bef8c38173ea1b4af4c183ed987ba761a0e316",
+      "body_bytes": 1161,
+      "body_sha256": "sha256:deb82d70b5524413ac38ba615879ebc51f525e9e06d46b1568481f4dab9f7948",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -6065,7 +6065,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3020320313222311-1001121100203321-0103302101312103-1110011032310223-1311003322332201-1311110320103121-0221331030321101-3303203312111111",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-002.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -6084,8 +6084,8 @@
     },
     {
       "aliases": ["blocked services blocked service ssh"],
-      "body_bytes": 1457,
-      "body_sha256": "sha256:c868aaf18ba91a669631e8c354b434d41dca262165687d1cc5102d41104df82b",
+      "body_bytes": 1161,
+      "body_sha256": "sha256:e727db7996a413dd160624d3f38f544a994522644d1183feb6c18fd6d1fe0aee",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -6105,7 +6105,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1213232301302012-0033110021321203-0001210010031131-0213213120033203-2020321313002311-0230123221101221-0133132203122332-1121203001001130",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-002.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -6124,8 +6124,8 @@
     },
     {
       "aliases": ["blocked services blocked service web user interface"],
-      "body_bytes": 1502,
-      "body_sha256": "sha256:6d357ed9ecdb85ecb48262bb85a2662baf67de2ab940b03defeebd0b520147a3",
+      "body_bytes": 1206,
+      "body_sha256": "sha256:8476bf1c4600b861a2656fcd3be6a535a60ce73e1cba2f89d68d538841df3f29",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -6145,7 +6145,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0331001001211212-0112333223132230-1202112232020332-1000310030213223-2121121313201202-1020113330330100-1201303212013222-3322211033220310",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-002.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -6164,8 +6164,8 @@
     },
     {
       "aliases": ["coordinates"],
-      "body_bytes": 2257,
-      "body_sha256": "sha256:f009636c5b98a7b3e69e55cb53ccab1cfa42f0b738ca68e579978b66aea027d7",
+      "body_bytes": 1916,
+      "body_sha256": "sha256:ab3b02472b5f684fccca65a79749a86f8612d10e2ec0e493cdb3495e71c9792e",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -6185,7 +6185,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3330100032212111-2023231232130113-2033223012210111-0102030223332333-1003211333301322-2022000120201201-1202112101331102-3200002321100010",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-002.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -6237,8 +6237,8 @@
     },
     {
       "aliases": ["custom dns"],
-      "body_bytes": 3033,
-      "body_sha256": "sha256:34df745cd6e640c94d7d5cfc462f43a6ab7b7de1d9960a33d367ff12493579ce",
+      "body_bytes": 2799,
+      "body_sha256": "sha256:5648f17cc31410bf8a7d45fabccb9d94759955bb2bea1c349b7a5d1e935f95f5",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -6258,7 +6258,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0310130113103331-1321231230201233-0112322012222330-2020103011100211-0311022022233022-2032112020200200-0003021332313331-1212231013022131",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-002.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -6310,8 +6310,8 @@
     },
     {
       "aliases": ["default blocked services"],
-      "body_bytes": 1115,
-      "body_sha256": "sha256:48118bed71f8f959869afeadfc80509316817195cc9d44f9135b83ea6b9546bb",
+      "body_bytes": 866,
+      "body_sha256": "sha256:d356bc9ea7abf17a500de770b97f1f896f839d10591fabb3f628fb2f8d6d5bad",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -6331,7 +6331,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0232210132032302-2311321302133012-3210002210020112-0120013313103120-1000032132332201-1332320121032013-1330221230222303-1221113233030112",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-002.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -6350,8 +6350,8 @@
     },
     {
       "aliases": ["direct connect disabled"],
-      "body_bytes": 1752,
-      "body_sha256": "sha256:a2a2c60a133cf807cb4081286ac609cb31ff4b9124f7e5367aa8acd33ee8c30e",
+      "body_bytes": 1503,
+      "body_sha256": "sha256:62dc787b82926d978115d17ed102a9f715531c57002a9fb85fa9c50a59be84cd",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -6390,8 +6390,8 @@
     },
     {
       "aliases": ["direct connect enabled"],
-      "body_bytes": 3557,
-      "body_sha256": "sha256:b99bd08b81dbc427cefddaf5bf6b64dcbc66aa345c844d2008165c68c900abae",
+      "body_bytes": 2687,
+      "body_sha256": "sha256:5295664ccba42e788cb0c656acaf0188e24e6886cc0c4150f6cf8433a1413124",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -6549,8 +6549,8 @@
     },
     {
       "aliases": ["direct connect enabled auto asn"],
-      "body_bytes": 1282,
-      "body_sha256": "sha256:e263936947d224ca367afd786e3feec78d748d0f36646daca925c6feaf5c5a75",
+      "body_bytes": 1006,
+      "body_sha256": "sha256:b4c6e3adf17a4291a2ecefbb275ae2bc98ad9bcc4507fe9ad73e7c707d542dd5",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -6589,8 +6589,8 @@
     },
     {
       "aliases": ["direct connect enabled hosted vifs"],
-      "body_bytes": 2904,
-      "body_sha256": "sha256:364d81dfe7d287542d7b65382f8fade71f27957d9ab12f35fc2b0ed0375081a4",
+      "body_bytes": 1987,
+      "body_sha256": "sha256:6b22d9c551da06a68b9526e260f423c423015e9f42b78f3b99b1280bd780589b",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -6733,8 +6733,8 @@
     },
     {
       "aliases": ["direct connect enabled hosted vifs site registration over direct connect"],
-      "body_bytes": 3001,
-      "body_sha256": "sha256:bbb80a7bb09b087dc37c192e937043b5180b9fba59f0e84a70e113b443342f4c",
+      "body_bytes": 2716,
+      "body_sha256": "sha256:266d6b3b976ea3d71deb80722791c4d6adfd837fc29391a55065200cbc0ba1b8",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -6806,8 +6806,8 @@
     },
     {
       "aliases": ["direct connect enabled hosted vifs site registration over internet"],
-      "body_bytes": 1565,
-      "body_sha256": "sha256:212f8b017b5ef55806fad7912aa228830334aa7e1b561c2ee74e7d40b95abfcb",
+      "body_bytes": 1265,
+      "body_sha256": "sha256:88044f5bf351bfcd20b0f2f3dc11334d4bc8814e223b3f886c92144ba3ba3138",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -6846,8 +6846,8 @@
     },
     {
       "aliases": ["direct connect enabled hosted vifs vif list"],
-      "body_bytes": 7698,
-      "body_sha256": "sha256:bde6ecdff4ad0254966ad4389a68b12ba5f0833daa06398e7d3f6625bd15eadd",
+      "body_bytes": 7058,
+      "body_sha256": "sha256:832bb25db1b63fb2b02ff9eedc831ed9687593b10ec2ea9fb74f1edf33f5306c",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -6993,8 +6993,8 @@
     },
     {
       "aliases": ["direct connect enabled hosted vifs vif list same as site region"],
-      "body_bytes": 1749,
-      "body_sha256": "sha256:b02cb44d048b9d5b9ce4581a89302c061e4759743a070448cb1ee387fb59fb83",
+      "body_bytes": 1431,
+      "body_sha256": "sha256:db70d6972361c3c498d84da114e300b9d0ea1547d06995daa2e6a5424b84db0f",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -7033,8 +7033,8 @@
     },
     {
       "aliases": ["direct connect enabled standard vifs"],
-      "body_bytes": 1321,
-      "body_sha256": "sha256:74af67deff62a0b5c0d7112cdcb713c5aaca42bb7cfe8d1f401dec946dabdf35",
+      "body_bytes": 1045,
+      "body_sha256": "sha256:c6fc8da10b71337e1d364ff58bbe0680eee63ee6cdf448539c4eb1a4270535e6",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -7073,8 +7073,8 @@
     },
     {
       "aliases": ["kubernetes upgrade drain"],
-      "body_bytes": 2170,
-      "body_sha256": "sha256:7fae2205b357b24dabf4f416d0c8c87532bb03c3aa730271be5235f8273e0d79",
+      "body_bytes": 1558,
+      "body_sha256": "sha256:41ddfbd6999d8093ff2b25e58f352e234d05bdaccc8b44b8f46250098cb08066",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -7207,8 +7207,8 @@
     },
     {
       "aliases": ["kubernetes upgrade drain disable upgrade drain"],
-      "body_bytes": 1365,
-      "body_sha256": "sha256:1301b095184c6c8fc0b9bf4bf29f26d0f9158ad75a67bc200148ec71e9e77a53",
+      "body_bytes": 1085,
+      "body_sha256": "sha256:a99182d01b2e86df6fd4b8a27412e8b570b6bab0ce0e2643355d7b55e0bb97c9",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -7247,8 +7247,8 @@
     },
     {
       "aliases": ["kubernetes upgrade drain enable upgrade drain"],
-      "body_bytes": 6037,
-      "body_sha256": "sha256:b494a6dac4ae068335568da584088e4deee6d6fefbaaabde7b7bb2adc33581f5",
+      "body_bytes": 4931,
+      "body_sha256": "sha256:a0e04f6683290c8a53b042da1ed7dd06a0794e7e710a3548c72e0dbb36fdb072",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -7412,8 +7412,8 @@
     },
     {
       "aliases": ["kubernetes upgrade drain enable upgrade drain disable vega upgrade mode"],
-      "body_bytes": 1653,
-      "body_sha256": "sha256:f7bf33ccabad30e76742df0cf07884175fe3c3f346a4820ce3b4a3aba45f6b82",
+      "body_bytes": 1331,
+      "body_sha256": "sha256:962b950fc2f4fdb46bddbe133b68601e4e5fb87522396e8515740655d08fd7b1",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -7452,8 +7452,8 @@
     },
     {
       "aliases": ["kubernetes upgrade drain enable upgrade drain enable vega upgrade mode"],
-      "body_bytes": 1649,
-      "body_sha256": "sha256:805d665861739979cbef80dfeae9fd43b799258912689a47d38128763e36ad07",
+      "body_bytes": 1327,
+      "body_sha256": "sha256:6a910a7489d9d9d34a5a922b6615a8ab5cfb9b45c15d1263546b58f26a163703",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -7492,8 +7492,8 @@
     },
     {
       "aliases": ["log receiver"],
-      "body_bytes": 6386,
-      "body_sha256": "sha256:c718fa16d68bff82c5418ff0e7f60bc0fb18588937a805fc90d726d3634d1fb6",
+      "body_bytes": 5602,
+      "body_sha256": "sha256:e38326dbde70c62c1814de5f232fcd24a4b40f86b64675255c08834b4a49f6cc",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -7611,8 +7611,8 @@
     },
     {
       "aliases": ["logs streaming disabled"],
-      "body_bytes": 1112,
-      "body_sha256": "sha256:fd41d2e4293d2540bba59f169100b56c6dcdbf74e43daff74b82024e47697ad3",
+      "body_bytes": 863,
+      "body_sha256": "sha256:272ea09e3d19b2626a109dc2ae99eb954c4c91aa2e121ddcdfb7b0a6790cbeee",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -7651,8 +7651,8 @@
     },
     {
       "aliases": ["offline survivability mode"],
-      "body_bytes": 3149,
-      "body_sha256": "sha256:b547323913fb44b4fe183ace1339070c6d9bde6f910cc2697895182fa74c3b80",
+      "body_bytes": 2169,
+      "body_sha256": "sha256:769f1c84fb76bab2d77883118cb2caa501354828ff515f09612c40fa3f4d00ee",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -7744,8 +7744,8 @@
     },
     {
       "aliases": ["offline survivability mode enable offline survivability mode"],
-      "body_bytes": 1425,
-      "body_sha256": "sha256:9fe0c2fee8313cc4d96011fb93c1af050bbaed9f83dc47707d0c0cf779fd7b9b",
+      "body_bytes": 1141,
+      "body_sha256": "sha256:c604b136061bc6939e4d834526c9ee080f1a566565fc84b03ce3b6a48b0d1be0",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -7784,8 +7784,8 @@
     },
     {
       "aliases": ["offline survivability mode no offline survivability mode"],
-      "body_bytes": 1409,
-      "body_sha256": "sha256:64f61908a60c07d86accc0264e598d720f615dafafa8cfd75c0a7cc012440f67",
+      "body_bytes": 1125,
+      "body_sha256": "sha256:57efd6cfc8a2ef08bb61c6835c4b3320bcb0a18ad7ad14a27e17b7a5d3e534d4",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -7824,8 +7824,8 @@
     },
     {
       "aliases": ["os"],
-      "body_bytes": 3051,
-      "body_sha256": "sha256:bd7248bdb010299aff337779b9bcde1cc8c7f72062b4318837c198b6dad8c97a",
+      "body_bytes": 2371,
+      "body_sha256": "sha256:814621b52ecd3887fe2b9bfe80ddf7b4dfd2a8bb23841f8e1f4f7a7495598d01",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:aws_tgw_site:properties:os:default_os_version"],
@@ -7914,8 +7914,8 @@
     },
     {
       "aliases": ["os default os version"],
-      "body_bytes": 1192,
-      "body_sha256": "sha256:1e05bb753b4dd940e70324fe041add355107be923057b54eded3e0a49fa84829",
+      "body_bytes": 956,
+      "body_sha256": "sha256:c9928bbccb66388a18b7cec6106c21340a303c516a47851c5265a82691485c4a",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -7954,8 +7954,8 @@
     },
     {
       "aliases": ["performance enhancement mode"],
-      "body_bytes": 2213,
-      "body_sha256": "sha256:bdebe3402341d77018f6e9944137387852062ad810a451aa778c73348e772154",
+      "body_bytes": 1583,
+      "body_sha256": "sha256:de339b50259b595d470fa7e60b563ef65accb3faca279bf744192135f36a715c",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -8081,8 +8081,8 @@
     },
     {
       "aliases": ["performance enhancement mode perf mode l3 enhanced"],
-      "body_bytes": 2434,
-      "body_sha256": "sha256:0d08a01e1af1ba7f6013b47c3475d153f8133a91d0382bef31eeceba260157a2",
+      "body_bytes": 1742,
+      "body_sha256": "sha256:bb50d3a1c8f8626f85d18133435283cc45093f2b7dbd1d62afffc661feb5ac7b",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -8174,8 +8174,8 @@
     },
     {
       "aliases": ["performance enhancement mode perf mode l3 enhanced jumbo"],
-      "body_bytes": 1595,
-      "body_sha256": "sha256:dace8e70c13d89b876df82128c91ede8c0cfe32c8ebb7adb042b4d51a527466e",
+      "body_bytes": 1263,
+      "body_sha256": "sha256:bd79684396a262ad931a2652b5976d3dc1dddf8a0b5b48837c39abb0ee7a9793",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -8214,8 +8214,8 @@
     },
     {
       "aliases": ["performance enhancement mode perf mode l3 enhanced no jumbo"],
-      "body_bytes": 1604,
-      "body_sha256": "sha256:a4e410fd0b705ec6c862bbf3909a07c876c422eaa656b09676bb428f45137e2c",
+      "body_bytes": 1272,
+      "body_sha256": "sha256:9c9671cf50edca854a1e5567cf8f3e384ff317af3ed9ed5328753ff264488af7",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -8254,8 +8254,8 @@
     },
     {
       "aliases": ["performance enhancement mode perf mode l7 enhanced"],
-      "body_bytes": 2518,
-      "body_sha256": "sha256:604162d2132a76a45ca91a36bcae24cc7ac12ff29392afe85503358013ce17a7",
+      "body_bytes": 1798,
+      "body_sha256": "sha256:8a5a0a416506480d97f6c211326d880ba021f904ef90bbb8a218e68c117d0906",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -8347,8 +8347,8 @@
     },
     {
       "aliases": ["performance enhancement mode perf mode l7 enhanced jumbo disabled"],
-      "body_bytes": 1622,
-      "body_sha256": "sha256:96adfd668db8353da5dd37ab5f350d3c29e135e1406eb9d70a473ebdd807b7d2",
+      "body_bytes": 1290,
+      "body_sha256": "sha256:5e12634126874e8ca891a6a56c737e6d47fcc7d9165e3e594db4789142ec35a2",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -8387,8 +8387,8 @@
     },
     {
       "aliases": ["performance enhancement mode perf mode l7 enhanced jumbo enabled"],
-      "body_bytes": 1619,
-      "body_sha256": "sha256:f7d03a64c52e35c4583be0c5b4636d0a6bb1eddeeadfe144f5ce0098509adf10",
+      "body_bytes": 1287,
+      "body_sha256": "sha256:7b8d5102606efb2762944d4620e39446e3e5767393fc2617524df9449e7c9adc",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -8427,8 +8427,8 @@
     },
     {
       "aliases": ["private connectivity"],
-      "body_bytes": 2323,
-      "body_sha256": "sha256:73f8cefcbc14afdc53e46d2da00ae07233a6396548d9fbcaba1280c2fa99ce70",
+      "body_bytes": 1630,
+      "body_sha256": "sha256:b9b07fdbde1bd1eb53e4480a26915be0c1cf8c54e67b3cd983d333a578dfb8a2",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -8546,8 +8546,8 @@
     },
     {
       "aliases": ["private connectivity cloud link"],
-      "body_bytes": 6203,
-      "body_sha256": "sha256:bbada45792bcffeedb81d8b4bb8eb3070c4d75afc91b48c4d36cab071673f88b",
+      "body_bytes": 5273,
+      "body_sha256": "sha256:99fcf87263bfed87d6ec374950c9a78860ea32ef65bc7980e0a204290f3144ec",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -8665,8 +8665,8 @@
     },
     {
       "aliases": ["private connectivity inside"],
-      "body_bytes": 1264,
-      "body_sha256": "sha256:f12a18dc76152de3a103aa79e12bc4ffd7f411aed7336793f2df4d1c94aff0b6",
+      "body_bytes": 992,
+      "body_sha256": "sha256:6d0318bbca4c8f26a5d96f238242cef889997eda8366e6838b5858532e8e78bc",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -8705,8 +8705,8 @@
     },
     {
       "aliases": ["private connectivity outside"],
-      "body_bytes": 1267,
-      "body_sha256": "sha256:e55ad634062d0b55a7a708ecb08ed9ce4e9c74befecc1426be78d5f9b9c70a14",
+      "body_bytes": 995,
+      "body_sha256": "sha256:2f9defe09f87adf0eb3c29bfee078771e2aa12d7c154382bc2aaf4ff016c230f",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -8745,8 +8745,8 @@
     },
     {
       "aliases": ["sw"],
-      "body_bytes": 3096,
-      "body_sha256": "sha256:dbbc004c04fcb45cb923ffce616fce9160d8798b88e4ba3b12dfc42451d1a4a5",
+      "body_bytes": 2393,
+      "body_sha256": "sha256:7468ab2e954786db611ba0c105f644e41849e32ce36d4ee7d7d23f8fe2bd17fb",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:aws_tgw_site:properties:sw:default_sw_version"],
@@ -8835,8 +8835,8 @@
     },
     {
       "aliases": ["sw default sw version"],
-      "body_bytes": 1192,
-      "body_sha256": "sha256:c68dd60ee7931adc4fab47f6c29aacf15e1ea848f46d135b42a7850a8e1f0e23",
+      "body_bytes": 956,
+      "body_sha256": "sha256:733ab2c2bc4b3686b1af2dd4710e6c91535489f6c7d1cd2d5db1df3a6dbab379",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -8875,8 +8875,8 @@
     },
     {
       "aliases": ["tgw security"],
-      "body_bytes": 5827,
-      "body_sha256": "sha256:92062d2ca174835380bfbc58dd1cf3e5e882049d7285f5a720be087f82f3ef58",
+      "body_bytes": 4023,
+      "body_sha256": "sha256:86a759c568118a022930aca766c078de2a38bb403f4fea342b6d0d85b1e43ef2",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -9242,8 +9242,8 @@
     },
     {
       "aliases": ["tgw security active east west service policies"],
-      "body_bytes": 1667,
-      "body_sha256": "sha256:dc0fa60f2a63586e34afdc42a75613d5b42e3e5346e01c1667dbb8aecd404226",
+      "body_bytes": 1202,
+      "body_sha256": "sha256:149cf8bdcdef33c3bf69049e8235304d9958c2d88f58a9c4659a797d98fa890c",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -9310,8 +9310,8 @@
     },
     {
       "aliases": ["tgw security active east west service policies service policies"],
-      "body_bytes": 6976,
-      "body_sha256": "sha256:0c652c677b9a5a9cb56edeff16dce465af2b3a353a95743ec01a6dc038da02b2",
+      "body_bytes": 6093,
+      "body_sha256": "sha256:706db99428b95018435f56b88dc22bd6795a09b123311d01613b7ddeaff23e1a",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -9429,8 +9429,8 @@
     },
     {
       "aliases": ["tgw security active enhanced firewall policies"],
-      "body_bytes": 2239,
-      "body_sha256": "sha256:5d11f1761ba1ad35347aced09bebb9584a1ca14f54f726303792bd085444428e",
+      "body_bytes": 1549,
+      "body_sha256": "sha256:b92c40d3f7f491d95d0be955cd7f9c6cdcd2fab329a408aeec8bf89c4d430e0b",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -9506,8 +9506,8 @@
     },
     {
       "aliases": ["tgw security active enhanced firewall policies enhanced firewall policies"],
-      "body_bytes": 7084,
-      "body_sha256": "sha256:28ac213d33f4751b8420f075c6281e06786363951151729d6e35378503b81cf5",
+      "body_bytes": 6272,
+      "body_sha256": "sha256:10d9d1650b57f6a6f7747d19befe475932c24b0a4844cdc136ce24b7188740fe",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -9630,8 +9630,8 @@
     },
     {
       "aliases": ["tgw security active forward proxy policies"],
-      "body_bytes": 1856,
-      "body_sha256": "sha256:de54baab7326d1a47f892c2f39e84db4e147896fe5d9abef4086530817713dfa",
+      "body_bytes": 1387,
+      "body_sha256": "sha256:f43d8bd3ddeece04a741b436773cb91109f48e9c0006aea0ff37956638e0d157",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -9707,8 +9707,8 @@
     },
     {
       "aliases": ["tgw security active forward proxy policies forward proxy policies"],
-      "body_bytes": 7020,
-      "body_sha256": "sha256:40b3b8f3c4387282c662a0d71abc09c55a5c1929c6114193eb9b9de1953ba7ca",
+      "body_bytes": 6216,
+      "body_sha256": "sha256:87a2d09ac71928b911b71ecc00fe00afd99e22ab503e7261ea782d778196fd8b",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -9826,8 +9826,8 @@
     },
     {
       "aliases": ["tgw security active network policies"],
-      "body_bytes": 1851,
-      "body_sha256": "sha256:46cd804675f1bfc9184be933cf119bf1cda7fae149faa945ebb9065e9199cb92",
+      "body_bytes": 1413,
+      "body_sha256": "sha256:1f9aecb7ed0c07988c39d8efd2d6a9bf7e628536893977e545361af3d5336152",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -9903,8 +9903,8 @@
     },
     {
       "aliases": ["tgw security active network policies network policies"],
-      "body_bytes": 6951,
-      "body_sha256": "sha256:3490a0bb21bfb3d8b3972269f683f71824e40a52f2f511295986bf019bd8eeef",
+      "body_bytes": 6159,
+      "body_sha256": "sha256:71c140c44082bb8ca9705e96efe853fea81f964a719c52aa76ed846b47974481",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -9924,7 +9924,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2303210302020230-0330032302331132-3033322230220123-3331232211012013-3201201131301032-3223333130233302-3210330021122201-0013111113323011",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-002.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-tgw_security--active_network_policies--network_policies--name",
@@ -10022,8 +10022,8 @@
     },
     {
       "aliases": ["tgw security east west service policy allow all"],
-      "body_bytes": 1345,
-      "body_sha256": "sha256:a3bb2552a07c832b55b66a61ed73c6b2a7800fd283a0bb0c433034c455d68396",
+      "body_bytes": 1089,
+      "body_sha256": "sha256:e3f6dd62b6a18764ab8487c11dff73f59888dc2c9622846c0af307a4167d27fe",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -10043,7 +10043,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1212231303220233-2010113303122033-3011320331223131-0321033320220030-1220333031302100-2013330003103020-3132213201030302-3013202322330332",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-002.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -10062,8 +10062,8 @@
     },
     {
       "aliases": ["tgw security forward proxy allow all"],
-      "body_bytes": 1301,
-      "body_sha256": "sha256:286005ca78f95ca9b062c2f672bbd587dd483129a7d0bcbdcffcfabcc368095c",
+      "body_bytes": 1045,
+      "body_sha256": "sha256:b760ab8aeb3f48a4dfbc820778c387a0caa8893a4e803e9add729b208c7b6d76",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -10083,7 +10083,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1201120002231301-0121123222011213-0222322100210132-2331203031331310-1021212323122132-2103312223133222-1200301331133103-3000320022330201",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-002.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -10102,8 +10102,8 @@
     },
     {
       "aliases": ["tgw security no east west policy"],
-      "body_bytes": 1275,
-      "body_sha256": "sha256:d580cf75d407d6ce3cfb5506fded301e34f89d6f30409a0354091e4742d714fb",
+      "body_bytes": 1019,
+      "body_sha256": "sha256:99bbd29692355b971cb805108acb2a9a8f58a421157d0750bfe52b1722c36e6f",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -10123,7 +10123,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2023022012132131-2202121200230011-1120311221213111-2232023300131020-3021323023111122-3133100110121313-0221121132110210-2010132230010101",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-002.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -10142,8 +10142,8 @@
     },
     {
       "aliases": ["tgw security no forward proxy"],
-      "body_bytes": 1273,
-      "body_sha256": "sha256:465d468657162ce314b7b28a0414ca942830e574649aa5b230f79f3640f855a1",
+      "body_bytes": 1017,
+      "body_sha256": "sha256:81059f51c45e07bc438b0cf380c52366ac80fb8efbbac81fbed0816eceaa95bb",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -10163,7 +10163,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2321021113032211-1112301111210302-2122022013230311-2310330302301131-1212323230212112-0001210222132001-2222022202023102-3331013003033310",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-002.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -10182,8 +10182,8 @@
     },
     {
       "aliases": ["tgw security no network policy"],
-      "body_bytes": 1269,
-      "body_sha256": "sha256:bbb39f57110a3806ff973dcfc85b1458fe90138b63a7aae4a8f7087993686c9e",
+      "body_bytes": 1013,
+      "body_sha256": "sha256:f4b87ee28468a3b00afe3d9af198ecc16f8d339161713adac87101e5b8304274",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -10222,8 +10222,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2231,
-      "body_sha256": "sha256:4ca697b957d1cf4195cbf4b3bc80398d73ce491134e7890b23eaa2bd17b921b7",
+      "body_bytes": 1997,
+      "body_sha256": "sha256:2885b6a9383c10cc514f31c057fb1c969487f1906d2db7165def52e7b5bc6716",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -10362,8 +10362,8 @@
     },
     {
       "aliases": ["vn config"],
-      "body_bytes": 6914,
-      "body_sha256": "sha256:2bc79f80385152b73acdd6986708ccf5addaa4c04abfa79c00217be4e3adfd39",
+      "body_bytes": 4541,
+      "body_sha256": "sha256:2f0167d5e6d23bba120ca11cdf8e400bd36081d46c4e1b806701fa43ba393dad",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -11105,8 +11105,8 @@
     },
     {
       "aliases": ["vn config allowed vip port"],
-      "body_bytes": 4541,
-      "body_sha256": "sha256:10179c467ad4d034777f3de3e2bbf91ca78196a6a22560b8103a4d73f8f85b50",
+      "body_bytes": 3169,
+      "body_sha256": "sha256:221785711f7512314a93269084f6d8933e040ff6f9f2347929b6a9a8be2bc8da",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -11402,8 +11402,8 @@
     },
     {
       "aliases": ["vn config allowed vip port custom ports"],
-      "body_bytes": 2923,
-      "body_sha256": "sha256:8f23b308957fc208c9edb103a24129afde100356dc1bda654fb9423e70b319f7",
+      "body_bytes": 2572,
+      "body_sha256": "sha256:d5c9d5b1d5fa33d05ffa7557f6e21084c28b9a5621bcebbef360028423d16399",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -11468,8 +11468,8 @@
     },
     {
       "aliases": ["vn config allowed vip port disable allowed vip port"],
-      "body_bytes": 1470,
-      "body_sha256": "sha256:881ef4a1a54b3492b552fc5924f7f8775634308b90becd60d96bd56895cf6dc6",
+      "body_bytes": 1186,
+      "body_sha256": "sha256:9910ca94e541110797e024745dec1153102feb09ca4f7c8e8f82646e32c723f9",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -11508,8 +11508,8 @@
     },
     {
       "aliases": ["vn config allowed vip port use http https port"],
-      "body_bytes": 1455,
-      "body_sha256": "sha256:f73af661c092356cf0f179eb6d0bb4a004ec8f8b26998869043bd518f0bcfa00",
+      "body_bytes": 1171,
+      "body_sha256": "sha256:2d05f81047d2835f499aa8e52827a4d8aab6a8e78e6c887a57bce50187a12cb7",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -11548,8 +11548,8 @@
     },
     {
       "aliases": ["vn config allowed vip port use http port"],
-      "body_bytes": 1437,
-      "body_sha256": "sha256:2152cef5f826042b827fcc4fe9dbb488551278ef82a0ba1a55e3042a3168badd",
+      "body_bytes": 1153,
+      "body_sha256": "sha256:ff1bd563ecf1aac8b649941c1908206a8f7fa7ab0634bae82aa7fd7c16d93b71",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -11588,8 +11588,8 @@
     },
     {
       "aliases": ["vn config allowed vip port use https port"],
-      "body_bytes": 1440,
-      "body_sha256": "sha256:aea3b8a5f478ba0b48a55ae09702da1dfb56953e2e94f7deb62386e38ac654e3",
+      "body_bytes": 1156,
+      "body_sha256": "sha256:b632744c25545155c4f157cced431c37c05f62691ea920afa9508ed0526159b4",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -11628,8 +11628,8 @@
     },
     {
       "aliases": ["vn config allowed vip port sli"],
-      "body_bytes": 4613,
-      "body_sha256": "sha256:43f832b00a17eb4c7b45834b8dbbcea50a347855bf8683448b657c08622a9371",
+      "body_bytes": 3201,
+      "body_sha256": "sha256:4d2cbc5d71992f504e9df0cfe9b89c6eeee46e59249edff5d38a2713490bb598",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -11925,8 +11925,8 @@
     },
     {
       "aliases": ["vn config allowed vip port sli custom ports"],
-      "body_bytes": 2951,
-      "body_sha256": "sha256:637db236ce15ace70ed26de091006428c7366f01056b249f076de13b003c4a69",
+      "body_bytes": 2592,
+      "body_sha256": "sha256:21277de965f5b34020cea7ebf79b24f58391813cac214933ebabdf966629bdba",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -11991,8 +11991,8 @@
     },
     {
       "aliases": ["vn config allowed vip port sli disable allowed vip port"],
-      "body_bytes": 1494,
-      "body_sha256": "sha256:82a7e00be0b67a475514dde83e0bd12d07528de467b0cfd137332c4177e57ce5",
+      "body_bytes": 1202,
+      "body_sha256": "sha256:e11de093443217a5f4d86f26e1b92eda80093737d53e9cbeb49112999e03e5e7",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -12031,8 +12031,8 @@
     },
     {
       "aliases": ["vn config allowed vip port sli use http https port"],
-      "body_bytes": 1479,
-      "body_sha256": "sha256:0b0bc14a206d6f0aa8bb5435b20dbefa8e9f4df6af1d20b7143cfe2186422023",
+      "body_bytes": 1187,
+      "body_sha256": "sha256:095755989523c15496825f37f2f3afb507df81d878842e118b1defde2b430b95",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -12071,8 +12071,8 @@
     },
     {
       "aliases": ["vn config allowed vip port sli use http port"],
-      "body_bytes": 1461,
-      "body_sha256": "sha256:3e70cf8362183ab1974c275a1d51f5b017318372067161aa5e308cbc0b19d81d",
+      "body_bytes": 1169,
+      "body_sha256": "sha256:90fb4dd506c1244cf85875ac9e83566336041852438e9fbc7df197f321f48586",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -12111,8 +12111,8 @@
     },
     {
       "aliases": ["vn config allowed vip port sli use https port"],
-      "body_bytes": 1464,
-      "body_sha256": "sha256:7bc8ea816b8d00db1b6bd7eecc539afce6dae2fc1f3b703b6a63844645ad054f",
+      "body_bytes": 1172,
+      "body_sha256": "sha256:549adb3712638b216ee6c37ba3adcd51c7573ec4b3db6606b686ed03b0bad07b",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -12151,8 +12151,8 @@
     },
     {
       "aliases": ["vn config dc cluster group inside vn"],
-      "body_bytes": 6200,
-      "body_sha256": "sha256:b261571ec48a058718c1a838c960efd8d7243e509725b73fc185f548a7625008",
+      "body_bytes": 5292,
+      "body_sha256": "sha256:ff7f9e1248fd9e3410b53dfb429cb386eee1af66a92f4186bc05e1496d3f46e0",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -12270,8 +12270,8 @@
     },
     {
       "aliases": ["vn config dc cluster group outside vn"],
-      "body_bytes": 6206,
-      "body_sha256": "sha256:f5051c04e8841965e406a4462fef5e7181309fd59245e7d9726363270de2826c",
+      "body_bytes": 5298,
+      "body_sha256": "sha256:4a07929e7bd932f82410f5f2522accb35cd229f6c324de13afdbac56dae15048",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -12389,8 +12389,8 @@
     },
     {
       "aliases": ["vn config global network list"],
-      "body_bytes": 1870,
-      "body_sha256": "sha256:eb6860fc07dea46f8cc8f0d001c8fc67bbaf4263a58e87c05b67f93795232f78",
+      "body_bytes": 1365,
+      "body_sha256": "sha256:95071188cdcd703775690d0aa5aaeea3b916f292c779affd790caddf94965f49",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -12474,8 +12474,8 @@
     },
     {
       "aliases": ["vn config global network list global network connections"],
-      "body_bytes": 3317,
-      "body_sha256": "sha256:2db380b4c1e26df526961855d609940c6c4dab6cdf95ff007bb07135eba9eb58",
+      "body_bytes": 2502,
+      "body_sha256": "sha256:c26e63becd891b1e5ef3095709739b824ba51353f1cf7131e0b8bc32231f5861",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -12567,8 +12567,8 @@
     },
     {
       "aliases": ["vn config global network list global network connections sli to global dr"],
-      "body_bytes": 2204,
-      "body_sha256": "sha256:6ad97cef660c522be77d2591a18254094e5ec989582b737a1a94dd5a3be35c0d",
+      "body_bytes": 1611,
+      "body_sha256": "sha256:6d3fdda7d942fa7ac2a353200ba8636db7722864072007ae84035b1cf1b83c46",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -12641,8 +12641,8 @@
     },
     {
       "aliases": ["vn config global network list global network connections sli to global dr global vn"],
-      "body_bytes": 7165,
-      "body_sha256": "sha256:40f96900f317bdfa8df705604f0ac0965a9722068fb6ae6b78c9a82c95a26118",
+      "body_bytes": 6129,
+      "body_sha256": "sha256:1cbad34dfb0b0296e6fd78fccbcbab8adc79700eb462a1283f8fe4bf766e2198",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -12805,8 +12805,8 @@
     },
     {
       "aliases": ["vn config global network list global network connections slo to global dr"],
-      "body_bytes": 2204,
-      "body_sha256": "sha256:843f681712638a9fda36d705f92e7460c290068f4351a1df3a6bf3a47fe86ee4",
+      "body_bytes": 1611,
+      "body_sha256": "sha256:ebae819c3952b65dcf62d73a1b64d40f11d400b11260428bfda7c5d514ea7516",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -12879,8 +12879,8 @@
     },
     {
       "aliases": ["vn config global network list global network connections slo to global dr global vn"],
-      "body_bytes": 7165,
-      "body_sha256": "sha256:cbc209268f4570c5c5b9734afcfdcecbadde461d81eef9a926a72390b4d46c0f",
+      "body_bytes": 6129,
+      "body_sha256": "sha256:ce601db5a2172ae90cc3f9a4c6bfb603364ef9973ed86bc406f714302bdb87c7",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -13043,8 +13043,8 @@
     },
     {
       "aliases": ["vn config inside static routes"],
-      "body_bytes": 1800,
-      "body_sha256": "sha256:e6dcb67a7740e48ce1318dbb0984583f15bcbe25d4e1a65d7bda748b21be3ed8",
+      "body_bytes": 1378,
+      "body_sha256": "sha256:153bc9264f5a8eafdce08a705ff24528849f31ee4a3859e5bb93711ca61e7d73",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list"],
@@ -13126,8 +13126,8 @@
     },
     {
       "aliases": ["vn config inside static routes static route list"],
-      "body_bytes": 3825,
-      "body_sha256": "sha256:fa448a6e4bfd05d339545070859f13e1629743ddcd11e210a86852a09e1b17b9",
+      "body_bytes": 3122,
+      "body_sha256": "sha256:6f17ffd208952212083e3869022ab83038372266f217ebc4abe1abd872ccfd88",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -13227,8 +13227,8 @@
     },
     {
       "aliases": ["vn config inside static routes static route list custom static route"],
-      "body_bytes": 4720,
-      "body_sha256": "sha256:3a1693449e9d6b7fe1e1545af98537f683e6914b64fbb90486d81607e1ec971d",
+      "body_bytes": 3576,
+      "body_sha256": "sha256:9a77b02a7c8efd264d6e98b1950e6aa0f3b7fab0088fad5d8203b54cff340f82",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -13362,8 +13362,8 @@
     },
     {
       "aliases": ["vn config inside static routes static route list custom static route labels"],
-      "body_bytes": 2010,
-      "body_sha256": "sha256:89ff955a662acb3f8150c156e32da0ec8c8888030b980f66093591ba999a0c13",
+      "body_bytes": 1635,
+      "body_sha256": "sha256:4e09fee80789375456c510c464d2563f4de5a879990031ed6b49a641674cc815",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -13402,8 +13402,8 @@
     },
     {
       "aliases": ["vn config inside static routes static route list custom static route nexthop"],
-      "body_bytes": 4962,
-      "body_sha256": "sha256:2e2528c8da8c50c1d8d6956218fcd19b594ab0ba88ec52c7de908ba616c7369b",
+      "body_bytes": 3937,
+      "body_sha256": "sha256:ee91e79ae0600067cb110f8e68056fae58998339df9d6e491b5209763bddf8c9",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -13573,8 +13573,8 @@
     },
     {
       "aliases": ["vn config inside static routes static route list custom static route nexthop interface"],
-      "body_bytes": 8040,
-      "body_sha256": "sha256:0b54856024af3095489dd4e334697115278da4b76dc5495a1233396bcbef22e1",
+      "body_bytes": 6988,
+      "body_sha256": "sha256:7d77c8b3151fcbfdc40a8ede22b89335a930aa519e4f8b7651afa0826d4ed2f7",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -13813,8 +13813,8 @@
     },
     {
       "aliases": ["vn config inside static routes static route list custom static route nexthop nexthop address"],
-      "body_bytes": 4253,
-      "body_sha256": "sha256:e5712bafa200110d419290f2f93bad47a236079592d74d34c61d7b9654e5e2da",
+      "body_bytes": 2996,
+      "body_sha256": "sha256:ee9375dd1f3aaab53e7fe5ed1e8c27ccefd19ed13714cdc4b40b600296862d20",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -13994,8 +13994,8 @@
       "aliases": [
         "vn config inside static routes static route list custom static route nexthop nexthop address dual stack"
       ],
-      "body_bytes": 3722,
-      "body_sha256": "sha256:a59e592f08882f8b615011131149079faaf944bf053e06a0383ff7db9a469df2",
+      "body_bytes": 2693,
+      "body_sha256": "sha256:5fa4a274e896187cca0691f80596731e04970369ac8c34f54a75c79444548487",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -14102,8 +14102,8 @@
       "aliases": [
         "vn config inside static routes static route list custom static route nexthop nexthop address dual stack ipv4"
       ],
-      "body_bytes": 4069,
-      "body_sha256": "sha256:20fb7bcea62a7a1cc837c6df3cdf71bfc3983e7e72562afa03047a58faca9381",
+      "body_bytes": 3653,
+      "body_sha256": "sha256:ece94c2bd640d4fbb345763663578913f7f0d6103fc4229690cc2423ac4336cb",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -14182,8 +14182,8 @@
       "aliases": [
         "vn config inside static routes static route list custom static route nexthop nexthop address dual stack ipv6"
       ],
-      "body_bytes": 4579,
-      "body_sha256": "sha256:8a164a9512c4e68c7b5c5adf35be85095057452619f49a90639092dc95448155",
+      "body_bytes": 3790,
+      "body_sha256": "sha256:9303e6d13757b97c612d62cdd5788d3ccc39622a28aca9e06e25f693a9b3ed61",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -14260,8 +14260,8 @@
     },
     {
       "aliases": ["vn config inside static routes static route list custom static route nexthop nexthop address ipv4"],
-      "body_bytes": 3709,
-      "body_sha256": "sha256:143c8964e6bf369640a9e56162ccec9b6c337b9506b1df0b2300c1d17c4c939d",
+      "body_bytes": 3315,
+      "body_sha256": "sha256:a71c435caf6506ca8399892a44f94b9909ab77b7183073006f02fd480195e308",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -14281,7 +14281,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0333133020303332-1323011201230012-2311303101010232-3211213101223311-2201123212232313-3233030020211010-1233332002232021-1030310120101212",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-003.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14336,8 +14336,8 @@
     },
     {
       "aliases": ["vn config inside static routes static route list custom static route nexthop nexthop address ipv6"],
-      "body_bytes": 4219,
-      "body_sha256": "sha256:f02466fe2adae50c6b09abae09efc30f9b04b2351982aa9dcad953022e200a87",
+      "body_bytes": 3452,
+      "body_sha256": "sha256:fa64a139d8d6d6ffddd7319f74a64c77870d88a3368457b394778ce026571580",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -14357,7 +14357,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1310330231031000-2130012120001210-1123023320201133-2223030113212011-1030333232311221-1102112023213320-3222211112103002-1323032211012122",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-003.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14412,8 +14412,8 @@
     },
     {
       "aliases": ["vn config inside static routes static route list custom static route subnets"],
-      "body_bytes": 3689,
-      "body_sha256": "sha256:60da0c446a68d78dbbb4ff86969d3dd43d312bb722d05947d0cf4865bf86b4ca",
+      "body_bytes": 2768,
+      "body_sha256": "sha256:e693660f238de371b2520246ae5fa1c13b7d73c60be3fcb538a5d4fa85724018",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -14436,7 +14436,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2312102122133200-0120302223320132-0133013231100200-0201333332120223-3022330101331300-0311113223000130-0123020123002012-1012331331330010",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-003.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-004.md",
       "relationships": [
         {
           "anchor": "section",
@@ -14519,8 +14519,8 @@
     },
     {
       "aliases": ["vn config inside static routes static route list custom static route subnets ipv4"],
-      "body_bytes": 4299,
-      "body_sha256": "sha256:db5818267c4c877dcbb0784d220eb0a4fc54f671742b911ae0452cbdca55c1cc",
+      "body_bytes": 3930,
+      "body_sha256": "sha256:ffd164a48ab0ca149bca16a6575891bb4f333720bfcf8660ef4dbc092c5d6278",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -14540,7 +14540,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2232020032130012-2331121230102331-0330122310203233-3221321201111230-0232120112200210-2231332303103313-3032213100132332-3203023100000023",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-003.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14615,8 +14615,8 @@
     },
     {
       "aliases": ["vn config inside static routes static route list custom static route subnets ipv6"],
-      "body_bytes": 4709,
-      "body_sha256": "sha256:f4becd1d752301e3586c72dc6f1db9f5b649a1b4af0e498b9b55b4e124c429e3",
+      "body_bytes": 4291,
+      "body_sha256": "sha256:69f5a3985973ae00454623c4f6e2cc8562551ac9a4d75d434faca2806b369bb1",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -14636,7 +14636,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3231311301112302-0100331021113132-0200202202131020-1033322331012222-1132103203013001-1222003232023001-2112013133003001-1211333133330100",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-003.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14711,8 +14711,8 @@
     },
     {
       "aliases": ["vn config no dc cluster group"],
-      "body_bytes": 1237,
-      "body_sha256": "sha256:548b2e6b40bc396b76746b6c9e1d36dec5759ba1e210ebc50912b3f0048645ab",
+      "body_bytes": 987,
+      "body_sha256": "sha256:e2d1803e17d9a488252fbf38f0fbc9e45012872807771ef343317fa6d761dbbc",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -14732,7 +14732,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2011122312231230-3013232300312312-2202102000033103-3030221030323032-1020222321312033-1302222331002000-1132203010312230-3310010210310332",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-003.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14751,8 +14751,8 @@
     },
     {
       "aliases": ["vn config no global network"],
-      "body_bytes": 1259,
-      "body_sha256": "sha256:7eab3980552c1d1bd328d9305826ce83f8172e3ec8adbacee09dadb2d99fbdb6",
+      "body_bytes": 1009,
+      "body_sha256": "sha256:8e37c0772e315532e0d8bace658444b48c6a94d3f230eb12d84e4a9ba28fc4d8",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -14772,7 +14772,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1220211023313210-3121131032130332-1202222301132133-1313020021300200-3101221300210022-2010132200330031-1332002033100321-3002120301331100",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-003.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14791,8 +14791,8 @@
     },
     {
       "aliases": ["vn config no inside static routes"],
-      "body_bytes": 1283,
-      "body_sha256": "sha256:72181e015d71966d9d1366039a4876c027a05e88274ae20c215e27af0eb4059d",
+      "body_bytes": 1033,
+      "body_sha256": "sha256:224f4ea19c2ad8707e7dc0c02769cbd1e8773b146b61486b9e2c55584e2acf59",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -14812,7 +14812,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0300132311300213-2213102221212301-1032330303012220-1032121031020202-0231221133312300-0101032232312332-3230133033132033-2301132320222332",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-003.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14831,8 +14831,8 @@
     },
     {
       "aliases": ["vn config no outside static routes"],
-      "body_bytes": 1287,
-      "body_sha256": "sha256:35596ab7e2f69d162b7c6dc019efb8beff7bdf4778c0340ab74e2948a7f4ac1d",
+      "body_bytes": 1037,
+      "body_sha256": "sha256:c145baa073587c2706c4deeb96fb89f65d9191aee4b3478961aebe27a3e30fc9",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -14852,7 +14852,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0121330320232133-2321110122302131-1013232000113230-1212100032312110-2013322033302110-1203131120200211-3202133212002123-0302122002202023",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-003.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14871,8 +14871,8 @@
     },
     {
       "aliases": ["vn config outside static routes"],
-      "body_bytes": 1807,
-      "body_sha256": "sha256:2412c229c101970122342d7e5e98f992edafb2e189eb5ea437ca5c43f6b73103",
+      "body_bytes": 1383,
+      "body_sha256": "sha256:70bec2eb319fd47955ffff675fb0b1b5ebe5029a8ec48cd03213f19f9d9b4411",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list"],
@@ -14892,7 +14892,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2301113011113011-1112320230210202-0313100212313032-1131333013212023-3211313333212000-2110001321132102-1131010130012311-2101312102132133",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-003.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-004.md",
       "relationships": [
         {
           "anchor": "section",
@@ -14954,8 +14954,8 @@
     },
     {
       "aliases": ["vn config outside static routes static route list"],
-      "body_bytes": 3835,
-      "body_sha256": "sha256:e24899827fb30a60bcedfe1b93bf90eec02a06217920d4063d4c1e1daa825274",
+      "body_bytes": 3128,
+      "body_sha256": "sha256:425d5f4d0d0497f3eb98913a8215282d0f6f0e7ed331084bc6e0a5840018aa5a",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -14977,7 +14977,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0012330200333200-1003330212132300-0033033221012201-3330110232112210-0013230010001331-0003332013203201-0013211233213031-0201233331322323",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-003.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-004.md",
       "relationships": [
         {
           "anchor": "schema-vn_config--outside_static_routes--static_route_list--simple_static_route",
@@ -15055,8 +15055,8 @@
     },
     {
       "aliases": ["vn config outside static routes static route list custom static route"],
-      "body_bytes": 4738,
-      "body_sha256": "sha256:4f9a9610a932864bd54c5e1b289f2ee3ae46c6519917236f4243360d8c8612db",
+      "body_bytes": 3586,
+      "body_sha256": "sha256:4ddf425d0400e927418a2f8aee3f855b50387d527c92380686faaf2d6952c542",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -15080,7 +15080,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3112202231210201-1221331101020010-2311032322110333-3203310310200232-2230321032201221-3313011300211333-0131031220003312-2233310210310310",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-003.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-004.md",
       "relationships": [
         {
           "anchor": "section",
@@ -15190,8 +15190,8 @@
     },
     {
       "aliases": ["vn config outside static routes static route list custom static route labels"],
-      "body_bytes": 2020,
-      "body_sha256": "sha256:d0a402040fcb57bdbc7d131d0488939d62188e8e6f987736c0a35b6c9d2851fc",
+      "body_bytes": 1643,
+      "body_sha256": "sha256:f5cd406359b5a765b70bced249ec51c87a07614be1713849c956480beb36bb06",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -15211,7 +15211,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0232323103201002-3021320032123221-3323211230201312-0100012302023310-1113210210101213-0113122013210000-0023222300300010-0010310300201201",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-003.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -15230,8 +15230,8 @@
     },
     {
       "aliases": ["vn config outside static routes static route list custom static route nexthop"],
-      "body_bytes": 4979,
-      "body_sha256": "sha256:a6f7af249d7c9fa074a07254c05324ea4981ba462c66d6be57186cb09c723cca",
+      "body_bytes": 3948,
+      "body_sha256": "sha256:1e8333afedc0f22e34b4f70f24d25ed866e6a67ad84714620b2458a1b2bf8401",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -15254,7 +15254,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0003030130021111-3312333313002332-2112222111320300-1102302011333013-1321333031231001-0002003300230301-1030331331223202-0121210011003030",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-003.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -15401,8 +15401,8 @@
     },
     {
       "aliases": ["vn config outside static routes static route list custom static route nexthop interface"],
-      "body_bytes": 8057,
-      "body_sha256": "sha256:4da9fa22546600aa25b7094a4c4df47907e83c8a52c63352d45b8be8aca7a706",
+      "body_bytes": 7003,
+      "body_sha256": "sha256:1ae65841d0d1c815c940e8b7987cf9a1ba1ae5ab91f87cd6f941526d07f24090",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -15422,7 +15422,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2023012210202202-2022212003110122-1001120330030311-1120311120221320-3110200110001203-3310210332003212-2213112020121223-3323102031323000",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-003.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -15641,8 +15641,8 @@
     },
     {
       "aliases": ["vn config outside static routes static route list custom static route nexthop nexthop address"],
-      "body_bytes": 4274,
-      "body_sha256": "sha256:f1ab7d9457b4ee6bdff6810471b6cea0e7676697ffbb1af16a80451fc79b67a5",
+      "body_bytes": 3009,
+      "body_sha256": "sha256:bde4a26dd313eeb1d04b8cd8c06facf1b68e8cc0e72d0bbb40e008c215ad3dbb",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -15666,7 +15666,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2022301320110121-3133021101100200-1312331200213023-0120233323001100-3023323112033212-3001021103301221-2120102230133113-3221030222230301",
-      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-003.md",
+      "registry_path": "docs/guides/resources--aws_tgw_site--reference--group-004.md",
       "relationships": [
         {
           "anchor": "section",
@@ -15822,8 +15822,8 @@
       "aliases": [
         "vn config outside static routes static route list custom static route nexthop nexthop address dual stack"
       ],
-      "body_bytes": 3742,
-      "body_sha256": "sha256:7e3f17594da5e6f9536a81099248bf1e0037cffabb0d9dd06f5342734ebde46e",
+      "body_bytes": 2707,
+      "body_sha256": "sha256:5698112a53ce7e7b9e472b6682d145f986f730b9f9449e8d7fba01e4770df7c3",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -15930,8 +15930,8 @@
       "aliases": [
         "vn config outside static routes static route list custom static route nexthop nexthop address dual stack ipv4"
       ],
-      "body_bytes": 4086,
-      "body_sha256": "sha256:e60aaf178e12b41ea3524854d5979e5aa64504d142249fab19f32fb3ae952e1c",
+      "body_bytes": 3668,
+      "body_sha256": "sha256:df82bc2d8b4705f128ba98025a76bde34789126458534fbfb70fb47fffa06135",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -16010,8 +16010,8 @@
       "aliases": [
         "vn config outside static routes static route list custom static route nexthop nexthop address dual stack ipv6"
       ],
-      "body_bytes": 4596,
-      "body_sha256": "sha256:34677128cf53ce7fd35923c46e26b6e6e1704dde57e1396fb52c3426e45bcd8f",
+      "body_bytes": 3805,
+      "body_sha256": "sha256:6d7436d9c928bf52a579addedafe8cb50a55a37cc355b67c6dd7d8667a81d823",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -16088,8 +16088,8 @@
     },
     {
       "aliases": ["vn config outside static routes static route list custom static route nexthop nexthop address ipv4"],
-      "body_bytes": 3724,
-      "body_sha256": "sha256:c288a17d345cce15a44ada7d466c1fb5580b7a6a5ac8f77d20ed47fa10bffed8",
+      "body_bytes": 3328,
+      "body_sha256": "sha256:3780deb307e21fbcffb64001dceee19b565c59df7b1f6cc18405a50a33ce175b",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -16164,8 +16164,8 @@
     },
     {
       "aliases": ["vn config outside static routes static route list custom static route nexthop nexthop address ipv6"],
-      "body_bytes": 4234,
-      "body_sha256": "sha256:09a08e67a012e3a7425698ac3a1646244591947743684cacf81b1a7b9a1d4538",
+      "body_bytes": 3465,
+      "body_sha256": "sha256:b149ea7f222b05e334a8ab0d9bfe74a20195bebeecb2b554f8bd5a81155473aa",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -16240,8 +16240,8 @@
     },
     {
       "aliases": ["vn config outside static routes static route list custom static route subnets"],
-      "body_bytes": 3705,
-      "body_sha256": "sha256:f9080b7ce4e40ff7fea157ae45bef91aa5fd695a4dc0de8213019569a12060cf",
+      "body_bytes": 2778,
+      "body_sha256": "sha256:89823dab60d547f0a7cb30423719af5c6a6eb68dfa55fdc533a41889503d6e42",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -16347,8 +16347,8 @@
     },
     {
       "aliases": ["vn config outside static routes static route list custom static route subnets ipv4"],
-      "body_bytes": 4313,
-      "body_sha256": "sha256:ea4675b5898a344c33c38d5fcd3700e9ee5b57960b637ed6b46ffe8409725eea",
+      "body_bytes": 3942,
+      "body_sha256": "sha256:6a7c5bdc0c3fa3f744c431ce328de892cb80a9468b60b10839bf4b352fbaa8e4",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -16443,8 +16443,8 @@
     },
     {
       "aliases": ["vn config outside static routes static route list custom static route subnets ipv6"],
-      "body_bytes": 4723,
-      "body_sha256": "sha256:762cd4b2d7c32e7579a7b11d990d99a6cba819a505d2bd0b0e4e1ffc66b0e129",
+      "body_bytes": 4303,
+      "body_sha256": "sha256:58d6c64d7cd1f465a3ee17008eb2d02d2c773c4afd18f86987606c137da9409a",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -16539,8 +16539,8 @@
     },
     {
       "aliases": ["vn config sm connection public ip"],
-      "body_bytes": 1249,
-      "body_sha256": "sha256:41376d9c2fbefb505c26aca340895209ae2d0a3a0ba99756cb48ea8f7baab9ad",
+      "body_bytes": 999,
+      "body_sha256": "sha256:9f93fbcde0df07a51e7e2d5ccaaa49e82ec1b86723d275e5d467aa0c865a8aa1",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -16579,8 +16579,8 @@
     },
     {
       "aliases": ["vn config sm connection pvt ip"],
-      "body_bytes": 1240,
-      "body_sha256": "sha256:30e7f27e795f08c69f0fc9c8b6cbdd4a2c206236c7a72fff6e3fc7a927a4113f",
+      "body_bytes": 990,
+      "body_sha256": "sha256:47627701197bcbfb0baed3dd1a28b10b0b4baa80ac9e389ef2bdbb1c997a3432",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -16619,8 +16619,8 @@
     },
     {
       "aliases": ["vpc attachments"],
-      "body_bytes": 1331,
-      "body_sha256": "sha256:c7842583674039bde9ce4b7783506310bb60b8533268861b8f02bd819449d806",
+      "body_bytes": 951,
+      "body_sha256": "sha256:fc0de424e9615522d9b1f124aadc64988e43a00c4c8c8f689a18b169a9f44e66",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:aws_tgw_site:properties:vpc_attachments:vpc_list"],
@@ -16676,8 +16676,8 @@
     },
     {
       "aliases": ["vpc attachments vpc list"],
-      "body_bytes": 3156,
-      "body_sha256": "sha256:b9511cf93fab82307633b24ba3e8e6f147be4a868638d0ccf13ba0170173d1a1",
+      "body_bytes": 2693,
+      "body_sha256": "sha256:6f4e523fb8b4cac142d0904790de88aecd48727cb51e519282af6ae91827f0bc",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:aws_tgw_site:properties:vpc_attachments:vpc_list:labels"],
@@ -16749,8 +16749,8 @@
     },
     {
       "aliases": ["vpc attachments vpc list labels"],
-      "body_bytes": 1432,
-      "body_sha256": "sha256:637b641ead4763c1f01a6f39d2505d6de7574fe2a4ef3c1c3a12ccf4fcacf994",
+      "body_bytes": 1145,
+      "body_sha256": "sha256:4595f35f4ba5650a9aef6c366b1317d6f2bfeeda0d77f96c2505d93f43ec3e95",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -16789,8 +16789,8 @@
     },
     {
       "aliases": ["waf signatures"],
-      "body_bytes": 2246,
-      "body_sha256": "sha256:d0fd5e895a1cf4fe11a7cb1e6521b578855c4dfb820a533cc9f7537e5463aac4",
+      "body_bytes": 1520,
+      "body_sha256": "sha256:b90cc03d46c1de0e40228e569baa9a62f2d75d92beecb2c36fcd9acef59dd77d",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -16882,8 +16882,8 @@
     },
     {
       "aliases": ["waf signatures automatic"],
-      "body_bytes": 1237,
-      "body_sha256": "sha256:cfc0d466add6fb6804e4ea01d371f5b2697f609ec25491d79760dffa448937f5",
+      "body_bytes": 977,
+      "body_sha256": "sha256:8a6faab5ce6e8c44aff458b7c79286718750755bcd85a0d2c03ba3da6d103d26",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -16922,8 +16922,8 @@
     },
     {
       "aliases": ["waf signatures manual"],
-      "body_bytes": 1228,
-      "body_sha256": "sha256:d44b35ebfc44fbea20645455fe673aaab92b81bbb58cea0b1d976c994ebf1264",
+      "body_bytes": 968,
+      "body_sha256": "sha256:ac1478e2305fbb62b3ba295b1e9b2541ec4acd37998965c2646362217aff8826",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -16962,8 +16962,8 @@
     },
     {
       "aliases": ["aws tgw site"],
-      "body_bytes": 633,
-      "body_sha256": "sha256:8860a353c9deadb6675364121c5e7ac30a2d1966613cda178a6e7a70bf2748e8",
+      "body_bytes": 402,
+      "body_sha256": "sha256:18fd691e65080f0bc6f8ea198d6c4250d2275fb58ff5e72e9e0c7e7e484ed52e",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:aws_tgw_site:example:resource"],
@@ -17002,8 +17002,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1288,
-      "body_sha256": "sha256:a6172325e030f46bb549d8dbf797d2fc21ec044a5b8a9befae1c281e36e7ca15",
+      "body_bytes": 1066,
+      "body_sha256": "sha256:2c4fa41b3a8ec9b7c9c7e847f89355ab46fd9c17ffac96de4a05eef02bee6ad9",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -17049,8 +17049,8 @@
     },
     {
       "aliases": ["aws tgw site"],
-      "body_bytes": 480,
-      "body_sha256": "sha256:95245f5010b567a5a6bb274364faf9c05b4906adf647f09b4e2a7a6c9a9715a3",
+      "body_bytes": 361,
+      "body_sha256": "sha256:70e7c4caf8c909cd734cdd292843840c16db7d9f868fed43a35cd2e6fda8cafe",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -17090,8 +17090,8 @@
     },
     {
       "aliases": ["aws tgw site"],
-      "body_bytes": 568,
-      "body_sha256": "sha256:3e45515df8cac97e416ce00abc8fb4b365d0d3bb7807eea8e07d363542b5b93d",
+      "body_bytes": 449,
+      "body_sha256": "sha256:36f7bcf336eab216dab7e4f3869a2cafcdbb4dc07b5af0a9a45fb8cd8637ae77",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],

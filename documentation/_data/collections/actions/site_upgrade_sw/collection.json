@@ -21,8 +21,8 @@
   "pages": [
     {
       "aliases": ["site upgrade sw"],
-      "body_bytes": 1471,
-      "body_sha256": "sha256:dcaf02c87f7f3d2fa918874d502bf175b86ae856d8ea9150b98ce5afc39d4c67",
+      "body_bytes": 1484,
+      "body_sha256": "sha256:d6ef829bb7d960d7a4e37025c4e741a51219189d642406c550d1b89dfb1e301f",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -66,8 +66,8 @@
     },
     {
       "aliases": ["site upgrade sw"],
-      "body_bytes": 1085,
-      "body_sha256": "sha256:3b61b884aeee57078319a2427b35f3485635564b38b3b997db4b7e348b3c9739",
+      "body_bytes": 962,
+      "body_sha256": "sha256:257fd61082cad2f955740810536508a0392e776ac588944eaec6bd9ec38a32a1",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -139,8 +139,8 @@
     },
     {
       "aliases": ["site upgrade sw"],
-      "body_bytes": 635,
-      "body_sha256": "sha256:9ef5ddbdef5a87a846e1988e177c478ba14a1a2dcb75882fead4aa7d698ce33c",
+      "body_bytes": 403,
+      "body_sha256": "sha256:d3a9c8116d4447c26eb09a04290d8bf41830d39c085a9a7bbb409ea2af65ed6c",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:actions:site_upgrade_sw:example:action"],
@@ -179,8 +179,8 @@
     },
     {
       "aliases": ["action"],
-      "body_bytes": 1327,
-      "body_sha256": "sha256:6e91665a740e873b17347dde7a85026cb4f6526cdf8b9ee17c372aa1febe8df2",
+      "body_bytes": 1100,
+      "body_sha256": "sha256:5be4178b8bdf02860e8e39958cb981def6983e59b016c416c275707323f67bb2",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -226,8 +226,8 @@
     },
     {
       "aliases": ["site upgrade sw"],
-      "body_bytes": 610,
-      "body_sha256": "sha256:57c59c43f4bd78b6232fb45660482fa5060c1beee4adf9e0da47ae6e1ff2c6cc",
+      "body_bytes": 487,
+      "body_sha256": "sha256:d8a009852e87fcb38a80d60fb748bfaeb9b4c31e642dda3f89453d0b1da318f8",
       "capabilities": [],
       "category": null,
       "child_ids": [],

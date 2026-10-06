@@ -2,7 +2,7 @@
 page_title: "psp_spec.fs_group_strategy_options.id_ranges"
 subcategory: ""
 description: "List of range of ID(s)"
-xcsh_docs: {"aliases": ["psp spec fs group strategy options id ranges"], "body_bytes": 4596, "body_sha256": "sha256:2562509a830ee368e1ef0aef3decb1a15c8231705c7e2c1a12d7098f53f3871d", "capabilities": ["container"], "category": "container", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:k8s_pod_security_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges", "parent_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options", "path": "documentation/resources/k8s_pod_security_policy/properties/psp_spec/fs_group_strategy_options/id_ranges/index.md", "product": "distributed-cloud", "provider_name": "k8s_pod_security_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1213222223311331-2131213310331112-1121113031221200-0333023102323233-3333312231232231-2210203032110022-3032230000333300-1230101333213020", "registry_path": "docs/guides/resources--k8s_pod_security_policy--reference--group-001.md", "relationships": [{"anchor": "schema-psp_spec--fs_group_strategy_options--id_ranges--max_id", "enforcement": "provider-schema", "group": "psp_spec.fs_group_strategy_options.id_ranges:RequiredListObjectAttributes:max_id,min_id", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges", "type": "requires"}, {"anchor": "schema-psp_spec--fs_group_strategy_options--id_ranges--min_id", "enforcement": "provider-schema", "group": "psp_spec.fs_group_strategy_options.id_ranges:RequiredListObjectAttributes:max_id,min_id", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["psp_spec", "fs_group_strategy_options", "id_ranges"], "schema_version": 1, "sections": [{"aliases": ["psp spec fs group strategy options id ranges max id"], "anchor": "schema-psp_spec--fs_group_strategy_options--id_ranges--max_id", "description": "Ending(maximum) ID for for ID range.", "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["psp_spec", "fs_group_strategy_options", "id_ranges", "max_id"], "syntax": "attribute", "type": "number"}, {"aliases": ["psp spec fs group strategy options id ranges min id"], "anchor": "schema-psp_spec--fs_group_strategy_options--id_ranges--min_id", "description": "Starting(minimum) ID for for ID range.", "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["psp_spec", "fs_group_strategy_options", "id_ranges", "min_id"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_policy/properties/psp_spec/fs_group_strategy_options/id_ranges/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of range of ID(s)", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["k8s_pod_security_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["psp spec fs group strategy options id ranges"], "body_bytes": 4107, "body_sha256": "sha256:44ba82fbb3afe97fdee8cdfbdad6c37f8cf518af9f7d5306fe876f2b9e07ba2a", "capabilities": ["container"], "category": "container", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:k8s_pod_security_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges", "parent_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options", "path": "documentation/resources/k8s_pod_security_policy/properties/psp_spec/fs_group_strategy_options/id_ranges/index.md", "product": "distributed-cloud", "provider_name": "k8s_pod_security_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1213222223311331-2131213310331112-1121113031221200-0333023102323233-3333312231232231-2210203032110022-3032230000333300-1230101333213020", "registry_path": "docs/guides/resources--k8s_pod_security_policy--reference--group-001.md", "relationships": [{"anchor": "schema-psp_spec--fs_group_strategy_options--id_ranges--max_id", "enforcement": "provider-schema", "group": "psp_spec.fs_group_strategy_options.id_ranges:RequiredListObjectAttributes:max_id,min_id", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges", "type": "requires"}, {"anchor": "schema-psp_spec--fs_group_strategy_options--id_ranges--min_id", "enforcement": "provider-schema", "group": "psp_spec.fs_group_strategy_options.id_ranges:RequiredListObjectAttributes:max_id,min_id", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["psp_spec", "fs_group_strategy_options", "id_ranges"], "schema_version": 1, "sections": [{"aliases": ["psp spec fs group strategy options id ranges max id"], "anchor": "schema-psp_spec--fs_group_strategy_options--id_ranges--max_id", "description": "Ending(maximum) ID for for ID range.", "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["psp_spec", "fs_group_strategy_options", "id_ranges", "max_id"], "syntax": "attribute", "type": "number"}, {"aliases": ["psp spec fs group strategy options id ranges min id"], "anchor": "schema-psp_spec--fs_group_strategy_options--id_ranges--min_id", "description": "Starting(minimum) ID for for ID range.", "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["psp_spec", "fs_group_strategy_options", "id_ranges", "min_id"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_policy/properties/psp_spec/fs_group_strategy_options/id_ranges/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of range of ID(s)", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["k8s_pod_security_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -24,10 +24,6 @@ Breadcrumbs:
 Type: `"object"`. list nested block, Optional.
 
 ID Ranges. List of range of ID(s)
-
-Upstream description:
-
-List of range of ID(s)
 
 Provider validators and defaults (from schema source):
 
@@ -86,10 +82,6 @@ Type: `"number"`. Optional.
 
 Ending ID. Ending(maximum) ID for for ID range.
 
-Upstream description:
-
-Ending(maximum) ID for for ID range.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -142,10 +134,6 @@ Type: `"number"`. Optional.
 
 Starting ID. Starting(minimum) ID for for ID range.
 
-Upstream description:
-
-Starting(minimum) ID for for ID range.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -189,8 +177,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [psp_spec.fs_group_strategy_options](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/k8s_pod_security_policy/properties/psp_spec/fs_group_strategy_options/)
-- [xcsh_k8s_pod_security_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/k8s_pod_security_policy/)

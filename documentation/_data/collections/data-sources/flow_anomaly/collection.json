@@ -51,8 +51,8 @@
   "pages": [
     {
       "aliases": ["flow anomaly"],
-      "body_bytes": 1373,
-      "body_sha256": "sha256:47ad98548a03572dbd4b60db161cc600ec87f484dfb1520a40b33a052a9e1a2f",
+      "body_bytes": 1317,
+      "body_sha256": "sha256:05cc292b1881b5c208d59aec6ade4e68b1b0291bc0f9e2013d133863696fcd62",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:flow_anomaly:reference", "xcsh-docs:data-sources:flow_anomaly:examples"],
@@ -80,7 +80,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/flow_anomaly/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Flow Anomaly resource in F5 Distributed Cloud for flow anomaly specification. configuration. (read-only data source)",
+      "summary": "Reads Flow Anomaly information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_flow_anomaly",
       "unresolved_relationships": [],
@@ -92,8 +92,8 @@
     },
     {
       "aliases": ["flow anomaly"],
-      "body_bytes": 2984,
-      "body_sha256": "sha256:e8d00f7fc72b56ab4ed83713332394edecea35e6c3199bf95295489f9f03b76f",
+      "body_bytes": 2862,
+      "body_sha256": "sha256:4f44a485efaa1809dcefc42676425f7a6d0f0e50342dbb6e26f6194c56265b11",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -261,8 +261,8 @@
     },
     {
       "aliases": ["flow anomaly"],
-      "body_bytes": 657,
-      "body_sha256": "sha256:a480a6c2848e494cf81bad355e248c3b5751d41172bae6c9df40d3ba56a66bef",
+      "body_bytes": 414,
+      "body_sha256": "sha256:1471a1ce0ce2fa608977f5c2358b253c3db8bc56aa6b870837f35482b69a6197",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:flow_anomaly:example:data-source"],
@@ -301,8 +301,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1279,
-      "body_sha256": "sha256:547249ff16621554c044a9e34ba1f9c9c69b633960237402293aebb6d4b59c61",
+      "body_bytes": 1051,
+      "body_sha256": "sha256:c936aff1c2edf8ae772f5923bb99ac013c2f873bc4ca41800c065b3348d80bd8",
       "capabilities": [],
       "category": null,
       "child_ids": [],

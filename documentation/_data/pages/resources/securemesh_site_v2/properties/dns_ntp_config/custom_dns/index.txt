@@ -2,7 +2,7 @@
 page_title: "dns_ntp_config.custom_dns"
 subcategory: ""
 description: "DNS Servers."
-xcsh_docs: {"aliases": ["dns ntp config custom dns"], "body_bytes": 2337, "body_sha256": "sha256:d4da568b5d3af05f131b5ead8f6eeaa4fe7e50128a81ac203f99c82477068fea", "capabilities": ["infrastructure"], "category": "infrastructure", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:securemesh_site_v2:collection", "completeness": "complete", "id": "xcsh-docs:resources:securemesh_site_v2:properties:dns_ntp_config:custom_dns", "parent_id": "xcsh-docs:resources:securemesh_site_v2:properties:dns_ntp_config", "path": "documentation/resources/securemesh_site_v2/properties/dns_ntp_config/custom_dns/index.md", "product": "distributed-cloud", "provider_name": "securemesh_site_v2", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3012001213011312-2021230120013323-2020301303130133-2103101312332311-3022013310032001-1213000122300303-1311133100123222-3132220000230031", "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-007.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["dns_ntp_config", "custom_dns"], "schema_version": 1, "sections": [{"aliases": ["dns ntp config custom dns dns servers"], "anchor": "schema-dns_ntp_config--custom_dns--dns_servers", "description": "DNS Servers.", "document_id": "xcsh-docs:resources:securemesh_site_v2:properties:dns_ntp_config:custom_dns", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["dns_ntp_config", "custom_dns", "dns_servers"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/securemesh_site_v2/properties/dns_ntp_config/custom_dns/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "DNS Servers.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["securemesh_site_v2CreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["dns ntp config custom dns"], "body_bytes": 2000, "body_sha256": "sha256:083cbf3295ca3964b172508cd6fc3e786cec5a5c8409ecb86c97c61e76a14f7e", "capabilities": ["infrastructure"], "category": "infrastructure", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:securemesh_site_v2:collection", "completeness": "complete", "id": "xcsh-docs:resources:securemesh_site_v2:properties:dns_ntp_config:custom_dns", "parent_id": "xcsh-docs:resources:securemesh_site_v2:properties:dns_ntp_config", "path": "documentation/resources/securemesh_site_v2/properties/dns_ntp_config/custom_dns/index.md", "product": "distributed-cloud", "provider_name": "securemesh_site_v2", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3012001213011312-2021230120013323-2020301303130133-2103101312332311-3022013310032001-1213000122300303-1311133100123222-3132220000230031", "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-006.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["dns_ntp_config", "custom_dns"], "schema_version": 1, "sections": [{"aliases": ["dns ntp config custom dns dns servers"], "anchor": "schema-dns_ntp_config--custom_dns--dns_servers", "description": "DNS Servers.", "document_id": "xcsh-docs:resources:securemesh_site_v2:properties:dns_ntp_config:custom_dns", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["dns_ntp_config", "custom_dns", "dns_servers"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/securemesh_site_v2/properties/dns_ntp_config/custom_dns/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "DNS Servers.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["securemesh_site_v2CreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,10 +23,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 DNS Servers. DNS Servers.
-
-Upstream description:
-
-DNS Servers.
 
 Receipt-pinned upstream constraints:
 
@@ -58,10 +54,6 @@ custom_dns {
 Type: `["list", "string"]`. Optional.
 
 DNS Servers. DNS Servers.
-
-Upstream description:
-
-DNS Servers.
 
 Provider validators and defaults (from schema source):
 
@@ -105,8 +97,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [dns_ntp_config](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/dns_ntp_config/)
-- [xcsh_securemesh_site_v2](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/)

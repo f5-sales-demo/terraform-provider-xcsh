@@ -2,7 +2,7 @@
 page_title: "enable_vgpu"
 subcategory: ""
 description: "Licensing configuration for NVIDIA vGPU."
-xcsh_docs: {"aliases": ["enable vgpu"], "body_bytes": 4327, "body_sha256": "sha256:ec6084b3e37ec9b063ebe47c94f9201a1c6aabdd80cc286974c152e935dede85", "capabilities": [], "category": null, "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": [], "status": "unresolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:fleet:collection", "completeness": "complete", "id": "xcsh-docs:resources:fleet:properties:enable_vgpu", "parent_id": "xcsh-docs:resources:fleet:reference", "path": "documentation/resources/fleet/properties/enable_vgpu/index.md", "product": "distributed-cloud", "provider_name": "fleet", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0023220101031001-1331310302022102-0213011031321233-3112103310211311-1212211111023103-3221232112323313-3332022200013311-1333313210022010", "registry_path": "docs/guides/resources--fleet--reference--group-002.md", "relationships": [{"anchor": "schema-enable_vgpu--server_port", "enforcement": "provider-schema", "group": "enable_vgpu:RequiredObjectAttributes:server_port", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:fleet:properties:enable_vgpu", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["enable_vgpu"], "schema_version": 1, "sections": [{"aliases": ["enable vgpu feature type"], "anchor": "schema-enable_vgpu--feature_type", "description": "Set feature to be enabled Operate with a degraded vGPU performance Enable NVIDIA vGPU Enable NVIDIA RTX Virtual Workstation Enable NVIDIA Virtual Compute Server.", "document_id": "xcsh-docs:resources:fleet:properties:enable_vgpu", "enum_extraction_complete": true, "enum_validators": [{"case_sensitive": true, "complete": true, "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf", "validator": "OneOf", "values": ["UNLICENSED", "VCS", "VGPU", "VWS"], "version": 1}], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_vgpu", "feature_type"], "syntax": "attribute", "type": "string"}, {"aliases": ["enable vgpu server address"], "anchor": "schema-enable_vgpu--server_address", "description": "Set License Server Address.", "document_id": "xcsh-docs:resources:fleet:properties:enable_vgpu", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_vgpu", "server_address"], "syntax": "attribute", "type": "string"}, {"aliases": ["enable vgpu server port"], "anchor": "schema-enable_vgpu--server_port", "description": "Set License Server port number.", "document_id": "xcsh-docs:resources:fleet:properties:enable_vgpu", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_vgpu", "server_port"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/enable_vgpu/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Licensing configuration for NVIDIA vGPU.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["fleetCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["enable vgpu"], "body_bytes": 3819, "body_sha256": "sha256:3f485dd492ccd7e7b0d3171d4b1e09ea4e362e899eaa576cc6e9cb8c0c254b40", "capabilities": [], "category": null, "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": [], "status": "unresolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:fleet:collection", "completeness": "complete", "id": "xcsh-docs:resources:fleet:properties:enable_vgpu", "parent_id": "xcsh-docs:resources:fleet:reference", "path": "documentation/resources/fleet/properties/enable_vgpu/index.md", "product": "distributed-cloud", "provider_name": "fleet", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0023220101031001-1331310302022102-0213011031321233-3112103310211311-1212211111023103-3221232112323313-3332022200013311-1333313210022010", "registry_path": "docs/guides/resources--fleet--reference--group-002.md", "relationships": [{"anchor": "schema-enable_vgpu--server_port", "enforcement": "provider-schema", "group": "enable_vgpu:RequiredObjectAttributes:server_port", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:fleet:properties:enable_vgpu", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["enable_vgpu"], "schema_version": 1, "sections": [{"aliases": ["enable vgpu feature type"], "anchor": "schema-enable_vgpu--feature_type", "description": "Set feature to be enabled Operate with a degraded vGPU performance Enable NVIDIA vGPU Enable NVIDIA RTX Virtual Workstation Enable NVIDIA Virtual Compute Server.", "document_id": "xcsh-docs:resources:fleet:properties:enable_vgpu", "enum_extraction_complete": true, "enum_validators": [{"case_sensitive": true, "complete": true, "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf", "validator": "OneOf", "values": ["UNLICENSED", "VCS", "VGPU", "VWS"], "version": 1}], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_vgpu", "feature_type"], "syntax": "attribute", "type": "string"}, {"aliases": ["enable vgpu server address"], "anchor": "schema-enable_vgpu--server_address", "description": "Set License Server Address.", "document_id": "xcsh-docs:resources:fleet:properties:enable_vgpu", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_vgpu", "server_address"], "syntax": "attribute", "type": "string"}, {"aliases": ["enable vgpu server port"], "anchor": "schema-enable_vgpu--server_port", "description": "Set License Server port number.", "document_id": "xcsh-docs:resources:fleet:properties:enable_vgpu", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_vgpu", "server_port"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/enable_vgpu/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Licensing configuration for NVIDIA vGPU.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["fleetCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -63,13 +63,6 @@ Type: `"string"`. Optional.
 Enable NVIDIA vGPU Enable NVIDIA RTX Virtual Workstation Enable NVIDIA Virtual Compute Server.
 Possible values are \`UNLICENSED\`, \`VGPU\`, \`VWS\`, \`VCS\`. Defaults to \`UNLICENSED\`.
 
-Upstream description:
-
-Set feature to be enabled
-
-Operate with a degraded vGPU performance Enable NVIDIA vGPU Enable NVIDIA RTX Virtual Workstation
-Enable NVIDIA Virtual Compute Server.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -111,10 +104,6 @@ Type: `"string"`. Optional.
 
 License Server Address. Set License Server Address.
 
-Upstream description:
-
-Set License Server Address.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -151,10 +140,6 @@ Receipt-pinned upstream constraints:
 Type: `"number"`. Optional.
 
 License Server Port Number. Set License Server port number.
-
-Upstream description:
-
-Set License Server port number.
 
 Provider validators and defaults (from schema source):
 
@@ -197,8 +182,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/fleet/properties/)
-- [xcsh_fleet](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/fleet/)

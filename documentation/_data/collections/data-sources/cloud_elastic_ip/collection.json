@@ -76,8 +76,8 @@
   "pages": [
     {
       "aliases": ["cloud elastic ip"],
-      "body_bytes": 1395,
-      "body_sha256": "sha256:5c93fbadad8fb4e43d21e78ec6dfcf02ac381be8e31cbb44c1cf09efc5be2ea9",
+      "body_bytes": 1359,
+      "body_sha256": "sha256:57f3134e4a320b6d100d3963b3b4f96de0b3c661da1f684a43800f3c779dac7a",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -108,7 +108,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_elastic_ip/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site in F5 Distributed Cloud.",
+      "summary": "Reads Cloud Elastic IP information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_cloud_elastic_ip",
       "unresolved_relationships": [],
@@ -120,8 +120,8 @@
     },
     {
       "aliases": ["cloud elastic ip"],
-      "body_bytes": 9063,
-      "body_sha256": "sha256:5adb7ae31ef166a4eada13e5145558240febb7afbac34a774315642c482ca906",
+      "body_bytes": 8847,
+      "body_sha256": "sha256:9b62faea3566c7edaed024f1120deb0fc4e7ccdbfe743ad1cdc3e041e8a3ce88",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:cloud_elastic_ip:properties:site_ref"],
@@ -289,8 +289,8 @@
     },
     {
       "aliases": ["site ref"],
-      "body_bytes": 6036,
-      "body_sha256": "sha256:5596a7aaaa5b4113bb6eb75c422e9d5d6981dc97ca99c34c3e47b2d885081c7f",
+      "body_bytes": 5094,
+      "body_sha256": "sha256:9609de33e0bac42ea46eb077c6b3bc0f23afe570336f36f186d54fbb9a3c8e59",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -445,8 +445,8 @@
     },
     {
       "aliases": ["cloud elastic ip"],
-      "body_bytes": 681,
-      "body_sha256": "sha256:a666ad35ee4c6a25716cbb0577bf90a694dfc4c04a382cf7ec85bdf63ab1b0b5",
+      "body_bytes": 426,
+      "body_sha256": "sha256:c0036c9407db480b450146f9a497666de9ced2ad40d7f80fc620cc7f2dfef91d",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:cloud_elastic_ip:example:data-source"],
@@ -485,8 +485,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1329,
-      "body_sha256": "sha256:e6a1a289637c1a8104cc2a76b6bc3cac08cb62a9f422361bd699cdc4c2529332",
+      "body_bytes": 1089,
+      "body_sha256": "sha256:2bf479eb9a22ab44cb17610022317a999c14a5d0261a79fe802c96fa9419f361",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],

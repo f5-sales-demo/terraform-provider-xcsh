@@ -1,9 +1,11 @@
 # ruff: noqa: INP001, PT027
 """Complete, byte-bounded Registry projection contracts."""
 
+import re
 import sys
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 import registry_projection as projection
@@ -65,6 +67,70 @@ class ProjectionTests(unittest.TestCase):
         assert (outputs, manifest) == projection.project(
             [first, second], {"fixture": ""}, "https://example.test"
         )
+
+    def test_landing_heading_and_schema_path_context(self):
+        landing = self.page("landing", "# fixture\n\nOverview prose.\n", "fundamentals")
+        property_page = self.page(
+            "property",
+            "# name\n\n## Direct properties\n\n### value property\n\nDescription.\n",
+        )
+        property_page["schema_path"] = ["parent", "name"]
+        outputs, _ = projection.project(
+            [landing, property_page], {"fixture": ""}, "https://example.test"
+        )
+        landing_text = outputs["docs/resources/fixture.md"]
+        reference_text = next(
+            text for path, text in outputs.items() if path.startswith("docs/guides/")
+        )
+        assert "# xcsh_fixture\n" in landing_text
+        assert "## Overview\n" in landing_text
+        assert "## `parent.name` properties" in reference_text
+        assert "#### `parent.name.value` property" in reference_text
+        assert re.search(r"/[0-3]{12}/[0-9]+", reference_text) is None
+
+    def test_comment_preamble_stays_with_first_heading(self):
+        body = "<!-- hidden -->\n\n# Title\n\nProse.\n"
+        assert projection.sections(body, 1000) == [body]
+
+    def test_parent_heading_stays_with_first_child_across_groups(self):
+        body = (
+            '## Direct properties\n\n<a id="property"></a>\n\n'
+            "### name property\n\nComplete description.\n"
+        )
+        assert projection.sections(body, 1000) == [body]
+
+    def test_group_heading_levels_start_at_two_and_preserve_code(self):
+        body = (
+            "---\npage_title: fixture\n---\n\n# Fixture\n\n"
+            "#### `nested.name` property\n\nDetails.\n\n"
+            "```hcl\n#### code heading\n```\n\n"
+            "#### `nested.other` property\n\nMore details.\n"
+        )
+        normalized = projection.normalize_group_headings(body)
+        assert normalized.count("## `nested.") == 2
+        assert "#### code heading" in normalized
+        assert normalized.startswith("---\npage_title: fixture\n---\n\n# Fixture")
+
+    def test_group_heading_parent_keeps_its_first_child(self):
+        body = (
+            "# Fixture\n\n#### `orphan` property\n\nDetails.\n\n"
+            "### Direct properties\n\n#### `child` property\n\nChild details.\n"
+        )
+        normalized = projection.normalize_group_headings(body)
+        assert "## `orphan` property" in normalized
+        assert "## Direct properties\n\n### `child` property" in normalized
+
+    def test_published_group_routes_are_retained(self):
+        pages = [
+            self.page(str(index), f"# Section {index}\n\nDetails.\n")
+            for index in range(3)
+        ]
+        with patch.dict(projection.ROUTE_LAYOUT, {"resources/fixture/reference": 3}):
+            outputs, _ = projection.project(
+                pages, {"fixture": ""}, "https://example.test"
+            )
+        assert len(outputs) == 3
+        assert all(f"group-{index:03}.md" in " ".join(outputs) for index in range(1, 4))
 
     def test_oversized_exact_canonical_exception(self):
         page = self.page("huge", "```hcl\n" + "x" * 510000 + "\n```\n")

@@ -76,8 +76,8 @@
   "pages": [
     {
       "aliases": ["authorization server"],
-      "body_bytes": 1748,
-      "body_sha256": "sha256:9c73264cfba100dcc295117404afa208bf4d20e9eda88cae3c9ff96dbf0884f8",
+      "body_bytes": 1761,
+      "body_sha256": "sha256:8d659aea0a7286743e44e3afe6700892d83c01fc673ab6f88718310a755df97d",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -122,8 +122,8 @@
     },
     {
       "aliases": ["authorization server"],
-      "body_bytes": 11200,
-      "body_sha256": "sha256:0813407d3326966dcbf615ad9708bd4c435756150b3a3b57197538a89e943337",
+      "body_bytes": 10628,
+      "body_sha256": "sha256:e1c6a5ac228a90235931a4d4600671d859e7eb58295fd90974d308c429ac525a",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": ["xcsh-docs:resources:authorization_server:properties:timeouts"],
@@ -307,8 +307,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2279,
-      "body_sha256": "sha256:3e8a3e80c60a3905d0d38c2be527d16eb335eac4b0c007fa8857e4ca03f483e1",
+      "body_bytes": 2021,
+      "body_sha256": "sha256:be3939f0bdde1b70b2a6cb3849a3b932ad64f6cee8e9ad65ddc9f9942db6a2fb",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -447,8 +447,8 @@
     },
     {
       "aliases": ["authorization server"],
-      "body_bytes": 681,
-      "body_sha256": "sha256:3716bd1429abee4df56ea811561322c8b304e5485c0f01cfa92371a01e990951",
+      "body_bytes": 426,
+      "body_sha256": "sha256:3cc219b4d383c7e885513b096972e03941606602b945ac16e9dc3d4064e1ed92",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": ["xcsh-docs:resources:authorization_server:example:resource"],
@@ -487,8 +487,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1415,
-      "body_sha256": "sha256:b70065cc4f83a9ea31085e1bbcc86abfdc96cd1ae9a4ddd7ac6826fef0e43532",
+      "body_bytes": 1169,
+      "body_sha256": "sha256:4d929cfcaa55e28ece8f91daf30693e5d2b1605bfff37cff546badc062879671",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -534,8 +534,8 @@
     },
     {
       "aliases": ["authorization server"],
-      "body_bytes": 520,
-      "body_sha256": "sha256:f6b88c3b45f3e4cc56aa0da44623afc59b1e022b6e4ef47b6aef5352a39d38f0",
+      "body_bytes": 385,
+      "body_sha256": "sha256:23a473100b7e265618624e261f6e39a9aa77c897ba15977ad84c72592be635c9",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -575,8 +575,8 @@
     },
     {
       "aliases": ["authorization server"],
-      "body_bytes": 608,
-      "body_sha256": "sha256:dfb0c4e559988e5876c4e472ccf3c6710b1f95027670ea3db0f02222be37f133",
+      "body_bytes": 473,
+      "body_sha256": "sha256:74e8ef5000351ef1f03ce4db45ef290bd40bf7daa68bdf0fe7f70733f259e0d6",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],

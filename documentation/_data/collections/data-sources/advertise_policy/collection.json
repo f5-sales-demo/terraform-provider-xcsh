@@ -481,8 +481,8 @@
   "pages": [
     {
       "aliases": ["advertise policy"],
-      "body_bytes": 1495,
-      "body_sha256": "sha256:da455f193619b6490d0bd43e80bc5bd4af7ac3fb21b6b514e4282e6dbb509754",
+      "body_bytes": 1413,
+      "body_sha256": "sha256:5692e1ce223903bd2b86feb41270b942a4d0583db6d416d5f58ad75bb63edb1a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -513,7 +513,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/advertise_policy/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Advertise Policy resource in F5 Distributed Cloud for advertise_policy object controls how and where a service represented by a given virtual_host object is advertised to consumers. configuration.",
+      "summary": "Reads an Advertise Policy that controls where a service represented by a virtual host is advertised to consumers.",
       "tasks": ["configuration"],
       "title": "xcsh_advertise_policy",
       "unresolved_relationships": [],
@@ -525,8 +525,8 @@
     },
     {
       "aliases": ["advertise policy"],
-      "body_bytes": 34632,
-      "body_sha256": "sha256:5c4b7ff4265da7de0514be6d3d2259d3f68d58ebe14eba1f70fc9e17a6335146",
+      "body_bytes": 33598,
+      "body_sha256": "sha256:886cb6672f7af0086a17528d7ae6fb2a14834753dd5af58bd9a582e5205f8b4c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -845,8 +845,8 @@
     },
     {
       "aliases": ["dualstack"],
-      "body_bytes": 1566,
-      "body_sha256": "sha256:62bfa64fd1c05f7bec721833edd4fdab98e9abc01d1b6aa9b57022bc4d6bec4a",
+      "body_bytes": 1299,
+      "body_sha256": "sha256:dd589db9d7538b45c06c782ddb9c308c2010f793bb5cc3bc10b8c150d390b4fa",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -885,8 +885,8 @@
     },
     {
       "aliases": ["ipv4"],
-      "body_bytes": 1084,
-      "body_sha256": "sha256:57eca16d1f678ed99736925bb733c194d414b4e9aaf972f4d446f56519f2cc34",
+      "body_bytes": 817,
+      "body_sha256": "sha256:4959d6ff2f9e53bb7e0f9d8a7b9010f85fc3ff9c0b791b6b8bd115a9ba699a67",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -925,8 +925,8 @@
     },
     {
       "aliases": ["ipv6"],
-      "body_bytes": 1077,
-      "body_sha256": "sha256:1a5f89ba951343a15fc314ed623cebe463ae5f2f889871def6b33b561a64fae4",
+      "body_bytes": 810,
+      "body_sha256": "sha256:124b2ef8046dbc6b53e19bf1a68cc59781b17e13e506f3413f647f9e3f1683c3",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -965,8 +965,8 @@
     },
     {
       "aliases": ["public ip"],
-      "body_bytes": 5657,
-      "body_sha256": "sha256:8b82682dffbd7d5aad7d848f3af83ca99ff06860a15f2b5325f364665c533b9c",
+      "body_bytes": 4593,
+      "body_sha256": "sha256:8d09244f10ae525d8bd69f118e57726f93d8c7006cdc1f55940315e627b1803c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1121,8 +1121,8 @@
     },
     {
       "aliases": ["tls parameters"],
-      "body_bytes": 4103,
-      "body_sha256": "sha256:e971988b4fbe5fbad265b2c56f12f722bf5e9a5ab0001dd1c59431ca6bf328b2",
+      "body_bytes": 2978,
+      "body_sha256": "sha256:00fd16bb686b3ac6922593023caed97e907ee2a39cd0f02399bd1afb91fdeab2",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [
@@ -1247,8 +1247,8 @@
     },
     {
       "aliases": ["tls parameters client certificate optional"],
-      "body_bytes": 1264,
-      "body_sha256": "sha256:1f5561d72ac645814fc950ec9c52391c1634bd09d12e0b1e6b4129649a90bb4f",
+      "body_bytes": 986,
+      "body_sha256": "sha256:370a0abf3ae889eea2eaf76e5abcac56efc8cab68156e0a2253ffcf9ec311d29",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
@@ -1287,8 +1287,8 @@
     },
     {
       "aliases": ["tls parameters client certificate required"],
-      "body_bytes": 1264,
-      "body_sha256": "sha256:aeef7717b083f7713c42757a919b6b9031343926b8632db241dfb9da01d92d65",
+      "body_bytes": 986,
+      "body_sha256": "sha256:30ce3fe006a9df9a69aa72742b7f1144e4f0b2bdace074923e5a1679cbe6ece7",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
@@ -1327,8 +1327,8 @@
     },
     {
       "aliases": ["tls parameters common params"],
-      "body_bytes": 7551,
-      "body_sha256": "sha256:04266292fa48679f67448f04786d754262604e68ed886df5b4fd95fd1d2feb0b",
+      "body_bytes": 6135,
+      "body_sha256": "sha256:c9955ef52aab9c68856f5669e8c72a890dd87ff2e7c05741e26bbc2b70a91ce0",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [
@@ -1463,8 +1463,8 @@
         "tls certificates",
         "tls parameters common params tls certificates"
       ],
-      "body_bytes": 4791,
-      "body_sha256": "sha256:dc135de4f32a9e69c320a80bd52acde5259e94931d93286a6fa2a20dbb789b83",
+      "body_bytes": 3402,
+      "body_sha256": "sha256:de7d379e935eba1242d25338a993b209e4dc4a1494d6a25a338dd2f3ecdf2d3d",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [
@@ -1611,8 +1611,8 @@
     },
     {
       "aliases": ["tls parameters common params tls certificates custom hash algorithms"],
-      "body_bytes": 3040,
-      "body_sha256": "sha256:a2a484c03063b87194ec25956d921006848c87e6012fcd6dfcc099cfb6253471",
+      "body_bytes": 2647,
+      "body_sha256": "sha256:71f4b306c1492f6eacb33ac575428d1136869ef4705408b8a8c7c452636addde",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
@@ -1674,8 +1674,8 @@
     },
     {
       "aliases": ["tls parameters common params tls certificates disable ocsp stapling"],
-      "body_bytes": 1764,
-      "body_sha256": "sha256:c5aabda89da25d9694ed0262b44c793b6d1bd0e2ecb0a3caa3320da6e28a30a4",
+      "body_bytes": 1424,
+      "body_sha256": "sha256:3cac4f8298dd0ab6021979f85e0b7a5687c1cc5f7abc8540adf59674fe7c49bb",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
@@ -1714,8 +1714,8 @@
     },
     {
       "aliases": ["tls parameters common params tls certificates private key"],
-      "body_bytes": 2689,
-      "body_sha256": "sha256:f2c7fc59d1bcf67d5d0f2e0883f54ae7109c264a7205a4adb5340974a020a15c",
+      "body_bytes": 1846,
+      "body_sha256": "sha256:9fadc84d218705f82a4d479e68bd2b5acb6ef249a5b1c629fc89372e021ebb9e",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [
@@ -1796,8 +1796,8 @@
     },
     {
       "aliases": ["tls parameters common params tls certificates private key blindfold secret info"],
-      "body_bytes": 5138,
-      "body_sha256": "sha256:d36aaf0f89c8588b30e15bd27596658d006c6a1fc12b424cc030b994980258cb",
+      "body_bytes": 4420,
+      "body_sha256": "sha256:affd05eb37ab02c46a10ce7bb9b93dee30ff59e36d9f92f5eed5766256677bba",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
@@ -1908,8 +1908,8 @@
     },
     {
       "aliases": ["tls parameters common params tls certificates private key clear secret info"],
-      "body_bytes": 3998,
-      "body_sha256": "sha256:dc868ddc8298947792cf37098563fdafad600d62a9fe72d46716629388fcfedc",
+      "body_bytes": 3414,
+      "body_sha256": "sha256:17512804c597b70fd036bb34166c62bb67b37dd1fdf07dda6a79ec9df7f018c4",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
@@ -1995,8 +1995,8 @@
     },
     {
       "aliases": ["tls parameters common params tls certificates use system defaults"],
-      "body_bytes": 1758,
-      "body_sha256": "sha256:52a57268c2d7c0dcd7fec9d014398aad1f2ad696c982e938bc1f63a95fc61f41",
+      "body_bytes": 1418,
+      "body_sha256": "sha256:97a4da16b116dacbfbe39611687f806e68b12f0de1b484fdc1d24eba0bb6a773",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
@@ -2035,8 +2035,8 @@
     },
     {
       "aliases": ["tls parameters common params validation params"],
-      "body_bytes": 4609,
-      "body_sha256": "sha256:828b552270b2996017452483b6152c2f9e4d0559a9a9246135787aab63a7e25f",
+      "body_bytes": 3462,
+      "body_sha256": "sha256:80578118079649e7b3c92a16a939705a40d07bb9280c4ed60dc57d0a31c882ad",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [
@@ -2142,8 +2142,8 @@
     },
     {
       "aliases": ["tls parameters common params validation params trusted ca"],
-      "body_bytes": 2137,
-      "body_sha256": "sha256:f55c749c1dab9c5c8b74f35ffde8ec14ff00aecdf4ab10e03ded813933af9fa8",
+      "body_bytes": 1501,
+      "body_sha256": "sha256:8562aea3145ea3b551670b21b9f8f2c89112e5f111f711ba5fa7f4a5e34aa912",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [
@@ -2201,8 +2201,8 @@
     },
     {
       "aliases": ["tls parameters common params validation params trusted ca trusted ca list"],
-      "body_bytes": 7283,
-      "body_sha256": "sha256:3eee82b19c69bc3330c3eac971f13c14fcb5ec014c473fa98def96a43bcaab2a",
+      "body_bytes": 6186,
+      "body_sha256": "sha256:8e7b7281fac1fa9031357d70d0ed789d7cd7cbe70dd88e1ac6ad202c1ee689aa",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
@@ -2392,8 +2392,8 @@
     },
     {
       "aliases": ["tls parameters no client certificate"],
-      "body_bytes": 1252,
-      "body_sha256": "sha256:f2a32d18a9dcde06937935762edc268f292c1382ae8f3a592e9876de77a1c557",
+      "body_bytes": 974,
+      "body_sha256": "sha256:0b5e354b3a27304d4940b450cec564a16df83fcc0f5a7de4026eac51930ea424",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
@@ -2432,8 +2432,8 @@
     },
     {
       "aliases": ["where"],
-      "body_bytes": 2560,
-      "body_sha256": "sha256:dd420fe479ab8cc952f7530409f2fbdbeb38468435e5624f8e4c6fecd0cfba20",
+      "body_bytes": 1567,
+      "body_sha256": "sha256:d2f49e6c0389f90b788d896ae1c4d2f0bfce10e3e55b8fc4c0d45ae6c6879e5b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2525,8 +2525,8 @@
     },
     {
       "aliases": ["where site"],
-      "body_bytes": 7762,
-      "body_sha256": "sha256:28cabde5b6d6d39b1330843dc86a79579c388632dc98ff69fabcab9a2cc1bf39",
+      "body_bytes": 6971,
+      "body_sha256": "sha256:ca1cb7d292fdf81c09b9049fd15dabf987e4189157013da54fb64fa2f6ccd8c4",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2634,8 +2634,8 @@
     },
     {
       "aliases": ["where site disable internet vip"],
-      "body_bytes": 1341,
-      "body_sha256": "sha256:059aa8fcf7e50e49129220f7876290e6ca8f26aa4b4fb97e1c5da3044f7424ec",
+      "body_bytes": 1071,
+      "body_sha256": "sha256:cb5fdaa6b2803c50a61dcf180983983a9886e6f0bed3db152462c730c4f0d370",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2674,8 +2674,8 @@
     },
     {
       "aliases": ["where site enable internet vip"],
-      "body_bytes": 1339,
-      "body_sha256": "sha256:c8d0a84cd57bafb1bb2104bdfd1d61476eff2663552d725f72fdd110b802b4a8",
+      "body_bytes": 1069,
+      "body_sha256": "sha256:fb9518cdae640db51bc006cef13a440366a02b52eecf45a00b96e629d5ae6506",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2714,8 +2714,8 @@
     },
     {
       "aliases": ["where site ref"],
-      "body_bytes": 6360,
-      "body_sha256": "sha256:e07f673be31f13167115e382e5e51b9217da1ebdde9496dd84538a76c00b0a73",
+      "body_bytes": 5366,
+      "body_sha256": "sha256:47d231a7cf35c7f4bde663e5288ecb01a9577983959ac056442187714e4519d9",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2870,8 +2870,8 @@
     },
     {
       "aliases": ["where virtual network"],
-      "body_bytes": 1485,
-      "body_sha256": "sha256:e3f958b3574f2407ffecafd3380ecd5fa50619a26312ad528a88b8055371010c",
+      "body_bytes": 997,
+      "body_sha256": "sha256:153ef4fb47305dd15677b66feacfdc0f35e27026a94c89c56116b534a640e3ac",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:advertise_policy:properties:where:virtual_network:ref"],
@@ -2927,8 +2927,8 @@
     },
     {
       "aliases": ["where virtual network ref"],
-      "body_bytes": 6503,
-      "body_sha256": "sha256:f45ec66c6032f5f62b9dcf16997d4c41b38e92973f24e9dcad565548be6122b5",
+      "body_bytes": 5476,
+      "body_sha256": "sha256:af30952106d28b148ca6a5cb5c58425439d81e5d9be72bfd04cce03e3acee141",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3083,8 +3083,8 @@
     },
     {
       "aliases": ["where virtual site"],
-      "body_bytes": 7819,
-      "body_sha256": "sha256:c955204f9f3d9f2a448715769ba2a862ea126b12c33152b85ce0d52cba0c1554",
+      "body_bytes": 7004,
+      "body_sha256": "sha256:8f18f885f3e920ce573400016477dec439f0a9c2c9525499bcbfa7dac85f130d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -3192,8 +3192,8 @@
     },
     {
       "aliases": ["where virtual site disable internet vip"],
-      "body_bytes": 1389,
-      "body_sha256": "sha256:6f7661c6e293d6d146c875ab1aed5e99c76950219330c8e4b7673901f3e2baea",
+      "body_bytes": 1103,
+      "body_sha256": "sha256:2b48f641c8e72725b3cc5068d762c0162d57325c5995a6363ade377c3db3bfb7",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3232,8 +3232,8 @@
     },
     {
       "aliases": ["where virtual site enable internet vip"],
-      "body_bytes": 1387,
-      "body_sha256": "sha256:a76f8e2ffc99eb9e082a5fd73aa409a5c29d0ca017e4056841453a4b9da7b652",
+      "body_bytes": 1101,
+      "body_sha256": "sha256:b21a2a0b4d15381185b8331dfdd4f3d4eff16fda503239e70e042890f253eb18",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3272,8 +3272,8 @@
     },
     {
       "aliases": ["where virtual site ref"],
-      "body_bytes": 6466,
-      "body_sha256": "sha256:a5a053a76fd93a1c7a3118094125390ff33cc53223b1f0a567208ee07c413dab",
+      "body_bytes": 5447,
+      "body_sha256": "sha256:83b270c4a650d7ea0833f70fb79b6de8c6641264e8804137b41120449212842b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3428,8 +3428,8 @@
     },
     {
       "aliases": ["advertise policy"],
-      "body_bytes": 681,
-      "body_sha256": "sha256:2cc737629a21a958da9c797b0a4ffa86b86a6e02341b311848131f4756e64f04",
+      "body_bytes": 426,
+      "body_sha256": "sha256:32edaa882a1ea8c43017a7cadffd022377ed54743983ac9486f6fd8c1e8ef907",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:advertise_policy:example:data-source"],
@@ -3468,8 +3468,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1331,
-      "body_sha256": "sha256:c97e007277bb97a4417d6859efe042c8671cfd46b2f969682caf4bc6c8d14730",
+      "body_bytes": 1091,
+      "body_sha256": "sha256:61658344ab4239297eb613e57b6a3c6aad4e4fc89897c195312e7de3d6dfc6b1",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],

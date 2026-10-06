@@ -1,10 +1,10 @@
 ---
-page_title: "xcsh_external_connector landing"
+page_title: "xcsh_external_connector"
 subcategory: ""
-description: "Complete grouped canonical reference for xcsh_external_connector landing."
+description: "Complete grouped canonical reference for xcsh_external_connector."
 ---
 
-# xcsh_external_connector landing
+# xcsh_external_connector
 
 <a id="canonical-3122312021220130-3300301303031130-2302131220123022-3100221331011030-0221003203020132-3312113011210302-1031003011331110-0113230133233222"></a>
 
@@ -12,26 +12,24 @@ description: "Complete grouped canonical reference for xcsh_external_connector l
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3331211320002300-1233210313003033-3002032203310110-3320122212023003-3301120020221023-0110032330323120-2201332010233311-1303132311022331"></a>
-
-## xcsh_external_connector — xcsh_external_connector / 131022323002 / 2
+## Overview
 
 Breadcrumbs:
 
 - xcsh_external_connector
 
-Manages a External Connector resource in F5 Distributed Cloud for external\_connector configuration
+Manages an External Connector resource in F5 Distributed Cloud for external\_connector configuration
 specification. configuration.
 
-<a id="canonical-3022111333121103-0323223003010332-3002030301332122-3223210120321202-3201212122012210-2111312101022001-2032122011102121-3220310211321221"></a>
+<a id="canonical-3331211320002300-1233210313003033-3002032203310110-3320122212023003-3301120020221023-0110032330323120-2201332010233311-1303132311022331"></a>
 
-## Prerequisites — xcsh_external_connector / 131022323002 / 3
+### Prerequisites for `xcsh_external_connector`
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-0222111213231300-2201200130132331-1130321120333033-0131011330022013-2022212220210210-1310023312202322-0123200030212121-1000211232000120"></a>
+<a id="canonical-3022111333121103-0323223003010332-3002030301332122-3223210120321202-3201212122012210-2111312101022001-2032122011102121-3220310211321221"></a>
 
-## Minimal configuration — xcsh_external_connector / 131022323002 / 4
+### Minimal configuration for `xcsh_external_connector`
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,15 +55,15 @@ resource "xcsh_external_connector" "example" {
 }
 ```
 
-<a id="canonical-3030123011011322-1030312020020010-3000010021322303-1100333200130232-1020023033120121-1313313132323003-0222030021231310-3102013113222123"></a>
+<a id="canonical-0222111213231300-2201200130132331-1130321120333033-0131011330022013-2022212220210210-1310023312202322-0123200030212121-1000211232000120"></a>
 
-## Root configuration — xcsh_external_connector / 131022323002 / 5
+### Root configuration for `xcsh_external_connector`
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-1003310030130333-0122310201312020-2233300313121200-1033111131132113-1133312313001212-2322331332320131-2203032021331100-2201012322021300"></a>
+<a id="canonical-3030123011011322-1030312020020010-3000010021322303-1100333200130232-1020023033120121-1313313132323003-0222030021231310-3102013113222123"></a>
 
-## Next pages — xcsh_external_connector / 131022323002 / 6
+### Explore this collection for `xcsh_external_connector`
 
 - [Property reference](../guides/resources--external_connector--reference--group-001.md#canonical-3213311113001013-2210200203110132-0213333230312322-2323001310333022-3213131211021012-0222230300311031-1133032330331310-3032202302013232)
 - [Examples](../guides/resources--external_connector--examples--group-001.md#canonical-1023020021113213-0322331233001322-0012100022302130-1013123302233230-0232032201001213-3203001323100231-3330210233012201-1001111112222333)

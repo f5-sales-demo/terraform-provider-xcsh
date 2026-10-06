@@ -121,8 +121,8 @@
   "pages": [
     {
       "aliases": ["cdn purge command"],
-      "body_bytes": 1642,
-      "body_sha256": "sha256:4d56dcd60b9acb1dd212579ef0775be69b2b28d80c15451b45636c07f1af4e52",
+      "body_bytes": 1655,
+      "body_sha256": "sha256:53b5a9e73a8a7b86bcc0bf198666c9038106c6d91c14e85a4bf7218326df31d5",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -167,8 +167,8 @@
     },
     {
       "aliases": ["cdn purge command"],
-      "body_bytes": 16328,
-      "body_sha256": "sha256:ae908dca842aca5b7844ff6fbaccbd17678458129cb832cc47bf54022f5ffbf8",
+      "body_bytes": 15099,
+      "body_sha256": "sha256:515e9094e942273fa67748298ae394b8a8e3120e25c76afc7eb20fab9895d61a",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -463,8 +463,8 @@
     },
     {
       "aliases": ["hard purge"],
-      "body_bytes": 1507,
-      "body_sha256": "sha256:cd001ad72a2f826dfa0d276e8854fc3c9a8636757d09607df1ae2bd1194d5967",
+      "body_bytes": 1243,
+      "body_sha256": "sha256:1e2cde5a34bb0c72981952d189f08b8fdc150f4da6abf3455af3c4be3ecc04a9",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -503,8 +503,8 @@
     },
     {
       "aliases": ["purge all"],
-      "body_bytes": 1100,
-      "body_sha256": "sha256:5a761ee817685180a98742d336864e6fa02800a13eaaab0d88204105fb47ac7b",
+      "body_bytes": 836,
+      "body_sha256": "sha256:817d2f08baaae4af11ef80ad8e2e63b232fc6a71371000e890fb64dec691dd99",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -543,8 +543,8 @@
     },
     {
       "aliases": ["soft purge"],
-      "body_bytes": 1103,
-      "body_sha256": "sha256:d12dc6bff20389713b129de0eeda9251474a093c4bb7ee7959195bb7ede852d7",
+      "body_bytes": 839,
+      "body_sha256": "sha256:82ee64ddefb4041e73f691a06a9a0310f5f954e2934c2e20df04116de93c3f88",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -583,8 +583,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2261,
-      "body_sha256": "sha256:156bf8647d846477ce05708a2cda07f1b7db2ec1828e984d21d2ab7eee530311",
+      "body_bytes": 2012,
+      "body_sha256": "sha256:8d6593343d6037aa5ef06314a10a387e71143ed86e8dde4358373f7fc3d77ae9",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -723,8 +723,8 @@
     },
     {
       "aliases": ["virtual host"],
-      "body_bytes": 5976,
-      "body_sha256": "sha256:dcba69ae2d662e2ae2078b2facd1b76df3a0130158c02730b8c5486aeadc4ff4",
+      "body_bytes": 5054,
+      "body_sha256": "sha256:3a13eb6e31b99ec3ee7340b1cdf66865f3113d224d54046f3763ef4232f001b0",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -842,8 +842,8 @@
     },
     {
       "aliases": ["cdn purge command"],
-      "body_bytes": 663,
-      "body_sha256": "sha256:362612c7f6c1ecd607b92990bbe08dc50a06937f18861efca4e584a9629dab34",
+      "body_bytes": 417,
+      "body_sha256": "sha256:050182045745379feaf827b0826579013edb2f07c9b9df72e7063f608f207c8f",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": ["xcsh-docs:resources:cdn_purge_command:example:resource"],
@@ -882,8 +882,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1327,
-      "body_sha256": "sha256:a1b9e2c551fa8f92e466fb8394a2481dcf7740b765b2510ab65584ae1bc88748",
+      "body_bytes": 1090,
+      "body_sha256": "sha256:10c3e8204217ec08f37a4fdd1e29d5d93c9d8e51c1a0f8d97ebab78c24504f0a",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -929,8 +929,8 @@
     },
     {
       "aliases": ["cdn purge command"],
-      "body_bytes": 505,
-      "body_sha256": "sha256:ed765ef9b6208ed96805fdc68c65a0c8eba9ff623849d414e8803be358dc38ca",
+      "body_bytes": 376,
+      "body_sha256": "sha256:b067d878f85b1ba0c6418141848b06ff5f9abe7f45f342a1229b4526f5f630ac",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -970,8 +970,8 @@
     },
     {
       "aliases": ["cdn purge command"],
-      "body_bytes": 593,
-      "body_sha256": "sha256:fff77c0ef9ab9462672d9fed1a754026a5b26e6fc64613edf97ec28803680687",
+      "body_bytes": 464,
+      "body_sha256": "sha256:b34e4aaef525df29ad157b620c9774528eee6b94f1d188d43c22218d880f9ca5",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],

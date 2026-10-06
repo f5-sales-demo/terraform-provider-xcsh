@@ -2575,8 +2575,8 @@
   "pages": [
     {
       "aliases": ["proxy"],
-      "body_bytes": 1514,
-      "body_sha256": "sha256:c1515bf5ebb3fbf4e9b70a5d515a9f3780e39f1a2f80ac2b6a6b81351f2f0fec",
+      "body_bytes": 1527,
+      "body_sha256": "sha256:d25a88865d946015b8d132db3ca896f52f132667a328f73898c09b28d38208b9",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2621,8 +2621,8 @@
     },
     {
       "aliases": ["proxy"],
-      "body_bytes": 140914,
-      "body_sha256": "sha256:ed3ae1646bf2a6b225f81db943e908165627f27572fb0d3148ae1c374a66e120",
+      "body_bytes": 139204,
+      "body_sha256": "sha256:f341c41c6e63c0f7dc278fd324dbc96ee64c3d9f2d52a7a065c578b8abd1faa4",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -3118,8 +3118,8 @@
     },
     {
       "aliases": ["active forward proxy policies"],
-      "body_bytes": 2194,
-      "body_sha256": "sha256:2b1ebb5ba13a507c38636e4e41ea422f3715ef200cb1ed55de3541bb540d7dee",
+      "body_bytes": 1715,
+      "body_sha256": "sha256:55f8e8282d681a7e7626cb8f2d4c10c8ecc69ebb8eabc49b73b9f064d31b95b5",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:proxy:properties:active_forward_proxy_policies:forward_proxy_policies"],
@@ -3193,8 +3193,8 @@
     },
     {
       "aliases": ["active forward proxy policies forward proxy policies"],
-      "body_bytes": 6729,
-      "body_sha256": "sha256:ce46c33d7d7020204c976b8f9223c933ab750210447bcce90cac4a7fdb2ee138",
+      "body_bytes": 5972,
+      "body_sha256": "sha256:23b7251b45dae069ac679c1e818fba5875df5f158ed85ba04e6960845f23a3ba",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3312,8 +3312,8 @@
     },
     {
       "aliases": ["do not advertise"],
-      "body_bytes": 1500,
-      "body_sha256": "sha256:7615998eef2feecbe7a98ce72f283260e83816228aa798567a3bb20ae0b7de84",
+      "body_bytes": 1272,
+      "body_sha256": "sha256:9696563d7968a19a19364902d20a4b6efc9d010d9d8b7220ab20bebfed4a2346",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3352,8 +3352,8 @@
     },
     {
       "aliases": ["dynamic proxy"],
-      "body_bytes": 6353,
-      "body_sha256": "sha256:fa74257228d8cb19241d230fc4516b6097636a299627507f9f6af6b614ff55aa",
+      "body_bytes": 5203,
+      "body_sha256": "sha256:b303dc6abb6aaf8d552eec494be804a0359803a4edc790a449d75a9965686731",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -3568,8 +3568,8 @@
     },
     {
       "aliases": ["dynamic proxy disable dns masquerade"],
-      "body_bytes": 1254,
-      "body_sha256": "sha256:337c7e633bc9ae8df99b7fb8a4badcfa9c4930a2da112e7d1df737c0317161d6",
+      "body_bytes": 1017,
+      "body_sha256": "sha256:a8f2d2cb31006d3e2f5acbec055999fcdc3862ba151ed81d1de8207d7cd93827",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3608,8 +3608,8 @@
     },
     {
       "aliases": ["dynamic proxy enable dns masquerade"],
-      "body_bytes": 1250,
-      "body_sha256": "sha256:65111adf7db01fca4bab2deade305ef8fbc853ebe9d3f6e632cb5819545bd2a5",
+      "body_bytes": 1013,
+      "body_sha256": "sha256:02a9ffddaee5c3389043ebc6573d6e2ca3c1af91393188880d06f2264f5e8b55",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3648,8 +3648,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy"],
-      "body_bytes": 1525,
-      "body_sha256": "sha256:548257f86c048eacfa5134b2656e64572f777af9dbb5e6896dd777da57563ad3",
+      "body_bytes": 1081,
+      "body_sha256": "sha256:14a8b7831c3f0a51a6c86b45f1ad4bf081a94139fa07e36614d5a25845ae1162",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:proxy:properties:dynamic_proxy:http_proxy:more_option"],
@@ -3738,8 +3738,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option"],
-      "body_bytes": 19447,
-      "body_sha256": "sha256:ec1a8229c7652eaefb7a90042113db526ebd43221e77233d0a8bd54d12d182c3",
+      "body_bytes": 16104,
+      "body_sha256": "sha256:baac323315f43773ef35b4302b68bf3cedd9848d9def93fe890e8d7103dd8f60",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -4459,8 +4459,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option buffer policy"],
-      "body_bytes": 4073,
-      "body_sha256": "sha256:d8a28d854cb50400753fdba8b846d09b2e55ef5d200191f226cba621f065c2fa",
+      "body_bytes": 3153,
+      "body_sha256": "sha256:ae4a74edf3fbaf82054984ce8ec0dc0904443a638ab23671485b99162c42f14f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4532,8 +4532,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option compression params"],
-      "body_bytes": 8289,
-      "body_sha256": "sha256:fb206e75c3a7e46b360eba457827a9005e3ec7c3c581acc079a53b11ff102bfa",
+      "body_bytes": 7299,
+      "body_sha256": "sha256:5e1c8abe4fa09e679d6e125f51abdc3fec7ebdf682b17ca6f72f2a38f35a0775",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4553,7 +4553,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2200031212103131-3310131223321321-1013221221132310-2010222013231121-1313201321220130-0202321300102200-0211121130203102-2332023130201030",
-      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-dynamic_proxy--http_proxy--more_option--compression_params--content_length",
@@ -4652,8 +4652,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option disable path normalize"],
-      "body_bytes": 1615,
-      "body_sha256": "sha256:39172f74f76f746099e6b85b11ba8e3a03e12c0a2f8bdd34ee55874dcab1d294",
+      "body_bytes": 1332,
+      "body_sha256": "sha256:ec1ad3b17729ab0851d7ef76d936e8ede28774b25c9cbd0bc34f1077611112b6",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4673,7 +4673,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3010323103131011-2202132221302001-3230101000320102-1213223032032320-1331201133331230-0321310100011302-0131321202201220-0211331012332312",
-      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4692,8 +4692,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option enable path normalize"],
-      "body_bytes": 1612,
-      "body_sha256": "sha256:5e7f8b40a3d632568bf04859715e712ce7ab2cd944c83e9d5cf3d1c56d3f2267",
+      "body_bytes": 1329,
+      "body_sha256": "sha256:f5e86bc33c232c8e6555ae7cad1419ce4b7570d1e6eecc238b2e50daa323f056",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4713,7 +4713,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2213331021323322-3030210022220213-2001313310032320-2310212103302212-2123120201001231-2223111022333000-1233101102313112-0132110222331132",
-      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4732,8 +4732,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option no request limit per connection"],
-      "body_bytes": 1684,
-      "body_sha256": "sha256:cf8867341b98b4fbd7111fde7c4fdcb55f9869f5cc418e321aca6a6301c8f65d",
+      "body_bytes": 1401,
+      "body_sha256": "sha256:0d86948eb9cb6680e963e448cf01178a8c8da076358ee9624cf003fc5a0e69cb",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4753,7 +4753,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1300132130201131-0303023011210331-2213112112010120-1033210011003131-0103131233101201-1213132101102322-3112320303333013-0033212231102002",
-      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4772,8 +4772,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option request cookies to add"],
-      "body_bytes": 6639,
-      "body_sha256": "sha256:78e043c05134b0b9308ea8fbedc1eb6a4aff6a182825da9770cd2c3d63b0db79",
+      "body_bytes": 5763,
+      "body_sha256": "sha256:b2af5275521b57620cd9aa480757ee6ff5af5135ba42899afc8dfc59c1353c10",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -4795,7 +4795,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2202201333112001-1113233232320310-1221001002302311-0312120031201222-3230230022213231-3133322233323010-3332110221230120-0230320130222220",
-      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-dynamic_proxy--http_proxy--more_option--request_cookies_to_add--value",
@@ -4921,8 +4921,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option request cookies to add secret value"],
-      "body_bytes": 3181,
-      "body_sha256": "sha256:b4f7c1fd61b8f67b01fa887b384959ab82510c5927c75d2ced4d0ed978a39e21",
+      "body_bytes": 2317,
+      "body_sha256": "sha256:9bac117602957d33dd476cf25c050faaa15a7dd9cf3dc19ab7eaafc006b9fdc9",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -5046,8 +5046,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option request cookies to add secret value blindfold secret info"],
-      "body_bytes": 5804,
-      "body_sha256": "sha256:abf92a05d8e6afc091c2fbe61906e3fd5fe78b493888b11bec3a43701d3ea9e1",
+      "body_bytes": 5095,
+      "body_sha256": "sha256:87d4cfc9c4bb50ce386bb7a9131411b3ad72b06b842aa4c53913b7a1ac1a387c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5181,8 +5181,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option request cookies to add secret value clear secret info"],
-      "body_bytes": 4639,
-      "body_sha256": "sha256:946fc0b5abf54d0cf9aba0a5fefa1c98b55354f04b933387c3761cfe41c7ea36",
+      "body_bytes": 4064,
+      "body_sha256": "sha256:d8d9be322c62c66c6c7df82ebbde7f8abc1943f05b06e0fd58aa5600d21a166c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5288,8 +5288,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option request headers to add"],
-      "body_bytes": 6479,
-      "body_sha256": "sha256:19fff414ddb9c77a1e1d31993d52a562552af26a32451e8626fc88a47d642084",
+      "body_bytes": 5620,
+      "body_sha256": "sha256:21148263df08a3ced72c3a25f2811cd59208429fd33996293187ca5a99d8670a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -5437,8 +5437,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option request headers to add secret value"],
-      "body_bytes": 3181,
-      "body_sha256": "sha256:5a060ae7c980ef3512e7afa0459443021bdd02a7336fc6b2a63d74eeec276186",
+      "body_bytes": 2317,
+      "body_sha256": "sha256:36bf072968b41dff1ba40dce4db8ed41acbfada12132215f7c26cd50d3d14db6",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -5562,8 +5562,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option request headers to add secret value blindfold secret info"],
-      "body_bytes": 5804,
-      "body_sha256": "sha256:4f9b579c2ddaa95b6a31d181839d23c1447eb3c0536bbb62b1bc535f4538bd65",
+      "body_bytes": 5095,
+      "body_sha256": "sha256:4c9a8b9dc75a63cb4a8e9d61028505c5ff2d21b079f68ed4be89d00b6ab6b344",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5697,8 +5697,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option request headers to add secret value clear secret info"],
-      "body_bytes": 4639,
-      "body_sha256": "sha256:6ee50c2c15ed05ca1769e82ee12a46eade061451c4905d5c5a0989b6bc9f9f82",
+      "body_bytes": 4064,
+      "body_sha256": "sha256:7e5729755d4fabb616c31af820c0f63487fbf6c8fd2b2bcde12b69c23dbd5999",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5804,8 +5804,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response cookies to add"],
-      "body_bytes": 19463,
-      "body_sha256": "sha256:d40c060f84a08ef35097372e53e6b85b3d136bca2d217b317c7a0433b56b1183",
+      "body_bytes": 14612,
+      "body_sha256": "sha256:ade0012b024bdb8ae949e1e45e482e2dfd215f8f47596181b35b537241896a50",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -6518,8 +6518,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response cookies to add add httponly"],
-      "body_bytes": 1915,
-      "body_sha256": "sha256:b843b7aa8dec33ce794276c3df528d0bc01ea193e257a83d4118b3f5ba734b6a",
+      "body_bytes": 1584,
+      "body_sha256": "sha256:875bb55d22fd10c0193722bbf4a8e4d2a4db25bd7f219d05db02b8960dc3a956",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6558,8 +6558,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response cookies to add add partitioned"],
-      "body_bytes": 1927,
-      "body_sha256": "sha256:84eea61b3a7df43689f3d230188e1f73cb079d78917a29f75cf2efbd3491cc33",
+      "body_bytes": 1596,
+      "body_sha256": "sha256:c67b71c8075ad3bb2374bd54ec339d4e95c16b183b44d8ab386eac309e635f5e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6598,8 +6598,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response cookies to add add secure"],
-      "body_bytes": 1886,
-      "body_sha256": "sha256:8310aa75db913b884e2ca7b3a56826188d43530bd47a28501e3d65522dce6f2d",
+      "body_bytes": 1555,
+      "body_sha256": "sha256:dfa2abfdc4fcacb0f6ba2c9fad68146b94ae076d55c3704642aff94c0cf0df1a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6638,8 +6638,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response cookies to add ignore domain"],
-      "body_bytes": 1919,
-      "body_sha256": "sha256:0b4a4f65fb1b0e1a237bd076221e193a0a35e64ff1362429d4ee3c6d829d565e",
+      "body_bytes": 1588,
+      "body_sha256": "sha256:e00ec10f7f0e0e25b57b4878f92e63db21738f25a1791aaade0592c8b0eaddaf",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6678,8 +6678,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response cookies to add ignore expiry"],
-      "body_bytes": 1919,
-      "body_sha256": "sha256:3614809fdeeb8074ecfb3779204b023fc61b895de38dcc64b7dfa97009914dc9",
+      "body_bytes": 1588,
+      "body_sha256": "sha256:8029b8c30f1c4634f74b311de959120083c885f9134c2f0ce80635345315a645",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6718,8 +6718,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response cookies to add ignore httponly"],
-      "body_bytes": 1927,
-      "body_sha256": "sha256:e840dd64dd4e8008364aa97a1524318fdebc6c054fd843d837e78a950fb57ee4",
+      "body_bytes": 1596,
+      "body_sha256": "sha256:0b16b95844917ad04f7fe272430d06cd85886d9800881a5577c7d5e3dd61ee4f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6758,8 +6758,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response cookies to add ignore max age"],
-      "body_bytes": 1923,
-      "body_sha256": "sha256:be61509d906b30b6d82dd076dd1c2b3387c2d22cc7ccaaff557516767a444401",
+      "body_bytes": 1592,
+      "body_sha256": "sha256:51f1ca1579f8202dd8a67225456d3dffa9094eddee1f2c34c2c5d99b83869a2b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6798,8 +6798,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response cookies to add ignore partitioned"],
-      "body_bytes": 1939,
-      "body_sha256": "sha256:e42f92770a88bf6b6170fe38c423fe1fb57aaa820f5b13dd28cc9982afff59e9",
+      "body_bytes": 1608,
+      "body_sha256": "sha256:603b27899a86265260fe2739f73d1e19b6e3b1e0dcb2425b305d5e21fe72eb54",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6838,8 +6838,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response cookies to add ignore path"],
-      "body_bytes": 1889,
-      "body_sha256": "sha256:3833b997c16490cad6b3feeb3390d267ab8a8cee6ccac252b430ab26a45eca06",
+      "body_bytes": 1558,
+      "body_sha256": "sha256:e61971b6c1d7294cc42dd43353461b051821629d21ceeae77c5b404293dcf243",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6878,8 +6878,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response cookies to add ignore samesite"],
-      "body_bytes": 1901,
-      "body_sha256": "sha256:85a3f57c57d2518b869a5eced96a8af7998eacd7d645aa57eda15bca8130afb1",
+      "body_bytes": 1570,
+      "body_sha256": "sha256:1cc8594ab8d4d5f64f76d66849c858c4ea288dc5321d7e6b35ad491aef45112e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6918,8 +6918,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response cookies to add ignore secure"],
-      "body_bytes": 1895,
-      "body_sha256": "sha256:163e930177fbf85d4478223a5bd7854eecb5083a1dbe7378492c49a4baa8bb49",
+      "body_bytes": 1564,
+      "body_sha256": "sha256:a91013020e15376f1e9117fc9ef0eab63f96c9195694e54c7d3211aeac816539",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6958,8 +6958,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response cookies to add ignore value"],
-      "body_bytes": 1915,
-      "body_sha256": "sha256:5578a8ec31772351ca17ad82f26d357c6ca415cfe21fc652610023affde22e88",
+      "body_bytes": 1584,
+      "body_sha256": "sha256:66ce3d24e31f324ba46762cd825cc85fbdd66b646aca1775bc30b3bebd84d334",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6998,8 +6998,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response cookies to add samesite lax"],
-      "body_bytes": 1892,
-      "body_sha256": "sha256:8c8c5c9e9fe0fd2ec85ad128d887b500829d8c691e056e23e0198b6a6fd62e05",
+      "body_bytes": 1561,
+      "body_sha256": "sha256:a500806c849ae250a1a44921341feb5b6f0d2aa34011803aff6d6b26f218249d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -7038,8 +7038,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response cookies to add samesite none"],
-      "body_bytes": 1895,
-      "body_sha256": "sha256:9b6e5369f7b8cb2c84ca1f228aa5ea809a6d313bfea927fe1d68e6a0aeec2e52",
+      "body_bytes": 1564,
+      "body_sha256": "sha256:357750a82677769cd8fe18230d9a6135f643f8f2f79f2697b94744a9fc9fc316",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -7078,8 +7078,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response cookies to add samesite strict"],
-      "body_bytes": 1901,
-      "body_sha256": "sha256:cff4ae3b2e912a3a3be92340528fa5d2d18e5ae86ece8571f950579aad95a446",
+      "body_bytes": 1570,
+      "body_sha256": "sha256:f1f6dc8cb2247e950b55347cecee30688537a4748b74610e8ab070778ec6ac8c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -7118,8 +7118,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response cookies to add secret value"],
-      "body_bytes": 3193,
-      "body_sha256": "sha256:0c139fd0ce4a50dfb401ac7dc5c932ae2480bdf7cd07ca1ffd96c638ce21402f",
+      "body_bytes": 2323,
+      "body_sha256": "sha256:e579ffd43973b4a06b96236d1a04bfd1ead97af2037ca3308da2b65d79c7a4ca",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -7245,8 +7245,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response cookies to add secret value blindfold secret info"],
-      "body_bytes": 5815,
-      "body_sha256": "sha256:5afa09530fc52fc9d17f17d1b6467cb02eeb275428adbb0ff6a29e3e6025cb3d",
+      "body_bytes": 5104,
+      "body_sha256": "sha256:7e831bbad6e7039f4251c63710c825b9ef9cc516d10924dfe9911a11ca79d213",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -7380,8 +7380,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response cookies to add secret value clear secret info"],
-      "body_bytes": 4649,
-      "body_sha256": "sha256:adae72196d74c4bc8a24a9bf907410e854fac7aaf6bc48a1e198d84193a34a3b",
+      "body_bytes": 4072,
+      "body_sha256": "sha256:23674f5931bd5c40ae3af172d86356d2fb7061db0019681cdcd73526d90cc947",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -7489,8 +7489,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response headers to add"],
-      "body_bytes": 6490,
-      "body_sha256": "sha256:47c3c149779d3e128a7b636b694ca4704c40fe7d42b363fe7fb456321fb35908",
+      "body_bytes": 5628,
+      "body_sha256": "sha256:db30dbc69324be573c85bb17821babe84b84ec6ebc51b58189bc7cdea489126d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -7638,8 +7638,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response headers to add secret value"],
-      "body_bytes": 3193,
-      "body_sha256": "sha256:eec84bb82ecfe4f22667fab85cba580ccf08486d81de138616a4c7af51f46aba",
+      "body_bytes": 2323,
+      "body_sha256": "sha256:7be83ca2f7b0be9f2db90bd66bf77c7e25b51dcecdcf0e52b0760bccb76071c6",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -7765,8 +7765,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response headers to add secret value blindfold secret info"],
-      "body_bytes": 5815,
-      "body_sha256": "sha256:56f33bafbdc7e5bfbaddfba383857b8f2098d3ebaa09f74d38059f983c591462",
+      "body_bytes": 5104,
+      "body_sha256": "sha256:ca1ca84f42522b1ef4f56bdf7d3099506c7bd73e477e7fd34f2cf8af2ea2714b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -7900,8 +7900,8 @@
     },
     {
       "aliases": ["dynamic proxy http proxy more option response headers to add secret value clear secret info"],
-      "body_bytes": 4649,
-      "body_sha256": "sha256:e013b2c3d12b91c4f6d5bdac03e8c575221bb63d94d9ef94fa365e465a11dcd5",
+      "body_bytes": 4072,
+      "body_sha256": "sha256:17254334f506024dd7dacb4a26e095fb1ae1326268c5ee3501b94a9c2c96cee7",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -8009,8 +8009,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy"],
-      "body_bytes": 1846,
-      "body_sha256": "sha256:9e4f9c6f17d3cb2109f14e558b43c13f2a4307daa892ddaa7c131d224b9eae9a",
+      "body_bytes": 1303,
+      "body_sha256": "sha256:81a1edae8f1dcb3f7d4f3723642c88935a4315d81bd8e38a6700cab54f4927f6",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -8143,8 +8143,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option"],
-      "body_bytes": 19489,
-      "body_sha256": "sha256:e9244259ebb629c4362683b96da268a82ab42b89fca7fad89811bf36ed79531b",
+      "body_bytes": 16126,
+      "body_sha256": "sha256:d24c11a035114c454f72daf749f0f6a861998960c5b3b832794b361915161e20",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -8864,8 +8864,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option buffer policy"],
-      "body_bytes": 4083,
-      "body_sha256": "sha256:4bd4147f4009ea7437e8f872f1f08fde63a96c88ba6f2463cc670e5a0af91477",
+      "body_bytes": 3161,
+      "body_sha256": "sha256:459ad548e7bec3210d707fac194313546e64b61e41ea3d3720babb9b0ebb5aa8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -8937,8 +8937,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option compression params"],
-      "body_bytes": 8301,
-      "body_sha256": "sha256:9361c0e3f6b897853d4045dd177caa8b7cbc69b4676da369147bceb1fe2fd3de",
+      "body_bytes": 7309,
+      "body_sha256": "sha256:88eda2334bae589fd9577a0c36d243e4f6cfe32c42858c96c0af91e985421c0f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -9063,8 +9063,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option disable path normalize"],
-      "body_bytes": 1623,
-      "body_sha256": "sha256:e6fb82ad2bff7707d9adeb7ca82e4c627487de561c8d4055af295448f1e5a4f8",
+      "body_bytes": 1338,
+      "body_sha256": "sha256:fa210c5e56d4c7069338368fe410fab997b13736d9a1ba505f67ae127fc295aa",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -9103,8 +9103,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option enable path normalize"],
-      "body_bytes": 1620,
-      "body_sha256": "sha256:2147b600c03e0b6bbfb24db666de58178b57cbdb42ba978396d0b677c8c8ac22",
+      "body_bytes": 1335,
+      "body_sha256": "sha256:a0f7651f33ab0d4c878804e936243d9e54c6181bb231b4c9e484d47fded7bd84",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -9143,8 +9143,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option no request limit per connection"],
-      "body_bytes": 1692,
-      "body_sha256": "sha256:91e2312f5d7abcc074f187a936f6838c55f9095de4e0cc9cc41410464f3462ec",
+      "body_bytes": 1407,
+      "body_sha256": "sha256:7f37483f8085da2f29de4fddf1f96662751865184fa5498d36fb62e66de6cadc",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -9183,8 +9183,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option request cookies to add"],
-      "body_bytes": 6653,
-      "body_sha256": "sha256:7cad77ab654148fc15df0e50652dbed62954a2731624fc7a5fb30179428f970a",
+      "body_bytes": 5773,
+      "body_sha256": "sha256:36832086f507634504b91bd57c2ef55ee65bca9fbd8527f08c6a22ed3009ee75",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -9332,8 +9332,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option request cookies to add secret value"],
-      "body_bytes": 3197,
-      "body_sha256": "sha256:28940a21c0b790a47c244cc6644973baacb67a87d2202df7fee2bb4ad5088beb",
+      "body_bytes": 2327,
+      "body_sha256": "sha256:a74c81c5a2798354876b55f2c3dbe4653846cc26083f7b11439f7a3b8a46139a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -9356,7 +9356,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1201100231202023-0100112011213022-0120103013023121-1230222333002210-1013332322111130-1122020020210230-0032113111100322-1330212032033000",
-      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -9459,8 +9459,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option request cookies to add secret value blindfold secret info"],
-      "body_bytes": 5819,
-      "body_sha256": "sha256:b01003f3c5f1fd4f9a746f42d040799b87e079d319329899b985cddd9bb0a47b",
+      "body_bytes": 5108,
+      "body_sha256": "sha256:a3ea5d7052ee2b3072f590ab1aa89366cd22fccb6e6c22a4597176c1de231674",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -9480,7 +9480,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0131201303010331-2131112100321201-0111200122301000-2302302023001302-2012302030011111-1322110221100122-2010013001323123-0332022032332131",
-      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-dynamic_proxy--https_proxy--more_option--request_cookies_to_add--secret_value--blindfold_secret_info--location",
@@ -9594,8 +9594,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option request cookies to add secret value clear secret info"],
-      "body_bytes": 4653,
-      "body_sha256": "sha256:44ab64ba5231a43fc3a924eedbcd1dedefccafefd5feb03880551627ffaf5bb5",
+      "body_bytes": 4076,
+      "body_sha256": "sha256:56cf60f4e9a2e9cf9143add65cd19d34ca9fa0645ab8c6e7f3f8d311d55cf948",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -9615,7 +9615,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2212311010210312-3001323222221101-1032000012131230-2310303323220330-0312213122313330-3300131220211130-0311331021321313-0103011210120000",
-      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-dynamic_proxy--https_proxy--more_option--request_cookies_to_add--secret_value--clear_secret_info--url",
@@ -9703,8 +9703,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option request headers to add"],
-      "body_bytes": 6493,
-      "body_sha256": "sha256:d262023471c831c2c0b85cd763dce50f3457046fb2e9403da4a544b96a05a050",
+      "body_bytes": 5630,
+      "body_sha256": "sha256:38d82b4ed620ad89e03171a3e8c85e3164a50538e2761711efbba7caa90c6a8e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -9726,7 +9726,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2332131110221310-0131223230021220-3210111333022122-0020030210233000-3110000232030310-3022021323022132-0331013111332321-0033103233003121",
-      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-dynamic_proxy--https_proxy--more_option--request_headers_to_add--value",
@@ -9852,8 +9852,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option request headers to add secret value"],
-      "body_bytes": 3197,
-      "body_sha256": "sha256:81128722538cee8b84514965041598641f0faccd67a840ad7cbb7bfa4a023e27",
+      "body_bytes": 2327,
+      "body_sha256": "sha256:65ac7550a1dea237a710fa9835e29bdac88c4b3ef1dacb4c2f4221fe184bd5bb",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -9876,7 +9876,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1113023023131221-3033003303233213-2032331001111220-3212121321321120-1023100221013323-2220133222000301-3211120013201211-0220002131113133",
-      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -9979,8 +9979,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option request headers to add secret value blindfold secret info"],
-      "body_bytes": 5819,
-      "body_sha256": "sha256:35dbfd533ad079d972642f463a07f85ef0ac346b6b7e26bd3fcbdf6ba0e26e1c",
+      "body_bytes": 5108,
+      "body_sha256": "sha256:12e48fef86579fb825e4e967e8c0bf97b7f3acb3f3a8c31710cc4a171e7bfb09",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -10000,7 +10000,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3000332013332130-3203012020121100-3013131023233003-3000321012022221-1022211012121102-2100131301022002-0310322101102330-1121322120133011",
-      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-dynamic_proxy--https_proxy--more_option--request_headers_to_add--secret_value--blindfold_secret_info--location",
@@ -10114,8 +10114,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option request headers to add secret value clear secret info"],
-      "body_bytes": 4653,
-      "body_sha256": "sha256:2e219b9c90893e73a4b4c4af2faf80d58e55a9321ad9058a043a0e226194b4b9",
+      "body_bytes": 4076,
+      "body_sha256": "sha256:470731ce3aa884f29d7960e3b09051047ac7853a34c8af3596c32ae814b7950c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -10135,7 +10135,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3013211221333301-0102123101313322-2212001003211300-0333303021031220-2120231322223102-0022310211133032-1202121330320100-3120232322000131",
-      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-dynamic_proxy--https_proxy--more_option--request_headers_to_add--secret_value--clear_secret_info--url",
@@ -10223,8 +10223,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response cookies to add"],
-      "body_bytes": 19526,
-      "body_sha256": "sha256:99512f2e759d85c4aa2bbacf5f8df7db7697e337ad2b1d09ea34c6fd56f200da",
+      "body_bytes": 14641,
+      "body_sha256": "sha256:9e2786be1efcfdb233ff4b386675c63843b08d24e4a23280d3f4d230b03b29a8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -10261,7 +10261,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0332321332102213-2113202202211022-0131202101220121-3302231222320201-2200202021300121-0000022100331131-1232120022001101-0100132301321310",
-      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-dynamic_proxy--https_proxy--more_option--response_cookies_to_add--add_domain",
@@ -10937,8 +10937,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response cookies to add add httponly"],
-      "body_bytes": 1925,
-      "body_sha256": "sha256:cedc6014f4bf042804d87f47014572c93946e6489bae2a71db364a913014e031",
+      "body_bytes": 1592,
+      "body_sha256": "sha256:ebc8f99543ba62222ab4c4dd9e4154c663e1c408f0364c8d625fc86aa2e4c38e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -10958,7 +10958,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0322010232101122-0220323003101213-3323131000321030-0300010230213023-1331022000133201-3201200302000110-3021322321022201-1202123022311221",
-      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -10977,8 +10977,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response cookies to add add partitioned"],
-      "body_bytes": 1937,
-      "body_sha256": "sha256:bef2890d5f2c72e84e58a346fc2693718af1692a6c456ed51e883670ff878846",
+      "body_bytes": 1604,
+      "body_sha256": "sha256:6b678493423c43a619ddeff39f006b20acf7362e03b40cc1bf4aaf676522c618",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -10998,7 +10998,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2212200310330103-1032232331211021-2113122202302111-3011332310020302-0322000231121330-2200301223120322-0302331030022301-3123112112020102",
-      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -11017,8 +11017,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response cookies to add add secure"],
-      "body_bytes": 1896,
-      "body_sha256": "sha256:d4137b0a972522201698d32054c027911d593e48bf3699fe4527ffc733b5a91d",
+      "body_bytes": 1563,
+      "body_sha256": "sha256:bf19f3d47ce925f559a3cdac7692a8a9484788b9d9ba62db303164b7f58d09ab",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -11038,7 +11038,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0001010013121313-3303320320020010-2101110003333123-2232132113101033-2302203033311322-1110222122010213-2232121111202200-1322020110121301",
-      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -11057,8 +11057,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response cookies to add ignore domain"],
-      "body_bytes": 1929,
-      "body_sha256": "sha256:52900561707e5668574ed89c6dd57c38128ba2a30c8fccd56d11361cfaca4059",
+      "body_bytes": 1596,
+      "body_sha256": "sha256:d04b4f847de883fe949da57c7f6a2b259cdf5155baf0286174bc70eba65f7b6e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -11078,7 +11078,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2130212002130011-3311123202110101-1333211303332300-2131100332110020-1022320212311020-3331310330033132-3111021202100330-3032323232312311",
-      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -11097,8 +11097,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response cookies to add ignore expiry"],
-      "body_bytes": 1929,
-      "body_sha256": "sha256:7757edb32a66dce6e4766e49013cf7e631542b8ff7df0679fe391c71dad489df",
+      "body_bytes": 1596,
+      "body_sha256": "sha256:553231ad6effd67e770461e0716c45958071f525ec195a965681c67125e8d94b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -11118,7 +11118,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1102103003333103-0031133300111212-2030023201032333-0123220310012322-1300131203233230-3212111012333230-3013201033020311-2032132232031022",
-      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -11137,8 +11137,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response cookies to add ignore httponly"],
-      "body_bytes": 1937,
-      "body_sha256": "sha256:97db90645c5fdfefaa118c4f2b2f429b52a7e60026486c461eaf5fb77b380eda",
+      "body_bytes": 1604,
+      "body_sha256": "sha256:099e3f49362096b261cb5dd3446e194b474c755b263ff521f52f6d6b89040de3",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -11158,7 +11158,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3321312012221102-2011213032302220-0111223111010211-3032230011320113-3310202223120232-0132133130131112-0130021113003300-1303222003311323",
-      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -11177,8 +11177,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response cookies to add ignore max age"],
-      "body_bytes": 1933,
-      "body_sha256": "sha256:008a641c841529a57e32efad74112a66d885b067b3b91751d866339b2a1ca41a",
+      "body_bytes": 1600,
+      "body_sha256": "sha256:e7049a42c906e249cce86879c16908881b17d1d5052305aca1c69220bc2807dc",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -11198,7 +11198,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2200202100213111-0132121020222001-1203333223222122-0220200332022213-2003210022021220-3311003320233333-2233131101110012-0103013203133013",
-      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -11217,8 +11217,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response cookies to add ignore partitioned"],
-      "body_bytes": 1949,
-      "body_sha256": "sha256:c1becf395905b0e1a229109d632d12b159fba2b0fc34ce1a4cf3ce027aa33ac5",
+      "body_bytes": 1616,
+      "body_sha256": "sha256:57497da16497ec0b5ae13278d6735a114412a82e6b95406e164edfa8bbd0d300",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -11238,7 +11238,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3010103012002231-1230233022121112-0132103120103221-2101131130231201-0332012312311031-1022022021313131-2313101101103111-0213323330103331",
-      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -11257,8 +11257,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response cookies to add ignore path"],
-      "body_bytes": 1899,
-      "body_sha256": "sha256:9924adccf3620a23bbd391c5eb003a753933f53ef646a61fc78df288bb11f6ef",
+      "body_bytes": 1566,
+      "body_sha256": "sha256:f522c0f7c22066fb976d6685519edb397d0475f6c54844e1d09ce8b37eaf6238",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -11278,7 +11278,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2033011031112123-1001200301010122-2102002131220130-2300002033112303-0122231133323312-0213001310121011-1122322312200210-0300020030310111",
-      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -11297,8 +11297,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response cookies to add ignore samesite"],
-      "body_bytes": 1911,
-      "body_sha256": "sha256:5e6d7b188f0d24ebd6a441536c8ca6f7b4e70c1a58c0b0a283aaff32e1e89044",
+      "body_bytes": 1578,
+      "body_sha256": "sha256:db728dabb293ca0a51a22766ee9be0efefcc0f044333cbe9743ea8c90d0418f6",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -11318,7 +11318,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1211213001210301-2322033012322331-1103132223010023-0321332020332102-3330322330101330-2133023313300333-1213101111220203-1310233003200121",
-      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -11337,8 +11337,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response cookies to add ignore secure"],
-      "body_bytes": 1905,
-      "body_sha256": "sha256:bec4b2f59344ab5c6ce450356be293088695561884819ffb95dc81a61ff63961",
+      "body_bytes": 1572,
+      "body_sha256": "sha256:a8c9e7ffa5e8189374981f60ff2a6c95abd44d9bbd46137b305c33508250d8f2",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -11358,7 +11358,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2213321311302100-3220123332103320-0211203033210101-2323003122302332-3320323021310000-3331321200102210-2303200132132310-0300032002002013",
-      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -11377,8 +11377,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response cookies to add ignore value"],
-      "body_bytes": 1925,
-      "body_sha256": "sha256:46d4c6d0ff0d3965e8cc30148f11655383767aaca9ba4daf0e1e19faa8b66600",
+      "body_bytes": 1592,
+      "body_sha256": "sha256:a267e63d6044e5fc47dbf073f6a94adc5054716bac8bdc689a56a3ba1f0ed368",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -11398,7 +11398,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1313012130201032-2222121001201222-2300123313203311-0221001020222032-0033020033131021-0231111013123123-2100123102122101-0233003112002200",
-      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -11417,8 +11417,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response cookies to add samesite lax"],
-      "body_bytes": 1902,
-      "body_sha256": "sha256:4c8be1c82c90e5499dde3eadea9bc0710f476f158a07bf98a5b2704037553821",
+      "body_bytes": 1569,
+      "body_sha256": "sha256:7b83ef2bd810ee6b1210e630c539de437486c2657a68d863ae1e8fd9902f5821",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -11457,8 +11457,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response cookies to add samesite none"],
-      "body_bytes": 1905,
-      "body_sha256": "sha256:99c343d6e99e2fa8108bfd6a800f44ca8175a7b82265d3d89f9792bb67294a94",
+      "body_bytes": 1572,
+      "body_sha256": "sha256:aa73a1351e81c2c3674366d704b62d51cfb38127ada6b43fa7df77f6d14f8b3d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -11497,8 +11497,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response cookies to add samesite strict"],
-      "body_bytes": 1911,
-      "body_sha256": "sha256:a64b5a8131e01697865a0d7b6968eed7b4b1d98cd413a2f8017cd35814f5cf5a",
+      "body_bytes": 1578,
+      "body_sha256": "sha256:22888bb53b3ca393f253b4895d1f9d9a7221d7513358b03f6b6a164a6ec9e95e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -11537,8 +11537,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response cookies to add secret value"],
-      "body_bytes": 3209,
-      "body_sha256": "sha256:525b3f55822e7cbba47da8ea9e1fd99b5ffdbd9757acae0b9ed79dbd4064de2b",
+      "body_bytes": 2333,
+      "body_sha256": "sha256:30ff030f17255c8a591b0fa28d75fa7a8a4677ffc2e9efd435f99952ca0c5d3b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -11664,8 +11664,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response cookies to add secret value blindfold secret info"],
-      "body_bytes": 5830,
-      "body_sha256": "sha256:0bc500e390bcf86168a2fbeb5d5f3dbe8ce00534c9a64a88a37b96b7fccd28c7",
+      "body_bytes": 5117,
+      "body_sha256": "sha256:1fde644d0b0aa9ce8cd44dc31af382d88276807198bdcfd0431fafd97522dc7b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -11799,8 +11799,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response cookies to add secret value clear secret info"],
-      "body_bytes": 4663,
-      "body_sha256": "sha256:e37af17f89583702161cd314ffb354fb9627b42893f82241ad593c8d6ab4474d",
+      "body_bytes": 4084,
+      "body_sha256": "sha256:c0840ae0e74cc04f8c032e1cd7155c0ff803f8478efdfdddb897c1e570e54de5",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -11908,8 +11908,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response headers to add"],
-      "body_bytes": 6504,
-      "body_sha256": "sha256:f41190bd49583ea2c94dfff3ce27d7c11af9d07381a7ad92885ae9d080c9c076",
+      "body_bytes": 5638,
+      "body_sha256": "sha256:c7f9d4beed86ec24415daa789aaf519e72e1e6537e11f5bcfb30d138e2de8f04",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -12057,8 +12057,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response headers to add secret value"],
-      "body_bytes": 3209,
-      "body_sha256": "sha256:429203671e151bc6763d36e42a9a2025efb66614facf79f09c336e9f546ebbf8",
+      "body_bytes": 2333,
+      "body_sha256": "sha256:7add43ffa750607e18899805779b2a91e2146a70593b3ae6e875b51eb384d667",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -12184,8 +12184,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response headers to add secret value blindfold secret info"],
-      "body_bytes": 5830,
-      "body_sha256": "sha256:3d3b8b651984a0f959d53d254861af25ebb4b318cf07d38b054373de8e499f95",
+      "body_bytes": 5117,
+      "body_sha256": "sha256:ec33fb662c65fbb049cd08b86dbb4f4ab90f80cb3ae69b201ce437daa5efcbaa",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -12319,8 +12319,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy more option response headers to add secret value clear secret info"],
-      "body_bytes": 4663,
-      "body_sha256": "sha256:e0a8a224848bf3d40d986c91f94d017710d649bcd5d96d9ca74c1385a8d67bc0",
+      "body_bytes": 4084,
+      "body_sha256": "sha256:af0524809c9a92469019f64a9840547f7792ab27c65c13f0918b26cb9bdda1a4",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -12428,8 +12428,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy tls params"],
-      "body_bytes": 3141,
-      "body_sha256": "sha256:e45174cf996bda27e65d351273398ca1a4c2955e4a5853c7308d54bc6931a62c",
+      "body_bytes": 2106,
+      "body_sha256": "sha256:1d95fb3237cfe7913ff3680bf86412256d40755eadbb098e6191533a2577f0f1",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -12772,8 +12772,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy tls params no mtls"],
-      "body_bytes": 1572,
-      "body_sha256": "sha256:723bcac69131d566a922fb00042731cb2049e0ce314e66f6d26c97c9b3dcea74",
+      "body_bytes": 1289,
+      "body_sha256": "sha256:360498b007c40c5b16d9a22cd36fc5bba01aa1a519a3e37998b44ab8004601fe",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -12818,8 +12818,8 @@
         "existing certificates",
         "tls certificates"
       ],
-      "body_bytes": 6599,
-      "body_sha256": "sha256:fe0259a79d817179d1fbeaa70aa6f16b406f77e2932e2bdf6b0f4270f6dea65c",
+      "body_bytes": 5091,
+      "body_sha256": "sha256:e033c9a6001e7aa26c8eb88c54ce2a30178cad63564a83e39353b04d7461df87",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -13049,8 +13049,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy tls params tls certificates custom hash algorithms"],
-      "body_bytes": 3611,
-      "body_sha256": "sha256:1b3617495bc07c83bbc1927edffcb864522386bd747fa1d47fbe697d26acd15d",
+      "body_bytes": 3241,
+      "body_sha256": "sha256:aa11cebe56bd06ee15a21824248e1a63b4b18cbbdbadeba37aba183f3ad41a4c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -13122,8 +13122,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy tls params tls certificates disable ocsp stapling"],
-      "body_bytes": 1911,
-      "body_sha256": "sha256:e72b5e17db1e605f1ddce15b5ad5a4be42be7404e13688a91a79c15c8413235c",
+      "body_bytes": 1594,
+      "body_sha256": "sha256:80bc05b31ffa22ae0bd729cffa14dbdf218f666fc1dd68c7edecd451d8e9bff4",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -13162,8 +13162,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy tls params tls certificates private key"],
-      "body_bytes": 3102,
-      "body_sha256": "sha256:4e09562b706929e69e188f68441270fb5503f524e033eee7aed90f64173c4b82",
+      "body_bytes": 2278,
+      "body_sha256": "sha256:64b701f69097bc741cad70b846a0bb2b3c695a81abfecb8f11677036d6ec5c6b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -13287,8 +13287,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy tls params tls certificates private key blindfold secret info"],
-      "body_bytes": 5731,
-      "body_sha256": "sha256:96573e4eaed95ecc48f0fcec806888849615934dabd39807092cce415f69c310",
+      "body_bytes": 5036,
+      "body_sha256": "sha256:818fe4d7ff752c08f05b5a08bd43c34193af737a0de53440fe281026313802ad",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -13422,8 +13422,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy tls params tls certificates private key clear secret info"],
-      "body_bytes": 4573,
-      "body_sha256": "sha256:85068cf01d2d11e3c553468909195ad6b233654ba6bf41ad2ed1243d2aebf2b6",
+      "body_bytes": 4012,
+      "body_sha256": "sha256:290af70f113609e0206ec900d77dbccb4a9677bf1b51080078b26e2bd6a37ad7",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -13529,8 +13529,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy tls params tls certificates use system defaults"],
-      "body_bytes": 1903,
-      "body_sha256": "sha256:f78547cc534cda99d5d23c13e0575bfb38e0a537a6190d64487f4b4fdba8ab60",
+      "body_bytes": 1586,
+      "body_sha256": "sha256:a8bd2b03f38a68b508136696a51b82ce61cc44a8f790a919fcec6f232f128ba6",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -13569,8 +13569,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy tls params tls config"],
-      "body_bytes": 4036,
-      "body_sha256": "sha256:ab7cfc5a495b2e07701eded7b751549468a32715c2520634d8b1047fef19eb4e",
+      "body_bytes": 2813,
+      "body_sha256": "sha256:a3b4ab1ce5a9bc69afc6b97fe18682c04769003a7ed7eec03ce4de5adaf94504",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -13785,8 +13785,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy tls params tls config custom security"],
-      "body_bytes": 7295,
-      "body_sha256": "sha256:a394747970572bda9b7fc70e0ef88d7ded13a4c7a7be4ae743061c74643bfc5c",
+      "body_bytes": 6633,
+      "body_sha256": "sha256:3033a121a40c78c6da7ba473b130274b867be74510e9dfc9f476d82ec7a90952",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -13908,8 +13908,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy tls params tls config default security"],
-      "body_bytes": 1828,
-      "body_sha256": "sha256:f73d3499ff109ead46f1c353fb3e1669dec5c0bebc2c99605e0ba5c69e59f0e6",
+      "body_bytes": 1523,
+      "body_sha256": "sha256:214ac0d2d7d4429c719896135999173b8478112dc4765c438b9cf789b18da5cd",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -13948,8 +13948,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy tls params tls config low security"],
-      "body_bytes": 1816,
-      "body_sha256": "sha256:fde3df6eb05b4ab1853b74dec6bffaa33d6a17d88c4408e28c45f1dca2d61520",
+      "body_bytes": 1511,
+      "body_sha256": "sha256:fe88bb35d292bfbff1f29a38069fe14ec48933741dca74f97e8ce53b4754ff78",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -13988,8 +13988,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy tls params tls config medium security"],
-      "body_bytes": 1825,
-      "body_sha256": "sha256:255f683d6f755c5a54d983cf3ad3ff12a445a47f0783af5a25cfbb3ffd7a9f35",
+      "body_bytes": 1520,
+      "body_sha256": "sha256:a590c824e7f7e5815c78050acdb81a19af3064e3782abe586b09f88669fb6e1a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -14028,8 +14028,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy tls params use mtls"],
-      "body_bytes": 6319,
-      "body_sha256": "sha256:4abf7cd8efa6ab4c2191a729b61dbd6c9e16e236466474019e9188ea8cdf6d4e",
+      "body_bytes": 4723,
+      "body_sha256": "sha256:d74ac7fc6823a7f2820b41831f4c3b585af6b735117628dc83e161642e8d1d65",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -14263,8 +14263,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy tls params use mtls crl"],
-      "body_bytes": 6767,
-      "body_sha256": "sha256:59eff0d4b8ad90c983c683af7a1c767afef1a7cd5064046006d08797bf6bbff5",
+      "body_bytes": 5808,
+      "body_sha256": "sha256:96c88173b862245f4b22e763b2437ac2545afa4c94a8e93819ed1939727c3de4",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -14284,7 +14284,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0001322300020012-2202212022120010-1131232201213100-0000301003323111-1123330313013320-1110121300013301-1020000312223323-2200211201330030",
-      "registry_path": "docs/guides/resources--proxy--reference--group-004.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-dynamic_proxy--https_proxy--tls_params--use_mtls--crl--name",
@@ -14382,8 +14382,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy tls params use mtls no crl"],
-      "body_bytes": 1786,
-      "body_sha256": "sha256:aca6799ed850bd9eea11e0295cf75e8bf8d1caa9dfb0bf5bb4528737b7737c88",
+      "body_bytes": 1485,
+      "body_sha256": "sha256:d72295d396babf968fada970d36b438d0c9162892c3caedf9517a776dea3252b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -14403,7 +14403,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2212123203301223-2303123302332301-1033020013321211-0212311111123033-2100000200020300-1120330133022321-2030023121323133-1302003230302120",
-      "registry_path": "docs/guides/resources--proxy--reference--group-004.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14422,8 +14422,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy tls params use mtls trusted ca"],
-      "body_bytes": 6809,
-      "body_sha256": "sha256:12c38f222674adc69f69a2b9c09bcbf4a0f6a4930774a849e92875ed3c041299",
+      "body_bytes": 5850,
+      "body_sha256": "sha256:126379a4b23cdcbf20254611242b778ae48ccef6059816d29e0a2d6313cb2aeb",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -14443,7 +14443,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2230303001100132-2100001122031031-1021322122310121-2330022311303113-3230213033230130-2302031221001030-2120331111023010-0120103221232032",
-      "registry_path": "docs/guides/resources--proxy--reference--group-004.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-dynamic_proxy--https_proxy--tls_params--use_mtls--trusted_ca--name",
@@ -14541,8 +14541,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy tls params use mtls xfcc disabled"],
-      "body_bytes": 1807,
-      "body_sha256": "sha256:8eae0a2daf1bea39e6560311452c21f9b988396d5a5631d0f3f6421d4317a770",
+      "body_bytes": 1506,
+      "body_sha256": "sha256:6fe53b9b3d8690f27c2813b2491a3e080b63fed5a0fe70b58079d3400bd505c5",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -14562,7 +14562,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3301301013003012-1010130000202121-0230031303003100-2111102033131312-0200320003300232-1300031313132231-1320223300221001-0012021223131322",
-      "registry_path": "docs/guides/resources--proxy--reference--group-004.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14581,8 +14581,8 @@
     },
     {
       "aliases": ["dynamic proxy https proxy tls params use mtls xfcc options"],
-      "body_bytes": 3103,
-      "body_sha256": "sha256:4b11e7aa4a7336c2df53f2df4108a792c3fa03ffad96c0da577fb3def755f149",
+      "body_bytes": 2728,
+      "body_sha256": "sha256:a40b7a3e0d6a21c2769ded8bf23d814ccf72eb57d070a63dd7535310b3a9bf72",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -14602,7 +14602,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0012033023300202-1223030021113200-1023321133332103-1233011321201233-1231122211102010-1031000133330202-2021121032011301-0233203202103022",
-      "registry_path": "docs/guides/resources--proxy--reference--group-004.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-dynamic_proxy--https_proxy--tls_params--use_mtls--xfcc_options--xfcc_header_elements",
@@ -14654,8 +14654,8 @@
     },
     {
       "aliases": ["dynamic proxy sni proxy"],
-      "body_bytes": 2180,
-      "body_sha256": "sha256:3cb3520c68c7e2d24dea97357274bc6e559dac59b384a527c17fc11851e6306c",
+      "body_bytes": 1900,
+      "body_sha256": "sha256:99059d6684fb27301e5ada3bdf4dadd8dea87141ab1db5d70b4f499ffc5cfbd8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -14675,7 +14675,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3112020001021313-3001013121113231-2312300311233300-0101002320313231-2321103212111010-1200232211133121-0211133000013012-3022312230220132",
-      "registry_path": "docs/guides/resources--proxy--reference--group-004.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14711,8 +14711,8 @@
     },
     {
       "aliases": ["http proxy"],
-      "body_bytes": 1678,
-      "body_sha256": "sha256:0ec4b1ea8b5230d0bbeefae698a2d326d3fa0af4bac0bdf727549ef8e00d968e",
+      "body_bytes": 1136,
+      "body_sha256": "sha256:4fb11124c59f58b6d9f1d7e9399cb908d5d81b130029905ec32ab5174732a266",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -14735,7 +14735,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3302133012220212-1002331310020302-1203301311211210-0210121333012131-2110013230033031-1011330131123021-1320232033123130-1032121203032331",
-      "registry_path": "docs/guides/resources--proxy--reference--group-004.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14820,8 +14820,8 @@
     },
     {
       "aliases": ["http proxy enable http"],
-      "body_bytes": 1205,
-      "body_sha256": "sha256:01737fffcd17ac01bb03f3309c4ab4ccbb99da02a814a15c39b68a8efaa14949",
+      "body_bytes": 974,
+      "body_sha256": "sha256:296c3ffe7cfa737bad80ef8f20eddb978e64dae144bbd9f2e5afe7192fbef5e1",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -14841,7 +14841,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2002121210003201-0021203110203212-0231123222023331-1322322121312213-2112302100301200-1311323303120011-0332131100230302-1321302012212010",
-      "registry_path": "docs/guides/resources--proxy--reference--group-004.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14860,8 +14860,8 @@
     },
     {
       "aliases": ["http proxy more option"],
-      "body_bytes": 18733,
-      "body_sha256": "sha256:d03b4920a33037de191222fa1755ccbbd481901c15e78d85ae72d3e7c2e83b47",
+      "body_bytes": 15670,
+      "body_sha256": "sha256:6e6d9051cc86f7232040e0fd125bd7d99ef92890502dc20aef0c89e575936466",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -15581,8 +15581,8 @@
     },
     {
       "aliases": ["http proxy more option buffer policy"],
-      "body_bytes": 3814,
-      "body_sha256": "sha256:dedd7918b4a73e7ba425e01e6e339226e9b8fa02ecde281fff38300abe3c60f2",
+      "body_bytes": 2922,
+      "body_sha256": "sha256:ee60fd53e4f3e045ac945dbd394c43159ae75faa9d3711b31292986a7f623b7d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -15654,8 +15654,8 @@
     },
     {
       "aliases": ["http proxy more option compression params"],
-      "body_bytes": 8000,
-      "body_sha256": "sha256:615a787552037559e49226e7150d9642459a3944a4d5121913befe17c6c75764",
+      "body_bytes": 7038,
+      "body_sha256": "sha256:ef77e1966d03017ec46245b009a791f06272a197a21ff3983d626d82b112f44a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -15768,8 +15768,8 @@
     },
     {
       "aliases": ["http proxy more option disable path normalize"],
-      "body_bytes": 1386,
-      "body_sha256": "sha256:0d5da7dd0e6180915d9cbc19784f0c0eb45d17054b839301d51b366f33c4f228",
+      "body_bytes": 1131,
+      "body_sha256": "sha256:9a2738be0013b02b6ce8a4b7986c654ea43449211620c4e08638f111133493ef",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -15808,8 +15808,8 @@
     },
     {
       "aliases": ["http proxy more option enable path normalize"],
-      "body_bytes": 1383,
-      "body_sha256": "sha256:3a5fd664b52fec7a072471f5a2244165ad1766cf6c418b0a5f2a571a7809d77d",
+      "body_bytes": 1128,
+      "body_sha256": "sha256:5f614aa6ad7a4ce15c9e79026380a337895fb8f4bd5f6d605989eac161df9519",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -15848,8 +15848,8 @@
     },
     {
       "aliases": ["http proxy more option no request limit per connection"],
-      "body_bytes": 1455,
-      "body_sha256": "sha256:9f1346bed4f5a2df586876fb5caa519ea2762338178fcfb333d7521913630dd0",
+      "body_bytes": 1200,
+      "body_sha256": "sha256:b618df3bfbc8833e827708ca78bf102503010ad3f3e772956f503615525d1f74",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -15888,8 +15888,8 @@
     },
     {
       "aliases": ["http proxy more option request cookies to add"],
-      "body_bytes": 6323,
-      "body_sha256": "sha256:5dd2b1cef5ec318f12260d89e251fbd0848f8f480a8fb699d7486206f1043dff",
+      "body_bytes": 5503,
+      "body_sha256": "sha256:c0116f71e3b983c6b76c31146b2be9f27a1eecf49c48a1b4fb450919deb158bc",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:proxy:properties:http_proxy:more_option:request_cookies_to_add:secret_value"],
@@ -16035,8 +16035,8 @@
     },
     {
       "aliases": ["http proxy more option request cookies to add secret value"],
-      "body_bytes": 2840,
-      "body_sha256": "sha256:f680b96c75bfd0f7f9db2d1488873efce481ae8fd8515719e5fbc1221acc8d51",
+      "body_bytes": 2060,
+      "body_sha256": "sha256:896b53703a011f2a0c1d6671e21c56897e99f68d1c3305b1cd45b2ae13ffe58f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -16152,8 +16152,8 @@
     },
     {
       "aliases": ["http proxy more option request cookies to add secret value blindfold secret info"],
-      "body_bytes": 5474,
-      "body_sha256": "sha256:b35240290453c144665e319040192d30858f001b80e0678c166b8515abba3db9",
+      "body_bytes": 4793,
+      "body_sha256": "sha256:a1869bfa7d245ca59b2196d07a5ee4ca11d476ae18a51b9063d5d34c4d51a9f7",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -16275,8 +16275,8 @@
     },
     {
       "aliases": ["http proxy more option request cookies to add secret value clear secret info"],
-      "body_bytes": 4324,
-      "body_sha256": "sha256:01c54da62220eca0f8c52524f26eb3d77dca4d3bf98a4e4b6d58e953b73875cd",
+      "body_bytes": 3777,
+      "body_sha256": "sha256:73085160d280e62c8ea260f974e9849901e0a9692e5d9bd3184d6895029cd690",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -16371,8 +16371,8 @@
     },
     {
       "aliases": ["http proxy more option request headers to add"],
-      "body_bytes": 6163,
-      "body_sha256": "sha256:8daf5207abefb9d31d51b28b2ec1bb4aa97e5bccb8a1761f23878e3c35135c03",
+      "body_bytes": 5360,
+      "body_sha256": "sha256:173d9884ee9cef3ef48b6fd007465c714d4dd2b10273cde0719060ebabed8f33",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:proxy:properties:http_proxy:more_option:request_headers_to_add:secret_value"],
@@ -16518,8 +16518,8 @@
     },
     {
       "aliases": ["http proxy more option request headers to add secret value"],
-      "body_bytes": 2840,
-      "body_sha256": "sha256:9bd39cec808895c6920571d40bd1cdc58e72df537669f445958eb7dab799e6f2",
+      "body_bytes": 2060,
+      "body_sha256": "sha256:07c1cc4ba388c8858a25df126a5d81b36ec975bf7e19b8fe88dc03148e09d6c3",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -16635,8 +16635,8 @@
     },
     {
       "aliases": ["http proxy more option request headers to add secret value blindfold secret info"],
-      "body_bytes": 5474,
-      "body_sha256": "sha256:839b448d06deef4a8a99118d57a661f592c2a68e95c0f5ec6eea8e5c8a109210",
+      "body_bytes": 4793,
+      "body_sha256": "sha256:814704313e089dc0d4505d0e935f5feb0c90bf08edbd63fdf2865b056a95ed8c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -16758,8 +16758,8 @@
     },
     {
       "aliases": ["http proxy more option request headers to add secret value clear secret info"],
-      "body_bytes": 4324,
-      "body_sha256": "sha256:e6be967b17beb30a05115feda5161404b8587f1a8255f9853cf4b88a3524b916",
+      "body_bytes": 3777,
+      "body_sha256": "sha256:48f9379d9a9e5ee6e39995ce0ca8a7fc50b72d4ccffd5a9d8ff5e16a13a119e6",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -16854,8 +16854,8 @@
     },
     {
       "aliases": ["http proxy more option response cookies to add"],
-      "body_bytes": 18457,
-      "body_sha256": "sha256:a136b9be5673b438f75a6af0fa38dba48510fe67dc8f6f56411e34fe4a950f93",
+      "body_bytes": 14082,
+      "body_sha256": "sha256:92982909a5c9af554dcfd28c57a2e443c909c0954134c52de1f528d5967db90a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -17562,8 +17562,8 @@
     },
     {
       "aliases": ["http proxy more option response cookies to add add httponly"],
-      "body_bytes": 1658,
-      "body_sha256": "sha256:928c5933b2cad56dba9d40a334f0f96a0d30b529596fa0a81bd2aacd27b9b7ef",
+      "body_bytes": 1355,
+      "body_sha256": "sha256:e5d95372babbd9a8dd62280db93fd4c11befabad05ebea0f8f7cb7b95998b90e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -17602,8 +17602,8 @@
     },
     {
       "aliases": ["http proxy more option response cookies to add add partitioned"],
-      "body_bytes": 1670,
-      "body_sha256": "sha256:9196731e316660c587e5f499a41bd4a17deea2d695de36fe2ba5c8421875183f",
+      "body_bytes": 1367,
+      "body_sha256": "sha256:75de463cc9e5414fbc52ba96822e54017e3721c8b454b1ea80f0f6c6abb983e5",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -17642,8 +17642,8 @@
     },
     {
       "aliases": ["http proxy more option response cookies to add add secure"],
-      "body_bytes": 1629,
-      "body_sha256": "sha256:67cdd6e299d205a22f8b3db521f4c7ac37662011481ef771ef109148faa60551",
+      "body_bytes": 1326,
+      "body_sha256": "sha256:e5add9ef6759ba8dd7072714bb28eff50f72583d78751e49953435bee2bca392",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -17682,8 +17682,8 @@
     },
     {
       "aliases": ["http proxy more option response cookies to add ignore domain"],
-      "body_bytes": 1662,
-      "body_sha256": "sha256:a9c71a01ad17d8822957daf4d870c5fa08d2786651789104884917fbae43b9d0",
+      "body_bytes": 1359,
+      "body_sha256": "sha256:1a9df1860c29eac081bd7c18d1956698a28cac24272d29028924dd43aa320877",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -17722,8 +17722,8 @@
     },
     {
       "aliases": ["http proxy more option response cookies to add ignore expiry"],
-      "body_bytes": 1662,
-      "body_sha256": "sha256:d8ce9210e4d93b7da723b1a67346c7cfed6fb33070ccbac9bd536d486973bf33",
+      "body_bytes": 1359,
+      "body_sha256": "sha256:e1d30d171ce240253b4e9481f71b799cedb51d45df2106fd87db18f97df8e1bb",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -17762,8 +17762,8 @@
     },
     {
       "aliases": ["http proxy more option response cookies to add ignore httponly"],
-      "body_bytes": 1670,
-      "body_sha256": "sha256:f814470285550d021453dec886bca6f97eff9d8767d35dabae529bf1ae473966",
+      "body_bytes": 1367,
+      "body_sha256": "sha256:5b37de9361b112a6f45385d90dc3a5f6d7a981384bcbac9f28d6ff9764de08a9",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -17802,8 +17802,8 @@
     },
     {
       "aliases": ["http proxy more option response cookies to add ignore max age"],
-      "body_bytes": 1666,
-      "body_sha256": "sha256:f86991359ab0c1a59aca9dcfaf640a31a845ce818213c2bbd8d0669b40feb756",
+      "body_bytes": 1363,
+      "body_sha256": "sha256:b56749d1dcf704ed15393c10b303f19d936d35e22667889a9d9e335d7bcc28e0",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -17842,8 +17842,8 @@
     },
     {
       "aliases": ["http proxy more option response cookies to add ignore partitioned"],
-      "body_bytes": 1682,
-      "body_sha256": "sha256:47fc887bc6c001af36469b00db205fb53c3a62c3721e04a6182a45ac928fe942",
+      "body_bytes": 1379,
+      "body_sha256": "sha256:0ba293e9ac626c4d7e9027b03aa12fb2bbeec73243a9a95e42b9883d61483cd8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -17882,8 +17882,8 @@
     },
     {
       "aliases": ["http proxy more option response cookies to add ignore path"],
-      "body_bytes": 1632,
-      "body_sha256": "sha256:c137a6d868ef9858dac86da960ca9ba03935c43972df4edc3e74318c91c0bee9",
+      "body_bytes": 1329,
+      "body_sha256": "sha256:67a0059a13a281f36f24f2fc5b449df873521d9f1fe4c12a72b072fa9ed9fd8e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -17922,8 +17922,8 @@
     },
     {
       "aliases": ["http proxy more option response cookies to add ignore samesite"],
-      "body_bytes": 1644,
-      "body_sha256": "sha256:95f4439b8b27f5f5e4e8a35e1b9c6166e80c49317317d889d214429d6319bc96",
+      "body_bytes": 1341,
+      "body_sha256": "sha256:934898a11746f3b17558cca222562479eba85c1f2c80019123b3e335bc64e360",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -17962,8 +17962,8 @@
     },
     {
       "aliases": ["http proxy more option response cookies to add ignore secure"],
-      "body_bytes": 1638,
-      "body_sha256": "sha256:f4612f34571bcee2ce6f8f88ffed43ca27f37dddf19bb3c9123434dddebb01d1",
+      "body_bytes": 1335,
+      "body_sha256": "sha256:f3b64f3002cd2e731a9e820bddf0f05d12997cbfb12c4e86821e0d011ce37c1e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -18002,8 +18002,8 @@
     },
     {
       "aliases": ["http proxy more option response cookies to add ignore value"],
-      "body_bytes": 1658,
-      "body_sha256": "sha256:8a6e6acdf5d5fc84a66f81e013a38a7e17da9754a0e53420a077a8e3edf73346",
+      "body_bytes": 1355,
+      "body_sha256": "sha256:8a44e0614ee7e535fc316cb3bd2a49270cd87e0baf119a016f1236ff690b3515",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -18042,8 +18042,8 @@
     },
     {
       "aliases": ["http proxy more option response cookies to add samesite lax"],
-      "body_bytes": 1635,
-      "body_sha256": "sha256:78393a4d2c423feedb01cd86602939a9e2b5c75a527cce9effe4953c41b684f7",
+      "body_bytes": 1332,
+      "body_sha256": "sha256:51bf9610c1951c58ea1ca26abc2e65211d2bc2d530d3d2547bfebb853fba5853",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -18082,8 +18082,8 @@
     },
     {
       "aliases": ["http proxy more option response cookies to add samesite none"],
-      "body_bytes": 1638,
-      "body_sha256": "sha256:89b0eb4fe0d786b8a466b1b0299fc9c39912f5aadb4f30fa49b3c06123fb02cd",
+      "body_bytes": 1335,
+      "body_sha256": "sha256:d87420b25908094361f6e5c31ab3861d9fa83ed23e1d236204cd34c26b1250e4",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -18122,8 +18122,8 @@
     },
     {
       "aliases": ["http proxy more option response cookies to add samesite strict"],
-      "body_bytes": 1644,
-      "body_sha256": "sha256:4ba0f9b18bac9d22e6cb0694d8f2efa5533405ffdcce7b7c97d3e21a563dca46",
+      "body_bytes": 1341,
+      "body_sha256": "sha256:cee9e38fa15be0ca0df8ffa92a8bfb29de9a6195aebd5e62a42f332d8c9083c8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -18162,8 +18162,8 @@
     },
     {
       "aliases": ["http proxy more option response cookies to add secret value"],
-      "body_bytes": 2852,
-      "body_sha256": "sha256:4d77f4ca37a0e29d287284bf0736f5e9fd23c8010d528390937989280c7a9af2",
+      "body_bytes": 2066,
+      "body_sha256": "sha256:982d9c859d5d1492001c8e7a9e8ce38af4f412257b67a26a790b3d58317f748a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -18279,8 +18279,8 @@
     },
     {
       "aliases": ["http proxy more option response cookies to add secret value blindfold secret info"],
-      "body_bytes": 5485,
-      "body_sha256": "sha256:9e3b4ed399af2dfb7a72d5747a5a8cfecf1c1dc11ae7ff966b4266e1600ba5f0",
+      "body_bytes": 4802,
+      "body_sha256": "sha256:7b45023e4a43e5b8dfbc564f61f972b98aaae717a1ede478a77a8e76fd48ca81",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -18300,7 +18300,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1210113233221230-1203323122300112-2012110322330310-2123210112123301-2110120032232111-0200223332121310-3122221101333302-1132231101001031",
-      "registry_path": "docs/guides/resources--proxy--reference--group-004.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-005.md",
       "relationships": [
         {
           "anchor": "schema-http_proxy--more_option--response_cookies_to_add--secret_value--blindfold_secret_info--location",
@@ -18402,8 +18402,8 @@
     },
     {
       "aliases": ["http proxy more option response cookies to add secret value clear secret info"],
-      "body_bytes": 4334,
-      "body_sha256": "sha256:0e08c908ab811e268b18c1aa9e7be97e0f2d5ca258250f8e8e3e59a10032772f",
+      "body_bytes": 3785,
+      "body_sha256": "sha256:5fc00f1c67fc82bd54fde9ab1cca56160d907d3da2a2e290b9851bd9c9c5abb2",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -18423,7 +18423,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2111320201010202-1001012323322201-0233312100110032-2123030212002221-3332123331003122-0122100302330333-2233101000313130-2011200001003302",
-      "registry_path": "docs/guides/resources--proxy--reference--group-004.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-005.md",
       "relationships": [
         {
           "anchor": "schema-http_proxy--more_option--response_cookies_to_add--secret_value--clear_secret_info--url",
@@ -18498,8 +18498,8 @@
     },
     {
       "aliases": ["http proxy more option response headers to add"],
-      "body_bytes": 6174,
-      "body_sha256": "sha256:94a80ae6deefc4a09616aeeab273d7d74053af16b2d0015114d505ef6ac409fd",
+      "body_bytes": 5368,
+      "body_sha256": "sha256:3575975168d749b32deac5344bcc1369a33d91579b6dffa0eb3bb914405dc136",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:proxy:properties:http_proxy:more_option:response_headers_to_add:secret_value"],
@@ -18519,7 +18519,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0321302212120332-1003310003320101-2331211322200330-1231022123102030-0001322133103022-1202202120331013-0312112103131001-3233331200001032",
-      "registry_path": "docs/guides/resources--proxy--reference--group-004.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-005.md",
       "relationships": [
         {
           "anchor": "schema-http_proxy--more_option--response_headers_to_add--value",
@@ -18645,8 +18645,8 @@
     },
     {
       "aliases": ["http proxy more option response headers to add secret value"],
-      "body_bytes": 2852,
-      "body_sha256": "sha256:43e9747937def9ef42b372bccf07c7203608034ee95342b5723dbefcc00957bd",
+      "body_bytes": 2066,
+      "body_sha256": "sha256:c77e4e618c463dac1c977c15e9818d769a4b17575be2097767cd9321bf984edc",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -18669,7 +18669,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2300011033210230-3200023212122302-3133032202031123-3031312001002303-2211020320303111-3210011300022320-2331101223122002-1130322131232013",
-      "registry_path": "docs/guides/resources--proxy--reference--group-004.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-005.md",
       "relationships": [
         {
           "anchor": "section",
@@ -18762,8 +18762,8 @@
     },
     {
       "aliases": ["http proxy more option response headers to add secret value blindfold secret info"],
-      "body_bytes": 5485,
-      "body_sha256": "sha256:401d65912346c8f663809f706a542ab597dd88c10287a9684967b592db802d37",
+      "body_bytes": 4802,
+      "body_sha256": "sha256:6448399c625d319a92c4229d18d339ae57be13d7f3903d2c084c1d8ecc1085e0",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -18783,7 +18783,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1001121112013303-2001222331111110-0131023301312020-0200231122202010-1223312200222032-3230330332320230-2311000203321210-2132122001323023",
-      "registry_path": "docs/guides/resources--proxy--reference--group-004.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-005.md",
       "relationships": [
         {
           "anchor": "schema-http_proxy--more_option--response_headers_to_add--secret_value--blindfold_secret_info--location",
@@ -18885,8 +18885,8 @@
     },
     {
       "aliases": ["http proxy more option response headers to add secret value clear secret info"],
-      "body_bytes": 4334,
-      "body_sha256": "sha256:875da3cb10f065445670cf578a04b2291611de6b21e8b70171f8c00a5d987c7e",
+      "body_bytes": 3785,
+      "body_sha256": "sha256:b91e4413c3de2ddb2c382a6d0a8049ef56f162dbc4f5dbc849f93b5605919222",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -18906,7 +18906,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1010013020132002-1033212202221011-2332220021033303-0313002000023320-3113323013011221-1103111030031202-3233202312232001-3330221032020030",
-      "registry_path": "docs/guides/resources--proxy--reference--group-004.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-005.md",
       "relationships": [
         {
           "anchor": "schema-http_proxy--more_option--response_headers_to_add--secret_value--clear_secret_info--url",
@@ -18981,8 +18981,8 @@
     },
     {
       "aliases": ["no forward proxy policy"],
-      "body_bytes": 1090,
-      "body_sha256": "sha256:5b2a631ee5ea6df96d68339275098d1c3698195cbe1a5b8fa781a7e0779f8ae9",
+      "body_bytes": 862,
+      "body_sha256": "sha256:15c66dcffcc956f5c81841fea0fd9542d9569a4e52097de0610122f79635344f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -19002,7 +19002,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3333131321121110-3221311322032300-1111103312333233-0321012201211000-1102333201111020-0020303330301101-2313211321302213-0221203120310222",
-      "registry_path": "docs/guides/resources--proxy--reference--group-004.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -19021,8 +19021,8 @@
     },
     {
       "aliases": ["no interception"],
-      "body_bytes": 1503,
-      "body_sha256": "sha256:4954c77694e389573389d077fadaab593e0bb143006bb43e7f4bdc15e910ebd2",
+      "body_bytes": 1275,
+      "body_sha256": "sha256:f91b1958b220f76526ad0e547fe7fb9100bddeaf2401fc08fd042a49ec92b593",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -19042,7 +19042,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3001311021210113-1203322120301211-2003112333102203-1131010301220310-1212123211110331-3201330202033133-1001002102301300-0023323331213323",
-      "registry_path": "docs/guides/resources--proxy--reference--group-004.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -19061,8 +19061,8 @@
     },
     {
       "aliases": ["site local inside network"],
-      "body_bytes": 1528,
-      "body_sha256": "sha256:98dfbf92de49978185a067b268f3e6e5b85c71ab5998cfcf45503b74e310266a",
+      "body_bytes": 1300,
+      "body_sha256": "sha256:1bee27f89f54bc702a2470d23bac35932253916157bfc50f24f42030a0057066",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -19082,7 +19082,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2300220130222220-0321012100023110-3312120100301031-2332310123110321-0222103331130303-0122320111223322-2100122213201320-3222032202331000",
-      "registry_path": "docs/guides/resources--proxy--reference--group-004.md",
+      "registry_path": "docs/guides/resources--proxy--reference--group-005.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -19101,8 +19101,8 @@
     },
     {
       "aliases": ["site local network"],
-      "body_bytes": 1055,
-      "body_sha256": "sha256:4aac19a2bb71a7568a5d473843e86dcaa0414b35f3c4140d344b65108326f05d",
+      "body_bytes": 827,
+      "body_sha256": "sha256:8e9377e818f12110e56236571307b6c2387af2a402bb1f559d94ff7a74ebc209",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -19141,8 +19141,8 @@
     },
     {
       "aliases": ["site virtual sites"],
-      "body_bytes": 1591,
-      "body_sha256": "sha256:d30add81b5b897956beb8f17a5a69501a12e8106b2e9d86a90d99694e0b2a7bc",
+      "body_bytes": 1143,
+      "body_sha256": "sha256:c06916035627a9568c4497ff2fd4163662c5768ff5bc4bbb98bfaf3b2b65540b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:proxy:properties:site_virtual_sites:advertise_where"],
@@ -19240,8 +19240,8 @@
     },
     {
       "aliases": ["site virtual sites advertise where"],
-      "body_bytes": 4490,
-      "body_sha256": "sha256:8d198b935412f57c932f204fa5747ae41dd142fde72549b281398a19d2006ff7",
+      "body_bytes": 3629,
+      "body_sha256": "sha256:abbcce2da873e0cea7623d80d0520c0fee58857740427125fb60f26a20bb149b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -19382,8 +19382,8 @@
     },
     {
       "aliases": ["site virtual sites advertise where site"],
-      "body_bytes": 5588,
-      "body_sha256": "sha256:3976f8d0e9c718a5a0632409de56c357595d4507b1a0ada863126388bd4917f9",
+      "body_bytes": 4921,
+      "body_sha256": "sha256:aaba638bea997ec50f23678f438a9fbd58a9d8bc95b14b7fe595eb3997a4f127",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:proxy:properties:site_virtual_sites:advertise_where:site:site"],
@@ -19497,8 +19497,8 @@
     },
     {
       "aliases": ["site virtual sites advertise where site site"],
-      "body_bytes": 6581,
-      "body_sha256": "sha256:ae282f611c78e79845f2da56807414db003b1be1f98dc2d7fec016c670838196",
+      "body_bytes": 5634,
+      "body_sha256": "sha256:c79ba68151869fe8e6eb7237de8e75d81e4df4771dba958a0778bfd0682d4781",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -19616,8 +19616,8 @@
     },
     {
       "aliases": ["site virtual sites advertise where use default port"],
-      "body_bytes": 1456,
-      "body_sha256": "sha256:97a12f1c0aabaf46b656d8f43996cc87db8f00c24449bec84b1c8b55e184caef",
+      "body_bytes": 1177,
+      "body_sha256": "sha256:2e8125601942747be0c953cc094b33c182c526e05e9c92fea985570783fecccd",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -19656,8 +19656,8 @@
     },
     {
       "aliases": ["site virtual sites advertise where virtual site"],
-      "body_bytes": 4681,
-      "body_sha256": "sha256:482738e6579047e13d72d512824cfabd28f7d722b8b5c24119e14a5e56e24891",
+      "body_bytes": 3990,
+      "body_sha256": "sha256:30315d67962546c47e4e0dbc9ca581e9dfcca61988d2843aeb57232c80391fc0",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -19757,8 +19757,8 @@
     },
     {
       "aliases": ["site virtual sites advertise where virtual site virtual site"],
-      "body_bytes": 6701,
-      "body_sha256": "sha256:96b4259c0863d240ca7bffeb6d984e13a17d34221551a9d895a584efbcb7b80d",
+      "body_bytes": 5738,
+      "body_sha256": "sha256:eaa3c341f2bb6eb23ec993ce29a7f0ac58440ff84b79aa328b94ef5f3356318f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -19876,8 +19876,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2189,
-      "body_sha256": "sha256:c62cd685c0b97b12eb6646719105aae090fdcae7b7330a66cbc5f22f18f222bb",
+      "body_bytes": 1976,
+      "body_sha256": "sha256:3cab1cace66b26caad50b77f357c91ea3bb164f798a283515116ae41a3be66d3",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -20016,8 +20016,8 @@
     },
     {
       "aliases": ["tls intercept"],
-      "body_bytes": 4597,
-      "body_sha256": "sha256:adcae23f88fba2b1793a1bdcbd1291efbd80f2d3f7407d8690d3b63b3af7ba0c",
+      "body_bytes": 3483,
+      "body_sha256": "sha256:383898f531792c0b255421affa5d93919571cd91e8723c736c07dbb168dfdc19",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -20274,8 +20274,8 @@
     },
     {
       "aliases": ["tls intercept custom certificate"],
-      "body_bytes": 5100,
-      "body_sha256": "sha256:917c57e4d973c9eb34ab9e5ba83f282ef9a9b0a2c7dd1501f8709de27e2f4952",
+      "body_bytes": 3996,
+      "body_sha256": "sha256:3743766812c80c610e95a3f8c7a021d4ce6c9d57a920d90425806c63cf0f7af0",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -20505,8 +20505,8 @@
     },
     {
       "aliases": ["tls intercept custom certificate custom hash algorithms"],
-      "body_bytes": 3158,
-      "body_sha256": "sha256:2871845eea13e210035c0f7ae0849b6d1b4ab282a780a39d0f1510b1f3164523",
+      "body_bytes": 2830,
+      "body_sha256": "sha256:8e0fed309f77fbd09bf6d0130f76d9b5ecfc63edae635395f611647036850262",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -20571,8 +20571,8 @@
     },
     {
       "aliases": ["tls intercept custom certificate disable ocsp stapling"],
-      "body_bytes": 1481,
-      "body_sha256": "sha256:8211056620688cb5bc058fe70d1ab18ffd3d0c09b7044ee719d6c8d17a73c576",
+      "body_bytes": 1206,
+      "body_sha256": "sha256:23a2a74f573f4471e6f2748d0c72ece00cb82184dc1d5fd3cc1ca3f5306206f9",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -20611,8 +20611,8 @@
     },
     {
       "aliases": ["tls intercept custom certificate private key"],
-      "body_bytes": 2546,
-      "body_sha256": "sha256:3786a5f9c261c41d7e94bc54c7714769bc690f12bc4d001d078472a452e142c2",
+      "body_bytes": 1848,
+      "body_sha256": "sha256:af0de5d0294ada03a0b71efa5101fa1a8c733e647d6da241da64862ac8d0cd4b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -20722,8 +20722,8 @@
     },
     {
       "aliases": ["tls intercept custom certificate private key blindfold secret info"],
-      "body_bytes": 5190,
-      "body_sha256": "sha256:ecc48afddd07a90a57bfc58beb66b2e35493719c2ac54e948cf5dbd61ca6bcf2",
+      "body_bytes": 4537,
+      "body_sha256": "sha256:6c3282adc53af4f9461b7e8bf3c9a68efb58bbd626be1bf4afe8cc34dd6ec3ee",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -20832,8 +20832,8 @@
     },
     {
       "aliases": ["tls intercept custom certificate private key clear secret info"],
-      "body_bytes": 4055,
-      "body_sha256": "sha256:47ce8a35e0b0a53fb8954e38a2f2d9119fa750a4c73a3b91422022fe4b4f1e46",
+      "body_bytes": 3536,
+      "body_sha256": "sha256:d7dcf3670f87b650fc16c432cea1293fb6b508ef8be80ceded1ee996195425ae",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -20914,8 +20914,8 @@
     },
     {
       "aliases": ["tls intercept custom certificate use system defaults"],
-      "body_bytes": 1473,
-      "body_sha256": "sha256:a985a397f41bdf5dc439f602f94e92f0cc6243379542b30c2acff1386e9c1788",
+      "body_bytes": 1198,
+      "body_sha256": "sha256:f0f2b883f08dd28a9be65b03da563fffe77fc025baa1540e1e71c0dab436e55c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -20954,8 +20954,8 @@
     },
     {
       "aliases": ["tls intercept enable for all domains"],
-      "body_bytes": 1254,
-      "body_sha256": "sha256:7932618c120d6e4b5b5671e0e3cf121dc1579f81938efa35e162a848f9a68304",
+      "body_bytes": 1017,
+      "body_sha256": "sha256:f4ac362ee3bbf92f7bb969a861e2c653474ea396f68fc481ad266645646af344",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -20994,8 +20994,8 @@
     },
     {
       "aliases": ["tls intercept policy"],
-      "body_bytes": 1643,
-      "body_sha256": "sha256:81e627ab83a70dec81faca59b6f8b48d073542d188cb260dcce54d696b3932e6",
+      "body_bytes": 1252,
+      "body_sha256": "sha256:ea3476b5dd1d44321205571cf1345b1431124c662aed0b8854cc77c69f6c240c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:proxy:properties:tls_intercept:policy:interception_rules"],
@@ -21077,8 +21077,8 @@
     },
     {
       "aliases": ["tls intercept policy interception rules"],
-      "body_bytes": 3567,
-      "body_sha256": "sha256:dc9a653c8397eda39552751614f924b9c059cdc86459d305801675aa61556bb9",
+      "body_bytes": 2716,
+      "body_sha256": "sha256:b72235d2261c15f056f888b0bb0e64aaa30c253608c02d05ae6c696a8bae5002",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -21236,8 +21236,8 @@
     },
     {
       "aliases": ["tls intercept policy interception rules disable interception"],
-      "body_bytes": 1650,
-      "body_sha256": "sha256:545adb95f680d82f396d6668bd78809c8c5d97fce5dfa6074e3fda3969977edd",
+      "body_bytes": 1361,
+      "body_sha256": "sha256:24072049238bbd4ffcd3997b3c4eec5038d03ccea76cdbc31bc8cc7691b34720",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -21276,8 +21276,8 @@
     },
     {
       "aliases": ["tls intercept policy interception rules domain match"],
-      "body_bytes": 6214,
-      "body_sha256": "sha256:f47eeecea3f5664f0d6831a798fa06c1a78cf762737d36af123a96efa84e052b",
+      "body_bytes": 5749,
+      "body_sha256": "sha256:c84a3771773b0487e929aed0417ad06db2dc5fe397a4d4e5dfd042cd108d104c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -21414,8 +21414,8 @@
     },
     {
       "aliases": ["tls intercept policy interception rules enable interception"],
-      "body_bytes": 1646,
-      "body_sha256": "sha256:92c42a834168195b42cc5831191f2e9c14cea93ca109959b361f1b58b1e05863",
+      "body_bytes": 1357,
+      "body_sha256": "sha256:efecfff73e71e0e8fb270acc2911b501706d881bf00534192e65c106b082acd4",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -21454,8 +21454,8 @@
     },
     {
       "aliases": ["tls intercept volterra certificate"],
-      "body_bytes": 1246,
-      "body_sha256": "sha256:3699b7700304a25b564a1ec9c92f220cf49465ab3c785b4e203ce82f7b02af7b",
+      "body_bytes": 1009,
+      "body_sha256": "sha256:ff5585d9462865827a70befa47396f7d7f137b57f9472ed23765423c7b2d88cc",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -21494,8 +21494,8 @@
     },
     {
       "aliases": ["tls intercept volterra trusted ca"],
-      "body_bytes": 1242,
-      "body_sha256": "sha256:27c245663405f86c794c0238969e91332876d1d0ebcf3dd67efc2b49e0cfd90d",
+      "body_bytes": 1005,
+      "body_sha256": "sha256:bddd2ec2c384cc81ebb13970a42ccd2546d46ce1e654b3f3741868eb947cb493",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -21534,8 +21534,8 @@
     },
     {
       "aliases": ["proxy"],
-      "body_bytes": 591,
-      "body_sha256": "sha256:a32e1c6c62571929806ac83fc69f70f56207d5f8169a7fd2676b48b642842aee",
+      "body_bytes": 381,
+      "body_sha256": "sha256:1a263893fa6ee4b29ffa4b5eb9f3cc3474ad2c654a058bd500ba135d8ab3eff7",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:proxy:example:resource"],
@@ -21574,8 +21574,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1193,
-      "body_sha256": "sha256:94bfa0d5c625b045ef0e7211d0990d20387a03551a0821a94ccbdc0f37b64049",
+      "body_bytes": 992,
+      "body_sha256": "sha256:6fbb50e515beba8c65e6932dab1b66d24ae31875b57a87f330a812aef9cb0aed",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -21621,8 +21621,8 @@
     },
     {
       "aliases": ["proxy"],
-      "body_bytes": 445,
-      "body_sha256": "sha256:5b7f3cf58c7201ca6dfbdf40798159e34edba79793783df8161474f0e8641f9a",
+      "body_bytes": 340,
+      "body_sha256": "sha256:66ee1fcbf3459571c5629330c1f303a30d9fc65a9aac23caafa1ba2a40e706c2",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -21662,8 +21662,8 @@
     },
     {
       "aliases": ["proxy"],
-      "body_bytes": 533,
-      "body_sha256": "sha256:013aedfb8f32e8e58f5a84d9aad86cb034ccc8e2a629a905ff0e621a38f4a345",
+      "body_bytes": 428,
+      "body_sha256": "sha256:f3a24eee09efd89f214df4dee9f0b4ae9e81c47239cfbf5cb7cec1813f1edf6a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],

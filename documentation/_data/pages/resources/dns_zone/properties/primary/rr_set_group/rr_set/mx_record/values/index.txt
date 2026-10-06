@@ -2,7 +2,7 @@
 page_title: "primary.rr_set_group.rr_set.mx_record.values"
 subcategory: "DNS"
 description: "Configuration parameter for values"
-xcsh_docs: {"aliases": ["primary rr set group rr set mx record values"], "body_bytes": 4521, "body_sha256": "sha256:3edfd1eb30c8528f962f1ed57ff26ed5b8b44fec150608508b44343dae3db026", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:dns_zone:collection", "completeness": "complete", "id": "xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set:mx_record:values", "parent_id": "xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set:mx_record", "path": "documentation/resources/dns_zone/properties/primary/rr_set_group/rr_set/mx_record/values/index.md", "product": "distributed-cloud", "provider_name": "dns_zone", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3203011211313001-0002133210230122-3102011130012031-2123133001220331-1333031133312300-1102233313120122-3020331320013120-3302110102201210", "registry_path": "docs/guides/resources--dns_zone--reference--group-003.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["primary", "rr_set_group", "rr_set", "mx_record", "values"], "schema_version": 1, "sections": [{"aliases": ["primary rr set group rr set mx record values domain"], "anchor": "schema-primary--rr_set_group--rr_set--mx_record--values--domain", "description": "Mail exchanger domain name, please provide the full hostname, for example: mail.example.com.", "document_id": "xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set:mx_record:values", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "rr_set_group", "rr_set", "mx_record", "values", "domain"], "syntax": "attribute", "type": "string"}, {"aliases": ["primary rr set group rr set mx record values priority"], "anchor": "schema-primary--rr_set_group--rr_set--mx_record--values--priority", "description": "Mail exchanger priority code.", "document_id": "xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set:mx_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "rr_set_group", "rr_set", "mx_record", "values", "priority"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_zone/properties/primary/rr_set_group/rr_set/mx_record/values/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Configuration parameter for values", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["dns_zoneCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["primary rr set group rr set mx record values"], "body_bytes": 4038, "body_sha256": "sha256:c90a7a4ab6b4bbb6f24acb404a454d8d08b99c46564c3cb93eb86f0bb03541bf", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:dns_zone:collection", "completeness": "complete", "id": "xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set:mx_record:values", "parent_id": "xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set:mx_record", "path": "documentation/resources/dns_zone/properties/primary/rr_set_group/rr_set/mx_record/values/index.md", "product": "distributed-cloud", "provider_name": "dns_zone", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3203011211313001-0002133210230122-3102011130012031-2123133001220331-1333031133312300-1102233313120122-3020331320013120-3302110102201210", "registry_path": "docs/guides/resources--dns_zone--reference--group-003.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["primary", "rr_set_group", "rr_set", "mx_record", "values"], "schema_version": 1, "sections": [{"aliases": ["primary rr set group rr set mx record values domain"], "anchor": "schema-primary--rr_set_group--rr_set--mx_record--values--domain", "description": "Mail exchanger domain name, please provide the full hostname, for example: mail.example.com.", "document_id": "xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set:mx_record:values", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "rr_set_group", "rr_set", "mx_record", "values", "domain"], "syntax": "attribute", "type": "string"}, {"aliases": ["primary rr set group rr set mx record values priority"], "anchor": "schema-primary--rr_set_group--rr_set--mx_record--values--priority", "description": "Mail exchanger priority code.", "document_id": "xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set:mx_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "rr_set_group", "rr_set", "mx_record", "values", "priority"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_zone/properties/primary/rr_set_group/rr_set/mx_record/values/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Configuration parameter for values", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["dns_zoneCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -26,10 +26,6 @@ Breadcrumbs:
 Type: `"object"`. list nested block, Optional.
 
 MX Record Value. Configuration parameter for values
-
-Upstream description:
-
-Configuration parameter for values
 
 Receipt-pinned upstream constraints:
 
@@ -79,10 +75,6 @@ values {
 ### domain property
 
 Type: `"string"`. Optional.
-
-Mail exchanger domain name, please provide the full hostname, for.
-
-Upstream description:
 
 Mail exchanger domain name, please provide the full hostname, for example: mail.example.com.
 
@@ -134,10 +126,6 @@ Type: `"number"`. Optional.
 
 Priority. Mail exchanger priority code.
 
-Upstream description:
-
-Mail exchanger priority code.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -180,8 +168,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [primary.rr_set_group.rr_set.mx_record](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/dns_zone/properties/primary/rr_set_group/rr_set/mx_record/)
-- [xcsh_dns_zone](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/dns_zone/)

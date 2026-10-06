@@ -46,8 +46,8 @@
   "pages": [
     {
       "aliases": ["protected domain"],
-      "body_bytes": 1337,
-      "body_sha256": "sha256:8f2e1837560fa504f541748d695dac7f4cda2693bc5a975f6257e4ada0f2aaae",
+      "body_bytes": 1361,
+      "body_sha256": "sha256:8570b5b88d7a00de5bdd3118ea8413d30a64cc004c976a766c27f0091dc037f9",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -78,7 +78,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protected_domain/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages Domain to protect in F5 Distributed Cloud.",
+      "summary": "Reads Protected Domain information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_protected_domain",
       "unresolved_relationships": [],
@@ -90,8 +90,8 @@
     },
     {
       "aliases": ["protected domain"],
-      "body_bytes": 8954,
-      "body_sha256": "sha256:2228b4f49bffdf57f90cd004c7b9b1214c731c8e5da894c6f4866ef78bef7473",
+      "body_bytes": 8718,
+      "body_sha256": "sha256:8909003cef071e0e50e9411114c663f6ec04f7871be08ebbad6aab15fad1195d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -243,8 +243,8 @@
     },
     {
       "aliases": ["protected domain"],
-      "body_bytes": 681,
-      "body_sha256": "sha256:3dd7368acefd1337d3b53cdb0351b08f436214c003695d1836bcd6fe86e4ee29",
+      "body_bytes": 426,
+      "body_sha256": "sha256:5ed1be8d7175cd8a1b5f15d3e7969f68b581b67efbccdd3c3977467ea936a9d6",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:protected_domain:example:data-source"],
@@ -283,8 +283,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1331,
-      "body_sha256": "sha256:dd260ba829be13ff22d31ceb29c08e6cd9a0ebedc820e7ec62f2e36b5f0785e8",
+      "body_bytes": 1091,
+      "body_sha256": "sha256:343e578236f15d5cd266f5cbcba175d5e02135713b703aedfd191806af7aca41",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],

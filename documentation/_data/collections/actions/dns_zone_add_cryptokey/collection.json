@@ -26,8 +26,8 @@
   "pages": [
     {
       "aliases": ["dns zone add cryptokey"],
-      "body_bytes": 1257,
-      "body_sha256": "sha256:8e7c7f84411197a18d746211dec8f5300fd9cdcad2b5e3757f4a69c41a264116",
+      "body_bytes": 1281,
+      "body_sha256": "sha256:c5ee061f640cd8edac05476cb0361c25f7a6675f796e0eb8aa1421b5dfbb1495",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -59,7 +59,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/dns_zone_add_cryptokey/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource creation operation.",
+      "summary": "Adds a cryptographic key to a DNS zone.",
       "tasks": ["configuration"],
       "title": "xcsh_dns_zone_add_cryptokey",
       "unresolved_relationships": [],
@@ -71,8 +71,8 @@
     },
     {
       "aliases": ["dns zone add cryptokey"],
-      "body_bytes": 1741,
-      "body_sha256": "sha256:792b4a36f4739588d231eb34f0ec5def47955bd7ce0afd6a0b54b535491974e6",
+      "body_bytes": 1604,
+      "body_sha256": "sha256:915287546e7558c5f03986817a45d49fd9f801eecf150f2235a4f2fe74a81d43",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -160,8 +160,8 @@
     },
     {
       "aliases": ["dns zone add cryptokey"],
-      "body_bytes": 677,
-      "body_sha256": "sha256:f67d51cece8b82ff13f550a26740c41e4e5b5b03bb48e2e401ba2042b492f0d8",
+      "body_bytes": 424,
+      "body_sha256": "sha256:9dcbd5a657244e5b6e586c7d55f101db798f321197deb5f5c233ac6f6fe3316d",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:actions:dns_zone_add_cryptokey:example:action"],
@@ -200,8 +200,8 @@
     },
     {
       "aliases": ["action"],
-      "body_bytes": 1163,
-      "body_sha256": "sha256:db7afe6cdd7746712c568323adde152fcc59850181488dec04326c59a15230dc",
+      "body_bytes": 915,
+      "body_sha256": "sha256:bb73638377cb829c85cbff2391447e53ac6ef766f3b345e5ad038b384e4082af",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -247,8 +247,8 @@
     },
     {
       "aliases": ["dns zone add cryptokey"],
-      "body_bytes": 638,
-      "body_sha256": "sha256:006549fe0df91c20ab37e467083e64cbb86a2e1f8171dcdbe9f65bdac88fc3e3",
+      "body_bytes": 501,
+      "body_sha256": "sha256:aefd5b8edce4ac64719fe0447f84c8d2503a85ec6d0d349e653a6963b168966c",
       "capabilities": [],
       "category": null,
       "child_ids": [],

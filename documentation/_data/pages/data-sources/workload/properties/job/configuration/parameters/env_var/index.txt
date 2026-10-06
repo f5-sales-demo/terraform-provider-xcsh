@@ -2,7 +2,7 @@
 page_title: "job.configuration.parameters.env_var"
 subcategory: "Container"
 description: "Environment Variable."
-xcsh_docs: {"aliases": ["job configuration parameters env var"], "body_bytes": 3630, "body_sha256": "sha256:a6694d8dd2fb92a2d22d4a52b34a2d01b07914773a5f1b8b488334f4ec19fbf9", "capabilities": ["container"], "category": "container", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:workload:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:workload:properties:job:configuration:parameters:env_var", "parent_id": "xcsh-docs:data-sources:workload:properties:job:configuration:parameters", "path": "documentation/data-sources/workload/properties/job/configuration/parameters/env_var/index.md", "product": "distributed-cloud", "provider_name": "workload", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2000102001301001-2301013013303132-0230221032103301-2122023222011323-2223320020120231-3202031233013110-2110110320011000-3011330301213320", "registry_path": "docs/guides/data-sources--workload--reference--group-004.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["job", "configuration", "parameters", "env_var"], "schema_version": 1, "sections": [{"aliases": ["job configuration parameters env var name"], "anchor": "schema-job--configuration--parameters--env_var--name", "description": "Name of Environment Variable.", "document_id": "xcsh-docs:data-sources:workload:properties:job:configuration:parameters:env_var", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["job", "configuration", "parameters", "env_var", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["job configuration parameters env var value"], "anchor": "schema-job--configuration--parameters--env_var--value", "description": "Value of Environment Variable.", "document_id": "xcsh-docs:data-sources:workload:properties:job:configuration:parameters:env_var", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["job", "configuration", "parameters", "env_var", "value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/workload/properties/job/configuration/parameters/env_var/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Environment Variable.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["workloadCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["job configuration parameters env var"], "body_bytes": 3208, "body_sha256": "sha256:b8465f457cff746ce919d13aa311063381eba96542069da6cbad162311fdfb44", "capabilities": ["container"], "category": "container", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:workload:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:workload:properties:job:configuration:parameters:env_var", "parent_id": "xcsh-docs:data-sources:workload:properties:job:configuration:parameters", "path": "documentation/data-sources/workload/properties/job/configuration/parameters/env_var/index.md", "product": "distributed-cloud", "provider_name": "workload", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2000102001301001-2301013013303132-0230221032103301-2122023222011323-2223320020120231-3202031233013110-2110110320011000-3011330301213320", "registry_path": "docs/guides/data-sources--workload--reference--group-004.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["job", "configuration", "parameters", "env_var"], "schema_version": 1, "sections": [{"aliases": ["job configuration parameters env var name"], "anchor": "schema-job--configuration--parameters--env_var--name", "description": "Name of Environment Variable.", "document_id": "xcsh-docs:data-sources:workload:properties:job:configuration:parameters:env_var", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["job", "configuration", "parameters", "env_var", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["job configuration parameters env var value"], "anchor": "schema-job--configuration--parameters--env_var--value", "description": "Value of Environment Variable.", "document_id": "xcsh-docs:data-sources:workload:properties:job:configuration:parameters:env_var", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["job", "configuration", "parameters", "env_var", "value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/workload/properties/job/configuration/parameters/env_var/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Environment Variable.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["workloadCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -26,10 +26,6 @@ Type: `"single"`. Computed.
 
 Environment Variable. Environment Variable.
 
-Upstream description:
-
-Environment Variable.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -52,10 +48,6 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Computed.
 
 Name. Name of Environment Variable.
-
-Upstream description:
-
-Name of Environment Variable.
 
 Receipt-pinned upstream constraints:
 
@@ -110,10 +102,6 @@ Type: `"string"`. Computed.
 
 Value. Value of Environment Variable.
 
-Upstream description:
-
-Value of Environment Variable.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -144,8 +132,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [job.configuration.parameters](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/job/configuration/parameters/)
-- [xcsh_workload](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/)

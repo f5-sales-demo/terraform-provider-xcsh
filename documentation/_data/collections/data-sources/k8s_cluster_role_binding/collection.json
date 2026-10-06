@@ -91,8 +91,8 @@
   "pages": [
     {
       "aliases": ["k8s cluster role binding"],
-      "body_bytes": 1502,
-      "body_sha256": "sha256:bddafbe3ab632b1cbe65ab8b7adb6b579246fe6f70c27d396fafe98a09d2ba75",
+      "body_bytes": 1452,
+      "body_sha256": "sha256:82e6a15a393052b644da11c6e72c5a2c3b0845215f6763176ab0260b896abab7",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -123,7 +123,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role_binding/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages k8s_cluster_role_binding will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.",
+      "summary": "Reads Kubernetes cluster role binding information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_k8s_cluster_role_binding",
       "unresolved_relationships": [],
@@ -135,8 +135,8 @@
     },
     {
       "aliases": ["k8s cluster role binding"],
-      "body_bytes": 10217,
-      "body_sha256": "sha256:edade6bd538c8b7319ae4b1deedd14cb6714a68c92a227055162a9d29c3a62e4",
+      "body_bytes": 9832,
+      "body_sha256": "sha256:03d1175fd44d19b64270bc673796e71f28fee524f28c83bfbd138b98d3f863af",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -307,8 +307,8 @@
     },
     {
       "aliases": ["k8s cluster role"],
-      "body_bytes": 5239,
-      "body_sha256": "sha256:a051cf672b23be44cf0ad2f9d6d5789f406a52b83c25c5fd80869e614bf35edb",
+      "body_bytes": 4290,
+      "body_sha256": "sha256:8f5b89fa4ca9a2dd7f8b6b76a20ef1b5228752f924642272446904d2b9796a31",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -417,8 +417,8 @@
     },
     {
       "aliases": ["subjects"],
-      "body_bytes": 4327,
-      "body_sha256": "sha256:cccb5f4c8504e4bd5f77dd3fab14be5fcf1f72166aab404027d41cf6b1fcb7a5",
+      "body_bytes": 3710,
+      "body_sha256": "sha256:58bdcc5d503906a67051325701202f24998078e16d67064bcaddb54cb14c50c8",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:k8s_cluster_role_binding:properties:subjects:service_account"],
@@ -506,8 +506,8 @@
     },
     {
       "aliases": ["subjects service account"],
-      "body_bytes": 4230,
-      "body_sha256": "sha256:1afc6f0b58510ba3eff768f988a945d3e9b3d8530b3b70f3505155349ce8a6dc",
+      "body_bytes": 3844,
+      "body_sha256": "sha256:74a0f88cdc54980618b3da342e708c2fc5e0f3fcbd557b13ac04b612b54866fe",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -579,8 +579,8 @@
     },
     {
       "aliases": ["k8s cluster role binding"],
-      "body_bytes": 729,
-      "body_sha256": "sha256:73ca4b673cc57b0833f77a9aa0d35ab397c097ca2cd4613e973ccb1d7c31797c",
+      "body_bytes": 450,
+      "body_sha256": "sha256:609d01e2458e297c32f6aeab0d67a96f8b7b52404e8c20aeacf018b1f7fd717c",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:k8s_cluster_role_binding:example:data-source"],
@@ -619,8 +619,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1431,
-      "body_sha256": "sha256:87fb273b93f4d2abfbe2d67e7891f6494d45f759122bda37b418067ac62ad28e",
+      "body_bytes": 1167,
+      "body_sha256": "sha256:d4169f3f2ce8fdd010d3e62ab1ca80c3483352d572531c3a371d040199f73160",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],

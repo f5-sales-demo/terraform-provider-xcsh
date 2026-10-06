@@ -102,8 +102,8 @@
   "pages": [
     {
       "aliases": ["usb policy"],
-      "body_bytes": 1473,
-      "body_sha256": "sha256:60b939422d5ce3893e9e88a5c4ea796808a26ca8f06148f524f1f002605953ee",
+      "body_bytes": 1486,
+      "body_sha256": "sha256:7cbd3767b58ae88ae657e3d5d7100c953201db3404ebf859c7169a940051f18d",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -148,8 +148,8 @@
     },
     {
       "aliases": ["usb policy"],
-      "body_bytes": 11158,
-      "body_sha256": "sha256:3e3016f3ebcec6234ecc83f9d25e16b728fdf0625c43a2ee32625ddc5b9577a8",
+      "body_bytes": 10665,
+      "body_sha256": "sha256:460e8cfa380130fa26160d6a318fa09c86e6d375ab70baa2692b813d2ec07e7d",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -336,8 +336,8 @@
     },
     {
       "aliases": ["allowed devices"],
-      "body_bytes": 5459,
-      "body_sha256": "sha256:004983b3bd85d85d5a09a559ac542998872f2750d3acaeeeb08715063ac45284",
+      "body_bytes": 5064,
+      "body_sha256": "sha256:9fce00418f7a5daf619877669d7d0bc48b9cadfac2bbc535ba7675b8253ab126",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -473,8 +473,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2219,
-      "body_sha256": "sha256:8427fabadb79e643d95cc013ce6ef4e47cc77f2a5841975c90c245cbaa9cbf22",
+      "body_bytes": 1991,
+      "body_sha256": "sha256:dbd822d7a41e735bbfb1197b326a438d25ab57a7459f8e8d432b7f6031ce2af4",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -613,8 +613,8 @@
     },
     {
       "aliases": ["usb policy"],
-      "body_bytes": 621,
-      "body_sha256": "sha256:efeb3752b7156c57da0d710c45e356ef05218b81444fbbb2e6884e6e840867b1",
+      "body_bytes": 396,
+      "body_sha256": "sha256:1e47bdd242cefebc211ed7bc977f6b586278a2f70214ca4f5b2f95632f426367",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:usb_policy:example:resource"],
@@ -653,8 +653,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1209,
-      "body_sha256": "sha256:35cda0b5a6a7fd79c315147accd167168b803929761f20c86476488fb1f0ff70",
+      "body_bytes": 993,
+      "body_sha256": "sha256:50700df1288f8c2dbdbda63bc89c41f828733d7bf17481fca5f834b3f03d796b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -700,8 +700,8 @@
     },
     {
       "aliases": ["usb policy"],
-      "body_bytes": 470,
-      "body_sha256": "sha256:db751d1bc6c8ee6e6d8951a6ae7781d7fc902c5653c2fd4e185fa1fc76f335d2",
+      "body_bytes": 355,
+      "body_sha256": "sha256:13fdcd6e3ca2413dce816922e39fb1db98b4d4cbb6838fd13573a47f1b4961b5",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -741,8 +741,8 @@
     },
     {
       "aliases": ["usb policy"],
-      "body_bytes": 558,
-      "body_sha256": "sha256:01fb0dae9ee6d0201ab681a43ee4f406b78810767fc74407969caca5efecd7bc",
+      "body_bytes": 443,
+      "body_sha256": "sha256:19ef0e52981d4564bc0f992f446a65e589c09d72bb8bfa6826afbc948bd48751",
       "capabilities": [],
       "category": null,
       "child_ids": [],

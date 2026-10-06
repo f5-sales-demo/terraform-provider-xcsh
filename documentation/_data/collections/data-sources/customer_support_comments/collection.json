@@ -91,8 +91,8 @@
   "pages": [
     {
       "aliases": ["customer support comments"],
-      "body_bytes": 1289,
-      "body_sha256": "sha256:db7532ae1a21a62104e551e5540cfa1e8bacd8dde15907e5be3d4c5e3bc579b9",
+      "body_bytes": 1343,
+      "body_sha256": "sha256:d53ac3ec7a8cea4db60ef7514f5c5e4d075b519cb027f65ba2a818cb62cba41e",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -123,7 +123,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/customer_support_comments/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource retrieval operation.",
+      "summary": "Reads Customer Support Comments information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_customer_support_comments",
       "unresolved_relationships": [],
@@ -135,8 +135,8 @@
     },
     {
       "aliases": ["customer support comments"],
-      "body_bytes": 4750,
-      "body_sha256": "sha256:c46772b20683de3243892640d7d5b6941b7c55b0d3dc42dd250797c1e526fb0d",
+      "body_bytes": 4472,
+      "body_sha256": "sha256:138e84ead129a2221e4953832baaa6511437a3fabdd12b947bbed22898fa502a",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:customer_support_comments:properties:comments"],
@@ -240,8 +240,8 @@
     },
     {
       "aliases": ["comments"],
-      "body_bytes": 2423,
-      "body_sha256": "sha256:bc4e0516aab3b7d3e26771ecb87d6b07ef14690fe07bfc2ce2e8d5e70dd52e8b",
+      "body_bytes": 1980,
+      "body_sha256": "sha256:d60d2c6e6f0d47c0018bb4fb7dd4dcbd20d52fe47852bd4815fb13166e91ea22",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:customer_support_comments:properties:comments:attachments_info"],
@@ -409,8 +409,8 @@
     },
     {
       "aliases": ["comments attachments info"],
-      "body_bytes": 1768,
-      "body_sha256": "sha256:9e8a5e63fda1d29d0a2bbbc0f6ccecd47f6a3c046ea8160cb244948c2d9f52e1",
+      "body_bytes": 1490,
+      "body_sha256": "sha256:df67df7c8240e37e515d3d13b566504ddd44f9fbe966486eb484507647c90f57",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -514,8 +514,8 @@
     },
     {
       "aliases": ["customer support comments"],
-      "body_bytes": 735,
-      "body_sha256": "sha256:a9e8cb9c397e428bf5fb2af6a8d4f27493b36329991af86130d5a90f96eba833",
+      "body_bytes": 453,
+      "body_sha256": "sha256:9649f8923ca15a2f21cac1c6e18d10475f884a63fa5f147953e1cfb25f392469",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:customer_support_comments:example:data-source"],
@@ -554,8 +554,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1344,
-      "body_sha256": "sha256:6e2c5fa8add1b4d2653365c6be34c604e0c51e741dafd77e64d25097ce5d37c9",
+      "body_bytes": 1077,
+      "body_sha256": "sha256:c6ae79dd50dae94018c56b3bc28f848794966f692bc6a6ba8dacbff1191ee46f",
       "capabilities": [],
       "category": null,
       "child_ids": [],

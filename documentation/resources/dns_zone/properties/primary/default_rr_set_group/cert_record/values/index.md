@@ -2,7 +2,7 @@
 page_title: "primary.default_rr_set_group.cert_record.values"
 subcategory: "DNS"
 description: "Configuration parameter for values"
-xcsh_docs: {"aliases": ["primary default rr set group cert record values"], "body_bytes": 9287, "body_sha256": "sha256:43897b8c55894d35c08bcf5dbb3945a701155fc48e8f5c80581d564178ed401a", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:dns_zone:collection", "completeness": "complete", "id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:cert_record:values", "parent_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:cert_record", "path": "documentation/resources/dns_zone/properties/primary/default_rr_set_group/cert_record/values/index.md", "product": "distributed-cloud", "provider_name": "dns_zone", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2210301201030001-3220132100011323-2300032123130231-0330021320200310-3101201002002300-3230310310312102-0101031212133331-2313003313003131", "registry_path": "docs/guides/resources--dns_zone--reference--group-001.md", "relationships": [{"anchor": "schema-primary--default_rr_set_group--cert_record--values--cert_key_tag", "enforcement": "provider-schema", "group": "primary.default_rr_set_group.cert_record.values:RequiredListObjectAttributes:cert_key_tag,certificate", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:cert_record:values", "type": "requires"}, {"anchor": "schema-primary--default_rr_set_group--cert_record--values--certificate", "enforcement": "provider-schema", "group": "primary.default_rr_set_group.cert_record.values:RequiredListObjectAttributes:cert_key_tag,certificate", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:cert_record:values", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["primary", "default_rr_set_group", "cert_record", "values"], "schema_version": 1, "sections": [{"aliases": ["primary default rr set group cert record values algorithm"], "anchor": "schema-primary--default_rr_set_group--cert_record--values--algorithm", "description": "CERT algorithm value must be compatible with the specified algorithm. - RESERVEDALGORITHM: RESERVEDALGORITHM - RSAMD5: RSAMD5 - DH: DH - DSASHA1: DSASHA1 - ECC: ECC - RSASHA1ALGORITHM: RSA-SHA1 - INDIRECT: INDIRECT - PRIVATEDNS: PRIVATEDNS - PRIVATEOID: PRIVATEOID.", "document_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:cert_record:values", "enum_extraction_complete": true, "enum_validators": [{"case_sensitive": true, "complete": true, "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf", "validator": "OneOf", "values": ["DH", "DSASHA1", "ECC", "INDIRECT", "PRIVATEDNS", "PRIVATEOID", "RESERVEDALGORITHM", "RSAMD5", "RSASHA1ALGORITHM"], "version": 1}], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "cert_record", "values", "algorithm"], "syntax": "attribute", "type": "string"}, {"aliases": ["primary default rr set group cert record values cert key tag"], "anchor": "schema-primary--default_rr_set_group--cert_record--values--cert_key_tag", "description": "Tag for categorization and filtering", "document_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:cert_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "cert_record", "values", "cert_key_tag"], "syntax": "attribute", "type": "number"}, {"aliases": ["primary default rr set group cert record values cert type"], "anchor": "schema-primary--default_rr_set_group--cert_record--values--cert_type", "description": "CERT type value must be compatible with the specified types. - INVALIDCERTTYPE: INVALIDCERTTYPE - PKIX: PKIX - SPKI: SPKI - PGP: PGP - IPKIX: IPKIX - ISPKI: ISPKI - IPGP: IPGP - ACPKIX: ACPKIX - IACPKIX: IACPKIX - URI_: URI - OID: OID.", "document_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:cert_record:values", "enum_extraction_complete": true, "enum_validators": [{"case_sensitive": true, "complete": true, "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf", "validator": "OneOf", "values": ["ACPKIX", "IACPKIX", "INVALIDCERTTYPE", "IPGP", "IPKIX", "ISPKI", "OID", "PGP", "PKIX", "SPKI", "URI_"], "version": 1}], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "cert_record", "values", "cert_type"], "syntax": "attribute", "type": "string"}, {"aliases": ["primary default rr set group cert record values certificate"], "anchor": "schema-primary--default_rr_set_group--cert_record--values--certificate", "description": "Certificate in base 64 format.", "document_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:cert_record:values", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "cert_record", "values", "certificate"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_zone/properties/primary/default_rr_set_group/cert_record/values/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Configuration parameter for values", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["dns_zoneCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["primary default rr set group cert record values"], "body_bytes": 8116, "body_sha256": "sha256:2840a30799b7089889ac4385254752a31adcdfb40dfead1fcda6f4a83a43a00f", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:dns_zone:collection", "completeness": "complete", "id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:cert_record:values", "parent_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:cert_record", "path": "documentation/resources/dns_zone/properties/primary/default_rr_set_group/cert_record/values/index.md", "product": "distributed-cloud", "provider_name": "dns_zone", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2210301201030001-3220132100011323-2300032123130231-0330021320200310-3101201002002300-3230310310312102-0101031212133331-2313003313003131", "registry_path": "docs/guides/resources--dns_zone--reference--group-001.md", "relationships": [{"anchor": "schema-primary--default_rr_set_group--cert_record--values--cert_key_tag", "enforcement": "provider-schema", "group": "primary.default_rr_set_group.cert_record.values:RequiredListObjectAttributes:cert_key_tag,certificate", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:cert_record:values", "type": "requires"}, {"anchor": "schema-primary--default_rr_set_group--cert_record--values--certificate", "enforcement": "provider-schema", "group": "primary.default_rr_set_group.cert_record.values:RequiredListObjectAttributes:cert_key_tag,certificate", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:cert_record:values", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["primary", "default_rr_set_group", "cert_record", "values"], "schema_version": 1, "sections": [{"aliases": ["primary default rr set group cert record values algorithm"], "anchor": "schema-primary--default_rr_set_group--cert_record--values--algorithm", "description": "CERT algorithm value must be compatible with the specified algorithm. - RESERVEDALGORITHM: RESERVEDALGORITHM - RSAMD5: RSAMD5 - DH: DH - DSASHA1: DSASHA1 - ECC: ECC - RSASHA1ALGORITHM: RSA-SHA1 - INDIRECT: INDIRECT - PRIVATEDNS: PRIVATEDNS - PRIVATEOID: PRIVATEOID.", "document_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:cert_record:values", "enum_extraction_complete": true, "enum_validators": [{"case_sensitive": true, "complete": true, "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf", "validator": "OneOf", "values": ["DH", "DSASHA1", "ECC", "INDIRECT", "PRIVATEDNS", "PRIVATEOID", "RESERVEDALGORITHM", "RSAMD5", "RSASHA1ALGORITHM"], "version": 1}], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "cert_record", "values", "algorithm"], "syntax": "attribute", "type": "string"}, {"aliases": ["primary default rr set group cert record values cert key tag"], "anchor": "schema-primary--default_rr_set_group--cert_record--values--cert_key_tag", "description": "Tag for categorization and filtering", "document_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:cert_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "cert_record", "values", "cert_key_tag"], "syntax": "attribute", "type": "number"}, {"aliases": ["primary default rr set group cert record values cert type"], "anchor": "schema-primary--default_rr_set_group--cert_record--values--cert_type", "description": "CERT type value must be compatible with the specified types. - INVALIDCERTTYPE: INVALIDCERTTYPE - PKIX: PKIX - SPKI: SPKI - PGP: PGP - IPKIX: IPKIX - ISPKI: ISPKI - IPGP: IPGP - ACPKIX: ACPKIX - IACPKIX: IACPKIX - URI_: URI - OID: OID.", "document_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:cert_record:values", "enum_extraction_complete": true, "enum_validators": [{"case_sensitive": true, "complete": true, "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf", "validator": "OneOf", "values": ["ACPKIX", "IACPKIX", "INVALIDCERTTYPE", "IPGP", "IPKIX", "ISPKI", "OID", "PGP", "PKIX", "SPKI", "URI_"], "version": 1}], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "cert_record", "values", "cert_type"], "syntax": "attribute", "type": "string"}, {"aliases": ["primary default rr set group cert record values certificate"], "anchor": "schema-primary--default_rr_set_group--cert_record--values--certificate", "description": "Certificate in base 64 format.", "document_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:cert_record:values", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "cert_record", "values", "certificate"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_zone/properties/primary/default_rr_set_group/cert_record/values/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Configuration parameter for values", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["dns_zoneCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -25,10 +25,6 @@ Breadcrumbs:
 Type: `"object"`. list nested block, Optional.
 
 CERT Value. Configuration parameter for values
-
-Upstream description:
-
-Configuration parameter for values
 
 Provider validators and defaults (from schema source):
 
@@ -98,28 +94,6 @@ RSA-SHA1 - INDIRECT: INDIRECT - PRIVATEDNS: PRIVATEDNS - PRIVATEOID: PRIVATEOID.
 \`RESERVEDALGORITHM\`, \`RSAMD5\`, \`DH\`, \`DSASHA1\`, \`ECC\`, \`RSASHA1ALGORITHM\`, \`INDIRECT\`,
 \`PRIVATEDNS\`, \`PRIVATEOID\`. Defaults to \`RESERVEDALGORITHM\`.
 
-Upstream description:
-
-CERT algorithm value must be compatible with the specified algorithm.
-
-&#8203;- RESERVEDALGORITHM: RESERVEDALGORITHM
-
-&#8203;- RSAMD5: RSAMD5
-
-&#8203;- DH: DH
-
-&#8203;- DSASHA1: DSASHA1
-
-&#8203;- ECC: ECC
-
-&#8203;- RSASHA1ALGORITHM: RSA-SHA1
-
-&#8203;- INDIRECT: INDIRECT
-
-&#8203;- PRIVATEDNS: PRIVATEDNS
-
-&#8203;- PRIVATEOID: PRIVATEOID.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -170,10 +144,6 @@ Receipt-pinned upstream constraints:
 Type: `"number"`. Optional.
 
 Key Tag. Tag for categorization and filtering
-
-Upstream description:
-
-Tag for categorization and filtering
 
 Provider validators and defaults (from schema source):
 
@@ -232,32 +202,6 @@ URI\_: URI - OID: OID. Possible values are \`INVALIDCERTTYPE\`, \`PKIX\`, \`SPKI
 \`IPKIX\`, \`ISPKI\`, \`IPGP\`, \`ACPKIX\`, \`IACPKIX\`, \`URI\_\`, \`OID\`. Defaults to
 \`INVALIDCERTTYPE\`.
 
-Upstream description:
-
-CERT type value must be compatible with the specified types.
-
-&#8203;- INVALIDCERTTYPE: INVALIDCERTTYPE
-
-&#8203;- PKIX: PKIX
-
-&#8203;- SPKI: SPKI
-
-&#8203;- PGP: PGP
-
-&#8203;- IPKIX: IPKIX
-
-&#8203;- ISPKI: ISPKI
-
-&#8203;- IPGP: IPGP
-
-&#8203;- ACPKIX: ACPKIX
-
-&#8203;- IACPKIX: IACPKIX
-
-&#8203;- URI\_: URI
-
-&#8203;- OID: OID.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -312,10 +256,6 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Optional.
 
 Certificate. Certificate in base 64 format.
-
-Upstream description:
-
-Certificate in base 64 format.
 
 Provider validators and defaults (from schema source):
 
@@ -372,8 +312,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [primary.default_rr_set_group.cert_record](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/dns_zone/properties/primary/default_rr_set_group/cert_record/)
-- [xcsh_dns_zone](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/dns_zone/)

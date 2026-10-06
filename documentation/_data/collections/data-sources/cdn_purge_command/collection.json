@@ -91,8 +91,8 @@
   "pages": [
     {
       "aliases": ["cdn purge command"],
-      "body_bytes": 1407,
-      "body_sha256": "sha256:855776324132689f550d511e90253edfbbe1eab152f0155b1e1e987b68cf5c5c",
+      "body_bytes": 1370,
+      "body_sha256": "sha256:4320456b931ca827001e52f1c7c4a184083ecec59d7a6a30ea8acdb0a9799dbd",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -123,7 +123,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_purge_command/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a CDN Purge Command resource in F5 Distributed Cloud for cdn purge command specification. configuration.",
+      "summary": "Reads CDN Purge Command information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_cdn_purge_command",
       "unresolved_relationships": [],
@@ -135,8 +135,8 @@
     },
     {
       "aliases": ["cdn purge command"],
-      "body_bytes": 13932,
-      "body_sha256": "sha256:921afae7445ed246f336eed05f09f2b7d04ceb9686e700544aa7809306ca176e",
+      "body_bytes": 12982,
+      "body_sha256": "sha256:528822870152fe94a2d4573007e0f9c547e47834c1bdfd1fd41dd0bed176b827",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -389,8 +389,8 @@
     },
     {
       "aliases": ["hard purge"],
-      "body_bytes": 1472,
-      "body_sha256": "sha256:b4ac756de975767e669ee7f8fdf492c3fa4dd277511e7c027d0128568b424c38",
+      "body_bytes": 1202,
+      "body_sha256": "sha256:bb96e31b08bf78819079cab63b04df72ca56f85e055a56109233286c42bf7f1d",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -429,8 +429,8 @@
     },
     {
       "aliases": ["purge all"],
-      "body_bytes": 1060,
-      "body_sha256": "sha256:3d43f0ed1d7e623f3910a0e220dde3c3cf84bf5eb37a83d2b3b93c872a1665b3",
+      "body_bytes": 790,
+      "body_sha256": "sha256:1ac35da66b312cf5da306e3462d89bc8d98e0413611a745cb61089f555f641c6",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -469,8 +469,8 @@
     },
     {
       "aliases": ["soft purge"],
-      "body_bytes": 1062,
-      "body_sha256": "sha256:bc4f6976c888170c2cb9f18414c9b320ab6a9d271c2986d1721b170dfffb818d",
+      "body_bytes": 792,
+      "body_sha256": "sha256:4238615069c8d2fd64bd6ed567c6f13ce9ea2ec4f012f7735523e09155ab838a",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -509,8 +509,8 @@
     },
     {
       "aliases": ["virtual host"],
-      "body_bytes": 5177,
-      "body_sha256": "sha256:526be8f1604ea83e99adad13f6b390c7804b3a08c8ca63f2343bd7c3bc313559",
+      "body_bytes": 4249,
+      "body_sha256": "sha256:af63000d4af75c3e1aa597c67bafb9e13310e9533105c26562e2d54b56271e36",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -619,8 +619,8 @@
     },
     {
       "aliases": ["cdn purge command"],
-      "body_bytes": 687,
-      "body_sha256": "sha256:9b052b66c7cb5bde9a17640ced7cdc434d4dbec625226a6de9de37cbe9cfc202",
+      "body_bytes": 429,
+      "body_sha256": "sha256:2d562a2c8e5581b4c9b9b45172fb007bcf4241e21304603b7f8f4b484e2a3465",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": ["xcsh-docs:data-sources:cdn_purge_command:example:data-source"],
@@ -659,8 +659,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1342,
-      "body_sha256": "sha256:e3afc2f7d921bde25cad1d63c6db8a829296d28279c3c84ace1fe97be804db94",
+      "body_bytes": 1099,
+      "body_sha256": "sha256:ae4dbbde8c0f24bd004f41a1df8532a447d13c815337946c495bc707b25e0630",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],

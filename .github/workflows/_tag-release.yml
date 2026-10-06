@@ -593,3 +593,14 @@ jobs:
             "$RELEASE_TAG" "$RELEASE_COMMIT" \
             "$RUNNER_TEMP/release-published.json" "$RUNNER_TEMP/provider-assets" \
             "$RUNNER_TEMP/provider-receipts" >/dev/null
+
+  documentation:
+    name: Publish Terraform Documentation Snapshot
+    needs: [tag, publish]
+    permissions:
+      contents: write # publish exact immutable documentation assets
+    uses: ./.github/workflows/terraform-docs-snapshot.yml
+    with:
+      provider_tag: ${{ needs.tag.outputs.new_tag }}
+    secrets:
+      REPO_SYNC_TOKEN: ${{ secrets.repository-administration-token }}

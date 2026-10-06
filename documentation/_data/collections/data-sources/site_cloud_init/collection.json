@@ -31,8 +31,8 @@
   "pages": [
     {
       "aliases": ["site cloud init"],
-      "body_bytes": 1308,
-      "body_sha256": "sha256:6283b4e83f601fa280d069c7ecd29c23dc5e95194f8f71f98cc1dffb883fd18f",
+      "body_bytes": 1321,
+      "body_sha256": "sha256:7a1ae94de852439b550a3cf739a38994b41b3f522256c6df957a13a217a84e09",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -75,8 +75,8 @@
     },
     {
       "aliases": ["site cloud init"],
-      "body_bytes": 2038,
-      "body_sha256": "sha256:35e6aa32374c49e0e22509a278e15acf193a4f0a04137c8dff24ae6c7272fc20",
+      "body_bytes": 1910,
+      "body_sha256": "sha256:ed13bcbd32951bbdad5188b17f986c0bde2c9ca6e854b123d5171091efae7380",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -180,8 +180,8 @@
     },
     {
       "aliases": ["site cloud init"],
-      "body_bytes": 675,
-      "body_sha256": "sha256:ec9fc04efb31b3d74af377f3d9a58929d9ae1a77ea3559d5bc839d55f22aa485",
+      "body_bytes": 423,
+      "body_sha256": "sha256:ae9171d098accd2d4257bcd75148072bb1473bb6ce4ab0863f4f4e6c5e0fca29",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:site_cloud_init:example:data-source"],
@@ -220,8 +220,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1298,
-      "body_sha256": "sha256:b118161683794faef5b05a65f90de2fa7dae88411a583344b7d8489c75b5dc9e",
+      "body_bytes": 1061,
+      "body_sha256": "sha256:15be87b44c0ab30449327a55d063614a3f675c78415bebde9a258fdd221edb52",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],

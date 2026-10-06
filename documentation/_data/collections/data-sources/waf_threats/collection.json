@@ -51,8 +51,8 @@
   "pages": [
     {
       "aliases": ["waf threats"],
-      "body_bytes": 1150,
-      "body_sha256": "sha256:3cc7318d688279ba650a5b6373b91fa5bbcec2845bcfe494b4eca07fa65d8e5f",
+      "body_bytes": 1191,
+      "body_sha256": "sha256:c0ddb2313d2cb14979cc6981fb5815e8732f6a2ad684a67782946a541fa43abf",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:waf_threats:reference", "xcsh-docs:data-sources:waf_threats:examples"],
@@ -80,7 +80,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_threats/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource creation operation.",
+      "summary": "Reads WAF threats information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_waf_threats",
       "unresolved_relationships": [],
@@ -92,8 +92,8 @@
     },
     {
       "aliases": ["waf threats"],
-      "body_bytes": 3117,
-      "body_sha256": "sha256:3c40e848203f9b6e48b6b1f8c1e8dead7cb4ceb4fe0b5df1e74421d4999d5117",
+      "body_bytes": 2883,
+      "body_sha256": "sha256:5a0b0d2745fe99bdd632a7f194529c4bd7cd7c113e71de0826a448300cfaca75",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:waf_threats:properties:cve_ids"],
@@ -245,8 +245,8 @@
     },
     {
       "aliases": ["cve ids"],
-      "body_bytes": 979,
-      "body_sha256": "sha256:3f9e69322345cae461afbc4582c81ea529bc40ec8b986d293e5eb6e2545dc1e9",
+      "body_bytes": 742,
+      "body_sha256": "sha256:37151db5542f5e39cd548563ae3926cfa13bd31e34d004b32ce5b88b0e8fcbae",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -302,8 +302,8 @@
     },
     {
       "aliases": ["waf threats"],
-      "body_bytes": 651,
-      "body_sha256": "sha256:b2bf4ce5f978831b97f9f8d82eeac834594118d36e32c2b3426e37b61e7991ff",
+      "body_bytes": 411,
+      "body_sha256": "sha256:bd61473b1b8dfceec35733c80af76d465b1900b2506834f4f173d457fca7c126",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:waf_threats:example:data-source"],
@@ -342,8 +342,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1166,
-      "body_sha256": "sha256:d841754b8c1b9cade9c340024c138ed584dd3e9a018ec82a09bc8245d3fca439",
+      "body_bytes": 941,
+      "body_sha256": "sha256:97f4706125e66821adeddc614699db985b2ada783cafe8dbe5f44d017663afe3",
       "capabilities": [],
       "category": null,
       "child_ids": [],

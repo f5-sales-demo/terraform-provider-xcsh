@@ -131,8 +131,8 @@
   "pages": [
     {
       "aliases": ["device intelligence devices"],
-      "body_bytes": 1314,
-      "body_sha256": "sha256:cdcb35f3fc489cbb742d537d1f7e05847298fdfb2b42fc6fca348f8970dce89d",
+      "body_bytes": 1371,
+      "body_sha256": "sha256:059865148ac8d76f476997b7cfdf7aa93c7e8c579b62f24b578ad93a7ab75bb6",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -163,7 +163,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_devices/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource creation operation.",
+      "summary": "Reads Device Intelligence Devices information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_device_intelligence_devices",
       "unresolved_relationships": [],
@@ -175,8 +175,8 @@
     },
     {
       "aliases": ["device intelligence devices"],
-      "body_bytes": 7482,
-      "body_sha256": "sha256:17acc2b7ae0d156550ecc1de4f8cd2129055c87afe115ab04e37229cfe5bc135",
+      "body_bytes": 6810,
+      "body_sha256": "sha256:5ddce40cbe0a503477d98538935783128519812158a6c41d9aaf919e00aa2cb3",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -333,8 +333,8 @@
     },
     {
       "aliases": ["devices"],
-      "body_bytes": 2040,
-      "body_sha256": "sha256:d96b7b72e706a1c0b1affeb0066baeb616a0348b58a0adced6d53734fef212d9",
+      "body_bytes": 1755,
+      "body_sha256": "sha256:cc4e08179b1541a84385e5ae82d25089d921bc5f41e99ccd3e2c44368ce855fc",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -502,8 +502,8 @@
     },
     {
       "aliases": ["filters"],
-      "body_bytes": 1910,
-      "body_sha256": "sha256:ea158b626d9940d3cabce05af170c0efa205aabec360dabb656ad63c7e11558f",
+      "body_bytes": 1465,
+      "body_sha256": "sha256:05daac26194154277487b89a7080089fd716b802257edb9ebe138a59d4a79085",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:device_intelligence_devices:properties:filters:global_filters"],
@@ -584,8 +584,8 @@
     },
     {
       "aliases": ["filters global filters"],
-      "body_bytes": 6848,
-      "body_sha256": "sha256:1b49eaa723e5a72e21d8e2d4f9e627acc65c88d29338a1c542afb09eeb3acce1",
+      "body_bytes": 6566,
+      "body_sha256": "sha256:6004fba33133958490b18ed8e29508f338f93272e1db695a3e2f020b4bcbac91",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -753,8 +753,8 @@
     },
     {
       "aliases": ["pagination"],
-      "body_bytes": 1258,
-      "body_sha256": "sha256:a87395bc7ef384f19b5a2c4a91579e9b2132798e28c7060dba7676e623e9f4f2",
+      "body_bytes": 973,
+      "body_sha256": "sha256:a18c2e1f9f6959a4ba1a59f49a3425117f64ba5082b0a3bd8cc30518b1dd7763",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -826,8 +826,8 @@
     },
     {
       "aliases": ["sort"],
-      "body_bytes": 5717,
-      "body_sha256": "sha256:deabc115ce477727c74ba59f066379107f37f0e23cb538e2c69a369e9dbabe28",
+      "body_bytes": 5432,
+      "body_sha256": "sha256:ff145fc0147a1598c9dc49b9a7673e60acf1ed18620b22e3be2eb844b525fa5a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -970,8 +970,8 @@
     },
     {
       "aliases": ["device intelligence devices"],
-      "body_bytes": 747,
-      "body_sha256": "sha256:36c1f255a5ad6948e8f523a84bdfd052d5de18da4adb543cec9855977ddac68c",
+      "body_bytes": 459,
+      "body_sha256": "sha256:7050c5f738696f059655d815629a30f3b6c3b9f3793278b19ddc9ffaf6c90683",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:device_intelligence_devices:example:data-source"],
@@ -1010,8 +1010,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1371,
-      "body_sha256": "sha256:b9c68ad4efdac5f1b369f68d54000dc027be7bc6b4e45e65dd941c84968b45a9",
+      "body_bytes": 1098,
+      "body_sha256": "sha256:63a5188be8ec42155ad6fedb438770ff243f31ab31ed008cf529720ec49ed769",
       "capabilities": [],
       "category": null,
       "child_ids": [],

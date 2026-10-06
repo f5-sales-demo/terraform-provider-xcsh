@@ -81,8 +81,8 @@
   "pages": [
     {
       "aliases": ["public ip"],
-      "body_bytes": 1406,
-      "body_sha256": "sha256:79211e99c1f1aa0867a406e7209e9095a5da36263e4f3cd3516252f0a096f015",
+      "body_bytes": 1294,
+      "body_sha256": "sha256:505a5b611e852e4ea154b28343107088c787fc239a7b79fa7bd4da2bf6ad41ea",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:public_ip:reference", "xcsh-docs:data-sources:public_ip:examples"],
@@ -110,7 +110,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/public_ip/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Public IP resource in F5 Distributed Cloud for get public_ip will get the object from the storage backend for namespace metadata.namespace. configuration. (read-only data source)",
+      "summary": "Reads an existing public IP object from the requested namespace.",
       "tasks": ["configuration"],
       "title": "xcsh_public_ip",
       "unresolved_relationships": [],
@@ -122,8 +122,8 @@
     },
     {
       "aliases": ["public ip"],
-      "body_bytes": 3951,
-      "body_sha256": "sha256:e6658b60c95eaf28447855a092c17fe8a28d15c2efb259389af87efb30dc347c",
+      "body_bytes": 3711,
+      "body_sha256": "sha256:9b509e6ccb02802a3dc49e919ec7fe4e1ef0fabb75b3be3d04c9e267df88a894",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:public_ip:properties:virtual_sites"],
@@ -307,8 +307,8 @@
     },
     {
       "aliases": ["virtual sites"],
-      "body_bytes": 1900,
-      "body_sha256": "sha256:2be2d83c850e1e919f1b27689e181d8969144595f58f9d5b435b70919ff1d7ca",
+      "body_bytes": 1669,
+      "body_sha256": "sha256:2b721986aba055fcec5fbf2990ce2f0b35964a663a6f8a6b6fef5ac312c4ae26",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -428,8 +428,8 @@
     },
     {
       "aliases": ["public ip"],
-      "body_bytes": 639,
-      "body_sha256": "sha256:0bbf2646c9794400a6c8cb1fd95d1f38a633bfc4b8ecab72b151224510004320",
+      "body_bytes": 405,
+      "body_sha256": "sha256:f7b6bf7b9024965e06fac032f463cc6368665856abc5efc4b9b69ef356f45647",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:public_ip:example:data-source"],
@@ -468,8 +468,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1240,
-      "body_sha256": "sha256:87871bd73e9869eae3a8a66ee3c2295994bb2e926e31d79b1fdac91c687c86da",
+      "body_bytes": 1021,
+      "body_sha256": "sha256:8ee59332c1bd403f055d2923473c9357ae479b784afb07e4436e1bc9b6dd6b95",
       "capabilities": [],
       "category": null,
       "child_ids": [],

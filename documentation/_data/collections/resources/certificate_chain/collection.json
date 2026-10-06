@@ -76,8 +76,8 @@
   "pages": [
     {
       "aliases": ["cert", "certificate", "certificate chain", "existing certificates", "tls certificates"],
-      "body_bytes": 1735,
-      "body_sha256": "sha256:988bd26b5a69dc241b4db1c5e13706027b65bb635606dd1a85485408315102b4",
+      "body_bytes": 1748,
+      "body_sha256": "sha256:2557d0f87c2fd022c3ef07a43fa4ec19f91527e2883ada8e6d8e500122c573c9",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -122,8 +122,8 @@
     },
     {
       "aliases": ["cert", "certificate", "certificate chain", "existing certificates", "tls certificates"],
-      "body_bytes": 11209,
-      "body_sha256": "sha256:c898f07eb9a8764511d5431a33c4cf4335f17bd841f1a2a1d3b769ad0c5da09e",
+      "body_bytes": 10821,
+      "body_sha256": "sha256:9b7337dd5334baec01510a1432c8fac292cc0fefabeca0443fc08bee0d986646",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:resources:certificate_chain:properties:timeouts"],
@@ -307,8 +307,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2261,
-      "body_sha256": "sha256:dfb8fb21b1935098be02398ddfe5bcaaa2327c9f5f833f3e0576052cdf6b534a",
+      "body_bytes": 2012,
+      "body_sha256": "sha256:5adc2de72d1b694417502f3bd56bc85c31f1440c7230893bb7520c8f80c02740",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -447,8 +447,8 @@
     },
     {
       "aliases": ["cert", "certificate", "certificate chain", "existing certificates", "tls certificates"],
-      "body_bytes": 663,
-      "body_sha256": "sha256:b5a004ec6fa0710ca281342f386835a44dcf81c6c6803ca277eec4cea4f2ecb8",
+      "body_bytes": 417,
+      "body_sha256": "sha256:35251ff84281e3d7abe61555f979dc7c489b86ee2731f16cc3bd487a2d996124",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:resources:certificate_chain:example:resource"],
@@ -487,8 +487,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1374,
-      "body_sha256": "sha256:98d696b6c2248ffbf2abb2b602f70eb75a6ef54d63f5b733dc55f42fcae4f484",
+      "body_bytes": 1137,
+      "body_sha256": "sha256:3d83a6f7e02e7ca193125a4ce32b1befcb61b9884ff189aa3aa42e67b339dfa6",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -534,8 +534,8 @@
     },
     {
       "aliases": ["cert", "certificate", "certificate chain", "existing certificates", "tls certificates"],
-      "body_bytes": 505,
-      "body_sha256": "sha256:57e18a71fe4ed28c972209beed1e225038f51d4f69a1bd8fed503653b6a6e42c",
+      "body_bytes": 376,
+      "body_sha256": "sha256:43784253fabba6e6b4b3f1d04952ed888df757689a4354042ac7b972ddeea1ef",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -575,8 +575,8 @@
     },
     {
       "aliases": ["cert", "certificate", "certificate chain", "existing certificates", "tls certificates"],
-      "body_bytes": 593,
-      "body_sha256": "sha256:d810d4f6ef03d667ee4ad00fd19f8a192fd019957207fa9c362793f298b70c41",
+      "body_bytes": 464,
+      "body_sha256": "sha256:07f9fbc41ac35561568a7dee5362ac23552474269f0f7032ac593c663e93afd3",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],

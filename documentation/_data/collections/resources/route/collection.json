@@ -1152,8 +1152,8 @@
   "pages": [
     {
       "aliases": ["route"],
-      "body_bytes": 1561,
-      "body_sha256": "sha256:f86c083ded35991e3dc4b9ddc9d7fae0060d83a705757088f206d1e52e76ce82",
+      "body_bytes": 1574,
+      "body_sha256": "sha256:5f16c0ebbbbd150701a6979d757f8f08f6f37fc31022b5ec7fcb29a5fd0b6db7",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1198,8 +1198,8 @@
     },
     {
       "aliases": ["route"],
-      "body_bytes": 65974,
-      "body_sha256": "sha256:6badfc71b85806bc93586e190fd3f3791d62c4950cf5c9ed7bb54f22b7cbe77b",
+      "body_bytes": 65519,
+      "body_sha256": "sha256:c35b5bc0aba7907c7a006719422572bff5b84041e3be6a231dcb3dfe4038929a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:route:properties:routes", "xcsh-docs:resources:route:properties:timeouts"],
@@ -1464,8 +1464,8 @@
     },
     {
       "aliases": ["routes"],
-      "body_bytes": 12649,
-      "body_sha256": "sha256:d07003d44b5168f26daed456e274050df2c53a826ed340eb2dcf94f63b4b334a",
+      "body_bytes": 10194,
+      "body_sha256": "sha256:a592b42357f605750c1991b450463c87f76af07cee5f62586e4ee38f8b642139",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2443,8 +2443,8 @@
     },
     {
       "aliases": ["routes bot defense javascript injection"],
-      "body_bytes": 3125,
-      "body_sha256": "sha256:c75969e6767a61cf890fd02a8a7dce4af53a461f402b6a79884876e2b9dbec94",
+      "body_bytes": 2549,
+      "body_sha256": "sha256:6ff2cfe94420dc8c2d299a788b4cbff8d43d239bf1834116db0d72a86db1358b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:route:properties:routes:bot_defense_javascript_injection:javascript_tags"],
@@ -2543,8 +2543,8 @@
     },
     {
       "aliases": ["routes bot defense javascript injection javascript tags"],
-      "body_bytes": 4239,
-      "body_sha256": "sha256:2aa931633476bd448c7dc79371b76ec3db81661f952eeeb1288f8d2f6175b541",
+      "body_bytes": 3734,
+      "body_sha256": "sha256:0d8bb0b4b8d83c3fb210aecbf77c4e77d63a078b957d58c6482a1d0c4985e2dc",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2627,8 +2627,8 @@
     },
     {
       "aliases": ["routes bot defense javascript injection javascript tags tag attributes"],
-      "body_bytes": 5050,
-      "body_sha256": "sha256:e27bbc8873d61c2620173f7d36bf20907215925f919c87686ed8dc7a4a88564a",
+      "body_bytes": 4617,
+      "body_sha256": "sha256:84dbc831eeeda319c184ea12f8708d4ff3ee8ad259495892821a537ab1e73058",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2730,8 +2730,8 @@
     },
     {
       "aliases": ["routes inherited bot defense javascript injection"],
-      "body_bytes": 1239,
-      "body_sha256": "sha256:45b37592b141ee6a64d27314d0bead068f4fb73c2e17454a5159ba17e96c9dae",
+      "body_bytes": 1016,
+      "body_sha256": "sha256:17c7c393ce7b2f48dc04b0f9515eba15d781d1ee65351e3574a00fb135adc59c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2770,8 +2770,8 @@
     },
     {
       "aliases": ["routes inherited waf exclusion"],
-      "body_bytes": 1216,
-      "body_sha256": "sha256:c72d8d2ae346836bd842233eaf53c02003c2ec49d3a9a0ac89d0d3d0837c412b",
+      "body_bytes": 993,
+      "body_sha256": "sha256:d5a3ae5a0f10d216139f00cd809305340029567f0ddc802a8cd3d6070313583d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2810,8 +2810,8 @@
     },
     {
       "aliases": ["routes match"],
-      "body_bytes": 4132,
-      "body_sha256": "sha256:8c63738f0ad43824088757120bbe3318b7baa2d7bd30c740d657b0ab1e500bc2",
+      "body_bytes": 3242,
+      "body_sha256": "sha256:5ea40dab61a069a2a25ea4a75a62857d7c6a24e53facda61b300723badc7c0dd",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -3125,8 +3125,8 @@
     },
     {
       "aliases": ["routes match headers"],
-      "body_bytes": 7423,
-      "body_sha256": "sha256:65e2985ea759f266157ee8dab648148420b98fdd38c7d40a872e4b6771d055fb",
+      "body_bytes": 6817,
+      "body_sha256": "sha256:018f9e3f7f9e8d59ed0864ab50b16e7492e5fb4cf2df8013be3f10f17dceda90",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3303,8 +3303,8 @@
     },
     {
       "aliases": ["routes match incoming port"],
-      "body_bytes": 4383,
-      "body_sha256": "sha256:b3ae10692d26a9e4ad8c917907e9ef0d7530a949675dd4e0aacbe6610820d9eb",
+      "body_bytes": 3814,
+      "body_sha256": "sha256:3d888b33d128dc62213399501e6c1dc758110900f8de3bd1b54a8c311f4ce344",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:route:properties:routes:match:incoming_port:no_port_match"],
@@ -3441,8 +3441,8 @@
     },
     {
       "aliases": ["routes match incoming port no port match"],
-      "body_bytes": 1490,
-      "body_sha256": "sha256:c7f9360680d5185dd5286dd7a03c113af6b5fab3deb43d4b62d411660588817d",
+      "body_bytes": 1227,
+      "body_sha256": "sha256:664ae85976891f409a351294528720dee6c90685b230094c46f05e6d55ba7a6a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3481,8 +3481,8 @@
     },
     {
       "aliases": ["routes match path"],
-      "body_bytes": 5474,
-      "body_sha256": "sha256:3b5fd3f5a31dc248ef507afc1b0b845705f3eb0564f29b6c6730c6d4b6b5129f",
+      "body_bytes": 4920,
+      "body_sha256": "sha256:3b89cd6bef10cb6e556863377bd927fbb21046ffb7492d38c2ae479f029af5f4",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3619,8 +3619,8 @@
     },
     {
       "aliases": ["routes match query params"],
-      "body_bytes": 5541,
-      "body_sha256": "sha256:0cd9adcaf885edd2006805922c2053c008d74373bb85f7f78948890addde164c",
+      "body_bytes": 4969,
+      "body_sha256": "sha256:6e0340bab64b24e8393ba62ac207ddc4d8a75be0a9989007a43cd161c8c31ff2",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3733,8 +3733,8 @@
     },
     {
       "aliases": ["routes request cookies to add"],
-      "body_bytes": 5726,
-      "body_sha256": "sha256:b165f8567ab552ebd8ba1313ffe11bb5cd8605df349ca7e6095b76b8ce91575f",
+      "body_bytes": 5171,
+      "body_sha256": "sha256:ed5f986551818dc607916a3e2b6912d565b119825e293ee6101fb42d27567e13",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:route:properties:routes:request_cookies_to_add:secret_value"],
@@ -3880,8 +3880,8 @@
     },
     {
       "aliases": ["routes request cookies to add secret value"],
-      "body_bytes": 2505,
-      "body_sha256": "sha256:a8ba8cec41ca2eef5fa003d3081812c85a13e58eb05c705e7d8076af52d17bcd",
+      "body_bytes": 1821,
+      "body_sha256": "sha256:6db3b8dd6941180eb8acd82381554dcba878d42990703e1b7713ea949ef3378b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -3991,8 +3991,8 @@
     },
     {
       "aliases": ["routes request cookies to add secret value blindfold secret info"],
-      "body_bytes": 5152,
-      "body_sha256": "sha256:31b4b3938486c0e7ae3b6d8a87483c6ebb4d0f83cfbe91225cc19111bbab755c",
+      "body_bytes": 4503,
+      "body_sha256": "sha256:80c70a2a0bffc8fb51f1951da6de98e7eeed3c8b6830d04e1bf2928b82b98a81",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4101,8 +4101,8 @@
     },
     {
       "aliases": ["routes request cookies to add secret value clear secret info"],
-      "body_bytes": 4019,
-      "body_sha256": "sha256:3757644a8a0611ee547dc521f47bd7339fcb11bff10d355551a19afaec179876",
+      "body_bytes": 3504,
+      "body_sha256": "sha256:0634c544643e74423bd4fdba57ce9595cc7ae94bf0e8ce0ab537c2cb96ae8bf4",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4122,7 +4122,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0332020022011013-0132312011111202-2313031230311313-3200013110320001-3202013302013121-0330000023331320-0222300302312031-1103301330312022",
-      "registry_path": "docs/guides/resources--route--reference--group-001.md",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-routes--request_cookies_to_add--secret_value--clear_secret_info--url",
@@ -4183,8 +4183,8 @@
     },
     {
       "aliases": ["routes request headers to add"],
-      "body_bytes": 5756,
-      "body_sha256": "sha256:4742db6a776b7be0ca93318fdb27c022c5829d0f99f58fa4dbd27465914f7a35",
+      "body_bytes": 5004,
+      "body_sha256": "sha256:8bef78a2807d8b6306438500588ada4b06644d5c8d88fb0ec2f1f98b262867ca",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:route:properties:routes:request_headers_to_add:secret_value"],
@@ -4204,7 +4204,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3110130201033312-1313023321233221-3201132303201121-3020210012322131-2100011331031103-0301020201111323-0032131300201003-1021223233210133",
-      "registry_path": "docs/guides/resources--route--reference--group-001.md",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-routes--request_headers_to_add--value",
@@ -4330,8 +4330,8 @@
     },
     {
       "aliases": ["routes request headers to add secret value"],
-      "body_bytes": 2505,
-      "body_sha256": "sha256:07587895ea5fb366033527e15b1e127afd9cfe70e5694f9e1df3dbfb561857c7",
+      "body_bytes": 1821,
+      "body_sha256": "sha256:57b94141c87b860c0b0137bafbdcf22af2b777cfc87d6e2c7492c86dd938181e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -4354,7 +4354,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3223121100010231-3022121123131313-2010112103000010-0312121303131300-1312010132332302-0302033003332022-1113231302232222-2311300200203311",
-      "registry_path": "docs/guides/resources--route--reference--group-001.md",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -4441,8 +4441,8 @@
     },
     {
       "aliases": ["routes request headers to add secret value blindfold secret info"],
-      "body_bytes": 5152,
-      "body_sha256": "sha256:db4d6698ac072add286f89f97765247a18f6d88a240af6941ffea1d48dc7aa52",
+      "body_bytes": 4503,
+      "body_sha256": "sha256:d2084c58bbb56b1480b727ba8fb50ffe3cbf1f9d151360e94932a1affaf5551e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4462,7 +4462,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0022010210312122-3102223122222003-3232212203313020-1321013300221120-2201221232313300-2002332122223201-3200121000310222-0131302310302023",
-      "registry_path": "docs/guides/resources--route--reference--group-001.md",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-routes--request_headers_to_add--secret_value--blindfold_secret_info--location",
@@ -4551,8 +4551,8 @@
     },
     {
       "aliases": ["routes request headers to add secret value clear secret info"],
-      "body_bytes": 4019,
-      "body_sha256": "sha256:eabffbfa808b2af499b7ab1793038e22a2143c86cf1667b365f3a711408af6eb",
+      "body_bytes": 3504,
+      "body_sha256": "sha256:6bbdf9fb3e9dddb5b56a8abe41266b4223410a58dce0f31be981a65574cba10a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4572,7 +4572,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0103123010331121-3033320122301333-0303110232213203-3012312232302232-2203020331233302-0212321001023202-2001301220221222-2312003100213232",
-      "registry_path": "docs/guides/resources--route--reference--group-001.md",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-routes--request_headers_to_add--secret_value--clear_secret_info--url",
@@ -4633,8 +4633,8 @@
     },
     {
       "aliases": ["routes response cookies to add"],
-      "body_bytes": 17029,
-      "body_sha256": "sha256:d29f98fee84daf083b0cc15f3af915ec66ea2025ac0dd644fd0ecbf15f735e06",
+      "body_bytes": 13442,
+      "body_sha256": "sha256:eeaa79c52ee1d696e7749e0c1eda8f979204776ebaa4b2c84a6597277eb61948",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -4671,7 +4671,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1012103221102121-0311302110220133-3312032210222233-2321211003121320-3110000121321323-2231112320331231-3120130302021121-2113210223220100",
-      "registry_path": "docs/guides/resources--route--reference--group-001.md",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-routes--response_cookies_to_add--add_domain",
@@ -5341,8 +5341,8 @@
     },
     {
       "aliases": ["routes response cookies to add add httponly"],
-      "body_bytes": 1419,
-      "body_sha256": "sha256:df6d088ea6fa43ed3002c5b72c6654855864d732d1cf97ce0b8f969471aff693",
+      "body_bytes": 1148,
+      "body_sha256": "sha256:d1afbcfff2af848771a32d6b4d9553d141441bfbfd998c363590b5bc8126df14",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5362,7 +5362,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1103221012331203-0122010210313203-3100132001130311-2320012210012033-2130100302232200-1203000300120310-2130101020231122-1203133333321221",
-      "registry_path": "docs/guides/resources--route--reference--group-001.md",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5381,8 +5381,8 @@
     },
     {
       "aliases": ["routes response cookies to add add partitioned"],
-      "body_bytes": 1431,
-      "body_sha256": "sha256:3f113a2e11b55a3bdcd1ee0b16a863fd94e10f5f32951f401d0dd5187e74e735",
+      "body_bytes": 1160,
+      "body_sha256": "sha256:902212a8a5387fa7d03ddbc0f525da7855040e90d47d24091a260c9d2df18bf7",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5402,7 +5402,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0333013013231223-0032201201001000-3103131330223020-0021203131010320-1121223010033203-0313233101012002-1222300213021003-0303233202212210",
-      "registry_path": "docs/guides/resources--route--reference--group-001.md",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5421,8 +5421,8 @@
     },
     {
       "aliases": ["routes response cookies to add add secure"],
-      "body_bytes": 1390,
-      "body_sha256": "sha256:4400da75b0d7809a76ba23099290711cef290fcd2aa3bc838fa9d15d7e692bf9",
+      "body_bytes": 1119,
+      "body_sha256": "sha256:837c9b35c71376a88acd499ae1add184fbddf34f0bb7d763d9448dc8ae5a33b3",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5442,7 +5442,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3133223103001203-3011023331133320-2222201122330001-1331313311301031-1022122132310201-2220322211230132-2301032022133320-1202020210023003",
-      "registry_path": "docs/guides/resources--route--reference--group-001.md",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5461,8 +5461,8 @@
     },
     {
       "aliases": ["routes response cookies to add ignore domain"],
-      "body_bytes": 1423,
-      "body_sha256": "sha256:794b5ff2f0df8c26e9632cdf734009abafb718651b3128eca066ae3ef1eff31e",
+      "body_bytes": 1152,
+      "body_sha256": "sha256:02124f34c15516c982ad106544935e99f79f0308b4c2a01f16fd24f48a68e091",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5501,8 +5501,8 @@
     },
     {
       "aliases": ["routes response cookies to add ignore expiry"],
-      "body_bytes": 1423,
-      "body_sha256": "sha256:dc64d98d43aee0ec93de1bb6bf620e6a4e06700f86563937fe570b67261a49dc",
+      "body_bytes": 1152,
+      "body_sha256": "sha256:d7dc3ecda87c4df94771ea8870afef431a462234947f55dccbef07a6aeb93aeb",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5541,8 +5541,8 @@
     },
     {
       "aliases": ["routes response cookies to add ignore httponly"],
-      "body_bytes": 1431,
-      "body_sha256": "sha256:d368d40f95b6bfb49921fad9209d062b680c6287247540204e713f3006b8caf9",
+      "body_bytes": 1160,
+      "body_sha256": "sha256:fc5f0cad056262c8550f0bb73a91a0557cb5b0ddb6a2137a526df5c93e400371",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5581,8 +5581,8 @@
     },
     {
       "aliases": ["routes response cookies to add ignore max age"],
-      "body_bytes": 1427,
-      "body_sha256": "sha256:78d479b39bf13efacb0081e0c7ae4a24bf8b88aed3547f3de5d399e2997b2568",
+      "body_bytes": 1156,
+      "body_sha256": "sha256:5e4f8ce56b18d29683b9ce07f1fcf90a6a4ea9da07a8cf27f154f10a1e0c4e59",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5621,8 +5621,8 @@
     },
     {
       "aliases": ["routes response cookies to add ignore partitioned"],
-      "body_bytes": 1443,
-      "body_sha256": "sha256:f19e1e755ae9bff7727943acc64ee0da87fbacdf4150eac59a6822e1facdf543",
+      "body_bytes": 1172,
+      "body_sha256": "sha256:d77cc5771db2519e698fa7d46eaf79717432e798488a0ce6444b987f142fc4d5",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5661,8 +5661,8 @@
     },
     {
       "aliases": ["routes response cookies to add ignore path"],
-      "body_bytes": 1393,
-      "body_sha256": "sha256:92c5d506109b367439a2e1cc26b303807abf76504cfe1642fef9252bf513b945",
+      "body_bytes": 1122,
+      "body_sha256": "sha256:6efefefdaaca61b4ecc49e0d963d1d6ff84e2e4b2ba91e6b3e7a1d3fb5dc4054",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5701,8 +5701,8 @@
     },
     {
       "aliases": ["routes response cookies to add ignore samesite"],
-      "body_bytes": 1405,
-      "body_sha256": "sha256:5da81322a25a912e591a43c4e4fb66ad8042a588c910dc400426e43563909597",
+      "body_bytes": 1134,
+      "body_sha256": "sha256:8f0b92423687fa0a963ef67f072b3f3a78dfcff972926187006280481e002ce7",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5741,8 +5741,8 @@
     },
     {
       "aliases": ["routes response cookies to add ignore secure"],
-      "body_bytes": 1399,
-      "body_sha256": "sha256:243db76905469e87b7271f2a7b26fc4768b7ad2d0063a99d595337723f4723b3",
+      "body_bytes": 1128,
+      "body_sha256": "sha256:3a7e1b9e737b04a4617e7c4d4a2e3edd1f800e1a6af0c73ba4c7a96b16891893",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5781,8 +5781,8 @@
     },
     {
       "aliases": ["routes response cookies to add ignore value"],
-      "body_bytes": 1419,
-      "body_sha256": "sha256:898d3c954cc10f6499dfdf4e07ed803196743e9565f964067fc5cfcdfc381beb",
+      "body_bytes": 1148,
+      "body_sha256": "sha256:ab8a9a1e72b2c8f9add430e5bfc1bf410e496ba37e7080b508efd777ea954993",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5821,8 +5821,8 @@
     },
     {
       "aliases": ["routes response cookies to add samesite lax"],
-      "body_bytes": 1396,
-      "body_sha256": "sha256:c6f8114b8d9ed07adc66402880d958d06355dab8311d9249be8c6d1962316d9d",
+      "body_bytes": 1125,
+      "body_sha256": "sha256:529cb5fc76cee9d149c3ce230e4def60f379c4d4feb6ee1685b843bfdff0fb21",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5861,8 +5861,8 @@
     },
     {
       "aliases": ["routes response cookies to add samesite none"],
-      "body_bytes": 1399,
-      "body_sha256": "sha256:95f8e241045dd4abbe5deb2e8c436f776325bbcd1709711367afef760bed25b4",
+      "body_bytes": 1128,
+      "body_sha256": "sha256:bee430d2f6ad3748125b51d3c2e1675787ed069b9d7401e6391487220d22edc3",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5901,8 +5901,8 @@
     },
     {
       "aliases": ["routes response cookies to add samesite strict"],
-      "body_bytes": 1405,
-      "body_sha256": "sha256:9b8e3c893f7d57d500af7f0770fff94a7b75c20973598ec3dfc6dc3e1621d5c1",
+      "body_bytes": 1134,
+      "body_sha256": "sha256:3d96e3704cf0b17de30e892590f7d8f1adde66280401eb988629a44b6e7ed5df",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5941,8 +5941,8 @@
     },
     {
       "aliases": ["routes response cookies to add secret value"],
-      "body_bytes": 2517,
-      "body_sha256": "sha256:ad51604b53098eab24316e368724c9b333863c7bfc4749f0209f426bf562d559",
+      "body_bytes": 1827,
+      "body_sha256": "sha256:168e05ec9a3f6d50fbc98360603d55911d6f5af129341be1090b3dee1ad70b53",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -6052,8 +6052,8 @@
     },
     {
       "aliases": ["routes response cookies to add secret value blindfold secret info"],
-      "body_bytes": 5163,
-      "body_sha256": "sha256:8e66451a6729b88e64f4b2ee1beed8eeea86deeb012f279c967adbb7de5dec09",
+      "body_bytes": 4512,
+      "body_sha256": "sha256:3b86d217667d4bf2c78524512fb2f2d3763303aa68f6475461ed950358dcd593",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6162,8 +6162,8 @@
     },
     {
       "aliases": ["routes response cookies to add secret value clear secret info"],
-      "body_bytes": 4029,
-      "body_sha256": "sha256:4d263cf8fec3b3e93fe5351d1dc37ceefc80e25a3d9c26d31c06af005e15c849",
+      "body_bytes": 3512,
+      "body_sha256": "sha256:8353fb5564d452a754ffeb345653ee2c622c1aacf76aba2f26613a4d06b51413",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6244,8 +6244,8 @@
     },
     {
       "aliases": ["routes response headers to add"],
-      "body_bytes": 5769,
-      "body_sha256": "sha256:cc4466dfbd7b755c28a1bebc39734cd067defa7e882e9531215d1a249a5f754d",
+      "body_bytes": 5013,
+      "body_sha256": "sha256:a0e17ca9b9a3592539c81770a4012a6eb897a17973d21ed448673ba80ef22413",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:route:properties:routes:response_headers_to_add:secret_value"],
@@ -6391,8 +6391,8 @@
     },
     {
       "aliases": ["routes response headers to add secret value"],
-      "body_bytes": 2517,
-      "body_sha256": "sha256:3216da8387adf299b4ca5f0c2aa2c4ae5233dc5f0bfb01c536de7b32dcd07bc5",
+      "body_bytes": 1827,
+      "body_sha256": "sha256:fb44bf6e6d5dbf2f37e4564ed7013171f29f876f1cb8f7daa19eef925b8bd2f6",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -6502,8 +6502,8 @@
     },
     {
       "aliases": ["routes response headers to add secret value blindfold secret info"],
-      "body_bytes": 5163,
-      "body_sha256": "sha256:768c41f62dece17f13aa550164aeb8d7993791519b235f851f12dbe065a9a150",
+      "body_bytes": 4512,
+      "body_sha256": "sha256:8d8eebebc980742d2acb16804aefea11107b7d28cb0237e2cfa9100338e57a27",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6523,7 +6523,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3203333320300320-1001303300122003-1302121103333112-2100212201013022-3332320200103031-0011130011222123-0132200132321021-1031303233123221",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-routes--response_headers_to_add--secret_value--blindfold_secret_info--location",
@@ -6612,8 +6612,8 @@
     },
     {
       "aliases": ["routes response headers to add secret value clear secret info"],
-      "body_bytes": 4029,
-      "body_sha256": "sha256:56cc836b16296b88b57a7fbb8afbfb0dc64e80225d16108299947de9884a896a",
+      "body_bytes": 3512,
+      "body_sha256": "sha256:b1fc7ce7fd3135e47228c8133e5dcad276fc323acb10f6e9bad46f3a26d1977a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6633,7 +6633,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2031221013021230-3200000002021300-0320211122130203-3022021200310300-3220131112131311-2200200130031121-1031030211313012-2333031122022233",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-routes--response_headers_to_add--secret_value--clear_secret_info--url",
@@ -6694,8 +6694,8 @@
     },
     {
       "aliases": ["routes route destination"],
-      "body_bytes": 13468,
-      "body_sha256": "sha256:f759d962f331bd54cb6a8d9ab129ada3a68e59ade666cee22ce1cce2b1f6b52c",
+      "body_bytes": 9850,
+      "body_sha256": "sha256:af0b177cbcec4d4a30e1e672386dd61fabaa0f8b1e8cd9f66bb627efe040ef87",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -6730,7 +6730,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0220130131223320-0012002013321000-2333211313321101-2211101322133023-2310223133333233-3200210230002323-0333010203210122-1120013002111310",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-routes--route_destination--auto_host_rewrite",
@@ -7294,8 +7294,8 @@
     },
     {
       "aliases": ["routes route destination buffer policy"],
-      "body_bytes": 3822,
-      "body_sha256": "sha256:daca38e3e9ec75406a76fee14870b016926397b3614358b4ed2decf46abe44ca",
+      "body_bytes": 2926,
+      "body_sha256": "sha256:f6aefc358aa4dd80311134a4d378e54a243202daa59ce7e2f0769aa71460818a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -7315,7 +7315,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1101330032333303-3102321110222222-0320031323312213-2030010101032331-0332221210202312-2022102132200133-3310103022110310-1230121322213333",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -7367,8 +7367,8 @@
     },
     {
       "aliases": ["duration", "routes route destination cors policy"],
-      "body_bytes": 11359,
-      "body_sha256": "sha256:b501b62dd55d2ce1ef0817085146fab3b7ef37e1ad93784701d8a11c6916aa04",
+      "body_bytes": 10003,
+      "body_sha256": "sha256:637c63542c142bb1f305bbed40e88826259caeb57d4fd15680e2275f7596be1f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -7388,7 +7388,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3020020023122211-2131012103232233-2103022303301200-1310232123121322-2023220300101201-3013230110022110-2123210133331133-0210102331213233",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -7551,8 +7551,8 @@
     },
     {
       "aliases": ["routes route destination csrf policy"],
-      "body_bytes": 4097,
-      "body_sha256": "sha256:c4d4d73e85d19f37f6f6c997701617757b0471a77f5c61189ca7c7ff637175d2",
+      "body_bytes": 2935,
+      "body_sha256": "sha256:883669555e22c8f8bf62feadfa855bb6f2f7a6fc4029d9d0ade50972e633bdbe",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -7576,7 +7576,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1101321211132233-2202003002310130-3123211010001032-2023310312100303-3310321001200211-2001220013330302-2200133210032112-2213001112022232",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -7702,8 +7702,8 @@
     },
     {
       "aliases": ["routes route destination csrf policy all load balancer domains"],
-      "body_bytes": 1646,
-      "body_sha256": "sha256:8c22349478f25dcdc9f786b73cfb2dacc5fccb293b6fbef94941185d7f101fde",
+      "body_bytes": 1363,
+      "body_sha256": "sha256:866bd7b0c1443b6a6def96f8542e429daf1ab3dd42d4e5609005ae181dd8d0d3",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -7723,7 +7723,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2321023330303333-2110120212233333-2200212232312332-0033130231212202-2201030130300313-3200022220121331-0101003113313231-1300120000111222",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -7742,8 +7742,8 @@
     },
     {
       "aliases": ["routes route destination csrf policy custom domain list"],
-      "body_bytes": 3746,
-      "body_sha256": "sha256:1b6e6d5a83289b9189e7b2d895de409dec4de537b7050a6f07da96a982399b07",
+      "body_bytes": 3294,
+      "body_sha256": "sha256:01af6f12dfe6ead3202622aedcf1d41427b4b4b83977c8c204cd67d6b04f2089",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -7763,7 +7763,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2201223100330332-2010011312100323-1230032121233000-2120323021102231-3132301222332013-1013300133301132-1033201333113101-0131233012200202",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-routes--route_destination--csrf_policy--custom_domain_list--domains",
@@ -7808,8 +7808,8 @@
     },
     {
       "aliases": ["routes route destination csrf policy disabled"],
-      "body_bytes": 1559,
-      "body_sha256": "sha256:7dbb3fc3a8fd32faae91aa17c6eb9260e2f660813711cf3d4e71df1cf6a2c2eb",
+      "body_bytes": 1276,
+      "body_sha256": "sha256:16fbe8b6da5666b7dc0b2e63389737265ca8b0d2189960f7ea498b90fcb62878",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -7829,7 +7829,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3232121301320030-3212231113202022-2001011312211100-1022003113030123-3323222303202022-0012310202101201-1132023203313220-3331303130222011",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -7848,8 +7848,8 @@
     },
     {
       "aliases": ["routes route destination destinations"],
-      "body_bytes": 7209,
-      "body_sha256": "sha256:e9192462a2e2d7c9529930ceb86b5718afb6a6733089a1fe6571cdc648f48ac5",
+      "body_bytes": 5782,
+      "body_sha256": "sha256:702c7b3f3294443abaf4cb05a34a7589a71f51cbc15209e5eeb2f57cd814c254",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -7872,7 +7872,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2033310032010003-2013013212023023-3331003021220120-3211312230110102-0332232123000011-2322023233233003-2010313220111220-3203133211033012",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -7965,8 +7965,8 @@
     },
     {
       "aliases": ["routes route destination destinations cluster"],
-      "body_bytes": 7333,
-      "body_sha256": "sha256:38f9716d823c7892d7920f70a3c97fdc866e703dd415bfa843b3f6c372082c83",
+      "body_bytes": 6209,
+      "body_sha256": "sha256:1164b6c478c731a53fd9e341bc9fb8a7931864480617184101cb2aee0e7c45be",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -7986,7 +7986,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3310330202210210-1003322300311113-0020121010120302-1230323021002201-3123231121001210-3223121233110230-3220300031023011-3112302031023321",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -8121,8 +8121,8 @@
     },
     {
       "aliases": ["routes route destination destinations endpoint subsets"],
-      "body_bytes": 2998,
-      "body_sha256": "sha256:eb6ab226c3cb5e2f5648b93ba13718dcc7ed1d3c417b4c67c385e47220c7bacd",
+      "body_bytes": 2392,
+      "body_sha256": "sha256:ac18d73697d5234f43a9e0965fb1f604ee0ca6acb562e030662a5e4d85cc97d8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -8142,7 +8142,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1331310213003320-3302000201123230-1023221202020130-3311202130331323-1213300021321332-2301122031222030-3213022122020222-2131200200220130",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -8161,8 +8161,8 @@
     },
     {
       "aliases": ["routes route destination do not retract cluster"],
-      "body_bytes": 1390,
-      "body_sha256": "sha256:f1b7fda7a7f923f3d91bc2ab9e966d1da70936d4cf2155df72a89635bdb564c4",
+      "body_bytes": 1131,
+      "body_sha256": "sha256:91bb65e9054f19c1991c516b282c6aa2520ab6b8507eaf1c02ab98cd97a767ac",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -8182,7 +8182,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2232131110032213-2031333201002023-1223031002323001-0020002002100232-1113320131001233-1033123003220021-0030130030111321-2323233220010332",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -8201,8 +8201,8 @@
     },
     {
       "aliases": ["routes route destination endpoint subsets"],
-      "body_bytes": 2782,
-      "body_sha256": "sha256:89d73bf336d2f16ffa04ecff66954cf31d19d96be8c0ec1b56f6ea7fc41ebcbd",
+      "body_bytes": 2202,
+      "body_sha256": "sha256:f54e1f3144b140270ab80b4a75cb537428736e51be4012dcd7ed6b3d7160bd0f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -8222,7 +8222,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1111031211001032-1233310121003212-2023210031222203-2221132210120000-3013102123000323-3111031112232231-1202110122322030-1221020103030213",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -8241,8 +8241,8 @@
     },
     {
       "aliases": ["routes route destination hash policy"],
-      "body_bytes": 4930,
-      "body_sha256": "sha256:35c3e455cc4268cdfc6fa3663d69d78b4b7350b361f77b875f0777f53b33ec29",
+      "body_bytes": 4022,
+      "body_sha256": "sha256:72feeaf3d97ed6e352cf4ce9aea9d2f8babd1e3d572adcd9e65c0e249954d21b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie"],
@@ -8262,7 +8262,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3011213001211130-3002130231011332-0021321333220210-3110310201022102-0211011003113300-2330021322000203-3323130012211301-3113313111302123",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-routes--route_destination--hash_policy--header_name",
@@ -8532,8 +8532,8 @@
     },
     {
       "aliases": ["routes route destination hash policy cookie"],
-      "body_bytes": 10277,
-      "body_sha256": "sha256:d25073736610b1b3964d168d7356c1b33be75e9f78f7303b531d69b1b448861d",
+      "body_bytes": 7534,
+      "body_sha256": "sha256:60bf9549b2d498bbf95b1a0513673c4e5a21ac2546def63bf990ad4495b5d343",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -8562,7 +8562,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1312331222131301-3233320013022212-0031130213010123-2110231112323301-3020021201212310-0132000123122100-0133210330202001-0133203210110101",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -8895,8 +8895,8 @@
     },
     {
       "aliases": ["routes route destination hash policy cookie add httponly"],
-      "body_bytes": 1799,
-      "body_sha256": "sha256:b0ad1c107d997f608bf5981ff47abebf71685d78ddd01d8180b65981389998de",
+      "body_bytes": 1502,
+      "body_sha256": "sha256:3148ea59c8040a66a12bb33a089a16c74eed7ea9f3fd004a2b8ad5f28f70b1af",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -8916,7 +8916,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2022301212111113-0000112220113010-2333130322023111-0300212113310101-0101030322320312-0003230102132000-0032201132333100-1130332323031301",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -8935,8 +8935,8 @@
     },
     {
       "aliases": ["routes route destination hash policy cookie add secure"],
-      "body_bytes": 1770,
-      "body_sha256": "sha256:4b1ff1101e8307ef4497fc74369413c529e2ab396ce17004860212fa1d751ac6",
+      "body_bytes": 1473,
+      "body_sha256": "sha256:c37296c18e8be5a84c8d24c062e4a190405e3656d54ebb0c24145e8c91684eff",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -8956,7 +8956,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2330230302211001-1001233312013101-2321121113122011-2222020013133302-3302321130203330-0220133023310330-3001002011213132-3020212031133031",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -8975,8 +8975,8 @@
     },
     {
       "aliases": ["routes route destination hash policy cookie ignore httponly"],
-      "body_bytes": 1811,
-      "body_sha256": "sha256:7b1b414fc457ac29c27f380a26c66413fd29e7ec80ef307fcb20f50ed95e6b62",
+      "body_bytes": 1514,
+      "body_sha256": "sha256:4115fdd6a080834da3e43694f89dafc5b206c061247046c683437d205ff094f8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -8996,7 +8996,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1213303321232121-3033113213032222-2330220032013121-1233231222133222-3112130111310203-3223203330222001-3212031020321102-1213030111301320",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9015,8 +9015,8 @@
     },
     {
       "aliases": ["routes route destination hash policy cookie ignore samesite"],
-      "body_bytes": 1785,
-      "body_sha256": "sha256:7027839d633bf533f9304393e195dafc509d2c5d124372199743bda695835ac2",
+      "body_bytes": 1488,
+      "body_sha256": "sha256:1c9cd82196534f1ea8252dd36819850aac34d527ce68dbb0ec53ff636151136b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -9036,7 +9036,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3223131201231103-3112020020012100-1131110222001221-1122002001320332-3322212020002332-0232202331111333-2020301001111123-1001312110322223",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9055,8 +9055,8 @@
     },
     {
       "aliases": ["routes route destination hash policy cookie ignore secure"],
-      "body_bytes": 1779,
-      "body_sha256": "sha256:b5f3f3c7b375cf88678dbe1d07ecceaea5d6acf5e29d82853aca3aa67f6ceacd",
+      "body_bytes": 1482,
+      "body_sha256": "sha256:afc461eed55afc9c80dfe2697105847c6ce7d14c415c5cffcf55951905fb8421",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -9076,7 +9076,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0011130100332212-3300100231300302-2122123223100101-1303032001132310-3033010210113223-2331110222023032-3002032021032001-2322030130323230",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9095,8 +9095,8 @@
     },
     {
       "aliases": ["routes route destination hash policy cookie samesite lax"],
-      "body_bytes": 1776,
-      "body_sha256": "sha256:f85230be4a6602cf9a39c9d5a71d39e1eaea13febba692663468a1707b30398e",
+      "body_bytes": 1479,
+      "body_sha256": "sha256:311563bed6b45939290517c8f984dfc42348fd7862ff6d813d03862d0a052a79",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -9116,7 +9116,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0330022013103032-3312123211210022-0220100001032323-1232302301033311-3322102231220223-0003033002123112-0130212200111323-0011313112122003",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9135,8 +9135,8 @@
     },
     {
       "aliases": ["routes route destination hash policy cookie samesite none"],
-      "body_bytes": 1779,
-      "body_sha256": "sha256:d7555bbaf3bdbda65b7ec5002469e771e3b11968f7236b6781d84e84f3c45dd4",
+      "body_bytes": 1482,
+      "body_sha256": "sha256:14c6ff6397238b46fd284e66fa1b9c7c7f774b70efeae2ca899628217f587a2a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -9156,7 +9156,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2201011232132012-3110112110233133-3301231010203102-0303320332030033-2220301300312022-0111110011313111-2201101121202313-3133120221031201",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9175,8 +9175,8 @@
     },
     {
       "aliases": ["routes route destination hash policy cookie samesite strict"],
-      "body_bytes": 1785,
-      "body_sha256": "sha256:c3c578df203712094a65f31c2eacddc7c203d51e459398e945d373bdcc386b7f",
+      "body_bytes": 1488,
+      "body_sha256": "sha256:fa8bcbe100fd726cc7a3810b3dd37e931eeca615bb59019e1ec418a17ef84bdc",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -9196,7 +9196,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2020131323033213-0301333210023221-1002031200003031-2001230130111230-2233132233221110-0213230023200021-1320332023011013-0312100101121001",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9215,8 +9215,8 @@
     },
     {
       "aliases": ["routes route destination mirror policy"],
-      "body_bytes": 2811,
-      "body_sha256": "sha256:936e9a94235f55ddffc526cc9769d2c6a72d9ed04c22c0f3efed846270530b86",
+      "body_bytes": 2136,
+      "body_sha256": "sha256:04b2db213076ed6bee700b8ec8679175c96d2710865e413cfe17624083f24fa8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -9239,7 +9239,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1312110103201222-3211323013120213-1220232003210122-1333011320200321-0302110311030231-3120313321230312-0300310313300210-1231213001201021",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -9309,8 +9309,8 @@
     },
     {
       "aliases": ["routes route destination mirror policy cluster"],
-      "body_bytes": 7288,
-      "body_sha256": "sha256:d2e087b72fed0993ac49c1f29d78f6e9496a52ba5a744757fd844e12f1d388bd",
+      "body_bytes": 6190,
+      "body_sha256": "sha256:4c7cb9e0a3cc0147384f5dff6f289e1b817a32957a2262fa27d600efc127c5ca",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -9330,7 +9330,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1220211122332310-1233121021033213-1300133022222333-3300333321020331-1131130320311031-3333131332101303-1223130101222032-3301112330021022",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9465,8 +9465,8 @@
     },
     {
       "aliases": ["routes route destination mirror policy percent"],
-      "body_bytes": 3645,
-      "body_sha256": "sha256:6306affe3cf8525625f95e8260dfa8cd692a6ee4a1a45d5c66c8031b623dd32e",
+      "body_bytes": 3168,
+      "body_sha256": "sha256:289dfa28fc855fb26e8d7b348f4226c441a0bbe499dc15d5a545eb459426f625",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -9486,7 +9486,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3110023323023222-0101122211022033-2121203321103121-3100133012031000-2322233300021221-3200131321221020-3221323010022221-0311103301212101",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-routes--route_destination--mirror_policy--percent--numerator",
@@ -9556,8 +9556,8 @@
     },
     {
       "aliases": ["routes route destination query params"],
-      "body_bytes": 3792,
-      "body_sha256": "sha256:d868bec775dd00aa274cf32fe045d43ad1242b98a390b967b9174881e1dbb41d",
+      "body_bytes": 3063,
+      "body_sha256": "sha256:8119aa87db7f20f723b3668246a960d365dc39fc3e8c4b08d57128565e8ab491",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -9580,7 +9580,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0210013123232110-1101203121320003-0232332230203020-2203202001132332-1123010132101312-1300303103231023-2212021131213210-0023212010013031",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-routes--route_destination--query_params--replace_params",
@@ -9697,8 +9697,8 @@
     },
     {
       "aliases": ["routes route destination query params remove all params"],
-      "body_bytes": 1620,
-      "body_sha256": "sha256:68edd8f2b9737ba381a3973ff7b6c5822c89b7555bc7c8094ff2cbc4cf1cf163",
+      "body_bytes": 1335,
+      "body_sha256": "sha256:019aeb33a846c0191115e65d33f05b5f4bfea3b8575023f4e458cd61a6bd4429",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -9718,7 +9718,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1031023210011311-3130112303030201-2022303313203011-1022012023320123-0302220133013033-1123212010021232-3010332323301021-0120320020030113",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9737,8 +9737,8 @@
     },
     {
       "aliases": ["routes route destination query params retain all params"],
-      "body_bytes": 1620,
-      "body_sha256": "sha256:7be4734caaff57482401e39e4722f2a9eda6086291077c485efc7ac220115a7b",
+      "body_bytes": 1335,
+      "body_sha256": "sha256:ba71071ea37f53c3114afb9ff22f3519d07bc0ef856f44058367911779c95d17",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -9758,7 +9758,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3132311113113020-3222302331123313-2313032002331323-3112332133001221-2101122330010301-3013331331223111-1231100321110132-0232222123320221",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9777,8 +9777,8 @@
     },
     {
       "aliases": ["routes route destination regex rewrite"],
-      "body_bytes": 4002,
-      "body_sha256": "sha256:5663e64d7118a50b1ba6e03d066624a895af4352f12125d7c5ade637eca3de65",
+      "body_bytes": 3436,
+      "body_sha256": "sha256:cc38ca50aa1965471f9569fc6f2f62ded62ad0e2f9fefd499099422671df6083",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -9798,7 +9798,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1002132200332031-2112010113122321-3210320213210322-3203102103022111-0020102231301312-3020023031212111-1313020132121103-1031331331113022",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9850,8 +9850,8 @@
     },
     {
       "aliases": ["routes route destination retract cluster"],
-      "body_bytes": 1369,
-      "body_sha256": "sha256:ac6cf9ac37a6cfbba5f9e6022b36e44b1df856ecd9be562eafdba4dc7d5d53b6",
+      "body_bytes": 1110,
+      "body_sha256": "sha256:583120dd01d8c5439de18746b35318f4ce0b6525a1c571d2bbaee1db84eb5760",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -9871,7 +9871,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1302302032030012-1303121333102133-0133131022330201-0212312130311012-1211001203310220-1221201023122013-2133021022130012-0333323020112031",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9890,8 +9890,8 @@
     },
     {
       "aliases": ["routes route destination retry policy"],
-      "body_bytes": 8469,
-      "body_sha256": "sha256:108ec456d483196abeb1ad865820f402e495733e5951b05da98e75b4addaf27c",
+      "body_bytes": 7770,
+      "body_sha256": "sha256:7ed9b56d6f908a47d043a0fe79960d95d7090f60cc60e8c9006dd86ede099faa",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:route:properties:routes:route_destination:retry_policy:back_off"],
@@ -9911,7 +9911,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0301103202310121-1322001133231203-3330201331230333-2121120301200322-3222320330230320-1021310030201212-1120112023110002-2203110113210212",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-routes--route_destination--retry_policy--retry_condition",
@@ -10020,8 +10020,8 @@
     },
     {
       "aliases": ["routes route destination retry policy back off"],
-      "body_bytes": 3202,
-      "body_sha256": "sha256:0853bd8cf985b8ef6b8e671b059e11d626e2636459acb45eefc24675bd16f8f0",
+      "body_bytes": 2783,
+      "body_sha256": "sha256:6ab2ed441d41ab391782f95db8d41dd834c539debe1658a5ddb51b7bfe4d7c14",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -10041,7 +10041,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3333100010113321-1102030132022101-1120023010023101-1211232223320201-0213303320303033-1213213133220120-2100010200020111-3302303223023103",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md",
+      "registry_path": "docs/guides/resources--route--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -10093,8 +10093,8 @@
     },
     {
       "aliases": ["routes route destination spdy config"],
-      "body_bytes": 2419,
-      "body_sha256": "sha256:4eb5d413c45edb2ce9208901391f88d77fd23894af4d3a77de935e3c53fcfa92",
+      "body_bytes": 1729,
+      "body_sha256": "sha256:7d39cf54a50580eb3403184635e45fa8d2861cfb76d783dd7c0cab74e08c36fc",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -10150,8 +10150,8 @@
     },
     {
       "aliases": ["routes route destination web socket config"],
-      "body_bytes": 2421,
-      "body_sha256": "sha256:4f87ce9177d51b298b722e0935eb311490e3d3ec2189d4efa48f15b4b1bc7741",
+      "body_bytes": 1729,
+      "body_sha256": "sha256:6746a6c61ebce242bebcecba7bfdefae932853fdafaf6a8518a91351f57b5af3",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -10207,8 +10207,8 @@
     },
     {
       "aliases": ["routes route direct response"],
-      "body_bytes": 4002,
-      "body_sha256": "sha256:8e4709eb1ff34c3b243284f87fd9117617cfd34ee2398c20f1fc8b42bb2197e8",
+      "body_bytes": 3554,
+      "body_sha256": "sha256:289d3bc0e7974d7eff491d42c189ea2002182a342be812126057b01585b4fdcd",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -10289,8 +10289,8 @@
     },
     {
       "aliases": ["routes route redirect"],
-      "body_bytes": 9554,
-      "body_sha256": "sha256:047cd9165f16054e58d41ad74094f8ae5e3e8b6ee5070c3dc65af4e5a2327f97",
+      "body_bytes": 8392,
+      "body_sha256": "sha256:bff34279a20822cfc8fc32f63aa9fe924d01cae7eb751327e8274f448f65cd2d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -10535,8 +10535,8 @@
     },
     {
       "aliases": ["routes route redirect remove all params"],
-      "body_bytes": 1385,
-      "body_sha256": "sha256:31418572974bcbf3c6b0dd3359743db6789c053edd08051d6f0ac03d1afab9d8",
+      "body_bytes": 1132,
+      "body_sha256": "sha256:45cd3beb7291cb3e9bf826255a99471b8ac95ae77a5e766b3b0abe9289ad822a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -10575,8 +10575,8 @@
     },
     {
       "aliases": ["routes route redirect retain all params"],
-      "body_bytes": 1385,
-      "body_sha256": "sha256:b89825dafcc5897a56c921fc79c9ea6217ab34d242600baeba6a5c606e336caf",
+      "body_bytes": 1132,
+      "body_sha256": "sha256:c1f6353972ca7256d8b302bd47368d547cfc33bc7dc220f490ac58e9c23b0225",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -10615,8 +10615,8 @@
     },
     {
       "aliases": ["routes service policy"],
-      "body_bytes": 1371,
-      "body_sha256": "sha256:7bb58393c95616c219d3df73af2df602551b41640bffc4ecf4f56a0f27909cfd",
+      "body_bytes": 1163,
+      "body_sha256": "sha256:635bc0da7b061b6104886d5202cbcf5571dbcaf2035e8689e13d5a6219d57a9f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -10672,8 +10672,8 @@
     },
     {
       "aliases": ["routes waf exclusion policy"],
-      "body_bytes": 6088,
-      "body_sha256": "sha256:741070e71ea1b54cf9ccb9958e11c4c1ba8851df3878edac9962fc3f28867b75",
+      "body_bytes": 5207,
+      "body_sha256": "sha256:9b2640f75d747e3c856d018b692b52e66ba7931bb7baaf4dd5c2ae0d669603dc",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -10791,8 +10791,8 @@
     },
     {
       "aliases": ["routes waf type"],
-      "body_bytes": 2449,
-      "body_sha256": "sha256:d49c7196520172459d74cc1db139ca5bbf8a0c639ae271c81437586f81ea8000",
+      "body_bytes": 1804,
+      "body_sha256": "sha256:d04fe5020b36e32dc0519387c37d516fe207a7214034d16f8391f3dab43ef74d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -10942,8 +10942,8 @@
     },
     {
       "aliases": ["routes waf type app firewall"],
-      "body_bytes": 1876,
-      "body_sha256": "sha256:d67460309eb9bb8e36fd0359a9fbbef9c54c82f6f4168b6da7806a8b0ac77d10",
+      "body_bytes": 1390,
+      "body_sha256": "sha256:ebcd112b3f8f61e304dc1737097fb2b95e8fca112fca97d6a4de6f76162b7eda",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:route:properties:routes:waf_type:app_firewall:app_firewall"],
@@ -11008,8 +11008,8 @@
     },
     {
       "aliases": ["routes waf type app firewall app firewall"],
-      "body_bytes": 6730,
-      "body_sha256": "sha256:3ceeba6533667a8e95b68f5c7af4b87b9af8fa048f012056844ebc96952d0b81",
+      "body_bytes": 5788,
+      "body_sha256": "sha256:ee6d109e084ebb6525e7b4d01d49ea19e3603ea7b12b483b208c200013be9a38",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -11164,8 +11164,8 @@
     },
     {
       "aliases": ["routes waf type disable waf"],
-      "body_bytes": 1325,
-      "body_sha256": "sha256:96ad75dd90fe7e022a7bcf6e9d28777741b5bc917a93cecb2917662f843c5b27",
+      "body_bytes": 1084,
+      "body_sha256": "sha256:81814a8ff7c2a7efcc4a30efd9d191dcf27a1c04cf219f7c8392c9f9adf02004",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -11204,8 +11204,8 @@
     },
     {
       "aliases": ["routes waf type inherit waf"],
-      "body_bytes": 1325,
-      "body_sha256": "sha256:7c611c532fe5b3cb56b7a72deef2f53d7c89b36a3dfc11ae9acc81ee31b7738b",
+      "body_bytes": 1084,
+      "body_sha256": "sha256:1d2ee43a1e6e80045aac3a59c9ab13511d4ddb00d08a106df04d570642d3162d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -11244,8 +11244,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2189,
-      "body_sha256": "sha256:8b52f796ec082ca30e17f5a3b40947ba4ab563709272dacb0baad583060e540d",
+      "body_bytes": 1976,
+      "body_sha256": "sha256:fc4a6c7f8f49da13073431b3a49164c6fa1b4262f98017dcaeb4b844262160a8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -11384,8 +11384,8 @@
     },
     {
       "aliases": ["route"],
-      "body_bytes": 591,
-      "body_sha256": "sha256:fa6da2a394e25a03c7104b8602cb7d7dfd0f7b3b984def1697dc9cc67fca8842",
+      "body_bytes": 381,
+      "body_sha256": "sha256:8f3f05c611f18d05885899c3b19966e4325400af1c2beab3b2cc8b5e28d45ad6",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:route:example:resource"],
@@ -11424,8 +11424,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1144,
-      "body_sha256": "sha256:09aca08ea59c404e18268341e806647bf29a0434ddfa004a1de2e6285eb26d1e",
+      "body_bytes": 943,
+      "body_sha256": "sha256:7a9f2ba9d685f0c98b874b17b1b3fc79359d4d636375a99130ed173bf7b910b7",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -11471,8 +11471,8 @@
     },
     {
       "aliases": ["route"],
-      "body_bytes": 445,
-      "body_sha256": "sha256:8a0d6105968f92d1f78162613a10069e35659e50adad97ebe86f905ab014adca",
+      "body_bytes": 340,
+      "body_sha256": "sha256:cc512abc068805c4d62021c60c10adba04d44b3284ad02e53a9894545956dae1",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -11512,8 +11512,8 @@
     },
     {
       "aliases": ["route"],
-      "body_bytes": 533,
-      "body_sha256": "sha256:9698a92d57b3ab0bf528b773f980c60af86d01c6d93d38fa35c016649cbb0ac1",
+      "body_bytes": 428,
+      "body_sha256": "sha256:b5159d7df07429aa0ee639edc732bf590256cb8e4f306edc313a453b99b10b85",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],

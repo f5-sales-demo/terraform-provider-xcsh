@@ -146,8 +146,8 @@
   "pages": [
     {
       "aliases": ["rate limiter"],
-      "body_bytes": 1494,
-      "body_sha256": "sha256:8f26ec6d811afc1e6a1fd9ee0babc540aad1bee9facec0e5f7f4c4c43073396a",
+      "body_bytes": 1451,
+      "body_sha256": "sha256:c13bf5225f5313094ffd93b260680b250db27aaba6b000b73d3b9a63de10a709",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:rate_limiter:reference", "xcsh-docs:data-sources:rate_limiter:examples"],
@@ -183,7 +183,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages rate_limiter creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
+      "summary": "Reads Rate Limiter information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_rate_limiter",
       "unresolved_relationships": [],
@@ -195,8 +195,8 @@
     },
     {
       "aliases": ["rate limiter"],
-      "body_bytes": 12105,
-      "body_sha256": "sha256:4632706d22161a807d90b23f7a6011b6c651bf42a5615b3c46c5471cc6106ed0",
+      "body_bytes": 11766,
+      "body_sha256": "sha256:e0cc90842ae1d57f78c7f944fee19a0586a416fa8973196279b7d74ed0b5d512",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -367,8 +367,8 @@
     },
     {
       "aliases": ["limits"],
-      "body_bytes": 6528,
-      "body_sha256": "sha256:13587e16dc058a7ff3e150a2c6c3622f3dcf0dcc36706656c797d7eb86cb7e93",
+      "body_bytes": 5223,
+      "body_sha256": "sha256:903cbe8c6148d6af24d14687efb932d12a7aa2bda75236539464b037c361a7be",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -541,8 +541,8 @@
     },
     {
       "aliases": ["limits action block"],
-      "body_bytes": 2122,
-      "body_sha256": "sha256:f713a96078b0ad90ff0d7ce74ecc83c0af33911fc6008e9c7069d7f3c8417a59",
+      "body_bytes": 1426,
+      "body_sha256": "sha256:f5662e05bd0f6c02dab772f610148c45e42e4c6c0b105f4aacbe2f5bf13c6121",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -634,8 +634,8 @@
     },
     {
       "aliases": ["limits action block hours"],
-      "body_bytes": 2147,
-      "body_sha256": "sha256:dd9cea6d01bbeb7e0801ba0c34136d24d335363d60e8c510fdeba16c2ae2310e",
+      "body_bytes": 1779,
+      "body_sha256": "sha256:5c6fefc5775e6ab13310513bd56405c7ccf4bc436187a9bbaa7456414e32f086",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -691,8 +691,8 @@
     },
     {
       "aliases": ["limits action block minutes"],
-      "body_bytes": 2159,
-      "body_sha256": "sha256:ebc21f7745bafb667ff89fe68d93aa91590957d6d3f0419146b3727d25f4a33a",
+      "body_bytes": 1789,
+      "body_sha256": "sha256:e9eea2ace05b905dd5cabc3714573e533a111e679dbacdcbcd45427084a72bb1",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -748,8 +748,8 @@
     },
     {
       "aliases": ["limits action block seconds"],
-      "body_bytes": 2162,
-      "body_sha256": "sha256:d4d2fcb2676f318b44ba57e4b89b53eae096793912005ddc94dce143ee97cdd5",
+      "body_bytes": 1792,
+      "body_sha256": "sha256:4d73effd7276be3a0e0248615be35ccf5c4dfefc632abb40ebe610af23005c8b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -805,8 +805,8 @@
     },
     {
       "aliases": ["limits disabled"],
-      "body_bytes": 1150,
-      "body_sha256": "sha256:3db7d08e9890dcf80ebc002f5cd92da6dbbef9a6139c3b4bf93e36d3b895e68e",
+      "body_bytes": 900,
+      "body_sha256": "sha256:2d4d94b06c4715b0668209bacd40468d9310daa3f923969566210086684dd3f9",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -845,8 +845,8 @@
     },
     {
       "aliases": ["limits leaky bucket"],
-      "body_bytes": 1116,
-      "body_sha256": "sha256:3e346083c1cfc93d1c1534a4e312c8ee688b6c50b4b2c3834de18485441db9fa",
+      "body_bytes": 859,
+      "body_sha256": "sha256:4f589c6130a9e551270f11d757d3ae6ec4275cfc1ccf51eafe7b4a242266ec48",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -885,8 +885,8 @@
     },
     {
       "aliases": ["limits token bucket"],
-      "body_bytes": 1138,
-      "body_sha256": "sha256:8123610f35841fc6f22b5812f0a0936018f7d331771ea6d1905d43cbcdeae415",
+      "body_bytes": 881,
+      "body_sha256": "sha256:f0e4ea1ba0508877e971491398266f6158472909ee7df9d0bb879297f7a68429",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -925,8 +925,8 @@
     },
     {
       "aliases": ["user identification"],
-      "body_bytes": 6324,
-      "body_sha256": "sha256:5eb6de99b88f9df3f97b183ab6e204e5f523609b21ecfae00ad1928fc6e4902a",
+      "body_bytes": 5289,
+      "body_sha256": "sha256:8c57605a6d74220df10359e1e0b4173fd48df9a555a860b3d98f902deb342290",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1081,8 +1081,8 @@
     },
     {
       "aliases": ["rate limiter"],
-      "body_bytes": 657,
-      "body_sha256": "sha256:4fa5f87779bcb84eb523e5b773ac0af0eb8edb48f7085bee851e4572d92d6b77",
+      "body_bytes": 414,
+      "body_sha256": "sha256:326653bcd3bf05fc454690d95fa361e6338e7fab181ee3da92dd96e6c231e362",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:rate_limiter:example:data-source"],
@@ -1121,8 +1121,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1279,
-      "body_sha256": "sha256:9ec9f8f2e4f707ef0e3586832f68d0bf62cca6af743227f54fb4d832e4a9a3ab",
+      "body_bytes": 1051,
+      "body_sha256": "sha256:e9aaf930b239b4d6db563013ce2d44011556768a397cacd14bcbf5017a7c997d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],

@@ -2,7 +2,7 @@
 page_title: "cloudfront.manual_js_insert"
 subcategory: ""
 description: "Insert JavaScript manually."
-xcsh_docs: {"aliases": ["cloudfront manual js insert"], "body_bytes": 4364, "body_sha256": "sha256:79bea6cabebc05e85eafd95a9c57183cf4580e02b0ad64dbb576fc11a497dfe5", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:protected_application:collection", "completeness": "complete", "id": "xcsh-docs:resources:protected_application:properties:cloudfront:manual_js_insert", "parent_id": "xcsh-docs:resources:protected_application:properties:cloudfront", "path": "documentation/resources/protected_application/properties/cloudfront/manual_js_insert/index.md", "product": "distributed-cloud", "provider_name": "protected_application", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3313102332000123-2222313311313211-0013120212332103-3201031211032333-2332132333320123-1122123222002123-2323011023213133-1102033113123031", "registry_path": "docs/guides/resources--protected_application--reference--group-003.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["cloudfront", "manual_js_insert"], "schema_version": 1, "sections": [{"aliases": ["cloudfront manual js insert javascript mode"], "anchor": "schema-cloudfront--manual_js_insert--javascript_mode", "description": "Web Client JavaScript Mode. Bot Defense JavaScript for telemetry collection is requested asynchronously, and it is non-cacheable Bot Defense JavaScript for telemetry collection is requested asynchronously, and it is cacheable Bot Defense JavaScript for telemetry collection is requested synchronously, and it is", "document_id": "xcsh-docs:resources:protected_application:properties:cloudfront:manual_js_insert", "enum_extraction_complete": true, "enum_validators": [{"case_sensitive": true, "complete": true, "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf", "validator": "OneOf", "values": ["ASYNC_JS_CACHING", "ASYNC_JS_NO_CACHING", "SYNC_JS_CACHING", "SYNC_JS_NO_CACHING"], "version": 1}], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudfront", "manual_js_insert", "javascript_mode"], "syntax": "attribute", "type": "string"}, {"aliases": ["cloudfront manual js insert js download path"], "anchor": "schema-cloudfront--manual_js_insert--js_download_path", "description": "Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any other website/application paths. If not specified, default to ‘/common.js’.", "document_id": "xcsh-docs:resources:protected_application:properties:cloudfront:manual_js_insert", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudfront", "manual_js_insert", "js_download_path"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/manual_js_insert/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Insert JavaScript manually.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["protected_applicationCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["cloudfront manual js insert"], "body_bytes": 3853, "body_sha256": "sha256:0e3609b4b790dad5afa08ee2518f0066b6a077ceb5b2a29a103e5743e8767280", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:protected_application:collection", "completeness": "complete", "id": "xcsh-docs:resources:protected_application:properties:cloudfront:manual_js_insert", "parent_id": "xcsh-docs:resources:protected_application:properties:cloudfront", "path": "documentation/resources/protected_application/properties/cloudfront/manual_js_insert/index.md", "product": "distributed-cloud", "provider_name": "protected_application", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3313102332000123-2222313311313211-0013120212332103-3201031211032333-2332132333320123-1122123222002123-2323011023213133-1102033113123031", "registry_path": "docs/guides/resources--protected_application--reference--group-003.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["cloudfront", "manual_js_insert"], "schema_version": 1, "sections": [{"aliases": ["cloudfront manual js insert javascript mode"], "anchor": "schema-cloudfront--manual_js_insert--javascript_mode", "description": "Web Client JavaScript Mode. Bot Defense JavaScript for telemetry collection is requested asynchronously, and it is non-cacheable Bot Defense JavaScript for telemetry collection is requested asynchronously, and it is cacheable Bot Defense JavaScript for telemetry collection is requested synchronously, and it is", "document_id": "xcsh-docs:resources:protected_application:properties:cloudfront:manual_js_insert", "enum_extraction_complete": true, "enum_validators": [{"case_sensitive": true, "complete": true, "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf", "validator": "OneOf", "values": ["ASYNC_JS_CACHING", "ASYNC_JS_NO_CACHING", "SYNC_JS_CACHING", "SYNC_JS_NO_CACHING"], "version": 1}], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudfront", "manual_js_insert", "javascript_mode"], "syntax": "attribute", "type": "string"}, {"aliases": ["cloudfront manual js insert js download path"], "anchor": "schema-cloudfront--manual_js_insert--js_download_path", "description": "Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any other website/application paths. If not specified, default to ‘/common.js’.", "document_id": "xcsh-docs:resources:protected_application:properties:cloudfront:manual_js_insert", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudfront", "manual_js_insert", "js_download_path"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/manual_js_insert/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Insert JavaScript manually.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["protected_applicationCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,10 +23,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Insert JavaScript Manually. Insert JavaScript manually.
-
-Upstream description:
-
-Insert JavaScript manually.
 
 Receipt-pinned upstream constraints:
 
@@ -64,14 +60,13 @@ and it is cacheable Bot Defense JavaScript for telemetry collection is requested
 are \`ASYNC\_JS\_NO\_CACHING\`, \`ASYNC\_JS\_CACHING\`, \`SYNC\_JS\_NO\_CACHING\`,
 \`SYNC\_JS\_CACHING\`. Defaults to \`ASYNC\_JS\_NO\_CACHING\`.
 
-Upstream description:
+Additional upstream details:
 
-Web Client JavaScript Mode.
-
-Bot Defense JavaScript for telemetry collection is requested asynchronously, and it is non-cacheable
-Bot Defense JavaScript for telemetry collection is requested asynchronously, and it is cacheable Bot
-Defense JavaScript for telemetry collection is requested synchronously, and it is non-cacheable Bot
-Defense JavaScript for telemetry collection is requested synchronously, and it is cacheable.
+Web Client JavaScript Mode. Bot Defense JavaScript for telemetry collection is requested
+asynchronously, and it is non-cacheable Bot Defense JavaScript for telemetry collection is requested
+asynchronously, and it is cacheable Bot Defense JavaScript for telemetry collection is requested
+synchronously, and it is non-cacheable Bot Defense JavaScript for telemetry collection is requested
+synchronously, and it is cacheable.
 
 Provider validators and defaults (from schema source):
 
@@ -115,13 +110,6 @@ Type: `"string"`. Optional.
 Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any
 other website/application paths. If not specified, default to ‘/common.js’.
 
-Upstream description:
-
-Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any
-other website/application paths.
-
-If not specified, default to ‘/common.js’.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -150,8 +138,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [cloudfront](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/protected_application/properties/cloudfront/)
-- [xcsh_protected_application](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/protected_application/)

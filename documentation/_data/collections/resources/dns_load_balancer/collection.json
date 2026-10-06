@@ -296,8 +296,8 @@
   "pages": [
     {
       "aliases": ["dns load balancer"],
-      "body_bytes": 1691,
-      "body_sha256": "sha256:2323205f20bca2b648229600e943ae9856df5acdf5201b911e467433585f6517",
+      "body_bytes": 1704,
+      "body_sha256": "sha256:46cd3bba79b61765a3de2d509ab2078404d90d27ba4e7163aaf4b486e80cb5d6",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -350,8 +350,8 @@
     },
     {
       "aliases": ["dns load balancer"],
-      "body_bytes": 22952,
-      "body_sha256": "sha256:cf514017415e7902e0be565f47bfb576517372656d2ebde2ab3dd475a39bea3d",
+      "body_bytes": 22042,
+      "body_sha256": "sha256:5293c98d332544fe97a861af55a3d434fd0aa9cbf558c540a169a8b8bf2e8a67",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -673,8 +673,8 @@
     },
     {
       "aliases": ["fallback pool"],
-      "body_bytes": 5982,
-      "body_sha256": "sha256:a0d4334f1d8edf4e76a467722eb30154377fe26fde3bac145f28447b9135f029",
+      "body_bytes": 5060,
+      "body_sha256": "sha256:fb6a7989eb479ce25a68b93419611d0d8af3e8dad59edd1610171372fa6293d5",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -792,8 +792,8 @@
     },
     {
       "aliases": ["response cache"],
-      "body_bytes": 2798,
-      "body_sha256": "sha256:ffb385633dfe234d89a4659bda2d8c80b1b27049226aa02b944f2861f69b3550",
+      "body_bytes": 2017,
+      "body_sha256": "sha256:fb841aa20bd5192a3653c70879c3d805ed04fdd3303d26973a6fb79ee271678e",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -943,8 +943,8 @@
     },
     {
       "aliases": ["response cache default response cache parameters"],
-      "body_bytes": 1388,
-      "body_sha256": "sha256:86910c7aa586f2f2d7c93dc402c5372f046e54e7afb450b35b3577132e1ab10a",
+      "body_bytes": 1113,
+      "body_sha256": "sha256:98aa2da99ff62dd0da85f1665b29461cf13137d9102c514cf5b81cf87e4fae06",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -983,8 +983,8 @@
     },
     {
       "aliases": ["response cache disable spec"],
-      "body_bytes": 1024,
-      "body_sha256": "sha256:c5b7ec028e1b61244cb19affcc89fa0ad9cce9bc79c2f3eca389b90de2a538b2",
+      "body_bytes": 742,
+      "body_sha256": "sha256:b50e34b4716ea7160ca0b81868f407655ed1e2ea3cdd5b69318d10a3a33c0256",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -1023,8 +1023,8 @@
     },
     {
       "aliases": ["response cache response cache parameters"],
-      "body_bytes": 4503,
-      "body_sha256": "sha256:239ef4b3d163c082fba4d8c53d26c680ad88a9461d07f66095accd29b5a0797d",
+      "body_bytes": 4195,
+      "body_sha256": "sha256:30564496ec3314d828cf817e55e9168302926344c1a99a3f02a7dac93a86800d",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -1121,8 +1121,8 @@
     },
     {
       "aliases": ["rule list"],
-      "body_bytes": 1568,
-      "body_sha256": "sha256:d1e7fcfb636da669d9f2ce875ce3c08a73a8eb5282a1b07c9e2eb957139ca0e9",
+      "body_bytes": 1128,
+      "body_sha256": "sha256:080bccb0c39ceb9338a8496e3b0530d799a5f741d836b5f1f9d5ad8d74476d89",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules"],
@@ -1436,8 +1436,8 @@
     },
     {
       "aliases": ["rule list rules"],
-      "body_bytes": 6976,
-      "body_sha256": "sha256:dcb20fa22c777701943b311f4c4da0e090662ce961df93186558bddbca78c0ff",
+      "body_bytes": 5538,
+      "body_sha256": "sha256:6f2d43de06f6727e24b8a69b3e971e220b65f0143c7250eccce5873b0a008baf",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -1916,8 +1916,8 @@
     },
     {
       "aliases": ["rule list rules asn list"],
-      "body_bytes": 3648,
-      "body_sha256": "sha256:3dd977e2496613504657512fdbd3a9017c3d68c0fe501e4e60a9466b1b6c290b",
+      "body_bytes": 2914,
+      "body_sha256": "sha256:483ccab484a93b1d2d9d98e1c1c8e4e943f34696a95897453bb7fe2ce2806c99",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -1982,8 +1982,8 @@
     },
     {
       "aliases": ["rule list rules asn matcher"],
-      "body_bytes": 1885,
-      "body_sha256": "sha256:4b284a2b17775da7cfcbc0fb8e34ac70b0f1ed3cfacae8e6ce2055d13b22e36a",
+      "body_bytes": 1448,
+      "body_sha256": "sha256:3d04d4cb487484f17a8914128720e36893d26ac1c13bee1d4aed85c2bee07ec4",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets"],
@@ -2048,8 +2048,8 @@
     },
     {
       "aliases": ["rule list rules asn matcher asn sets"],
-      "body_bytes": 7139,
-      "body_sha256": "sha256:b8002106c97150912925efa003afeff86f224b0b6b0f023e6afb01e3c6951f8c",
+      "body_bytes": 6094,
+      "body_sha256": "sha256:865c837537e254dfb9715a6e991bfd21800a4cece89ff71722f318a126a2ac5e",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -2204,8 +2204,8 @@
     },
     {
       "aliases": ["rule list rules geo location label selector"],
-      "body_bytes": 4426,
-      "body_sha256": "sha256:ef1999fc13f4da2f3e7650a1e5b158112e2650b2c6b17875dcaaa97b55486271",
+      "body_bytes": 3871,
+      "body_sha256": "sha256:8c4b630b1dac0fc215f8778c507cfeee7ac9e917d13a56bd1538ae42da92b918",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -2270,8 +2270,8 @@
     },
     {
       "aliases": ["rule list rules geo location set"],
-      "body_bytes": 6353,
-      "body_sha256": "sha256:6fecd32b4199aad8ccb6ad08707486fa339bfcd21a9a051fd84dfe07e91e9762",
+      "body_bytes": 5418,
+      "body_sha256": "sha256:8a33b2ccd80ad7cf6fa47a4e4ad66d34c350fd2ff4df40240f92841e64334f83",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -2389,8 +2389,8 @@
     },
     {
       "aliases": ["rule list rules ip prefix list"],
-      "body_bytes": 3163,
-      "body_sha256": "sha256:42163ea088891fc20b24997de0010c31abe63001b366db1d514b3f5b8fe8bf29",
+      "body_bytes": 2799,
+      "body_sha256": "sha256:aba4a6fd395d9c8fbdbef85e90314cf5fd216d754b3ce3966ff836bef4b36a9b",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -2462,8 +2462,8 @@
     },
     {
       "aliases": ["rule list rules ip prefix set"],
-      "body_bytes": 2523,
-      "body_sha256": "sha256:2d05c92ca8df3afad549b8e2fa1cadf6d2e722b9e5d649af9a5751ed5310297e",
+      "body_bytes": 1876,
+      "body_sha256": "sha256:d9d0435068fec360ac210c3fa8d995fea910ec727cfbcfbeccc700c62d99b282",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets"],
@@ -2544,8 +2544,8 @@
     },
     {
       "aliases": ["rule list rules ip prefix set prefix sets"],
-      "body_bytes": 7189,
-      "body_sha256": "sha256:10e5d8e67901202514d0dfb697f47ba3736482a1e1c48a55b12adee11234c662",
+      "body_bytes": 6138,
+      "body_sha256": "sha256:14c887b2ac85bee8773c5635f444a479ad23e7f3485150a0f86109341b8a4879",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -2700,8 +2700,8 @@
     },
     {
       "aliases": ["rule list rules pool"],
-      "body_bytes": 6281,
-      "body_sha256": "sha256:32b0374dcc8915e6026dde1a319b0eecc25dc53d0088c0b31184d8a3ae6cac73",
+      "body_bytes": 5346,
+      "body_sha256": "sha256:9c7f3d7fe99ddaf2db6ad40491c99689e9137db20c9be33531f68c3d22184810",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -2819,8 +2819,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2261,
-      "body_sha256": "sha256:cf24688a0f3993f4a2d13681f2d71216b148ff4085fb96ab7c9d171c5aaf7f74",
+      "body_bytes": 2012,
+      "body_sha256": "sha256:a9105a4ca0dceff55709f995705eccd60f2fee8db42107760792dc12d2eff66b",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -2959,8 +2959,8 @@
     },
     {
       "aliases": ["dns load balancer"],
-      "body_bytes": 663,
-      "body_sha256": "sha256:652d3bc360ccf7a5877cb9cf3c13fb5d3841a9facc5d3cd0d95b140be27be139",
+      "body_bytes": 417,
+      "body_sha256": "sha256:a1e390c0da36bfd6f9f1e0731bfcf4fab56eb8dfe9d2a07b1fc030ca7ceff852",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_load_balancer:example:resource"],
@@ -2999,8 +2999,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1276,
-      "body_sha256": "sha256:5132f94063ff5ec89afc131469381306a0ff930dd222748482c16178ecb55cdc",
+      "body_bytes": 1039,
+      "body_sha256": "sha256:25edcb9746192062014591edd0dc425e7acc47790509cb1a6f17a9a8bf51d5fe",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -3046,8 +3046,8 @@
     },
     {
       "aliases": ["dns load balancer"],
-      "body_bytes": 505,
-      "body_sha256": "sha256:4f044d18026a67b5f584c9a58a368d33792839f53abd6b41a4d6482b7845d2f4",
+      "body_bytes": 376,
+      "body_sha256": "sha256:b2b8c137050e33e6417742521b3bb1e567f5d8d70301ab2b278c9347d084f850",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -3087,8 +3087,8 @@
     },
     {
       "aliases": ["dns load balancer"],
-      "body_bytes": 593,
-      "body_sha256": "sha256:a6106e56cef1ee3ea3c783f7745a384344c4e8c36c55fc4325d2eaa512824998",
+      "body_bytes": 464,
+      "body_sha256": "sha256:78a28b76cea22a39e43ec47b915573d4b31b54c32b4b436583a3cf4e89aa45a5",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],

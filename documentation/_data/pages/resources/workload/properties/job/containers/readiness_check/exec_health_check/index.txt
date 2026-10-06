@@ -2,7 +2,7 @@
 page_title: "job.containers.readiness_check.exec_health_check"
 subcategory: "Container"
 description: "ExecHealthCheckType describes a health check based on \"run in container\" action. Exit status of 0 is treated as live/healthy and non-zero is unhealthy."
-xcsh_docs: {"aliases": ["job containers readiness check exec health check"], "body_bytes": 3992, "body_sha256": "sha256:362ec9a80a7c9c1472fdffb77c458f73a96fad6022fd00a3ae4425796e210a8a", "capabilities": ["container"], "category": "container", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:workload:collection", "completeness": "complete", "id": "xcsh-docs:resources:workload:properties:job:containers:readiness_check:exec_health_check", "parent_id": "xcsh-docs:resources:workload:properties:job:containers:readiness_check", "path": "documentation/resources/workload/properties/job/containers/readiness_check/exec_health_check/index.md", "product": "distributed-cloud", "provider_name": "workload", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2330302322132120-0133031312222322-1020001300011202-2222223031212223-0200031223212121-0130302130222100-1231320103231212-3000101133002221", "registry_path": "docs/guides/resources--workload--reference--group-004.md", "relationships": [{"anchor": "schema-job--containers--readiness_check--exec_health_check--command", "enforcement": "provider-schema", "group": "job.containers.readiness_check.exec_health_check:RequiredObjectAttributes:command", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:workload:properties:job:containers:readiness_check:exec_health_check", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["job", "containers", "readiness_check", "exec_health_check"], "schema_version": 1, "sections": [{"aliases": ["job containers readiness check exec health check command"], "anchor": "schema-job--containers--readiness_check--exec_health_check--command", "description": "Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that", "document_id": "xcsh-docs:resources:workload:properties:job:containers:readiness_check:exec_health_check", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["job", "containers", "readiness_check", "exec_health_check", "command"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/workload/properties/job/containers/readiness_check/exec_health_check/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "ExecHealthCheckType describes a health check based on \"run in container\" action. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["workloadCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["job containers readiness check exec health check"], "body_bytes": 3348, "body_sha256": "sha256:0dedf1fba2ee313e797723bad70f2a5a23dd412ed7dda91db5a012c163210dd5", "capabilities": ["container"], "category": "container", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:workload:collection", "completeness": "complete", "id": "xcsh-docs:resources:workload:properties:job:containers:readiness_check:exec_health_check", "parent_id": "xcsh-docs:resources:workload:properties:job:containers:readiness_check", "path": "documentation/resources/workload/properties/job/containers/readiness_check/exec_health_check/index.md", "product": "distributed-cloud", "provider_name": "workload", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2330302322132120-0133031312222322-1020001300011202-2222223031212223-0200031223212121-0130302130222100-1231320103231212-3000101133002221", "registry_path": "docs/guides/resources--workload--reference--group-004.md", "relationships": [{"anchor": "schema-job--containers--readiness_check--exec_health_check--command", "enforcement": "provider-schema", "group": "job.containers.readiness_check.exec_health_check:RequiredObjectAttributes:command", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:workload:properties:job:containers:readiness_check:exec_health_check", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["job", "containers", "readiness_check", "exec_health_check"], "schema_version": 1, "sections": [{"aliases": ["job containers readiness check exec health check command"], "anchor": "schema-job--containers--readiness_check--exec_health_check--command", "description": "Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that", "document_id": "xcsh-docs:resources:workload:properties:job:containers:readiness_check:exec_health_check", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["job", "containers", "readiness_check", "exec_health_check", "command"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/workload/properties/job/containers/readiness_check/exec_health_check/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "ExecHealthCheckType describes a health check based on \"run in container\" action. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["workloadCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -27,10 +27,9 @@ Type: `"object"`. single nested block, Optional.
 ExecHealthCheckType describes a health check based on 'run in container' action. Exit status of 0 is
 treated as live/healthy and non-zero is unhealthy.
 
-Upstream description:
+Additional upstream details:
 
-ExecHealthCheckType describes a health check based on "run in container" action. Exit status of 0 is
-treated as live/healthy and non-zero is unhealthy.
+ExecHealthCheckType describes a health check based on "run in container" action.
 
 Provider validators and defaults (from schema source):
 
@@ -67,12 +66,6 @@ exec_health_check {
 ### command property
 
 Type: `["list", "string"]`. Optional.
-
-Command is the command line to execute inside the container, the working directory for the command
-is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a
-shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to..
-
-Upstream description:
 
 Command is the command line to execute inside the container, the working directory for the command
 is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a
@@ -127,8 +120,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [job.containers.readiness_check](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/readiness_check/)
-- [xcsh_workload](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/)

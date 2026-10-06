@@ -705,8 +705,8 @@
   "pages": [
     {
       "aliases": ["discovery"],
-      "body_bytes": 1642,
-      "body_sha256": "sha256:55bed9d6f7a02b52724f635c2c5b72d1072a900b57090dbe9b0303e8b4b0997e",
+      "body_bytes": 1655,
+      "body_sha256": "sha256:6a48eee905ba5bdb3c934b41813ab344427aa30a2cd34d400277155cc0bb0c27",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -751,8 +751,8 @@
     },
     {
       "aliases": ["discovery"],
-      "body_bytes": 40211,
-      "body_sha256": "sha256:6d1517f843e82a3b4ace91a4626b55a6ec3f9813cc7abbeb825414b4fa52c26d",
+      "body_bytes": 39175,
+      "body_sha256": "sha256:87bceddf5c5d22f3a03430693eeaace9b655d3141b542d1f097cdbeb611f7d10",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1072,8 +1072,8 @@
     },
     {
       "aliases": ["discovery consul"],
-      "body_bytes": 2185,
-      "body_sha256": "sha256:2a5f21269690dea5415ed046244d17e388576af9392a9acc66b85aac0a40b61d",
+      "body_bytes": 1586,
+      "body_sha256": "sha256:d57611e130df3869cdf50cf407aa5d58a894db1767f50a1ed104d294f24ec7f0",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1165,8 +1165,8 @@
     },
     {
       "aliases": ["discovery consul access info"],
-      "body_bytes": 1922,
-      "body_sha256": "sha256:67c7d4d750faa8d51de6785126eac107a08f7e9d12741ee8552b091ffffe9627",
+      "body_bytes": 1306,
+      "body_sha256": "sha256:23805404fbf00840a873f654077269561c4ee469750fcfc34b2afae3c9546fb3",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1250,8 +1250,8 @@
     },
     {
       "aliases": ["discovery consul access info connection info"],
-      "body_bytes": 3182,
-      "body_sha256": "sha256:e596f78ffb383b7cd1d8c5553eb095ec9331e433f1472f1930f03c8f566e107b",
+      "body_bytes": 2717,
+      "body_sha256": "sha256:9a2e0b91544826c63e3b7522b1d3a215717e6c2ea2708972acb7ebfc4c9f09ca",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:discovery:properties:discovery_consul:access_info:connection_info:tls_info"],
@@ -1332,8 +1332,8 @@
     },
     {
       "aliases": ["discovery consul access info connection info tls info"],
-      "body_bytes": 6298,
-      "body_sha256": "sha256:b53bcd52353620009cfa331c35020ab1d8459dfdb4386b5d3916b93579d95c2b",
+      "body_bytes": 5431,
+      "body_sha256": "sha256:9775324c2fb69e8feb6ab8957326de66ba991f74cb0d0b40a9306a8d2d39629d",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1456,8 +1456,8 @@
     },
     {
       "aliases": ["discovery consul access info connection info tls info key url"],
-      "body_bytes": 3150,
-      "body_sha256": "sha256:4530d1842118c8f4e898d92a995f29778dddbd45ae3552a38e29cb4001cb3743",
+      "body_bytes": 2322,
+      "body_sha256": "sha256:7e13228d663dc9f074e49fc78dff2c79b58cc0b2eb44968c7ab4ea0f7193d189",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1581,8 +1581,8 @@
     },
     {
       "aliases": ["discovery consul access info connection info tls info key url blindfold secret info"],
-      "body_bytes": 5767,
-      "body_sha256": "sha256:1661121ccea17e5e49038f5987132185c12111cb492771a25d1bce2979fe181b",
+      "body_bytes": 5068,
+      "body_sha256": "sha256:4b252ff7add91e8048d00edfe28292522769872ec3fee74b29531d68e9e1ef54",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1714,8 +1714,8 @@
     },
     {
       "aliases": ["discovery consul access info connection info tls info key url clear secret info"],
-      "body_bytes": 4613,
-      "body_sha256": "sha256:ab871dd5e769682a9a3a06c75d420891ca977e2e39a5fec40bc296c8c427d58a",
+      "body_bytes": 4048,
+      "body_sha256": "sha256:6d76aabf353bc591553a6f33c5b8c1a167eabd7c70f975a0d28c535bb99e8d42",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1812,8 +1812,8 @@
     },
     {
       "aliases": ["discovery consul access info http basic auth info"],
-      "body_bytes": 2815,
-      "body_sha256": "sha256:1f2ee8a57c4f1a01a3db694d0ee77e1b4d2ee281a82027af6ce742bea4ea6bda",
+      "body_bytes": 2292,
+      "body_sha256": "sha256:f4095a02ac84f4ba42be2f8bebefef1185d22ee117a068a72729f95b1a2b815b",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1904,8 +1904,8 @@
     },
     {
       "aliases": ["discovery consul access info http basic auth info passwd url"],
-      "body_bytes": 2946,
-      "body_sha256": "sha256:09a5c3b92b151409d8661288a696ec22cc903202bb30c0b8fc0eac1aa3d0b4f9",
+      "body_bytes": 2130,
+      "body_sha256": "sha256:6723f2537b01f7463b396dd05f72d90d543d68042e5973e0da5b4e97855d14df",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2021,8 +2021,8 @@
     },
     {
       "aliases": ["discovery consul access info http basic auth info passwd url blindfold secret info"],
-      "body_bytes": 5564,
-      "body_sha256": "sha256:829d23b841fbb8f7c2dfd801a425ce5a16847ff549d5a7a76b60e15802063319",
+      "body_bytes": 4867,
+      "body_sha256": "sha256:95eaf8e8569f7ee40f94410dabce6e8c0a70d590791821fe2dc0e59e337f6809",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2144,8 +2144,8 @@
     },
     {
       "aliases": ["discovery consul access info http basic auth info passwd url clear secret info"],
-      "body_bytes": 4412,
-      "body_sha256": "sha256:466855df8816c6debebc10a2506d77adaf051a3557aaff28b4127600ce6331c2",
+      "body_bytes": 3849,
+      "body_sha256": "sha256:bfc6f277689607aa9ce083b9805d1e472952fcb56104fc3cdcf24fe1ade8cdf6",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2240,8 +2240,8 @@
     },
     {
       "aliases": ["discovery consul publish info"],
-      "body_bytes": 2196,
-      "body_sha256": "sha256:14b5956dda57fb0c8b915a899fe64de55f284c6dee0435c3142a53b044ed0a60",
+      "body_bytes": 1615,
+      "body_sha256": "sha256:cd5f72807a4a5c965d8d0122f0700e09439df9071411a0a1584e3956866ebe9e",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2333,8 +2333,8 @@
     },
     {
       "aliases": ["discovery consul publish info disable spec"],
-      "body_bytes": 1185,
-      "body_sha256": "sha256:97a383c19afb07cd32f588429b90052a1ce263bcf0c2c922afb0e240b1d11dc5",
+      "body_bytes": 897,
+      "body_sha256": "sha256:06e84c46ad92318271b2022069229dc9a7ec9d9b7918a25222c1b439ffb036ac",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2373,8 +2373,8 @@
     },
     {
       "aliases": ["discovery consul publish info publish"],
-      "body_bytes": 1427,
-      "body_sha256": "sha256:70d2f49557253bdbaed5944c564f025b364aef38f692ed04fe33ac93957c3aae",
+      "body_bytes": 1146,
+      "body_sha256": "sha256:604ed70d8fc6e1f82b13b8c07d1505c48f35dfc91e83153e306f9796c8e84926",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2413,8 +2413,8 @@
     },
     {
       "aliases": ["discovery k8s"],
-      "body_bytes": 2614,
-      "body_sha256": "sha256:4c0a2058b878ab553a6957d658527c11d37773ddbe855201c939ee28aeaf9cd0",
+      "body_bytes": 1802,
+      "body_sha256": "sha256:0708ca9ae448cc2e3287fbc0fd0f4ab534aeb774bcaf964c1637fa38fade75b5",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2679,8 +2679,8 @@
     },
     {
       "aliases": ["discovery k8s access info"],
-      "body_bytes": 3016,
-      "body_sha256": "sha256:898bfd62987844140e72a851f5391a43824365fd77213f773cde4f0e1ecc4f36",
+      "body_bytes": 2109,
+      "body_sha256": "sha256:31bdd556e4baaf0903a0ed1801df75af50de8ead8a59af989e5e56c4d4f82fb1",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2848,8 +2848,8 @@
     },
     {
       "aliases": ["discovery k8s access info connection info"],
-      "body_bytes": 3146,
-      "body_sha256": "sha256:86fb4c75c0d9b6292c619ebfe7ab2bcaf1f295a7cf7f6a4642008632d3565e5e",
+      "body_bytes": 2693,
+      "body_sha256": "sha256:8fb07aa7059bde7395d8edb85f46ab3ffe3fd0f8dc50c3524911d52a1a074439",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info"],
@@ -2930,8 +2930,8 @@
     },
     {
       "aliases": ["discovery k8s access info connection info tls info"],
-      "body_bytes": 6250,
-      "body_sha256": "sha256:49eae6fe8436a00d62f1414ade5d32c5cfff5f44c94363e85f57a920dccc2753",
+      "body_bytes": 5395,
+      "body_sha256": "sha256:643ce7c1486763cb360fe80e05d2087078996406966013bdb91e7f09fc790abe",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -3054,8 +3054,8 @@
     },
     {
       "aliases": ["discovery k8s access info connection info tls info key url"],
-      "body_bytes": 3096,
-      "body_sha256": "sha256:00c7153126b36828e225ebbf8fd6a698f3e50b1833885f67f263029dde3f31a7",
+      "body_bytes": 2286,
+      "body_sha256": "sha256:3a9d8854d6d9f93dbde0ce42870d5a2d04f543998080cd8fe7d96384e5832293",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -3179,8 +3179,8 @@
     },
     {
       "aliases": ["discovery k8s access info connection info tls info key url blindfold secret info"],
-      "body_bytes": 5716,
-      "body_sha256": "sha256:fda038f63010323f937e8a54d34659e9b162e0acc4a2a84db513016cb0e1bb3e",
+      "body_bytes": 5023,
+      "body_sha256": "sha256:28692c79a67a2728cef9078237c648f4797d0f1da8eec639f655fdd9951b3983",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3312,8 +3312,8 @@
     },
     {
       "aliases": ["discovery k8s access info connection info tls info key url clear secret info"],
-      "body_bytes": 4565,
-      "body_sha256": "sha256:beb2f755793c18b7485316639cde21aad2c1ae56b63950d5fc22f3ac3ec044d0",
+      "body_bytes": 4006,
+      "body_sha256": "sha256:6432b48c7cda127f120fce94dc93e393d727c060eed6f5ee35e10b885e5936dc",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3410,8 +3410,8 @@
     },
     {
       "aliases": ["discovery k8s access info isolated"],
-      "body_bytes": 1400,
-      "body_sha256": "sha256:a44ba58906ffbcd33f20aa8b7c77e942681052e773f8662d8ddea0dfc4d9fd86",
+      "body_bytes": 1127,
+      "body_sha256": "sha256:8353d563770fa7061f46aa9fa81de5f287e3c4c173221d7245c93c051487db7d",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3431,7 +3431,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3332310112212022-3122012220002330-2121220211123313-1033230023102333-3330312121222111-2032023323130013-0003110121320123-2320322123230011",
-      "registry_path": "docs/guides/resources--discovery--reference--group-001.md",
+      "registry_path": "docs/guides/resources--discovery--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -3450,8 +3450,8 @@
     },
     {
       "aliases": ["discovery k8s access info kubeconfig url"],
-      "body_bytes": 2537,
-      "body_sha256": "sha256:3548239f77285a1bbc3bd6f7818007b738a9f08b1c2c582fe0d11dfef914c8b3",
+      "body_bytes": 1849,
+      "body_sha256": "sha256:eb6e3e356ac0db7f9f1c21b2a31d562850a5c5bd1439ab3dd5ce9c51fd7df272",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -3474,7 +3474,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2103233030101201-2311203221133210-0220202230223032-3211312010223020-0101303231022121-2330110001021033-1320230101103202-0211001030103130",
-      "registry_path": "docs/guides/resources--discovery--reference--group-001.md",
+      "registry_path": "docs/guides/resources--discovery--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -3561,8 +3561,8 @@
     },
     {
       "aliases": ["discovery k8s access info kubeconfig url blindfold secret info"],
-      "body_bytes": 5176,
-      "body_sha256": "sha256:6db10a68e701a4424cb0dca50cac26da0cef3711b1f75afc058b31a1981a342e",
+      "body_bytes": 4519,
+      "body_sha256": "sha256:9c54ec9050b44dd0505028fa930d5053eed10db0c383cf6b9a631a4c1172edbe",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3582,7 +3582,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1121112003223220-2111211201312211-3313302223212113-0312231220131131-0222122203020203-0231232101302010-1303022030200300-3333302311300130",
-      "registry_path": "docs/guides/resources--discovery--reference--group-001.md",
+      "registry_path": "docs/guides/resources--discovery--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-discovery_k8s--access_info--kubeconfig_url--blindfold_secret_info--location",
@@ -3665,8 +3665,8 @@
     },
     {
       "aliases": ["discovery k8s access info kubeconfig url clear secret info"],
-      "body_bytes": 4045,
-      "body_sha256": "sha256:1e49ee9bae723c3fe996619f39b6e4b9f42692c4c0f7c99d5298de7a89bf2361",
+      "body_bytes": 3522,
+      "body_sha256": "sha256:514497488ed7c17f4b6daead1029d0988f096b10536dfc78c77a6a514ae50631",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3686,7 +3686,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0100213213212331-2003313330013022-3230232303212010-2201001131100021-2221103310311031-2131103302233031-0300232300023101-0000331310202031",
-      "registry_path": "docs/guides/resources--discovery--reference--group-001.md",
+      "registry_path": "docs/guides/resources--discovery--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-discovery_k8s--access_info--kubeconfig_url--clear_secret_info--url",
@@ -3747,8 +3747,8 @@
     },
     {
       "aliases": ["discovery k8s access info reachable"],
-      "body_bytes": 1403,
-      "body_sha256": "sha256:99c7421edff48eede03c927e1e914cbf14060fcaea4d06b32e732874919c7668",
+      "body_bytes": 1130,
+      "body_sha256": "sha256:42e18c558abfd6a4197030d301f6aad98dd9efcb36ef151e9d0c81f6c044cd7f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3768,7 +3768,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2233200231201012-1110023212011100-0220223121300122-2221312123303311-3102232213022203-2332332222223031-3301300320131201-2133101011010213",
-      "registry_path": "docs/guides/resources--discovery--reference--group-001.md",
+      "registry_path": "docs/guides/resources--discovery--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -3787,8 +3787,8 @@
     },
     {
       "aliases": ["discovery k8s default all"],
-      "body_bytes": 1238,
-      "body_sha256": "sha256:53ce13ff94539927b3c487fc22cb8595f7683319737c776f69a98e7916892c17",
+      "body_bytes": 989,
+      "body_sha256": "sha256:fee84ed3ffdcb9558a4d020ebe991f94022570a3534595755c49a092782ec6dc",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3808,7 +3808,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2112000203012301-3300021232321103-2332023112322323-2303202002010111-0021011211110313-0120122221203123-0121321110201012-0332133223123202",
-      "registry_path": "docs/guides/resources--discovery--reference--group-001.md",
+      "registry_path": "docs/guides/resources--discovery--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -3827,8 +3827,8 @@
     },
     {
       "aliases": ["discovery k8s namespace mapping"],
-      "body_bytes": 1782,
-      "body_sha256": "sha256:7a16150216fb7935f5cc8351106ac7fedb12d42a9485947af1276f6b5f459383",
+      "body_bytes": 1379,
+      "body_sha256": "sha256:95e59fef0354e72bc6ba1bb9635cfdd4adfb51e5412bd8a6db3f6005537ef7d2",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:discovery:properties:discovery_k8s:namespace_mapping:items"],
@@ -3848,7 +3848,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0321010022030131-3311200301332101-3132022310131230-1233220021130131-3210333300201303-3321221200212203-2130012322120030-1013021110331232",
-      "registry_path": "docs/guides/resources--discovery--reference--group-001.md",
+      "registry_path": "docs/guides/resources--discovery--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -3893,8 +3893,8 @@
     },
     {
       "aliases": ["discovery k8s namespace mapping items"],
-      "body_bytes": 4811,
-      "body_sha256": "sha256:53900c5976a4878deb4faeb808e58b64505b3dd745348134c0a00459fa924435",
+      "body_bytes": 4497,
+      "body_sha256": "sha256:e5ba8ed21706d4650ab9e405a0edfd2334e75ae52efb7f78d2e12cd5ef7520a5",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3914,7 +3914,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3002302011033021-2032112031301321-3113010021213321-1211130323222133-0222322210032313-2033311001220112-2322102303032012-1211323103133123",
-      "registry_path": "docs/guides/resources--discovery--reference--group-001.md",
+      "registry_path": "docs/guides/resources--discovery--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -3966,8 +3966,8 @@
     },
     {
       "aliases": ["discovery k8s publish info"],
-      "body_bytes": 3299,
-      "body_sha256": "sha256:b9775ab82ddbc5e0278e38c2940ea99dc51eb61979533b7da36b8309b63c49fb",
+      "body_bytes": 2384,
+      "body_sha256": "sha256:7cf383f2f3723e25916da484b504d3d8bbb8b9e467dc2faa25bcba27da694a0d",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -3992,7 +3992,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0203000021133233-3222203312230000-3212020101320013-0023011013001011-0302303200132012-2020233333033223-1131132020211023-1000310030022113",
-      "registry_path": "docs/guides/resources--discovery--reference--group-001.md",
+      "registry_path": "docs/guides/resources--discovery--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -4191,8 +4191,8 @@
     },
     {
       "aliases": ["discovery k8s publish info disable spec"],
-      "body_bytes": 1161,
-      "body_sha256": "sha256:c16ef848225c356c7858de5a2681c34a5cd3dbc075fed6574a3aa98a0eb13e33",
+      "body_bytes": 879,
+      "body_sha256": "sha256:be4314780796d19fc3ed8013340eeeaefea900d09a5a5c77fd814fba0609c969",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4212,7 +4212,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3011020302001133-2202023030221333-1231203031313222-1323230201300200-0033331312113001-1023022000002023-1113301030132032-0031131021301222",
-      "registry_path": "docs/guides/resources--discovery--reference--group-001.md",
+      "registry_path": "docs/guides/resources--discovery--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4231,8 +4231,8 @@
     },
     {
       "aliases": ["discovery k8s publish info dns delegation"],
-      "body_bytes": 3804,
-      "body_sha256": "sha256:af6fe9235cc4732afc305431e59ad09503e9020ddcbe8fea84bba01cc4edeb58",
+      "body_bytes": 3387,
+      "body_sha256": "sha256:16d0e7e543d6213f44d0559b7c5c8b8ba848688d1ae350febb64a76b1f53667e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4252,7 +4252,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0213033233320133-2313331011023030-3300221322303212-3012012303031332-2322003103212311-2232013223120231-0223002211302120-2121012230012320",
-      "registry_path": "docs/guides/resources--discovery--reference--group-001.md",
+      "registry_path": "docs/guides/resources--discovery--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-discovery_k8s--publish_info--dns_delegation--subdomain",
@@ -4322,8 +4322,8 @@
     },
     {
       "aliases": ["discovery k8s publish info publish"],
-      "body_bytes": 3365,
-      "body_sha256": "sha256:55b6d789bd89b75d5a097a6b2b4cad6ee4e5510d9d681c2d232cc205a145d9d8",
+      "body_bytes": 2910,
+      "body_sha256": "sha256:06448e12a0e6750b2f240d7a3c770db3e49a7ef1d98c1711d848db5ec07afc0e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4343,7 +4343,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2201132213231022-0230303111210031-0130220302231300-2323030120010232-2210223132002011-2002001223211111-3210202213010231-0112131333302012",
-      "registry_path": "docs/guides/resources--discovery--reference--group-001.md",
+      "registry_path": "docs/guides/resources--discovery--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-discovery_k8s--publish_info--publish--namespace",
@@ -4388,8 +4388,8 @@
     },
     {
       "aliases": ["discovery k8s publish info publish fqdns"],
-      "body_bytes": 1445,
-      "body_sha256": "sha256:4199e836344692eba7de07cd21561cb6e2a9e47a5db09feaed74fffb8b79353e",
+      "body_bytes": 1170,
+      "body_sha256": "sha256:f385052d4fcebdae8fcc490e48b2aa467dc0f65647a5e4105cb9b9725290caa0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4409,7 +4409,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2320301002300300-0102133000123033-1212202333001332-0013302020101020-3320231121013113-0232002100202122-2121011332331332-2121202110113103",
-      "registry_path": "docs/guides/resources--discovery--reference--group-001.md",
+      "registry_path": "docs/guides/resources--discovery--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4428,8 +4428,8 @@
     },
     {
       "aliases": ["no cluster id"],
-      "body_bytes": 1064,
-      "body_sha256": "sha256:03bfd56f1148ee17a152152828b37c15a2b57c09e7037b21c5b93a2d4d88bf17",
+      "body_bytes": 824,
+      "body_sha256": "sha256:ddcaf03cad47455dfb033e6cf60f2be6b48720eaaf11d77569a7cc0a0380782e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4449,7 +4449,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2332001313120022-1313323002112231-2021132023022331-0131012222332133-3231233201102020-0102032212311132-1210113121202130-1000203132133103",
-      "registry_path": "docs/guides/resources--discovery--reference--group-001.md",
+      "registry_path": "docs/guides/resources--discovery--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4468,8 +4468,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2213,
-      "body_sha256": "sha256:9c9a2f90868a2bc9635011fc52baf340d62ca566a717818b9f4370757f3dcfde",
+      "body_bytes": 1988,
+      "body_sha256": "sha256:5bbd4be46d84e2a5cc865d6e81b0142b42dd0728be417860fa999b6ed8b93dec",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4489,7 +4489,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0133122212320132-3323032213033022-3031001120032311-3120311312312302-0221333302003213-0021323013310132-3013211230313033-1331213120121300",
-      "registry_path": "docs/guides/resources--discovery--reference--group-001.md",
+      "registry_path": "docs/guides/resources--discovery--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4608,8 +4608,8 @@
     },
     {
       "aliases": ["where"],
-      "body_bytes": 2910,
-      "body_sha256": "sha256:c73623c30cc900197da9853ebdb24ce7dbcba80aa0803de4d9f31b629f39e062",
+      "body_bytes": 1974,
+      "body_sha256": "sha256:ac1aab673fec63059cd151f3d91779a02b3512559691ef75ffb3f9952b6b4c40",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -4633,7 +4633,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1023323010232302-1333131303112022-3300103023013000-3132230030212330-3332300120230032-3102010223021221-1000322012101233-3100000121300010",
-      "registry_path": "docs/guides/resources--discovery--reference--group-001.md",
+      "registry_path": "docs/guides/resources--discovery--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -4809,8 +4809,8 @@
     },
     {
       "aliases": ["where site"],
-      "body_bytes": 9304,
-      "body_sha256": "sha256:c0c816ac28cf552d87cad2b5ca9cfefce0e0504521bd438e6ae51704ac62da4c",
+      "body_bytes": 8570,
+      "body_sha256": "sha256:8ba37b4337ca32e1f0cba76260021562aa48e4a4923b5d05e96421b229eece0a",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -4834,7 +4834,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2111032303022223-2300132122211213-0100203302230222-1011230233321231-1103310111023200-0013013033313032-1103302322310010-1210312011210200",
-      "registry_path": "docs/guides/resources--discovery--reference--group-001.md",
+      "registry_path": "docs/guides/resources--discovery--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -4967,8 +4967,8 @@
     },
     {
       "aliases": ["where site disable internet vip"],
-      "body_bytes": 1330,
-      "body_sha256": "sha256:b54d920b37c258149491fa7a8c53d35d89f156d8d3e6d4319f9b1a3be0a337d3",
+      "body_bytes": 1087,
+      "body_sha256": "sha256:9412befedfb0e8f23d60592492cd934c2f76d4fb7a9c0e3fdfb24a6601df2aeb",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4988,7 +4988,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1132310133301223-1201221101101031-0330233322032030-0023233223120110-0230220023201310-2333220211300312-0303123103120213-0001032331220103",
-      "registry_path": "docs/guides/resources--discovery--reference--group-001.md",
+      "registry_path": "docs/guides/resources--discovery--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5007,8 +5007,8 @@
     },
     {
       "aliases": ["where site enable internet vip"],
-      "body_bytes": 1327,
-      "body_sha256": "sha256:4d9cee4939444a6ec962a101a88ceadead20ecbb9a2c843ab72d9e013f664e4b",
+      "body_bytes": 1084,
+      "body_sha256": "sha256:0f9e26c63e09d0b824e8d974bde3a88ce2ee831e966e88aedc91e61b96115ab8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5028,7 +5028,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2110231323102212-0020122101231302-3330133200323223-2201010003300321-2322213312332232-3102021022010321-1320030113212012-2303013132303030",
-      "registry_path": "docs/guides/resources--discovery--reference--group-001.md",
+      "registry_path": "docs/guides/resources--discovery--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5047,8 +5047,8 @@
     },
     {
       "aliases": ["where site ref"],
-      "body_bytes": 6671,
-      "body_sha256": "sha256:b17dac7ef89ec3207999c49ad1d6bc9be9398433d54a9bfbac8203630e9c5599",
+      "body_bytes": 5704,
+      "body_sha256": "sha256:ee4c40383bbfe1251731eb8181aa8daa10abe38d6e86eeb9d11f46473f9a3c7a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5203,8 +5203,8 @@
     },
     {
       "aliases": ["where virtual network"],
-      "body_bytes": 1697,
-      "body_sha256": "sha256:2c3fedab654c3900b36a51a9c0a3de785d4d86ac4c361a5e5e3aeff03933baf5",
+      "body_bytes": 1246,
+      "body_sha256": "sha256:4a02dcbc6dd411f25419a3a3d2d31bb725f4a70229f2fa0ea4aef94c1c2673d9",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:discovery:properties:where:virtual_network:ref"],
@@ -5269,8 +5269,8 @@
     },
     {
       "aliases": ["where virtual network ref"],
-      "body_bytes": 6814,
-      "body_sha256": "sha256:6aeccbad0ab8cd6032d1749a504e32106a1d2d46fa0572e0d2a7d06a1864ded3",
+      "body_bytes": 5814,
+      "body_sha256": "sha256:d4cdd3aa25ef47579f7e95114061a5884c819f256b1cb9420c1aa89eebd237ff",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5425,8 +5425,8 @@
     },
     {
       "aliases": ["where virtual site"],
-      "body_bytes": 9369,
-      "body_sha256": "sha256:e4c0921ec589cd09bce498cdc38ddcc6f4ad16fc6dcd0d3441f9c80a3f389891",
+      "body_bytes": 8611,
+      "body_sha256": "sha256:e51c8458d492e796e418497490ed861a49879a3ec7e6bbcda57f9e842670f3eb",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -5583,8 +5583,8 @@
     },
     {
       "aliases": ["where virtual site disable internet vip"],
-      "body_bytes": 1378,
-      "body_sha256": "sha256:613d9dead30dff1c8e2ab4b37331a5ebd9172c438402abaf0435a1f18ae40d61",
+      "body_bytes": 1119,
+      "body_sha256": "sha256:7e6428b2885af9bea021a53310353baba9d35f429a4a0c4a18cf65389206f8c7",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5623,8 +5623,8 @@
     },
     {
       "aliases": ["where virtual site enable internet vip"],
-      "body_bytes": 1375,
-      "body_sha256": "sha256:b814d0929789d774af1152ea0e1e745abe538a491c964a4d0f1845f0dc17bfe6",
+      "body_bytes": 1116,
+      "body_sha256": "sha256:face67deb889c96d5581d566b4aef6dec9d15f07f8580cf1bd26dad236384193",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5663,8 +5663,8 @@
     },
     {
       "aliases": ["where virtual site ref"],
-      "body_bytes": 6777,
-      "body_sha256": "sha256:61a2d738d4a5cbda9fa7ffb92f33f28f52ecb4d13d86ccace01e49234c32d460",
+      "body_bytes": 5785,
+      "body_sha256": "sha256:298870e42a16d6e33e55c01fcfb4a8faba2fc37d4bc3ea1a990e70b7750829f8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5819,8 +5819,8 @@
     },
     {
       "aliases": ["discovery"],
-      "body_bytes": 615,
-      "body_sha256": "sha256:5e06d04047e3732506c4654cc68ab74d17aeb9f3d2956225cde53667157181de",
+      "body_bytes": 393,
+      "body_sha256": "sha256:7a5f88f2409c7d381614e351d86ddb61f414d903dc605a415346cb79c5e873c5",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:discovery:example:resource"],
@@ -5859,8 +5859,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1281,
-      "body_sha256": "sha256:76b34cebdac67502c4095c4b121c97d6045d5d39c0f6cd08b355e6efbb76c961",
+      "body_bytes": 1068,
+      "body_sha256": "sha256:a93edad5dce34d907fd8df4a69f0b0ab9d749481504ffd48d1a7185ef129dab4",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5906,8 +5906,8 @@
     },
     {
       "aliases": ["discovery"],
-      "body_bytes": 465,
-      "body_sha256": "sha256:242a84533338d2aa77ee27a4f80dad166e63bf8badceef3d6d96df95079567d2",
+      "body_bytes": 352,
+      "body_sha256": "sha256:0d5f1f48bc6987e5c66670af5782b8255decfe411144a986922f569896909683",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5947,8 +5947,8 @@
     },
     {
       "aliases": ["discovery"],
-      "body_bytes": 553,
-      "body_sha256": "sha256:a8111c640680b3c239cd0e5965f3150ebcfc67bed48c03721d9987da3f13c785",
+      "body_bytes": 440,
+      "body_sha256": "sha256:f12ac352e7e0253f768721ead3f141d36cd7f17a33197c52ce20914758151eed",
       "capabilities": [],
       "category": null,
       "child_ids": [],

@@ -56,8 +56,8 @@
   "pages": [
     {
       "aliases": ["virtual site"],
-      "body_bytes": 1352,
-      "body_sha256": "sha256:5cf7f865f688b44be80d56b562a3a25df8438901f13277a750d0d47e49354578",
+      "body_bytes": 1351,
+      "body_sha256": "sha256:b532f4b98b80806652258e045139044d1edcac98f46f673bc11e90c22f5d7bca",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:virtual_site:reference", "xcsh-docs:data-sources:virtual_site:examples"],
@@ -85,7 +85,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/virtual_site/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages virtual site object in given namespace in F5 Distributed Cloud.",
+      "summary": "Reads Virtual Site information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_virtual_site",
       "unresolved_relationships": [],
@@ -97,8 +97,8 @@
     },
     {
       "aliases": ["virtual site"],
-      "body_bytes": 8956,
-      "body_sha256": "sha256:136a721006baf301b42ff2f52f38d11b3a559d0490fa32ebd2ca68a86a8c600d",
+      "body_bytes": 8621,
+      "body_sha256": "sha256:ea17ac054ae899aa65b519bf5280cd65c79bd5fbae1df55e6a980eac548a7b5d",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:virtual_site:properties:site_selector"],
@@ -266,8 +266,8 @@
     },
     {
       "aliases": ["site selector"],
-      "body_bytes": 3573,
-      "body_sha256": "sha256:e8bf17c0cc993f64968a27af4d940f8bd1aa491b401a4d47463d6ff28ae798ad",
+      "body_bytes": 3040,
+      "body_sha256": "sha256:61daca0f875a4595f91873513592d66483921395e36feb462200d85feb4283a8",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -323,8 +323,8 @@
     },
     {
       "aliases": ["virtual site"],
-      "body_bytes": 657,
-      "body_sha256": "sha256:01aed12e106abc287e5f55669bf3286783cb5ff6f77ff9e04f26325bd8b36efe",
+      "body_bytes": 414,
+      "body_sha256": "sha256:b1261f4b4067e7da27cc2cb6b46159df218cfce4c1c5d242ec6331ff43fc79c1",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:virtual_site:example:data-source"],
@@ -363,8 +363,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1279,
-      "body_sha256": "sha256:80c554858a749ee6ecc3625b0ff402ec99220a601b2da5fce5893fae079a206e",
+      "body_bytes": 1051,
+      "body_sha256": "sha256:a84b6f1448856aa35e42f4c99320deb147f4c893ba22098148f376f1d92b02eb",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],

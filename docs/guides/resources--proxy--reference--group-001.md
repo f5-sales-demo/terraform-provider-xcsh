@@ -12,33 +12,26 @@ description: "Complete grouped canonical reference for xcsh_proxy reference."
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1001313002231110-3220210001330010-2201003330030101-1103212112230101-0103013312003021-1303331302220102-0210002212031223-0211233303130113"></a>
-
-## Property reference — Property reference / 001230002313 / 2
+## Property reference
 
 Breadcrumbs:
 
 - [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
 - Property reference
 
-<a id="canonical-3203120200113301-0110212123221121-2000330232221101-1333233001300300-2301023221110032-1211013201112101-2201102330000122-2210021323300330"></a>
+<a id="canonical-1001313002231110-3220210001330010-2201003330030101-1103212112230101-0103013312003021-1303331302220102-0210002212031223-0211233303130113"></a>
 
-## Direct properties — Property reference / 001230002313 / 3
+### Direct properties for `xcsh_proxy`
 
 - [active_forward_proxy_policies](resources--proxy--reference--group-001.md#canonical-0003323102113131-0103011023111231-1113001332012010-0301232233010331-0130302132021322-2321100013200013-0033323321132110-1121322121220021): complete subsection reference.
 
 <a id="canonical-1113220030033300-2330301012113223-0032201012033220-3002100210302020-2002133110110000-0000102110023102-2001033221130123-0222312130120312"></a>
 
-<a id="canonical-2300322102122220-1121333220220302-0313132203212323-2303211001312002-1023012003120100-0002022200220030-3213121202220302-2312333221033132"></a>
+<a id="canonical-3203120200113301-0110212123221121-2000330232221101-1333233001300300-2301023221110032-1211013201112101-2201102330000122-2210021323300330"></a>
 
-## annotations property — Property reference / 001230002313 / 4
+#### `annotations` property
 
 Type: `["map", "string"]`. Optional.
-
-Annotations is an unstructured key-value map stored with a resource that may be set by external
-tools to store and retrieve arbitrary metadata.
-
-Upstream description:
 
 Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
@@ -92,19 +85,18 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1232303023013110-3213111322332101-3212310220203220-2320102011303201-1323131312201012-1100122022213121-1311132023300301-2012102203331302"></a>
 
-<a id="canonical-3002023000111112-3200233311122110-1222000032203312-2012010311012332-1233123001030030-1233133320113032-3111211203302212-3203321211113210"></a>
+<a id="canonical-2300322102122220-1121333220220302-0313132203212323-2303211001312002-1023012003120100-0002022200220030-3213121202220302-2312333221033132"></a>
 
-## connection_timeout property — Property reference / 001230002313 / 5
+#### `connection_timeout` property
 
 Type: `"number"`. Optional, Computed.
 
 The timeout for new network connections to upstream server. This is specified in milliseconds. The
 (2 seconds). Defaults to \`2000\`.
 
-Upstream description:
+Additional upstream details:
 
-The timeout for new network connections to upstream server. This is specified in milliseconds. The
-default value is 2000 (2 seconds)
+The default value is 2000 (2 seconds)
 
 Provider validators and defaults (from schema source):
 
@@ -147,9 +139,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1032132031200233-1232001111222113-0120310031313220-0221213200123113-3130103222213100-0321200110323110-3122212310232313-1313201331032203"></a>
 
-<a id="canonical-3213111200211010-3120301221323231-3212333102222323-2301121232013021-0011223232311013-3213223312310210-0030113312021313-1003332130320231"></a>
+<a id="canonical-3002023000111112-3200233311122110-1222000032203312-2012010311012332-1233123001030030-1233133320113032-3111211203302212-3203321211113210"></a>
 
-## description property — Property reference / 001230002313 / 6
+#### `description` property
 
 Type: `"string"`. Optional.
 
@@ -195,15 +187,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3123113223330000-0321223321230023-2102220003020112-0133301123032313-1133112230303112-1331121110210003-1130333100122213-2310330113222101"></a>
 
-<a id="canonical-0211232202023103-2031132221001200-0122123101323330-3233332122033112-1323100102003113-2233102101223313-2221301301211333-1300112002312121"></a>
+<a id="canonical-3213111200211010-3120301221323231-3212333102222323-2301121232013021-0011223232311013-3213223312310210-0030113312021313-1003332130320231"></a>
 
-## disable property — Property reference / 001230002313 / 7
+#### `disable` property
 
 Type: `"bool"`. Optional.
 
 A value of true administratively disables the object.
 
-Upstream description:
+Additional upstream details:
 
 A value of true will administratively disable the object.
 
@@ -224,13 +216,13 @@ Receipt-pinned upstream constraints:
 
 - [dynamic_proxy](resources--proxy--reference--group-001.md#canonical-2113202112212121-1011022102113232-3230331132220202-1123220031210121-3101202003212120-3201030233332031-2311232301212001-3100202032113330): complete subsection reference.
 
-- [http_proxy](resources--proxy--reference--group-004.md#canonical-3302133012220212-1002331310020302-1203301311211210-0210121333012131-2110013230033031-1011330131123021-1320232033123130-1032121203032331): complete subsection reference.
+- [http_proxy](resources--proxy--reference--group-003.md#canonical-3302133012220212-1002331310020302-1203301311211210-0210121333012131-2110013230033031-1011330131123021-1320232033123130-1032121203032331): complete subsection reference.
 
 <a id="canonical-3021310010301023-0303200031113011-3232020220213113-2313303000232303-0321312220212333-1232233203313202-1011313201333211-2331300002330210"></a>
 
-<a id="canonical-3002012102031130-2233330300002120-2202010010120223-0122333301332322-3122321202321232-3221230020021322-2013301111330210-3311222012310133"></a>
+<a id="canonical-0211232202023103-2031132221001200-0122123101323330-3233332122033112-1323100102003113-2233102101223313-2221301301211333-1300112002312121"></a>
 
-## ID property — Property reference / 001230002313 / 8
+#### `id` property
 
 Type: `"string"`. Computed.
 
@@ -238,16 +230,16 @@ Unique identifier for the resource.
 
 <a id="canonical-1232113033323320-1321330113300230-0330200023130232-3303322211233302-2201031330123101-2013031103223033-3130300121311333-2302011131113112"></a>
 
-<a id="canonical-2311030211333332-1220031311020123-2333333021003310-0020030112123232-3000331330301332-2210100330311010-1010032313000000-3133331132012102"></a>
+<a id="canonical-3002012102031130-2233330300002120-2202010010120223-0122333301332322-3122321202321232-3221230020021322-2013301111330210-3311222012310133"></a>
 
-## labels property — Property reference / 001230002313 / 9
+#### `labels` property
 
 Type: `["map", "string"]`. Optional.
 
 Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
-Upstream description:
+Additional upstream details:
 
 Map of string keys and values that can be used to organize and categorize (scope and select) objects
 as chosen by the user. Values specified here will be used by selector expression.
@@ -267,15 +259,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0113111221131320-3121313220033313-0220213200023113-1212300333123000-2133103200102203-2133102333220320-2113223333133332-1212032200200110"></a>
 
-<a id="canonical-1322013302112032-2332312332233210-3322333113302133-3302311110303022-3300031111111002-2313001233332113-1020131310303010-1322103300203310"></a>
+<a id="canonical-2311030211333332-1220031311020123-2333333021003310-0020030112123232-3000331330301332-2210100330311010-1010032313000000-3133331132012102"></a>
 
-## name property — Property reference / 001230002313 / 10
+#### `name` property
 
 Type: `"string"`. Required.
 
 Name of the Proxy. Must be unique within the namespace.
 
-Upstream description:
+Additional upstream details:
 
 This is the name of configuration object. It has to be unique within the namespace. It can only be
 specified during create API and cannot be changed during replace API. The value of name has to
@@ -336,15 +328,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0011102331302022-0032213200233212-3102011000121310-3011130113223113-3032031001100002-0102222132032110-3111010021020033-3123112122111210"></a>
 
-<a id="canonical-2320232230211110-2000110222131012-2010210010323113-2032001132112200-0112102321101300-1123202021101012-3322320312010023-3020220220212000"></a>
+<a id="canonical-1322013302112032-2332312332233210-3322333113302133-3302311110303022-3300031111111002-2313001233332113-1020131310303010-1322103300203310"></a>
 
-## namespace property — Property reference / 001230002313 / 11
+#### `namespace` property
 
 Type: `"string"`. Required.
 
 Namespace where the Proxy is created.
 
-Upstream description:
+Additional upstream details:
 
 This defines the workspace within which each the configuration object is to be created. Must be a
 DNS\_LABEL format. For a namespace object itself, namespace value will be ""
@@ -396,11 +388,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [no_forward_proxy_policy](resources--proxy--reference--group-004.md#canonical-3333131321121110-3221311322032300-1111103312333233-0321012201211000-1102333201111020-0020303330301101-2313211321302213-0221203120310222): complete subsection reference.
+- [no_forward_proxy_policy](resources--proxy--reference--group-005.md#canonical-3333131321121110-3221311322032300-1111103312333233-0321012201211000-1102333201111020-0020303330301101-2313211321302213-0221203120310222): complete subsection reference.
 
-- [no_interception](resources--proxy--reference--group-004.md#canonical-3001311021210113-1203322120301211-2003112333102203-1131010301220310-1212123211110331-3201330202033133-1001002102301300-0023323331213323): complete subsection reference.
+- [no_interception](resources--proxy--reference--group-005.md#canonical-3001311021210113-1203322120301211-2003112333102203-1131010301220310-1212123211110331-3201330202033133-1001002102301300-0023323331213323): complete subsection reference.
 
-- [site_local_inside_network](resources--proxy--reference--group-004.md#canonical-2300220130222220-0321012100023110-3312120100301031-2332310123110321-0222103331130303-0122320111223322-2100122213201320-3222032202331000): complete subsection reference.
+- [site_local_inside_network](resources--proxy--reference--group-005.md#canonical-2300220130222220-0321012100023110-3312120100301031-2332310123110321-0222103331130303-0122320111223322-2100122213201320-3222032202331000): complete subsection reference.
 
 - [site_local_network](resources--proxy--reference--group-005.md#canonical-1303132001322003-3222233301002011-1312320023221130-0032320032223121-2231221200221010-2211212211123222-1202133222332122-0032211113003013): complete subsection reference.
 
@@ -410,9 +402,9 @@ Receipt-pinned upstream constraints:
 
 - [tls_intercept](resources--proxy--reference--group-005.md#canonical-1012032132320210-0010122100332331-0000321130320013-3133303110113120-0200133111003231-2120031011211003-1123012303313320-0010122102231031): complete subsection reference.
 
-<a id="canonical-1202210232033332-3211213221013331-1231133113021321-0233300322312021-2223032210030031-0033201230212302-0300001332011323-1302301330100130"></a>
+<a id="canonical-2320232230211110-2000110222131012-2010210010323113-2032001132112200-0112102321101300-1123202021101012-3322320312010023-3020220220212000"></a>
 
-## All schema paths — Property reference / 001230002313 / 12
+### All schema paths for `xcsh_proxy`
 
 Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
@@ -436,23 +428,23 @@ Each exact path has one authoritative reference destination. Collection element 
 | `dynamic_proxy.http_proxy.more_option` | [dynamic_proxy.http_proxy.more_option](resources--proxy--reference--group-001.md#canonical-2012331230003322-1110102322230203-3230302030120130-0300223100313302-1332013220321120-2203020012201113-2022121111103102-1302030003300030) |
 | `dynamic_proxy.http_proxy.more_option.buffer_policy` | [dynamic_proxy.http_proxy.more_option.buffer_policy](resources--proxy--reference--group-001.md#canonical-2100310220321112-3301211120113113-2022003303013332-2211132133233021-1131001132202222-1003212130210031-2013010200012030-3003232333302203) |
 | `dynamic_proxy.http_proxy.more_option.buffer_policy.disabled` | [dynamic_proxy.http_proxy.more_option.buffer_policy.disabled](resources--proxy--reference--group-001.md#canonical-1312211323203300-2303101221313033-3103113102032222-2300100300131210-2101201221320213-1232032220000002-1113232200202032-3132210311103211) |
-| `dynamic_proxy.http_proxy.more_option.buffer_policy.max_request_bytes` | [dynamic_proxy.http_proxy.more_option.buffer_policy.max_request_bytes](resources--proxy--reference--group-002.md#canonical-2221131131333130-2222313200030313-0313031123032023-3012102102113210-3002201023322331-2320211013330232-0301110121110113-1213030100003233) |
-| `dynamic_proxy.http_proxy.more_option.compression_params` | [dynamic_proxy.http_proxy.more_option.compression_params](resources--proxy--reference--group-002.md#canonical-0201033213231220-3001033300230203-3311012231233221-1001310312300023-3201210022303231-1331122112113032-2310333221020101-2313320231022123) |
-| `dynamic_proxy.http_proxy.more_option.compression_params.content_length` | [dynamic_proxy.http_proxy.more_option.compression_params.content_length](resources--proxy--reference--group-002.md#canonical-0122313201213300-1103023220101303-0230023313000303-2232130120122300-2230302030122132-1210022313113323-0011210130110323-3231003203212022) |
-| `dynamic_proxy.http_proxy.more_option.compression_params.content_type` | [dynamic_proxy.http_proxy.more_option.compression_params.content_type](resources--proxy--reference--group-002.md#canonical-3111221020223312-1031303020101233-2313233320203312-3311303100331003-3100000212011003-1101300321200312-2312223000023103-0212232031022232) |
-| `dynamic_proxy.http_proxy.more_option.compression_params.disable_on_etag_header` | [dynamic_proxy.http_proxy.more_option.compression_params.disable_on_etag_header](resources--proxy--reference--group-002.md#canonical-3022032330103333-3222310003200332-1333130302122221-3330303013023103-1212232101120022-1232110212000313-2013003120233103-2310213311300032) |
-| `dynamic_proxy.http_proxy.more_option.compression_params.remove_accept_encoding_header` | [dynamic_proxy.http_proxy.more_option.compression_params.remove_accept_encoding_header](resources--proxy--reference--group-002.md#canonical-1300312220111301-0001012121333103-3333032212123002-1221031330212002-3232312011233033-2323222232102232-3221213011333023-2303231131030001) |
+| `dynamic_proxy.http_proxy.more_option.buffer_policy.max_request_bytes` | [dynamic_proxy.http_proxy.more_option.buffer_policy.max_request_bytes](resources--proxy--reference--group-001.md#canonical-2221131131333130-2222313200030313-0313031123032023-3012102102113210-3002201023322331-2320211013330232-0301110121110113-1213030100003233) |
+| `dynamic_proxy.http_proxy.more_option.compression_params` | [dynamic_proxy.http_proxy.more_option.compression_params](resources--proxy--reference--group-001.md#canonical-0201033213231220-3001033300230203-3311012231233221-1001310312300023-3201210022303231-1331122112113032-2310333221020101-2313320231022123) |
+| `dynamic_proxy.http_proxy.more_option.compression_params.content_length` | [dynamic_proxy.http_proxy.more_option.compression_params.content_length](resources--proxy--reference--group-001.md#canonical-0122313201213300-1103023220101303-0230023313000303-2232130120122300-2230302030122132-1210022313113323-0011210130110323-3231003203212022) |
+| `dynamic_proxy.http_proxy.more_option.compression_params.content_type` | [dynamic_proxy.http_proxy.more_option.compression_params.content_type](resources--proxy--reference--group-001.md#canonical-3111221020223312-1031303020101233-2313233320203312-3311303100331003-3100000212011003-1101300321200312-2312223000023103-0212232031022232) |
+| `dynamic_proxy.http_proxy.more_option.compression_params.disable_on_etag_header` | [dynamic_proxy.http_proxy.more_option.compression_params.disable_on_etag_header](resources--proxy--reference--group-001.md#canonical-3022032330103333-3222310003200332-1333130302122221-3330303013023103-1212232101120022-1232110212000313-2013003120233103-2310213311300032) |
+| `dynamic_proxy.http_proxy.more_option.compression_params.remove_accept_encoding_header` | [dynamic_proxy.http_proxy.more_option.compression_params.remove_accept_encoding_header](resources--proxy--reference--group-001.md#canonical-1300312220111301-0001012121333103-3333032212123002-1221031330212002-3232312011233033-2323222232102232-3221213011333023-2303231131030001) |
 | `dynamic_proxy.http_proxy.more_option.custom_errors` | [dynamic_proxy.http_proxy.more_option.custom_errors](resources--proxy--reference--group-001.md#canonical-0003033023110332-3200232020113131-3131332333111313-3333031011302003-2102000313130223-0130330013033313-0133031120320333-3320233310002111) |
 | `dynamic_proxy.http_proxy.more_option.disable_default_error_pages` | [dynamic_proxy.http_proxy.more_option.disable_default_error_pages](resources--proxy--reference--group-001.md#canonical-0301311113200030-0232132021033021-0011102023320012-3003110313222210-0130023233223220-3121302033301221-1300132300201010-0301011320001202) |
-| `dynamic_proxy.http_proxy.more_option.disable_path_normalize` | [dynamic_proxy.http_proxy.more_option.disable_path_normalize](resources--proxy--reference--group-002.md#canonical-1101100113013000-3120132013032211-0323202301031013-3223022122103200-1230221210303211-1021321311132113-2132132123011200-1221003200011230) |
-| `dynamic_proxy.http_proxy.more_option.enable_path_normalize` | [dynamic_proxy.http_proxy.more_option.enable_path_normalize](resources--proxy--reference--group-002.md#canonical-0202131213310023-2122123023333221-2331200130200303-0101010202222232-0121301303132332-0313332103321311-2110330023311122-0112120101332101) |
+| `dynamic_proxy.http_proxy.more_option.disable_path_normalize` | [dynamic_proxy.http_proxy.more_option.disable_path_normalize](resources--proxy--reference--group-001.md#canonical-1101100113013000-3120132013032211-0323202301031013-3223022122103200-1230221210303211-1021321311132113-2132132123011200-1221003200011230) |
+| `dynamic_proxy.http_proxy.more_option.enable_path_normalize` | [dynamic_proxy.http_proxy.more_option.enable_path_normalize](resources--proxy--reference--group-001.md#canonical-0202131213310023-2122123023333221-2331200130200303-0101010202222232-0121301303132332-0313332103321311-2110330023311122-0112120101332101) |
 | `dynamic_proxy.http_proxy.more_option.idle_timeout` | [dynamic_proxy.http_proxy.more_option.idle_timeout](resources--proxy--reference--group-001.md#canonical-2210031201222033-1202003032122010-3021013311013113-0103031002202011-2210111100012321-1230303011301310-0230303013203130-0133311133303212) |
 | `dynamic_proxy.http_proxy.more_option.max_request_header_size` | [dynamic_proxy.http_proxy.more_option.max_request_header_size](resources--proxy--reference--group-001.md#canonical-1002223310210022-3021220301132011-0220121332012130-3310331010310113-1221220022201210-0313103131222302-0323221231003021-2232231011031121) |
 | `dynamic_proxy.http_proxy.more_option.max_requests_per_connection` | [dynamic_proxy.http_proxy.more_option.max_requests_per_connection](resources--proxy--reference--group-001.md#canonical-0300220120123310-3222131032332031-1023332201020312-2101030322212001-1000131201232201-0010320221131221-3122121013032013-2002213322133102) |
-| `dynamic_proxy.http_proxy.more_option.no_request_limit_per_connection` | [dynamic_proxy.http_proxy.more_option.no_request_limit_per_connection](resources--proxy--reference--group-002.md#canonical-1231131032321020-1202100030212321-0233122210001010-3330121031203033-1013111022310321-1301113010030220-3021023033330321-1013011320020103) |
-| `dynamic_proxy.http_proxy.more_option.request_cookies_to_add` | [dynamic_proxy.http_proxy.more_option.request_cookies_to_add](resources--proxy--reference--group-002.md#canonical-2022222312021313-2013221003321222-2013222203101023-2113020310032003-2030110132113101-3323330230011010-0121023003330101-3221103230332011) |
-| `dynamic_proxy.http_proxy.more_option.request_cookies_to_add.name` | [dynamic_proxy.http_proxy.more_option.request_cookies_to_add.name](resources--proxy--reference--group-002.md#canonical-0210220333113030-2111230002101012-1211131102330133-1303011123120312-1331121033302021-2100122032212322-3302213131223113-2321301003213010) |
-| `dynamic_proxy.http_proxy.more_option.request_cookies_to_add.overwrite` | [dynamic_proxy.http_proxy.more_option.request_cookies_to_add.overwrite](resources--proxy--reference--group-002.md#canonical-2301203233021130-1222003031120030-3120332323101333-2002001112222011-3310300111321110-1112122302303203-3331020303221210-3301313020331111) |
+| `dynamic_proxy.http_proxy.more_option.no_request_limit_per_connection` | [dynamic_proxy.http_proxy.more_option.no_request_limit_per_connection](resources--proxy--reference--group-001.md#canonical-1231131032321020-1202100030212321-0233122210001010-3330121031203033-1013111022310321-1301113010030220-3021023033330321-1013011320020103) |
+| `dynamic_proxy.http_proxy.more_option.request_cookies_to_add` | [dynamic_proxy.http_proxy.more_option.request_cookies_to_add](resources--proxy--reference--group-001.md#canonical-2022222312021313-2013221003321222-2013222203101023-2113020310032003-2030110132113101-3323330230011010-0121023003330101-3221103230332011) |
+| `dynamic_proxy.http_proxy.more_option.request_cookies_to_add.name` | [dynamic_proxy.http_proxy.more_option.request_cookies_to_add.name](resources--proxy--reference--group-001.md#canonical-0210220333113030-2111230002101012-1211131102330133-1303011123120312-1331121033302021-2100122032212322-3302213131223113-2321301003213010) |
+| `dynamic_proxy.http_proxy.more_option.request_cookies_to_add.overwrite` | [dynamic_proxy.http_proxy.more_option.request_cookies_to_add.overwrite](resources--proxy--reference--group-001.md#canonical-2301203233021130-1222003031120030-3120332323101333-2002001112222011-3310300111321110-1112122302303203-3331020303221210-3301313020331111) |
 | `dynamic_proxy.http_proxy.more_option.request_cookies_to_add.secret_value` | [dynamic_proxy.http_proxy.more_option.request_cookies_to_add.secret_value](resources--proxy--reference--group-002.md#canonical-0001301310201112-3222103103101101-2020122030230212-3313120311010010-3331210011130011-0132302031130302-2112301113003330-3303011221023112) |
 | `dynamic_proxy.http_proxy.more_option.request_cookies_to_add.secret_value.blindfold_secret_info` | [dynamic_proxy.http_proxy.more_option.request_cookies_to_add.secret_value.blindfold_secret_info](resources--proxy--reference--group-002.md#canonical-3223110031103030-0322023113110213-3212113131221203-1221233231310202-2203122131232030-1323311101110031-0111133101330202-1320120031332222) |
 | `dynamic_proxy.http_proxy.more_option.request_cookies_to_add.secret_value.blindfold_secret_info.decryption_provider` | [dynamic_proxy.http_proxy.more_option.request_cookies_to_add.secret_value.blindfold_secret_info.decryption_provider](resources--proxy--reference--group-002.md#canonical-1310103132001013-0331220123000320-0232300020230321-3213032021103012-0311233033323311-1230223230321222-3012130333300232-0311233121231330) |
@@ -461,7 +453,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `dynamic_proxy.http_proxy.more_option.request_cookies_to_add.secret_value.clear_secret_info` | [dynamic_proxy.http_proxy.more_option.request_cookies_to_add.secret_value.clear_secret_info](resources--proxy--reference--group-002.md#canonical-2221300200230203-1103230202232212-1120100321231101-3103120231310311-3002322311120212-3230100002333023-0003131213111120-1131313112321032) |
 | `dynamic_proxy.http_proxy.more_option.request_cookies_to_add.secret_value.clear_secret_info.provider_ref` | [dynamic_proxy.http_proxy.more_option.request_cookies_to_add.secret_value.clear_secret_info.provider_ref](resources--proxy--reference--group-002.md#canonical-1213310200312330-3303111332132013-0220312223110131-3023102111320121-3212212202313033-3323330101121120-0221012313032322-2333023133211132) |
 | `dynamic_proxy.http_proxy.more_option.request_cookies_to_add.secret_value.clear_secret_info.url` | [dynamic_proxy.http_proxy.more_option.request_cookies_to_add.secret_value.clear_secret_info.url](resources--proxy--reference--group-002.md#canonical-2330132102030303-2122021321132333-0003131032302103-2231033323102211-2021301013300031-2133133120222330-1130300332313022-0333332010332121) |
-| `dynamic_proxy.http_proxy.more_option.request_cookies_to_add.value` | [dynamic_proxy.http_proxy.more_option.request_cookies_to_add.value](resources--proxy--reference--group-002.md#canonical-3232110311003230-0012032100322101-2211203202321130-2111330000232312-2223120323113212-0331301122021120-2112213122030232-0313101330003120) |
+| `dynamic_proxy.http_proxy.more_option.request_cookies_to_add.value` | [dynamic_proxy.http_proxy.more_option.request_cookies_to_add.value](resources--proxy--reference--group-001.md#canonical-3232110311003230-0012032100322101-2211203202321130-2111330000232312-2223120323113212-0331301122021120-2112213122030232-0313101330003120) |
 | `dynamic_proxy.http_proxy.more_option.request_cookies_to_remove` | [dynamic_proxy.http_proxy.more_option.request_cookies_to_remove](resources--proxy--reference--group-001.md#canonical-3232313213010203-3130310023232323-1122332030333330-0022222203323323-2023330101023222-3223330233102220-0211301023330330-1221002213222331) |
 | `dynamic_proxy.http_proxy.more_option.request_headers_to_add` | [dynamic_proxy.http_proxy.more_option.request_headers_to_add](resources--proxy--reference--group-002.md#canonical-2202131210002333-2223311202330033-3012001110202212-2302210331120322-0310302231110031-0222323111211312-1221113131000113-1001120301203112) |
 | `dynamic_proxy.http_proxy.more_option.request_headers_to_add.append` | [dynamic_proxy.http_proxy.more_option.request_headers_to_add.append](resources--proxy--reference--group-002.md#canonical-2210013321203123-1223301312033202-1322303202011203-3101030303300022-2132232022120202-3331220333313313-0311013003021131-0132023130212330) |
@@ -542,48 +534,48 @@ Each exact path has one authoritative reference destination. Collection element 
 | `dynamic_proxy.https_proxy.more_option.request_cookies_to_add` | [dynamic_proxy.https_proxy.more_option.request_cookies_to_add](resources--proxy--reference--group-002.md#canonical-2031210233122310-2303310112123101-0121203120323031-3013303230313120-2010100230212300-2003130301332310-0001120002120033-3212021031123220) |
 | `dynamic_proxy.https_proxy.more_option.request_cookies_to_add.name` | [dynamic_proxy.https_proxy.more_option.request_cookies_to_add.name](resources--proxy--reference--group-002.md#canonical-0233121311213230-2320122132202220-3310111002302213-0030320122311312-1320111112110000-2203112313300130-1101100233322031-0211212311210330) |
 | `dynamic_proxy.https_proxy.more_option.request_cookies_to_add.overwrite` | [dynamic_proxy.https_proxy.more_option.request_cookies_to_add.overwrite](resources--proxy--reference--group-002.md#canonical-1202201130221202-2012020233221231-2230322000333212-2231222321330200-0231112110110110-2100202131103130-0122322320312311-2121213210231121) |
-| `dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value` | [dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value](resources--proxy--reference--group-003.md#canonical-2012032101103300-1323100203330222-0200112130223020-2013112200332301-3231132133123001-3133023101103033-0210133130020133-1331303100213203) |
-| `dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.blindfold_secret_info` | [dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.blindfold_secret_info](resources--proxy--reference--group-003.md#canonical-0032010031122032-0202012313311032-3100202003322221-2122221313301333-3133332213222030-2323212031323322-2233210310101122-2003321232101100) |
-| `dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.blindfold_secret_info.decryption_provider` | [dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.blindfold_secret_info.decryption_provider](resources--proxy--reference--group-003.md#canonical-3122102131003202-0121230121032320-2101111100300120-3021202322122002-1333211111312322-0012321301120022-1233121320011110-0231302011032010) |
-| `dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.blindfold_secret_info.location` | [dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.blindfold_secret_info.location](resources--proxy--reference--group-003.md#canonical-1232310100202231-3212032220133120-3011112001022022-2022302132000233-1330101323101220-0033010003030121-0123003202231103-3033322302202211) |
-| `dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.blindfold_secret_info.store_provider` | [dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.blindfold_secret_info.store_provider](resources--proxy--reference--group-003.md#canonical-3021100321202232-0331330102230010-1313201122300013-0111131103301112-0332203231010312-2303100211322132-3210303323031223-0211030330312030) |
-| `dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.clear_secret_info` | [dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.clear_secret_info](resources--proxy--reference--group-003.md#canonical-3220130301232111-2023321103132200-2000201002201310-2120023030020110-3101302323310310-0301221131200022-3212310233210100-2113102203313331) |
-| `dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.clear_secret_info.provider_ref` | [dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.clear_secret_info.provider_ref](resources--proxy--reference--group-003.md#canonical-1010222013311110-3013312213202221-0010103320222100-2021001133331221-1212111221030030-3310111033102323-3131221122320202-0120213103031011) |
-| `dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.clear_secret_info.url` | [dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.clear_secret_info.url](resources--proxy--reference--group-003.md#canonical-2231312211132020-1312013002030110-2332023221121312-3133210232322231-0100332300110131-0033231133322021-0203323230101133-3000000102211231) |
+| `dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value` | [dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value](resources--proxy--reference--group-002.md#canonical-2012032101103300-1323100203330222-0200112130223020-2013112200332301-3231132133123001-3133023101103033-0210133130020133-1331303100213203) |
+| `dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.blindfold_secret_info` | [dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.blindfold_secret_info](resources--proxy--reference--group-002.md#canonical-0032010031122032-0202012313311032-3100202003322221-2122221313301333-3133332213222030-2323212031323322-2233210310101122-2003321232101100) |
+| `dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.blindfold_secret_info.decryption_provider` | [dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.blindfold_secret_info.decryption_provider](resources--proxy--reference--group-002.md#canonical-3122102131003202-0121230121032320-2101111100300120-3021202322122002-1333211111312322-0012321301120022-1233121320011110-0231302011032010) |
+| `dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.blindfold_secret_info.location` | [dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.blindfold_secret_info.location](resources--proxy--reference--group-002.md#canonical-1232310100202231-3212032220133120-3011112001022022-2022302132000233-1330101323101220-0033010003030121-0123003202231103-3033322302202211) |
+| `dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.blindfold_secret_info.store_provider` | [dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.blindfold_secret_info.store_provider](resources--proxy--reference--group-002.md#canonical-3021100321202232-0331330102230010-1313201122300013-0111131103301112-0332203231010312-2303100211322132-3210303323031223-0211030330312030) |
+| `dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.clear_secret_info` | [dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.clear_secret_info](resources--proxy--reference--group-002.md#canonical-3220130301232111-2023321103132200-2000201002201310-2120023030020110-3101302323310310-0301221131200022-3212310233210100-2113102203313331) |
+| `dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.clear_secret_info.provider_ref` | [dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.clear_secret_info.provider_ref](resources--proxy--reference--group-002.md#canonical-1010222013311110-3013312213202221-0010103320222100-2021001133331221-1212111221030030-3310111033102323-3131221122320202-0120213103031011) |
+| `dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.clear_secret_info.url` | [dynamic_proxy.https_proxy.more_option.request_cookies_to_add.secret_value.clear_secret_info.url](resources--proxy--reference--group-002.md#canonical-2231312211132020-1312013002030110-2332023221121312-3133210232322231-0100332300110131-0033231133322021-0203323230101133-3000000102211231) |
 | `dynamic_proxy.https_proxy.more_option.request_cookies_to_add.value` | [dynamic_proxy.https_proxy.more_option.request_cookies_to_add.value](resources--proxy--reference--group-002.md#canonical-3301311032222000-2132003130312102-0222222001302200-2023201332221203-0203000113010010-2210121303320223-2123221123132133-3101311130220000) |
 | `dynamic_proxy.https_proxy.more_option.request_cookies_to_remove` | [dynamic_proxy.https_proxy.more_option.request_cookies_to_remove](resources--proxy--reference--group-002.md#canonical-2233332213222302-2310300122112333-2122003112003030-2312203000103123-2033223300120300-3130203132211022-3311110033231000-2320300003231121) |
-| `dynamic_proxy.https_proxy.more_option.request_headers_to_add` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add](resources--proxy--reference--group-003.md#canonical-3032001302313331-2033020223001322-1322001120103212-1113303122333121-3102203031330223-1320332022312233-2132031002333320-1113133130000102) |
-| `dynamic_proxy.https_proxy.more_option.request_headers_to_add.append` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add.append](resources--proxy--reference--group-003.md#canonical-3233301321211031-2013200220102310-1312112023102103-3011011010013121-1023013130332311-2223311313330303-1122333330323220-0311300031123102) |
-| `dynamic_proxy.https_proxy.more_option.request_headers_to_add.name` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add.name](resources--proxy--reference--group-003.md#canonical-3120321211211202-2211101113213230-1322010210302122-3333113012021100-2032222311002333-0233100220320010-2312120201020121-1013232303321021) |
-| `dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value](resources--proxy--reference--group-003.md#canonical-1303010212333201-0312112222010130-3120112023110313-0111300333032303-1303110323331133-2112203122322323-2322020222113001-2310023120202323) |
-| `dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.blindfold_secret_info` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.blindfold_secret_info](resources--proxy--reference--group-003.md#canonical-3132331131232130-2101121322323000-2133310112310031-1001212003223330-3321013212313120-3301331230321203-3223030323201323-3230003121001321) |
-| `dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.blindfold_secret_info.decryption_provider` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.blindfold_secret_info.decryption_provider](resources--proxy--reference--group-003.md#canonical-3131320232011121-1103213112011320-1023012021310212-1102312211233320-1320313313330212-2300213220301013-1321123012033100-3113330233303332) |
-| `dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.blindfold_secret_info.location` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.blindfold_secret_info.location](resources--proxy--reference--group-003.md#canonical-3330110111133132-3331010003313132-0103303201211200-3323213211210211-3110312122020332-0210213222032011-3311222113131121-0200220302123312) |
-| `dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.blindfold_secret_info.store_provider` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.blindfold_secret_info.store_provider](resources--proxy--reference--group-003.md#canonical-2320033032000231-2212113200133310-0302322232232002-0312301120311223-2020310102030123-1302223033112003-1113331311021233-1300321130020012) |
-| `dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.clear_secret_info` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.clear_secret_info](resources--proxy--reference--group-003.md#canonical-0310112231113133-2020130021131213-2322210232013012-0221312302133303-1121013010113222-2030022331030323-1131330111233220-2003023313023022) |
-| `dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.clear_secret_info.provider_ref` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.clear_secret_info.provider_ref](resources--proxy--reference--group-003.md#canonical-2303020312220032-2030321103210031-3221323111000222-1111301302223122-3120332101103212-1331311203033300-2233030323311112-1322300302210013) |
-| `dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.clear_secret_info.url` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.clear_secret_info.url](resources--proxy--reference--group-003.md#canonical-2103001302111231-3120010233233213-0010232311133301-1323102122312231-1032132331201232-1332231320131312-3101133301323112-1330013111301221) |
-| `dynamic_proxy.https_proxy.more_option.request_headers_to_add.value` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add.value](resources--proxy--reference--group-003.md#canonical-0032021220222300-1223123002201013-0310321012201013-1302001133331103-3103201101323013-0211331220000001-2221332013231033-1203223223303021) |
+| `dynamic_proxy.https_proxy.more_option.request_headers_to_add` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add](resources--proxy--reference--group-002.md#canonical-3032001302313331-2033020223001322-1322001120103212-1113303122333121-3102203031330223-1320332022312233-2132031002333320-1113133130000102) |
+| `dynamic_proxy.https_proxy.more_option.request_headers_to_add.append` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add.append](resources--proxy--reference--group-002.md#canonical-3233301321211031-2013200220102310-1312112023102103-3011011010013121-1023013130332311-2223311313330303-1122333330323220-0311300031123102) |
+| `dynamic_proxy.https_proxy.more_option.request_headers_to_add.name` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add.name](resources--proxy--reference--group-002.md#canonical-3120321211211202-2211101113213230-1322010210302122-3333113012021100-2032222311002333-0233100220320010-2312120201020121-1013232303321021) |
+| `dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value](resources--proxy--reference--group-002.md#canonical-1303010212333201-0312112222010130-3120112023110313-0111300333032303-1303110323331133-2112203122322323-2322020222113001-2310023120202323) |
+| `dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.blindfold_secret_info` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.blindfold_secret_info](resources--proxy--reference--group-002.md#canonical-3132331131232130-2101121322323000-2133310112310031-1001212003223330-3321013212313120-3301331230321203-3223030323201323-3230003121001321) |
+| `dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.blindfold_secret_info.decryption_provider` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.blindfold_secret_info.decryption_provider](resources--proxy--reference--group-002.md#canonical-3131320232011121-1103213112011320-1023012021310212-1102312211233320-1320313313330212-2300213220301013-1321123012033100-3113330233303332) |
+| `dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.blindfold_secret_info.location` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.blindfold_secret_info.location](resources--proxy--reference--group-002.md#canonical-3330110111133132-3331010003313132-0103303201211200-3323213211210211-3110312122020332-0210213222032011-3311222113131121-0200220302123312) |
+| `dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.blindfold_secret_info.store_provider` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.blindfold_secret_info.store_provider](resources--proxy--reference--group-002.md#canonical-2320033032000231-2212113200133310-0302322232232002-0312301120311223-2020310102030123-1302223033112003-1113331311021233-1300321130020012) |
+| `dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.clear_secret_info` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.clear_secret_info](resources--proxy--reference--group-002.md#canonical-0310112231113133-2020130021131213-2322210232013012-0221312302133303-1121013010113222-2030022331030323-1131330111233220-2003023313023022) |
+| `dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.clear_secret_info.provider_ref` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.clear_secret_info.provider_ref](resources--proxy--reference--group-002.md#canonical-2303020312220032-2030321103210031-3221323111000222-1111301302223122-3120332101103212-1331311203033300-2233030323311112-1322300302210013) |
+| `dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.clear_secret_info.url` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add.secret_value.clear_secret_info.url](resources--proxy--reference--group-002.md#canonical-2103001302111231-3120010233233213-0010232311133301-1323102122312231-1032132331201232-1332231320131312-3101133301323112-1330013111301221) |
+| `dynamic_proxy.https_proxy.more_option.request_headers_to_add.value` | [dynamic_proxy.https_proxy.more_option.request_headers_to_add.value](resources--proxy--reference--group-002.md#canonical-0032021220222300-1223123002201013-0310321012201013-1302001133331103-3103201101323013-0211331220000001-2221332013231033-1203223223303021) |
 | `dynamic_proxy.https_proxy.more_option.request_headers_to_remove` | [dynamic_proxy.https_proxy.more_option.request_headers_to_remove](resources--proxy--reference--group-002.md#canonical-0333222211023020-0202111230101111-0013132323101331-0333002103200233-3113331100111002-0330101021222100-1311231023010320-1030133022011333) |
-| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add](resources--proxy--reference--group-003.md#canonical-0131201032122021-3010202001203131-3333211331121103-2312023020312012-2001020033333010-1212022102233300-1323220210123323-0022013312202311) |
-| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_domain` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_domain](resources--proxy--reference--group-003.md#canonical-3312132021303220-3012010312122123-3121230220022103-0313223031003232-0020013312033112-3122201031312331-3201321203300333-3302021323313103) |
-| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_expiry` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_expiry](resources--proxy--reference--group-003.md#canonical-1332221222231313-2221030223213213-3013110020203232-0100103301222001-1301120023222130-2203303112110112-2223023212202101-1200331131302302) |
-| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_httponly` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_httponly](resources--proxy--reference--group-003.md#canonical-3331321132111110-1303201230300302-0133132303130120-1301301310003332-3030312203032331-1230323220232211-3201201113312202-3302003011000303) |
-| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_partitioned` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_partitioned](resources--proxy--reference--group-003.md#canonical-1022300231122233-2300033323102210-3210210032322033-0103000321223020-0003332020021001-2033302332220231-1233303333300203-3330021000233031) |
-| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_path` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_path](resources--proxy--reference--group-003.md#canonical-0321121023130330-0101333112232023-2302301202323130-2333210020122303-1010111313310300-1133230111330113-0033203203302001-0200211333102031) |
-| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_secure` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_secure](resources--proxy--reference--group-003.md#canonical-0320101201012130-3320000121222322-0031313133130131-0102313220030212-2221321203303301-2221132310233213-0120211032210332-0310102022311012) |
-| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_domain` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_domain](resources--proxy--reference--group-003.md#canonical-1102102133022220-2301331301132113-2122123132110202-0101023032010320-2101011033101130-1320110001122221-2033332310203100-2131112031122131) |
-| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_expiry` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_expiry](resources--proxy--reference--group-003.md#canonical-1311232102322203-1001312301000031-2020313310322201-3002221320223020-0130032101211000-2010202011303310-3121132222001120-2120230312230221) |
-| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_httponly` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_httponly](resources--proxy--reference--group-003.md#canonical-0331322312001122-3332031002303031-1012002121213213-0302133020212111-1221110222013022-2002032021221011-2211023131100310-1221102211323200) |
-| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_max_age` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_max_age](resources--proxy--reference--group-003.md#canonical-0021033021202111-0202011120112302-0320213102111313-3001303133012031-2331211301200103-0311322321202030-1120312230312322-3321202312011030) |
-| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_partitioned` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_partitioned](resources--proxy--reference--group-003.md#canonical-2330223031212303-2210033121111302-2330203200131033-2013001021133011-2211132331013130-1311213321021200-0303332103030133-1220121321013321) |
-| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_path` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_path](resources--proxy--reference--group-003.md#canonical-2210222201222220-3322123223010022-2320221122133010-0022221332023210-1221230022310211-3313301302313232-1011223331131213-2120030132122021) |
-| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_samesite` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_samesite](resources--proxy--reference--group-003.md#canonical-1132103301333331-2100322212221230-3303203330321333-3232023010201303-1230300230322233-2000300022011223-1302133020123210-3201302300202320) |
-| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_secure` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_secure](resources--proxy--reference--group-003.md#canonical-3022331022100322-2320213332033311-2211032211200223-1201013302021000-2200012201012321-3220210333333301-0112310322101133-3121201211011300) |
-| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_value` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_value](resources--proxy--reference--group-003.md#canonical-0201122322233323-0301231210021300-0301220222232332-3310031130132213-3103120322000122-2021323310123102-0303333313212213-0303022313321112) |
-| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.max_age_value` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.max_age_value](resources--proxy--reference--group-003.md#canonical-0330131020302331-0032121212210102-0012320311313033-1210032030322203-3021012300033202-2311021312302011-0010110133021010-0220130013221313) |
-| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.name` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.name](resources--proxy--reference--group-003.md#canonical-1133300320123320-1022133111203132-2131111313122011-1013023322113102-3122111001012002-3312321033010320-0323011201131113-1011312133323020) |
-| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.overwrite` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.overwrite](resources--proxy--reference--group-003.md#canonical-2310321330021330-0020320321130101-3223002321200100-2031300320233031-2202210323210322-3113223122132121-0032323111202323-1123201020300312) |
+| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add](resources--proxy--reference--group-002.md#canonical-0131201032122021-3010202001203131-3333211331121103-2312023020312012-2001020033333010-1212022102233300-1323220210123323-0022013312202311) |
+| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_domain` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_domain](resources--proxy--reference--group-002.md#canonical-3312132021303220-3012010312122123-3121230220022103-0313223031003232-0020013312033112-3122201031312331-3201321203300333-3302021323313103) |
+| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_expiry` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_expiry](resources--proxy--reference--group-002.md#canonical-1332221222231313-2221030223213213-3013110020203232-0100103301222001-1301120023222130-2203303112110112-2223023212202101-1200331131302302) |
+| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_httponly` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_httponly](resources--proxy--reference--group-002.md#canonical-3331321132111110-1303201230300302-0133132303130120-1301301310003332-3030312203032331-1230323220232211-3201201113312202-3302003011000303) |
+| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_partitioned` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_partitioned](resources--proxy--reference--group-002.md#canonical-1022300231122233-2300033323102210-3210210032322033-0103000321223020-0003332020021001-2033302332220231-1233303333300203-3330021000233031) |
+| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_path` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_path](resources--proxy--reference--group-002.md#canonical-0321121023130330-0101333112232023-2302301202323130-2333210020122303-1010111313310300-1133230111330113-0033203203302001-0200211333102031) |
+| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_secure` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.add_secure](resources--proxy--reference--group-002.md#canonical-0320101201012130-3320000121222322-0031313133130131-0102313220030212-2221321203303301-2221132310233213-0120211032210332-0310102022311012) |
+| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_domain` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_domain](resources--proxy--reference--group-002.md#canonical-1102102133022220-2301331301132113-2122123132110202-0101023032010320-2101011033101130-1320110001122221-2033332310203100-2131112031122131) |
+| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_expiry` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_expiry](resources--proxy--reference--group-002.md#canonical-1311232102322203-1001312301000031-2020313310322201-3002221320223020-0130032101211000-2010202011303310-3121132222001120-2120230312230221) |
+| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_httponly` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_httponly](resources--proxy--reference--group-002.md#canonical-0331322312001122-3332031002303031-1012002121213213-0302133020212111-1221110222013022-2002032021221011-2211023131100310-1221102211323200) |
+| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_max_age` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_max_age](resources--proxy--reference--group-002.md#canonical-0021033021202111-0202011120112302-0320213102111313-3001303133012031-2331211301200103-0311322321202030-1120312230312322-3321202312011030) |
+| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_partitioned` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_partitioned](resources--proxy--reference--group-002.md#canonical-2330223031212303-2210033121111302-2330203200131033-2013001021133011-2211132331013130-1311213321021200-0303332103030133-1220121321013321) |
+| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_path` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_path](resources--proxy--reference--group-002.md#canonical-2210222201222220-3322123223010022-2320221122133010-0022221332023210-1221230022310211-3313301302313232-1011223331131213-2120030132122021) |
+| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_samesite` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_samesite](resources--proxy--reference--group-002.md#canonical-1132103301333331-2100322212221230-3303203330321333-3232023010201303-1230300230322233-2000300022011223-1302133020123210-3201302300202320) |
+| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_secure` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_secure](resources--proxy--reference--group-002.md#canonical-3022331022100322-2320213332033311-2211032211200223-1201013302021000-2200012201012321-3220210333333301-0112310322101133-3121201211011300) |
+| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_value` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_value](resources--proxy--reference--group-002.md#canonical-0201122322233323-0301231210021300-0301220222232332-3310031130132213-3103120322000122-2021323310123102-0303333313212213-0303022313321112) |
+| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.max_age_value` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.max_age_value](resources--proxy--reference--group-002.md#canonical-0330131020302331-0032121212210102-0012320311313033-1210032030322203-3021012300033202-2311021312302011-0010110133021010-0220130013221313) |
+| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.name` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.name](resources--proxy--reference--group-002.md#canonical-1133300320123320-1022133111203132-2131111313122011-1013023322113102-3122111001012002-3312321033010320-0323011201131113-1011312133323020) |
+| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.overwrite` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.overwrite](resources--proxy--reference--group-002.md#canonical-2310321330021330-0020320321130101-3223002321200100-2031300320233031-2202210323210322-3113223122132121-0032323111202323-1123201020300312) |
 | `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.samesite_lax` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.samesite_lax](resources--proxy--reference--group-003.md#canonical-0201011101112200-2113213311121101-2133131131202020-1300100130302132-3303122121112022-2311211012332301-0032301221111112-2301033133023030) |
 | `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.samesite_none` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.samesite_none](resources--proxy--reference--group-003.md#canonical-3222132023011210-1110103201003321-0222320123101312-2322113123302302-0222031222120111-0203301211003210-0100033103201312-2102122012300110) |
 | `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.samesite_strict` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.samesite_strict](resources--proxy--reference--group-003.md#canonical-0132131101102101-1101030130221002-0012310102200113-0330011100223211-2320212321000130-3010002330101332-0203102331210211-1203120123031020) |
@@ -595,7 +587,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.secret_value.clear_secret_info` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.secret_value.clear_secret_info](resources--proxy--reference--group-003.md#canonical-0330322112003110-1202120010330112-2200021201333301-3310233132223113-2223220313310003-2003101132010233-2123121333332100-0210100231002100) |
 | `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.secret_value.clear_secret_info.provider_ref` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.secret_value.clear_secret_info.provider_ref](resources--proxy--reference--group-003.md#canonical-2211032110332013-0032012131230101-2210320323232101-3230000221302302-0200303333301120-0332313103101101-0032132220100012-0112030031312133) |
 | `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.secret_value.clear_secret_info.url` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.secret_value.clear_secret_info.url](resources--proxy--reference--group-003.md#canonical-0102200001102300-2020103012130203-3330122112101200-1100011133120231-3020110320030213-1310202000033023-1002022133102210-2222123313223031) |
-| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.value` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.value](resources--proxy--reference--group-003.md#canonical-1323110321001120-2110022133101211-3102123123300333-3111123130313331-2023020331210132-0230010210203323-2210322131222213-1022112330132010) |
+| `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.value` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_add.value](resources--proxy--reference--group-002.md#canonical-1323110321001120-2110022133101211-3102123123300333-3111123130313331-2023020331210132-0230010210203323-2210322131222213-1022112330132010) |
 | `dynamic_proxy.https_proxy.more_option.response_cookies_to_remove` | [dynamic_proxy.https_proxy.more_option.response_cookies_to_remove](resources--proxy--reference--group-002.md#canonical-1333121220313131-1002010123102033-0023123312002331-2320312030221110-1302103230333132-0313031310100112-1302321211021203-1102211302130302) |
 | `dynamic_proxy.https_proxy.more_option.response_headers_to_add` | [dynamic_proxy.https_proxy.more_option.response_headers_to_add](resources--proxy--reference--group-003.md#canonical-1133210313300331-3002323303321202-2131123113011113-0110002013030120-2100112013231330-3113313302020303-0332122111010121-0110203300323321) |
 | `dynamic_proxy.https_proxy.more_option.response_headers_to_add.append` | [dynamic_proxy.https_proxy.more_option.response_headers_to_add.append](resources--proxy--reference--group-003.md#canonical-3111120033103020-2333023022131332-0111132031133213-2303123230121321-3132012311132323-3311330101020022-2012302330232330-0100301302203310) |
@@ -637,23 +629,23 @@ Each exact path has one authoritative reference destination. Collection element 
 | `dynamic_proxy.https_proxy.tls_params.tls_config.medium_security` | [dynamic_proxy.https_proxy.tls_params.tls_config.medium_security](resources--proxy--reference--group-003.md#canonical-2230000203213000-1120212323122122-3131222220031213-2122333132112022-3033123113032102-1103102203301100-1133032112312220-0312222132210211) |
 | `dynamic_proxy.https_proxy.tls_params.use_mtls` | [dynamic_proxy.https_proxy.tls_params.use_mtls](resources--proxy--reference--group-003.md#canonical-1213230003223333-2310120333333212-3222201000132322-0211123031123233-2300311201230113-2300132032310132-0323103122310011-3211110111022030) |
 | `dynamic_proxy.https_proxy.tls_params.use_mtls.client_certificate_optional` | [dynamic_proxy.https_proxy.tls_params.use_mtls.client_certificate_optional](resources--proxy--reference--group-003.md#canonical-2213331233003232-1123001122303213-1302120303331310-2100102113001111-2113211130023010-3120111112220200-3033210300220122-0100012102221023) |
-| `dynamic_proxy.https_proxy.tls_params.use_mtls.crl` | [dynamic_proxy.https_proxy.tls_params.use_mtls.crl](resources--proxy--reference--group-004.md#canonical-3000233230301000-1310120333101011-3222232112301300-3330010330030100-0122231311200121-0323121320102013-1003111131323002-1121200321020130) |
-| `dynamic_proxy.https_proxy.tls_params.use_mtls.crl.name` | [dynamic_proxy.https_proxy.tls_params.use_mtls.crl.name](resources--proxy--reference--group-004.md#canonical-2100012213311002-3112111331232000-1232231331102003-1332310010303213-1313112232112310-2102322101210121-1203110302320212-1123312222032112) |
-| `dynamic_proxy.https_proxy.tls_params.use_mtls.crl.namespace` | [dynamic_proxy.https_proxy.tls_params.use_mtls.crl.namespace](resources--proxy--reference--group-004.md#canonical-2011013033332322-2012013022331210-2232130323320033-0030312310210131-3021133003101032-0003013231221030-0122010103103023-0130330003111213) |
-| `dynamic_proxy.https_proxy.tls_params.use_mtls.crl.tenant` | [dynamic_proxy.https_proxy.tls_params.use_mtls.crl.tenant](resources--proxy--reference--group-004.md#canonical-2301200221321002-2213201030300011-0230112203033202-2310320032022121-0210332320310012-0233223032223002-1331133331312313-0330332122330022) |
-| `dynamic_proxy.https_proxy.tls_params.use_mtls.no_crl` | [dynamic_proxy.https_proxy.tls_params.use_mtls.no_crl](resources--proxy--reference--group-004.md#canonical-0012332021113300-0101132122322010-1233111203122131-3233321011020222-2220213101211133-2022013323301130-0203100030230012-3020202233320013) |
-| `dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca` | [dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca](resources--proxy--reference--group-004.md#canonical-2101133330131000-1210300310201203-2120330333320222-3220313320012132-0033101031132320-3020302310233202-0333113201311211-3011310001320203) |
-| `dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca.name` | [dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca.name](resources--proxy--reference--group-004.md#canonical-1113223012213120-1312200010332033-1303302220020303-1303320023202333-1333132130311333-0310321130220013-3200303122210012-3102331130023212) |
-| `dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca.namespace` | [dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca.namespace](resources--proxy--reference--group-004.md#canonical-2020320002332323-3121111023011020-0120202321222220-3022130211300131-3311302020132212-3122311021011222-3321311230212123-3022203003201100) |
-| `dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca.tenant` | [dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca.tenant](resources--proxy--reference--group-004.md#canonical-2131203132123300-1331311113102133-0030321222032120-0010212302033301-1002230022222033-3230221211331332-3013223131101321-1030321000111212) |
+| `dynamic_proxy.https_proxy.tls_params.use_mtls.crl` | [dynamic_proxy.https_proxy.tls_params.use_mtls.crl](resources--proxy--reference--group-003.md#canonical-3000233230301000-1310120333101011-3222232112301300-3330010330030100-0122231311200121-0323121320102013-1003111131323002-1121200321020130) |
+| `dynamic_proxy.https_proxy.tls_params.use_mtls.crl.name` | [dynamic_proxy.https_proxy.tls_params.use_mtls.crl.name](resources--proxy--reference--group-003.md#canonical-2100012213311002-3112111331232000-1232231331102003-1332310010303213-1313112232112310-2102322101210121-1203110302320212-1123312222032112) |
+| `dynamic_proxy.https_proxy.tls_params.use_mtls.crl.namespace` | [dynamic_proxy.https_proxy.tls_params.use_mtls.crl.namespace](resources--proxy--reference--group-003.md#canonical-2011013033332322-2012013022331210-2232130323320033-0030312310210131-3021133003101032-0003013231221030-0122010103103023-0130330003111213) |
+| `dynamic_proxy.https_proxy.tls_params.use_mtls.crl.tenant` | [dynamic_proxy.https_proxy.tls_params.use_mtls.crl.tenant](resources--proxy--reference--group-003.md#canonical-2301200221321002-2213201030300011-0230112203033202-2310320032022121-0210332320310012-0233223032223002-1331133331312313-0330332122330022) |
+| `dynamic_proxy.https_proxy.tls_params.use_mtls.no_crl` | [dynamic_proxy.https_proxy.tls_params.use_mtls.no_crl](resources--proxy--reference--group-003.md#canonical-0012332021113300-0101132122322010-1233111203122131-3233321011020222-2220213101211133-2022013323301130-0203100030230012-3020202233320013) |
+| `dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca` | [dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca](resources--proxy--reference--group-003.md#canonical-2101133330131000-1210300310201203-2120330333320222-3220313320012132-0033101031132320-3020302310233202-0333113201311211-3011310001320203) |
+| `dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca.name` | [dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca.name](resources--proxy--reference--group-003.md#canonical-1113223012213120-1312200010332033-1303302220020303-1303320023202333-1333132130311333-0310321130220013-3200303122210012-3102331130023212) |
+| `dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca.namespace` | [dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca.namespace](resources--proxy--reference--group-003.md#canonical-2020320002332323-3121111023011020-0120202321222220-3022130211300131-3311302020132212-3122311021011222-3321311230212123-3022203003201100) |
+| `dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca.tenant` | [dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca.tenant](resources--proxy--reference--group-003.md#canonical-2131203132123300-1331311113102133-0030321222032120-0010212302033301-1002230022222033-3230221211331332-3013223131101321-1030321000111212) |
 | `dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca_url` | [dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca_url](resources--proxy--reference--group-003.md#canonical-2211221112201113-0130230100233301-2332111312231113-1330122333302003-1122111001202302-1211111012300233-0303213023202221-1333000330033201) |
-| `dynamic_proxy.https_proxy.tls_params.use_mtls.xfcc_disabled` | [dynamic_proxy.https_proxy.tls_params.use_mtls.xfcc_disabled](resources--proxy--reference--group-004.md#canonical-3103231300321003-2332320233132101-0112303220110113-0013222023313233-1022010303023100-2222310231010132-1113121132121211-1333311111230012) |
-| `dynamic_proxy.https_proxy.tls_params.use_mtls.xfcc_options` | [dynamic_proxy.https_proxy.tls_params.use_mtls.xfcc_options](resources--proxy--reference--group-004.md#canonical-3211002013213020-0021331212032032-2110133202312122-3130330121020202-1020020322133333-1022130000232201-0301301131200330-2203002331301331) |
-| `dynamic_proxy.https_proxy.tls_params.use_mtls.xfcc_options.xfcc_header_elements` | [dynamic_proxy.https_proxy.tls_params.use_mtls.xfcc_options.xfcc_header_elements](resources--proxy--reference--group-004.md#canonical-0303132300303032-3323122220133003-2113000112303033-2123202220313310-0231133312333303-0123223021330130-2301310210230033-1003331303013100) |
-| `dynamic_proxy.sni_proxy` | [dynamic_proxy.sni_proxy](resources--proxy--reference--group-004.md#canonical-1200030100100302-3313101203023312-3310213031113310-3011223200220232-2103312102230333-1313221202010332-0111200212103102-0112023213123033) |
-| `dynamic_proxy.sni_proxy.idle_timeout` | [dynamic_proxy.sni_proxy.idle_timeout](resources--proxy--reference--group-004.md#canonical-3102213023212303-0330313003231333-3320111333210230-1103302013332103-1112333310132031-2121023231131130-0232232223121321-3301102012232102) |
-| `http_proxy` | [http_proxy](resources--proxy--reference--group-004.md#canonical-0023030222010311-3300322230002013-2001102311323223-1122022322221322-2020120013210033-0032330013323132-3222112033103212-3223122333232132) |
-| `http_proxy.enable_http` | [http_proxy.enable_http](resources--proxy--reference--group-004.md#canonical-2200301101203123-0013221023302022-1232013120121021-3011201200132231-1230013223110322-3123022010130320-0222232030103110-2221202002230222) |
+| `dynamic_proxy.https_proxy.tls_params.use_mtls.xfcc_disabled` | [dynamic_proxy.https_proxy.tls_params.use_mtls.xfcc_disabled](resources--proxy--reference--group-003.md#canonical-3103231300321003-2332320233132101-0112303220110113-0013222023313233-1022010303023100-2222310231010132-1113121132121211-1333311111230012) |
+| `dynamic_proxy.https_proxy.tls_params.use_mtls.xfcc_options` | [dynamic_proxy.https_proxy.tls_params.use_mtls.xfcc_options](resources--proxy--reference--group-003.md#canonical-3211002013213020-0021331212032032-2110133202312122-3130330121020202-1020020322133333-1022130000232201-0301301131200330-2203002331301331) |
+| `dynamic_proxy.https_proxy.tls_params.use_mtls.xfcc_options.xfcc_header_elements` | [dynamic_proxy.https_proxy.tls_params.use_mtls.xfcc_options.xfcc_header_elements](resources--proxy--reference--group-003.md#canonical-0303132300303032-3323122220133003-2113000112303033-2123202220313310-0231133312333303-0123223021330130-2301310210230033-1003331303013100) |
+| `dynamic_proxy.sni_proxy` | [dynamic_proxy.sni_proxy](resources--proxy--reference--group-003.md#canonical-1200030100100302-3313101203023312-3310213031113310-3011223200220232-2103312102230333-1313221202010332-0111200212103102-0112023213123033) |
+| `dynamic_proxy.sni_proxy.idle_timeout` | [dynamic_proxy.sni_proxy.idle_timeout](resources--proxy--reference--group-003.md#canonical-3102213023212303-0330313003231333-3320111333210230-1103302013332103-1112333310132031-2121023231131130-0232232223121321-3301102012232102) |
+| `http_proxy` | [http_proxy](resources--proxy--reference--group-003.md#canonical-0023030222010311-3300322230002013-2001102311323223-1122022322221322-2020120013210033-0032330013323132-3222112033103212-3223122333232132) |
+| `http_proxy.enable_http` | [http_proxy.enable_http](resources--proxy--reference--group-003.md#canonical-2200301101203123-0013221023302022-1232013120121021-3011201200132231-1230013223110322-3123022010130320-0222232030103110-2221202002230222) |
 | `http_proxy.more_option` | [http_proxy.more_option](resources--proxy--reference--group-004.md#canonical-2221001223210112-1100323203103002-1221130002010130-3330211303220210-3321303213313233-3133102003321312-1003210223123213-2133113122313131) |
 | `http_proxy.more_option.buffer_policy` | [http_proxy.more_option.buffer_policy](resources--proxy--reference--group-004.md#canonical-2030331223113202-1301222121300032-1333023200302230-2223210310123030-2103212211031020-3020122131311010-3212011120111103-0222130023203220) |
 | `http_proxy.more_option.buffer_policy.disabled` | [http_proxy.more_option.buffer_policy.disabled](resources--proxy--reference--group-004.md#canonical-3030213210301303-3333030201220321-0230101011202023-2003022131230110-2101302003303110-3001120103222012-3333331030333213-3200333203112001) |
@@ -720,34 +712,34 @@ Each exact path has one authoritative reference destination. Collection element 
 | `http_proxy.more_option.response_cookies_to_add.samesite_none` | [http_proxy.more_option.response_cookies_to_add.samesite_none](resources--proxy--reference--group-004.md#canonical-0333030220112210-2021023111232103-0122120132213233-2033202133101020-1110312213101233-3331210333132111-3133213211111101-0130332211011103) |
 | `http_proxy.more_option.response_cookies_to_add.samesite_strict` | [http_proxy.more_option.response_cookies_to_add.samesite_strict](resources--proxy--reference--group-004.md#canonical-1111222130212203-0131223230132311-3010311232233220-3111231010232322-3301221010120130-3211003012131223-0303220300123312-0302102210001222) |
 | `http_proxy.more_option.response_cookies_to_add.secret_value` | [http_proxy.more_option.response_cookies_to_add.secret_value](resources--proxy--reference--group-004.md#canonical-1300211320131301-0203023131301210-1303101312013001-1112303003212202-0120331100100003-2001013102011323-2100133111233203-3101011302130220) |
-| `http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info` | [http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info](resources--proxy--reference--group-004.md#canonical-3333123130100000-2100030320313133-1023322130300210-2110122230231023-1003110310131130-2231022121323302-0201202132100000-0313013132223032) |
-| `http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info.decryption_provider` | [http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info.decryption_provider](resources--proxy--reference--group-004.md#canonical-1322101213233323-0021003222021021-0313103233202203-0312133311320113-0131331130102022-0121103111122102-0001233021330003-3030033331111011) |
-| `http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info.location` | [http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info.location](resources--proxy--reference--group-004.md#canonical-3310112200003233-0330310212312012-1112233102021320-3111222012311013-0301010202320300-1023021312220311-0032032112202232-0312221232123101) |
-| `http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info.store_provider` | [http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info.store_provider](resources--proxy--reference--group-004.md#canonical-0121031200311302-0221100023112130-1130220012202102-0122110212010003-3322131220212233-1210200213131113-1113030212001213-2303100300012211) |
-| `http_proxy.more_option.response_cookies_to_add.secret_value.clear_secret_info` | [http_proxy.more_option.response_cookies_to_add.secret_value.clear_secret_info](resources--proxy--reference--group-004.md#canonical-2100103200111022-1232311232303131-3302200200002321-0030031313122311-0130110020122031-3223311213201232-1103222003022021-3112313133223303) |
-| `http_proxy.more_option.response_cookies_to_add.secret_value.clear_secret_info.provider_ref` | [http_proxy.more_option.response_cookies_to_add.secret_value.clear_secret_info.provider_ref](resources--proxy--reference--group-004.md#canonical-0332120021321111-2101201130210302-1221133321311313-1120312111011021-0302231010213031-0211111202131032-2210310133311312-1322333013301002) |
-| `http_proxy.more_option.response_cookies_to_add.secret_value.clear_secret_info.url` | [http_proxy.more_option.response_cookies_to_add.secret_value.clear_secret_info.url](resources--proxy--reference--group-004.md#canonical-1232330320220220-0010100010231021-1003301110333302-2103220211230100-2203023302020221-0020320032110313-2301113230320311-1110331111003023) |
+| `http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info` | [http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info](resources--proxy--reference--group-005.md#canonical-3333123130100000-2100030320313133-1023322130300210-2110122230231023-1003110310131130-2231022121323302-0201202132100000-0313013132223032) |
+| `http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info.decryption_provider` | [http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info.decryption_provider](resources--proxy--reference--group-005.md#canonical-1322101213233323-0021003222021021-0313103233202203-0312133311320113-0131331130102022-0121103111122102-0001233021330003-3030033331111011) |
+| `http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info.location` | [http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info.location](resources--proxy--reference--group-005.md#canonical-3310112200003233-0330310212312012-1112233102021320-3111222012311013-0301010202320300-1023021312220311-0032032112202232-0312221232123101) |
+| `http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info.store_provider` | [http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info.store_provider](resources--proxy--reference--group-005.md#canonical-0121031200311302-0221100023112130-1130220012202102-0122110212010003-3322131220212233-1210200213131113-1113030212001213-2303100300012211) |
+| `http_proxy.more_option.response_cookies_to_add.secret_value.clear_secret_info` | [http_proxy.more_option.response_cookies_to_add.secret_value.clear_secret_info](resources--proxy--reference--group-005.md#canonical-2100103200111022-1232311232303131-3302200200002321-0030031313122311-0130110020122031-3223311213201232-1103222003022021-3112313133223303) |
+| `http_proxy.more_option.response_cookies_to_add.secret_value.clear_secret_info.provider_ref` | [http_proxy.more_option.response_cookies_to_add.secret_value.clear_secret_info.provider_ref](resources--proxy--reference--group-005.md#canonical-0332120021321111-2101201130210302-1221133321311313-1120312111011021-0302231010213031-0211111202131032-2210310133311312-1322333013301002) |
+| `http_proxy.more_option.response_cookies_to_add.secret_value.clear_secret_info.url` | [http_proxy.more_option.response_cookies_to_add.secret_value.clear_secret_info.url](resources--proxy--reference--group-005.md#canonical-1232330320220220-0010100010231021-1003301110333302-2103220211230100-2203023302020221-0020320032110313-2301113230320311-1110331111003023) |
 | `http_proxy.more_option.response_cookies_to_add.value` | [http_proxy.more_option.response_cookies_to_add.value](resources--proxy--reference--group-004.md#canonical-2313220302022013-3032113230332112-3111022103330310-1100300002332301-1102033220111211-1020122231321022-0100032223213231-0133023300113320) |
 | `http_proxy.more_option.response_cookies_to_remove` | [http_proxy.more_option.response_cookies_to_remove](resources--proxy--reference--group-004.md#canonical-2100130031301331-1211022003131011-2331122102111202-1033032130122033-0002322110223220-1221031322133213-0311213110022020-3030322110233211) |
-| `http_proxy.more_option.response_headers_to_add` | [http_proxy.more_option.response_headers_to_add](resources--proxy--reference--group-004.md#canonical-1333331213213220-1313002212301213-0311101201203133-0102130131011013-3101203013301303-1021301033120000-3213210013232103-1221322223212331) |
-| `http_proxy.more_option.response_headers_to_add.append` | [http_proxy.more_option.response_headers_to_add.append](resources--proxy--reference--group-004.md#canonical-3303320120322021-1301322213313021-1233212312311013-0323322032320113-1212323001011330-0302021030210220-2201132011212212-1312031111030303) |
-| `http_proxy.more_option.response_headers_to_add.name` | [http_proxy.more_option.response_headers_to_add.name](resources--proxy--reference--group-004.md#canonical-3313221033320223-3302221133110232-3022030031120130-3320111101111302-3122332312323210-1122212303010201-0120121100301133-2101033112331321) |
-| `http_proxy.more_option.response_headers_to_add.secret_value` | [http_proxy.more_option.response_headers_to_add.secret_value](resources--proxy--reference--group-004.md#canonical-3101123131023332-1232313122120131-2221032013303333-0122202011000103-3213012213321111-1320331103202313-1202132103012100-2111002322232122) |
-| `http_proxy.more_option.response_headers_to_add.secret_value.blindfold_secret_info` | [http_proxy.more_option.response_headers_to_add.secret_value.blindfold_secret_info](resources--proxy--reference--group-004.md#canonical-0121133002111022-1002000221032031-2000113021022120-3102302022222122-1120232323303023-1333312301201303-1230031121122202-1210320112231313) |
-| `http_proxy.more_option.response_headers_to_add.secret_value.blindfold_secret_info.decryption_provider` | [http_proxy.more_option.response_headers_to_add.secret_value.blindfold_secret_info.decryption_provider](resources--proxy--reference--group-004.md#canonical-2110212123001032-1101302133002011-2102223322230132-0323011323112000-3312012012213031-2230213230111003-3221111023332321-0310132232232210) |
-| `http_proxy.more_option.response_headers_to_add.secret_value.blindfold_secret_info.location` | [http_proxy.more_option.response_headers_to_add.secret_value.blindfold_secret_info.location](resources--proxy--reference--group-004.md#canonical-3231122103112003-3313302033100331-1321100220000233-1013220000002203-1331121230000032-0110231310013311-0002211203010200-3310312003113222) |
-| `http_proxy.more_option.response_headers_to_add.secret_value.blindfold_secret_info.store_provider` | [http_proxy.more_option.response_headers_to_add.secret_value.blindfold_secret_info.store_provider](resources--proxy--reference--group-004.md#canonical-3013103000030102-0023123021032023-1321310333023132-3122032233111331-2202023032013132-3212233000312313-2230002200220123-0223012100001311) |
-| `http_proxy.more_option.response_headers_to_add.secret_value.clear_secret_info` | [http_proxy.more_option.response_headers_to_add.secret_value.clear_secret_info](resources--proxy--reference--group-004.md#canonical-2200213112232300-3313331032330221-1202320001001221-0020102133011231-1300131333022001-0220201012233223-1332132221012203-3003301310020330) |
-| `http_proxy.more_option.response_headers_to_add.secret_value.clear_secret_info.provider_ref` | [http_proxy.more_option.response_headers_to_add.secret_value.clear_secret_info.provider_ref](resources--proxy--reference--group-004.md#canonical-1020230230001113-2222202233133031-3223103120332120-3002322321003020-2102310212230102-3213032033033320-3232300030202000-0122013112300020) |
-| `http_proxy.more_option.response_headers_to_add.secret_value.clear_secret_info.url` | [http_proxy.more_option.response_headers_to_add.secret_value.clear_secret_info.url](resources--proxy--reference--group-004.md#canonical-0330010312031012-1031211200003032-1113101120121000-0103322101000003-1123231100201303-1330122212321002-2013223333021300-3311313330112122) |
-| `http_proxy.more_option.response_headers_to_add.value` | [http_proxy.more_option.response_headers_to_add.value](resources--proxy--reference--group-004.md#canonical-2230222201003303-1330320021123112-0020112223121310-0231110111313132-3022211301313222-3131033301313020-0031121301023313-2013321012033022) |
+| `http_proxy.more_option.response_headers_to_add` | [http_proxy.more_option.response_headers_to_add](resources--proxy--reference--group-005.md#canonical-1333331213213220-1313002212301213-0311101201203133-0102130131011013-3101203013301303-1021301033120000-3213210013232103-1221322223212331) |
+| `http_proxy.more_option.response_headers_to_add.append` | [http_proxy.more_option.response_headers_to_add.append](resources--proxy--reference--group-005.md#canonical-3303320120322021-1301322213313021-1233212312311013-0323322032320113-1212323001011330-0302021030210220-2201132011212212-1312031111030303) |
+| `http_proxy.more_option.response_headers_to_add.name` | [http_proxy.more_option.response_headers_to_add.name](resources--proxy--reference--group-005.md#canonical-3313221033320223-3302221133110232-3022030031120130-3320111101111302-3122332312323210-1122212303010201-0120121100301133-2101033112331321) |
+| `http_proxy.more_option.response_headers_to_add.secret_value` | [http_proxy.more_option.response_headers_to_add.secret_value](resources--proxy--reference--group-005.md#canonical-3101123131023332-1232313122120131-2221032013303333-0122202011000103-3213012213321111-1320331103202313-1202132103012100-2111002322232122) |
+| `http_proxy.more_option.response_headers_to_add.secret_value.blindfold_secret_info` | [http_proxy.more_option.response_headers_to_add.secret_value.blindfold_secret_info](resources--proxy--reference--group-005.md#canonical-0121133002111022-1002000221032031-2000113021022120-3102302022222122-1120232323303023-1333312301201303-1230031121122202-1210320112231313) |
+| `http_proxy.more_option.response_headers_to_add.secret_value.blindfold_secret_info.decryption_provider` | [http_proxy.more_option.response_headers_to_add.secret_value.blindfold_secret_info.decryption_provider](resources--proxy--reference--group-005.md#canonical-2110212123001032-1101302133002011-2102223322230132-0323011323112000-3312012012213031-2230213230111003-3221111023332321-0310132232232210) |
+| `http_proxy.more_option.response_headers_to_add.secret_value.blindfold_secret_info.location` | [http_proxy.more_option.response_headers_to_add.secret_value.blindfold_secret_info.location](resources--proxy--reference--group-005.md#canonical-3231122103112003-3313302033100331-1321100220000233-1013220000002203-1331121230000032-0110231310013311-0002211203010200-3310312003113222) |
+| `http_proxy.more_option.response_headers_to_add.secret_value.blindfold_secret_info.store_provider` | [http_proxy.more_option.response_headers_to_add.secret_value.blindfold_secret_info.store_provider](resources--proxy--reference--group-005.md#canonical-3013103000030102-0023123021032023-1321310333023132-3122032233111331-2202023032013132-3212233000312313-2230002200220123-0223012100001311) |
+| `http_proxy.more_option.response_headers_to_add.secret_value.clear_secret_info` | [http_proxy.more_option.response_headers_to_add.secret_value.clear_secret_info](resources--proxy--reference--group-005.md#canonical-2200213112232300-3313331032330221-1202320001001221-0020102133011231-1300131333022001-0220201012233223-1332132221012203-3003301310020330) |
+| `http_proxy.more_option.response_headers_to_add.secret_value.clear_secret_info.provider_ref` | [http_proxy.more_option.response_headers_to_add.secret_value.clear_secret_info.provider_ref](resources--proxy--reference--group-005.md#canonical-1020230230001113-2222202233133031-3223103120332120-3002322321003020-2102310212230102-3213032033033320-3232300030202000-0122013112300020) |
+| `http_proxy.more_option.response_headers_to_add.secret_value.clear_secret_info.url` | [http_proxy.more_option.response_headers_to_add.secret_value.clear_secret_info.url](resources--proxy--reference--group-005.md#canonical-0330010312031012-1031211200003032-1113101120121000-0103322101000003-1123231100201303-1330122212321002-2013223333021300-3311313330112122) |
+| `http_proxy.more_option.response_headers_to_add.value` | [http_proxy.more_option.response_headers_to_add.value](resources--proxy--reference--group-005.md#canonical-2230222201003303-1330320021123112-0020112223121310-0231110111313132-3022211301313222-3131033301313020-0031121301023313-2013321012033022) |
 | `http_proxy.more_option.response_headers_to_remove` | [http_proxy.more_option.response_headers_to_remove](resources--proxy--reference--group-004.md#canonical-2002112100110131-0103300002133100-0010332111230100-1233301232121321-2232103211230233-3002313103012231-1011131310023122-0323031120030323) |
 | `id` | [ID](resources--proxy--reference--group-001.md#canonical-3021310010301023-0303200031113011-3232020220213113-2313303000232303-0321312220212333-1232233203313202-1011313201333211-2331300002330210) |
 | `labels` | [labels](resources--proxy--reference--group-001.md#canonical-1232113033323320-1321330113300230-0330200023130232-3303322211233302-2201031330123101-2013031103223033-3130300121311333-2302011131113112) |
 | `name` | [name](resources--proxy--reference--group-001.md#canonical-0113111221131320-3121313220033313-0220213200023113-1212300333123000-2133103200102203-2133102333220320-2113223333133332-1212032200200110) |
 | `namespace` | [namespace](resources--proxy--reference--group-001.md#canonical-0011102331302022-0032213200233212-3102011000121310-3011130113223113-3032031001100002-0102222132032110-3111010021020033-3123112122111210) |
-| `no_forward_proxy_policy` | [no_forward_proxy_policy](resources--proxy--reference--group-004.md#canonical-1302311121130102-2131203200103320-1303323313202210-0113023213112321-0121211321110201-2311112312303120-1201103232201010-1112001213313132) |
-| `no_interception` | [no_interception](resources--proxy--reference--group-004.md#canonical-3332023313312012-3012310221032321-3101200211301200-2222112211033303-1033311031230203-0102333033323201-3101321210231120-3233331221000130) |
+| `no_forward_proxy_policy` | [no_forward_proxy_policy](resources--proxy--reference--group-005.md#canonical-1302311121130102-2131203200103320-1303323313202210-0113023213112321-0121211321110201-2311112312303120-1201103232201010-1112001213313132) |
+| `no_interception` | [no_interception](resources--proxy--reference--group-005.md#canonical-3332023313312012-3012310221032321-3101200211301200-2222112211033303-1033311031230203-0102333033323201-3101321210231120-3233331221000130) |
 | `site_local_inside_network` | [site_local_inside_network](resources--proxy--reference--group-005.md#canonical-3121123313321101-0001303002003321-2112130332133322-1102033212123313-1303202113031023-1012333112101221-2212211032231111-0323301233320300) |
 | `site_local_network` | [site_local_network](resources--proxy--reference--group-005.md#canonical-3220322333321001-2032010012232201-0231323320030211-1123130120121020-2021030112012033-2213000303013330-0001000213111211-3213131133222023) |
 | `site_virtual_sites` | [site_virtual_sites](resources--proxy--reference--group-005.md#canonical-0333011221000001-0111132130112111-0231020012230322-3301122013323311-0123011330302122-0120213032111302-3301221321211312-3112303021033110) |
@@ -801,32 +793,13 @@ Each exact path has one authoritative reference destination. Collection element 
 | `tls_intercept.volterra_certificate` | [tls_intercept.volterra_certificate](resources--proxy--reference--group-005.md#canonical-2121122002311101-2001321331222012-1332131220210100-0323202103032100-2011030332222001-3112331133023222-1302120010030002-0311103030022013) |
 | `tls_intercept.volterra_trusted_ca` | [tls_intercept.volterra_trusted_ca](resources--proxy--reference--group-005.md#canonical-1013120230302223-0033003022013000-2223010222321303-2021123331333122-1122330221121323-1302122111221013-3302102203012022-0003002030322113) |
 
-<a id="canonical-1002321132300022-2230130121200223-0133031012310023-0210331012113310-0230132021122000-3203313133013003-1220223300302030-3303313202033233"></a>
-
-## Next pages — Property reference / 001230002313 / 13
-
-- [active_forward_proxy_policies](resources--proxy--reference--group-001.md#canonical-0003323102113131-0103011023111231-1113001332012010-0301232233010331-0130302132021322-2321100013200013-0033323321132110-1121322121220021)
-- [do_not_advertise](resources--proxy--reference--group-001.md#canonical-1300300333220210-2321100332123100-3100222323020132-2000023232233210-0122031023212311-0203230120332013-3020033130003013-3323122123123232)
-- [dynamic_proxy](resources--proxy--reference--group-001.md#canonical-2113202112212121-1011022102113232-3230331132220202-1123220031210121-3101202003212120-3201030233332031-2311232301212001-3100202032113330)
-- [http_proxy](resources--proxy--reference--group-004.md#canonical-3302133012220212-1002331310020302-1203301311211210-0210121333012131-2110013230033031-1011330131123021-1320232033123130-1032121203032331)
-- [no_forward_proxy_policy](resources--proxy--reference--group-004.md#canonical-3333131321121110-3221311322032300-1111103312333233-0321012201211000-1102333201111020-0020303330301101-2313211321302213-0221203120310222)
-- [no_interception](resources--proxy--reference--group-004.md#canonical-3001311021210113-1203322120301211-2003112333102203-1131010301220310-1212123211110331-3201330202033133-1001002102301300-0023323331213323)
-- [site_local_inside_network](resources--proxy--reference--group-004.md#canonical-2300220130222220-0321012100023110-3312120100301031-2332310123110321-0222103331130303-0122320111223322-2100122213201320-3222032202331000)
-- [site_local_network](resources--proxy--reference--group-005.md#canonical-1303132001322003-3222233301002011-1312320023221130-0032320032223121-2231221200221010-2211212211123222-1202133222332122-0032211113003013)
-- [site_virtual_sites](resources--proxy--reference--group-005.md#canonical-2231031213302012-1012133303113311-3002123232030330-2111023130330233-3022330222131101-1133112003113022-3202002122210211-1311102012032302)
-- [timeouts](resources--proxy--reference--group-005.md#canonical-2113110122012210-0300103202002221-2012320121222331-2230022312003312-3203002101213002-1312002203112032-1202231032011220-3312233322001132)
-- [tls_intercept](resources--proxy--reference--group-005.md#canonical-1012032132320210-0010122100332331-0000321130320013-3133303110113120-0200133111003231-2120031011211003-1123012303313320-0010122102231031)
-- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
-
 <a id="canonical-0003323102113131-0103011023111231-1113001332012010-0301232233010331-0130302132021322-2321100013200013-0033323321132110-1121322121220021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3333131301322103-1321010022011220-2100110222021130-2100102001332013-3232230221222201-3023322200311232-2123302212301210-3001323221230012"></a>
-
-## active_forward_proxy_policies — active_forward_proxy_policies / 123110231223 / 2
+## `active_forward_proxy_policies` properties
 
 Breadcrumbs:
 
@@ -840,10 +813,6 @@ Type: `"object"`. single nested block, Optional.
 
 \[OneOf: active\_forward\_proxy\_policies, no\_forward\_proxy\_policy; Default:
 no\_forward\_proxy\_policy\] Ordered List of Forward Proxy Policies active.
-
-Upstream description:
-
-Ordered List of Forward Proxy Policies active.
 
 Provider validators and defaults (from schema source):
 
@@ -868,7 +837,7 @@ Receipt-pinned upstream constraints:
 OneOf alternatives in this subsection:
 
 - [active_forward_proxy_policies](resources--proxy--reference--group-001.md#canonical-0221211131033121-3202012010201332-1113103330200011-0102030311133213-2111131301330011-2301322012102332-2312002132210112-2020233302023120)
-- [no_forward_proxy_policy](resources--proxy--reference--group-004.md#canonical-1302311121130102-2131203200103320-1303323313202210-0113023213112321-0121211321110201-2311112312303120-1201103232201010-1112001213313132)
+- [no_forward_proxy_policy](resources--proxy--reference--group-005.md#canonical-1302311121130102-2131203200103320-1303323313202210-0113023213112321-0121211321110201-2311112312303120-1201103232201010-1112001213313132)
 
 Select alternatives according to the provider validators above.
 
@@ -880,19 +849,11 @@ active_forward_proxy_policies {
 }
 ```
 
-<a id="canonical-1230201220322223-2233302210001211-3131013003032232-1112111220101023-1010330030030321-2030023121201102-3310232002331220-3130321032310210"></a>
+<a id="canonical-3333131301322103-1321010022011220-2100110222021130-2100102001332013-3232230221222201-3023322200311232-2123302212301210-3001323221230012"></a>
 
-## Direct properties — active_forward_proxy_policies / 123110231223 / 3
+### Direct properties for `active_forward_proxy_policies`
 
 - [forward_proxy_policies](resources--proxy--reference--group-001.md#canonical-1230113222323330-0220310102200332-1332230021002120-2103311313110211-0300001122200322-1223330220000033-3313100130133003-1331303003011122): complete subsection reference.
-
-<a id="canonical-3312310312223210-3221233010110101-2102113223021020-0331110313023232-0120020323222213-3211132302330023-3210032122330211-0023020233030322"></a>
-
-## Next pages — active_forward_proxy_policies / 123110231223 / 4
-
-- [active_forward_proxy_policies.forward_proxy_policies](resources--proxy--reference--group-001.md#canonical-1230113222323330-0220310102200332-1332230021002120-2103311313110211-0300001122200322-1223330220000033-3313100130133003-1331303003011122)
-- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
-- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
 
 <a id="canonical-1230113222323330-0220310102200332-1332230021002120-2103311313110211-0300001122200322-1223330220000033-3313100130133003-1331303003011122"></a>
 
@@ -900,9 +861,7 @@ active_forward_proxy_policies {
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3213132103312233-2031322312012221-1122132201123110-0322222001132121-3130013111112110-3123021103020211-0121130033121202-0312303330313300"></a>
-
-## active_forward_proxy_policies.forward_proxy_policies — forward_proxy_policies / 113030121212 / 2
+## `active_forward_proxy_policies.forward_proxy_policies` properties
 
 Breadcrumbs:
 
@@ -969,22 +928,15 @@ forward_proxy_policies {
 }
 ```
 
-<a id="canonical-3131000132300320-1210310213230313-2113122312203122-2023002203232211-3112013030001131-2332012223121223-2310232231303322-0102310011303323"></a>
+<a id="canonical-3213132103312233-2031322312012221-1122132201123110-0322222001132121-3130013111112110-3123021103020211-0121130033121202-0312303330313300"></a>
 
-## Direct properties — forward_proxy_policies / 113030121212 / 3
+### Direct properties for `active_forward_proxy_policies.forward_proxy_policies`
 
 <a id="canonical-0122323000223013-2313013011321230-0113223123021133-2322023301100030-1333220110231231-2000220323123311-3311333223201322-0111313031013223"></a>
 
-<a id="canonical-3031131320312323-2310231023010133-1103310211332311-3230100100001331-2311121313231121-0330103003112011-2101333230223112-1022021230030310"></a>
-
-## name property — forward_proxy_policies / 113030121212 / 4
+#### `active_forward_proxy_policies.forward_proxy_policies.name` property
 
 Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
@@ -1041,16 +993,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2233210132011010-1312102310211131-2210033133200020-0232002212120023-3101311001132121-1003220003230002-0100201300121203-0002231320332323"></a>
 
-<a id="canonical-3031010313032121-0221323301111301-0231303221123221-2103311103133122-2203002100011122-2313321230130220-3311231312332002-3223112301311221"></a>
+<a id="canonical-3131000132300320-1210310213230313-2113122312203122-2023002203232211-3112013030001131-2332012223121223-2310232231303322-0102310011303323"></a>
 
-## namespace property — forward_proxy_policies / 113030121212 / 5
+#### `active_forward_proxy_policies.forward_proxy_policies.namespace` property
 
 Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -1114,16 +1061,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1203123310333233-3001103002333323-3312300302233220-0033202323122113-1012332321332231-1231020100123130-3030000221032013-1123033321102313"></a>
 
-<a id="canonical-2112101123023212-2031313013112321-1121321211031020-0001311022230033-3033221233101100-2223320133200332-0031232110012003-2103203003130223"></a>
+<a id="canonical-3031131320312323-2310231023010133-1103310211332311-3230100100001331-2311121313231121-0330103003112011-2101333230223112-1022021230030310"></a>
 
-## tenant property — forward_proxy_policies / 113030121212 / 6
+#### `active_forward_proxy_policies.forward_proxy_policies.tenant` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
@@ -1171,22 +1113,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1232330103010220-2303133122231313-0123322112321213-3232303202000102-1321032012133221-1303012333101300-0210233202320312-1132000320200220"></a>
-
-## Next pages — forward_proxy_policies / 113030121212 / 7
-
-- [active_forward_proxy_policies](resources--proxy--reference--group-001.md#canonical-0003323102113131-0103011023111231-1113001332012010-0301232233010331-0130302132021322-2321100013200013-0033323321132110-1121322121220021)
-- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
-
 <a id="canonical-1300300333220210-2321100332123100-3100222323020132-2000023232233210-0122031023212311-0203230120332013-3020033130003013-3323122123123232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2212200103303110-3023023322223021-0123002211332120-1311332111003211-1302023023131321-1030223013202010-3022223033211313-0301220011101022"></a>
-
-## do_not_advertise — do_not_advertise / 020221101033 / 2
+## `do_not_advertise` properties
 
 Breadcrumbs:
 
@@ -1200,7 +1133,7 @@ Type: `["object", {}]`. Optional.
 
 \[OneOf: do\_not\_advertise, site\_virtual\_sites\] Configuration parameter for do not advertise.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1230,18 +1163,7 @@ Terraform syntax:
 do_not_advertise = {}
 ```
 
-<a id="canonical-3022110233122221-3013231223102203-2302001102233330-3133003020202111-3102100302011312-3302030203323232-0230321102320122-1130112203321220"></a>
-
-## Direct properties — do_not_advertise / 020221101033 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3002100312101303-3313102121110220-1210111203003320-2132333310331332-0230231121031321-3203333013100113-3103212121232020-1303101223232330"></a>
-
-## Next pages — do_not_advertise / 020221101033 / 4
-
-- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
-- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
 
 <a id="canonical-2113202112212121-1011022102113232-3230331132220202-1123220031210121-3101202003212120-3201030233332031-2311232301212001-3100202032113330"></a>
 
@@ -1249,9 +1171,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2102121320010113-2222023031002320-2303213233333200-2021011312200221-3031122312332003-1022111031022132-3123300321133231-2120230312323101"></a>
-
-## dynamic_proxy — dynamic_proxy / 013232311330 / 2
+## `dynamic_proxy` properties
 
 Breadcrumbs:
 
@@ -1298,7 +1218,7 @@ Receipt-pinned upstream constraints:
 OneOf alternatives in this subsection:
 
 - [dynamic_proxy](resources--proxy--reference--group-001.md#canonical-0322013013112103-1110312232333000-0001202300202230-1130120121002131-2033132100020232-0121002303211031-1313302121010231-1120332102001132)
-- [http_proxy](resources--proxy--reference--group-004.md#canonical-0023030222010311-3300322230002013-2001102311323223-1122022322221322-2020120013210033-0032330013323132-3222112033103212-3223122333232132)
+- [http_proxy](resources--proxy--reference--group-003.md#canonical-0023030222010311-3300322230002013-2001102311323223-1122022322221322-2020120013210033-0032330013323132-3222112033103212-3223122333232132)
 
 Select alternatives according to the provider validators above.
 
@@ -1310,24 +1230,19 @@ dynamic_proxy {
 }
 ```
 
-<a id="canonical-3203323232012023-2200002001022313-2002210303230203-3012101033312020-1231132303301000-1213023303012330-0213221210131111-1001122021022131"></a>
+<a id="canonical-2102121320010113-2222023031002320-2303213233333200-2021011312200221-3031122312332003-1022111031022132-3123300321133231-2120230312323101"></a>
 
-## Direct properties — dynamic_proxy / 013232311330 / 3
+### Direct properties for `dynamic_proxy`
 
 - [disable_dns_masquerade](resources--proxy--reference--group-001.md#canonical-2121102311231213-2311003112320322-1121001322011303-0100312301001031-1020032301132203-3023111013301030-1020021222031100-1202311330120120): complete subsection reference.
 
 <a id="canonical-2330001000121003-1313222001030002-3222231123332003-1000131020332023-1330020320110022-0232003030231202-1102133333313000-1303210230001010"></a>
 
-<a id="canonical-1301001110131323-1230023133311100-3003110011320030-2130001223121221-2322222112220113-3303112111133233-2203120023200032-2210212210130030"></a>
+<a id="canonical-3203323232012023-2200002001022313-2002210303230203-3012101033312020-1231132303301000-1213023303012330-0213221210131111-1001122021022131"></a>
 
-## domains property — dynamic_proxy / 013232311330 / 4
+#### `dynamic_proxy.domains` property
 
 Type: `["list", "string"]`. Optional.
-
-List of Domains to be proxied. Wildcard hosts are supported in the suffix or prefix form Supported
-Domains and search order: 1. Exact Domain names: www&#46;example.com. 2.
-
-Upstream description:
 
 A list of Domains to be proxied. Wildcard hosts are supported in the suffix or prefix form
 
@@ -1405,19 +1320,7 @@ Receipt-pinned upstream constraints:
 
 - [https_proxy](resources--proxy--reference--group-002.md#canonical-0033132111320233-2011322231113202-2020323111021022-1301011120122032-0130023120000002-1231101010311312-1231330202000102-3301003110212203): complete subsection reference.
 
-- [sni_proxy](resources--proxy--reference--group-004.md#canonical-3112020001021313-3001013121113231-2312300311233300-0101002320313231-2321103212111010-1200232211133121-0211133000013012-3022312230220132): complete subsection reference.
-
-<a id="canonical-1023130223000003-2022030230131230-2133032032230022-0012202122232200-2300020113323113-3232230301200123-2003200033121001-0023203300310203"></a>
-
-## Next pages — dynamic_proxy / 013232311330 / 5
-
-- [dynamic_proxy.disable_dns_masquerade](resources--proxy--reference--group-001.md#canonical-2121102311231213-2311003112320322-1121001322011303-0100312301001031-1020032301132203-3023111013301030-1020021222031100-1202311330120120)
-- [dynamic_proxy.enable_dns_masquerade](resources--proxy--reference--group-001.md#canonical-2221013333003111-1001100121300013-3300223323312232-1321103333110323-0321130111110133-0320232201021232-1000321200100103-3131012122222030)
-- [dynamic_proxy.http_proxy](resources--proxy--reference--group-001.md#canonical-3010030230300233-0022012030133013-0221201031310302-0303120102300030-2123221020311232-1011333012001321-3003022113003223-0232330232302103)
-- [dynamic_proxy.https_proxy](resources--proxy--reference--group-002.md#canonical-0033132111320233-2011322231113202-2020323111021022-1301011120122032-0130023120000002-1231101010311312-1231330202000102-3301003110212203)
-- [dynamic_proxy.sni_proxy](resources--proxy--reference--group-004.md#canonical-3112020001021313-3001013121113231-2312300311233300-0101002320313231-2321103212111010-1200232211133121-0211133000013012-3022312230220132)
-- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
-- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
+- [sni_proxy](resources--proxy--reference--group-003.md#canonical-3112020001021313-3001013121113231-2312300311233300-0101002320313231-2321103212111010-1200232211133121-0211133000013012-3022312230220132): complete subsection reference.
 
 <a id="canonical-2121102311231213-2311003112320322-1121001322011303-0100312301001031-1020032301132203-3023111013301030-1020021222031100-1202311330120120"></a>
 
@@ -1425,9 +1328,7 @@ Receipt-pinned upstream constraints:
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0222133031223230-2021210213010132-0222003000330202-1323002033013310-2101023312222210-1213233331023122-3313333001102321-2320020320110201"></a>
-
-## dynamic_proxy.disable_dns_masquerade — disable_dns_masquerade / 113203313132 / 2
+## `dynamic_proxy.disable_dns_masquerade` properties
 
 Breadcrumbs:
 
@@ -1442,7 +1343,7 @@ Type: `["object", {}]`. Optional.
 
 Configuration parameter for disable DNS masquerade.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1465,18 +1366,7 @@ Terraform syntax:
 disable_dns_masquerade = {}
 ```
 
-<a id="canonical-0302123121210211-1110233222030013-2223112332321220-1212233100010010-2300023201030022-1221202103310221-0331020022010313-3021302313103333"></a>
-
-## Direct properties — disable_dns_masquerade / 113203313132 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3323000133310021-1003201011003332-1300112021200022-1231131303233121-0232013311003110-1131101022321101-3203133231320331-3001200223323102"></a>
-
-## Next pages — disable_dns_masquerade / 113203313132 / 4
-
-- [dynamic_proxy](resources--proxy--reference--group-001.md#canonical-2113202112212121-1011022102113232-3230331132220202-1123220031210121-3101202003212120-3201030233332031-2311232301212001-3100202032113330)
-- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
 
 <a id="canonical-2221013333003111-1001100121300013-3300223323312232-1321103333110323-0321130111110133-0320232201021232-1000321200100103-3131012122222030"></a>
 
@@ -1484,9 +1374,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0023231003021223-2002230300330333-3310130032031220-2311130212213220-3133210233231230-1233001321221322-1210323321302220-3200322000220032"></a>
-
-## dynamic_proxy.enable_dns_masquerade — enable_dns_masquerade / 012123321323 / 2
+## `dynamic_proxy.enable_dns_masquerade` properties
 
 Breadcrumbs:
 
@@ -1501,7 +1389,7 @@ Type: `["object", {}]`. Optional.
 
 Configuration parameter for enable DNS masquerade.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1524,18 +1412,7 @@ Terraform syntax:
 enable_dns_masquerade = {}
 ```
 
-<a id="canonical-2130312001301323-2132100320112331-1300211231301110-2003002003132110-1000233022112003-1123000110131133-0130111232023201-3323310320221012"></a>
-
-## Direct properties — enable_dns_masquerade / 012123321323 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1102103323012113-1113132100023233-1132121212333322-1203222111003121-0223101312212213-1320022233102302-0110122133312300-2313231001133111"></a>
-
-## Next pages — enable_dns_masquerade / 012123321323 / 4
-
-- [dynamic_proxy](resources--proxy--reference--group-001.md#canonical-2113202112212121-1011022102113232-3230331132220202-1123220031210121-3101202003212120-3201030233332031-2311232301212001-3100202032113330)
-- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
 
 <a id="canonical-3010030230300233-0022012030133013-0221201031310302-0303120102300030-2123221020311232-1011333012001321-3003022113003223-0232330232302103"></a>
 
@@ -1543,9 +1420,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0030310220121120-2331011131102131-0101003031023030-2012003331032110-0303311313313220-2322300301110122-1213012113012020-1203213331013133"></a>
-
-## dynamic_proxy.http_proxy — http_proxy / 322323113202 / 2
+## `dynamic_proxy.http_proxy` properties
 
 Breadcrumbs:
 
@@ -1559,10 +1434,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Dynamic HTTP Proxy Type. Parameters for dynamic HTTP proxy.
-
-Upstream description:
-
-Parameters for dynamic HTTP proxy.
 
 Receipt-pinned upstream constraints:
 
@@ -1585,19 +1456,11 @@ http_proxy {
 }
 ```
 
-<a id="canonical-0233333132213132-0033112022101123-2312120030011220-3201221021223233-1332323322012232-3223130220033112-2323112123122102-0010330203202322"></a>
+<a id="canonical-0030310220121120-2331011131102131-0101003031023030-2012003331032110-0303311313313220-2322300301110122-1213012113012020-1203213331013133"></a>
 
-## Direct properties — http_proxy / 322323113202 / 3
+### Direct properties for `dynamic_proxy.http_proxy`
 
 - [more_option](resources--proxy--reference--group-001.md#canonical-3010122303200211-1222020320103311-0221100322131212-1011330220333232-1132103312221022-3132110222033213-3121010101320213-3230132212112232): complete subsection reference.
-
-<a id="canonical-3311021320223323-2201230112212310-3033321031013023-0333030012302330-1103230100111331-2331002132323220-1212132222032320-1332013122300113"></a>
-
-## Next pages — http_proxy / 322323113202 / 4
-
-- [dynamic_proxy.http_proxy.more_option](resources--proxy--reference--group-001.md#canonical-3010122303200211-1222020320103311-0221100322131212-1011330220333232-1132103312221022-3132110222033213-3121010101320213-3230132212112232)
-- [dynamic_proxy](resources--proxy--reference--group-001.md#canonical-2113202112212121-1011022102113232-3230331132220202-1123220031210121-3101202003212120-3201030233332031-2311232301212001-3100202032113330)
-- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
 
 <a id="canonical-3010122303200211-1222020320103311-0221100322131212-1011330220333232-1132103312221022-3132110222033213-3121010101320213-3230132212112232"></a>
 
@@ -1605,9 +1468,7 @@ http_proxy {
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1003002123301313-2012331123202012-0213122000210320-3312303121232310-0101313011020231-0203323022313032-3010100333323321-0221212312203121"></a>
-
-## dynamic_proxy.http_proxy.more_option — more_option / 323130321100 / 2
+## `dynamic_proxy.http_proxy.more_option` properties
 
 Breadcrumbs:
 
@@ -1620,10 +1481,6 @@ Breadcrumbs:
 <a id="canonical-2012331230003322-1110102322230203-3230302030120130-0300223100313302-1332013220321120-2203020012201113-2022121111103102-1302030003300030"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Defines various OPTIONS to define a route.
-
-Upstream description:
 
 This defines various OPTIONS to define a route.
 
@@ -1661,27 +1518,21 @@ more_option {
 }
 ```
 
-<a id="canonical-2210220321103211-3012002120023020-2333331313120212-1332020033332120-1121032230103221-1310310311032333-2002102121210200-3100101230222033"></a>
+<a id="canonical-1003002123301313-2012331123202012-0213122000210320-3312303121232310-0101313011020231-0203323022313032-3010100333323321-0221212312203121"></a>
 
-## Direct properties — more_option / 323130321100 / 3
+### Direct properties for `dynamic_proxy.http_proxy.more_option`
 
 - [buffer_policy](resources--proxy--reference--group-001.md#canonical-0123200322031111-0030222301032211-0033120333103232-3013100311131132-1213322330211003-0213213110100201-0220103031330103-2320302122132211): complete subsection reference.
 
-- [compression_params](resources--proxy--reference--group-002.md#canonical-2200031212103131-3310131223321321-1013221221132310-2010222013231121-1313201321220130-0202321300102200-0211121130203102-2332023130201030): complete subsection reference.
+- [compression_params](resources--proxy--reference--group-001.md#canonical-2200031212103131-3310131223321321-1013221221132310-2010222013231121-1313201321220130-0202321300102200-0211121130203102-2332023130201030): complete subsection reference.
 
 <a id="canonical-0003033023110332-3200232020113131-3131332333111313-3333031011302003-2102000313130223-0130330013033313-0133031120320333-3320233310002111"></a>
 
-<a id="canonical-1222030020302332-1210310221030132-0311111132202222-2301013033032312-2013322022013020-1320203111112002-3103331032020102-1010122320000130"></a>
+<a id="canonical-2210220321103211-3012002120023020-2333331313120212-1332020033332120-1121032230103221-1310310311032333-2002102121210200-3100101230222033"></a>
 
-## custom_errors property — more_option / 323130321100 / 4
+#### `dynamic_proxy.http_proxy.more_option.custom_errors` property
 
 Type: `["map", "string"]`. Optional.
-
-Map of integer error codes as keys and string values that can be used to provide custom HTTP pages
-for each error code. Key of the map can be either response code class or HTTP Error code. Response
-code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx..
-
-Upstream description:
 
 Map of integer error codes as keys and string values that can be used to provide custom HTTP pages
 for each error code. Key of the map can be either response code class or HTTP Error code. Response
@@ -1764,9 +1615,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0301311113200030-0232132021033021-0011102023320012-3003110313222210-0130023233223220-3121302033301221-1300132300201010-0301011320001202"></a>
 
-<a id="canonical-2330011300210233-1300200103012011-3333201202201023-3230333323033232-0022020322102030-3112223201302330-1222101213011320-2132212203112312"></a>
+<a id="canonical-1222030020302332-1210310221030132-0311111132202222-2301013033032312-2013322022013020-1320203111112002-3103331032020102-1010122320000130"></a>
 
-## disable_default_error_pages property — more_option / 323130321100 / 5
+#### `dynamic_proxy.http_proxy.more_option.disable_default_error_pages` property
 
 Type: `"bool"`. Optional.
 
@@ -1785,27 +1636,21 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [disable_path_normalize](resources--proxy--reference--group-002.md#canonical-3010323103131011-2202132221302001-3230101000320102-1213223032032320-1331201133331230-0321310100011302-0131321202201220-0211331012332312): complete subsection reference.
+- [disable_path_normalize](resources--proxy--reference--group-001.md#canonical-3010323103131011-2202132221302001-3230101000320102-1213223032032320-1331201133331230-0321310100011302-0131321202201220-0211331012332312): complete subsection reference.
 
-- [enable_path_normalize](resources--proxy--reference--group-002.md#canonical-2213331021323322-3030210022220213-2001313310032320-2310212103302212-2123120201001231-2223111022333000-1233101102313112-0132110222331132): complete subsection reference.
+- [enable_path_normalize](resources--proxy--reference--group-001.md#canonical-2213331021323322-3030210022220213-2001313310032320-2310212103302212-2123120201001231-2223111022333000-1233101102313112-0132110222331132): complete subsection reference.
 
 <a id="canonical-2210031201222033-1202003032122010-3021013311013113-0103031002202011-2210111100012321-1230303011301310-0230303013203130-0133311133303212"></a>
 
-<a id="canonical-2300031321230212-3002101203212331-1233001023220322-1303003131130203-2031131332123013-1121212222101101-3313131221100103-1210313020110300"></a>
+<a id="canonical-2330011300210233-1300200103012011-3333201202201023-3230333323033232-0022020322102030-3112223201302330-1222101213011320-2132212203112312"></a>
 
-## idle_timeout property — more_option / 323130321100 / 6
+#### `dynamic_proxy.http_proxy.more_option.idle_timeout` property
 
 Type: `"number"`. Optional.
 
 The amount of time that a stream can exist without upstream or downstream activity, in milliseconds.
-The stream is terminated with a HTTP 504 (Gateway Timeout) error code if no upstream response header
-has been received, otherwise the stream is reset.
-
-Upstream description:
-
-The amount of time that a stream can exist without upstream or downstream activity, in milliseconds.
-The stream is terminated with a HTTP 504 (Gateway Timeout) error code if no upstream response header
-has been received, otherwise the stream is reset.
+The stream is terminated with an HTTP 504 (Gateway Timeout) error code if no upstream response
+header has been received, otherwise the stream is reset.
 
 Provider validators and defaults (from schema source):
 
@@ -1848,20 +1693,13 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1002223310210022-3021220301132011-0220121332012130-3310331010310113-1221220022201210-0313103131222302-0323221231003021-2232231011031121"></a>
 
-<a id="canonical-1130030322322013-1203300012311031-2102121203322301-1013332133002333-1003331312133302-2112021120303011-3002302332111200-0232223313310021"></a>
+<a id="canonical-2300031321230212-3002101203212331-1233001023220322-1303003131130203-2031131332123013-1121212222101101-3313131221100103-1210313020110300"></a>
 
-## max_request_header_size property — more_option / 323130321100 / 7
+#### `dynamic_proxy.http_proxy.more_option.max_request_header_size` property
 
 Type: `"number"`. Optional.
 
-The maximum request header size for downstream connections, in KiB. A HTTP 431 (Request Header
-Fields Too Large) error code is sent for requests that exceed this size. If multiple load balancers
-share the same advertise\_policy, the highest value configured across all such load balancers is
-used..
-
-Upstream description:
-
-The maximum request header size for downstream connections, in KiB. A HTTP 431 (Request Header
+The maximum request header size for downstream connections, in KiB. An HTTP 431 (Request Header
 Fields Too Large) error code is sent for requests that exceed this size.
 
 If multiple load balancers share the same advertise\_policy, the highest value configured across all
@@ -1908,17 +1746,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0300220120123310-3222131032332031-1023332201020312-2101030322212001-1000131201232201-0010320221131221-3122121013032013-2002213322133102"></a>
 
-<a id="canonical-3013023322211210-0221131100010121-0200100320233212-2100201103100100-2323121100232101-1102333233220212-0313212310110102-3003120330300021"></a>
+<a id="canonical-1130030322322013-1203300012311031-2102121203322301-1013332133002333-1003331312133302-2112021120303011-3002302332111200-0232223313310021"></a>
 
-## max_requests_per_connection property — more_option / 323130321100 / 8
+#### `dynamic_proxy.http_proxy.more_option.max_requests_per_connection` property
 
 Type: `"number"`. Optional.
-
-Exclusive with \[no\_request\_limit\_per\_connection\] Sets the maximum number of requests a
-downstream client can send over a single connection to Envoy. Enter a value &gt;=1 to define the
-request limit per connection.
-
-Upstream description:
 
 Exclusive with \[no\_request\_limit\_per\_connection\] Sets the maximum number of requests a
 downstream client can send over a single connection to Envoy. Enter a value &gt;=1 to define the
@@ -1963,15 +1795,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [no_request_limit_per_connection](resources--proxy--reference--group-002.md#canonical-1300132130201131-0303023011210331-2213112112010120-1033210011003131-0103131233101201-1213132101102322-3112320303333013-0033212231102002): complete subsection reference.
+- [no_request_limit_per_connection](resources--proxy--reference--group-001.md#canonical-1300132130201131-0303023011210331-2213112112010120-1033210011003131-0103131233101201-1213132101102322-3112320303333013-0033212231102002): complete subsection reference.
 
-- [request_cookies_to_add](resources--proxy--reference--group-002.md#canonical-2202201333112001-1113233232320310-1221001002302311-0312120031201222-3230230022213231-3133322233323010-3332110221230120-0230320130222220): complete subsection reference.
+- [request_cookies_to_add](resources--proxy--reference--group-001.md#canonical-2202201333112001-1113233232320310-1221001002302311-0312120031201222-3230230022213231-3133322233323010-3332110221230120-0230320130222220): complete subsection reference.
 
 <a id="canonical-3232313213010203-3130310023232323-1122332030333330-0022222203323323-2023330101023222-3223330233102220-0211301023330330-1221002213222331"></a>
 
-<a id="canonical-1121312030103230-1020213122012330-3323003310330113-1230112132103123-1313102202222300-2101132121233323-2302003032231223-0213123021333313"></a>
+<a id="canonical-3013023322211210-0221131100010121-0200100320233212-2100201103100100-2323121100232101-1102333233220212-0313212310110102-3003120330300021"></a>
 
-## request_cookies_to_remove property — more_option / 323130321100 / 9
+#### `dynamic_proxy.http_proxy.more_option.request_cookies_to_remove` property
 
 Type: `["list", "string"]`. Optional.
 
@@ -2028,9 +1860,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0313200131120023-1120113022320011-3033310100301112-1301010002313023-2020302100122010-1302313223312232-3012210330310031-2122220002213100"></a>
 
-<a id="canonical-3002321103021322-2202212230210033-1322210223302031-1202331032012202-0221333211032001-0030011223132023-1221321113332302-1201023200022023"></a>
+<a id="canonical-1121312030103230-1020213122012330-3323003310330113-1230112132103123-1313102202222300-2101132121233323-2302003032231223-0213123021333313"></a>
 
-## request_headers_to_remove property — more_option / 323130321100 / 10
+#### `dynamic_proxy.http_proxy.more_option.request_headers_to_remove` property
 
 Type: `["list", "string"]`. Optional.
 
@@ -2087,9 +1919,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0011201022031310-1032000222311323-1202322200110210-2312323321000203-2003221333333022-1112022230200030-3222212111310021-3010230222030223"></a>
 
-<a id="canonical-3033212110132020-3001001031011212-1203313202032333-1223000113310133-0321020021112101-3123121113211030-1201120111213301-1230210201133020"></a>
+<a id="canonical-3002321103021322-2202212230210033-1322210223302031-1202331032012202-0221333211032001-0030011223132023-1221321113332302-1201023200022023"></a>
 
-## response_cookies_to_remove property — more_option / 323130321100 / 11
+#### `dynamic_proxy.http_proxy.more_option.response_cookies_to_remove` property
 
 Type: `["list", "string"]`. Optional.
 
@@ -2147,9 +1979,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0320233002132310-1220121303212030-2123030301003223-0111002313320313-3310122023120222-1231111203003133-0110233103101310-3201302013210102"></a>
 
-<a id="canonical-3332023110331220-3010320003330003-2300003021003000-0301321131123201-2202002313233021-1002313031203133-2301330132033132-3220023132122131"></a>
+<a id="canonical-3033212110132020-3001001031011212-1203313202032333-1223000113310133-0321020021112101-3123121113211030-1201120111213301-1230210201133020"></a>
 
-## response_headers_to_remove property — more_option / 323130321100 / 12
+#### `dynamic_proxy.http_proxy.more_option.response_headers_to_remove` property
 
 Type: `["list", "string"]`. Optional.
 
@@ -2202,31 +2034,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0313320121220221-0300011313233302-0120121221123002-3330231233021303-2311030300302323-0220201133100032-0321220022133111-1203230120002102"></a>
-
-## Next pages — more_option / 323130321100 / 13
-
-- [dynamic_proxy.http_proxy.more_option.buffer_policy](resources--proxy--reference--group-001.md#canonical-0123200322031111-0030222301032211-0033120333103232-3013100311131132-1213322330211003-0213213110100201-0220103031330103-2320302122132211)
-- [dynamic_proxy.http_proxy.more_option.compression_params](resources--proxy--reference--group-002.md#canonical-2200031212103131-3310131223321321-1013221221132310-2010222013231121-1313201321220130-0202321300102200-0211121130203102-2332023130201030)
-- [dynamic_proxy.http_proxy.more_option.disable_path_normalize](resources--proxy--reference--group-002.md#canonical-3010323103131011-2202132221302001-3230101000320102-1213223032032320-1331201133331230-0321310100011302-0131321202201220-0211331012332312)
-- [dynamic_proxy.http_proxy.more_option.enable_path_normalize](resources--proxy--reference--group-002.md#canonical-2213331021323322-3030210022220213-2001313310032320-2310212103302212-2123120201001231-2223111022333000-1233101102313112-0132110222331132)
-- [dynamic_proxy.http_proxy.more_option.no_request_limit_per_connection](resources--proxy--reference--group-002.md#canonical-1300132130201131-0303023011210331-2213112112010120-1033210011003131-0103131233101201-1213132101102322-3112320303333013-0033212231102002)
-- [dynamic_proxy.http_proxy.more_option.request_cookies_to_add](resources--proxy--reference--group-002.md#canonical-2202201333112001-1113233232320310-1221001002302311-0312120031201222-3230230022213231-3133322233323010-3332110221230120-0230320130222220)
-- [dynamic_proxy.http_proxy.more_option.request_headers_to_add](resources--proxy--reference--group-002.md#canonical-1002022321310321-1002330233323203-2202030110100111-2310321303122121-2011321201120202-2233101100223123-3311230010321231-3331122113232132)
-- [dynamic_proxy.http_proxy.more_option.response_cookies_to_add](resources--proxy--reference--group-002.md#canonical-1133232023231313-1010322232321011-0023101201231200-0032321000233200-0311010212003323-1221233300102121-2322121101300113-0222132121112002)
-- [dynamic_proxy.http_proxy.more_option.response_headers_to_add](resources--proxy--reference--group-002.md#canonical-1212230120213332-0202331232012331-1300210112213133-3300202222202130-1033203202131323-2032233032303103-2021201331031231-3300133123003000)
-- [dynamic_proxy.http_proxy](resources--proxy--reference--group-001.md#canonical-3010030230300233-0022012030133013-0221201031310302-0303120102300030-2123221020311232-1011333012001321-3003022113003223-0232330232302103)
-- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
-
 <a id="canonical-0123200322031111-0030222301032211-0033120333103232-3013100311131132-1213322330211003-0213213110100201-0220103031330103-2320302122132211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0100230301321031-2001103312230033-0010211210110300-2200102203221301-1201221110323013-2000221333021221-2131213021331130-3301030230311330"></a>
-
-## dynamic_proxy.http_proxy.more_option.buffer_policy — buffer_policy / 320321103313 / 2
+## `dynamic_proxy.http_proxy.more_option.buffer_policy` properties
 
 Breadcrumbs:
 
@@ -2240,12 +2054,6 @@ Breadcrumbs:
 <a id="canonical-2100310220321112-3301211120113113-2022003303013332-2211132133233021-1131001132202222-1003212130210031-2013010200012030-3003232333302203"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Some upstream applications are not capable of handling streamed data. This config enables buffering
-the entire request before sending to upstream application. We can specify the maximum buffer size
-and buffer interval with this config.
-
-Upstream description:
 
 Some upstream applications are not capable of handling streamed data. This config enables buffering
 the entire request before sending to upstream application. We can specify the maximum buffer size
@@ -2275,8 +2083,695 @@ buffer_policy {
 }
 ```
 
-<a id="canonical-3112102232223010-0220030013222202-1111211301220020-3011232301311023-1033102230013323-0213323012011322-3322210100123232-1311223310010133"></a>
+<a id="canonical-0100230301321031-2001103312230033-0010211210110300-2200102203221301-1201221110323013-2000221333021221-2131213021331130-3301030230311330"></a>
 
-## Direct properties — buffer_policy / 320321103313 / 3
+### Direct properties for `dynamic_proxy.http_proxy.more_option.buffer_policy`
 
 <a id="canonical-1312211323203300-2303101221313033-3103113102032222-2300100300131210-2101201221320213-1232032220000002-1113232200202032-3132210311103211"></a>
+
+#### `dynamic_proxy.http_proxy.more_option.buffer_policy.disabled` property
+
+Type: `"bool"`. Optional.
+
+Disable buffering for a particular route. This is useful when virtual-host has buffering, but we
+need to disable it on a specific route. The value of this field is ignored for virtual-host.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2221131131333130-2222313200030313-0313031123032023-3012102102113210-3002201023322331-2320211013330232-0301110121110113-1213030100003233"></a>
+
+<a id="canonical-3112102232223010-0220030013222202-1111211301220020-3011232301311023-1033102230013323-0213323012011322-3322210100123232-1311223310010133"></a>
+
+#### `dynamic_proxy.http_proxy.more_option.buffer_policy.max_request_bytes` property
+
+Type: `"number"`. Optional.
+
+The maximum request size that the filter will buffer before the connection manager will stop
+buffering and return a RequestEntityTooLarge (413) response.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  int64validator.AtMost(10485760),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 10485760,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "10485760"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "10485760"
+  }
+}
+```
+
+<a id="canonical-2200031212103131-3310131223321321-1013221221132310-2010222013231121-1313201321220130-0202321300102200-0211121130203102-2332023130201030"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `dynamic_proxy.http_proxy.more_option.compression_params` properties
+
+Breadcrumbs:
+
+- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
+- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
+- [dynamic_proxy](resources--proxy--reference--group-001.md#canonical-2113202112212121-1011022102113232-3230331132220202-1123220031210121-3101202003212120-3201030233332031-2311232301212001-3100202032113330)
+- [dynamic_proxy.http_proxy](resources--proxy--reference--group-001.md#canonical-3010030230300233-0022012030133013-0221201031310302-0303120102300030-2123221020311232-1011333012001321-3003022113003223-0232330232302103)
+- [dynamic_proxy.http_proxy.more_option](resources--proxy--reference--group-001.md#canonical-3010122303200211-1222020320103311-0221100322131212-1011330220333232-1132103312221022-3132110222033213-3121010101320213-3230132212112232)
+- dynamic_proxy.http_proxy.more_option.compression_params
+
+<a id="canonical-0201033213231220-3001033300230203-3311012231233221-1001310312300023-3201210022303231-1331122112113032-2310333221020101-2313320231022123"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Enables loadbalancer to compress dispatched data from an upstream service upon client request. The
+content is compressed and then sent to the client with the appropriate headers if either response
+and request allow. Only GZIP compression is supported.
+
+By default compression will be skipped when:
+
+A request does NOT contain accept-encoding header. A request includes accept-encoding header, but it
+does not contain “gzip” or “\*”. A request includes accept-encoding with “gzip” or “\*” with the
+weight “q=0”. Note that the “gzip” will have a higher weight then “\*”. For example, if
+accept-encoding is “gzip;q=0,\*;q=1”, the filter will not compress. But if the header is set to
+“\*;q=0,gzip;q=1”, the filter will compress. A request whose accept-encoding header includes
+“identity”. A response contains a content-encoding header. A response contains a cache-control
+header whose value includes “no-transform”. A response contains a transfer-encoding header whose
+value includes “gzip”. A response does not contain a content-type value that matches one of the
+selected mime-types, which default to application/JavaScript, application/JSON,
+application/xhtml+XML, image/svg+XML, text/CSS, text/HTML, text/plain, text/XML. Neither
+content-length nor transfer-encoding headers are present in the response. Response size is smaller
+than 30 bytes (only applicable when transfer-encoding is not chunked).
+
+When compression is applied:
+
+The content-length is removed from response headers. Response headers contain “transfer-encoding:
+chunked” and do not contain “content-encoding” header. The “vary: accept-encoding” header is
+inserted on every response.
+
+GZIP Compression Level:
+
+A value which is optimal balance between speed of compression and amount of compression is chosen.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.RequiredObjectAttributes("content_length")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+compression_params {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0303020121132001-2002333010210200-0223200230221131-0033033303222001-2231322303300133-2200032111133330-0223130302113132-2222021312212321"></a>
+
+### Direct properties for `dynamic_proxy.http_proxy.more_option.compression_params`
+
+<a id="canonical-0122313201213300-1103023220101303-0230023313000303-2232130120122300-2230302030122132-1210022313113323-0011210130110323-3231003203212022"></a>
+
+#### `dynamic_proxy.http_proxy.more_option.compression_params.content_length` property
+
+Type: `"number"`. Optional.
+
+Minimum response length, in bytes, which will trigger compression. The. Defaults to \`30\`.
+
+Additional upstream details:
+
+The default value is 30.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  int64validator.AtLeast(30),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 30
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "30"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "30"
+  }
+}
+```
+
+<a id="canonical-3111221020223312-1031303020101233-2313233320203312-3311303100331003-3100000212011003-1101300321200312-2312223000023103-0212232031022232"></a>
+
+<a id="canonical-0202223012201112-1322232312200111-3230221232321011-0331312201213111-2113220330220031-0010020300210002-1211320111003321-3003212323213122"></a>
+
+#### `dynamic_proxy.http_proxy.more_option.compression_params.content_type` property
+
+Type: `["list", "string"]`. Optional.
+
+Set of strings that allows specifying which mime-types yield compression When this field is not
+defined, compression will be applied to the following mime-types: 'application/JavaScript'
+'application/JSON', 'application/xhtml+XML' 'image/svg+XML' 'text/CSS' 'text/HTML' 'text/plain'
+'text/XML'.
+
+Additional upstream details:
+
+Set of strings that allows specifying which mime-types yield compression When this field is not
+defined, compression will be applied to the following mime-types: "application/JavaScript"
+"application/JSON", "application/xhtml+XML" "image/svg+XML" "text/CSS" "text/HTML" "text/plain"
+"text/XML"
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.List{
+  listvalidator.SizeAtMost(50),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 50,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 50,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.items.string.min_bytes": "1",
+    "ves.io.schema.rules.repeated.max_items": "50",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.items.string.min_bytes": "1",
+    "ves.io.schema.rules.repeated.max_items": "50",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-3022032330103333-3222310003200332-1333130302122221-3330303013023103-1212232101120022-1232110212000313-2013003120233103-2310213311300032"></a>
+
+<a id="canonical-1122210210100310-3230032121123230-3332300310223201-0133111023023331-0203322013110100-2120123232032111-1102002303033302-1030032303103213"></a>
+
+#### `dynamic_proxy.http_proxy.more_option.compression_params.disable_on_etag_header` property
+
+Type: `"bool"`. Optional.
+
+If true, disables compression when the response contains an etag header. When it is false, weak
+etags will be preserved and the ones that require strong validation will be removed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1300312220111301-0001012121333103-3333032212123002-1221031330212002-3232312011233033-2323222232102232-3221213011333023-2303231131030001"></a>
+
+<a id="canonical-2122133122011202-3020133002301222-2310210033130300-3230333303300233-1211203100300113-2021211103210020-1022320122323103-1233311222303021"></a>
+
+#### `dynamic_proxy.http_proxy.more_option.compression_params.remove_accept_encoding_header` property
+
+Type: `"bool"`. Optional.
+
+If true, removes accept-encoding from the request headers before dispatching it to the upstream so
+that responses do not GET compressed before reaching the filter.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3010323103131011-2202132221302001-3230101000320102-1213223032032320-1331201133331230-0321310100011302-0131321202201220-0211331012332312"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `dynamic_proxy.http_proxy.more_option.disable_path_normalize` properties
+
+Breadcrumbs:
+
+- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
+- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
+- [dynamic_proxy](resources--proxy--reference--group-001.md#canonical-2113202112212121-1011022102113232-3230331132220202-1123220031210121-3101202003212120-3201030233332031-2311232301212001-3100202032113330)
+- [dynamic_proxy.http_proxy](resources--proxy--reference--group-001.md#canonical-3010030230300233-0022012030133013-0221201031310302-0303120102300030-2123221020311232-1011333012001321-3003022113003223-0232330232302103)
+- [dynamic_proxy.http_proxy.more_option](resources--proxy--reference--group-001.md#canonical-3010122303200211-1222020320103311-0221100322131212-1011330220333232-1132103312221022-3132110222033213-3121010101320213-3230132212112232)
+- dynamic_proxy.http_proxy.more_option.disable_path_normalize
+
+<a id="canonical-1101100113013000-3120132013032211-0323202301031013-3223022122103200-1230221210303211-1021321311132113-2132132123011200-1221003200011230"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+disable_path_normalize = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2213331021323322-3030210022220213-2001313310032320-2310212103302212-2123120201001231-2223111022333000-1233101102313112-0132110222331132"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `dynamic_proxy.http_proxy.more_option.enable_path_normalize` properties
+
+Breadcrumbs:
+
+- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
+- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
+- [dynamic_proxy](resources--proxy--reference--group-001.md#canonical-2113202112212121-1011022102113232-3230331132220202-1123220031210121-3101202003212120-3201030233332031-2311232301212001-3100202032113330)
+- [dynamic_proxy.http_proxy](resources--proxy--reference--group-001.md#canonical-3010030230300233-0022012030133013-0221201031310302-0303120102300030-2123221020311232-1011333012001321-3003022113003223-0232330232302103)
+- [dynamic_proxy.http_proxy.more_option](resources--proxy--reference--group-001.md#canonical-3010122303200211-1222020320103311-0221100322131212-1011330220333232-1132103312221022-3132110222033213-3121010101320213-3230132212112232)
+- dynamic_proxy.http_proxy.more_option.enable_path_normalize
+
+<a id="canonical-0202131213310023-2122123023333221-2331200130200303-0101010202222232-0121301303132332-0313332103321311-2110330023311122-0112120101332101"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+enable_path_normalize = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1300132130201131-0303023011210331-2213112112010120-1033210011003131-0103131233101201-1213132101102322-3112320303333013-0033212231102002"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `dynamic_proxy.http_proxy.more_option.no_request_limit_per_connection` properties
+
+Breadcrumbs:
+
+- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
+- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
+- [dynamic_proxy](resources--proxy--reference--group-001.md#canonical-2113202112212121-1011022102113232-3230331132220202-1123220031210121-3101202003212120-3201030233332031-2311232301212001-3100202032113330)
+- [dynamic_proxy.http_proxy](resources--proxy--reference--group-001.md#canonical-3010030230300233-0022012030133013-0221201031310302-0303120102300030-2123221020311232-1011333012001321-3003022113003223-0232330232302103)
+- [dynamic_proxy.http_proxy.more_option](resources--proxy--reference--group-001.md#canonical-3010122303200211-1222020320103311-0221100322131212-1011330220333232-1132103312221022-3132110222033213-3121010101320213-3230132212112232)
+- dynamic_proxy.http_proxy.more_option.no_request_limit_per_connection
+
+<a id="canonical-1231131032321020-1202100030212321-0233122210001010-3330121031203033-1013111022310321-1301113010030220-3021023033330321-1013011320020103"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for no request limit per connection.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_request_limit_per_connection = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2202201333112001-1113233232320310-1221001002302311-0312120031201222-3230230022213231-3133322233323010-3332110221230120-0230320130222220"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `dynamic_proxy.http_proxy.more_option.request_cookies_to_add` properties
+
+Breadcrumbs:
+
+- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
+- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
+- [dynamic_proxy](resources--proxy--reference--group-001.md#canonical-2113202112212121-1011022102113232-3230331132220202-1123220031210121-3101202003212120-3201030233332031-2311232301212001-3100202032113330)
+- [dynamic_proxy.http_proxy](resources--proxy--reference--group-001.md#canonical-3010030230300233-0022012030133013-0221201031310302-0303120102300030-2123221020311232-1011333012001321-3003022113003223-0232330232302103)
+- [dynamic_proxy.http_proxy.more_option](resources--proxy--reference--group-001.md#canonical-3010122303200211-1222020320103311-0221100322131212-1011330220333232-1132103312221022-3132110222033213-3121010101320213-3230132212112232)
+- dynamic_proxy.http_proxy.more_option.request_cookies_to_add
+
+<a id="canonical-2022222312021313-2013221003321222-2013222203101023-2113020310032003-2030110132113101-3323330230011010-0121023003330101-3221103230332011"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies
+specified at this level are applied after cookies from matched Route are applied.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
+  validators.ConflictingListObjectAttributes("secret_value",
+    "value")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 32,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 32,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "32",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "32",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+request_cookies_to_add {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0010213231030122-0323333201032130-1030213303023320-2132021311221111-1321023020021120-2102211111022122-3210231102100003-1321121212310223"></a>
+
+### Direct properties for `dynamic_proxy.http_proxy.more_option.request_cookies_to_add`
+
+<a id="canonical-0210220333113030-2111230002101012-1211131102330133-1303011123120312-1331121033302021-2100122032212322-3302213131223113-2321301003213010"></a>
+
+#### `dynamic_proxy.http_proxy.more_option.request_cookies_to_add.name` property
+
+Type: `"string"`. Optional.
+
+Name. Name of the cookie in Cookie header.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.cookie_name": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.cookie_name": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+<a id="canonical-2301203233021130-1222003031120030-3120332323101333-2002001112222011-3310300111321110-1112122302303203-3331020303221210-3301313020331111"></a>
+
+<a id="canonical-0102223022321233-1331211110212012-1111030110331102-0011131311001111-2210230223100020-2101231331303111-0021121121000002-0132000131313322"></a>
+
+#### `dynamic_proxy.http_proxy.more_option.request_cookies_to_add.overwrite` property
+
+Type: `"bool"`. Optional.
+
+Should the value be overwritten? If true, the value is overwritten to existing values. not
+overwrite. Defaults to \`do\`.
+
+Additional upstream details:
+
+If true, the value is overwritten to existing values. Default value is do not overwrite.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+- [secret_value](resources--proxy--reference--group-002.md#canonical-2221121133321303-1301031031112023-1111231110021110-2223211301300001-1113002112011222-1211111333212102-1212331102122331-2003210210030301): complete subsection reference.
+
+<a id="canonical-3232110311003230-0012032100322101-2211203202321130-2111330000232312-2223120323113212-0331301122021120-2112213122030232-0313101330003120"></a>
+
+<a id="canonical-1003232112002110-3103002331112132-3221331022311322-0331220332113220-3333032103100220-2211131321301013-3203233322023212-0100201101311333"></a>
+
+#### `dynamic_proxy.http_proxy.more_option.request_cookies_to_add.value` property
+
+Type: `"string"`. Optional.
+
+Exclusive with \[secret\_value\] Value of the Cookie header.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(8096),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 8096,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 8096,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "8096"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "8096"
+  }
+}
+```

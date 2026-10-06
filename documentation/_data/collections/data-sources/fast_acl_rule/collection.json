@@ -186,8 +186,8 @@
   "pages": [
     {
       "aliases": ["fast acl rule"],
-      "body_bytes": 1376,
-      "body_sha256": "sha256:fe6ba870385f725e09a7bd7e714447b9bb407784d3eb9ea2cd528041b8b61461",
+      "body_bytes": 1348,
+      "body_sha256": "sha256:dfcca02a4100c3effcdf88487567eed6e5953312b3983fc8a536b634d858f24a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:fast_acl_rule:reference", "xcsh-docs:data-sources:fast_acl_rule:examples"],
@@ -215,7 +215,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/fast_acl_rule/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages new Fast ACL rule, has specification to match source IP, source port and action to apply in F5 Distributed Cloud.",
+      "summary": "Reads a Fast ACL rule with source IP and port matching and an associated action.",
       "tasks": ["configuration"],
       "title": "xcsh_fast_acl_rule",
       "unresolved_relationships": [],
@@ -227,8 +227,8 @@
     },
     {
       "aliases": ["fast acl rule"],
-      "body_bytes": 14419,
-      "body_sha256": "sha256:022d2ec1acab12401ebb8d0041959bbc89328f9d945121ea37bebf618f2d9020",
+      "body_bytes": 13864,
+      "body_sha256": "sha256:4b1918b137b8869a63f2355b797eb659fff323910593637d14f9d769943b8504",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -433,8 +433,8 @@
     },
     {
       "aliases": ["action"],
-      "body_bytes": 2582,
-      "body_sha256": "sha256:cd2eda7ebf108abf868049867c53908a4991404b7969a2f165758d9177266ac6",
+      "body_bytes": 1736,
+      "body_sha256": "sha256:55fb812c5057ed9ee18154c35e3937d1f177d397ece83c6b9452e5c8f3071395",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -525,8 +525,8 @@
     },
     {
       "aliases": ["action policer action"],
-      "body_bytes": 1406,
-      "body_sha256": "sha256:378c17893ed3931859bb16f9c042bd9586c706f78f34463f7953df0bfdb3265e",
+      "body_bytes": 963,
+      "body_sha256": "sha256:3f731f707930fab8605dd714e66c07905ca3dfbd83798e350cc521b6c437fb8f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:fast_acl_rule:properties:action:policer_action:ref"],
@@ -582,8 +582,8 @@
     },
     {
       "aliases": ["action policer action ref"],
-      "body_bytes": 6363,
-      "body_sha256": "sha256:d1f48f5b91dd2ef41078fdc08adfd87ac6599a40145103ce74479a1020439928",
+      "body_bytes": 5353,
+      "body_sha256": "sha256:236d9adc1bf1ae3f29b1611f5f243fa25f9a6296fd455f4751854b397717910d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -738,8 +738,8 @@
     },
     {
       "aliases": ["action protocol policer action"],
-      "body_bytes": 1460,
-      "body_sha256": "sha256:727ca12e50432518b9e089c9d8d1df1b97e1d00588c67af46af5be27768fdfe6",
+      "body_bytes": 999,
+      "body_sha256": "sha256:fd283bdbbe031c2796aec8f957d5cb59f36890705bd2aff2e83787997756ff4a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:fast_acl_rule:properties:action:protocol_policer_action:ref"],
@@ -795,8 +795,8 @@
     },
     {
       "aliases": ["action protocol policer action ref"],
-      "body_bytes": 6499,
-      "body_sha256": "sha256:43750b30bec10726aeb57c3a23b549539719379a8e24a3fe36243325998146e4",
+      "body_bytes": 5461,
+      "body_sha256": "sha256:5ffe4251c1c1f6c113c8fc3d844b57de1fd060fcb60e16b515a3c74ba31fbf0c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -951,8 +951,8 @@
     },
     {
       "aliases": ["ip prefix set"],
-      "body_bytes": 1675,
-      "body_sha256": "sha256:9c9cd7f793d31797ce1af5848973bfc10d9c389432f7e312ffb29843e78b37da",
+      "body_bytes": 1303,
+      "body_sha256": "sha256:5598d63e43a82179faa165809847c870cad29eac41d8aea154ca54fc689eb00e",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:fast_acl_rule:properties:ip_prefix_set:ref"],
@@ -1008,8 +1008,8 @@
     },
     {
       "aliases": ["ip prefix set ref"],
-      "body_bytes": 6185,
-      "body_sha256": "sha256:53fb07eb0ecd165e63cb0bc902adaf473f5dcab2c40de849458c0c6c1b45db86",
+      "body_bytes": 5172,
+      "body_sha256": "sha256:f617e63ccbce6acabe1a4a8eda9a4b013bf4f18ed3bd6bf3624a0f6064d02323",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1164,8 +1164,8 @@
     },
     {
       "aliases": ["port"],
-      "body_bytes": 2965,
-      "body_sha256": "sha256:3de6cafd618ddcee77e50436e90905233d81340dd2d98ce20543bcaa9cdb7219",
+      "body_bytes": 2354,
+      "body_sha256": "sha256:6ef5621c1ff5672ab4f14fc6b72c4e6b74c7667b063e9a6a312ffaaeb4690a09",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -1256,8 +1256,8 @@
     },
     {
       "aliases": ["port all"],
-      "body_bytes": 1135,
-      "body_sha256": "sha256:e664002f7c4553d3cec75e706db0c87c33ad083f261dabb27b9ada21cdc05a40",
+      "body_bytes": 886,
+      "body_sha256": "sha256:e195a2dc5bdf27c5427583e20caffe53e9ab9e0b69ebb6a7f3d4af6950f7c26d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1296,8 +1296,8 @@
     },
     {
       "aliases": ["port dns"],
-      "body_bytes": 1135,
-      "body_sha256": "sha256:9d2a209ebf2220b8f167a75638031e3bcd17f6686038c29932f14649bc66de11",
+      "body_bytes": 886,
+      "body_sha256": "sha256:cbcd045c4de53c249c5bdbe7e33921d0b3de211769607123313168dda60dd09f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1336,8 +1336,8 @@
     },
     {
       "aliases": ["prefix"],
-      "body_bytes": 2100,
-      "body_sha256": "sha256:4784063b33bd7cc84a483a21968cb1af0825936000100fd8da6ef882c374a423",
+      "body_bytes": 1697,
+      "body_sha256": "sha256:5b84716912f5d745d4b1c83e26b0019f4872591d80819a9434c3da23cf124f7e",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1393,8 +1393,8 @@
     },
     {
       "aliases": ["fast acl rule"],
-      "body_bytes": 663,
-      "body_sha256": "sha256:0170949a818a9ad86f59b6b897a60820b1ffe4ebe4c0923181fe9e0a2f3e11a4",
+      "body_bytes": 417,
+      "body_sha256": "sha256:c7f4d485ba144c3d88f6d26c577464a7a2f2a58d89bd53d3838e50b46378ae32",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:fast_acl_rule:example:data-source"],
@@ -1433,8 +1433,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1290,
-      "body_sha256": "sha256:9d82f0c3e36b0ccee1d89717618607876c0f6cd57ef2fc96ce6165b0b1627bca",
+      "body_bytes": 1059,
+      "body_sha256": "sha256:03b981b71f92b7044148339fd4c1fe67d41aaff7d9471560d16ec925d65f8583",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],

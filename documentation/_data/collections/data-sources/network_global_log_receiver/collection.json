@@ -46,8 +46,8 @@
   "pages": [
     {
       "aliases": ["network global log receiver"],
-      "body_bytes": 1706,
-      "body_sha256": "sha256:1e099b15e6fc98ce348b0ad160c8f77c9d4e1af03e1f961c99b103822b8a96cb",
+      "body_bytes": 1719,
+      "body_sha256": "sha256:7167d6e36e51529c2afceb14beae1c6c8f9424b9ce956d5481e2a521c944afd8",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -90,8 +90,8 @@
     },
     {
       "aliases": ["network global log receiver"],
-      "body_bytes": 3027,
-      "body_sha256": "sha256:adfa51fd5be99643bb187c2eef1d7459fc3770a1a0059a4d2cb6d4b826bff7fe",
+      "body_bytes": 2875,
+      "body_sha256": "sha256:5e33720be5e33cd846ef6aa8a5618efd63c5f82109d059555874619fd0cf6d64",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -243,8 +243,8 @@
     },
     {
       "aliases": ["network global log receiver"],
-      "body_bytes": 747,
-      "body_sha256": "sha256:8845d9a108aa09f70f2dabb59d4adcf9eeb1bb512822b11b007c2576366219c7",
+      "body_bytes": 459,
+      "body_sha256": "sha256:431d2907fef2afe7a4f15ded24b8fa71807466c93b146c41f0b604ef95f6d887",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:network_global_log_receiver:example:data-source"],
@@ -283,8 +283,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1540,
-      "body_sha256": "sha256:d3fb8fbfad015f1dd194f8e46633115e2b0f2aec922ba393147c0a92046c3891",
+      "body_bytes": 1267,
+      "body_sha256": "sha256:92ee5df0e443d2cab1bf0ef178aff19aef3d0f3137ccf26277b10b7ac3762fec",
       "capabilities": [],
       "category": null,
       "child_ids": [],

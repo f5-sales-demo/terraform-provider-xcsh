@@ -106,8 +106,8 @@
   "pages": [
     {
       "aliases": ["k8s pod security admission"],
-      "body_bytes": 1720,
-      "body_sha256": "sha256:89cf12b428a335069c5b28cd5227e4d604bb3ee63817717ae11ccbaf8d1e94b8",
+      "body_bytes": 1733,
+      "body_sha256": "sha256:4a82cecbc5c4a9a2bea32975fceb4c09d482eff129630cfbc36d4686580c4b4e",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -152,8 +152,8 @@
     },
     {
       "aliases": ["k8s pod security admission"],
-      "body_bytes": 12158,
-      "body_sha256": "sha256:7ee8910d0e36329491642770272d88d415e7ff23f4a269875f9a020efc369c0c",
+      "body_bytes": 11575,
+      "body_sha256": "sha256:cf4d7e52de6351a9cc1a3d9c3c8240342ac488d89b5a114422e7b07c43b4ac54",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -446,8 +446,8 @@
     },
     {
       "aliases": ["pod security admission specs"],
-      "body_bytes": 4819,
-      "body_sha256": "sha256:616642138c630fe7d8d226e57bb327589e60c04ceca98e9da4460e1e90c19459",
+      "body_bytes": 3383,
+      "body_sha256": "sha256:0e46093abb6587e1db58d6f1829903b8965b376b18a6d2bffcc9af6436eb0454",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -687,8 +687,8 @@
     },
     {
       "aliases": ["pod security admission specs audit"],
-      "body_bytes": 1407,
-      "body_sha256": "sha256:d7c7eb6ad9fe8aab86776236141330173720aa5b3b80c39605d3387cf6dfd8cd",
+      "body_bytes": 1077,
+      "body_sha256": "sha256:5af6949a0edb7ac060c1993b5f2791051f32f868e0cf67c3860d4ffa34d4067b",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -727,8 +727,8 @@
     },
     {
       "aliases": ["pod security admission specs baseline"],
-      "body_bytes": 1416,
-      "body_sha256": "sha256:64f4d190054c3229f9d9a40ef701d6f89edaca7c88f89e1e6cb5919cbef3640c",
+      "body_bytes": 1086,
+      "body_sha256": "sha256:604308a76179df3975f66d6b41bf35d23421c8b9dd52373f18f8d5b6248bdc10",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -767,8 +767,8 @@
     },
     {
       "aliases": ["pod security admission specs enforce"],
-      "body_bytes": 1413,
-      "body_sha256": "sha256:fdb1a28de77575086e777fdeb5f47c5dead1f6df009c25fe88e1033387c52fd5",
+      "body_bytes": 1083,
+      "body_sha256": "sha256:0f70e4e5d63f9afcf4169089462a9fae45015d7535ac4fcafbf78345323938f2",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -807,8 +807,8 @@
     },
     {
       "aliases": ["pod security admission specs privileged"],
-      "body_bytes": 1422,
-      "body_sha256": "sha256:a6f971d606ea6706ef26d41f68113302549e9070570a7730e917833ee2310b41",
+      "body_bytes": 1092,
+      "body_sha256": "sha256:d033bc5127e2262c46af26cf22e7d4a5c99f61cf2fc60ed142c737c4fcdfc6df",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -847,8 +847,8 @@
     },
     {
       "aliases": ["pod security admission specs restricted"],
-      "body_bytes": 1422,
-      "body_sha256": "sha256:4155de689c764b3e0296ce657c7fc9e9d9175a740f02c38ecf2f92705f4ff9d8",
+      "body_bytes": 1092,
+      "body_sha256": "sha256:b3386dc64d3316ad110a3512a7997a9fede23aa42928fadf98dae51e77ee4682",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -887,8 +887,8 @@
     },
     {
       "aliases": ["pod security admission specs warn"],
-      "body_bytes": 1404,
-      "body_sha256": "sha256:73b930508884f8148c6c0d498e96b84cfe2b4be9a1de64f281f483a89b2da661",
+      "body_bytes": 1074,
+      "body_sha256": "sha256:6bf419f58d2d35053f5f124d58b1371f63cb8ff192815c3bebc4b1cc3d8370d6",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -927,8 +927,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2315,
-      "body_sha256": "sha256:ba3d789ddb66e10617dce2247287ce0efb3672ac550d0b0a54e94f0c6d8d0d2c",
+      "body_bytes": 2039,
+      "body_sha256": "sha256:b55f1063b6b6e2598f2316597fb79487b0257d0e9d9a0335231d623d1c9a114a",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -1067,8 +1067,8 @@
     },
     {
       "aliases": ["k8s pod security admission"],
-      "body_bytes": 717,
-      "body_sha256": "sha256:b169e67831f4c45b6e86067eb6444e7b430b156185c12a374e9ec1cca2b1efdc",
+      "body_bytes": 444,
+      "body_sha256": "sha256:739827ddf37acc40b8fd1110e139822f370ebac87b3cbed5a85ed40d38a08282",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:resources:k8s_pod_security_admission:example:resource"],
@@ -1107,8 +1107,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1431,
-      "body_sha256": "sha256:1a413b14f1fe11c606ca92c08f3d060b2ee68d68f24eb5fb545d1f02904b4c82",
+      "body_bytes": 1167,
+      "body_sha256": "sha256:faf97bec9a0364efe346e4329615e8562b0cbc340bf57a2a39446a82cbf10b19",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -1154,8 +1154,8 @@
     },
     {
       "aliases": ["k8s pod security admission"],
-      "body_bytes": 550,
-      "body_sha256": "sha256:0efe399af66b734aa6533ac14f343e16d02f7dbacda2ff38eae3c261185e4b73",
+      "body_bytes": 403,
+      "body_sha256": "sha256:55ecd58e178d1b23fa7eedd28fbd8f1362135c7dffe62d192d6c82b406d9fad4",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -1195,8 +1195,8 @@
     },
     {
       "aliases": ["k8s pod security admission"],
-      "body_bytes": 638,
-      "body_sha256": "sha256:4939f25b73f06620939bab5d0f734cb8b280ce13bbfd00b54ad0174a82f1dcba",
+      "body_bytes": 491,
+      "body_sha256": "sha256:39329586e3cb5ebd5904a53a824f7433599acb5626023b3887cc776d2bb84864",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],

@@ -131,8 +131,8 @@
   "pages": [
     {
       "aliases": ["network policy rule"],
-      "body_bytes": 1417,
-      "body_sha256": "sha256:1b11aee176bc6099577da905ec94c77e2cc9cbcccae11953f8fb98a2add0be9a",
+      "body_bytes": 1392,
+      "body_sha256": "sha256:798b1bf2fe333c7de8d4a7af422b2088f30f3827a29202331bfbcf6e2ff4fb88",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -163,7 +163,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy_rule/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages network policy rule with configured parameters in specified namespace in F5 Distributed Cloud.",
+      "summary": "Reads Network Policy Rule information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_network_policy_rule",
       "unresolved_relationships": [],
@@ -175,8 +175,8 @@
     },
     {
       "aliases": ["network policy rule"],
-      "body_bytes": 14986,
-      "body_sha256": "sha256:203285babffa075f3abccbd33c73301ede052be05d297e92a7c3216f4d621cc0",
+      "body_bytes": 13949,
+      "body_sha256": "sha256:60a1f3af00c63fff6a3efda014d63e8a257e7f7a325d3a9f086c66c9d40bb47c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -446,8 +446,8 @@
     },
     {
       "aliases": ["advanced action"],
-      "body_bytes": 2083,
-      "body_sha256": "sha256:153f48f74ed1def5e24c72580b69669307be2359fa2f4fbfed9b73b34f5b5f62",
+      "body_bytes": 1829,
+      "body_sha256": "sha256:e0f00bd81367630944061f8cec4d3cfff7a212192ed21bf8927c04e7127b1eae",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -503,8 +503,8 @@
     },
     {
       "aliases": ["ip prefix set"],
-      "body_bytes": 1899,
-      "body_sha256": "sha256:2631caf0d30d13c3796e7c1d9dcdffa6dfd7c7f10472d410ec8c3fa04007e995",
+      "body_bytes": 1503,
+      "body_sha256": "sha256:67fe6c6109c94301636eab33decb04726114539a519900f228fee40c19c5f84f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:network_policy_rule:properties:ip_prefix_set:ref"],
@@ -560,8 +560,8 @@
     },
     {
       "aliases": ["ip prefix set ref"],
-      "body_bytes": 6227,
-      "body_sha256": "sha256:41fe469ae072be3fe9a3ba570f440cd63e1fc517ab7a217581f03eae441b642b",
+      "body_bytes": 5196,
+      "body_sha256": "sha256:66a60bfb5637a6aebf4994fec49cff04280cc5aa12e3d3744b047d6612c7546f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -716,8 +716,8 @@
     },
     {
       "aliases": ["label matcher"],
-      "body_bytes": 2577,
-      "body_sha256": "sha256:ce77d71554ac1ac67ce23f4575e941c44e5f243af2d4a8625f92194445ff73c5",
+      "body_bytes": 2043,
+      "body_sha256": "sha256:a00fc3cea0f889abe9ff257c14d6356b04893d58ba708c96d630236292a4b668",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -773,8 +773,8 @@
     },
     {
       "aliases": ["prefix"],
-      "body_bytes": 2136,
-      "body_sha256": "sha256:f43be216ee63b62165b12664506fadd3474df09f614e425d7f8e392c779dd82b",
+      "body_bytes": 1715,
+      "body_sha256": "sha256:7d18c46c54a39d62714fd21f046e1fcc2132de9446899c2fd5c958059de90703",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -830,8 +830,8 @@
     },
     {
       "aliases": ["prefix selector"],
-      "body_bytes": 3621,
-      "body_sha256": "sha256:4715eb02270d09f8054b561c96d9099ae05b96d88a47c873b19c7be45644de3f",
+      "body_bytes": 3067,
+      "body_sha256": "sha256:28b060dc2d3a9f935fe55106539d013d5158a15c9d06ee819232179a98b83820",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -887,8 +887,8 @@
     },
     {
       "aliases": ["network policy rule"],
-      "body_bytes": 699,
-      "body_sha256": "sha256:2be1f64d0bdeef1bdda09b04bd9476afb982d235ea488768975e2ecdab3132c9",
+      "body_bytes": 435,
+      "body_sha256": "sha256:6e18e081860eebd7028f77a844779713570e4616a207c1423a4e0fd1470cf8b8",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:network_policy_rule:example:data-source"],
@@ -927,8 +927,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1368,
-      "body_sha256": "sha256:e6c1e58a55aaaaea7980a3168504c5945ef41d52b369767852343e342a0149e9",
+      "body_bytes": 1119,
+      "body_sha256": "sha256:eba496f6e26fa1574bb3347f7533b7b2f5ea9252916c776de3f6ae5acff5c982",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],

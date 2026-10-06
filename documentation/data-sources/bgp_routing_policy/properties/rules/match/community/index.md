@@ -2,7 +2,7 @@
 page_title: "rules.match.community"
 subcategory: ""
 description: "List of BGP communities."
-xcsh_docs: {"aliases": ["rules match community"], "body_bytes": 2775, "body_sha256": "sha256:7d6dbedfb65bb5512ea2affae7e939daadfcc3c06817ae79615c1c825ee942ed", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:bgp_routing_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:community", "parent_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match", "path": "documentation/data-sources/bgp_routing_policy/properties/rules/match/community/index.md", "product": "distributed-cloud", "provider_name": "bgp_routing_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-0001202131112321-1213030200213233-2221231022133021-3303221103331100-3203223332203301-0123123200123230-1103133212100301-1213312033210322", "registry_path": "docs/guides/data-sources--bgp_routing_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["rules", "match", "community"], "schema_version": 1, "sections": [{"aliases": ["rules match community community"], "anchor": "schema-rules--match--community--community", "description": "An unordered set of RFC 1997 defined 4-byte community, first 16 bits being ASN and lower 16 bits being value.", "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:community", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "match", "community", "community"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/match/community/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of BGP communities.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["bgp_routing_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["rules match community"], "body_bytes": 2332, "body_sha256": "sha256:249d96783cc86fb4c32db9982742c148ecfd0f81046f2848099827a4c4d1631a", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:bgp_routing_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:community", "parent_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match", "path": "documentation/data-sources/bgp_routing_policy/properties/rules/match/community/index.md", "product": "distributed-cloud", "provider_name": "bgp_routing_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-0001202131112321-1213030200213233-2221231022133021-3303221103331100-3203223332203301-0123123200123230-1103133212100301-1213312033210322", "registry_path": "docs/guides/data-sources--bgp_routing_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["rules", "match", "community"], "schema_version": 1, "sections": [{"aliases": ["rules match community community"], "anchor": "schema-rules--match--community--community", "description": "An unordered set of RFC 1997 defined 4-byte community, first 16 bits being ASN and lower 16 bits being value.", "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:community", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "match", "community", "community"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/match/community/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of BGP communities.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["bgp_routing_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -25,10 +25,6 @@ Type: `"single"`. Computed.
 
 BGP Community list. List of BGP communities.
 
-Upstream description:
-
-List of BGP communities.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -49,11 +45,6 @@ Receipt-pinned upstream constraints:
 ### community property
 
 Type: `["list", "string"]`. Computed.
-
-Unordered set of RFC 1997 defined 4-byte community, first 16 bits being ASN and lower 16 bits being
-value.
-
-Upstream description:
 
 An unordered set of RFC 1997 defined 4-byte community, first 16 bits being ASN and lower 16 bits
 being value.
@@ -99,8 +90,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [rules.match](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp_routing_policy/properties/rules/match/)
-- [xcsh_bgp_routing_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp_routing_policy/)

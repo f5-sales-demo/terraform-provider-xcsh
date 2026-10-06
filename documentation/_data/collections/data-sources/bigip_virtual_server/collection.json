@@ -1231,8 +1231,8 @@
   "pages": [
     {
       "aliases": ["bigip virtual server"],
-      "body_bytes": 1469,
-      "body_sha256": "sha256:6fa171737da052034a593f3ddee1542bb7a3927b4a218ac08c1200b87ceef5a6",
+      "body_bytes": 1404,
+      "body_sha256": "sha256:02542333dc685380372baf92bc2b66152435b95979962a61492f280327e05789",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1263,7 +1263,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bigip_virtual_server/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a BIG-IP Virtual Server resource in F5 Distributed Cloud for big-ip virtual server specification. configuration. (read-only data source)",
+      "summary": "Reads BIG-IP Virtual Server information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_bigip_virtual_server",
       "unresolved_relationships": [],
@@ -1275,8 +1275,8 @@
     },
     {
       "aliases": ["bigip virtual server"],
-      "body_bytes": 61972,
-      "body_sha256": "sha256:a58c88f90db0c79031e2eab162aebd4552658ad6538b073d479c3f430b19a40a",
+      "body_bytes": 60777,
+      "body_sha256": "sha256:ee56ec81717907f597cf17f409033a7b9d784ed8e95899aa1f6373e01ab0ef5e",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1612,8 +1612,8 @@
     },
     {
       "aliases": ["api specification"],
-      "body_bytes": 2371,
-      "body_sha256": "sha256:b5131394f449ccd3d28ecd98c8e146e6d32a770cfd636abdcbb92483db1dbbdb",
+      "body_bytes": 1359,
+      "body_sha256": "sha256:151363495f64cc3514f40fbb47a113af79f5cc9e33b8adf9484821ebca42de13",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1722,8 +1722,8 @@
     },
     {
       "aliases": ["api specification api definition"],
-      "body_bytes": 1851,
-      "body_sha256": "sha256:9349c47865ead497ef1fbb45499b6ab2446696bbd7c530a9927a1bdd7dd39698",
+      "body_bytes": 1570,
+      "body_sha256": "sha256:032ff55ed1e7ef0c954762f20ba3e11ef1db33b674e0e24dd327081bb0624c7f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1811,8 +1811,8 @@
     },
     {
       "aliases": ["api specification validation all spec endpoints"],
-      "body_bytes": 2359,
-      "body_sha256": "sha256:224f4965b5b4489f0092e8c5235e10cc2c233d7206fdea77d9f13c3d776f9410",
+      "body_bytes": 1383,
+      "body_sha256": "sha256:4d03824f961aadded36008e3846f80777e462cccb15dafaf8f0dc2bd330658c4",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1904,8 +1904,8 @@
     },
     {
       "aliases": ["api specification validation all spec endpoints fall through mode"],
-      "body_bytes": 2499,
-      "body_sha256": "sha256:eed9bb2d27af10d6718624a54d109638ce94b52908b8d148e796751d68320439",
+      "body_bytes": 1582,
+      "body_sha256": "sha256:b4e108c2acd969dd53d997790c08d7b2283b6225fd74c086d25eb5570f0761dd",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1990,8 +1990,8 @@
     },
     {
       "aliases": ["api specification validation all spec endpoints fall through mode fall through mode allow"],
-      "body_bytes": 1713,
-      "body_sha256": "sha256:0691a5ff45323621d730c7af937235bba692000999758cd536205a46fd9aa994",
+      "body_bytes": 1314,
+      "body_sha256": "sha256:8075c25c7d3d9996ca5c5702d5b57d3dd13c1cd7901fca457091f093e1d9a8e3",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2035,8 +2035,8 @@
     },
     {
       "aliases": ["api specification validation all spec endpoints fall through mode fall through mode custom"],
-      "body_bytes": 2262,
-      "body_sha256": "sha256:0d20983360a8698148d240fb78874de3794eb82daae33437bad6285675edfdb3",
+      "body_bytes": 1544,
+      "body_sha256": "sha256:26a3c22094fe6abcadce1dce9fca981b9d50366c571f520f99937784d7300886",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2109,8 +2109,8 @@
       "aliases": [
         "api specification validation all spec endpoints fall through mode fall through mode custom open api validation rules"
       ],
-      "body_bytes": 5862,
-      "body_sha256": "sha256:ac90c4b8e710420359c7cd624737e63f00de9af9d8272c1092fc698e77ec51e1",
+      "body_bytes": 3608,
+      "body_sha256": "sha256:d7f01de5c2960c0f29114758aeb974e11e25f5992e4eee000056be065691cf78",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2339,8 +2339,8 @@
       "aliases": [
         "api specification validation all spec endpoints fall through mode fall through mode custom open api validation rules action block"
       ],
-      "body_bytes": 2491,
-      "body_sha256": "sha256:9ea9b21e50a954444418f946869ac5e1137a2a54411686375e0cfe75cbe0c753",
+      "body_bytes": 1990,
+      "body_sha256": "sha256:7f08c48a8b4f82acbd4a67deb59419d96886cac6201171b0f8ad6e7dbd69069c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2388,8 +2388,8 @@
       "aliases": [
         "api specification validation all spec endpoints fall through mode fall through mode custom open api validation rules action report"
       ],
-      "body_bytes": 2493,
-      "body_sha256": "sha256:0f4fd3c57c178b42494878de67ce9947d4b6dd4ed2402e270ca2cffe2c2d9a71",
+      "body_bytes": 1992,
+      "body_sha256": "sha256:765cd8977d6853ae4246cf8960fcf204663f545e44c7071c72381f334d474928",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2437,8 +2437,8 @@
       "aliases": [
         "api specification validation all spec endpoints fall through mode fall through mode custom open api validation rules action skip"
       ],
-      "body_bytes": 2489,
-      "body_sha256": "sha256:d3efb6fb5492975169cdc1e6e78db983e3d13879d2d20a0ed9119155ce35eaef",
+      "body_bytes": 1988,
+      "body_sha256": "sha256:cbb310808326a0916f861837d125ad7b5c97a2e874ce5788be90ffae9acc49c8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2486,8 +2486,8 @@
       "aliases": [
         "api specification validation all spec endpoints fall through mode fall through mode custom open api validation rules api endpoint"
       ],
-      "body_bytes": 3161,
-      "body_sha256": "sha256:1dba5eb803a9fafc707cb93f6861e540f0f2c049d744ed6190ae7773853e552c",
+      "body_bytes": 2682,
+      "body_sha256": "sha256:70e505853d259010c4f80f6c3f5f4d5efa7e6a22c2d27ebd0b6022917b778304",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2588,8 +2588,8 @@
       "aliases": [
         "api specification validation all spec endpoints fall through mode fall through mode custom open api validation rules metadata"
       ],
-      "body_bytes": 3234,
-      "body_sha256": "sha256:55da7e5543e7562eb0559561abd7bc94174378c9a568a767f3ed4a084ff87b44",
+      "body_bytes": 2755,
+      "body_sha256": "sha256:e88d321a6fdc14aed379c635da3dac79cd34ead63499515bdc45ed420e9d1149",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2688,8 +2688,8 @@
     },
     {
       "aliases": ["api specification validation all spec endpoints settings"],
-      "body_bytes": 3571,
-      "body_sha256": "sha256:8fef8f75abc2fac6c0abe55060368db2ae3a34923d89cc41218db4621d6c8a72",
+      "body_bytes": 2076,
+      "body_sha256": "sha256:ffad72a9809fe7b4fc1d1e03f56a88592b3151f06ec52edd856de56dac3720ca",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2818,8 +2818,8 @@
     },
     {
       "aliases": ["api specification validation all spec endpoints settings oversized body fail validation"],
-      "body_bytes": 1639,
-      "body_sha256": "sha256:0b73a40c2067364de0e781a69106c07b51b6327c23c5753f8547b95d02514284",
+      "body_bytes": 1258,
+      "body_sha256": "sha256:7d340ba4c4ba680fdc2abe10197b69447df567a949bdd7f292772121a6ca4de5",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2863,8 +2863,8 @@
     },
     {
       "aliases": ["api specification validation all spec endpoints settings oversized body skip validation"],
-      "body_bytes": 1639,
-      "body_sha256": "sha256:b36084e52709ee23a66ff6528b507e3694dc98aa11c163855087027bd211dd86",
+      "body_bytes": 1258,
+      "body_sha256": "sha256:a0742da1a3f20e8f77402e160d5f2e5bb810548183456e3ce7aa98afff7c4ebc",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2908,8 +2908,8 @@
     },
     {
       "aliases": ["api specification validation all spec endpoints settings property validation settings custom"],
-      "body_bytes": 2211,
-      "body_sha256": "sha256:a12dee84a6e971c675264a6474edc4473d441aa3758cf8a1306ae4274e591654",
+      "body_bytes": 1525,
+      "body_sha256": "sha256:c67214a55b7b4134d2a230390be586a56023c29a2cc910808a3ceb2d95f4442b",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2982,8 +2982,8 @@
       "aliases": [
         "api specification validation all spec endpoints settings property validation settings custom query parameters"
       ],
-      "body_bytes": 3390,
-      "body_sha256": "sha256:6bbf658630d77ea562b7fde1ed14838cc8150f20a6e58ec5378a1de9a677e631",
+      "body_bytes": 2187,
+      "body_sha256": "sha256:9f57ebb52708707b9e9435cdfa55259d0fc0cecb7188af9a4ce89a46cfd8360c",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -3084,8 +3084,8 @@
       "aliases": [
         "api specification validation all spec endpoints settings property validation settings custom query parameters allow additional parameters"
       ],
-      "body_bytes": 2503,
-      "body_sha256": "sha256:edf36365d88bedcfb411f3bf0fbdd72b2cc46c38d75aed65d5e7c61c4703b394",
+      "body_bytes": 2016,
+      "body_sha256": "sha256:dabf663615e0ff63e3a0ef883a9d4bb29324ba4058894d5a636d9dd53db83847",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3133,8 +3133,8 @@
       "aliases": [
         "api specification validation all spec endpoints settings property validation settings custom query parameters disallow additional parameters"
       ],
-      "body_bytes": 2512,
-      "body_sha256": "sha256:d68de00e64eaac6df3b27c57555f83954d89a08151b78c4ba89cf98899e825bf",
+      "body_bytes": 2025,
+      "body_sha256": "sha256:cf647e7f13f8ab8e4ee7579bfe78bd25041ea6905b7f5bb6a79d35a1a1e4f34d",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3180,8 +3180,8 @@
     },
     {
       "aliases": ["api specification validation all spec endpoints settings property validation settings default"],
-      "body_bytes": 1698,
-      "body_sha256": "sha256:a421a2016f22bca1e90efac2a9eee271acc68bc9c839916864e04ab9155bde8b",
+      "body_bytes": 1317,
+      "body_sha256": "sha256:e1f4d967913d729f4b09fa3150b0cd5c4c776736f18839db1fc7b6d898bcf840",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3225,8 +3225,8 @@
     },
     {
       "aliases": ["api specification validation all spec endpoints validation mode"],
-      "body_bytes": 3567,
-      "body_sha256": "sha256:a19ee74a1229f52a58b7cefafe0b42ea42739ec31772f4331dbd2e50ee9d68f7",
+      "body_bytes": 2094,
+      "body_sha256": "sha256:46588ea0d10054a052c4387a0d3bac789e87af9436fcdd2da64efe20330df6c4",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -3352,8 +3352,8 @@
     },
     {
       "aliases": ["api specification validation all spec endpoints validation mode response validation mode active"],
-      "body_bytes": 3748,
-      "body_sha256": "sha256:09fa3d23ded1c71dda7e5a4bf92ff806ea028825cba2494defd20fab08496ff0",
+      "body_bytes": 2703,
+      "body_sha256": "sha256:c5203d1ec8e09336f851d33b7f9d8d354ce85d42cb42f7d4e71c167b75f7b55b",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -3475,8 +3475,8 @@
       "aliases": [
         "api specification validation all spec endpoints validation mode response validation mode active enforcement block"
       ],
-      "body_bytes": 2200,
-      "body_sha256": "sha256:278fca120129c12a14361da98bcf07e140631f409a2158ec9ca4ca6e6251f576",
+      "body_bytes": 1741,
+      "body_sha256": "sha256:272e30505314ad8ae8bcf8073b5cd66560672bb01ca39e8fd1d8b5010a15664d",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3523,8 +3523,8 @@
       "aliases": [
         "api specification validation all spec endpoints validation mode response validation mode active enforcement report"
       ],
-      "body_bytes": 2167,
-      "body_sha256": "sha256:b8f8ce98681da080b17b1c1105eaee9623b77f6651dd4fb3f62ae0332dacc44b",
+      "body_bytes": 1708,
+      "body_sha256": "sha256:c3cbf44e1fc95ad80abe3606a07d348529b2c9ed7663f45f6166d75304407327",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3569,8 +3569,8 @@
     },
     {
       "aliases": ["api specification validation all spec endpoints validation mode skip response validation"],
-      "body_bytes": 1669,
-      "body_sha256": "sha256:f72c1c5ee45f829abb9faa0363f84c43a0e9187adaed7e31de45fdd1bb187b7c",
+      "body_bytes": 1274,
+      "body_sha256": "sha256:d935512ffb306c5cf6e2b9a0cb3a581f093681ffb52de21d83739359bebbd836",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3614,8 +3614,8 @@
     },
     {
       "aliases": ["api specification validation all spec endpoints validation mode skip validation"],
-      "body_bytes": 1651,
-      "body_sha256": "sha256:fe837bec280e2cb64c1d1f11ea3c5f1c499744a48d9f74c7184c74fc38657067",
+      "body_bytes": 1256,
+      "body_sha256": "sha256:1a510f1e5e82b344ab1da32f88c2cb6d20935098b5f53559401b63ab4b00aa4c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3654,8 +3654,8 @@
     },
     {
       "aliases": ["api specification validation all spec endpoints validation mode validation mode active"],
-      "body_bytes": 3757,
-      "body_sha256": "sha256:d2dd8a5831a29b66fb326fb13367c7002c39bbf2ac58d7d6a89d438bb0a1ad74",
+      "body_bytes": 2748,
+      "body_sha256": "sha256:d10a8a7dc43f9631ed6fd3085e15eaa0cb20183d9a9a76e0b3944ac45809b6b6",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -3777,8 +3777,8 @@
       "aliases": [
         "api specification validation all spec endpoints validation mode validation mode active enforcement block"
       ],
-      "body_bytes": 2146,
-      "body_sha256": "sha256:5479e5b15eff7e5b3c15ee9b79bb027ed19a5718c0e271faedb67876e2848bc4",
+      "body_bytes": 1705,
+      "body_sha256": "sha256:61329088330fb4589709411540e9ee3d5b7b5dc7a543f6e3edac36a3b6cbedc0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3825,8 +3825,8 @@
       "aliases": [
         "api specification validation all spec endpoints validation mode validation mode active enforcement report"
       ],
-      "body_bytes": 2113,
-      "body_sha256": "sha256:c3d282eb5f82027408a460421775079c697b9d99b3b4e15dedb731b4583b6e9b",
+      "body_bytes": 1672,
+      "body_sha256": "sha256:c85c8c10be4b346b67016dd3aebd45c8c700a0f1124be77a8a53d807941f7cad",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3871,8 +3871,8 @@
     },
     {
       "aliases": ["api specification validation custom list"],
-      "body_bytes": 2429,
-      "body_sha256": "sha256:f5877de1fc1740cc63f41cff894c902bd014e28ed685a9b3ae9a9d358ed0ebf2",
+      "body_bytes": 1475,
+      "body_sha256": "sha256:3cb0df8668bf2385fe719e708fcf0d053eb6b743f9473a8796848a90c5e1dfc8",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -3964,8 +3964,8 @@
     },
     {
       "aliases": ["api specification validation custom list fall through mode"],
-      "body_bytes": 2415,
-      "body_sha256": "sha256:232b270a5ae4f8ab5655d4e87b516387db1f09ac2682aa9b680d0a5dd2ad06f7",
+      "body_bytes": 1540,
+      "body_sha256": "sha256:20f42486a34c4e07e39c35676ca4f0747d995c01a1c2591ff7bd17727fb57790",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -4050,8 +4050,8 @@
     },
     {
       "aliases": ["api specification validation custom list fall through mode fall through mode allow"],
-      "body_bytes": 1657,
-      "body_sha256": "sha256:8248590f6a6717778953ef4294f7984b1e86819d38d4e28a832c5a4843fa2ea0",
+      "body_bytes": 1272,
+      "body_sha256": "sha256:d3909d3aabdd2b04eaf7ffda3e38a11cde4cb19d809b19dce83016e9a92ecc21",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4090,8 +4090,8 @@
     },
     {
       "aliases": ["api specification validation custom list fall through mode fall through mode custom"],
-      "body_bytes": 2185,
-      "body_sha256": "sha256:5a0bab4461a0b80bc23f65379374ad811fd26caaa6fa4fc55670f7ae9784c30f",
+      "body_bytes": 1495,
+      "body_sha256": "sha256:c164044a9ff871a9a07f349956eb21e91eebc9071c257f3346cfe59e5edd26b2",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -4159,8 +4159,8 @@
       "aliases": [
         "api specification validation custom list fall through mode fall through mode custom open api validation rules"
       ],
-      "body_bytes": 5673,
-      "body_sha256": "sha256:1058aa6107d01e03f3e4781bdf4e9ff3d6e6491aecbbf650754ece8367e72164",
+      "body_bytes": 3503,
+      "body_sha256": "sha256:9898c3a5944e449b0bfbcec21241d28868b1997c96efa221300bdc2d5a438c8e",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -4389,8 +4389,8 @@
       "aliases": [
         "api specification validation custom list fall through mode fall through mode custom open api validation rules action block"
       ],
-      "body_bytes": 2407,
-      "body_sha256": "sha256:24db97e847f813d8f059c2477171cf30659c3a562ab5b9ab1673c48d14817413",
+      "body_bytes": 1920,
+      "body_sha256": "sha256:4b3455c316f179c79ff28900434d12735586cb9b1a57ade8fdadfab469001111",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4438,8 +4438,8 @@
       "aliases": [
         "api specification validation custom list fall through mode fall through mode custom open api validation rules action report"
       ],
-      "body_bytes": 2409,
-      "body_sha256": "sha256:c79e3d565998a25bcacfd427973b5eab570323ea85b11b1e67432ffe80fec064",
+      "body_bytes": 1922,
+      "body_sha256": "sha256:769820b70b7c3eb717f26ede71a0ad40dfa17e92d09e02d224e987331b741368",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4487,8 +4487,8 @@
       "aliases": [
         "api specification validation custom list fall through mode fall through mode custom open api validation rules action skip"
       ],
-      "body_bytes": 2405,
-      "body_sha256": "sha256:bccca3bd21661eafef51bfcfbb7e717f21c648c1ddd164ff7a2df543b8d7ac1e",
+      "body_bytes": 1918,
+      "body_sha256": "sha256:3fdcb26cd5841be96feea89a8a64ca91573be95f15223b2d6493ba0fcafc84f5",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4508,7 +4508,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1333222323030202-2300131122030030-0220121312013012-2011301110300022-3010103003101301-0210020203131311-0102303330203010-1331220021300013",
-      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4536,8 +4536,8 @@
       "aliases": [
         "api specification validation custom list fall through mode fall through mode custom open api validation rules api endpoint"
       ],
-      "body_bytes": 3063,
-      "body_sha256": "sha256:51d1fdbf39cd41a309984ccecebd32fda5c828008a2ac6c2a42f77be42e2c13f",
+      "body_bytes": 2598,
+      "body_sha256": "sha256:ac8430234f02b151a158f20dbc5702f5b1aac284e4b40a399b2a0388928071fd",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4557,7 +4557,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0103323102013133-2211000332231113-1133101301020010-0010333221222330-2302222331321103-0301111130000010-1320213201112113-2112130233031221",
-      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4638,8 +4638,8 @@
       "aliases": [
         "api specification validation custom list fall through mode fall through mode custom open api validation rules metadata"
       ],
-      "body_bytes": 3136,
-      "body_sha256": "sha256:1faf0e4233069042a8a9bea091cd795511d649e13eba3d338bc2b4538ef1ac33",
+      "body_bytes": 2671,
+      "body_sha256": "sha256:b4bd38dd1c70445493d4f329b5b44fb4c1985fceb291e3168c71095110c72f5e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4659,7 +4659,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1102102031313022-2202133323022102-2011103202131030-3111203011003300-3212121211311212-3323221011022322-2212323300210331-1221213331201132",
-      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4738,8 +4738,8 @@
     },
     {
       "aliases": ["api specification validation custom list open api validation rules"],
-      "body_bytes": 3997,
-      "body_sha256": "sha256:b5fb8f81bd6e9e3b7aa99a214927364d876aeb7521303765525efe573eca49f6",
+      "body_bytes": 2608,
+      "body_sha256": "sha256:219383a88f14541eaf850509cc7bd67b526a3b8d6985a3da0e107c10749a200d",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -4764,7 +4764,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3303022033120320-3222033323013231-2323320012102220-2331322001311010-0213130223311213-1310100032021101-2032022111033323-1103102002321211",
-      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4906,8 +4906,8 @@
     },
     {
       "aliases": ["api specification validation custom list open api validation rules any domain"],
-      "body_bytes": 1645,
-      "body_sha256": "sha256:7d9c5eaab2717b30d81f3f526a65e2bfc8494d45f0dae6b319482a92de178c89",
+      "body_bytes": 1244,
+      "body_sha256": "sha256:4a040c96ecce5dfaef518d7bbe40a2d5ab4dd0ab4988e87cc855ad6e0706dcce",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4927,7 +4927,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3233210312110323-0023233320203232-2030022200013331-0110313032020133-2322121220100302-0130121211232020-1332131120303013-2021113202320200",
-      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4946,8 +4946,8 @@
     },
     {
       "aliases": ["api specification validation custom list open api validation rules api endpoint"],
-      "body_bytes": 2215,
-      "body_sha256": "sha256:1b0ca2d4854286ad7eceb3451ff8fd90806574ac4449680e274f4dcb9d40ef7d",
+      "body_bytes": 1836,
+      "body_sha256": "sha256:4df62848137c3cb225650175dae1c719c8093ed225bc6f797d1b962599818378",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4967,7 +4967,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3212033202223010-1022002030122221-2021031203333123-1200213123322120-2102111110300020-1303213300022330-0003021012331022-3122302331203232",
-      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5031,8 +5031,8 @@
     },
     {
       "aliases": ["api specification validation custom list open api validation rules metadata"],
-      "body_bytes": 2288,
-      "body_sha256": "sha256:a9ace5207928528cabd7984b366aeb539dcab299d818f858795b70e7c47eaaa1",
+      "body_bytes": 1909,
+      "body_sha256": "sha256:e98d58a1e961082fe7e46d6653ca2e982f7708fd4258745ed0abc346ce22a3d6",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5052,7 +5052,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0330210000302313-3003002232332102-1002123100212313-1102100313022312-1131001102020302-3120303310223011-2033130230133213-3020230003022010",
-      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5116,8 +5116,8 @@
     },
     {
       "aliases": ["api specification validation custom list open api validation rules validation mode"],
-      "body_bytes": 4098,
-      "body_sha256": "sha256:485b45837aa70407ad05daa055caee48a4cff9858d650ddb0d0f68387c9c2f44",
+      "body_bytes": 2435,
+      "body_sha256": "sha256:ae209c932758a2f6d222d25d3974c1c14f278660b425474f541b224721cdc0a2",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -5142,7 +5142,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0021131021112122-1322011300310321-1130202020310313-2020303020323331-1113111333131312-2021003301321201-3012230111012000-1113123103132210",
-      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5260,8 +5260,8 @@
       "aliases": [
         "api specification validation custom list open api validation rules validation mode response validation mode active"
       ],
-      "body_bytes": 4223,
-      "body_sha256": "sha256:0243fefaefb38d044aad51ba78b6fe96f65045347ff6816c42bf10fda48b17e9",
+      "body_bytes": 3064,
+      "body_sha256": "sha256:d76d746bbf1911f51165af647410e12a438a5b0611f565984530dcf42b5eb1fc",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -5284,7 +5284,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1210103103123102-1113132131001221-1111100312100011-2200112212020333-0310301320111103-1232230031033322-3310211212233233-3233122122001011",
-      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5387,8 +5387,8 @@
       "aliases": [
         "api specification validation custom list open api validation rules validation mode response validation mode active enforcement block"
       ],
-      "body_bytes": 2579,
-      "body_sha256": "sha256:20d1ec70d017b96dfa14244c18e09e755fe506035bb17a9f24896fc01ceaeecf",
+      "body_bytes": 2082,
+      "body_sha256": "sha256:c16a1335267010a10a0100d18de91b1e043776b34e1f7f070bd11bf251cf8af0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5408,7 +5408,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1100303321020033-0322121211013021-3233231320123330-2322312232212113-3312220100000000-3032203032002131-0323333001001201-2333000311200111",
-      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5436,8 +5436,8 @@
       "aliases": [
         "api specification validation custom list open api validation rules validation mode response validation mode active enforcement report"
       ],
-      "body_bytes": 2546,
-      "body_sha256": "sha256:5a3b15352c20c3e3258993bee3ce589625d8fab48f86f7d68c82384feeabb4e7",
+      "body_bytes": 2049,
+      "body_sha256": "sha256:933416b196e305b17822544be510c468977dc08a629fba62437bec6ddce72ec6",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5457,7 +5457,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1313102201223030-3000302221331311-2110131023210322-2110300132022002-3122333231232233-1131331020111321-3101200330223012-1000012032020002",
-      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5485,8 +5485,8 @@
       "aliases": [
         "api specification validation custom list open api validation rules validation mode skip response validation"
       ],
-      "body_bytes": 2010,
-      "body_sha256": "sha256:220d111d21a4cc2599aa8f61530e858425407ab652f0a8208e08207385c3d261",
+      "body_bytes": 1577,
+      "body_sha256": "sha256:52a52e5af4125974e2d2af367cd96372bfcae6fe10172a6d4c05e3b896938932",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5506,7 +5506,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0201120102113310-3111130022121032-1312013101132101-0112101211111013-0333022303020311-0003202000010210-1032310012213220-1303001331310323",
-      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5531,8 +5531,8 @@
     },
     {
       "aliases": ["api specification validation custom list open api validation rules validation mode skip validation"],
-      "body_bytes": 1992,
-      "body_sha256": "sha256:c146ce92860a5e584c1f74b7454ae82c68f7e5532959bbfb343c3d77c3a6daca",
+      "body_bytes": 1559,
+      "body_sha256": "sha256:edf1a9a49c2ab20a251d31cff207791bd951a3a037b6bbb6937684ef5ba7a024",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5552,7 +5552,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3302333033002031-3332322020331132-3310012023303322-0211321103201132-2120200313013033-3233210020033133-2303001123203212-3200021232120100",
-      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5579,8 +5579,8 @@
       "aliases": [
         "api specification validation custom list open api validation rules validation mode validation mode active"
       ],
-      "body_bytes": 4232,
-      "body_sha256": "sha256:7e4e529ab8c7435b888258af12e253b0ca3c544febc37ede94c421dde0731bf1",
+      "body_bytes": 3109,
+      "body_sha256": "sha256:579d77c0e842be3d29fbdcc0a5bf14744e698e086f66528e868a56e406474b55",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -5603,7 +5603,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0311201000120233-1330132132110021-0030000330000211-3133310331011311-3333010102113312-3233102312001332-0201231231030321-3310330200120013",
-      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5706,8 +5706,8 @@
       "aliases": [
         "api specification validation custom list open api validation rules validation mode validation mode active enforcement block"
       ],
-      "body_bytes": 2525,
-      "body_sha256": "sha256:9578f01e98d7bd0e81f3e8595fb8192c64d1e5bee111ade25ed9b7ca4e0e5788",
+      "body_bytes": 2046,
+      "body_sha256": "sha256:33143b5548fb0e33912d372d8d51a578c9a87092368725bbb1cc786d035f42c8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5727,7 +5727,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2033202213332020-1111310222032030-2113023022012312-1100320113033001-1003330232331130-0212220333202223-3302121203223210-0311012010311331",
-      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5755,8 +5755,8 @@
       "aliases": [
         "api specification validation custom list open api validation rules validation mode validation mode active enforcement report"
       ],
-      "body_bytes": 2492,
-      "body_sha256": "sha256:a9417e47cba7eefb35eacfc6f1c35ee0f6ba0deaf1c74dbf85c997430fee216b",
+      "body_bytes": 2013,
+      "body_sha256": "sha256:70e8445a79bfb1b63fcf35acd61b69d728a2fc73ceaf940e6feda87aee25b4f0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5776,7 +5776,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3321120220223122-0122312010323203-3331323330203000-1103200032000210-3030222012102302-0223200221122002-1011231303033031-0131100233331200",
-      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--bigip_virtual_server--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5802,8 +5802,8 @@
     },
     {
       "aliases": ["api specification validation custom list settings"],
-      "body_bytes": 3445,
-      "body_sha256": "sha256:a90f3e2daf8017803cb9c382673e9c1d700f5dbe9c5d7409c426edce2405bba6",
+      "body_bytes": 2020,
+      "body_sha256": "sha256:efb2abc853e2e6433f9e9f8b907bb4431e8b6b1cf42a2fd385e709620ff62d79",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -5922,8 +5922,8 @@
     },
     {
       "aliases": ["api specification validation custom list settings oversized body fail validation"],
-      "body_bytes": 1583,
-      "body_sha256": "sha256:b41c8153518f09fa9db2b64f87d7ad0b1a357480576f4564cc4fbb5b08ffb4c2",
+      "body_bytes": 1216,
+      "body_sha256": "sha256:c165b1bd92d14399a9262963ea11918263e688c46a3d5938ce9c68f3e96e02a2",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5962,8 +5962,8 @@
     },
     {
       "aliases": ["api specification validation custom list settings oversized body skip validation"],
-      "body_bytes": 1583,
-      "body_sha256": "sha256:c9cce9f901d569f58f2fef29083adb092026b791d118960c3d9a0ec3c65b197d",
+      "body_bytes": 1216,
+      "body_sha256": "sha256:5182bcd9f3e8de33ed4b32c92cd19f7ae3e9ae455744af56db15caf8d1de7cd2",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6002,8 +6002,8 @@
     },
     {
       "aliases": ["api specification validation custom list settings property validation settings custom"],
-      "body_bytes": 2134,
-      "body_sha256": "sha256:3a20fe57e7bc3c24ff5482f36216b7ef506355dcc85f3b8c56880d36f39fa8d4",
+      "body_bytes": 1476,
+      "body_sha256": "sha256:33ff0ace793baf600f336867fc369003bfa560334c5b66275ff28b82e402c4c9",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -6071,8 +6071,8 @@
       "aliases": [
         "api specification validation custom list settings property validation settings custom query parameters"
       ],
-      "body_bytes": 3278,
-      "body_sha256": "sha256:dd3c969d7278d40b9ee84be4d214caa843f346866e2fd42d53c180c356a0996f",
+      "body_bytes": 2117,
+      "body_sha256": "sha256:317d35b231e235d77c33ec2753dfcf84eedbd6f8f3296086b6d8a6fdecf07184",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -6173,8 +6173,8 @@
       "aliases": [
         "api specification validation custom list settings property validation settings custom query parameters allow additional parameters"
       ],
-      "body_bytes": 2419,
-      "body_sha256": "sha256:c5c32feaf6add18a2a41f776825834d8e2d379bba6e7c889ce9c6a8d0428607a",
+      "body_bytes": 1946,
+      "body_sha256": "sha256:d97b0eef85fd47e6b1654368a48bcf50800a8eab891c8777b188f9cb0df0bcb2",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6222,8 +6222,8 @@
       "aliases": [
         "api specification validation custom list settings property validation settings custom query parameters disallow additional parameters"
       ],
-      "body_bytes": 2428,
-      "body_sha256": "sha256:de6ea912043a4e0c112d5f3fc536e364d40db60861538fda37216ca26df72f90",
+      "body_bytes": 1955,
+      "body_sha256": "sha256:9fab7e185084e30ba64563b9570349a35876f4cbad7285b5ab8de49f54808df1",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6269,8 +6269,8 @@
     },
     {
       "aliases": ["api specification validation custom list settings property validation settings default"],
-      "body_bytes": 1642,
-      "body_sha256": "sha256:acabf4ca836cf15fd875bdf8486decb56975e8b559b48cecf0c5d67ab61c7eeb",
+      "body_bytes": 1275,
+      "body_sha256": "sha256:8cb1f79899a97a3475694732a519a3c6366913ff386c5eb9e48f15d5abdadb19",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6314,8 +6314,8 @@
     },
     {
       "aliases": ["api specification validation disabled"],
-      "body_bytes": 1037,
-      "body_sha256": "sha256:1b823f817bfd8d1f0ee2d3fe3fc103d7ae8445d2494fde4be18b40de07822f3e",
+      "body_bytes": 734,
+      "body_sha256": "sha256:bc819502718382348887c75d3aa141009361296405bfbcad101c35088d8b93d7",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6354,8 +6354,8 @@
     },
     {
       "aliases": ["default sensitive data policy"],
-      "body_bytes": 881,
-      "body_sha256": "sha256:c7e457c99d44d42c654cc5d40c17b77417a013f3b2758fea401ef8b1c5ef8150",
+      "body_bytes": 595,
+      "body_sha256": "sha256:58788f6dcd6feb2bccda5aa0b219b82aa3475ea44d8f76092d9afee6f83bd352",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6394,8 +6394,8 @@
     },
     {
       "aliases": ["disable api definition"],
-      "body_bytes": 847,
-      "body_sha256": "sha256:f840e22426487d8434b063890d3bd05af24f5f3499848fc2cc9041f0e88f770b",
+      "body_bytes": 561,
+      "body_sha256": "sha256:3447c4e6b0f8bdeeb6804988c8761876db90f56001de9ba0f787a6ca60771100",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6434,8 +6434,8 @@
     },
     {
       "aliases": ["disable api discovery"],
-      "body_bytes": 845,
-      "body_sha256": "sha256:7ccbfb2931f7e9c35891d3c6556b66322c985112c5597e915fd2f36fcf1c8d9b",
+      "body_bytes": 559,
+      "body_sha256": "sha256:15df3b93bcf2c28d1cf4339ae9ec70cb6127459929734152fbdc8af5ee20188f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6474,8 +6474,8 @@
     },
     {
       "aliases": ["enable api discovery"],
-      "body_bytes": 3719,
-      "body_sha256": "sha256:9cf99feb38a0ca3e5468434f3dbff06a517bbdfe6f6e0d2a8debac2e253b5bf1",
+      "body_bytes": 2034,
+      "body_sha256": "sha256:7f24baa041e104d616694d672810a50737d9b26649a8c36c94a1b44cb707bf60",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -6635,8 +6635,8 @@
     },
     {
       "aliases": ["enable api discovery api crawler"],
-      "body_bytes": 1825,
-      "body_sha256": "sha256:2321ce4bdfac658d2f0fa926bbb098ee9206b4e847212e5b6776aba85400bc8a",
+      "body_bytes": 1114,
+      "body_sha256": "sha256:c02f603de0bc6ea00fbe87ae9807f64f0c3d95d3d1bc66362fc1156d8adf45a0",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -6711,8 +6711,8 @@
     },
     {
       "aliases": ["enable api discovery api crawler api crawler config"],
-      "body_bytes": 1631,
-      "body_sha256": "sha256:18653cb8e9c9a724f5c7f8cb1e6fbe043b41e12bb3082a30b210b6e02c6053b7",
+      "body_bytes": 1093,
+      "body_sha256": "sha256:31d692b9c2fbccbb5c8de935ac6bb1ae3a3a97ed33f7ccd7668ca8c93092e290",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -6770,8 +6770,8 @@
     },
     {
       "aliases": ["enable api discovery api crawler api crawler config domains"],
-      "body_bytes": 2283,
-      "body_sha256": "sha256:a6613bd65dd08d3a1b9a2a553589936ac4fc4a93ff65bfb0bc4159f39395ffbc",
+      "body_bytes": 1681,
+      "body_sha256": "sha256:fea8fe1665a100459f5abea07e160f0151bbe0f0f43e5de3b50490f98535409f",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -6855,8 +6855,8 @@
         "login result",
         "sign in"
       ],
-      "body_bytes": 2483,
-      "body_sha256": "sha256:579f8ffd95bc0a7b7d8bd951e2ed719b9797ef4e3d9c2f619206105204f36307",
+      "body_bytes": 1847,
+      "body_sha256": "sha256:18ac0de011105c796e2675854ceb56547ba236634499ed3270df628aacaf0f4e",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -6959,8 +6959,8 @@
         "login result",
         "sign in"
       ],
-      "body_bytes": 3230,
-      "body_sha256": "sha256:218a9c5b1678c274ba20ffa54f20509174a382863d2325af504f361e1ebdbed1",
+      "body_bytes": 2217,
+      "body_sha256": "sha256:90a8f8c1a5744d9df6f13445bb7831727aca7863405016ae19979176d676530a",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -7073,8 +7073,8 @@
         "login result",
         "sign in"
       ],
-      "body_bytes": 3502,
-      "body_sha256": "sha256:ed7e8f8c2b15a55cd4a7cc09b3ce4418bd2905716f41178182732080757bd882",
+      "body_bytes": 3093,
+      "body_sha256": "sha256:4dea114b21462a1ec7eac1c23566675e575b60eaa89976889c08bdca727b5a93",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7217,8 +7217,8 @@
         "login result",
         "sign in"
       ],
-      "body_bytes": 3198,
-      "body_sha256": "sha256:c050f768472409cc4179d1153f61f03f866864b3032f800181f6ad76e78c5787",
+      "body_bytes": 2789,
+      "body_sha256": "sha256:1e08b88f7a978c52084622b03c01b772b6b4c9041296bba3b5128b7502c95585",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7326,8 +7326,8 @@
     },
     {
       "aliases": ["enable api discovery api crawler disable api crawler"],
-      "body_bytes": 1276,
-      "body_sha256": "sha256:92eafdabf67966f4f757189a32ba2634a6c92be7d42f6d69608ed2fcc5d8120c",
+      "body_bytes": 943,
+      "body_sha256": "sha256:2ca4a09524ef86ab829c9d340e581c005e7f3906f5d3c42328d4da2c36f3e46b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7366,8 +7366,8 @@
     },
     {
       "aliases": ["enable api discovery api discovery from code scan"],
-      "body_bytes": 1500,
-      "body_sha256": "sha256:b5410d466b1d862e525838b03ec181c689e976c48caa6a3b7aeafff59bf5db25",
+      "body_bytes": 960,
+      "body_sha256": "sha256:8f0a1cda20ff1a541bd1bc796ae948ecafd364f9d9713bf1c40c783d9fd5919a",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -7425,8 +7425,8 @@
     },
     {
       "aliases": ["enable api discovery api discovery from code scan code base integrations"],
-      "body_bytes": 2923,
-      "body_sha256": "sha256:3dac46a858afe620547866fd86cae5d030a89135e119b3588242ff28f3dbdc18",
+      "body_bytes": 1725,
+      "body_sha256": "sha256:4a4c952c4f37f127d91dc1477c28626a889c7e1e7ddc9e93c1d06e1225d0a326",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -7533,8 +7533,8 @@
     },
     {
       "aliases": ["enable api discovery api discovery from code scan code base integrations all repos"],
-      "body_bytes": 1703,
-      "body_sha256": "sha256:120773abd825ddd655d8b84a861333cd2b1307e55d7dd065ef4a466143fbc28f",
+      "body_bytes": 1290,
+      "body_sha256": "sha256:f088fc25d42e18da89d08142bfe0fa662a4f00f108440ade819dc65496004239",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7573,8 +7573,8 @@
     },
     {
       "aliases": ["enable api discovery api discovery from code scan code base integrations code base integration"],
-      "body_bytes": 2743,
-      "body_sha256": "sha256:49033b34e6d33f6d6ecc0fe8633dd73638a0be8660f451d20728728d7902e6d6",
+      "body_bytes": 2352,
+      "body_sha256": "sha256:28a696753ac76cfaa78e16a99f4d6fb4490975d5240f86667c89f95aadaa81dd",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7691,8 +7691,8 @@
     },
     {
       "aliases": ["enable api discovery api discovery from code scan code base integrations selected repos"],
-      "body_bytes": 1917,
-      "body_sha256": "sha256:2fb312d8aee45d034dc00a5bcc0a042ffd4559c8766f3c017fe9aa6c542d012f",
+      "body_bytes": 1526,
+      "body_sha256": "sha256:62350d6f5664b75591a9f8dc4b820982b59fcd0f055fe81d731302f09778d178",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7761,8 +7761,8 @@
     },
     {
       "aliases": ["enable api discovery custom api auth discovery"],
-      "body_bytes": 1496,
-      "body_sha256": "sha256:b7bc378b0a9062312428bcaf565933da1ddbd3a150b615c4a1de500e80ee73a2",
+      "body_bytes": 972,
+      "body_sha256": "sha256:66df3657ce4fc43aa531e08ef477279723995535d8e8311c960e050be45df444",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -7820,8 +7820,8 @@
     },
     {
       "aliases": ["enable api discovery custom api auth discovery api discovery ref"],
-      "body_bytes": 2279,
-      "body_sha256": "sha256:a39d25f7a776a15016b7bdbcabf176aacd63765eec2f08fa03707132ff2a9ff9",
+      "body_bytes": 1940,
+      "body_sha256": "sha256:62aac359397cc4859105524df6c3a3c6397e1c01bb131301b58f63d977026266",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7909,8 +7909,8 @@
     },
     {
       "aliases": ["enable api discovery default api auth discovery"],
-      "body_bytes": 1069,
-      "body_sha256": "sha256:9066e6a5c0e66209db287d54f85bfbfb2da22d264b701ce215862d8b7ae913f1",
+      "body_bytes": 760,
+      "body_sha256": "sha256:eb740d830de46c7188fb204a89b5ab1a82b84c6f9be6736e5f73c992a5fae577",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7949,8 +7949,8 @@
     },
     {
       "aliases": ["enable api discovery disable learn from redirect traffic"],
-      "body_bytes": 1133,
-      "body_sha256": "sha256:ee065880652e93cd8021ac3661c7e7ea0c342a61173fb7bab5400677ab5297af",
+      "body_bytes": 824,
+      "body_sha256": "sha256:0139083198dbe79de77a9711f290c4cc0f4f7c71b52c821ac08672d8eac99108",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7989,8 +7989,8 @@
     },
     {
       "aliases": ["enable api discovery discovered api settings"],
-      "body_bytes": 1293,
-      "body_sha256": "sha256:08f3032bc6296c3236fea9ac12da9fbbf536ee89082600964c8985087918d365",
+      "body_bytes": 1006,
+      "body_sha256": "sha256:a46e6341b6bd90650f144e7eb1ac2bf55603f767ce3048fe72f66ada4697881d",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -8050,8 +8050,8 @@
     },
     {
       "aliases": ["enable api discovery enable learn from redirect traffic"],
-      "body_bytes": 1130,
-      "body_sha256": "sha256:339ba1e4e1b19f13bdfdec7446af1b3c66000cd501e6b749ea09e60053b9cdfa",
+      "body_bytes": 821,
+      "body_sha256": "sha256:1bb445b366928e0eb7381fe34a3518da9d4335a8a9ac6b74562f73d56f8225f3",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -8090,8 +8090,8 @@
     },
     {
       "aliases": ["sensitive data policy"],
-      "body_bytes": 1204,
-      "body_sha256": "sha256:274f17f4edca9996c4f8c81f89ca8dce291024f76cbf536b43ba8bdc3822fb1f",
+      "body_bytes": 737,
+      "body_sha256": "sha256:a3c023104cc2bfac4dd0f008e5701f77591f6d843a56b5d926c3d9af762ada4b",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -8149,8 +8149,8 @@
     },
     {
       "aliases": ["sensitive data policy sensitive data policy ref"],
-      "body_bytes": 1942,
-      "body_sha256": "sha256:d193bec0597a6d448393fe1fd18b9c4ce94d0be2c4e4891c094d0ca8be5ed44d",
+      "body_bytes": 1653,
+      "body_sha256": "sha256:a10bc6b17a1363147798caea4e37a0dbeab00b3c5235ed10cbfcc40006b2961b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -8238,8 +8238,8 @@
     },
     {
       "aliases": ["service discovery"],
-      "body_bytes": 1613,
-      "body_sha256": "sha256:c0f49a73126ae67d705f882371e8d263e1eab8dd76200b587bdef6d25b38c53a",
+      "body_bytes": 1349,
+      "body_sha256": "sha256:2072728b840b59a259fc815b77e2b55673b305f5301d5db626df0c56a261d907",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -8327,8 +8327,8 @@
     },
     {
       "aliases": ["bigip virtual server"],
-      "body_bytes": 705,
-      "body_sha256": "sha256:73edab71f50e1ac810f3d34b34ffb9bf483485273b367757fa458548b1409c0c",
+      "body_bytes": 438,
+      "body_sha256": "sha256:1af5b67c4140b38587e47fd62897d532716f825a0c324621967c3bbcf6fdc0a3",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bigip_virtual_server:example:data-source"],
@@ -8367,8 +8367,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1381,
-      "body_sha256": "sha256:e973e820022231c4a0d5d3f837f8fceda80403d55260916c262a9401cf9b2ce7",
+      "body_bytes": 1129,
+      "body_sha256": "sha256:b20833a77e570608c00e52e547a071f427f8ced46d7c7b358c33090933e82ceb",
       "capabilities": [],
       "category": null,
       "child_ids": [],

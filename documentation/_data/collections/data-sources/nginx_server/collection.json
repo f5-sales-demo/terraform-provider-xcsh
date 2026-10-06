@@ -266,8 +266,8 @@
   "pages": [
     {
       "aliases": ["nginx server"],
-      "body_bytes": 1383,
-      "body_sha256": "sha256:d6cc34e724ab25356386e4d1ae2e1684241f35ca340620408b636d747befc37b",
+      "body_bytes": 1302,
+      "body_sha256": "sha256:be7d7c3aefc4bcee6ca42d5ca75a7330b7908d1195db3c513e794d98ee0fb907",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:nginx_server:reference", "xcsh-docs:data-sources:nginx_server:examples"],
@@ -295,7 +295,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Nginx Server resource in F5 Distributed Cloud for get nginx server block configuration. configuration. (read-only data source)",
+      "summary": "Reads an NGINX server block configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_nginx_server",
       "unresolved_relationships": [],
@@ -307,8 +307,8 @@
     },
     {
       "aliases": ["nginx server"],
-      "body_bytes": 13197,
-      "body_sha256": "sha256:3a2fee78679b17dc3eb7336e29d5fb4bcf59cdd491c5667252d234b6f522774f",
+      "body_bytes": 12825,
+      "body_sha256": "sha256:568995272719278911c1c1e97b93f0eaaaa0014b0ff6cab5604debf74ef6f9de",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -479,8 +479,8 @@
     },
     {
       "aliases": ["dataplane ref"],
-      "body_bytes": 1350,
-      "body_sha256": "sha256:bd2e4a503138f267438fb8a2396045053479404af4d78dc080bb6576fbff83c8",
+      "body_bytes": 806,
+      "body_sha256": "sha256:85e89fe21f4f4d95103428594066e4565ce17ce1043b1a352b57d368a403b805",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -555,8 +555,8 @@
     },
     {
       "aliases": ["dataplane ref nginx csg"],
-      "body_bytes": 1734,
-      "body_sha256": "sha256:a1b660ddf4370c30c3a66717b79d12c1d292888fc7ab1fd91629e524b794fb9f",
+      "body_bytes": 1485,
+      "body_sha256": "sha256:f71b385a60decd0790013a160285f4dfc69068d6c2bddfc28661dfd3b89dd5f9",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -644,8 +644,8 @@
     },
     {
       "aliases": ["dataplane ref nginx instance"],
-      "body_bytes": 1759,
-      "body_sha256": "sha256:d45f112179811d80e0d4863b803eaabed68fbb3f83fe0350be1c4e54df40370a",
+      "body_bytes": 1510,
+      "body_sha256": "sha256:1707051ec885f5eeef9b5fd681e14f66badd2f3e5a5e095caa2ed96d574bb386",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -733,8 +733,8 @@
     },
     {
       "aliases": ["server spec"],
-      "body_bytes": 2898,
-      "body_sha256": "sha256:13b95903e13e9d4c24adc0a3a6adf7f6156b8c85d661c0964bcb159c6e9565ff",
+      "body_bytes": 2213,
+      "body_sha256": "sha256:be80fbd70a03f657f1ec2d69364136c8538d46996336c29e003246633887bc43",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -922,8 +922,8 @@
     },
     {
       "aliases": ["server spec api discovery spec"],
-      "body_bytes": 1602,
-      "body_sha256": "sha256:661f817fa4484e445aa5a0b9abb110dab73aa643759aa2b16a403ee1328ec495",
+      "body_bytes": 1001,
+      "body_sha256": "sha256:1d016b7317c5cdd77284595cd73cc5c5914efe80346bfd8e439f529f2fb3defc",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -998,8 +998,8 @@
     },
     {
       "aliases": ["server spec api discovery spec disabled"],
-      "body_bytes": 1160,
-      "body_sha256": "sha256:4b43738ca94f3c0776025d6381d4d3f27404a60b261949498229db0e45aaf15b",
+      "body_bytes": 855,
+      "body_sha256": "sha256:816a4a0511d72cc7900cb7e2a0b6c23bac1ebd74802e9e34f7cec6b30e7ec9e9",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1038,8 +1038,8 @@
     },
     {
       "aliases": ["server spec api discovery spec enabled"],
-      "body_bytes": 1158,
-      "body_sha256": "sha256:6865e80ff8cde58b35a9e4288c12cf2f08b642a79b83f3c2d93068927f30763b",
+      "body_bytes": 853,
+      "body_sha256": "sha256:1a43d6da57dadb5c5b3fcb3612e6ac922653c8a0a2a02f0a5acbec89d738d87e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1078,8 +1078,8 @@
     },
     {
       "aliases": ["server spec locations"],
-      "body_bytes": 2104,
-      "body_sha256": "sha256:2f6c1c5767486d36e06b3f9b03fa20933b01555ee35b860fffabd2aaf5d09408",
+      "body_bytes": 1517,
+      "body_sha256": "sha256:9d74e993e45f0fb34438a8bc51ea1aff1b8f4763ede2320810121ca44bd4a087",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1186,8 +1186,8 @@
     },
     {
       "aliases": ["server spec locations api discovery spec"],
-      "body_bytes": 1845,
-      "body_sha256": "sha256:0bd85bb08188e8fb25a163951dc653250cb63b959dca9991341028a75519dee5",
+      "body_bytes": 1184,
+      "body_sha256": "sha256:adea46b20de6a48cac2ed2fd02298ac2df203965f25ecbbbb0a4e122ebe2496b",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1262,8 +1262,8 @@
     },
     {
       "aliases": ["server spec locations api discovery spec disabled"],
-      "body_bytes": 1363,
-      "body_sha256": "sha256:6e5d1b5e44ae7d5313997738da5671555d87ba8ea3f9a32c244acc287662a41d",
+      "body_bytes": 1038,
+      "body_sha256": "sha256:4efda042db7912b617a461396a4ff58041e8356dc09fcf7615b583fc0a31aa32",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1302,8 +1302,8 @@
     },
     {
       "aliases": ["server spec locations api discovery spec enabled"],
-      "body_bytes": 1361,
-      "body_sha256": "sha256:f8aa31d78d3ca0ebc375195e8223a20f33e5d16c394a341a97c1c1cea92431a5",
+      "body_bytes": 1036,
+      "body_sha256": "sha256:011e843b2c8b781a3a2de4cc4bccebc66fc32ebf9e2aa4d8a4d357b00a4bea83",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1342,8 +1342,8 @@
     },
     {
       "aliases": ["server spec locations waf spec"],
-      "body_bytes": 3853,
-      "body_sha256": "sha256:72a414598653a852662aba5de916a0608b0f31842ccdc7ee17c941947435c916",
+      "body_bytes": 2559,
+      "body_sha256": "sha256:5dae8b625b9ef076e55d22eb4b21e3e191b635be237f128c78409c06c2e871e2",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1533,8 +1533,8 @@
     },
     {
       "aliases": ["server spec locations waf spec blocking waf mode"],
-      "body_bytes": 1321,
-      "body_sha256": "sha256:c2de8bcad54f8ec4fbc81c1d1352883438814738673f45ec8bebff9d4c46ad1e",
+      "body_bytes": 1016,
+      "body_sha256": "sha256:66338357d7e0dec4510147731f14d26509512820d4818557f66e53fc7d4f786f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1573,8 +1573,8 @@
     },
     {
       "aliases": ["server spec locations waf spec distributed cloud policy management"],
-      "body_bytes": 1403,
-      "body_sha256": "sha256:01c74b2c37356abad5b333e10ba795fbfc116a62baf4b6663b75be8e4238ecf4",
+      "body_bytes": 1098,
+      "body_sha256": "sha256:211226586764c9a3cccf1acc8a49501cb512ae882cdef0ec43a94295e7870ace",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1613,8 +1613,8 @@
     },
     {
       "aliases": ["server spec locations waf spec monitoring waf mode"],
-      "body_bytes": 1355,
-      "body_sha256": "sha256:d4242dce53a7ca757ecf47d8b7168777b0c4ade0900e2c4a81d8e12058bb6b53",
+      "body_bytes": 1050,
+      "body_sha256": "sha256:75b81df2ca59635eeb565a548ab1ea2cf4f26228869644094cfd598f935d57e2",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1653,8 +1653,8 @@
     },
     {
       "aliases": ["server spec locations waf spec nginx policy management"],
-      "body_bytes": 1367,
-      "body_sha256": "sha256:7dfa56bec6a96930aa73709db24e8efcf642e4a1677f1c14e88f6336019bf811",
+      "body_bytes": 1062,
+      "body_sha256": "sha256:14b909578d617b3c9865acc71f8365e86905d01dd88f8ca23698ca2091f165e3",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1693,8 +1693,8 @@
     },
     {
       "aliases": ["server spec locations waf spec none waf mode"],
-      "body_bytes": 1337,
-      "body_sha256": "sha256:affcf8203f7b4b2e71c93db9f0dbf33ad02e21706d26915a26f64471f0f41ae9",
+      "body_bytes": 1032,
+      "body_sha256": "sha256:78680da1399d0afdf0987c0eb941f491894345cabe962a76f0571f30a71959f2",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1733,8 +1733,8 @@
     },
     {
       "aliases": ["server spec waf spec"],
-      "body_bytes": 3476,
-      "body_sha256": "sha256:b21572d1db85f06c2bb837e36250339ee107c02789080dcb2d717b918fe8b860",
+      "body_bytes": 2302,
+      "body_sha256": "sha256:053052298650329d925e445f1ddf7fa08977c775596ce48a026e5edd9d508d0a",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1924,8 +1924,8 @@
     },
     {
       "aliases": ["server spec waf spec blocking waf mode"],
-      "body_bytes": 1118,
-      "body_sha256": "sha256:58d20c5c8d06b4738fbf09d86ffd973773970fcfc19dc958b67f8858024907a5",
+      "body_bytes": 833,
+      "body_sha256": "sha256:731766eb5a1ed2ddc5ab088a2a78afdb97bd88ec735ca77d6cddde0193e7646f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1964,8 +1964,8 @@
     },
     {
       "aliases": ["server spec waf spec distributed cloud policy management"],
-      "body_bytes": 1200,
-      "body_sha256": "sha256:cd683fdac94d03c4e03e2df4fa3990bac9b45c2f827dff0e2152afec4877c70b",
+      "body_bytes": 915,
+      "body_sha256": "sha256:5ea6c5d02fcf7b4b1dc2b59756c49699357d10d2f268d530dda6765bb7708fc2",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2004,8 +2004,8 @@
     },
     {
       "aliases": ["server spec waf spec monitoring waf mode"],
-      "body_bytes": 1152,
-      "body_sha256": "sha256:7e127bdbee4077a66e86360c72a410b4e855bd5636ba98545af038bf31e09664",
+      "body_bytes": 867,
+      "body_sha256": "sha256:0f8130a10024b32d42ba1fe4485627a144e424be4bad4da3d6fe2a0abd0df6dc",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2044,8 +2044,8 @@
     },
     {
       "aliases": ["server spec waf spec nginx policy management"],
-      "body_bytes": 1164,
-      "body_sha256": "sha256:00e035e0e2ad53c4801f0592ee59585be5d703a9d57f2eb0cb1fe5e4888ead35",
+      "body_bytes": 879,
+      "body_sha256": "sha256:08359c7bec101ed314ddf4151acaaf694c28af7d80da80bffffab197548c72d9",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2084,8 +2084,8 @@
     },
     {
       "aliases": ["server spec waf spec none waf mode"],
-      "body_bytes": 1134,
-      "body_sha256": "sha256:cd1f40c6e2e8694d62eaac7f04ff6cfeab913cc6247700af2dc7f39f5f726204",
+      "body_bytes": 849,
+      "body_sha256": "sha256:50f77a0ee3b8746eb57c9e1fd47a4977e669ed024b37743068a565a2d22361d8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2124,8 +2124,8 @@
     },
     {
       "aliases": ["nginx server"],
-      "body_bytes": 657,
-      "body_sha256": "sha256:e803e7542fe916dc66dbcc4e30c494bcb2a3fd93fbb1bc7eac1719fbee07ea23",
+      "body_bytes": 414,
+      "body_sha256": "sha256:907805424d114c4855c569e260c8d9ef7d6cf1a1e6697b0ce70ec0813a051841",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:nginx_server:example:data-source"],
@@ -2164,8 +2164,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1279,
-      "body_sha256": "sha256:f55629e478cedd4d0533642f94d55dc90973204ed168291dc38c3be4d57fe11f",
+      "body_bytes": 1051,
+      "body_sha256": "sha256:be8a692b6950ab503c49216b4aab4cc05188d54c15288b82334ec193463d085a",
       "capabilities": [],
       "category": null,
       "child_ids": [],

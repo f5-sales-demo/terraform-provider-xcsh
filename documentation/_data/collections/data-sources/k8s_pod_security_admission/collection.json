@@ -76,8 +76,8 @@
   "pages": [
     {
       "aliases": ["k8s pod security admission"],
-      "body_bytes": 1477,
-      "body_sha256": "sha256:1dbf18595f23c15bde22d544eefb4215ff4b93e87f84d2fe8d4e5dbf9866cc27",
+      "body_bytes": 1460,
+      "body_sha256": "sha256:d5015ef107e8c51844be14de03e7a2295d9041022eb5fc3c8ceabcaa25b5d6a6",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -108,7 +108,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_admission/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages k8s_pod_security_admission will create the object in the storage backend in F5 Distributed Cloud.",
+      "summary": "Reads Kubernetes Pod Security Admission information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_k8s_pod_security_admission",
       "unresolved_relationships": [],
@@ -120,8 +120,8 @@
     },
     {
       "aliases": ["k8s pod security admission"],
-      "body_bytes": 9637,
-      "body_sha256": "sha256:e61da9238c805c12c4489da178506b9ddf9678340af3ea0e0bbf8ed2319dcedf",
+      "body_bytes": 9351,
+      "body_sha256": "sha256:c4ba04039aa95de21aa4054a756ed085af128661d21f727500f5d955fdd89c67",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:k8s_pod_security_admission:properties:pod_security_admission_specs"],
@@ -273,8 +273,8 @@
     },
     {
       "aliases": ["pod security admission specs"],
-      "body_bytes": 4170,
-      "body_sha256": "sha256:203241fb234878b1aa72a9877a79a781a1e38f8fc98f93b5fbe9b91fb9706425",
+      "body_bytes": 2710,
+      "body_sha256": "sha256:298b47dd81c4f61b3484549dd9dde637fd916a4b6ac2ba2db49f7ed26d629b72",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -417,8 +417,8 @@
     },
     {
       "aliases": ["pod security admission specs audit"],
-      "body_bytes": 1374,
-      "body_sha256": "sha256:aa08c562af8d8535a202399ace48dfd1033367288550b599e2e6d64df10b9d89",
+      "body_bytes": 1038,
+      "body_sha256": "sha256:4dd0be111f57d9828a8e301ffa8eaf08de7986d15178f384b6bb5ee21ba4e033",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -457,8 +457,8 @@
     },
     {
       "aliases": ["pod security admission specs baseline"],
-      "body_bytes": 1380,
-      "body_sha256": "sha256:638fce1c319931e3e53e44c681ed6411af2ae7c8038af0017751259404d351df",
+      "body_bytes": 1044,
+      "body_sha256": "sha256:ed800d88b766f54a4b31fdd1cd458d67cd0cbb57b695e7defee6c9889ff57197",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -497,8 +497,8 @@
     },
     {
       "aliases": ["pod security admission specs enforce"],
-      "body_bytes": 1378,
-      "body_sha256": "sha256:8c45bd71933161e25052ec076a24cbe068c50d1aa0d28cf7f66bd3d0f0f6403f",
+      "body_bytes": 1042,
+      "body_sha256": "sha256:31e8e7b54de5d5493746ddcb6e2666ce73035a199489461770ed8836f519f977",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -537,8 +537,8 @@
     },
     {
       "aliases": ["pod security admission specs privileged"],
-      "body_bytes": 1384,
-      "body_sha256": "sha256:8bc599277a80ec0c6a6d65549f557706dd8d91b5b5309f9f3b1f564aeca6a2bb",
+      "body_bytes": 1048,
+      "body_sha256": "sha256:a8cb292be0e8457052cb9b869de1cf3182b0f54242b55aa86f35c70dfe24724a",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -577,8 +577,8 @@
     },
     {
       "aliases": ["pod security admission specs restricted"],
-      "body_bytes": 1384,
-      "body_sha256": "sha256:534b1b9c5fd68ae85b0b730e6ac2743a9572b92830b9c6e3023bc843c21337e6",
+      "body_bytes": 1048,
+      "body_sha256": "sha256:4e7902210504cbd12692972aa375b69d39d03de180e2653f51526ad15de4151e",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -617,8 +617,8 @@
     },
     {
       "aliases": ["pod security admission specs warn"],
-      "body_bytes": 1372,
-      "body_sha256": "sha256:dcd22c1ffc0ec77328acd2c3a8189910692003a21add37a0b2d084fa1cb67402",
+      "body_bytes": 1036,
+      "body_sha256": "sha256:5819c095c30a581940243b791971bb50a43a8e48e81dbc56591c0869f2f532c5",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -657,8 +657,8 @@
     },
     {
       "aliases": ["k8s pod security admission"],
-      "body_bytes": 741,
-      "body_sha256": "sha256:5be159c2b8595c55f733d3e49eb8e5ea54fbf4957d894e85c87d393352aeba54",
+      "body_bytes": 456,
+      "body_sha256": "sha256:e031fe09c8aec3cd83e388b04de9ddccdd0cbc85672023418f9c4cba0cce60d1",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:k8s_pod_security_admission:example:data-source"],
@@ -697,8 +697,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1456,
-      "body_sha256": "sha256:60fab613eda45361f47d026f3bb8bd18b1b18e9ba6f3658b2662c76b85b4c7f8",
+      "body_bytes": 1186,
+      "body_sha256": "sha256:9bb9991e427e3ea76ac8b1bb111f6fc623c4baaf47d510e1c5ffbeae984fe867",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],

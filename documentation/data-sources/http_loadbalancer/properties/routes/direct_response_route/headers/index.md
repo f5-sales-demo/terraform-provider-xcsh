@@ -2,7 +2,7 @@
 page_title: "routes.direct_response_route.headers"
 subcategory: "Load Balancing"
 description: "List of (key, value) headers."
-xcsh_docs: {"aliases": ["routes direct response route headers"], "body_bytes": 6704, "body_sha256": "sha256:873a61670b097319c3cd15a234e7a529227d6bdc06cf514b525c9d6514bd99d2", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:http_loadbalancer:properties:routes:direct_response_route:headers", "parent_id": "xcsh-docs:data-sources:http_loadbalancer:properties:routes:direct_response_route", "path": "documentation/data-sources/http_loadbalancer/properties/routes/direct_response_route/headers/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1312003333310320-0131033011312212-3332203311320023-1310003020010333-3031223213011201-3123033231122132-3222103001020231-0130211211103030", "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-023.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["routes", "direct_response_route", "headers"], "schema_version": 1, "sections": [{"aliases": ["routes direct response route headers exact"], "anchor": "schema-routes--direct_response_route--headers--exact", "description": "Exclusive with Header value to match exactly.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:routes:direct_response_route:headers", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "direct_response_route", "headers", "exact"], "syntax": "attribute", "type": "string"}, {"aliases": ["routes direct response route headers invert match"], "anchor": "schema-routes--direct_response_route--headers--invert_match", "description": "Invert the result of the match to detect missing header or non-matching value.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:routes:direct_response_route:headers", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "direct_response_route", "headers", "invert_match"], "syntax": "attribute", "type": "bool"}, {"aliases": ["routes direct response route headers name"], "anchor": "schema-routes--direct_response_route--headers--name", "description": "Name of the header.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:routes:direct_response_route:headers", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "direct_response_route", "headers", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["routes direct response route headers presence"], "anchor": "schema-routes--direct_response_route--headers--presence", "description": "Exclusive with If true, check for presence of header.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:routes:direct_response_route:headers", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "direct_response_route", "headers", "presence"], "syntax": "attribute", "type": "bool"}, {"aliases": ["routes direct response route headers regex"], "anchor": "schema-routes--direct_response_route--headers--regex", "description": "Exclusive with Regex match of the header value in re2 format.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:routes:direct_response_route:headers", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "direct_response_route", "headers", "regex"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/http_loadbalancer/properties/routes/direct_response_route/headers/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of (key, value) headers.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["routes direct response route headers"], "body_bytes": 6024, "body_sha256": "sha256:26e9cb0e1a72ea781a1984324e80ceeb943df613dac436c8897c3751c74bbdc4", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:http_loadbalancer:properties:routes:direct_response_route:headers", "parent_id": "xcsh-docs:data-sources:http_loadbalancer:properties:routes:direct_response_route", "path": "documentation/data-sources/http_loadbalancer/properties/routes/direct_response_route/headers/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1312003333310320-0131033011312212-3332203311320023-1310003020010333-3031223213011201-3123033231122132-3222103001020231-0130211211103030", "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-024.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["routes", "direct_response_route", "headers"], "schema_version": 1, "sections": [{"aliases": ["routes direct response route headers exact"], "anchor": "schema-routes--direct_response_route--headers--exact", "description": "Exclusive with Header value to match exactly.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:routes:direct_response_route:headers", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "direct_response_route", "headers", "exact"], "syntax": "attribute", "type": "string"}, {"aliases": ["routes direct response route headers invert match"], "anchor": "schema-routes--direct_response_route--headers--invert_match", "description": "Invert the result of the match to detect missing header or non-matching value.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:routes:direct_response_route:headers", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "direct_response_route", "headers", "invert_match"], "syntax": "attribute", "type": "bool"}, {"aliases": ["routes direct response route headers name"], "anchor": "schema-routes--direct_response_route--headers--name", "description": "Name of the header.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:routes:direct_response_route:headers", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "direct_response_route", "headers", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["routes direct response route headers presence"], "anchor": "schema-routes--direct_response_route--headers--presence", "description": "Exclusive with If true, check for presence of header.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:routes:direct_response_route:headers", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "direct_response_route", "headers", "presence"], "syntax": "attribute", "type": "bool"}, {"aliases": ["routes direct response route headers regex"], "anchor": "schema-routes--direct_response_route--headers--regex", "description": "Exclusive with Regex match of the header value in re2 format.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:routes:direct_response_route:headers", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "direct_response_route", "headers", "regex"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/http_loadbalancer/properties/routes/direct_response_route/headers/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of (key, value) headers.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -24,10 +24,6 @@ Breadcrumbs:
 Type: `"list"`. Computed.
 
 Headers. List of (key, value) headers.
-
-Upstream description:
-
-List of (key, value) headers.
 
 Receipt-pinned upstream constraints:
 
@@ -71,10 +67,6 @@ Receipt-pinned upstream constraints:
 ### exact property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[presence regex\] Header value to match exactly.
-
-Upstream description:
 
 Exclusive with \[presence regex\] Header value to match exactly.
 
@@ -143,10 +135,6 @@ Type: `"string"`. Computed.
 
 Name. Name of the header.
 
-Upstream description:
-
-Name of the header.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -211,10 +199,6 @@ Type: `"bool"`. Computed.
 
 Exclusive with \[exact regex\] If true, check for presence of header.
 
-Upstream description:
-
-Exclusive with \[exact regex\] If true, check for presence of header.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -233,10 +217,6 @@ Receipt-pinned upstream constraints:
 ### regex property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
-
-Upstream description:
 
 Exclusive with \[exact presence\] Regex match of the header value in re2 format.
 
@@ -276,8 +256,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [routes.direct_response_route](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/routes/direct_response_route/)
-- [xcsh_http_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/)

@@ -2,7 +2,7 @@
 page_title: "infra.hw_info.network"
 subcategory: ""
 description: "List of network devices in server."
-xcsh_docs: {"aliases": ["infra hw info network"], "body_bytes": 9531, "body_sha256": "sha256:fb761e3b52169ed7227d92d19b61e528d4126ac5d9e9ae75fc66da9832b41676", "capabilities": ["infrastructure"], "category": "infrastructure", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:registration:collection", "completeness": "complete", "id": "xcsh-docs:resources:registration:properties:infra:hw_info:network", "parent_id": "xcsh-docs:resources:registration:properties:infra:hw_info", "path": "documentation/resources/registration/properties/infra/hw_info/network/index.md", "product": "distributed-cloud", "provider_name": "registration", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3231003001113113-1202202113333121-2322003301233222-3222112331220003-0122022011310202-0302130032123000-1113110310112033-2122332123001001", "registry_path": "docs/guides/resources--registration--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["infra", "hw_info", "network"], "schema_version": 1, "sections": [{"aliases": ["infra hw info network driver"], "anchor": "schema-infra--hw_info--network--driver", "description": "Driver of device, eg. E1000e.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:network", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "network", "driver"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info network ip address"], "anchor": "schema-infra--hw_info--network--ip_address", "description": "IP address on interface.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:network", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "network", "ip_address"], "syntax": "attribute", "type": "list"}, {"aliases": ["infra hw info network link quality"], "anchor": "schema-infra--hw_info--network--link_quality", "description": "Link quality determined by VER using different probes Unknown quality Link quality is good Link quality is poor Quality disabled.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:network", "enum_extraction_complete": true, "enum_validators": [{"case_sensitive": true, "complete": true, "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf", "validator": "OneOf", "values": ["QUALITY_DISABLED", "QUALITY_GOOD", "QUALITY_POOR", "QUALITY_UNKNOWN"], "version": 1}], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "network", "link_quality"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info network link type"], "anchor": "schema-infra--hw_info--network--link_type", "description": "Link type of interface determined operationally Link type unknown Link type ethernet Wi-Fi link of type 802.11ac Wi-Fi link of type 802.11bgn Link type 4G Wi-Fi link Wan link.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:network", "enum_extraction_complete": true, "enum_validators": [{"case_sensitive": true, "complete": true, "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf", "validator": "OneOf", "values": ["LINK_TYPE_4G", "LINK_TYPE_ETHERNET", "LINK_TYPE_UNKNOWN", "LINK_TYPE_WAN", "LINK_TYPE_WIFI", "LINK_TYPE_WIFI_802_11AC", "LINK_TYPE_WIFI_802_11BGN"], "version": 1}], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "network", "link_type"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info network mac address"], "anchor": "schema-infra--hw_info--network--mac_address", "description": "MAC address on interface.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:network", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "network", "mac_address"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info network name"], "anchor": "schema-infra--hw_info--network--name", "description": "Name of device, eg. Eth0.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:network", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "network", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info network port"], "anchor": "schema-infra--hw_info--network--port", "description": "Used port, eg. Tp.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:network", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "network", "port"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info network speed"], "anchor": "schema-infra--hw_info--network--speed", "description": "Device max supported speed in Mbps.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:network", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "network", "speed"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/registration/properties/infra/hw_info/network/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of network devices in server.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["registrationCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["infra hw info network"], "body_bytes": 8567, "body_sha256": "sha256:e654031916bbd3117b8fb85318423367c857f721a3e340db445537b644e33d99", "capabilities": ["infrastructure"], "category": "infrastructure", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:registration:collection", "completeness": "complete", "id": "xcsh-docs:resources:registration:properties:infra:hw_info:network", "parent_id": "xcsh-docs:resources:registration:properties:infra:hw_info", "path": "documentation/resources/registration/properties/infra/hw_info/network/index.md", "product": "distributed-cloud", "provider_name": "registration", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3231003001113113-1202202113333121-2322003301233222-3222112331220003-0122022011310202-0302130032123000-1113110310112033-2122332123001001", "registry_path": "docs/guides/resources--registration--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["infra", "hw_info", "network"], "schema_version": 1, "sections": [{"aliases": ["infra hw info network driver"], "anchor": "schema-infra--hw_info--network--driver", "description": "Driver of device, eg. E1000e.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:network", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "network", "driver"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info network ip address"], "anchor": "schema-infra--hw_info--network--ip_address", "description": "IP address on interface.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:network", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "network", "ip_address"], "syntax": "attribute", "type": "list"}, {"aliases": ["infra hw info network link quality"], "anchor": "schema-infra--hw_info--network--link_quality", "description": "Link quality determined by VER using different probes Unknown quality Link quality is good Link quality is poor Quality disabled.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:network", "enum_extraction_complete": true, "enum_validators": [{"case_sensitive": true, "complete": true, "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf", "validator": "OneOf", "values": ["QUALITY_DISABLED", "QUALITY_GOOD", "QUALITY_POOR", "QUALITY_UNKNOWN"], "version": 1}], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "network", "link_quality"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info network link type"], "anchor": "schema-infra--hw_info--network--link_type", "description": "Link type of interface determined operationally Link type unknown Link type ethernet Wi-Fi link of type 802.11ac Wi-Fi link of type 802.11bgn Link type 4G Wi-Fi link Wan link.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:network", "enum_extraction_complete": true, "enum_validators": [{"case_sensitive": true, "complete": true, "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf", "validator": "OneOf", "values": ["LINK_TYPE_4G", "LINK_TYPE_ETHERNET", "LINK_TYPE_UNKNOWN", "LINK_TYPE_WAN", "LINK_TYPE_WIFI", "LINK_TYPE_WIFI_802_11AC", "LINK_TYPE_WIFI_802_11BGN"], "version": 1}], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "network", "link_type"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info network mac address"], "anchor": "schema-infra--hw_info--network--mac_address", "description": "MAC address on interface.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:network", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "network", "mac_address"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info network name"], "anchor": "schema-infra--hw_info--network--name", "description": "Name of device, eg. Eth0.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:network", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "network", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info network port"], "anchor": "schema-infra--hw_info--network--port", "description": "Used port, eg. Tp.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:network", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "network", "port"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info network speed"], "anchor": "schema-infra--hw_info--network--speed", "description": "Device max supported speed in Mbps.", "document_id": "xcsh-docs:resources:registration:properties:infra:hw_info:network", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "network", "speed"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/registration/properties/infra/hw_info/network/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of network devices in server.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["registrationCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -24,10 +24,6 @@ Breadcrumbs:
 Type: `"object"`. list nested block, Optional.
 
 Network. List of network devices in server.
-
-Upstream description:
-
-List of network devices in server.
 
 Receipt-pinned upstream constraints:
 
@@ -72,10 +68,6 @@ Type: `"string"`. Optional.
 
 Driver. Driver of device, eg. E1000e.
 
-Upstream description:
-
-Driver of device, eg. E1000e.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -107,10 +99,6 @@ Type: `["list", "string"]`. Optional.
 
 IP Address. IP address on interface.
 
-Upstream description:
-
-IP address on interface.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -134,12 +122,6 @@ Type: `"string"`. Optional.
 VER using different probes Unknown quality Link quality is good Link quality is poor Quality
 disabled. Possible values are \`QUALITY\_UNKNOWN\`, \`QUALITY\_GOOD\`, \`QUALITY\_POOR\`,
 \`QUALITY\_DISABLED\`. Defaults to \`QUALITY\_UNKNOWN\`.
-
-Upstream description:
-
-Link quality determined by VER using different probes
-
-Unknown quality Link quality is good Link quality is poor Quality disabled.
 
 Provider validators and defaults (from schema source):
 
@@ -188,13 +170,6 @@ type 802.11ac Wi-Fi link of type 802.11bgn Link type 4G Wi-Fi link Wan link. Pos
 \`LINK\_TYPE\_WIFI\_802\_11BGN\`, \`LINK\_TYPE\_4G\`, \`LINK\_TYPE\_WIFI\`, \`LINK\_TYPE\_WAN\`.
 Defaults to \`LINK\_TYPE\_UNKNOWN\`.
 
-Upstream description:
-
-Link type of interface determined operationally
-
-Link type unknown Link type ethernet Wi-Fi link of type 802.11ac Wi-Fi link of type 802.11bgn Link
-type 4G Wi-Fi link Wan link.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -241,10 +216,6 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Optional.
 
 MAC Address. MAC address on interface.
-
-Upstream description:
-
-MAC address on interface.
 
 Provider validators and defaults (from schema source):
 
@@ -293,10 +264,6 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Optional.
 
 Name. Name of device, eg. Eth0.
-
-Upstream description:
-
-Name of device, eg. Eth0.
 
 Provider validators and defaults (from schema source):
 
@@ -355,10 +322,6 @@ Type: `"string"`. Optional.
 
 Port. Used port, eg. Tp.
 
-Upstream description:
-
-Used port, eg. Tp.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -390,10 +353,6 @@ Type: `"number"`. Optional.
 
 Speed. Device max supported speed in Mbps.
 
-Upstream description:
-
-Device max supported speed in Mbps.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -406,8 +365,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [infra.hw_info](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/registration/properties/infra/hw_info/)
-- [xcsh_registration](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/registration/)

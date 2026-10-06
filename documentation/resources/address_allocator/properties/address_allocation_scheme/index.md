@@ -2,7 +2,7 @@
 page_title: "address_allocation_scheme"
 subcategory: ""
 description: "Decides the scheme to be used to allocate addresses from the configured address pool."
-xcsh_docs: {"aliases": ["address allocation scheme"], "body_bytes": 7628, "body_sha256": "sha256:9a1ef47905d7935827e60fd963202749e68e7523529a135ac45784e6eb1d98a8", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:address_allocator:collection", "completeness": "complete", "id": "xcsh-docs:resources:address_allocator:properties:address_allocation_scheme", "parent_id": "xcsh-docs:resources:address_allocator:reference", "path": "documentation/resources/address_allocator/properties/address_allocation_scheme/index.md", "product": "distributed-cloud", "provider_name": "address_allocator", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3230300123333023-3021311210200313-1101220223020003-1031221103211013-2001322121201301-0211230330330103-2030331033011233-2322001313001032", "registry_path": "docs/guides/resources--address_allocator--reference--group-001.md", "relationships": [{"anchor": "schema-address_allocation_scheme--allocation_unit", "enforcement": "provider-schema", "group": "address_allocation_scheme:RequiredObjectAttributes:allocation_unit", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:address_allocator:properties:address_allocation_scheme", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["address_allocation_scheme"], "schema_version": 1, "sections": [{"aliases": ["address allocation scheme allocation unit"], "anchor": "schema-address_allocation_scheme--allocation_unit", "description": "Prefix length indicating the size of each allocated subnet. For example, if this is specified as 30, subnets of /30 will be allocated from the given address pool.", "document_id": "xcsh-docs:resources:address_allocator:properties:address_allocation_scheme", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["address_allocation_scheme", "allocation_unit"], "syntax": "attribute", "type": "number"}, {"aliases": ["address allocation scheme local interface address offset"], "anchor": "schema-address_allocation_scheme--local_interface_address_offset", "description": "This is used to derive address for the local interface from the allocated subnet. If Local Interface Address Type is set to \"Offset from beginning of Subnet\", this offset value is added to the allocated subnet and used as the local interface address. For example, if the allocated subnet is 192.0.2.0/24 and offset is", "document_id": "xcsh-docs:resources:address_allocator:properties:address_allocation_scheme", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["address_allocation_scheme", "local_interface_address_offset"], "syntax": "attribute", "type": "number"}, {"aliases": ["address allocation scheme local interface address type"], "anchor": "schema-address_allocation_scheme--local_interface_address_type", "description": "Dictates how local interface address is derived from the allocated subnet Use Nth address of the allocated subnet as the local interface address, N being the Local Interface Address Offset. For example, if the allocated subnet is 192.0.2.0/24, Local Interface Address Offset is set to 2 and Local Interface Address Type", "document_id": "xcsh-docs:resources:address_allocator:properties:address_allocation_scheme", "enum_extraction_complete": true, "enum_validators": [{"case_sensitive": true, "complete": true, "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf", "validator": "OneOf", "values": ["LOCAL_INTERFACE_ADDRESS_FROM_PREFIX", "LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN", "LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_END"], "version": 1}], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["address_allocation_scheme", "local_interface_address_type"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/address_allocator/properties/address_allocation_scheme/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Decides the scheme to be used to allocate addresses from the configured address pool.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["address_allocatorCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["address allocation scheme"], "body_bytes": 7202, "body_sha256": "sha256:c2f26cb1c836a39664028107a8efccd5d4bb2444e8c58a6a7c1fa840da9d13bf", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:address_allocator:collection", "completeness": "complete", "id": "xcsh-docs:resources:address_allocator:properties:address_allocation_scheme", "parent_id": "xcsh-docs:resources:address_allocator:reference", "path": "documentation/resources/address_allocator/properties/address_allocation_scheme/index.md", "product": "distributed-cloud", "provider_name": "address_allocator", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3230300123333023-3021311210200313-1101220223020003-1031221103211013-2001322121201301-0211230330330103-2030331033011233-2322001313001032", "registry_path": "docs/guides/resources--address_allocator--reference--group-001.md", "relationships": [{"anchor": "schema-address_allocation_scheme--allocation_unit", "enforcement": "provider-schema", "group": "address_allocation_scheme:RequiredObjectAttributes:allocation_unit", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:address_allocator:properties:address_allocation_scheme", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["address_allocation_scheme"], "schema_version": 1, "sections": [{"aliases": ["address allocation scheme allocation unit"], "anchor": "schema-address_allocation_scheme--allocation_unit", "description": "Prefix length indicating the size of each allocated subnet. For example, if this is specified as 30, subnets of /30 will be allocated from the given address pool.", "document_id": "xcsh-docs:resources:address_allocator:properties:address_allocation_scheme", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["address_allocation_scheme", "allocation_unit"], "syntax": "attribute", "type": "number"}, {"aliases": ["address allocation scheme local interface address offset"], "anchor": "schema-address_allocation_scheme--local_interface_address_offset", "description": "This is used to derive address for the local interface from the allocated subnet. If Local Interface Address Type is set to \"Offset from beginning of Subnet\", this offset value is added to the allocated subnet and used as the local interface address. For example, if the allocated subnet is 192.0.2.0/24 and offset is", "document_id": "xcsh-docs:resources:address_allocator:properties:address_allocation_scheme", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["address_allocation_scheme", "local_interface_address_offset"], "syntax": "attribute", "type": "number"}, {"aliases": ["address allocation scheme local interface address type"], "anchor": "schema-address_allocation_scheme--local_interface_address_type", "description": "Dictates how local interface address is derived from the allocated subnet Use Nth address of the allocated subnet as the local interface address, N being the Local Interface Address Offset. For example, if the allocated subnet is 192.0.2.0/24, Local Interface Address Offset is set to 2 and Local Interface Address Type", "document_id": "xcsh-docs:resources:address_allocator:properties:address_allocation_scheme", "enum_extraction_complete": true, "enum_validators": [{"case_sensitive": true, "complete": true, "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf", "validator": "OneOf", "values": ["LOCAL_INTERFACE_ADDRESS_FROM_PREFIX", "LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN", "LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_END"], "version": 1}], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["address_allocation_scheme", "local_interface_address_type"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/address_allocator/properties/address_allocation_scheme/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Decides the scheme to be used to allocate addresses from the configured address pool.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["address_allocatorCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -62,11 +62,6 @@ Type: `"number"`. Optional.
 Prefix length indicating the size of each allocated subnet. For example, if this is specified as 30,
 subnets of /30 will be allocated from the given address pool.
 
-Upstream description:
-
-Prefix length indicating the size of each allocated subnet. For example, if this is specified as 30,
-subnets of /30 will be allocated from the given address pool.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -121,19 +116,17 @@ Used to derive address for the local interface from the allocated subnet. If Loc
 Type is set to 'Offset from beginning of Subnet', this offset value is added to the allocated subnet
 and used as the local interface address. For example, if the allocated subnet is 192.0.2.0/24..
 
-Upstream description:
+Additional upstream details:
 
-This is used to derive address for the local interface from the allocated subnet.
-
-If Local Interface Address Type is set to "Offset from beginning of Subnet", this offset value is
-added to the allocated subnet and used as the local interface address. For example, if the allocated
-subnet is 192.0.2.0/24 and offset is set to 2 with Local Interface Address Type set to "Offset from
-beginning of Subnet", local interface address of 192.0.2.204 is used.
-
-If Local Interface Address Type is set to "Offset from end of Subnet", this offset value is
-subtracted from the end of the allocated subnet and used as the local interface address. For
-example, if the allocated subnet is 192.0.2.0/24 and offset is set to 1 with Local Interface Address
-Type set to "Offset from end of Subnet", local interface address of 192.0.2.204 is used.
+This is used to derive address for the local interface from the allocated subnet. If Local Interface
+Address Type is set to "Offset from beginning of Subnet", this offset value is added to the
+allocated subnet and used as the local interface address. For example, if the allocated subnet is
+192.0.2.0/24 and offset is set to 2 with Local Interface Address Type set to "Offset from beginning
+of Subnet", local interface address of 192.0.2.204 is used. If Local Interface Address Type is set
+to "Offset from end of Subnet", this offset value is subtracted from the end of the allocated subnet
+and used as the local interface address. For example, if the allocated subnet is 192.0.2.0/24 and
+offset is set to 1 with Local Interface Address Type set to "Offset from end of Subnet", local
+interface address of 192.0.2.204 is used.
 
 Provider validators and defaults (from schema source):
 
@@ -193,21 +186,18 @@ Local.. Possible values are \`LOCAL\_INTERFACE\_ADDRESS\_OFFSET\_FROM\_SUBNET\_B
 \`LOCAL\_INTERFACE\_ADDRESS\_FROM\_PREFIX\`. Defaults to
 \`LOCAL\_INTERFACE\_ADDRESS\_OFFSET\_FROM\_SUBNET\_BEGIN\`.
 
-Upstream description:
+Additional upstream details:
 
 Dictates how local interface address is derived from the allocated subnet
 
 Use Nth address of the allocated subnet as the local interface address, N being the Local Interface
 Address Offset. For example, if the allocated subnet is 192.0.2.0/24, Local Interface Address Offset
 is set to 2 and Local Interface Address Type is set to "Offset from beginning of Subnet", local
-address of 192.0.2.204 is used.
-
-Use Nth last address of the allocated subnet as the local interface address, N being the Local
-Interface Address Offset. For example, if the allocated subnet is 192.0.2.0/24, Local Interface
-Address Offset is set to 1 and Local Interface Address Type is set to "Offset from end of Subnet",
-local address of 192.0.2.204 is used.
-
-This case is used for external\_connector.
+address of 192.0.2.204 is used. Use Nth last address of the allocated subnet as the local interface
+address, N being the Local Interface Address Offset. For example, if the allocated subnet is
+192.0.2.0/24, Local Interface Address Offset is set to 1 and Local Interface Address Type is set to
+"Offset from end of Subnet", local address of 192.0.2.204 is used. This case is used for
+external\_connector.
 
 Provider validators and defaults (from schema source):
 
@@ -239,8 +229,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/address_allocator/properties/)
-- [xcsh_address_allocator](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/address_allocator/)

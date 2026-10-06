@@ -12,18 +12,16 @@ description: "Complete grouped canonical reference for xcsh_site_registrations_b
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1310211312202312-0111302112221130-2332032331211201-2101211200302231-0212002030211133-3211222101310323-0003222033332220-2331330320332222"></a>
-
-## Property reference — Property reference / 232222321012 / 2
+## Property reference
 
 Breadcrumbs:
 
 - [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
 - Property reference
 
-<a id="canonical-3202201311300322-1312123003221231-2320332223011101-1033212332012013-1122210022022230-3323330332320331-0002301110100332-2013330203200221"></a>
+<a id="canonical-1310211312202312-0111302112221130-2332032331211201-2101211200302231-0212002030211133-3211222101310323-0003222033332220-2331330320332222"></a>
 
-## Direct properties — Property reference / 232222321012 / 3
+### Direct properties for `xcsh_site_registrations_by_site`
 
 - [errors](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2013102103332103-3223103301200231-2231130003331233-3211200111202011-3100030130323312-0322020330331113-0212232231313021-1201101122301112): complete subsection reference.
 
@@ -31,9 +29,9 @@ Breadcrumbs:
 
 <a id="canonical-1020201123321233-1332311033331201-0111301303111231-1321203323030113-1332303212331322-3321203211230023-1203022212131123-1200210320132322"></a>
 
-<a id="canonical-2211030233233322-2020223031120132-2213322201221330-1203111010122232-1001230032133002-1130031102013330-0231323000012203-0201032131201202"></a>
+<a id="canonical-3202201311300322-1312123003221231-2320332223011101-1033212332012013-1122210022022230-3323330332320331-0002301110100332-2013330203200221"></a>
 
-## namespace property — Property reference / 232222321012 / 4
+#### `namespace` property
 
 Type: `"string"`. Optional, Computed.
 
@@ -41,17 +39,17 @@ Namespace. Registration namespace, only 'system' namespaces is accepted.
 
 <a id="canonical-0212302230111333-3313021112321102-1023300231321022-3202300302310023-3130001121210312-2123133132111213-1200321301122100-2023030301131123"></a>
 
-<a id="canonical-2031312333203331-2101232330113312-0131312201001010-1010321313323123-1111211333120001-2101211303010133-2300101200331003-2021200023102220"></a>
+<a id="canonical-2211030233233322-2020223031120132-2213322201221330-1203111010122232-1001230032133002-1130031102013330-0231323000012203-0201032131201202"></a>
 
-## site_name property — Property reference / 232222321012 / 5
+#### `site_name` property
 
 Type: `"string"`. Required.
 
 SiteName. Site name to be used for registration filtering.
 
-<a id="canonical-2112323111022023-1333323331132120-1000010133002212-0210003203212303-2221113020330220-0011302213213310-1121333330202010-2212202023030131"></a>
+<a id="canonical-2031312333203331-2101232330113312-0131312201001010-1010321313323123-1111211333120001-2101211303010133-2300101200331003-2021200023102220"></a>
 
-## All schema paths — Property reference / 232222321012 / 6
+### All schema paths for `xcsh_site_registrations_by_site`
 
 Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
@@ -109,40 +107,40 @@ Each exact path has one authoritative reference destination. Collection element 
 | `items.get_spec.infra.hw_info.gpu` | [items.get_spec.infra.hw_info.gpu](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1120323223212312-2223121111313111-2030321330010223-0203110032203312-0221023121201323-0020213313003230-0333013123312000-3332123133120133) |
 | `items.get_spec.infra.hw_info.gpu.cuda_version` | [items.get_spec.infra.hw_info.gpu.cuda_version](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1012320220122013-2203020111311101-0212201022213031-2113231110330200-1320031220311003-1112111110231002-2202131322010132-3100203312103130) |
 | `items.get_spec.infra.hw_info.gpu.driver_version` | [items.get_spec.infra.hw_info.gpu.driver_version](data-sources--site_registrations_by_site--reference--group-001.md#canonical-3211130210112012-2132022122031202-1300210300232323-2212100233123211-1223103332223221-3203002310312231-0012023102232203-2001132023300022) |
-| `items.get_spec.infra.hw_info.gpu.gpu_device` | [items.get_spec.infra.hw_info.gpu.gpu_device](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1230032011322012-0233303101231001-2102011130303121-1013123133331311-0210103012121021-2103201222231111-3131003000023301-1231013200132031) |
-| `items.get_spec.infra.hw_info.gpu.gpu_device.id` | [items.get_spec.infra.hw_info.gpu.gpu_device.id](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2311110300120321-0213312000302010-2303010300200013-1223331010123223-0231312011303230-1321103023121011-0223203030121332-3321123102120121) |
-| `items.get_spec.infra.hw_info.gpu.gpu_device.processes` | [items.get_spec.infra.hw_info.gpu.gpu_device.processes](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0133303200200202-1013031023200131-3301023221231030-3112313011032232-2211330003123302-0321210021032212-3113120112121001-3122100120023213) |
-| `items.get_spec.infra.hw_info.gpu.gpu_device.product_name` | [items.get_spec.infra.hw_info.gpu.gpu_device.product_name](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1230203103200202-0002222030030310-0303132022102221-2220313320110030-1221022203012132-0131100221113110-0113100231302023-3131210301002133) |
-| `items.get_spec.infra.hw_info.kernel` | [items.get_spec.infra.hw_info.kernel](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1130010313321130-0221332232333221-1002312011131313-3023033313122330-1012211213130313-2033301210011300-2333333331123203-2001211022113331) |
-| `items.get_spec.infra.hw_info.kernel.architecture` | [items.get_spec.infra.hw_info.kernel.architecture](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1231103000022003-0210131212032232-1213333122132333-2010221322330022-2231231022323213-2323312021300212-2032200021111303-1122331003001231) |
-| `items.get_spec.infra.hw_info.kernel.release` | [items.get_spec.infra.hw_info.kernel.release](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1030133012302003-2323331010132110-3031201312131320-1312221103232002-0002232303033202-1120200201332101-2222213023010223-3010000211130002) |
-| `items.get_spec.infra.hw_info.kernel.version` | [items.get_spec.infra.hw_info.kernel.version](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2303221220300212-2331332320012012-1322331023021322-3230002300123212-0021320023003023-0320113102303020-0033232033102320-3333233032331001) |
-| `items.get_spec.infra.hw_info.memory` | [items.get_spec.infra.hw_info.memory](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1011011220300100-2111101123210113-0310122220130330-3222321222221211-2031123030200003-3113212330303212-0131001301301001-1302332003012211) |
-| `items.get_spec.infra.hw_info.memory.size_mb` | [items.get_spec.infra.hw_info.memory.size_mb](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3001012023120333-3333002230113013-0302130013222030-0120022012002131-1333300322230322-3032132001320020-2130020333201032-3131020310320121) |
-| `items.get_spec.infra.hw_info.memory.speed` | [items.get_spec.infra.hw_info.memory.speed](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2322332320312012-3212131121302110-2012032033000011-3121313332133230-1211123100020031-0100223200011123-2101323003313122-0221003301200332) |
-| `items.get_spec.infra.hw_info.memory.type` | [items.get_spec.infra.hw_info.memory.type](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3101313110320000-2331101223012323-2233121321221030-0111223011022020-0333101200311000-0301032202333211-2213102031303130-0213201013033333) |
-| `items.get_spec.infra.hw_info.network` | [items.get_spec.infra.hw_info.network](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0220120032111011-1102102102312012-2003203100001300-2302330203132123-0312210230001111-1103011111100121-2300301120133203-0210110302323110) |
-| `items.get_spec.infra.hw_info.network.driver` | [items.get_spec.infra.hw_info.network.driver](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2223311220301233-2202113222220301-0213123200211103-1103012123013130-2130102000303000-3023102221100310-2210300112201323-0031300231031102) |
-| `items.get_spec.infra.hw_info.network.ip_address` | [items.get_spec.infra.hw_info.network.ip_address](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2313131223220312-1011213100322221-0210332230212203-0022231232021200-3122310332222102-0200121112120213-3322212300331221-3330101133003330) |
-| `items.get_spec.infra.hw_info.network.link_quality` | [items.get_spec.infra.hw_info.network.link_quality](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1200131102231122-2000222230331113-0302120220122221-3303233102021322-0133231021012331-2100031231113231-2033201333011011-2020010303130301) |
-| `items.get_spec.infra.hw_info.network.link_type` | [items.get_spec.infra.hw_info.network.link_type](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2211230030301301-1320002032011320-2122312132320303-1303112232013200-3333011333302033-0331321033132130-3203322111333000-0300331330313013) |
-| `items.get_spec.infra.hw_info.network.mac_address` | [items.get_spec.infra.hw_info.network.mac_address](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3002002030032202-2303220021213232-3311211001222220-2210122133103010-1012010200131333-0133230021211233-3110100032220233-2102321320312023) |
-| `items.get_spec.infra.hw_info.network.name` | [items.get_spec.infra.hw_info.network.name](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2021220202321113-2210001310233102-1032210310300311-3223310212223210-0310023110313133-3310101323233331-1321120103103033-1232203123113301) |
-| `items.get_spec.infra.hw_info.network.port` | [items.get_spec.infra.hw_info.network.port](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1111130213330200-3012332221330311-3220132010011333-0212103201012223-3203103011301102-0320020032221311-3200112031322121-2311001013113331) |
-| `items.get_spec.infra.hw_info.network.speed` | [items.get_spec.infra.hw_info.network.speed](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1231100011002202-3130221120203202-0132033013323210-1023003002000223-0002301111201200-1000313330003211-0200123030310222-0233033023323213) |
+| `items.get_spec.infra.hw_info.gpu.gpu_device` | [items.get_spec.infra.hw_info.gpu.gpu_device](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1230032011322012-0233303101231001-2102011130303121-1013123133331311-0210103012121021-2103201222231111-3131003000023301-1231013200132031) |
+| `items.get_spec.infra.hw_info.gpu.gpu_device.id` | [items.get_spec.infra.hw_info.gpu.gpu_device.id](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2311110300120321-0213312000302010-2303010300200013-1223331010123223-0231312011303230-1321103023121011-0223203030121332-3321123102120121) |
+| `items.get_spec.infra.hw_info.gpu.gpu_device.processes` | [items.get_spec.infra.hw_info.gpu.gpu_device.processes](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0133303200200202-1013031023200131-3301023221231030-3112313011032232-2211330003123302-0321210021032212-3113120112121001-3122100120023213) |
+| `items.get_spec.infra.hw_info.gpu.gpu_device.product_name` | [items.get_spec.infra.hw_info.gpu.gpu_device.product_name](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1230203103200202-0002222030030310-0303132022102221-2220313320110030-1221022203012132-0131100221113110-0113100231302023-3131210301002133) |
+| `items.get_spec.infra.hw_info.kernel` | [items.get_spec.infra.hw_info.kernel](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1130010313321130-0221332232333221-1002312011131313-3023033313122330-1012211213130313-2033301210011300-2333333331123203-2001211022113331) |
+| `items.get_spec.infra.hw_info.kernel.architecture` | [items.get_spec.infra.hw_info.kernel.architecture](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1231103000022003-0210131212032232-1213333122132333-2010221322330022-2231231022323213-2323312021300212-2032200021111303-1122331003001231) |
+| `items.get_spec.infra.hw_info.kernel.release` | [items.get_spec.infra.hw_info.kernel.release](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1030133012302003-2323331010132110-3031201312131320-1312221103232002-0002232303033202-1120200201332101-2222213023010223-3010000211130002) |
+| `items.get_spec.infra.hw_info.kernel.version` | [items.get_spec.infra.hw_info.kernel.version](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2303221220300212-2331332320012012-1322331023021322-3230002300123212-0021320023003023-0320113102303020-0033232033102320-3333233032331001) |
+| `items.get_spec.infra.hw_info.memory` | [items.get_spec.infra.hw_info.memory](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1011011220300100-2111101123210113-0310122220130330-3222321222221211-2031123030200003-3113212330303212-0131001301301001-1302332003012211) |
+| `items.get_spec.infra.hw_info.memory.size_mb` | [items.get_spec.infra.hw_info.memory.size_mb](data-sources--site_registrations_by_site--reference--group-001.md#canonical-3001012023120333-3333002230113013-0302130013222030-0120022012002131-1333300322230322-3032132001320020-2130020333201032-3131020310320121) |
+| `items.get_spec.infra.hw_info.memory.speed` | [items.get_spec.infra.hw_info.memory.speed](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2322332320312012-3212131121302110-2012032033000011-3121313332133230-1211123100020031-0100223200011123-2101323003313122-0221003301200332) |
+| `items.get_spec.infra.hw_info.memory.type` | [items.get_spec.infra.hw_info.memory.type](data-sources--site_registrations_by_site--reference--group-001.md#canonical-3101313110320000-2331101223012323-2233121321221030-0111223011022020-0333101200311000-0301032202333211-2213102031303130-0213201013033333) |
+| `items.get_spec.infra.hw_info.network` | [items.get_spec.infra.hw_info.network](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0220120032111011-1102102102312012-2003203100001300-2302330203132123-0312210230001111-1103011111100121-2300301120133203-0210110302323110) |
+| `items.get_spec.infra.hw_info.network.driver` | [items.get_spec.infra.hw_info.network.driver](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2223311220301233-2202113222220301-0213123200211103-1103012123013130-2130102000303000-3023102221100310-2210300112201323-0031300231031102) |
+| `items.get_spec.infra.hw_info.network.ip_address` | [items.get_spec.infra.hw_info.network.ip_address](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2313131223220312-1011213100322221-0210332230212203-0022231232021200-3122310332222102-0200121112120213-3322212300331221-3330101133003330) |
+| `items.get_spec.infra.hw_info.network.link_quality` | [items.get_spec.infra.hw_info.network.link_quality](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1200131102231122-2000222230331113-0302120220122221-3303233102021322-0133231021012331-2100031231113231-2033201333011011-2020010303130301) |
+| `items.get_spec.infra.hw_info.network.link_type` | [items.get_spec.infra.hw_info.network.link_type](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2211230030301301-1320002032011320-2122312132320303-1303112232013200-3333011333302033-0331321033132130-3203322111333000-0300331330313013) |
+| `items.get_spec.infra.hw_info.network.mac_address` | [items.get_spec.infra.hw_info.network.mac_address](data-sources--site_registrations_by_site--reference--group-001.md#canonical-3002002030032202-2303220021213232-3311211001222220-2210122133103010-1012010200131333-0133230021211233-3110100032220233-2102321320312023) |
+| `items.get_spec.infra.hw_info.network.name` | [items.get_spec.infra.hw_info.network.name](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2021220202321113-2210001310233102-1032210310300311-3223310212223210-0310023110313133-3310101323233331-1321120103103033-1232203123113301) |
+| `items.get_spec.infra.hw_info.network.port` | [items.get_spec.infra.hw_info.network.port](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1111130213330200-3012332221330311-3220132010011333-0212103201012223-3203103011301102-0320020032221311-3200112031322121-2311001013113331) |
+| `items.get_spec.infra.hw_info.network.speed` | [items.get_spec.infra.hw_info.network.speed](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1231100011002202-3130221120203202-0132033013323210-1023003002000223-0002301111201200-1000313330003211-0200123030310222-0233033023323213) |
 | `items.get_spec.infra.hw_info.numa_nodes` | [items.get_spec.infra.hw_info.numa_nodes](data-sources--site_registrations_by_site--reference--group-001.md#canonical-3023213300020203-0323323112233110-2200011100330200-3223102231130101-1032002130000221-3213111223202123-0010322310320230-0333200202231230) |
-| `items.get_spec.infra.hw_info.os` | [items.get_spec.infra.hw_info.os](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1211112210022221-1312323023332120-2220012022312022-3200122211020013-2002222023233033-0222112102032211-1002301333021033-0021333030300210) |
-| `items.get_spec.infra.hw_info.os.architecture` | [items.get_spec.infra.hw_info.os.architecture](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0103230301112003-2230223000223122-3330231113203131-1133101031123031-1231233200232111-1102101130212311-2200033233020113-2322032310221103) |
-| `items.get_spec.infra.hw_info.os.name` | [items.get_spec.infra.hw_info.os.name](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2231102221300332-3001233130330321-3233213000203322-1100133313101221-2112231100123001-1100112023321201-1332033122300202-0200010322112310) |
-| `items.get_spec.infra.hw_info.os.release` | [items.get_spec.infra.hw_info.os.release](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2021331322332101-3001033012010021-2100302221032101-1012231022003000-1313002200000221-0023110313320332-0323121111123131-2220323202220132) |
-| `items.get_spec.infra.hw_info.os.vendor` | [items.get_spec.infra.hw_info.os.vendor](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0210023033212221-1022312002002211-0211112323322111-2330030211222231-0031211123003131-1323211000211300-2002333323230013-0312303013302310) |
-| `items.get_spec.infra.hw_info.os.version` | [items.get_spec.infra.hw_info.os.version](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2311312330311333-2222002321131330-3002121323100213-2201313011301202-2300212033133102-2110220333020110-0320320102113021-1000310333131320) |
-| `items.get_spec.infra.hw_info.product` | [items.get_spec.infra.hw_info.product](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2233203322200131-0322222132133321-0000000233321130-2113010221200020-3101222012023301-3330303211033211-1130112131130222-0332212313131223) |
-| `items.get_spec.infra.hw_info.product.name` | [items.get_spec.infra.hw_info.product.name](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0133212020312323-2321323031312312-0210021010113230-2221013201323110-1201321123132302-0310331311232313-2232003013313020-2321133222023223) |
-| `items.get_spec.infra.hw_info.product.serial` | [items.get_spec.infra.hw_info.product.serial](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1102230000300231-3301022111001332-1311133000212302-1023213102222212-3022132012033001-2122231103223100-2313223202123323-1230012120203030) |
-| `items.get_spec.infra.hw_info.product.vendor` | [items.get_spec.infra.hw_info.product.vendor](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2113222120031223-0223003002223322-0033030203223110-2323212020013103-3012301212032233-2121323221031332-0233023322310313-2221122200300110) |
-| `items.get_spec.infra.hw_info.product.version` | [items.get_spec.infra.hw_info.product.version](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0221310302021132-3120233121302000-3312102211212102-3303000002120220-1201122101233002-3303100232230233-2011213001233130-2020211010210111) |
-| `items.get_spec.infra.hw_info.storage` | [items.get_spec.infra.hw_info.storage](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2103000021320230-2332301210111032-1212303033330230-2131330011223130-1101133211323011-3130012321112013-3212200233201233-3002222323200001) |
+| `items.get_spec.infra.hw_info.os` | [items.get_spec.infra.hw_info.os](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1211112210022221-1312323023332120-2220012022312022-3200122211020013-2002222023233033-0222112102032211-1002301333021033-0021333030300210) |
+| `items.get_spec.infra.hw_info.os.architecture` | [items.get_spec.infra.hw_info.os.architecture](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0103230301112003-2230223000223122-3330231113203131-1133101031123031-1231233200232111-1102101130212311-2200033233020113-2322032310221103) |
+| `items.get_spec.infra.hw_info.os.name` | [items.get_spec.infra.hw_info.os.name](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2231102221300332-3001233130330321-3233213000203322-1100133313101221-2112231100123001-1100112023321201-1332033122300202-0200010322112310) |
+| `items.get_spec.infra.hw_info.os.release` | [items.get_spec.infra.hw_info.os.release](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2021331322332101-3001033012010021-2100302221032101-1012231022003000-1313002200000221-0023110313320332-0323121111123131-2220323202220132) |
+| `items.get_spec.infra.hw_info.os.vendor` | [items.get_spec.infra.hw_info.os.vendor](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0210023033212221-1022312002002211-0211112323322111-2330030211222231-0031211123003131-1323211000211300-2002333323230013-0312303013302310) |
+| `items.get_spec.infra.hw_info.os.version` | [items.get_spec.infra.hw_info.os.version](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2311312330311333-2222002321131330-3002121323100213-2201313011301202-2300212033133102-2110220333020110-0320320102113021-1000310333131320) |
+| `items.get_spec.infra.hw_info.product` | [items.get_spec.infra.hw_info.product](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2233203322200131-0322222132133321-0000000233321130-2113010221200020-3101222012023301-3330303211033211-1130112131130222-0332212313131223) |
+| `items.get_spec.infra.hw_info.product.name` | [items.get_spec.infra.hw_info.product.name](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0133212020312323-2321323031312312-0210021010113230-2221013201323110-1201321123132302-0310331311232313-2232003013313020-2321133222023223) |
+| `items.get_spec.infra.hw_info.product.serial` | [items.get_spec.infra.hw_info.product.serial](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1102230000300231-3301022111001332-1311133000212302-1023213102222212-3022132012033001-2122231103223100-2313223202123323-1230012120203030) |
+| `items.get_spec.infra.hw_info.product.vendor` | [items.get_spec.infra.hw_info.product.vendor](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2113222120031223-0223003002223322-0033030203223110-2323212020013103-3012301212032233-2121323221031332-0233023322310313-2221122200300110) |
+| `items.get_spec.infra.hw_info.product.version` | [items.get_spec.infra.hw_info.product.version](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0221310302021132-3120233121302000-3312102211212102-3303000002120220-1201122101233002-3303100232230233-2011213001233130-2020211010210111) |
+| `items.get_spec.infra.hw_info.storage` | [items.get_spec.infra.hw_info.storage](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2103000021320230-2332301210111032-1212303033330230-2131330011223130-1101133211323011-3130012321112013-3212200233201233-3002222323200001) |
 | `items.get_spec.infra.hw_info.storage.driver` | [items.get_spec.infra.hw_info.storage.driver](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1223222033200223-1112323010301202-2011023213110310-0121121223213000-3313131223231313-1312223123221223-1212331201210020-0230030021122013) |
 | `items.get_spec.infra.hw_info.storage.model` | [items.get_spec.infra.hw_info.storage.model](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3012131121313211-0110221002232321-2001121223233300-3223133333100232-1132132202310322-3320211101232302-1203303321231210-2203322212130302) |
 | `items.get_spec.infra.hw_info.storage.name` | [items.get_spec.infra.hw_info.storage.name](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0311032223210331-3332320211102201-3320033032303320-3013221002120310-2100211200311103-1231212303201223-1331121302310321-0112030020133130) |
@@ -278,71 +276,71 @@ Each exact path has one authoritative reference destination. Collection element 
 | `items.object.spec.gc_spec.infra.hw_info.network.mac_address` | [items.object.spec.gc_spec.infra.hw_info.network.mac_address](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3330303121211233-0122301123303133-2313221303012223-3010002130200220-1332222220202110-1002003302113310-0332010123032111-0030013020003120) |
 | `items.object.spec.gc_spec.infra.hw_info.network.name` | [items.object.spec.gc_spec.infra.hw_info.network.name](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3333310010201310-3303323330031111-2121121010231103-0132002233100000-1101301230121010-0323121133220010-1111300032122030-3322200200002130) |
 | `items.object.spec.gc_spec.infra.hw_info.network.port` | [items.object.spec.gc_spec.infra.hw_info.network.port](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0231112123223101-3222302211101002-1311021230212320-3312300333221033-1232313332210131-2103131033312010-3202232103302212-2231312112003120) |
-| `items.object.spec.gc_spec.infra.hw_info.network.speed` | [items.object.spec.gc_spec.infra.hw_info.network.speed](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3331132332230201-2232223120321311-0221223112230031-2303110320130301-1133102221232121-2123030020033023-2031031323132031-0233301033321030) |
+| `items.object.spec.gc_spec.infra.hw_info.network.speed` | [items.object.spec.gc_spec.infra.hw_info.network.speed](data-sources--site_registrations_by_site--reference--group-003.md#canonical-3331132332230201-2232223120321311-0221223112230031-2303110320130301-1133102221232121-2123030020033023-2031031323132031-0233301033321030) |
 | `items.object.spec.gc_spec.infra.hw_info.numa_nodes` | [items.object.spec.gc_spec.infra.hw_info.numa_nodes](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1311122233031331-1031123301012110-3101220322312122-3120122330213002-0232332302321130-1223020012323232-0331312221113030-3303010322231232) |
-| `items.object.spec.gc_spec.infra.hw_info.os` | [items.object.spec.gc_spec.infra.hw_info.os](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2210320030311221-0023022311302033-0002032002101001-1103331302202203-0303222102000222-1011122322203002-2211232013011132-1022310233232301) |
-| `items.object.spec.gc_spec.infra.hw_info.os.architecture` | [items.object.spec.gc_spec.infra.hw_info.os.architecture](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2001301103012301-2023131331211110-0120101322332121-2113303332330132-3330310133333112-0030103212013033-0323312320200223-3032303031303031) |
-| `items.object.spec.gc_spec.infra.hw_info.os.name` | [items.object.spec.gc_spec.infra.hw_info.os.name](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1220203300320202-3110220021311322-0330222132112220-1123131223012323-1121120112221010-2010230021001332-3002330200222230-0330213132301030) |
-| `items.object.spec.gc_spec.infra.hw_info.os.release` | [items.object.spec.gc_spec.infra.hw_info.os.release](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2112103303311013-3322212002102310-0123330012300333-3312112111233303-2032220231202132-1332312002002130-3203302320102131-3221311113303201) |
-| `items.object.spec.gc_spec.infra.hw_info.os.vendor` | [items.object.spec.gc_spec.infra.hw_info.os.vendor](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0033201031112232-1203311031213301-2031321102000031-0311122313103221-1101000130211223-0012232210020002-1301203023003101-0002020023203001) |
-| `items.object.spec.gc_spec.infra.hw_info.os.version` | [items.object.spec.gc_spec.infra.hw_info.os.version](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2303021003332311-2120120023220213-2103010301121233-2223011120223111-3221113201323232-0030232022320122-0112322020012021-0121303330202231) |
-| `items.object.spec.gc_spec.infra.hw_info.product` | [items.object.spec.gc_spec.infra.hw_info.product](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0221132311300320-3033313000313003-1213000122113130-1033331203323012-2011323211021010-1333103213030033-0110131223203222-0301033020003003) |
-| `items.object.spec.gc_spec.infra.hw_info.product.name` | [items.object.spec.gc_spec.infra.hw_info.product.name](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3322332111201031-3301111013121012-3012302232021321-2100202101002222-0012233320123100-3311200211202111-1302331313203203-2133322020211111) |
-| `items.object.spec.gc_spec.infra.hw_info.product.serial` | [items.object.spec.gc_spec.infra.hw_info.product.serial](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1221130231000031-3331111031001032-1210311030033313-1313222210200300-2302022201230212-0303323033323122-2031221223001321-3021130332222031) |
-| `items.object.spec.gc_spec.infra.hw_info.product.vendor` | [items.object.spec.gc_spec.infra.hw_info.product.vendor](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2100130131213220-1112021020031221-1203101201112231-1211002321321030-3120331102130102-1030220132121213-2033022321210330-0212003032022310) |
-| `items.object.spec.gc_spec.infra.hw_info.product.version` | [items.object.spec.gc_spec.infra.hw_info.product.version](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0332203120122111-2331331102102132-1332222003032312-1022133303120312-2203220202103111-3012032201331102-2111322222022220-1313101003321113) |
-| `items.object.spec.gc_spec.infra.hw_info.storage` | [items.object.spec.gc_spec.infra.hw_info.storage](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2003131302232223-1100233133013302-1020303302322112-3101202203312213-2101213020021200-1103212031031313-3210223123320100-0003132033110003) |
-| `items.object.spec.gc_spec.infra.hw_info.storage.driver` | [items.object.spec.gc_spec.infra.hw_info.storage.driver](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2122031021310010-1200112221000002-0313031021102231-0220203201203012-2102122100031303-1213212131300213-3121231300131112-1001212010233113) |
-| `items.object.spec.gc_spec.infra.hw_info.storage.model` | [items.object.spec.gc_spec.infra.hw_info.storage.model](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2300130220212112-1223020100331030-2231133021013020-1212120022213221-3201303022200130-3012122031011131-2332213033311023-2010113331321200) |
-| `items.object.spec.gc_spec.infra.hw_info.storage.name` | [items.object.spec.gc_spec.infra.hw_info.storage.name](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1210120321321302-2310210210301032-0020032212130032-2100302200230033-0312032322232003-1202320321230121-0022313203103333-0222132301000332) |
-| `items.object.spec.gc_spec.infra.hw_info.storage.serial` | [items.object.spec.gc_spec.infra.hw_info.storage.serial](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3130022110033300-3010223000211012-1313112322021021-1303103312311012-0113030111030331-3311001323031231-1202323200031020-0101323101012113) |
-| `items.object.spec.gc_spec.infra.hw_info.storage.size_gb` | [items.object.spec.gc_spec.infra.hw_info.storage.size_gb](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1103310303013021-0001212030003233-3120020233200231-0130213001002300-1221233012333020-2021302132131012-3123032010002113-3210112021323021) |
-| `items.object.spec.gc_spec.infra.hw_info.storage.vendor` | [items.object.spec.gc_spec.infra.hw_info.storage.vendor](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0010210122202222-1130131212132313-2200001010301303-2121102223111010-1212202320001020-0223023031332321-1121023032232222-3112101313220100) |
-| `items.object.spec.gc_spec.infra.hw_info.usb` | [items.object.spec.gc_spec.infra.hw_info.usb](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3311000330321213-1131330011330303-0333121233222320-2332202023311133-3311102311303312-2003103332321220-0222023100220223-3213201223210312) |
-| `items.object.spec.gc_spec.infra.hw_info.usb.address` | [items.object.spec.gc_spec.infra.hw_info.usb.address](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3300331110302230-1301233020301322-0100121311110303-2113123203300201-3010332331302303-0201123213333123-1303021331313120-2223012110001133) |
-| `items.object.spec.gc_spec.infra.hw_info.usb.b_device_class` | [items.object.spec.gc_spec.infra.hw_info.usb.b_device_class](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2131113020130203-1332213210120021-0221332003032032-1331032320331301-2321330120013322-1320301211030233-0312110011322301-2212212112332101) |
-| `items.object.spec.gc_spec.infra.hw_info.usb.b_device_protocol` | [items.object.spec.gc_spec.infra.hw_info.usb.b_device_protocol](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0013312213210222-2300011122300121-2012331303130310-3302033213001020-2133330002010001-3113212210033110-3322302330121133-2303310030010313) |
-| `items.object.spec.gc_spec.infra.hw_info.usb.b_device_sub_class` | [items.object.spec.gc_spec.infra.hw_info.usb.b_device_sub_class](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0220020123010131-0312222113200233-3320212212331322-2121102011222320-2331030211221120-1331222212013030-0102300110112222-1310213103022001) |
-| `items.object.spec.gc_spec.infra.hw_info.usb.b_max_packet_size` | [items.object.spec.gc_spec.infra.hw_info.usb.b_max_packet_size](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1021120201210322-1220301330332312-3013230323220222-2023301201220211-2031102310303010-1003102332013131-0301130110113323-0221121023001102) |
-| `items.object.spec.gc_spec.infra.hw_info.usb.bcd_device` | [items.object.spec.gc_spec.infra.hw_info.usb.bcd_device](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3201303220010211-1211113231013310-1332012210211002-2200201330322123-3012221033321320-2203121232002122-1121130201312122-2332310111110223) |
-| `items.object.spec.gc_spec.infra.hw_info.usb.bcd_usb` | [items.object.spec.gc_spec.infra.hw_info.usb.bcd_usb](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0012013012033000-1233323012212133-2203301123320012-1213202100222102-2020301203332010-3211101031221123-0332100100001332-1102112010001230) |
-| `items.object.spec.gc_spec.infra.hw_info.usb.bus` | [items.object.spec.gc_spec.infra.hw_info.usb.bus](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0111320332110220-2303332300202023-1132011022122230-1131030313011333-3300001020311123-1332323012110233-1011230201200122-2120021203211330) |
-| `items.object.spec.gc_spec.infra.hw_info.usb.description_spec` | [items.object.spec.gc_spec.infra.hw_info.usb.description_spec](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3001333021032130-1130101302320300-3202023232003100-0231022110032200-2200131202023322-1033311213120222-0231013020211130-0133000200132333) |
-| `items.object.spec.gc_spec.infra.hw_info.usb.i_manufacturer` | [items.object.spec.gc_spec.infra.hw_info.usb.i_manufacturer](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0213022122330212-3320220320110220-3122030120303001-2320030013221313-0010202130111313-3020311033000222-1021200322001211-3111231202331020) |
-| `items.object.spec.gc_spec.infra.hw_info.usb.i_product` | [items.object.spec.gc_spec.infra.hw_info.usb.i_product](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0230022022020030-3313221200301131-3120123330300121-2303202232103233-3200333102011120-0000102031112322-1000131032230332-0312310220112000) |
-| `items.object.spec.gc_spec.infra.hw_info.usb.i_serial` | [items.object.spec.gc_spec.infra.hw_info.usb.i_serial](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3001132323011020-1001301213211310-2001332011030311-3033002332113310-0213330300330300-0323022203013322-3320111123112103-0232330020113022) |
-| `items.object.spec.gc_spec.infra.hw_info.usb.id_product` | [items.object.spec.gc_spec.infra.hw_info.usb.id_product](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1010233200003111-0101321320302123-1220131030220303-2302032110213111-2021013223212001-3033232020022310-0120200230212333-1320101333302113) |
-| `items.object.spec.gc_spec.infra.hw_info.usb.id_vendor` | [items.object.spec.gc_spec.infra.hw_info.usb.id_vendor](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0132320100202222-1312300203010131-3203332121332331-1033030031222112-2102012223203011-2210201330301030-2021302212311220-1322111002233233) |
-| `items.object.spec.gc_spec.infra.hw_info.usb.port` | [items.object.spec.gc_spec.infra.hw_info.usb.port](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0322202303313003-0332301200111310-1303112210333030-3111212203033333-1130202033011302-0113110111112201-0322013231121233-2012110213111210) |
-| `items.object.spec.gc_spec.infra.hw_info.usb.product_name` | [items.object.spec.gc_spec.infra.hw_info.usb.product_name](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2223000022212200-2032312111322120-1002030132011123-1101010221313130-0312003022202200-0233110030313110-2113011310333310-1320322122231233) |
-| `items.object.spec.gc_spec.infra.hw_info.usb.speed` | [items.object.spec.gc_spec.infra.hw_info.usb.speed](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2011221202320331-3020121310113030-3321021001112213-0102022303130222-1002221231011133-2003123321210323-0213331122333233-3120301021010121) |
-| `items.object.spec.gc_spec.infra.hw_info.usb.usb_type` | [items.object.spec.gc_spec.infra.hw_info.usb.usb_type](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2322220302013311-2322233103030103-2332303031321001-3122020321211330-1103222111232232-2320113301312021-1221333120132032-2220122000131101) |
-| `items.object.spec.gc_spec.infra.hw_info.usb.vendor_name` | [items.object.spec.gc_spec.infra.hw_info.usb.vendor_name](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2113033100022120-0123021210201120-0000321100213000-3300231333231320-0301222000001013-0021011333031021-2032131232113313-1301213110130202) |
+| `items.object.spec.gc_spec.infra.hw_info.os` | [items.object.spec.gc_spec.infra.hw_info.os](data-sources--site_registrations_by_site--reference--group-003.md#canonical-2210320030311221-0023022311302033-0002032002101001-1103331302202203-0303222102000222-1011122322203002-2211232013011132-1022310233232301) |
+| `items.object.spec.gc_spec.infra.hw_info.os.architecture` | [items.object.spec.gc_spec.infra.hw_info.os.architecture](data-sources--site_registrations_by_site--reference--group-003.md#canonical-2001301103012301-2023131331211110-0120101322332121-2113303332330132-3330310133333112-0030103212013033-0323312320200223-3032303031303031) |
+| `items.object.spec.gc_spec.infra.hw_info.os.name` | [items.object.spec.gc_spec.infra.hw_info.os.name](data-sources--site_registrations_by_site--reference--group-003.md#canonical-1220203300320202-3110220021311322-0330222132112220-1123131223012323-1121120112221010-2010230021001332-3002330200222230-0330213132301030) |
+| `items.object.spec.gc_spec.infra.hw_info.os.release` | [items.object.spec.gc_spec.infra.hw_info.os.release](data-sources--site_registrations_by_site--reference--group-003.md#canonical-2112103303311013-3322212002102310-0123330012300333-3312112111233303-2032220231202132-1332312002002130-3203302320102131-3221311113303201) |
+| `items.object.spec.gc_spec.infra.hw_info.os.vendor` | [items.object.spec.gc_spec.infra.hw_info.os.vendor](data-sources--site_registrations_by_site--reference--group-003.md#canonical-0033201031112232-1203311031213301-2031321102000031-0311122313103221-1101000130211223-0012232210020002-1301203023003101-0002020023203001) |
+| `items.object.spec.gc_spec.infra.hw_info.os.version` | [items.object.spec.gc_spec.infra.hw_info.os.version](data-sources--site_registrations_by_site--reference--group-003.md#canonical-2303021003332311-2120120023220213-2103010301121233-2223011120223111-3221113201323232-0030232022320122-0112322020012021-0121303330202231) |
+| `items.object.spec.gc_spec.infra.hw_info.product` | [items.object.spec.gc_spec.infra.hw_info.product](data-sources--site_registrations_by_site--reference--group-003.md#canonical-0221132311300320-3033313000313003-1213000122113130-1033331203323012-2011323211021010-1333103213030033-0110131223203222-0301033020003003) |
+| `items.object.spec.gc_spec.infra.hw_info.product.name` | [items.object.spec.gc_spec.infra.hw_info.product.name](data-sources--site_registrations_by_site--reference--group-003.md#canonical-3322332111201031-3301111013121012-3012302232021321-2100202101002222-0012233320123100-3311200211202111-1302331313203203-2133322020211111) |
+| `items.object.spec.gc_spec.infra.hw_info.product.serial` | [items.object.spec.gc_spec.infra.hw_info.product.serial](data-sources--site_registrations_by_site--reference--group-003.md#canonical-1221130231000031-3331111031001032-1210311030033313-1313222210200300-2302022201230212-0303323033323122-2031221223001321-3021130332222031) |
+| `items.object.spec.gc_spec.infra.hw_info.product.vendor` | [items.object.spec.gc_spec.infra.hw_info.product.vendor](data-sources--site_registrations_by_site--reference--group-003.md#canonical-2100130131213220-1112021020031221-1203101201112231-1211002321321030-3120331102130102-1030220132121213-2033022321210330-0212003032022310) |
+| `items.object.spec.gc_spec.infra.hw_info.product.version` | [items.object.spec.gc_spec.infra.hw_info.product.version](data-sources--site_registrations_by_site--reference--group-003.md#canonical-0332203120122111-2331331102102132-1332222003032312-1022133303120312-2203220202103111-3012032201331102-2111322222022220-1313101003321113) |
+| `items.object.spec.gc_spec.infra.hw_info.storage` | [items.object.spec.gc_spec.infra.hw_info.storage](data-sources--site_registrations_by_site--reference--group-003.md#canonical-2003131302232223-1100233133013302-1020303302322112-3101202203312213-2101213020021200-1103212031031313-3210223123320100-0003132033110003) |
+| `items.object.spec.gc_spec.infra.hw_info.storage.driver` | [items.object.spec.gc_spec.infra.hw_info.storage.driver](data-sources--site_registrations_by_site--reference--group-003.md#canonical-2122031021310010-1200112221000002-0313031021102231-0220203201203012-2102122100031303-1213212131300213-3121231300131112-1001212010233113) |
+| `items.object.spec.gc_spec.infra.hw_info.storage.model` | [items.object.spec.gc_spec.infra.hw_info.storage.model](data-sources--site_registrations_by_site--reference--group-003.md#canonical-2300130220212112-1223020100331030-2231133021013020-1212120022213221-3201303022200130-3012122031011131-2332213033311023-2010113331321200) |
+| `items.object.spec.gc_spec.infra.hw_info.storage.name` | [items.object.spec.gc_spec.infra.hw_info.storage.name](data-sources--site_registrations_by_site--reference--group-003.md#canonical-1210120321321302-2310210210301032-0020032212130032-2100302200230033-0312032322232003-1202320321230121-0022313203103333-0222132301000332) |
+| `items.object.spec.gc_spec.infra.hw_info.storage.serial` | [items.object.spec.gc_spec.infra.hw_info.storage.serial](data-sources--site_registrations_by_site--reference--group-003.md#canonical-3130022110033300-3010223000211012-1313112322021021-1303103312311012-0113030111030331-3311001323031231-1202323200031020-0101323101012113) |
+| `items.object.spec.gc_spec.infra.hw_info.storage.size_gb` | [items.object.spec.gc_spec.infra.hw_info.storage.size_gb](data-sources--site_registrations_by_site--reference--group-003.md#canonical-1103310303013021-0001212030003233-3120020233200231-0130213001002300-1221233012333020-2021302132131012-3123032010002113-3210112021323021) |
+| `items.object.spec.gc_spec.infra.hw_info.storage.vendor` | [items.object.spec.gc_spec.infra.hw_info.storage.vendor](data-sources--site_registrations_by_site--reference--group-003.md#canonical-0010210122202222-1130131212132313-2200001010301303-2121102223111010-1212202320001020-0223023031332321-1121023032232222-3112101313220100) |
+| `items.object.spec.gc_spec.infra.hw_info.usb` | [items.object.spec.gc_spec.infra.hw_info.usb](data-sources--site_registrations_by_site--reference--group-003.md#canonical-3311000330321213-1131330011330303-0333121233222320-2332202023311133-3311102311303312-2003103332321220-0222023100220223-3213201223210312) |
+| `items.object.spec.gc_spec.infra.hw_info.usb.address` | [items.object.spec.gc_spec.infra.hw_info.usb.address](data-sources--site_registrations_by_site--reference--group-003.md#canonical-3300331110302230-1301233020301322-0100121311110303-2113123203300201-3010332331302303-0201123213333123-1303021331313120-2223012110001133) |
+| `items.object.spec.gc_spec.infra.hw_info.usb.b_device_class` | [items.object.spec.gc_spec.infra.hw_info.usb.b_device_class](data-sources--site_registrations_by_site--reference--group-003.md#canonical-2131113020130203-1332213210120021-0221332003032032-1331032320331301-2321330120013322-1320301211030233-0312110011322301-2212212112332101) |
+| `items.object.spec.gc_spec.infra.hw_info.usb.b_device_protocol` | [items.object.spec.gc_spec.infra.hw_info.usb.b_device_protocol](data-sources--site_registrations_by_site--reference--group-003.md#canonical-0013312213210222-2300011122300121-2012331303130310-3302033213001020-2133330002010001-3113212210033110-3322302330121133-2303310030010313) |
+| `items.object.spec.gc_spec.infra.hw_info.usb.b_device_sub_class` | [items.object.spec.gc_spec.infra.hw_info.usb.b_device_sub_class](data-sources--site_registrations_by_site--reference--group-003.md#canonical-0220020123010131-0312222113200233-3320212212331322-2121102011222320-2331030211221120-1331222212013030-0102300110112222-1310213103022001) |
+| `items.object.spec.gc_spec.infra.hw_info.usb.b_max_packet_size` | [items.object.spec.gc_spec.infra.hw_info.usb.b_max_packet_size](data-sources--site_registrations_by_site--reference--group-003.md#canonical-1021120201210322-1220301330332312-3013230323220222-2023301201220211-2031102310303010-1003102332013131-0301130110113323-0221121023001102) |
+| `items.object.spec.gc_spec.infra.hw_info.usb.bcd_device` | [items.object.spec.gc_spec.infra.hw_info.usb.bcd_device](data-sources--site_registrations_by_site--reference--group-003.md#canonical-3201303220010211-1211113231013310-1332012210211002-2200201330322123-3012221033321320-2203121232002122-1121130201312122-2332310111110223) |
+| `items.object.spec.gc_spec.infra.hw_info.usb.bcd_usb` | [items.object.spec.gc_spec.infra.hw_info.usb.bcd_usb](data-sources--site_registrations_by_site--reference--group-003.md#canonical-0012013012033000-1233323012212133-2203301123320012-1213202100222102-2020301203332010-3211101031221123-0332100100001332-1102112010001230) |
+| `items.object.spec.gc_spec.infra.hw_info.usb.bus` | [items.object.spec.gc_spec.infra.hw_info.usb.bus](data-sources--site_registrations_by_site--reference--group-003.md#canonical-0111320332110220-2303332300202023-1132011022122230-1131030313011333-3300001020311123-1332323012110233-1011230201200122-2120021203211330) |
+| `items.object.spec.gc_spec.infra.hw_info.usb.description_spec` | [items.object.spec.gc_spec.infra.hw_info.usb.description_spec](data-sources--site_registrations_by_site--reference--group-003.md#canonical-3001333021032130-1130101302320300-3202023232003100-0231022110032200-2200131202023322-1033311213120222-0231013020211130-0133000200132333) |
+| `items.object.spec.gc_spec.infra.hw_info.usb.i_manufacturer` | [items.object.spec.gc_spec.infra.hw_info.usb.i_manufacturer](data-sources--site_registrations_by_site--reference--group-003.md#canonical-0213022122330212-3320220320110220-3122030120303001-2320030013221313-0010202130111313-3020311033000222-1021200322001211-3111231202331020) |
+| `items.object.spec.gc_spec.infra.hw_info.usb.i_product` | [items.object.spec.gc_spec.infra.hw_info.usb.i_product](data-sources--site_registrations_by_site--reference--group-003.md#canonical-0230022022020030-3313221200301131-3120123330300121-2303202232103233-3200333102011120-0000102031112322-1000131032230332-0312310220112000) |
+| `items.object.spec.gc_spec.infra.hw_info.usb.i_serial` | [items.object.spec.gc_spec.infra.hw_info.usb.i_serial](data-sources--site_registrations_by_site--reference--group-003.md#canonical-3001132323011020-1001301213211310-2001332011030311-3033002332113310-0213330300330300-0323022203013322-3320111123112103-0232330020113022) |
+| `items.object.spec.gc_spec.infra.hw_info.usb.id_product` | [items.object.spec.gc_spec.infra.hw_info.usb.id_product](data-sources--site_registrations_by_site--reference--group-003.md#canonical-1010233200003111-0101321320302123-1220131030220303-2302032110213111-2021013223212001-3033232020022310-0120200230212333-1320101333302113) |
+| `items.object.spec.gc_spec.infra.hw_info.usb.id_vendor` | [items.object.spec.gc_spec.infra.hw_info.usb.id_vendor](data-sources--site_registrations_by_site--reference--group-003.md#canonical-0132320100202222-1312300203010131-3203332121332331-1033030031222112-2102012223203011-2210201330301030-2021302212311220-1322111002233233) |
+| `items.object.spec.gc_spec.infra.hw_info.usb.port` | [items.object.spec.gc_spec.infra.hw_info.usb.port](data-sources--site_registrations_by_site--reference--group-003.md#canonical-0322202303313003-0332301200111310-1303112210333030-3111212203033333-1130202033011302-0113110111112201-0322013231121233-2012110213111210) |
+| `items.object.spec.gc_spec.infra.hw_info.usb.product_name` | [items.object.spec.gc_spec.infra.hw_info.usb.product_name](data-sources--site_registrations_by_site--reference--group-003.md#canonical-2223000022212200-2032312111322120-1002030132011123-1101010221313130-0312003022202200-0233110030313110-2113011310333310-1320322122231233) |
+| `items.object.spec.gc_spec.infra.hw_info.usb.speed` | [items.object.spec.gc_spec.infra.hw_info.usb.speed](data-sources--site_registrations_by_site--reference--group-003.md#canonical-2011221202320331-3020121310113030-3321021001112213-0102022303130222-1002221231011133-2003123321210323-0213331122333233-3120301021010121) |
+| `items.object.spec.gc_spec.infra.hw_info.usb.usb_type` | [items.object.spec.gc_spec.infra.hw_info.usb.usb_type](data-sources--site_registrations_by_site--reference--group-003.md#canonical-2322220302013311-2322233103030103-2332303031321001-3122020321211330-1103222111232232-2320113301312021-1221333120132032-2220122000131101) |
+| `items.object.spec.gc_spec.infra.hw_info.usb.vendor_name` | [items.object.spec.gc_spec.infra.hw_info.usb.vendor_name](data-sources--site_registrations_by_site--reference--group-003.md#canonical-2113033100022120-0123021210201120-0000321100213000-3300231333231320-0301222000001013-0021011333031021-2032131232113313-1301213110130202) |
 | `items.object.spec.gc_spec.infra.instance_id` | [items.object.spec.gc_spec.infra.instance_id](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1032012122303222-3303322010120133-2132223232001200-0302330121122110-1123222303200132-2121311212200002-3001020113011221-3202123202312020) |
-| `items.object.spec.gc_spec.infra.interfaces` | [items.object.spec.gc_spec.infra.interfaces](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2003213312200200-3300110121312131-2011021201011113-2330122031011223-1300021013210102-0333300101002203-0202010003311101-1201010002330003) |
-| `items.object.spec.gc_spec.infra.internet_proxy` | [items.object.spec.gc_spec.infra.internet_proxy](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0011102123302313-0012320113333203-0112111121212120-2203131222031232-1113001323301313-3010021200002231-2220033023032313-1212232213231021) |
-| `items.object.spec.gc_spec.infra.internet_proxy.http_proxy` | [items.object.spec.gc_spec.infra.internet_proxy.http_proxy](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3331203003321020-1110132333001231-1332333011111322-0323231323120031-1202210223232303-3330130001303330-1020312220033102-0302210200301321) |
-| `items.object.spec.gc_spec.infra.internet_proxy.https_proxy` | [items.object.spec.gc_spec.infra.internet_proxy.https_proxy](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0130320030311030-0312031000121101-0113103022121101-3300211312213132-2310132220000200-1211222201301213-0300331131001331-2323022002030221) |
-| `items.object.spec.gc_spec.infra.internet_proxy.no_proxy` | [items.object.spec.gc_spec.infra.internet_proxy.no_proxy](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1323111220020111-3312312210220332-1100120132321220-3230310102000000-1120123211103321-1221011001120102-2020301201233300-2210213131011022) |
-| `items.object.spec.gc_spec.infra.internet_proxy.proxy_cacert_url` | [items.object.spec.gc_spec.infra.internet_proxy.proxy_cacert_url](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3233332203320112-2102233012211021-1120011321031131-0320231131012220-3233220321022002-3002220322030230-2001022032011122-1231013322313212) |
+| `items.object.spec.gc_spec.infra.interfaces` | [items.object.spec.gc_spec.infra.interfaces](data-sources--site_registrations_by_site--reference--group-003.md#canonical-2003213312200200-3300110121312131-2011021201011113-2330122031011223-1300021013210102-0333300101002203-0202010003311101-1201010002330003) |
+| `items.object.spec.gc_spec.infra.internet_proxy` | [items.object.spec.gc_spec.infra.internet_proxy](data-sources--site_registrations_by_site--reference--group-003.md#canonical-0011102123302313-0012320113333203-0112111121212120-2203131222031232-1113001323301313-3010021200002231-2220033023032313-1212232213231021) |
+| `items.object.spec.gc_spec.infra.internet_proxy.http_proxy` | [items.object.spec.gc_spec.infra.internet_proxy.http_proxy](data-sources--site_registrations_by_site--reference--group-003.md#canonical-3331203003321020-1110132333001231-1332333011111322-0323231323120031-1202210223232303-3330130001303330-1020312220033102-0302210200301321) |
+| `items.object.spec.gc_spec.infra.internet_proxy.https_proxy` | [items.object.spec.gc_spec.infra.internet_proxy.https_proxy](data-sources--site_registrations_by_site--reference--group-003.md#canonical-0130320030311030-0312031000121101-0113103022121101-3300211312213132-2310132220000200-1211222201301213-0300331131001331-2323022002030221) |
+| `items.object.spec.gc_spec.infra.internet_proxy.no_proxy` | [items.object.spec.gc_spec.infra.internet_proxy.no_proxy](data-sources--site_registrations_by_site--reference--group-003.md#canonical-1323111220020111-3312312210220332-1100120132321220-3230310102000000-1120123211103321-1221011001120102-2020301201233300-2210213131011022) |
+| `items.object.spec.gc_spec.infra.internet_proxy.proxy_cacert_url` | [items.object.spec.gc_spec.infra.internet_proxy.proxy_cacert_url](data-sources--site_registrations_by_site--reference--group-003.md#canonical-3233332203320112-2102233012211021-1120011321031131-0320231131012220-3233220321022002-3002220322030230-2001022032011122-1231013322313212) |
 | `items.object.spec.gc_spec.infra.is_slo_static` | [items.object.spec.gc_spec.infra.is_slo_static](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3021020113331230-2210103311031110-0310113222103312-3020122132103013-0010103321330112-3100311112221320-1231111320220301-1210131003100321) |
 | `items.object.spec.gc_spec.infra.machine_id` | [items.object.spec.gc_spec.infra.machine_id](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2022133211101001-3220221321231313-0001002323030200-1212033230002321-2102102213000032-2231310021200101-1230323120121132-0030232032310202) |
 | `items.object.spec.gc_spec.infra.provider_ref` | [items.object.spec.gc_spec.infra.provider_ref](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2030100011112202-1212122311322021-0311002221120310-1100213112110103-1312013012021201-0101231110033231-2030311023302230-1121321020002232) |
-| `items.object.spec.gc_spec.infra.sw_info` | [items.object.spec.gc_spec.infra.sw_info](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0332203112133220-1321033323232113-2031231000213323-1231222330211210-2003321333102200-0001103322300233-3322312313123032-2203102022230021) |
-| `items.object.spec.gc_spec.infra.sw_info.sw_version` | [items.object.spec.gc_spec.infra.sw_info.sw_version](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3313132333122102-0011312301321100-1020301111010311-3033320012010202-0131022301123320-2022210222003120-3210123032130021-0000102220213111) |
+| `items.object.spec.gc_spec.infra.sw_info` | [items.object.spec.gc_spec.infra.sw_info](data-sources--site_registrations_by_site--reference--group-003.md#canonical-0332203112133220-1321033323232113-2031231000213323-1231222330211210-2003321333102200-0001103322300233-3322312313123032-2203102022230021) |
+| `items.object.spec.gc_spec.infra.sw_info.sw_version` | [items.object.spec.gc_spec.infra.sw_info.sw_version](data-sources--site_registrations_by_site--reference--group-003.md#canonical-3313132333122102-0011312301321100-1020301111010311-3033320012010202-0131022301123320-2022210222003120-3210123032130021-0000102220213111) |
 | `items.object.spec.gc_spec.infra.timestamp` | [items.object.spec.gc_spec.infra.timestamp](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1132211202300212-3001001330330010-3233301331300001-1110031233213200-2202333322110232-1002123122211213-3103302320110213-2330330132323000) |
 | `items.object.spec.gc_spec.infra.zone` | [items.object.spec.gc_spec.infra.zone](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3333333331230221-3311301323230022-1212003332303121-1031321311221012-2012202220333100-2201212000012223-1210312211223302-1132122213233110) |
-| `items.object.spec.gc_spec.passport` | [items.object.spec.gc_spec.passport](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1202233321010313-2323320022032210-0110211213232330-2023112010030203-0320313133203123-0110113210310312-2310023021001002-2222322313301201) |
-| `items.object.spec.gc_spec.passport.cluster_name` | [items.object.spec.gc_spec.passport.cluster_name](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2302132311133323-0310031323323301-0133120113212310-2210132211300233-0022321132330101-2021222000321102-3222023223101222-2002012112132332) |
-| `items.object.spec.gc_spec.passport.cluster_size` | [items.object.spec.gc_spec.passport.cluster_size](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1232330330213102-3110131203301030-0322111100011211-2012331010321300-1210221131310223-0013212330233111-2333332000122303-1333033131322031) |
-| `items.object.spec.gc_spec.passport.cluster_type` | [items.object.spec.gc_spec.passport.cluster_type](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3330123211022033-0200213210320130-0313213131001102-3100111303221132-3300010333131211-1012121001221300-2231330021331102-1202301111003020) |
-| `items.object.spec.gc_spec.passport.default_os_version` | [items.object.spec.gc_spec.passport.default_os_version](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1121310000321033-1102020033122033-0312331203031123-1330103011001110-2002001011212321-2321203031220113-2111011110301301-2120310333031021) |
-| `items.object.spec.gc_spec.passport.default_sw_version` | [items.object.spec.gc_spec.passport.default_sw_version](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0310303213220030-1132333231210203-2313033201033310-0002133230013112-1232230310213011-3200101020033002-2030301120323121-2312121210333200) |
-| `items.object.spec.gc_spec.passport.latitude` | [items.object.spec.gc_spec.passport.latitude](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2323010000011121-0133222120322202-3211110302201103-0201133020202100-2120221202212122-1333223322030020-1102011332100002-2020011312212001) |
-| `items.object.spec.gc_spec.passport.longitude` | [items.object.spec.gc_spec.passport.longitude](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0113201002203300-1201300122233323-1102113113221300-3231110232212221-3323022232003203-2030101132122302-3100321313022202-2302110300130133) |
-| `items.object.spec.gc_spec.passport.operating_system_version` | [items.object.spec.gc_spec.passport.operating_system_version](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1130132011313100-1112033000320131-1303003230001220-0303021232231023-3320310110333101-2213122122201132-1330322220031201-3113120010131212) |
-| `items.object.spec.gc_spec.passport.private_network_name` | [items.object.spec.gc_spec.passport.private_network_name](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0013110123103123-1131123222023001-0213320002323130-3033321113123322-0321011013322010-0100121233210201-0031210201201201-3330001321111212) |
-| `items.object.spec.gc_spec.passport.volterra_software_version` | [items.object.spec.gc_spec.passport.volterra_software_version](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0231102012131220-1011231033113321-1203212112131023-2021321302131203-1131123000033300-1000331112323323-1310311212003332-2113313010312113) |
+| `items.object.spec.gc_spec.passport` | [items.object.spec.gc_spec.passport](data-sources--site_registrations_by_site--reference--group-003.md#canonical-1202233321010313-2323320022032210-0110211213232330-2023112010030203-0320313133203123-0110113210310312-2310023021001002-2222322313301201) |
+| `items.object.spec.gc_spec.passport.cluster_name` | [items.object.spec.gc_spec.passport.cluster_name](data-sources--site_registrations_by_site--reference--group-003.md#canonical-2302132311133323-0310031323323301-0133120113212310-2210132211300233-0022321132330101-2021222000321102-3222023223101222-2002012112132332) |
+| `items.object.spec.gc_spec.passport.cluster_size` | [items.object.spec.gc_spec.passport.cluster_size](data-sources--site_registrations_by_site--reference--group-003.md#canonical-1232330330213102-3110131203301030-0322111100011211-2012331010321300-1210221131310223-0013212330233111-2333332000122303-1333033131322031) |
+| `items.object.spec.gc_spec.passport.cluster_type` | [items.object.spec.gc_spec.passport.cluster_type](data-sources--site_registrations_by_site--reference--group-003.md#canonical-3330123211022033-0200213210320130-0313213131001102-3100111303221132-3300010333131211-1012121001221300-2231330021331102-1202301111003020) |
+| `items.object.spec.gc_spec.passport.default_os_version` | [items.object.spec.gc_spec.passport.default_os_version](data-sources--site_registrations_by_site--reference--group-003.md#canonical-1121310000321033-1102020033122033-0312331203031123-1330103011001110-2002001011212321-2321203031220113-2111011110301301-2120310333031021) |
+| `items.object.spec.gc_spec.passport.default_sw_version` | [items.object.spec.gc_spec.passport.default_sw_version](data-sources--site_registrations_by_site--reference--group-003.md#canonical-0310303213220030-1132333231210203-2313033201033310-0002133230013112-1232230310213011-3200101020033002-2030301120323121-2312121210333200) |
+| `items.object.spec.gc_spec.passport.latitude` | [items.object.spec.gc_spec.passport.latitude](data-sources--site_registrations_by_site--reference--group-003.md#canonical-2323010000011121-0133222120322202-3211110302201103-0201133020202100-2120221202212122-1333223322030020-1102011332100002-2020011312212001) |
+| `items.object.spec.gc_spec.passport.longitude` | [items.object.spec.gc_spec.passport.longitude](data-sources--site_registrations_by_site--reference--group-003.md#canonical-0113201002203300-1201300122233323-1102113113221300-3231110232212221-3323022232003203-2030101132122302-3100321313022202-2302110300130133) |
+| `items.object.spec.gc_spec.passport.operating_system_version` | [items.object.spec.gc_spec.passport.operating_system_version](data-sources--site_registrations_by_site--reference--group-003.md#canonical-1130132011313100-1112033000320131-1303003230001220-0303021232231023-3320310110333101-2213122122201132-1330322220031201-3113120010131212) |
+| `items.object.spec.gc_spec.passport.private_network_name` | [items.object.spec.gc_spec.passport.private_network_name](data-sources--site_registrations_by_site--reference--group-003.md#canonical-0013110123103123-1131123222023001-0213320002323130-3033321113123322-0321011013322010-0100121233210201-0031210201201201-3330001321111212) |
+| `items.object.spec.gc_spec.passport.volterra_software_version` | [items.object.spec.gc_spec.passport.volterra_software_version](data-sources--site_registrations_by_site--reference--group-003.md#canonical-0231102012131220-1011231033113321-1203212112131023-2021321302131203-1131123000033300-1000331112323323-1310311212003332-2113313010312113) |
 | `items.object.spec.gc_spec.role` | [items.object.spec.gc_spec.role](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1300230113221201-0010202102002212-0310000233021021-2121301133033302-3310121232313020-0223210303200120-2303211031033231-3000303201011320) |
 | `items.object.spec.gc_spec.site` | [items.object.spec.gc_spec.site](data-sources--site_registrations_by_site--reference--group-003.md#canonical-0312213102031013-3200132032022321-2310002201131110-3120013000333120-3301122012323332-1210223033323232-1322100120012332-2203011320321213) |
 | `items.object.spec.gc_spec.site.kind` | [items.object.spec.gc_spec.site.kind](data-sources--site_registrations_by_site--reference--group-003.md#canonical-1010310110232030-1113333100013213-3032013022131220-1132123320200311-3133001121233313-1320011031213220-2312120302323232-1032021131322013) |
@@ -429,23 +427,13 @@ Each exact path has one authoritative reference destination. Collection element 
 | `namespace` | [namespace](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1020201123321233-1332311033331201-0111301303111231-1321203323030113-1332303212331322-3321203211230023-1203022212131123-1200210320132322) |
 | `site_name` | [site_name](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0212302230111333-3313021112321102-1023300231321022-3202300302310023-3130001121210312-2123133132111213-1200321301122100-2023030301131123) |
 
-<a id="canonical-2012101331222233-0122212131031121-1000233300211103-1112222123132000-1323311113310221-3002322233013330-3213323332221000-2021132220002220"></a>
-
-## Next pages — Property reference / 232222321012 / 7
-
-- [errors](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2013102103332103-3223103301200231-2231130003331233-3211200111202011-3100030130323312-0322020330331113-0212232231313021-1201101122301112)
-- [items](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0203000012213013-2023113310133033-2023302133132132-2122132031003002-3223313321231231-1110001122110330-0313203032121021-0313221120120330)
-- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
-
 <a id="canonical-2013102103332103-3223103301200231-2231130003331233-3211200111202011-3100030130323312-0322020330331113-0212232231313021-1201101122301112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0110123133301222-3320030210031022-3012001110132330-3330032113032310-1210101131213111-0320031310000212-0320222302301033-0132212111113233"></a>
-
-## errors — errors / 022200332001 / 2
+## `errors` properties
 
 Breadcrumbs:
 
@@ -459,15 +447,13 @@ Type: `"list"`. Computed.
 
 Errors(if any) while listing items from collection.
 
-<a id="canonical-2210201210130003-0323202211232030-0000213021121201-1310010221010330-2011322010103333-3211121312222200-0033112303132233-2020211323001132"></a>
+<a id="canonical-0110123133301222-3320030210031022-3012001110132330-3330032113032310-1210101131213111-0320031310000212-0320222302301033-0132212111113233"></a>
 
-## Direct properties — errors / 022200332001 / 3
+### Direct properties for `errors`
 
 <a id="canonical-3033211002013211-2011311033202001-0132233102133102-1033010013311100-2110333313030212-1322002100220121-2213213300200311-2031013013310313"></a>
 
-<a id="canonical-2232213331102321-2132011003333210-1102101102123002-1223021012332021-3222231211000310-1232100111120011-3302103303123210-2133021332032210"></a>
-
-## code property — errors / 022200332001 / 4
+#### `errors.code` property
 
 Type: `"string"`. Computed.
 
@@ -500,21 +486,13 @@ Validators: []validator.String{
 
 <a id="canonical-3302221332130300-1100321023003100-1131230323230300-3130203031113210-2002101100031302-2300313131303010-1010230300032332-1123303310002302"></a>
 
-<a id="canonical-0133011130312220-1203112112221211-2010031130232212-0201100030212121-2011133123131103-0032032120300320-1212132203212031-0322033330133312"></a>
+<a id="canonical-2210201210130003-0323202211232030-0000213021121201-1310010221010330-2011322010103333-3211121312222200-0033112303132233-2020211323001132"></a>
 
-## message property — errors / 022200332001 / 5
+#### `errors.message` property
 
 Type: `"string"`. Computed.
 
 Message. A human readable string of the error.
-
-<a id="canonical-0032332313001213-2020013113302213-1213230002230220-3313311201231102-3222233310213213-2312300022312222-1301222313301301-1231003313131210"></a>
-
-## Next pages — errors / 022200332001 / 6
-
-- [errors.error_obj](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0330323012322031-0103031123333020-1101203222312200-1023010120223103-1330230001200002-2210131021103031-0001112323000220-2210223333022111)
-- [Property reference](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0102102012000331-3300022232033212-0133030232322023-1233323203011300-3213211013132213-1000132330333132-1212223310311330-0012021313023000)
-- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
 
 <a id="canonical-0330323012322031-0103031123333020-1101203222312200-1023010120223103-1330230001200002-2210131021103031-0001112323000220-2210223333022111"></a>
 
@@ -522,9 +500,7 @@ Message. A human readable string of the error.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0001332322232202-3010300023031112-0330133230322100-2010100102321222-3223003203111023-3200010330103310-1232013220002321-2320213210223003"></a>
-
-## errors.error_obj — error_obj / 012102301133 / 2
+## `errors.error_obj` properties
 
 Breadcrumbs:
 
@@ -541,15 +517,13 @@ Contains an arbitrary serialized protocol buffer message along with a URL that d
 the serialized message. Protobuf library provides support to pack/unpack Any values in the form of
 utility functions or additional generated methods of the Any type. Example 1: Pack and unpack a..
 
-<a id="canonical-3333112231212022-1131232211102333-0012200131012003-0332032131021210-1130200003312122-0113223113030033-0011321011311110-1003003223033100"></a>
+<a id="canonical-0001332322232202-3010300023031112-0330133230322100-2010100102321222-3223003203111023-3200010330103310-1232013220002321-2320213210223003"></a>
 
-## Direct properties — error_obj / 012102301133 / 3
+### Direct properties for `errors.error_obj`
 
 <a id="canonical-2133332030022000-0201133100100321-0221132223133110-0331120301110020-1121231101022330-0323133330203022-3130333320311211-3211303102321333"></a>
 
-<a id="canonical-1233020201310002-0131221313301023-3013220311133023-1323130110330132-1132323232031003-0130221120121221-0320332333103221-1311110131003133"></a>
-
-## type_url property — error_obj / 012102301133 / 4
+#### `errors.error_obj.type_url` property
 
 Type: `"string"`. Computed.
 
@@ -559,20 +533,13 @@ fully qualified name of the type (as in ).
 
 <a id="canonical-3222133020120300-0133330231310112-1201102031032301-3011233220120022-2102223332113013-2120111200033000-3111230021010103-3231323011102213"></a>
 
-<a id="canonical-2133023111111311-3030011021332001-2333311301323231-0122030000303111-3222003302131231-1012011221011013-1301333213011311-1022122213002001"></a>
+<a id="canonical-3333112231212022-1131232211102333-0012200131012003-0332032131021210-1130200003312122-0113223113030033-0011321011311110-1003003223033100"></a>
 
-## value property — error_obj / 012102301133 / 5
+#### `errors.error_obj.value` property
 
 Type: `"string"`. Computed.
 
 Must be a valid serialized protocol buffer of the above specified type.
-
-<a id="canonical-3021031311110330-0331121221212122-1332313320230220-0112021130012222-0033232102313211-3131020000310031-1320323102222221-2211020210320233"></a>
-
-## Next pages — error_obj / 012102301133 / 6
-
-- [errors](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2013102103332103-3223103301200231-2231130003331233-3211200111202011-3100030130323312-0322020330331113-0212232231313021-1201101122301112)
-- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
 
 <a id="canonical-0203000012213013-2023113310133033-2023302133132132-2122132031003002-3223313321231231-1110001122110330-0313203032121021-0313221120120330"></a>
 
@@ -580,9 +547,7 @@ Must be a valid serialized protocol buffer of the above specified type.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0133202120121310-2300023221312000-3212231223012023-1303322312111302-3213313230030211-3030310302320020-2121233021103233-1100222331013330"></a>
-
-## items — items / 320032122122 / 2
+## `items` properties
 
 Breadcrumbs:
 
@@ -596,17 +561,17 @@ Type: `"list"`. Computed.
 
 Items represents the collection in response.
 
-<a id="canonical-2320000221003310-1103222311232011-1210031300030302-0132201030032010-0203220000131120-2110020032133002-3231020003210122-2103303211102020"></a>
+<a id="canonical-0133202120121310-2300023221312000-3212231223012023-1303322312111302-3213313230030211-3030310302320020-2121233021103233-1100222331013330"></a>
 
-## Direct properties — items / 320032122122 / 3
+### Direct properties for `items`
 
 - [annotations](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2333122011110003-1322102201110322-3330320323120202-0310133030012213-1201112100113010-1221332120313320-0131323233102103-3232210301200311): complete subsection reference.
 
 <a id="canonical-2323120200102032-2310301021212302-3220232022022101-2320131213310322-0001023032333031-1212010012133101-1002202213333102-2023020202122033"></a>
 
-<a id="canonical-1020113301320111-3010233101300030-0230331133212113-1330222211103333-2300112230021322-2101002033310223-1201123333200131-2201010200020100"></a>
+<a id="canonical-2320000221003310-1103222311232011-1210031300030302-0132201030032010-0203220000131120-2110020032133002-3231020003210122-2103303211102020"></a>
 
-## description_spec property — items / 320032122122 / 4
+#### `items.description_spec` property
 
 Type: `"string"`. Computed.
 
@@ -614,9 +579,9 @@ The description set for this registration.
 
 <a id="canonical-0320311001021223-2013031213232312-0101122101033030-1233101221120133-1020013031020230-2121013002032203-2130333233320312-3310102303133330"></a>
 
-<a id="canonical-2110033120112113-1300031033232002-1200320312211001-0000203303223210-1310211320330120-3122022312333113-1223111302330313-1111221331123202"></a>
+<a id="canonical-1020113301320111-3010233101300030-0230331133212113-1330222211103333-2300112230021322-2101002033310223-1201123333200131-2201010200020100"></a>
 
-## disabled property — items / 320032122122 / 5
+#### `items.disabled` property
 
 Type: `"bool"`. Computed.
 
@@ -630,9 +595,9 @@ Value of true indicates registration is administratively disabled.
 
 <a id="canonical-2130331323331303-1310032211310233-2120203133003012-3123303022132233-3013002032021202-1313233030132231-3130221302011001-2011301112032033"></a>
 
-<a id="canonical-1002210311301010-3010222100103310-1323002233031011-1311320201021321-2033220110212301-1323100122010200-0100000310003021-3103312023301033"></a>
+<a id="canonical-2110033120112113-1300031033232002-1200320312211001-0000203303223210-1310211320330120-3122022312333113-1223111302330313-1111221331123202"></a>
 
-## name property — items / 320032122122 / 6
+#### `items.name` property
 
 Type: `"string"`. Computed.
 
@@ -651,9 +616,9 @@ Validators: []validator.String{
 
 <a id="canonical-1230021013023332-2102312333300022-0012103021030331-2121010202032330-0001023120211021-0322122002110121-1011103011323203-2222130331101033"></a>
 
-<a id="canonical-0321000003133320-1330132120131221-1001332021233233-0123323212102020-2020202213200010-0223002022002020-1320201200302131-0321102032221022"></a>
+<a id="canonical-1002210311301010-3010222100103310-1323002233031011-1311320201021321-2033220110212301-1323100122010200-0100000310003021-3103312023301033"></a>
 
-## namespace property — items / 320032122122 / 7
+#### `items.namespace` property
 
 Type: `"string"`. Computed.
 
@@ -678,9 +643,9 @@ Validators: []validator.String{
 
 <a id="canonical-0130013210002020-1112131332233122-3032113210132331-2302010323122300-3320331033330231-1103023313113130-1100331012132012-1320001230321313"></a>
 
-<a id="canonical-1021210212300203-2330221333102133-2102103202003211-0321330113312123-1233212012310001-3021013002302101-2200101300302123-1113221113202320"></a>
+<a id="canonical-0321000003133320-1330132120131221-1001332021233233-0123323212102020-2020202213200010-0223002022002020-1320201200302131-0321102032221022"></a>
 
-## tenant property — items / 320032122122 / 8
+#### `items.tenant` property
 
 Type: `"string"`. Computed.
 
@@ -688,27 +653,13 @@ Tenant. The tenant this item belongs to.
 
 <a id="canonical-3332030222320020-2310300021231313-1331003220100322-2211131000013200-1323001021303021-3210012101003031-3331200202003033-2033200300200210"></a>
 
-<a id="canonical-3312330000002320-3213110232230320-3100011020233321-3210213333213201-0010313201313202-2123000222320133-1300201202222323-2101211331002321"></a>
+<a id="canonical-1021210212300203-2330221333102133-2102103202003211-0321330113312123-1233212012310001-3021013002302101-2200101300302123-1113221113202320"></a>
 
-## uid property — items / 320032122122 / 9
+#### `items.uid` property
 
 Type: `"string"`. Computed.
 
 UID. The unique uid of this registration.
-
-<a id="canonical-2222320322121333-1331221332100322-2301320301200321-3132130031301102-0103333013020313-1300201102330233-3201012223231300-3310010020112132"></a>
-
-## Next pages — items / 320032122122 / 10
-
-- [items.annotations](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2333122011110003-1322102201110322-3330320323120202-0310133030012213-1201112100113010-1221332120313320-0131323233102103-3232210301200311)
-- [items.get_spec](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2010303331210321-3333001320101133-3003113110231120-0231101230001211-0300103331231101-0201021123203031-3033130221230130-3332001023123321)
-- [items.labels](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2213302201012013-3210232201331312-3201132103321032-1033021122223323-1310230311210321-0230112322103310-0221030122211010-1113000021121311)
-- [items.metadata](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3010130210021221-2130212223231102-2111103331300023-1321312302002131-2011120230333201-1100132311312032-3110103122201302-2132013132320130)
-- [items.object](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0031233321302020-2231002112222100-2232331302122133-2202120100112231-0200121333012212-2023121031122200-1332211222213321-0023313223320303)
-- [items.owner_view](data-sources--site_registrations_by_site--reference--group-003.md#canonical-2020213333030121-0131130123230311-1101331121030033-3000210111022121-2303300213131112-2032303330120300-2230212203013210-2013012322312222)
-- [items.system_metadata](data-sources--site_registrations_by_site--reference--group-003.md#canonical-2231012211123313-2201132301233301-2030033120113130-0202301002123333-2223031010221311-2212200322100303-3233233310010322-1331022320103323)
-- [Property reference](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0102102012000331-3300022232033212-0133030232322023-1233323203011300-3213211013132213-1000132330333132-1212223310311330-0012021313023000)
-- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
 
 <a id="canonical-2333122011110003-1322102201110322-3330320323120202-0310133030012213-1201112100113010-1221332120313320-0131323233102103-3232210301200311"></a>
 
@@ -716,9 +667,7 @@ UID. The unique uid of this registration.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3302123222011333-3312033212230001-0233201313032033-1110133021023121-2133211312200200-3010221022033111-1213203200122012-0330130103013123"></a>
-
-## items.annotations — annotations / 210120220100 / 2
+## `items.annotations` properties
 
 Breadcrumbs:
 
@@ -733,18 +682,7 @@ Type: `"single"`. Computed.
 
 The set of annotations present on this registration.
 
-<a id="canonical-0132100311321102-3003322211311301-0221230213220302-3200021223112323-2202332331221223-0311120311100331-0320013010212212-1032002032000313"></a>
-
-## Direct properties — annotations / 210120220100 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2003303031101233-1300011331200220-3102223121100011-0121302123102120-2011001311322100-1100302022231201-2201030101231111-3021310113220033"></a>
-
-## Next pages — annotations / 210120220100 / 4
-
-- [items](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0203000012213013-2023113310133033-2023302133132132-2122132031003002-3223313321231231-1110001122110330-0313203032121021-0313221120120330)
-- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
 
 <a id="canonical-2010303331210321-3333001320101133-3003113110231120-0231101230001211-0300103331231101-0201021123203031-3033130221230130-3332001023123321"></a>
 
@@ -752,9 +690,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1303120311013231-3112113020031020-0012033001110122-1111220000332211-3111202303331133-1023001300011300-0031211003131031-2311132321113303"></a>
-
-## items.get_spec — get_spec / 010132202322 / 2
+## `items.get_spec` properties
 
 Breadcrumbs:
 
@@ -769,9 +705,9 @@ Type: `"single"`. Computed.
 
 GET Registration. GET registration specification.
 
-<a id="canonical-3303221210303323-0230103112010123-3210110130203102-3031003201220221-2101103310221321-0332321132231322-3320002201123222-2302113012102231"></a>
+<a id="canonical-1303120311013231-3112113020031020-0012033001110122-1111220000332211-3111202303331133-1023001300011300-0031211003131031-2311132321113303"></a>
 
-## Direct properties — get_spec / 010132202322 / 3
+### Direct properties for `items.get_spec`
 
 - [infra](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1021122332203133-3313231002312302-1333020313231221-2300321112113003-0311310333203222-1103231131100102-2302030233330312-1330001203310102): complete subsection reference.
 
@@ -779,22 +715,13 @@ GET Registration. GET registration specification.
 
 <a id="canonical-2210311220001122-3100121230311122-0130102001133320-3221011302212023-2103231331112131-3003312210301201-0010331013302100-0101033001011133"></a>
 
-<a id="canonical-1312013010313201-0312312133312113-1230023200130121-2222200201120213-2113030213202220-0303013332032101-2011002323312021-3032323110223110"></a>
+<a id="canonical-3303221210303323-0230103112010123-3210110130203102-3031003201220221-2101103310221321-0332321132231322-3320002201123222-2302113012102231"></a>
 
-## token property — get_spec / 010132202322 / 4
+#### `items.get_spec.token` property
 
 Type: `"string"`. Computed.
 
 Token is used for machine and tenant identification.
-
-<a id="canonical-3110120331023132-2021321332310222-3300132021111122-2130021123202133-1331133111331033-0213032333111020-0213312322102030-3023221223213020"></a>
-
-## Next pages — get_spec / 010132202322 / 5
-
-- [items.get_spec.infra](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1021122332203133-3313231002312302-1333020313231221-2300321112113003-0311310333203222-1103231131100102-2302030233330312-1330001203310102)
-- [items.get_spec.passport](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0303021112311131-2322121310302311-3131313113230232-0333130233220221-3211303321110212-2131312010312201-2112133312200130-2122332302103302)
-- [items](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0203000012213013-2023113310133033-2023302133132132-2122132031003002-3223313321231231-1110001122110330-0313203032121021-0313221120120330)
-- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
 
 <a id="canonical-1021122332203133-3313231002312302-1333020313231221-2300321112113003-0311310333203222-1103231131100102-2302030233330312-1330001203310102"></a>
 
@@ -802,9 +729,7 @@ Token is used for machine and tenant identification.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0030211303220001-2200122022100123-3112222001130122-3303112000133123-1100200300210323-1020330001102202-3121103132230132-2330232131100013"></a>
-
-## items.get_spec.infra — infra / 200100203032 / 2
+## `items.get_spec.infra` properties
 
 Breadcrumbs:
 
@@ -820,15 +745,13 @@ Type: `"single"`. Computed.
 
 InfraMetadata stores information about instance infrastructure.
 
-<a id="canonical-3131011112032222-2100110020230000-2013323001233003-2203331113302032-2222201011202122-1301132023312023-3102033001111200-0012132032030221"></a>
+<a id="canonical-0030211303220001-2200122022100123-3112222001130122-3303112000133123-1100200300210323-1020330001102202-3121103132230132-2330232131100013"></a>
 
-## Direct properties — infra / 200100203032 / 3
+### Direct properties for `items.get_spec.infra`
 
 <a id="canonical-0231223310033332-1210323112321222-1013231103333132-3112112000220312-1231021321220011-2213012121111300-1012022313101102-0312213202111002"></a>
 
-<a id="canonical-2322012332222233-1110211222330203-0012122133103232-3022331332213102-3311302021013021-1322200211022220-3123330322110121-3303121023332322"></a>
-
-## availability_zone property — infra / 200100203032 / 4
+#### `items.get_spec.infra.availability_zone` property
 
 Type: `"string"`. Computed.
 
@@ -839,9 +762,9 @@ datacenter failures.
 
 <a id="canonical-1133013323201212-3012312332322021-1001312020222113-3313200100102013-3121212001202132-2033323222030100-1032012233212121-2221322000010232"></a>
 
-<a id="canonical-2230013310222311-2132212203003101-1003223221332113-3302122103311213-2101031002231221-0010323100111302-1012202000312111-2300023202031100"></a>
+<a id="canonical-3131011112032222-2100110020230000-2013323001233003-2203331113302032-2222201011202122-1301132023312023-3102033001111200-0012132032030221"></a>
 
-## certified_hw property — infra / 200100203032 / 5
+#### `items.get_spec.infra.certified_hw` property
 
 Type: `"string"`. Computed.
 
@@ -849,9 +772,9 @@ Certified HW name used to map with F5XC certified\_hardware definition.
 
 <a id="canonical-3210310312331301-0303001302310031-0021113311311000-1120213312103130-2301011320001230-3132200211333330-2121220121030323-1230231111230200"></a>
 
-<a id="canonical-2110001313313333-0221203121320231-2311302012100323-3133332021213023-2033202211310003-3120121312310111-2030112022211213-0330003203030230"></a>
+<a id="canonical-2322012332222233-1110211222330203-0012122133103232-3022331332213102-3311302021013021-1322200211022220-3123330322110121-3303121023332322"></a>
 
-## domain property — infra / 200100203032 / 6
+#### `items.get_spec.infra.domain` property
 
 Type: `"string"`. Computed.
 
@@ -860,9 +783,9 @@ Distributed Cloud.
 
 <a id="canonical-0332120321111002-2330121230001231-3313100131011230-0232233230233032-1103131220230011-3212001032000332-2202210311231102-3121302223211300"></a>
 
-<a id="canonical-1332203333231221-3233231332103223-1323002201100000-0000203000332301-2033201112202233-2332110320113220-3133130032322112-0133113110101013"></a>
+<a id="canonical-2230013310222311-2132212203003101-1003223221332113-3302122103311213-2101031002231221-0010323100111302-1012202000312111-2300023202031100"></a>
 
-## hostname property — infra / 200100203032 / 7
+#### `items.get_spec.infra.hostname` property
 
 Type: `"string"`. Computed.
 
@@ -885,9 +808,9 @@ Validators: []validator.String{
 
 <a id="canonical-2031002203323031-1332002012200213-0121011332201013-2113022213003030-1312222301232200-2111312202302311-1031033000100120-3022120101101133"></a>
 
-<a id="canonical-3211133122122010-3030123320103011-0220221302131210-2320300032123030-0021333231020200-0333322221012231-2123212332201133-2222111311112330"></a>
+<a id="canonical-2110001313313333-0221203121320231-2311302012100323-3133332021213023-2033202211310003-3120121312310111-2030112022211213-0330003203030230"></a>
 
-## instance_id property — infra / 200100203032 / 8
+#### `items.get_spec.infra.instance_id` property
 
 Type: `"string"`. Computed.
 
@@ -899,9 +822,9 @@ Instance ID (assigned by infrastructure provider).
 
 <a id="canonical-1323202313212223-0103311113010012-2002322230323031-2023221210323032-0200222112111330-2002311113232311-3032332221021310-0013012020313210"></a>
 
-<a id="canonical-1122022311320223-2221222203033100-0300123002030221-1232031201302323-1201220133333112-1001032011003111-1222021311111300-0111023332320032"></a>
+<a id="canonical-1332203333231221-3233231332103223-1323002201100000-0000203000332301-2033201112202233-2332110320113220-3133130032322112-0133113110101013"></a>
 
-## is_slo_static property — infra / 200100203032 / 9
+#### `items.get_spec.infra.is_slo_static` property
 
 Type: `"bool"`. Computed.
 
@@ -909,9 +832,9 @@ Is SLO Static. Indicates whether the SLO is static.
 
 <a id="canonical-2231132330303332-2000112313022231-3320000321223210-1030031222113303-1101322200312020-1213322002031202-2332302113220202-3111222300223110"></a>
 
-<a id="canonical-0102232012123111-1333300132020011-3320211132312011-1023130322121232-3110223321000102-2222013230222311-1202123133221333-3202033302330232"></a>
+<a id="canonical-3211133122122010-3030123320103011-0220221302131210-2320300032123030-0021333231020200-0333322221012231-2123212332201133-2222111311112330"></a>
 
-## machine_id property — infra / 200100203032 / 10
+#### `items.get_spec.infra.machine_id` property
 
 Type: `"string"`. Computed.
 
@@ -919,9 +842,9 @@ Machine ID - generated by operating system.
 
 <a id="canonical-1010233301121212-3231320012332011-0032311320200301-1220011232210312-1123133000331323-0131031223001110-2130111323122033-2013002013110023"></a>
 
-<a id="canonical-0011110203311030-1113100111030331-0200113130200332-1020223221313331-2212201201233200-2200021333120232-1022112133013122-0122010333211112"></a>
+<a id="canonical-1122022311320223-2221222203033100-0300123002030221-1232031201302323-1201220133333112-1001032011003111-1222021311111300-0111023332320032"></a>
 
-## provider_ref property — infra / 200100203032 / 11
+#### `items.get_spec.infra.provider_ref` property
 
 Type: `"string"`. Computed.
 
@@ -974,9 +897,9 @@ Validators: []validator.String{
 
 <a id="canonical-2223301123022212-0111320033132230-1122300013001013-0000331233301122-1002300022001113-0210313232010331-1012310022032303-3302033201230223"></a>
 
-<a id="canonical-2302212302210110-0113012233330021-3231100122311122-0100323132313330-0300313223200330-3111222132311033-2120132312310311-3302221233303121"></a>
+<a id="canonical-0102232012123111-1333300132020011-3320211132312011-1023130322121232-3110223321000102-2222013230222311-1202123133221333-3202033302330232"></a>
 
-## timestamp property — infra / 200100203032 / 12
+#### `items.get_spec.infra.timestamp` property
 
 Type: `"string"`. Computed.
 
@@ -995,26 +918,13 @@ Validators: []validator.String{
 
 <a id="canonical-3300211101010201-1313311311333110-0032222031210301-1301100110311332-1130020112333323-0001122112103023-2032200332120121-0131320132313303"></a>
 
-<a id="canonical-2123213333313033-3123203000203202-1111202210101312-1001323322132023-0030311303301011-2313032303131023-1003210002000222-1332032211000113"></a>
+<a id="canonical-0011110203311030-1113100111030331-0200113130200332-1020223221313331-2212201201233200-2200021333120232-1022112133013122-0122010333211112"></a>
 
-## zone property — infra / 200100203032 / 13
+#### `items.get_spec.infra.zone` property
 
 Type: `"string"`. Computed.
 
 Instance zone (or region), depends on provider.
-
-<a id="canonical-2123000111132120-3202033123213103-3001232111212331-1000221033323313-2123210300112120-2120021212310323-1103220031211203-1323202110223002"></a>
-
-## Next pages — infra / 200100203032 / 14
-
-- [items.get_spec.infra.bond_config](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0313111031223030-1313323331120121-2302121120313030-2110003020210012-3100132033020232-2232310121220031-1211023312233323-2022201130230033)
-- [items.get_spec.infra.hugepages](data-sources--site_registrations_by_site--reference--group-001.md#canonical-3211310302111100-1113113022123333-0113032133311102-1003103020000300-2232013021033120-0101012133110303-0133031021301031-1330101211110000)
-- [items.get_spec.infra.hw_info](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0201033331231032-1302121202103333-3311111301100100-3033132321112303-1000023113221211-2111010112133021-3203130213130220-3101020133200231)
-- [items.get_spec.infra.interfaces](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3213111122123311-0111213033010022-0302211133112322-3310120133221323-0001323031111022-3112332133211110-1100001202211322-3012211220331101)
-- [items.get_spec.infra.internet_proxy](data-sources--site_registrations_by_site--reference--group-002.md#canonical-0202001222201213-0010202212131210-2110012030331330-3303110200113301-0111001121232300-3322103223301233-1002123202120301-0002132333222120)
-- [items.get_spec.infra.sw_info](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1302221210111012-1110122311133313-1030032030323310-1210112121201220-0030032323132212-3030300001232012-1211133021012303-2001001303130021)
-- [items.get_spec](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2010303331210321-3333001320101133-3003113110231120-0231101230001211-0300103331231101-0201021123203031-3033130221230130-3332001023123321)
-- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
 
 <a id="canonical-0313111031223030-1313323331120121-2302121120313030-2110003020210012-3100132033020232-2232310121220031-1211023312233323-2022201130230033"></a>
 
@@ -1022,9 +932,7 @@ Instance zone (or region), depends on provider.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0231222322233031-2031220132313211-1002323211323333-0331121001003010-1103211103313303-0233031001032002-2120232203211310-2323000002201202"></a>
-
-## items.get_spec.infra.bond_config — bond_config / 232203111230 / 2
+## `items.get_spec.infra.bond_config` properties
 
 Breadcrumbs:
 
@@ -1041,15 +949,13 @@ Type: `"single"`. Computed.
 
 Bond device configuration for VPM registration.
 
-<a id="canonical-3132003330033002-0333110312003333-3332320002001113-1031232011133010-2101211303120112-2023031011000120-3003322121032000-3121223003023113"></a>
+<a id="canonical-0231222322233031-2031220132313211-1002323211323333-0331121001003010-1103211103313303-0233031001032002-2120232203211310-2323000002201202"></a>
 
-## Direct properties — bond_config / 232203111230 / 3
+### Direct properties for `items.get_spec.infra.bond_config`
 
 <a id="canonical-3223102323000313-3022300323202201-2010101020310001-0230031302231032-0131100300021300-1123320002203221-3332332133123331-0131203132300132"></a>
 
-<a id="canonical-2132223000212313-3300332312333230-0112020132200301-1303112321331002-0020223131100202-2133123110110013-3113210131031300-3200330103001121"></a>
-
-## interfaces property — bond_config / 232203111230 / 4
+#### `items.get_spec.infra.bond_config.interfaces` property
 
 Type: `["list", "string"]`. Computed.
 
@@ -1066,9 +972,9 @@ Validators: []validator.List{
 
 <a id="canonical-0310302102132013-1030032233000310-1220331101112112-0023003113111000-0212303210320323-0203013023312331-0030130121001030-0023300033111002"></a>
 
-<a id="canonical-0011231313231210-0202230112101130-2333323001313201-0012033103331223-0333000002303233-1113300313320030-0301212312303303-1331221313222031"></a>
+<a id="canonical-3132003330033002-0333110312003333-3332320002001113-1031232011133010-2101211303120112-2023031011000120-3003322121032000-3121223003023113"></a>
 
-## mode property — bond_config / 232203111230 / 5
+#### `items.get_spec.infra.bond_config.mode` property
 
 Type: `"string"`. Computed.
 
@@ -1092,9 +998,9 @@ Validators: []validator.String{
 
 <a id="canonical-1221010002313102-1231101121002301-3203322013111211-1032323110201101-2021221111322311-3203021320033000-0231103221120111-2312112031331230"></a>
 
-<a id="canonical-1130010310000232-3010121101323231-0332123302002313-1322222012303023-3312120232121003-3330032112022233-0303010031102310-3300232101103333"></a>
+<a id="canonical-2132223000212313-3300332312333230-0112020132200301-1303112321331002-0020223131100202-2133123110110013-3113210131031300-3200330103001121"></a>
 
-## name property — bond_config / 232203111230 / 6
+#### `items.get_spec.infra.bond_config.name` property
 
 Type: `"string"`. Computed.
 
@@ -1109,22 +1015,13 @@ Validators: []validator.String{
 }
 ```
 
-<a id="canonical-2203020330313213-0101311132323123-1102130001312033-3032312303003031-1200230323310010-1000002130330031-1021030303013301-3001111223022112"></a>
-
-## Next pages — bond_config / 232203111230 / 7
-
-- [items.get_spec.infra](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1021122332203133-3313231002312302-1333020313231221-2300321112113003-0311310333203222-1103231131100102-2302030233330312-1330001203310102)
-- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
-
 <a id="canonical-3211310302111100-1113113022123333-0113032133311102-1003103020000300-2232013021033120-0101012133110303-0133031021301031-1330101211110000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3322232230222312-2110202003333323-2313330302033001-2030112030332033-3003300211032131-0000000013202033-0032102100221101-2033321030230233"></a>
-
-## items.get_spec.infra.hugepages — hugepages / 310230223120 / 2
+## `items.get_spec.infra.hugepages` properties
 
 Breadcrumbs:
 
@@ -1141,15 +1038,13 @@ Type: `"list"`. Computed.
 
 Hugepage settings for CE on K8s SMV2 site.
 
-<a id="canonical-0020001020122013-0102032032101020-1322103233013003-1012302330321233-1300211322310100-0331000123122111-2203010300113312-2311120303333111"></a>
+<a id="canonical-3322232230222312-2110202003333323-2313330302033001-2030112030332033-3003300211032131-0000000013202033-0032102100221101-2033321030230233"></a>
 
-## Direct properties — hugepages / 310230223120 / 3
+### Direct properties for `items.get_spec.infra.hugepages`
 
 <a id="canonical-1233102130031101-3131012000210212-0002323102023301-2200123122213313-3233003333312102-1101120031322101-2200230210023033-1321331203211113"></a>
 
-<a id="canonical-3332302003012103-0123000201132231-2210002031031102-0111123030331312-1230121000312132-1032213200033221-3100030330113030-1123001123231101"></a>
-
-## free property — hugepages / 310230223120 / 4
+#### `items.get_spec.infra.hugepages.free` property
 
 Type: `"number"`. Computed.
 
@@ -1157,9 +1052,9 @@ Free Hugepages. Total number of free hugepages present.
 
 <a id="canonical-0001200023322220-3000033212102221-2102302220000222-2331311230200103-2113302101123103-1202232101112100-3102221230331022-2331001313111300"></a>
 
-<a id="canonical-0032121031023212-3003111302033221-1213220113301112-0223013123223301-2030130002210123-1000022100122333-3330203120023123-2210110012031103"></a>
+<a id="canonical-0020001020122013-0102032032101020-1322103233013003-1012302330321233-1300211322310100-0331000123122111-2203010300113312-2311120303333111"></a>
 
-## page_size property — hugepages / 310230223120 / 5
+#### `items.get_spec.infra.hugepages.page_size` property
 
 Type: `"number"`. Computed.
 
@@ -1167,20 +1062,13 @@ Hugepage Size. Size of each hugepage.
 
 <a id="canonical-2033002230003120-0322121110302022-2202332232203331-0100012301123113-0132123131233021-0231233013011122-2312030202203310-2223030120111303"></a>
 
-<a id="canonical-3332203122102110-0031232202220123-3111322122330113-3001301221031231-2203032022221130-0033203202210302-2311211233303231-2000032123130023"></a>
+<a id="canonical-3332302003012103-0123000201132231-2210002031031102-0111123030331312-1230121000312132-1032213200033221-3100030330113030-1123001123231101"></a>
 
-## total property — hugepages / 310230223120 / 6
+#### `items.get_spec.infra.hugepages.total` property
 
 Type: `"number"`. Computed.
 
 Total Hugepages. Total number of hugepages present.
-
-<a id="canonical-1222003302232222-2232100322132202-0222031302103212-2111111203220211-2120221021112120-2331231203321310-2101002110130131-1001121122302323"></a>
-
-## Next pages — hugepages / 310230223120 / 7
-
-- [items.get_spec.infra](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1021122332203133-3313231002312302-1333020313231221-2300321112113003-0311310333203222-1103231131100102-2302030233330312-1330001203310102)
-- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
 
 <a id="canonical-0201033331231032-1302121202103333-3311111301100100-3033132321112303-1000023113221211-2111010112133021-3203130213130220-3101020133200231"></a>
 
@@ -1188,9 +1076,7 @@ Total Hugepages. Total number of hugepages present.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3131221321130001-2223030031113033-3321312313201323-0200210213223132-0331103232323221-0202003320232210-3121002231300131-3301321212301013"></a>
-
-## items.get_spec.infra.hw_info — hw_info / 201002233223 / 2
+## `items.get_spec.infra.hw_info` properties
 
 Breadcrumbs:
 
@@ -1207,9 +1093,9 @@ Type: `"single"`. Computed.
 
 OsInfo holds information about host OS and HW.
 
-<a id="canonical-2222303233312230-0121031120022232-2311131230213322-3331223121111322-3101311102300311-2212021033030121-1332030113103233-1133021020021013"></a>
+<a id="canonical-3131221321130001-2223030031113033-3321312313201323-0200210213223132-0331103232323221-0202003320232210-3121002231300131-3301321212301013"></a>
 
-## Direct properties — hw_info / 201002233223 / 3
+### Direct properties for `items.get_spec.infra.hw_info`
 
 - [bios](data-sources--site_registrations_by_site--reference--group-001.md#canonical-3001203323000323-2222212331201210-1002200302300132-3323010212233333-3020100232130321-0221331120202231-3023032031321331-3231223201122120): complete subsection reference.
 
@@ -1221,17 +1107,17 @@ OsInfo holds information about host OS and HW.
 
 - [GPU](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1303022232201212-0021312320130002-0221031212310033-2233101213202331-1021011212033031-0031220322112320-0213313003210122-0222331331110301): complete subsection reference.
 
-- [kernel](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1212323210321120-2020221003313232-2133131232320232-3100103223201122-0321331101010320-2021213211001120-3213332120310010-1101020112020032): complete subsection reference.
+- [kernel](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1212323210321120-2020221003313232-2133131232320232-3100103223201122-0321331101010320-2021213211001120-3213332120310010-1101020112020032): complete subsection reference.
 
-- [memory](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1023301320233031-1211311133101303-1030312210022212-0332330111312113-2202303133100223-1302013232123310-1102001012002013-3331323002333202): complete subsection reference.
+- [memory](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1023301320233031-1211311133101303-1030312210022212-0332330111312113-2202303133100223-1302013232123310-1102001012002013-3331323002333202): complete subsection reference.
 
-- [network](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3320213101110032-0320331201110302-1330330120311312-3211002003321111-3123133121213213-3113032130322000-2111100222302011-1223003031021223): complete subsection reference.
+- [network](data-sources--site_registrations_by_site--reference--group-001.md#canonical-3320213101110032-0320331201110302-1330330120311312-3211002003321111-3123133121213213-3113032130322000-2111100222302011-1223003031021223): complete subsection reference.
 
 <a id="canonical-3023213300020203-0323323112233110-2200011100330200-3223102231130101-1032002130000221-3213111223202123-0010322310320230-0333200202231230"></a>
 
-<a id="canonical-0231130112010133-3200113320032021-0220310123121223-0322102030301020-2303301210000102-1211102030212122-0133021013103123-2103213221023111"></a>
+<a id="canonical-2222303233312230-0121031120022232-2311131230213322-3331223121111322-3101311102300311-2212021033030121-1332030113103233-1133021020021013"></a>
 
-## numa_nodes property — hw_info / 201002233223 / 4
+#### `items.get_spec.infra.hw_info.numa_nodes` property
 
 Type: `"number"`. Computed.
 
@@ -1246,32 +1132,13 @@ Validators: []validator.Int64{
 }
 ```
 
-- [os](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1011121233232211-0233312101313020-2222231012020201-1112322101132301-2010223332002011-0230030302231133-0101303022011333-2223330202000200): complete subsection reference.
+- [os](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1011121233232211-0233312101313020-2222231012020201-1112322101132301-2010223332002011-0230030302231133-0101303022011333-2223330202000200): complete subsection reference.
 
-- [product](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2103123301201212-3002313121111213-2012303003133210-3302331020010130-0320011002313300-1220110233021012-0223022233131121-0220201321002213): complete subsection reference.
+- [product](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2103123301201212-3002313121111213-2012303003133210-3302331020010130-0320011002313300-1220110233021012-0223022233131121-0220201321002213): complete subsection reference.
 
-- [storage](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2322332212010010-0120121232200212-3223133321113021-1310210213110021-0131122121102212-3321020331231022-1233123301313231-3230113002312220): complete subsection reference.
+- [storage](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2322332212010010-0120121232200212-3223133321113021-1310210213110021-0131122121102212-3321020331231022-1233123301313231-3230113002312220): complete subsection reference.
 
 - [usb](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2302212103321121-2132121331220013-2010010302230030-2303000030132033-0120112300113022-2212110130102201-0102031001033330-3220210332020322): complete subsection reference.
-
-<a id="canonical-1123123003022233-3003213231102122-3303303312130231-2303202011232021-1111302222030030-1321131122002010-3212210122003231-3111232323231213"></a>
-
-## Next pages — hw_info / 201002233223 / 5
-
-- [items.get_spec.infra.hw_info.bios](data-sources--site_registrations_by_site--reference--group-001.md#canonical-3001203323000323-2222212331201210-1002200302300132-3323010212233333-3020100232130321-0221331120202231-3023032031321331-3231223201122120)
-- [items.get_spec.infra.hw_info.board](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0020112033033321-3211111000213023-0122113303021132-3102101202022123-1020111131120330-2210031212330030-3320332233003221-0330002302331023)
-- [items.get_spec.infra.hw_info.chassis](data-sources--site_registrations_by_site--reference--group-001.md#canonical-3213112302133330-1023220001203112-2101332200000110-0232030210331131-2332312100112210-1303020210132123-1010222131233220-1112021132020231)
-- [items.get_spec.infra.hw_info.cpu](data-sources--site_registrations_by_site--reference--group-001.md#canonical-3301031102211000-0130002022011013-2122010220201032-2031203320301322-2002301312102313-3133102333301021-2223313120122311-0122210111322210)
-- [items.get_spec.infra.hw_info.gpu](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1303022232201212-0021312320130002-0221031212310033-2233101213202331-1021011212033031-0031220322112320-0213313003210122-0222331331110301)
-- [items.get_spec.infra.hw_info.kernel](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1212323210321120-2020221003313232-2133131232320232-3100103223201122-0321331101010320-2021213211001120-3213332120310010-1101020112020032)
-- [items.get_spec.infra.hw_info.memory](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1023301320233031-1211311133101303-1030312210022212-0332330111312113-2202303133100223-1302013232123310-1102001012002013-3331323002333202)
-- [items.get_spec.infra.hw_info.network](data-sources--site_registrations_by_site--reference--group-002.md#canonical-3320213101110032-0320331201110302-1330330120311312-3211002003321111-3123133121213213-3113032130322000-2111100222302011-1223003031021223)
-- [items.get_spec.infra.hw_info.os](data-sources--site_registrations_by_site--reference--group-002.md#canonical-1011121233232211-0233312101313020-2222231012020201-1112322101132301-2010223332002011-0230030302231133-0101303022011333-2223330202000200)
-- [items.get_spec.infra.hw_info.product](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2103123301201212-3002313121111213-2012303003133210-3302331020010130-0320011002313300-1220110233021012-0223022233131121-0220201321002213)
-- [items.get_spec.infra.hw_info.storage](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2322332212010010-0120121232200212-3223133321113021-1310210213110021-0131122121102212-3321020331231022-1233123301313231-3230113002312220)
-- [items.get_spec.infra.hw_info.usb](data-sources--site_registrations_by_site--reference--group-002.md#canonical-2302212103321121-2132121331220013-2010010302230030-2303000030132033-0120112300113022-2212110130102201-0102031001033330-3220210332020322)
-- [items.get_spec.infra](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1021122332203133-3313231002312302-1333020313231221-2300321112113003-0311310333203222-1103231131100102-2302030233330312-1330001203310102)
-- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
 
 <a id="canonical-3001203323000323-2222212331201210-1002200302300132-3323010212233333-3020100232130321-0221331120202231-3023032031321331-3231223201122120"></a>
 
@@ -1279,9 +1146,7 @@ Validators: []validator.Int64{
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3200123120033131-0010120002310001-2012312210133010-0310311212132312-0121101122203332-0211201021200033-0133033101003102-0311003013001301"></a>
-
-## items.get_spec.infra.hw_info.bios — bios / 313101231112 / 2
+## `items.get_spec.infra.hw_info.bios` properties
 
 Breadcrumbs:
 
@@ -1299,15 +1164,13 @@ Type: `"single"`. Computed.
 
 Bios Data. BIOS information.
 
-<a id="canonical-3233230212313323-2201322230222231-3130323131333233-0331211113302031-3003301203232023-1300200333200013-1120120021312022-3210201101132231"></a>
+<a id="canonical-3200123120033131-0010120002310001-2012312210133010-0310311212132312-0121101122203332-0211201021200033-0133033101003102-0311003013001301"></a>
 
-## Direct properties — bios / 313101231112 / 3
+### Direct properties for `items.get_spec.infra.hw_info.bios`
 
 <a id="canonical-0120310011011102-2131223323233020-1000120330110201-3012110110111012-0021033000223303-2131112102212320-1030111133323222-2122223111102020"></a>
 
-<a id="canonical-2121311302001300-0320132312033033-2022123332111131-1323102021302200-2203023322123200-3113330120001201-3120200022132010-0102230200130013"></a>
-
-## date property — bios / 313101231112 / 4
+#### `items.get_spec.infra.hw_info.bios.date` property
 
 Type: `"string"`. Computed.
 
@@ -1326,9 +1189,9 @@ Validators: []validator.String{
 
 <a id="canonical-2020022131001233-2311222010300120-2031022201112123-1010200003201023-3010223333322220-2110020011122332-0330333302030332-2212030132230022"></a>
 
-<a id="canonical-1311121223313033-3212200330213302-0330222223012022-3201202313332302-0230013112302300-3003023310120010-3330101000303111-3021330210111332"></a>
+<a id="canonical-3233230212313323-2201322230222231-3130323131333233-0331211113302031-3003301203232023-1300200333200013-1120120021312022-3210201101132231"></a>
 
-## vendor property — bios / 313101231112 / 5
+#### `items.get_spec.infra.hw_info.bios.vendor` property
 
 Type: `"string"`. Computed.
 
@@ -1336,20 +1199,13 @@ Information from /sys/class/dmi/ID/bios\_vendor.
 
 <a id="canonical-0002212032033221-3322222130333302-1103011030003132-1313230221002211-1301123211122132-0321300123302213-2331333133130333-0331203123331330"></a>
 
-<a id="canonical-2033123333311110-2130330033002233-0020113123003210-0010010311120221-3203121311102212-1021321000332112-1031330202112211-3202112011323213"></a>
+<a id="canonical-2121311302001300-0320132312033033-2022123332111131-1323102021302200-2203023322123200-3113330120001201-3120200022132010-0102230200130013"></a>
 
-## version property — bios / 313101231112 / 6
+#### `items.get_spec.infra.hw_info.bios.version` property
 
 Type: `"string"`. Computed.
 
 Information from /sys/class/dmi/ID/bios\_version.
-
-<a id="canonical-2100002202321303-0232223323133210-0201201022013231-2203021122003032-2020233311132320-1030210300323310-2311213003201322-0303323122312013"></a>
-
-## Next pages — bios / 313101231112 / 7
-
-- [items.get_spec.infra.hw_info](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0201033331231032-1302121202103333-3311111301100100-3033132321112303-1000023113221211-2111010112133021-3203130213130220-3101020133200231)
-- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
 
 <a id="canonical-0020112033033321-3211111000213023-0122113303021132-3102101202022123-1020111131120330-2210031212330030-3320332233003221-0330002302331023"></a>
 
@@ -1357,9 +1213,7 @@ Information from /sys/class/dmi/ID/bios\_version.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2101212132222002-2310200010100013-2212120033211203-0010031010300301-3321030211121113-2123003212121232-1221313323232020-1323201000233001"></a>
-
-## items.get_spec.infra.hw_info.board — board / 111121322113 / 2
+## `items.get_spec.infra.hw_info.board` properties
 
 Breadcrumbs:
 
@@ -1377,15 +1231,13 @@ Type: `"single"`. Computed.
 
 Board Details. Board information.
 
-<a id="canonical-3000120120213200-0300222302110211-2031313111330121-0300313100002011-0023320003032333-0001333123211132-2130320213201033-2322012032122131"></a>
+<a id="canonical-2101212132222002-2310200010100013-2212120033211203-0010031010300301-3321030211121113-2123003212121232-1221313323232020-1323201000233001"></a>
 
-## Direct properties — board / 111121322113 / 3
+### Direct properties for `items.get_spec.infra.hw_info.board`
 
 <a id="canonical-0003222111311120-1122100023222013-1310033010230201-0233123203123000-3111022111122013-0121311132120030-3310230133333222-3200031201313323"></a>
 
-<a id="canonical-3333230213322311-1213320123321301-3002300332123001-3313220122230123-3110301232121312-1122103220210331-1012011131320311-2110300001003132"></a>
-
-## asset_tag property — board / 111121322113 / 4
+#### `items.get_spec.infra.hw_info.board.asset_tag` property
 
 Type: `"string"`. Computed.
 
@@ -1393,9 +1245,9 @@ Information from /sys/class/dmi/ID/board\_asset\_tag.
 
 <a id="canonical-1211112013222003-2331332111231121-2302133132033313-0331300312202331-3200021010200023-2122312220212022-1001131132332131-1223223100310233"></a>
 
-<a id="canonical-3033131133220032-0330123120110120-1300313002001233-3033103110201231-2203212301302120-0323332020332222-2021303333110203-3230201323210330"></a>
+<a id="canonical-3000120120213200-0300222302110211-2031313111330121-0300313100002011-0023320003032333-0001333123211132-2130320213201033-2322012032122131"></a>
 
-## name property — board / 111121322113 / 5
+#### `items.get_spec.infra.hw_info.board.name` property
 
 Type: `"string"`. Computed.
 
@@ -1414,9 +1266,9 @@ Validators: []validator.String{
 
 <a id="canonical-3311130311211021-3203002000023320-3033001102312122-1203113310220231-1331300011100003-2103032332032133-0130112322120001-0132201220310001"></a>
 
-<a id="canonical-2002012003102112-3130220230222211-2001201002101333-2223110102203332-3131030322320321-0020233030302001-0223333013113130-2011111110320000"></a>
+<a id="canonical-3333230213322311-1213320123321301-3002300332123001-3313220122230123-3110301232121312-1122103220210331-1012011131320311-2110300001003132"></a>
 
-## serial property — board / 111121322113 / 6
+#### `items.get_spec.infra.hw_info.board.serial` property
 
 Type: `"string"`. Computed.
 
@@ -1424,9 +1276,9 @@ Information from /sys/class/dmi/ID/board\_serial.
 
 <a id="canonical-2133303230211002-2330020020330130-3000013312011330-2332130130110020-0111001233233011-1311220231323100-0030133123121330-0332120210300301"></a>
 
-<a id="canonical-3002123310300222-2020031123333002-2013100210331303-0010013011330210-1100112121303121-1220212023012103-0301313230002131-3033133130001203"></a>
+<a id="canonical-3033131133220032-0330123120110120-1300313002001233-3033103110201231-2203212301302120-0323332020332222-2021303333110203-3230201323210330"></a>
 
-## vendor property — board / 111121322113 / 7
+#### `items.get_spec.infra.hw_info.board.vendor` property
 
 Type: `"string"`. Computed.
 
@@ -1434,20 +1286,13 @@ Information from /sys/class/dmi/ID/board\_vendor.
 
 <a id="canonical-1123323011003113-2102333033223012-0202202013320310-1121123200102320-3220020213012332-2001131323202300-3303310220201213-1030000330110123"></a>
 
-<a id="canonical-2031323332033311-0032311232200013-0032102031021310-1030021313001230-3223222133130113-0332001331022310-2121230002321211-2301023003113101"></a>
+<a id="canonical-2002012003102112-3130220230222211-2001201002101333-2223110102203332-3131030322320321-0020233030302001-0223333013113130-2011111110320000"></a>
 
-## version property — board / 111121322113 / 8
+#### `items.get_spec.infra.hw_info.board.version` property
 
 Type: `"string"`. Computed.
 
 Information from /sys/class/dmi/ID/board\_version.
-
-<a id="canonical-3302232023232001-1021101231332302-3120030130331210-2032320312221303-1113221300311120-2221312303100100-2113222022021323-2213313210033302"></a>
-
-## Next pages — board / 111121322113 / 9
-
-- [items.get_spec.infra.hw_info](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0201033331231032-1302121202103333-3311111301100100-3033132321112303-1000023113221211-2111010112133021-3203130213130220-3101020133200231)
-- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
 
 <a id="canonical-3213112302133330-1023220001203112-2101332200000110-0232030210331131-2332312100112210-1303020210132123-1010222131233220-1112021132020231"></a>
 
@@ -1455,9 +1300,7 @@ Information from /sys/class/dmi/ID/board\_version.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0311301011300303-3203222113220131-3111102213030123-3223113321003122-1011101303101032-0201100302220301-2202211332210013-2130013002130011"></a>
-
-## items.get_spec.infra.hw_info.chassis — chassis / 002113130132 / 2
+## `items.get_spec.infra.hw_info.chassis` properties
 
 Breadcrumbs:
 
@@ -1475,15 +1318,13 @@ Type: `"single"`. Computed.
 
 Chassis Details. Chassis information.
 
-<a id="canonical-1230131131133203-0030001303010331-3301131112202030-1331332010012212-2023132220210133-1231332202120211-3321133011230131-0021132021222210"></a>
+<a id="canonical-0311301011300303-3203222113220131-3111102213030123-3223113321003122-1011101303101032-0201100302220301-2202211332210013-2130013002130011"></a>
 
-## Direct properties — chassis / 002113130132 / 3
+### Direct properties for `items.get_spec.infra.hw_info.chassis`
 
 <a id="canonical-3012331211313030-3223102311011000-1203310013011332-0111003111200011-2232332201130000-2022100201132210-2132331113032332-2120131012230031"></a>
 
-<a id="canonical-0132202010101021-3202000212210031-3020000010010130-3210332323003311-3111313321000230-1032313100010000-2311320002100332-0010222213121302"></a>
-
-## asset_tag property — chassis / 002113130132 / 4
+#### `items.get_spec.infra.hw_info.chassis.asset_tag` property
 
 Type: `"string"`. Computed.
 
@@ -1491,9 +1332,9 @@ Information from /sys/class/dmi/ID/chassis\_asset\_tag.
 
 <a id="canonical-0121313131133110-3130003231230312-3111003123031331-0003001330202111-3333320031113320-2200103123200131-3112323113320330-1022131221011301"></a>
 
-<a id="canonical-2212103300210303-3210211131230310-2210201102220333-3000031132033020-0200113113311320-2012002003033023-3330033021311332-3222122030130321"></a>
+<a id="canonical-1230131131133203-0030001303010331-3301131112202030-1331332010012212-2023132220210133-1231332202120211-3321133011230131-0021132021222210"></a>
 
-## serial property — chassis / 002113130132 / 5
+#### `items.get_spec.infra.hw_info.chassis.serial` property
 
 Type: `"string"`. Computed.
 
@@ -1501,9 +1342,9 @@ Information from /sys/class/dmi/ID/chassis\_serial.
 
 <a id="canonical-1303331233001030-2333013223022223-3132210300300333-2210231003332132-0302020112210201-2102313301111221-3211101201012313-3003232200110012"></a>
 
-<a id="canonical-0312123000100233-2303000323031031-0302130123220010-3120033232212212-3100302203313220-2123202320133311-0021000113012202-2331202321200010"></a>
+<a id="canonical-0132202010101021-3202000212210031-3020000010010130-3210332323003311-3111313321000230-1032313100010000-2311320002100332-0010222213121302"></a>
 
-## type property — chassis / 002113130132 / 6
+#### `items.get_spec.infra.hw_info.chassis.type` property
 
 Type: `"number"`. Computed.
 
@@ -1511,9 +1352,9 @@ Information from /sys/class/dmi/ID/chassis\_type.
 
 <a id="canonical-0102201122010031-1031212233001130-0313233132030221-1033112021122122-3121312122211313-2000332212030030-3130022223103033-2322231313211013"></a>
 
-<a id="canonical-1303231300112112-3313230103001231-3221303110211010-1102003203133230-2012032020220010-1310222212202133-3010233200112331-2032231001223332"></a>
+<a id="canonical-2212103300210303-3210211131230310-2210201102220333-3000031132033020-0200113113311320-2012002003033023-3330033021311332-3222122030130321"></a>
 
-## vendor property — chassis / 002113130132 / 7
+#### `items.get_spec.infra.hw_info.chassis.vendor` property
 
 Type: `"string"`. Computed.
 
@@ -1521,20 +1362,13 @@ Information from /sys/class/dmi/ID/chassis\_vendor.
 
 <a id="canonical-3320302310113023-0231330212011110-3133010021230113-0122111110121332-3303303213232102-0121212032121010-2303202021020220-3001130302120313"></a>
 
-<a id="canonical-0000001302032320-2003133120220003-3331202333200211-3230312322231201-3221221222023012-1203000320303330-0301321221232221-0201003230312103"></a>
+<a id="canonical-0312123000100233-2303000323031031-0302130123220010-3120033232212212-3100302203313220-2123202320133311-0021000113012202-2331202321200010"></a>
 
-## version property — chassis / 002113130132 / 8
+#### `items.get_spec.infra.hw_info.chassis.version` property
 
 Type: `"string"`. Computed.
 
 Information from /sys/class/dmi/ID/chassis\_version.
-
-<a id="canonical-3013332022030100-3312002103010012-1111022000210013-1003000200002300-1103220011103132-2102301112012123-0331321232323331-2100121111032011"></a>
-
-## Next pages — chassis / 002113130132 / 9
-
-- [items.get_spec.infra.hw_info](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0201033331231032-1302121202103333-3311111301100100-3033132321112303-1000023113221211-2111010112133021-3203130213130220-3101020133200231)
-- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
 
 <a id="canonical-3301031102211000-0130002022011013-2122010220201032-2031203320301322-2002301312102313-3133102333301021-2223313120122311-0122210111322210"></a>
 
@@ -1542,9 +1376,7 @@ Information from /sys/class/dmi/ID/chassis\_version.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3100031303032031-3311322000022033-3301232132001002-1202113121202001-1232320133333123-2323103312200331-0113110330323220-0000310111020300"></a>
-
-## items.get_spec.infra.hw_info.CPU — CPU / 332003020200 / 2
+## `items.get_spec.infra.hw_info.cpu` properties
 
 Breadcrumbs:
 
@@ -1562,15 +1394,13 @@ Type: `"single"`. Computed.
 
 CPU Information. CPU information.
 
-<a id="canonical-0313223100200320-2213232310302111-3200311211212012-2212113120211330-1213023300203121-2203101020102112-1210130010203233-2131320112122120"></a>
+<a id="canonical-3100031303032031-3311322000022033-3301232132001002-1202113121202001-1232320133333123-2323103312200331-0113110330323220-0000310111020300"></a>
 
-## Direct properties — CPU / 332003020200 / 3
+### Direct properties for `items.get_spec.infra.hw_info.cpu`
 
 <a id="canonical-0013331210212031-1000331001200120-0111012110230121-2013113101301203-3130302130311202-1121001100332322-1230130310133012-1133122020112202"></a>
 
-<a id="canonical-1012320203103121-2202332313000131-0003112311123310-0002330010311110-2301113030332031-3203101110031230-2333133100312130-3131221002210313"></a>
-
-## cache property — CPU / 332003020200 / 4
+#### `items.get_spec.infra.hw_info.cpu.cache` property
 
 Type: `"number"`. Computed.
 
@@ -1578,9 +1408,9 @@ Cache. CPU cache size in KB.
 
 <a id="canonical-0010031330222022-1222020002131011-1012322202220323-3211031221301022-3332200203311002-1210000220023210-3331002022031132-2303323001101101"></a>
 
-<a id="canonical-3032232223300002-1222133100131033-3231011121032312-3111031312132032-1332331202321110-3002303032022122-0230132013321312-2121102032100322"></a>
+<a id="canonical-0313223100200320-2213232310302111-3200311211212012-2212113120211330-1213023300203121-2203101020102112-1210130010203233-2131320112122120"></a>
 
-## cores property — CPU / 332003020200 / 5
+#### `items.get_spec.infra.hw_info.cpu.cores` property
 
 Type: `"number"`. Computed.
 
@@ -1588,9 +1418,9 @@ Cores. Number of physical CPU cores.
 
 <a id="canonical-3311322230220203-0223213011122122-0331021210202003-1303200021302323-2212001021000300-0201331211002211-2001101031312333-3203011223122300"></a>
 
-<a id="canonical-2000101031111101-2210100230021333-0123212011123001-3021131302203130-0322001033322301-3010023313320111-3330303012212122-0031120113202033"></a>
+<a id="canonical-1012320203103121-2202332313000131-0003112311123310-0002330010311110-2301113030332031-3203101110031230-2333133100312130-3131221002210313"></a>
 
-## CPUs property — CPU / 332003020200 / 6
+#### `items.get_spec.infra.hw_info.cpu.cpus` property
 
 Type: `"number"`. Computed.
 
@@ -1598,9 +1428,9 @@ CPUs. Number of physical CPUs.
 
 <a id="canonical-1202001011301221-1220321003012011-3203112303033032-0103133312101320-2301213320000230-3222013211133023-0322032102303113-1013200121121302"></a>
 
-<a id="canonical-2031203312001310-0033132203001130-3210211030002103-2232302232100123-2120010012011003-2202312322013012-3213230020001321-0230322022230302"></a>
+<a id="canonical-3032232223300002-1222133100131033-3231011121032312-3111031312132032-1332331202321110-3002303032022122-0230132013321312-2121102032100322"></a>
 
-## model property — CPU / 332003020200 / 7
+#### `items.get_spec.infra.hw_info.cpu.model` property
 
 Type: `"string"`. Computed.
 
@@ -1608,9 +1438,9 @@ Model. CPU model
 
 <a id="canonical-2220102020221233-0030033123323003-2300022032102001-2321330200120210-1230122133201320-3230321000333220-3021231320200133-3213223030110103"></a>
 
-<a id="canonical-2200020302332000-1233331020211031-3112233033022231-1122002000103120-1333303310201003-2102212320113231-2121213210122030-1110031323230022"></a>
+<a id="canonical-2000101031111101-2210100230021333-0123212011123001-3021131302203130-0322001033322301-3010023313320111-3330303012212122-0031120113202033"></a>
 
-## speed property — CPU / 332003020200 / 8
+#### `items.get_spec.infra.hw_info.cpu.speed` property
 
 Type: `"number"`. Computed.
 
@@ -1618,9 +1448,9 @@ Speed. CPU clock rate in MHz.
 
 <a id="canonical-2323121310211332-2112001001212313-3111220112222110-2210310133310210-3312002013212101-1332220011303121-2211102023030132-1330013312110111"></a>
 
-<a id="canonical-3223010230001013-0312000122303230-3011021113130030-0210110102003223-2123213323333001-0110311001302031-1302322131212132-0333223030323113"></a>
+<a id="canonical-2031203312001310-0033132203001130-3210211030002103-2232302232100123-2120010012011003-2202312322013012-3213230020001321-0230322022230302"></a>
 
-## threads property — CPU / 332003020200 / 9
+#### `items.get_spec.infra.hw_info.cpu.threads` property
 
 Type: `"number"`. Computed.
 
@@ -1628,20 +1458,13 @@ Threads. Number of logical (HT) CPU cores.
 
 <a id="canonical-1222231310321132-0020030232101301-2303133321121023-2231212311113230-2111220120312323-3021123332223032-0001030120020101-2121220310033321"></a>
 
-<a id="canonical-3301333131210130-2321320310103310-0210102132032333-1110103003011013-0202301202331211-3100331010313101-2123233203330231-2013331122310303"></a>
+<a id="canonical-2200020302332000-1233331020211031-3112233033022231-1122002000103120-1333303310201003-2102212320113231-2121213210122030-1110031323230022"></a>
 
-## vendor property — CPU / 332003020200 / 10
+#### `items.get_spec.infra.hw_info.cpu.vendor` property
 
 Type: `"string"`. Computed.
 
 Vendor. CPU vendor.
-
-<a id="canonical-1030300231311031-1321200333232230-0023212301333100-1233321322321221-1002301002012302-2023111322213233-3111330311002232-3113022033111223"></a>
-
-## Next pages — CPU / 332003020200 / 11
-
-- [items.get_spec.infra.hw_info](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0201033331231032-1302121202103333-3311111301100100-3033132321112303-1000023113221211-2111010112133021-3203130213130220-3101020133200231)
-- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
 
 <a id="canonical-1303022232201212-0021312320130002-0221031212310033-2233101213202331-1021011212033031-0031220322112320-0213313003210122-0222331331110301"></a>
 
@@ -1649,9 +1472,7 @@ Vendor. CPU vendor.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3322233220311132-3101000312101323-1123020121030023-1130220330131000-2210131322113320-1201212110221032-1122300322002131-2220310120303103"></a>
-
-## items.get_spec.infra.hw_info.GPU — GPU / 223122120110 / 2
+## `items.get_spec.infra.hw_info.gpu` properties
 
 Breadcrumbs:
 
@@ -1669,15 +1490,13 @@ Type: `"single"`. Computed.
 
 GPU. GPU information on server.
 
-<a id="canonical-3300111330002033-0120003313331033-3021312130130311-2130100302000203-3201003231101220-3120320300222333-2211330033222003-3310301133233200"></a>
+<a id="canonical-3322233220311132-3101000312101323-1123020121030023-1130220330131000-2210131322113320-1201212110221032-1122300322002131-2220310120303103"></a>
 
-## Direct properties — GPU / 223122120110 / 3
+### Direct properties for `items.get_spec.infra.hw_info.gpu`
 
 <a id="canonical-1012320220122013-2203020111311101-0212201022213031-2113231110330200-1320031220311003-1112111110231002-2202131322010132-3100203312103130"></a>
 
-<a id="canonical-0312002130120311-2120301021332211-3010312331030303-2312032230223320-1113202220033302-3233221000001221-2213230300321231-1032013022101211"></a>
-
-## cuda_version property — GPU / 223122120110 / 4
+#### `items.get_spec.infra.hw_info.gpu.cuda_version` property
 
 Type: `"string"`. Computed.
 
@@ -1685,9 +1504,9 @@ Cuda Version. GPU Cuda Version.
 
 <a id="canonical-3211130210112012-2132022122031202-1300210300232323-2212100233123211-1223103332223221-3203002310312231-0012023102232203-2001132023300022"></a>
 
-<a id="canonical-3002112132303310-1003213302033103-1031230201033001-0301002201131212-3212211313132022-1020022332220212-1320300303031122-0113320230010022"></a>
+<a id="canonical-3300111330002033-0120003313331033-3021312130130311-2130100302000203-3201003231101220-3120320300222333-2211330033222003-3310301133233200"></a>
 
-## driver_version property — GPU / 223122120110 / 5
+#### `items.get_spec.infra.hw_info.gpu.driver_version` property
 
 Type: `"string"`. Computed.
 
@@ -1695,16 +1514,526 @@ Driver Version. GPU Driver Version.
 
 - [gpu_device](data-sources--site_registrations_by_site--reference--group-001.md#canonical-3130232231111021-0111332031201120-3023322011203011-1312123012232112-3012203221313131-0320131131101311-3011320001200002-2310120222120301): complete subsection reference.
 
-<a id="canonical-1031233002013202-0020320332012202-3100223020331113-3303321123032332-3000001313012012-0030112302220332-1021111333310011-1222210333013203"></a>
-
-## Next pages — GPU / 223122120110 / 6
-
-- [items.get_spec.infra.hw_info.gpu.gpu_device](data-sources--site_registrations_by_site--reference--group-001.md#canonical-3130232231111021-0111332031201120-3023322011203011-1312123012232112-3012203221313131-0320131131101311-3011320001200002-2310120222120301)
-- [items.get_spec.infra.hw_info](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0201033331231032-1302121202103333-3311111301100100-3033132321112303-1000023113221211-2111010112133021-3203130213130220-3101020133200231)
-- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
-
 <a id="canonical-3130232231111021-0111332031201120-3023322011203011-1312123012232112-3012203221313131-0320131131101311-3011320001200002-2310120222120301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
+
+## `items.get_spec.infra.hw_info.gpu.gpu_device` properties
+
+Breadcrumbs:
+
+- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
+- [Property reference](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0102102012000331-3300022232033212-0133030232322023-1233323203011300-3213211013132213-1000132330333132-1212223310311330-0012021313023000)
+- [items](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0203000012213013-2023113310133033-2023302133132132-2122132031003002-3223313321231231-1110001122110330-0313203032121021-0313221120120330)
+- [items.get_spec](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2010303331210321-3333001320101133-3003113110231120-0231101230001211-0300103331231101-0201021123203031-3033130221230130-3332001023123321)
+- [items.get_spec.infra](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1021122332203133-3313231002312302-1333020313231221-2300321112113003-0311310333203222-1103231131100102-2302030233330312-1330001203310102)
+- [items.get_spec.infra.hw_info](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0201033331231032-1302121202103333-3311111301100100-3033132321112303-1000023113221211-2111010112133021-3203130213130220-3101020133200231)
+- [items.get_spec.infra.hw_info.gpu](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1303022232201212-0021312320130002-0221031212310033-2233101213202331-1021011212033031-0031220322112320-0213313003210122-0222331331110301)
+- items.get_spec.infra.hw_info.GPU.gpu_device
+
+<a id="canonical-1230032011322012-0233303101231001-2102011130303121-1013123133331311-0210103012121021-2103201222231111-3131003000023301-1231013200132031"></a>
+
+Type: `"list"`. Computed.
+
+GPU devices. List of GPU devices in server.
+
+<a id="canonical-3322311111223030-2311310310003112-1022002223311120-2102121210023202-2312030212332302-2200320310012323-0010310300332221-3110123022200131"></a>
+
+### Direct properties for `items.get_spec.infra.hw_info.gpu.gpu_device`
+
+<a id="canonical-2311110300120321-0213312000302010-2303010300200013-1223331010123223-0231312011303230-1321103023121011-0223203030121332-3321123102120121"></a>
+
+#### `items.get_spec.infra.hw_info.gpu.gpu_device.id` property
+
+Type: `"string"`. Computed.
+
+GPU ID. GPU ID
+
+<a id="canonical-0133303200200202-1013031023200131-3301023221231030-3112313011032232-2211330003123302-0321210021032212-3113120112121001-3122100120023213"></a>
+
+<a id="canonical-0020321003222321-3111222223103300-1311223331000220-2031231300311312-2132232132130310-3110133321311101-1302131011020032-0211122310333322"></a>
+
+#### `items.get_spec.infra.hw_info.gpu.gpu_device.processes` property
+
+Type: `"string"`. Computed.
+
+Processes. GPU Processes.
+
+<a id="canonical-1230203103200202-0002222030030310-0303132022102221-2220313320110030-1221022203012132-0131100221113110-0113100231302023-3131210301002133"></a>
+
+<a id="canonical-1332230220303130-0021102322212020-3130033120101000-3323313232110000-3130311030122311-2030003030001023-0122132213221200-2201002220203113"></a>
+
+#### `items.get_spec.infra.hw_info.gpu.gpu_device.product_name` property
+
+Type: `"string"`. Computed.
+
+Product Name. GPU Product Name.
+
+<a id="canonical-1212323210321120-2020221003313232-2133131232320232-3100103223201122-0321331101010320-2021213211001120-3213332120310010-1101020112020032"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `items.get_spec.infra.hw_info.kernel` properties
+
+Breadcrumbs:
+
+- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
+- [Property reference](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0102102012000331-3300022232033212-0133030232322023-1233323203011300-3213211013132213-1000132330333132-1212223310311330-0012021313023000)
+- [items](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0203000012213013-2023113310133033-2023302133132132-2122132031003002-3223313321231231-1110001122110330-0313203032121021-0313221120120330)
+- [items.get_spec](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2010303331210321-3333001320101133-3003113110231120-0231101230001211-0300103331231101-0201021123203031-3033130221230130-3332001023123321)
+- [items.get_spec.infra](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1021122332203133-3313231002312302-1333020313231221-2300321112113003-0311310333203222-1103231131100102-2302030233330312-1330001203310102)
+- [items.get_spec.infra.hw_info](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0201033331231032-1302121202103333-3311111301100100-3033132321112303-1000023113221211-2111010112133021-3203130213130220-3101020133200231)
+- items.get_spec.infra.hw_info.kernel
+
+<a id="canonical-1130010313321130-0221332232333221-1002312011131313-3023033313122330-1012211213130313-2033301210011300-2333333331123203-2001211022113331"></a>
+
+Type: `"single"`. Computed.
+
+Kernel. Kernel information.
+
+<a id="canonical-3102132002021001-1132023000331010-0223300022212213-2202222213102321-1330310222310212-2012322303331313-0303020110231220-0210021313301103"></a>
+
+### Direct properties for `items.get_spec.infra.hw_info.kernel`
+
+<a id="canonical-1231103000022003-0210131212032232-1213333122132333-2010221322330022-2231231022323213-2323312021300212-2032200021111303-1122331003001231"></a>
+
+#### `items.get_spec.infra.hw_info.kernel.architecture` property
+
+Type: `"string"`. Computed.
+
+Architecture. Kernel architecture.
+
+<a id="canonical-1030133012302003-2323331010132110-3031201312131320-1312221103232002-0002232303033202-1120200201332101-2222213023010223-3010000211130002"></a>
+
+<a id="canonical-3010231013022032-3200110301323001-3302002312132002-0013032022200330-3113102133321230-3321013113231300-0321033213313232-3032320201103211"></a>
+
+#### `items.get_spec.infra.hw_info.kernel.release` property
+
+Type: `"string"`. Computed.
+
+Release. Kernel release.
+
+<a id="canonical-2303221220300212-2331332320012012-1322331023021322-3230002300123212-0021320023003023-0320113102303020-0033232033102320-3333233032331001"></a>
+
+<a id="canonical-1120313311030033-0301312033313123-2123001313111331-3330100333033233-0201031303233333-2031313012010211-0211130102221332-1133312033201022"></a>
+
+#### `items.get_spec.infra.hw_info.kernel.version` property
+
+Type: `"string"`. Computed.
+
+Version. Kernel version.
+
+<a id="canonical-1023301320233031-1211311133101303-1030312210022212-0332330111312113-2202303133100223-1302013232123310-1102001012002013-3331323002333202"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `items.get_spec.infra.hw_info.memory` properties
+
+Breadcrumbs:
+
+- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
+- [Property reference](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0102102012000331-3300022232033212-0133030232322023-1233323203011300-3213211013132213-1000132330333132-1212223310311330-0012021313023000)
+- [items](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0203000012213013-2023113310133033-2023302133132132-2122132031003002-3223313321231231-1110001122110330-0313203032121021-0313221120120330)
+- [items.get_spec](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2010303331210321-3333001320101133-3003113110231120-0231101230001211-0300103331231101-0201021123203031-3033130221230130-3332001023123321)
+- [items.get_spec.infra](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1021122332203133-3313231002312302-1333020313231221-2300321112113003-0311310333203222-1103231131100102-2302030233330312-1330001203310102)
+- [items.get_spec.infra.hw_info](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0201033331231032-1302121202103333-3311111301100100-3033132321112303-1000023113221211-2111010112133021-3203130213130220-3101020133200231)
+- items.get_spec.infra.hw_info.memory
+
+<a id="canonical-1011011220300100-2111101123210113-0310122220130330-3222321222221211-2031123030200003-3113212330303212-0131001301301001-1302332003012211"></a>
+
+Type: `"single"`. Computed.
+
+Memory Information. Memory information.
+
+<a id="canonical-0230020003201010-3113303200221202-3110211313232002-0331231131332312-0000220201313210-3022313030232302-3010200121131213-3220301331313022"></a>
+
+### Direct properties for `items.get_spec.infra.hw_info.memory`
+
+<a id="canonical-3001012023120333-3333002230113013-0302130013222030-0120022012002131-1333300322230322-3032132001320020-2130020333201032-3131020310320121"></a>
+
+#### `items.get_spec.infra.hw_info.memory.size_mb` property
+
+Type: `"number"`. Computed.
+
+RAM. RAM size in MB.
+
+<a id="canonical-2322332320312012-3212131121302110-2012032033000011-3121313332133230-1211123100020031-0100223200011123-2101323003313122-0221003301200332"></a>
+
+<a id="canonical-3032001131331032-3010003021333101-0032100103131322-2310021232123133-3213310130310201-1100120330003220-2122120230111012-0211130122203330"></a>
+
+#### `items.get_spec.infra.hw_info.memory.speed` property
+
+Type: `"number"`. Computed.
+
+Speed. RAM data rate in MT/s.
+
+<a id="canonical-3101313110320000-2331101223012323-2233121321221030-0111223011022020-0333101200311000-0301032202333211-2213102031303130-0213201013033333"></a>
+
+<a id="canonical-0003101032110232-2100133221211000-0033210123312220-1110230031220121-2022231230120313-0022030130203020-3220330203103230-3303131313333003"></a>
+
+#### `items.get_spec.infra.hw_info.memory.type` property
+
+Type: `"string"`. Computed.
+
+Type. Type of memory, eg. DDR4.
+
+<a id="canonical-3320213101110032-0320331201110302-1330330120311312-3211002003321111-3123133121213213-3113032130322000-2111100222302011-1223003031021223"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `items.get_spec.infra.hw_info.network` properties
+
+Breadcrumbs:
+
+- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
+- [Property reference](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0102102012000331-3300022232033212-0133030232322023-1233323203011300-3213211013132213-1000132330333132-1212223310311330-0012021313023000)
+- [items](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0203000012213013-2023113310133033-2023302133132132-2122132031003002-3223313321231231-1110001122110330-0313203032121021-0313221120120330)
+- [items.get_spec](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2010303331210321-3333001320101133-3003113110231120-0231101230001211-0300103331231101-0201021123203031-3033130221230130-3332001023123321)
+- [items.get_spec.infra](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1021122332203133-3313231002312302-1333020313231221-2300321112113003-0311310333203222-1103231131100102-2302030233330312-1330001203310102)
+- [items.get_spec.infra.hw_info](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0201033331231032-1302121202103333-3311111301100100-3033132321112303-1000023113221211-2111010112133021-3203130213130220-3101020133200231)
+- items.get_spec.infra.hw_info.network
+
+<a id="canonical-0220120032111011-1102102102312012-2003203100001300-2302330203132123-0312210230001111-1103011111100121-2300301120133203-0210110302323110"></a>
+
+Type: `"list"`. Computed.
+
+Network. List of network devices in server.
+
+<a id="canonical-2032200011101310-0210030331131023-1112210020202222-0202330111200301-3000222313321322-3333030331111310-0023021312012230-3031233010030131"></a>
+
+### Direct properties for `items.get_spec.infra.hw_info.network`
+
+<a id="canonical-2223311220301233-2202113222220301-0213123200211103-1103012123013130-2130102000303000-3023102221100310-2210300112201323-0031300231031102"></a>
+
+#### `items.get_spec.infra.hw_info.network.driver` property
+
+Type: `"string"`. Computed.
+
+Driver. Driver of device, eg. E1000e.
+
+<a id="canonical-2313131223220312-1011213100322221-0210332230212203-0022231232021200-3122310332222102-0200121112120213-3322212300331221-3330101133003330"></a>
+
+<a id="canonical-2213222220312031-0233102000220011-2133111120123322-3303033210003321-0012020201331212-0222330020131232-3200213033003033-3310223013230103"></a>
+
+#### `items.get_spec.infra.hw_info.network.ip_address` property
+
+Type: `["list", "string"]`. Computed.
+
+IP Address. IP address on interface.
+
+<a id="canonical-1200131102231122-2000222230331113-0302120220122221-3303233102021322-0133231021012331-2100031231113231-2033201333011011-2020010303130301"></a>
+
+<a id="canonical-3220031310010303-0323033331023200-2033300033110022-2032031130010233-2131030122302013-2320100002310233-0221201210310021-2113302030212231"></a>
+
+#### `items.get_spec.infra.hw_info.network.link_quality` property
+
+Type: `"string"`. Computed.
+
+\[Enum: QUALITY\_UNKNOWN|QUALITY\_GOOD|QUALITY\_POOR|QUALITY\_DISABLED\] Link quality determined by
+VER using different probes Unknown quality Link quality is good Link quality is poor Quality
+disabled. Possible values are \`QUALITY\_UNKNOWN\`, \`QUALITY\_GOOD\`, \`QUALITY\_POOR\`,
+\`QUALITY\_DISABLED\`. Defaults to \`QUALITY\_UNKNOWN\`.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["QUALITY_DISABLED","QUALITY_GOOD","QUALITY_POOR","QUALITY_UNKNOWN"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
+Validators: []validator.String{
+  stringvalidator.OneOf("QUALITY_UNKNOWN",
+    "QUALITY_GOOD",
+    "QUALITY_POOR",
+    "QUALITY_DISABLED"),
+}
+```
+
+<a id="canonical-2211230030301301-1320002032011320-2122312132320303-1303112232013200-3333011333302033-0331321033132130-3203322111333000-0300331330313013"></a>
+
+<a id="canonical-3021020030203001-0311131231302303-3211123301300321-2132230003030031-2003222322311303-0233020223020111-3032131110010212-2332011011121033"></a>
+
+#### `items.get_spec.infra.hw_info.network.link_type` property
+
+Type: `"string"`. Computed.
+
+\[Enum:
+LINK\_TYPE\_UNKNOWN|LINK\_TYPE\_ETHERNET|LINK\_TYPE\_WIFI\_802\_11AC|LINK\_TYPE\_WIFI\_802\_11BGN|LINK\_TYPE\_4G|LINK\_TYPE\_WIFI|LINK\_TYPE\_WAN\]
+Link type of interface determined operationally Link type unknown Link type ethernet Wi-Fi link of
+type 802.11ac Wi-Fi link of type 802.11bgn Link type 4G Wi-Fi link Wan link. Possible values are
+\`LINK\_TYPE\_UNKNOWN\`, \`LINK\_TYPE\_ETHERNET\`, \`LINK\_TYPE\_WIFI\_802\_11AC\`,
+\`LINK\_TYPE\_WIFI\_802\_11BGN\`, \`LINK\_TYPE\_4G\`, \`LINK\_TYPE\_WIFI\`, \`LINK\_TYPE\_WAN\`.
+Defaults to \`LINK\_TYPE\_UNKNOWN\`.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["LINK_TYPE_4G","LINK_TYPE_ETHERNET","LINK_TYPE_UNKNOWN","LINK_TYPE_WAN","LINK_TYPE_WIFI","LINK_TYPE_WIFI_802_11AC","LINK_TYPE_WIFI_802_11BGN"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
+Validators: []validator.String{
+  stringvalidator.OneOf("LINK_TYPE_UNKNOWN",
+    "LINK_TYPE_ETHERNET",
+    "LINK_TYPE_WIFI_802_11AC",
+    "LINK_TYPE_WIFI_802_11BGN",
+    "LINK_TYPE_4G",
+    "LINK_TYPE_WIFI",
+    "LINK_TYPE_WAN"),
+}
+```
+
+<a id="canonical-3002002030032202-2303220021213232-3311211001222220-2210122133103010-1012010200131333-0133230021211233-3110100032220233-2102321320312023"></a>
+
+<a id="canonical-3130222132332130-1132021002201020-0211310030233330-0320023232213203-0330333011030113-0120001000232330-0233132002001313-1002330010322211"></a>
+
+#### `items.get_spec.infra.hw_info.network.mac_address` property
+
+Type: `"string"`. Computed.
+
+MAC Address. MAC address on interface.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.String{
+  stringvalidator.LengthBetween(17, 1024),
+  stringvalidator.RegexMatches(regexp.MustCompile(`^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$`),
+    ""),
+}
+```
+
+<a id="canonical-2021220202321113-2210001310233102-1032210310300311-3223310212223210-0310023110313133-3310101323233331-1321120103103033-1232203123113301"></a>
+
+<a id="canonical-1110111122333013-1330120332201111-1201330230321120-0233322210232213-1303022022223302-0201111112102123-2313001220133013-3002033213232210"></a>
+
+#### `items.get_spec.infra.hw_info.network.name` property
+
+Type: `"string"`. Computed.
+
+Name. Name of device, eg. Eth0.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 63),
+  stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
+    ""),
+}
+```
+
+<a id="canonical-1111130213330200-3012332221330311-3220132010011333-0212103201012223-3203103011301102-0320020032221311-3200112031322121-2311001013113331"></a>
+
+<a id="canonical-2333101200303221-3231220320020102-2232211010131202-3110100202002112-0121000312000211-3222001203223333-1313231133311113-1122331003321330"></a>
+
+#### `items.get_spec.infra.hw_info.network.port` property
+
+Type: `"string"`. Computed.
+
+Port. Used port, eg. Tp.
+
+<a id="canonical-1231100011002202-3130221120203202-0132033013323210-1023003002000223-0002301111201200-1000313330003211-0200123030310222-0233033023323213"></a>
+
+<a id="canonical-0331101212212221-0002331030333213-3320031220220222-1002323131302323-1120310212323103-0203012113000103-1202121330212312-3233233021230202"></a>
+
+#### `items.get_spec.infra.hw_info.network.speed` property
+
+Type: `"number"`. Computed.
+
+Speed. Device max supported speed in Mbps.
+
+<a id="canonical-1011121233232211-0233312101313020-2222231012020201-1112322101132301-2010223332002011-0230030302231133-0101303022011333-2223330202000200"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `items.get_spec.infra.hw_info.os` properties
+
+Breadcrumbs:
+
+- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
+- [Property reference](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0102102012000331-3300022232033212-0133030232322023-1233323203011300-3213211013132213-1000132330333132-1212223310311330-0012021313023000)
+- [items](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0203000012213013-2023113310133033-2023302133132132-2122132031003002-3223313321231231-1110001122110330-0313203032121021-0313221120120330)
+- [items.get_spec](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2010303331210321-3333001320101133-3003113110231120-0231101230001211-0300103331231101-0201021123203031-3033130221230130-3332001023123321)
+- [items.get_spec.infra](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1021122332203133-3313231002312302-1333020313231221-2300321112113003-0311310333203222-1103231131100102-2302030233330312-1330001203310102)
+- [items.get_spec.infra.hw_info](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0201033331231032-1302121202103333-3311111301100100-3033132321112303-1000023113221211-2111010112133021-3203130213130220-3101020133200231)
+- items.get_spec.infra.hw_info.os
+
+<a id="canonical-1211112210022221-1312323023332120-2220012022312022-3200122211020013-2002222023233033-0222112102032211-1002301333021033-0021333030300210"></a>
+
+Type: `"single"`. Computed.
+
+OS. Details of Operating System.
+
+<a id="canonical-2303323000331021-1120312331110202-3112133301032333-3002122100112101-0311020222033312-0330100300223021-3103302310233322-2020100100112202"></a>
+
+### Direct properties for `items.get_spec.infra.hw_info.os`
+
+<a id="canonical-0103230301112003-2230223000223122-3330231113203131-1133101031123031-1231233200232111-1102101130212311-2200033233020113-2322032310221103"></a>
+
+#### `items.get_spec.infra.hw_info.os.architecture` property
+
+Type: `"string"`. Computed.
+
+Architecture. Architecture of OS.
+
+<a id="canonical-2231102221300332-3001233130330321-3233213000203322-1100133313101221-2112231100123001-1100112023321201-1332033122300202-0200010322112310"></a>
+
+<a id="canonical-2301033300011200-2203100110231301-2231000123000232-1301220302320012-1030213302301310-1222120032333111-1030203100223300-0101030320203231"></a>
+
+#### `items.get_spec.infra.hw_info.os.name` property
+
+Type: `"string"`. Computed.
+
+Name. Name of OS.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 63),
+  stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
+    ""),
+}
+```
+
+<a id="canonical-2021331322332101-3001033012010021-2100302221032101-1012231022003000-1313002200000221-0023110313320332-0323121111123131-2220323202220132"></a>
+
+<a id="canonical-1220301222213013-0203133231112101-0333233100301323-3101323210030211-2123002323313222-2221201201032300-3123221220132023-2132312302312312"></a>
+
+#### `items.get_spec.infra.hw_info.os.release` property
+
+Type: `"string"`. Computed.
+
+Release. Release of the OS.
+
+<a id="canonical-0210023033212221-1022312002002211-0211112323322111-2330030211222231-0031211123003131-1323211000211300-2002333323230013-0312303013302310"></a>
+
+<a id="canonical-0120303312323211-3320033123321031-0333121223000233-0210201203100322-0003230200232001-2321032202323302-3022223012011330-2003211313021322"></a>
+
+#### `items.get_spec.infra.hw_info.os.vendor` property
+
+Type: `"string"`. Computed.
+
+Vendor. Vendor of OS.
+
+<a id="canonical-2311312330311333-2222002321131330-3002121323100213-2201313011301202-2300212033133102-2110220333020110-0320320102113021-1000310333131320"></a>
+
+<a id="canonical-0001330211232122-3012333233001001-1003310330122323-0211031220031201-2121203300211103-1022232101023111-1110330213122202-3003230003123202"></a>
+
+#### `items.get_spec.infra.hw_info.os.version` property
+
+Type: `"string"`. Computed.
+
+Version. Version of OS.
+
+<a id="canonical-2103123301201212-3002313121111213-2012303003133210-3302331020010130-0320011002313300-1220110233021012-0223022233131121-0220201321002213"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `items.get_spec.infra.hw_info.product` properties
+
+Breadcrumbs:
+
+- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
+- [Property reference](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0102102012000331-3300022232033212-0133030232322023-1233323203011300-3213211013132213-1000132330333132-1212223310311330-0012021313023000)
+- [items](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0203000012213013-2023113310133033-2023302133132132-2122132031003002-3223313321231231-1110001122110330-0313203032121021-0313221120120330)
+- [items.get_spec](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2010303331210321-3333001320101133-3003113110231120-0231101230001211-0300103331231101-0201021123203031-3033130221230130-3332001023123321)
+- [items.get_spec.infra](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1021122332203133-3313231002312302-1333020313231221-2300321112113003-0311310333203222-1103231131100102-2302030233330312-1330001203310102)
+- [items.get_spec.infra.hw_info](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0201033331231032-1302121202103333-3311111301100100-3033132321112303-1000023113221211-2111010112133021-3203130213130220-3101020133200231)
+- items.get_spec.infra.hw_info.product
+
+<a id="canonical-2233203322200131-0322222132133321-0000000233321130-2113010221200020-3101222012023301-3330303211033211-1130112131130222-0332212313131223"></a>
+
+Type: `"single"`. Computed.
+
+Product Information. Product information.
+
+<a id="canonical-1222233010223320-1210221033003120-0113322122311122-1300313001203102-0000103232133312-3011230221313300-2223313331232220-2221322203212103"></a>
+
+### Direct properties for `items.get_spec.infra.hw_info.product`
+
+<a id="canonical-0133212020312323-2321323031312312-0210021010113230-2221013201323110-1201321123132302-0310331311232313-2232003013313020-2321133222023223"></a>
+
+#### `items.get_spec.infra.hw_info.product.name` property
+
+Type: `"string"`. Computed.
+
+Name. Product name, eg. For AWS m5a.xlarge. Info taken from /sys/class/dmi/ID/product\_name.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 63),
+  stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
+    ""),
+}
+```
+
+<a id="canonical-1102230000300231-3301022111001332-1311133000212302-1023213102222212-3022132012033001-2122231103223100-2313223202123323-1230012120203030"></a>
+
+<a id="canonical-2130221003132202-1301133102211333-1111103032230301-0313202000312122-3201001202233310-0322133012321011-2131010200010131-3202310132130022"></a>
+
+#### `items.get_spec.infra.hw_info.product.serial` property
+
+Type: `"string"`. Computed.
+
+Serial number, eg. For AWS 00000000-0000-4000-8000-23460f645a1f. Info taken from
+/sys/class/dmi/ID/product\_serial.
+
+<a id="canonical-2113222120031223-0223003002223322-0033030203223110-2323212020013103-3012301212032233-2121323221031332-0233023322310313-2221122200300110"></a>
+
+<a id="canonical-3023021133200302-2312120202011030-2131001210313100-2303310130202332-2302131011112002-3120031211001032-0113303311001121-0302121132011023"></a>
+
+#### `items.get_spec.infra.hw_info.product.vendor` property
+
+Type: `"string"`. Computed.
+
+Vendor. Vendor name, eg. For AWS Amazon EC2. Info taken from /sys/class/dmi/ID/product\_vendor.
+
+<a id="canonical-0221310302021132-3120233121302000-3312102211212102-3303000002120220-1201122101233002-3303100232230233-2011213001233130-2020211010210111"></a>
+
+<a id="canonical-1333232002303022-1223101120233323-0002323133023212-1101013213031301-0222232110100303-1223301030001032-3223102101133333-2103202021320021"></a>
+
+#### `items.get_spec.infra.hw_info.product.version` property
+
+Type: `"string"`. Computed.
+
+Version name. Info taken from /sys/class/dmi/ID/product\_version.
+
+<a id="canonical-2322332212010010-0120121232200212-3223133321113021-1310210213110021-0131122121102212-3321020331231022-1233123301313231-3230113002312220"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `items.get_spec.infra.hw_info.storage` properties
+
+Breadcrumbs:
+
+- [xcsh_site_registrations_by_site](../data-sources/site_registrations_by_site.md#canonical-2111303110111030-3113020121012123-1313322201232310-1013111203201222-0203220021201023-0033331330113033-0303303330002221-2203131220023320)
+- [Property reference](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0102102012000331-3300022232033212-0133030232322023-1233323203011300-3213211013132213-1000132330333132-1212223310311330-0012021313023000)
+- [items](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0203000012213013-2023113310133033-2023302133132132-2122132031003002-3223313321231231-1110001122110330-0313203032121021-0313221120120330)
+- [items.get_spec](data-sources--site_registrations_by_site--reference--group-001.md#canonical-2010303331210321-3333001320101133-3003113110231120-0231101230001211-0300103331231101-0201021123203031-3033130221230130-3332001023123321)
+- [items.get_spec.infra](data-sources--site_registrations_by_site--reference--group-001.md#canonical-1021122332203133-3313231002312302-1333020313231221-2300321112113003-0311310333203222-1103231131100102-2302030233330312-1330001203310102)
+- [items.get_spec.infra.hw_info](data-sources--site_registrations_by_site--reference--group-001.md#canonical-0201033331231032-1302121202103333-3311111301100100-3033132321112303-1000023113221211-2111010112133021-3203130213130220-3101020133200231)
+- items.get_spec.infra.hw_info.storage
+
+<a id="canonical-2103000021320230-2332301210111032-1212303033330230-2131330011223130-1101133211323011-3130012321112013-3212200233201233-3002222323200001"></a>
+
+Type: `"list"`. Computed.
+
+Storage. List of storage devices in server.

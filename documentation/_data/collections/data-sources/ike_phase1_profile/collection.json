@@ -111,8 +111,8 @@
   "pages": [
     {
       "aliases": ["ike phase1 profile"],
-      "body_bytes": 1419,
-      "body_sha256": "sha256:548b29f0839e2f09757feff30a241f8ef84594bf4325f3e9e3ac94dc4ce8440e",
+      "body_bytes": 1381,
+      "body_sha256": "sha256:98a5e88d5dd04c88831c3c9da079cbbb49b3c7f4bfe5b37ab3b7cd4293e9a575",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -143,7 +143,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike_phase1_profile/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a IKE Phase1 Profile resource in F5 Distributed Cloud for ike phase1 profile specification. configuration.",
+      "summary": "Reads IKE Phase1 Profile information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_ike_phase1_profile",
       "unresolved_relationships": [],
@@ -155,8 +155,8 @@
     },
     {
       "aliases": ["ike phase1 profile"],
-      "body_bytes": 15763,
-      "body_sha256": "sha256:5ed31c2a79527576034403f6fc017c4d93ccd663c11b167faac8a844faff6aa2",
+      "body_bytes": 14370,
+      "body_sha256": "sha256:07deaef775dc15079a7a2eb5a879aaca17e5117aad77373d54f9ccf5fa9fea93",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -459,8 +459,8 @@
     },
     {
       "aliases": ["ike keylifetime hours"],
-      "body_bytes": 2616,
-      "body_sha256": "sha256:c1eb75e54888ddcdb4dadc42e9854f7cde55ae0e1b3933b8c5345d182939053c",
+      "body_bytes": 2304,
+      "body_sha256": "sha256:4a4780eb33b45dfcd27438b9fcb00d5146655ffee653d5cb7251c1179eb59f79",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -516,8 +516,8 @@
     },
     {
       "aliases": ["ike keylifetime minutes"],
-      "body_bytes": 1943,
-      "body_sha256": "sha256:5b3b11280fd61e82a57a9d2d186591257e77d062779f663dc25fa62a848cf56e",
+      "body_bytes": 1631,
+      "body_sha256": "sha256:ff1256576da07bda890b8084a4ac413b860ee0725f20bf5f5e7d91cd00c88893",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -573,8 +573,8 @@
     },
     {
       "aliases": ["reauth disabled"],
-      "body_bytes": 1712,
-      "body_sha256": "sha256:ab470995c73e5baaec41e8d8dd0f3b55332449ca468476f012d8df15f23ccbcf",
+      "body_bytes": 1439,
+      "body_sha256": "sha256:e6c1176b7e2e70a5b3d72fa5d3b2e2c4754932bf23863625f0992097f1485ed6",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -613,8 +613,8 @@
     },
     {
       "aliases": ["duration", "reauth timeout days"],
-      "body_bytes": 1910,
-      "body_sha256": "sha256:438f15d85968a975790ff1ed4cb839b1212c65f0cc62e3e0a1a34841d34ae7f8",
+      "body_bytes": 1598,
+      "body_sha256": "sha256:b0172741f2b8e90d6aa083390a795bc0e981ab169cc5d5efa8b0df8404ba0e95",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -670,8 +670,8 @@
     },
     {
       "aliases": ["duration", "reauth timeout hours"],
-      "body_bytes": 1902,
-      "body_sha256": "sha256:f736a65c3d19a9b8dc4e0179ec0bd9a2ae5db9ab23899565a0b62918b6dc108c",
+      "body_bytes": 1590,
+      "body_sha256": "sha256:3769bad84ce6ba71853654b4fd359fca30377e30e2940dcb324a219074385319",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -727,8 +727,8 @@
     },
     {
       "aliases": ["use default keylifetime"],
-      "body_bytes": 1128,
-      "body_sha256": "sha256:d5c6b58c4f4fccc9f62aff25c2a6b8faad73a88fa4808082d716a377238f5c0c",
+      "body_bytes": 855,
+      "body_sha256": "sha256:95d0d0ca178d8a146d7f4bef659d0be1d7278250df489a4ea60c5c16bde05c80",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -767,8 +767,8 @@
     },
     {
       "aliases": ["ike phase1 profile"],
-      "body_bytes": 693,
-      "body_sha256": "sha256:f558ad05b0a1c02fb6a89222b1865a5a713102a9ea725d8f5d5d58349553fc76",
+      "body_bytes": 432,
+      "body_sha256": "sha256:277e8c35335059b8b65b1a483788a42544aa109d803a9fda7cd876c5a7cdcb72",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:ike_phase1_profile:example:data-source"],
@@ -807,8 +807,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1355,
-      "body_sha256": "sha256:c1365bd872d5086aeb0cf9da3cf7ab39e5656ef9190bf680db73234cfd7b50f4",
+      "body_bytes": 1109,
+      "body_sha256": "sha256:e80fedb1f9a03e632f23e1c0997d10fe52967aa3d0f55da3d3ef83c169875345",
       "capabilities": [],
       "category": null,
       "child_ids": [],

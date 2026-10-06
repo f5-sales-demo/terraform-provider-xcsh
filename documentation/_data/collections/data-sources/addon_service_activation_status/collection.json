@@ -36,8 +36,8 @@
   "pages": [
     {
       "aliases": ["addon service activation status"],
-      "body_bytes": 1945,
-      "body_sha256": "sha256:9cafbbe62677231ffe777fb20e9ba622064fdbb0d09a6c102bbcd9c0a688875b",
+      "body_bytes": 1958,
+      "body_sha256": "sha256:e185916a04b8fb22a470f73752e8f78cc7db2d5e768dc09056a3e8fe246a877a",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -80,8 +80,8 @@
     },
     {
       "aliases": ["addon service activation status"],
-      "body_bytes": 2358,
-      "body_sha256": "sha256:d49c886d0aeafaa697a41ec4fca32c35deb1798e0cb6c169d5cc8f73a8f47b3e",
+      "body_bytes": 2198,
+      "body_sha256": "sha256:baf254822d7929cf804f976aad09dd8ec66ba00de565cf4ddcbd458cc9fa6f44",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -201,8 +201,8 @@
     },
     {
       "aliases": ["addon service activation status"],
-      "body_bytes": 771,
-      "body_sha256": "sha256:5292e9cdf77fdd5ea8aec8cd3904d27939155573d46379ffa42e4124c169c1b4",
+      "body_bytes": 471,
+      "body_sha256": "sha256:c23e484f7625a59fefa747778079373a62623656f44686ac53da05b1629fcb73",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:addon_service_activation_status:example:data-source"],
@@ -241,8 +241,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1491,
-      "body_sha256": "sha256:28586c4a21d904457d68c7d3432c3f4f1e3668c571259ad128daeccfff41179d",
+      "body_bytes": 1206,
+      "body_sha256": "sha256:8ed8e35d8c07d1f9e010043d4e8f4d2318bed6d8d7b409a12a0492dc4b7bdaed",
       "capabilities": [],
       "category": null,
       "child_ids": [],

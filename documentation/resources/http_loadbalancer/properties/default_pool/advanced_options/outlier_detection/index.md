@@ -2,7 +2,7 @@
 page_title: "default_pool.advanced_options.outlier_detection"
 subcategory: "Load Balancing"
 description: "Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checking. Algorithm 1. A endpoint is determined to be an"
-xcsh_docs: {"aliases": ["default pool advanced options outlier detection"], "body_bytes": 10212, "body_sha256": "sha256:b0d944bab9ceb198b529e9e764400ff23ba991ad679850117e113656c9622d09", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:outlier_detection", "parent_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options", "path": "documentation/resources/http_loadbalancer/properties/default_pool/advanced_options/outlier_detection/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3122120002230323-1331302213332300-0221022000101211-0233001322022311-3200121333120233-0120103223222330-0001121011111302-0100313133112132", "registry_path": "docs/guides/resources--http_loadbalancer--reference--group-016.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["default_pool", "advanced_options", "outlier_detection"], "schema_version": 1, "sections": [{"aliases": ["default pool advanced options outlier detection base ejection time"], "anchor": "schema-default_pool--advanced_options--outlier_detection--base_ejection_time", "description": "The base time that a host is ejected for. The real time is equal to the base time multiplied by the number of times the host has been ejected. This causes hosts to GET ejected for longer periods if they continue to fail. Defaults to 30000ms or 30s. Specified in milliseconds.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:outlier_detection", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["default_pool", "advanced_options", "outlier_detection", "base_ejection_time"], "syntax": "attribute", "type": "number"}, {"aliases": ["default pool advanced options outlier detection consecutive 5xx"], "anchor": "schema-default_pool--advanced_options--outlier_detection--consecutive_5xx", "description": "If an upstream endpoint returns some number of consecutive 5xx, it will be ejected. Note that in this case a 5xx means an actual 5xx respond code, or an event that would cause the HTTP router to return one on the upstream’s behalf(reset, connection failure, etc.) consecutive_5xx indicates the number of consecutive 5xx", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:outlier_detection", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["default_pool", "advanced_options", "outlier_detection", "consecutive_5xx"], "syntax": "attribute", "type": "number"}, {"aliases": ["default pool advanced options outlier detection consecutive gateway failure"], "anchor": "schema-default_pool--advanced_options--outlier_detection--consecutive_gateway_failure", "description": "If an upstream endpoint returns some number of consecutive “gateway errors” (502, 503 or 504 status code), it will be ejected. Note that this includes events that would cause the HTTP router to return one of these status codes on the upstream’s behalf (reset, connection failure, etc.). Consecutive_gateway_failure", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:outlier_detection", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["default_pool", "advanced_options", "outlier_detection", "consecutive_gateway_failure"], "syntax": "attribute", "type": "number"}, {"aliases": ["default pool advanced options outlier detection interval"], "anchor": "schema-default_pool--advanced_options--outlier_detection--interval", "description": "The time interval between ejection analysis sweeps. This can result in both new ejections as well as endpoints being returned to service. Defaults to 10000ms or 10s. Specified in milliseconds.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:outlier_detection", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["default_pool", "advanced_options", "outlier_detection", "interval"], "syntax": "attribute", "type": "number"}, {"aliases": ["default pool advanced options outlier detection max ejection percent"], "anchor": "schema-default_pool--advanced_options--outlier_detection--max_ejection_percent", "description": "The maximum % of an upstream cluster that can be ejected due to outlier detection. Defaults to 10% but will eject at least one host regardless of the value.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:outlier_detection", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["default_pool", "advanced_options", "outlier_detection", "max_ejection_percent"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/http_loadbalancer/properties/default_pool/advanced_options/outlier_detection/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checking. Algorithm 1. A endpoint is determined to be an", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["default pool advanced options outlier detection"], "body_bytes": 8606, "body_sha256": "sha256:dd1157b27576676f101d331f458511c8c5819543360fc0ca55865608ece27452", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:outlier_detection", "parent_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options", "path": "documentation/resources/http_loadbalancer/properties/default_pool/advanced_options/outlier_detection/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3122120002230323-1331302213332300-0221022000101211-0233001322022311-3200121333120233-0120103223222330-0001121011111302-0100313133112132", "registry_path": "docs/guides/resources--http_loadbalancer--reference--group-015.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["default_pool", "advanced_options", "outlier_detection"], "schema_version": 1, "sections": [{"aliases": ["default pool advanced options outlier detection base ejection time"], "anchor": "schema-default_pool--advanced_options--outlier_detection--base_ejection_time", "description": "The base time that a host is ejected for. The real time is equal to the base time multiplied by the number of times the host has been ejected. This causes hosts to GET ejected for longer periods if they continue to fail. Defaults to 30000ms or 30s. Specified in milliseconds.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:outlier_detection", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["default_pool", "advanced_options", "outlier_detection", "base_ejection_time"], "syntax": "attribute", "type": "number"}, {"aliases": ["default pool advanced options outlier detection consecutive 5xx"], "anchor": "schema-default_pool--advanced_options--outlier_detection--consecutive_5xx", "description": "If an upstream endpoint returns some number of consecutive 5xx, it will be ejected. Note that in this case a 5xx means an actual 5xx respond code, or an event that would cause the HTTP router to return one on the upstream’s behalf(reset, connection failure, etc.) consecutive_5xx indicates the number of consecutive 5xx", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:outlier_detection", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["default_pool", "advanced_options", "outlier_detection", "consecutive_5xx"], "syntax": "attribute", "type": "number"}, {"aliases": ["default pool advanced options outlier detection consecutive gateway failure"], "anchor": "schema-default_pool--advanced_options--outlier_detection--consecutive_gateway_failure", "description": "If an upstream endpoint returns some number of consecutive “gateway errors” (502, 503 or 504 status code), it will be ejected. Note that this includes events that would cause the HTTP router to return one of these status codes on the upstream’s behalf (reset, connection failure, etc.). Consecutive_gateway_failure", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:outlier_detection", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["default_pool", "advanced_options", "outlier_detection", "consecutive_gateway_failure"], "syntax": "attribute", "type": "number"}, {"aliases": ["default pool advanced options outlier detection interval"], "anchor": "schema-default_pool--advanced_options--outlier_detection--interval", "description": "The time interval between ejection analysis sweeps. This can result in both new ejections as well as endpoints being returned to service. Defaults to 10000ms or 10s. Specified in milliseconds.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:outlier_detection", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["default_pool", "advanced_options", "outlier_detection", "interval"], "syntax": "attribute", "type": "number"}, {"aliases": ["default pool advanced options outlier detection max ejection percent"], "anchor": "schema-default_pool--advanced_options--outlier_detection--max_ejection_percent", "description": "The maximum % of an upstream cluster that can be ejected due to outlier detection. Defaults to 10% but will eject at least one host regardless of the value.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:outlier_detection", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["default_pool", "advanced_options", "outlier_detection", "max_ejection_percent"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/http_loadbalancer/properties/default_pool/advanced_options/outlier_detection/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checking. Algorithm 1. A endpoint is determined to be an", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -22,12 +22,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Outlier detection and ejection is the process of dynamically determining whether some number of
-hosts in an upstream cluster are performing unlike the others and removing them from the healthy
-load balancing set. Outlier detection is a form of passive health checking. Algorithm 1.
-
-Upstream description:
 
 Outlier detection and ejection is the process of dynamically determining whether some number of
 hosts in an upstream cluster are performing unlike the others and removing them from the healthy
@@ -73,12 +67,6 @@ outlier_detection {
 ### base_ejection_time property
 
 Type: `"number"`. Optional.
-
-The base time that a host is ejected for. The real time is equal to the base time multiplied by the
-number of times the host has been ejected. This causes hosts to GET ejected for longer periods if
-they continue to fail.
-
-Upstream description:
 
 The base time that a host is ejected for. The real time is equal to the base time multiplied by the
 number of times the host has been ejected. This causes hosts to GET ejected for longer periods if
@@ -131,13 +119,6 @@ Type: `"number"`. Optional.
 
 If an upstream endpoint returns some number of consecutive 5xx, it will be ejected. Note that in
 this case a 5xx means an actual 5xx respond code, or an event that would cause the HTTP router to
-return one on the upstream’s behalf(reset, connection failure, etc.) consecutive\_5xx indicates
-the..
-
-Upstream description:
-
-If an upstream endpoint returns some number of consecutive 5xx, it will be ejected. Note that in
-this case a 5xx means an actual 5xx respond code, or an event that would cause the HTTP router to
 return one on the upstream’s behalf(reset, connection failure, etc.) consecutive\_5xx indicates the
 number of consecutive 5xx responses required before a consecutive 5xx ejection occurs. Defaults to
 5.
@@ -186,12 +167,6 @@ Receipt-pinned upstream constraints:
 ### consecutive_gateway_failure property
 
 Type: `"number"`. Optional.
-
-If an upstream endpoint returns some number of consecutive “gateway errors” (502, 503 or 504 status
-code), it will be ejected. Note that this includes events that would cause the HTTP router to return
-one of these status codes on the upstream’s behalf (reset, connection failure, etc.)..
-
-Upstream description:
 
 If an upstream endpoint returns some number of consecutive “gateway errors” (502, 503 or 504 status
 code), it will be ejected. Note that this includes events that would cause the HTTP router to return
@@ -247,10 +222,9 @@ Type: `"number"`. Optional.
 The time interval between ejection analysis sweeps. This can result in both new ejections as well as
 endpoints being returned to service. Defaults to \`10000ms\`.
 
-Upstream description:
+Additional upstream details:
 
-The time interval between ejection analysis sweeps. This can result in both new ejections as well as
-endpoints being returned to service. Defaults to 10000ms or 10s. Specified in milliseconds.
+Defaults to 10000ms or 10s. Specified in milliseconds.
 
 Provider validators and defaults (from schema source):
 
@@ -302,7 +276,7 @@ Type: `"number"`. Optional.
 The maximum % of an upstream cluster that can be ejected due to outlier detection. but will eject at
 least one host regardless of the value. Defaults to \`10%\`.
 
-Upstream description:
+Additional upstream details:
 
 The maximum % of an upstream cluster that can be ejected due to outlier detection. Defaults to 10%
 but will eject at least one host regardless of the value.
@@ -345,8 +319,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [default_pool.advanced_options](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/http_loadbalancer/properties/default_pool/advanced_options/)
-- [xcsh_http_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/http_loadbalancer/)

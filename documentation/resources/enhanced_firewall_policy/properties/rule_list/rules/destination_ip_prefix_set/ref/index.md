@@ -2,7 +2,7 @@
 page_title: "rule_list.rules.destination_ip_prefix_set.ref"
 subcategory: ""
 description: "A list of references to ip_prefix_set objects."
-xcsh_docs: {"aliases": ["rule list rules destination ip prefix set ref"], "body_bytes": 7218, "body_sha256": "sha256:7171fa36bf851bdb4fae7c9c73ef7ff75a00043bae32c8bedf3a32d19ee3318b", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:enhanced_firewall_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref", "parent_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set", "path": "documentation/resources/enhanced_firewall_policy/properties/rule_list/rules/destination_ip_prefix_set/ref/index.md", "product": "distributed-cloud", "provider_name": "enhanced_firewall_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3330211030203212-2103032230030131-2231011310221003-1231212023303032-3210101023130100-0020111133102022-2332122322101100-1001313013233030", "registry_path": "docs/guides/resources--enhanced_firewall_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref"], "schema_version": 1, "sections": [{"aliases": ["rule list rules destination ip prefix set ref kind"], "anchor": "schema-rule_list--rules--destination_ip_prefix_set--ref--kind", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")", "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "reference_identity": {"member": "kind", "scope_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref"], "source": "receipt-pinned-schema-identity", "upstream_message": "ves.io.schema.ObjectRefType", "version": 1}, "relationships": [], "schema_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref", "kind"], "syntax": "attribute", "type": "string"}, {"aliases": ["rule list rules destination ip prefix set ref name"], "anchor": "schema-rule_list--rules--destination_ip_prefix_set--ref--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "reference_identity": {"member": "name", "scope_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref"], "source": "receipt-pinned-schema-identity", "upstream_message": "ves.io.schema.ObjectRefType", "version": 1}, "relationships": [], "schema_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["rule list rules destination ip prefix set ref namespace"], "anchor": "schema-rule_list--rules--destination_ip_prefix_set--ref--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "reference_identity": {"member": "namespace", "scope_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref"], "source": "receipt-pinned-schema-identity", "upstream_message": "ves.io.schema.ObjectRefType", "version": 1}, "relationships": [], "schema_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["rule list rules destination ip prefix set ref tenant"], "anchor": "schema-rule_list--rules--destination_ip_prefix_set--ref--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "reference_identity": {"member": "tenant", "scope_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref"], "source": "receipt-pinned-schema-identity", "upstream_message": "ves.io.schema.ObjectRefType", "version": 1}, "relationships": [], "schema_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref", "tenant"], "syntax": "attribute", "type": "string"}, {"aliases": ["rule list rules destination ip prefix set ref uid"], "anchor": "schema-rule_list--rules--destination_ip_prefix_set--ref--uid", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.", "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "reference_identity": {"member": "uid", "scope_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref"], "source": "receipt-pinned-schema-identity", "upstream_message": "ves.io.schema.ObjectRefType", "version": 1}, "relationships": [], "schema_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref", "uid"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/destination_ip_prefix_set/ref/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A list of references to ip_prefix_set objects.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["enhanced_firewall_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["rule list rules destination ip prefix set ref"], "body_bytes": 6122, "body_sha256": "sha256:9ae4fc91648ac79a44f7f6e481e440eac8c5a76e4d51da74c379e547f8afe4f7", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:enhanced_firewall_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref", "parent_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set", "path": "documentation/resources/enhanced_firewall_policy/properties/rule_list/rules/destination_ip_prefix_set/ref/index.md", "product": "distributed-cloud", "provider_name": "enhanced_firewall_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3330211030203212-2103032230030131-2231011310221003-1231212023303032-3210101023130100-0020111133102022-2332122322101100-1001313013233030", "registry_path": "docs/guides/resources--enhanced_firewall_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref"], "schema_version": 1, "sections": [{"aliases": ["rule list rules destination ip prefix set ref kind"], "anchor": "schema-rule_list--rules--destination_ip_prefix_set--ref--kind", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")", "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "reference_identity": {"member": "kind", "scope_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref"], "source": "receipt-pinned-schema-identity", "upstream_message": "ves.io.schema.ObjectRefType", "version": 1}, "relationships": [], "schema_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref", "kind"], "syntax": "attribute", "type": "string"}, {"aliases": ["rule list rules destination ip prefix set ref name"], "anchor": "schema-rule_list--rules--destination_ip_prefix_set--ref--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "reference_identity": {"member": "name", "scope_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref"], "source": "receipt-pinned-schema-identity", "upstream_message": "ves.io.schema.ObjectRefType", "version": 1}, "relationships": [], "schema_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["rule list rules destination ip prefix set ref namespace"], "anchor": "schema-rule_list--rules--destination_ip_prefix_set--ref--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "reference_identity": {"member": "namespace", "scope_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref"], "source": "receipt-pinned-schema-identity", "upstream_message": "ves.io.schema.ObjectRefType", "version": 1}, "relationships": [], "schema_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["rule list rules destination ip prefix set ref tenant"], "anchor": "schema-rule_list--rules--destination_ip_prefix_set--ref--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "reference_identity": {"member": "tenant", "scope_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref"], "source": "receipt-pinned-schema-identity", "upstream_message": "ves.io.schema.ObjectRefType", "version": 1}, "relationships": [], "schema_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref", "tenant"], "syntax": "attribute", "type": "string"}, {"aliases": ["rule list rules destination ip prefix set ref uid"], "anchor": "schema-rule_list--rules--destination_ip_prefix_set--ref--uid", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.", "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "reference_identity": {"member": "uid", "scope_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref"], "source": "receipt-pinned-schema-identity", "upstream_message": "ves.io.schema.ObjectRefType", "version": 1}, "relationships": [], "schema_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref", "uid"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/destination_ip_prefix_set/ref/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A list of references to ip_prefix_set objects.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["enhanced_firewall_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,10 +23,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"object"`. list nested block, Optional.
-
-List of references to ip\_prefix\_set objects.
-
-Upstream description:
 
 A list of references to ip\_prefix\_set objects.
 
@@ -80,10 +76,10 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
 referred object's kind (e.g. 'route').
 
-Upstream description:
+Additional upstream details:
 
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
-referred object's kind (e.g. "route")
+Virtual\_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g.
+"route")
 
 Receipt-pinned upstream constraints:
 
@@ -117,11 +113,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -150,11 +141,6 @@ Receipt-pinned upstream constraints:
 ### namespace property
 
 Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -217,11 +203,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -254,11 +235,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
 referred object's(e.g. Route's) uid.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
-referred object's(e.g. Route's) uid.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -281,8 +257,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [rule_list.rules.destination_ip_prefix_set](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/enhanced_firewall_policy/properties/rule_list/rules/destination_ip_prefix_set/)
-- [xcsh_enhanced_firewall_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/enhanced_firewall_policy/)

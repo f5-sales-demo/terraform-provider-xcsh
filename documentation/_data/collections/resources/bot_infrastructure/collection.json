@@ -111,8 +111,8 @@
   "pages": [
     {
       "aliases": ["bot infrastructure"],
-      "body_bytes": 1547,
-      "body_sha256": "sha256:d532176d8b5deb089f86e7c9b5871b3dc4f806b669d0f7ee91b04a326bf7cde8",
+      "body_bytes": 1560,
+      "body_sha256": "sha256:33e06dc193827971854885d0c567612fca898199ffb1baaaeb4a943503ba4039",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -157,8 +157,8 @@
     },
     {
       "aliases": ["bot infrastructure"],
-      "body_bytes": 13156,
-      "body_sha256": "sha256:29202f228399742ff72284172e85b3c31774f7a068ae448149451e45bceca00d",
+      "body_bytes": 12507,
+      "body_sha256": "sha256:63950d10d4fca533509a059f0ad748be8a514dd6f7089b684d0d0d902a94fc64",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -387,8 +387,8 @@
     },
     {
       "aliases": ["create cloud hosted"],
-      "body_bytes": 2516,
-      "body_sha256": "sha256:59196b523a314522b1c2611de83e448da4e9e11dd84193d41c6bd56024e106bf",
+      "body_bytes": 1942,
+      "body_sha256": "sha256:5ff1b0b953863ae00de84637febee14adc69a23388aee2b2e51be95bd5d5c2d2",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -522,8 +522,8 @@
     },
     {
       "aliases": ["create cloud hosted production"],
-      "body_bytes": 3268,
-      "body_sha256": "sha256:e690bee9df38f6d284e9e97d0529c3fb27db914aab534d68e071f107b59d9efb",
+      "body_bytes": 2747,
+      "body_sha256": "sha256:437b0e689f6b78ccdf9fee523f848af6ca22cb10d576738d3dff352fbb3d4a85",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -612,8 +612,8 @@
     },
     {
       "aliases": ["create cloud hosted testing"],
-      "body_bytes": 2280,
-      "body_sha256": "sha256:fc0c2a759b11ecf0e22114651934cdeac05b23e6dac8bc07ea7604bc308bd391",
+      "body_bytes": 1895,
+      "body_sha256": "sha256:db4c9962dd07f07718fba39aa39644c7a5d03d71b8cc038b0aa9a9795bb28ece",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -678,8 +678,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2267,
-      "body_sha256": "sha256:cd45a1d03372926c20018489400d7b7b0116fc480e1b6c2911d7cbcf03df7f9c",
+      "body_bytes": 2015,
+      "body_sha256": "sha256:3da3087ecbbf444707b0a579d76574b7b01c3d29f726ed7ecccfef659c403753",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -818,8 +818,8 @@
     },
     {
       "aliases": ["bot infrastructure"],
-      "body_bytes": 669,
-      "body_sha256": "sha256:d30f3dbfa71567df70822f1d4b9ad00ef44488743c313327bda3f7e6f3d8aae7",
+      "body_bytes": 420,
+      "body_sha256": "sha256:6897380a12dcc6c4ffd2664afb0e639690747682870e1d6fa8d5800cf50218af",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:resources:bot_infrastructure:example:resource"],
@@ -858,8 +858,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1294,
-      "body_sha256": "sha256:534d357bb9ffda6b0477ac9aa9b44931aa589635a78a6f9b26c87e034a90df15",
+      "body_bytes": 1054,
+      "body_sha256": "sha256:90177814af45da4b8e35c116db9d50166710a5a69747629a36ac0a0c63526588",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -905,8 +905,8 @@
     },
     {
       "aliases": ["bot infrastructure"],
-      "body_bytes": 510,
-      "body_sha256": "sha256:14221a42451c3226616879f20b949df21ad8d49585ddba8c88985a342b950a4f",
+      "body_bytes": 379,
+      "body_sha256": "sha256:5ccfed87e9d86b415c4aee604927b3cbb3ca5618d2ca097b1e0fb1f52f87a82b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -946,8 +946,8 @@
     },
     {
       "aliases": ["bot infrastructure"],
-      "body_bytes": 598,
-      "body_sha256": "sha256:c5abad6446a904c71a8a50142b1446ce150c949a3ccafb5c98889f61ca387b35",
+      "body_bytes": 467,
+      "body_sha256": "sha256:dcf41c9c39f804e3525cf23967aca68c92a173fc7ca9151746d8529fc9f2fa6f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],

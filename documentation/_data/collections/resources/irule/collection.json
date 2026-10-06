@@ -77,8 +77,8 @@
   "pages": [
     {
       "aliases": ["irule"],
-      "body_bytes": 1560,
-      "body_sha256": "sha256:79e888af43823d577f5b2022d46b4a5c389005817bd915a638df887582b26525",
+      "body_bytes": 1573,
+      "body_sha256": "sha256:c915a943c05e0f63f80e5b3a7fe4b9345f704d2ff24d344d3feb1c8c6f82f2be",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -123,8 +123,8 @@
     },
     {
       "aliases": ["irule"],
-      "body_bytes": 11168,
-      "body_sha256": "sha256:56de53ec666507b8baf5915ad55dda6b29943f375a567a5a532fd5e78d89b191",
+      "body_bytes": 10830,
+      "body_sha256": "sha256:8eef05246f1b486a64b1526d49b1881ad2da0fb4f5a2897d7fec2a0853117798",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:irule:properties:timeouts"],
@@ -324,8 +324,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2189,
-      "body_sha256": "sha256:04b0ba53d7d545c1cfbf77c8743ba9cc19e36797c8333b8f176654dfe7e9c41a",
+      "body_bytes": 1976,
+      "body_sha256": "sha256:90b77579df07d1d5e7ecc04b8e0da447bda9c1d4b1178552102b3557ae0f2ada",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -464,8 +464,8 @@
     },
     {
       "aliases": ["irule"],
-      "body_bytes": 591,
-      "body_sha256": "sha256:1314a14ace6889ecdde948e830f217b8350c0072141b59934e0fb52d645ffdc0",
+      "body_bytes": 381,
+      "body_sha256": "sha256:4f8565553e7f74c8d75355747ad9fa1ab64de5e255a732b32aaae312fb31e079",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:irule:example:resource"],
@@ -504,8 +504,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1212,
-      "body_sha256": "sha256:1139d326e46cd4f509a283f40fd24b3e2f7bf4830df65ae9b36b00258bee300a",
+      "body_bytes": 1011,
+      "body_sha256": "sha256:671252a451549847ad14fafa14c7ed81a1ee2ba9f30b974110137e5e5ce041d8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -551,8 +551,8 @@
     },
     {
       "aliases": ["irule"],
-      "body_bytes": 445,
-      "body_sha256": "sha256:362bbdfdfb9d30e41ea0af5b194987f57b62b6cfe8e793cd5a565736f3f0ba9e",
+      "body_bytes": 340,
+      "body_sha256": "sha256:17d5c1331df6fd6820f6476e22edf941b2b089a07620ca23321d94ae1af5ec68",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -592,8 +592,8 @@
     },
     {
       "aliases": ["irule"],
-      "body_bytes": 533,
-      "body_sha256": "sha256:d015c0789f2525431d94aba8367c9808a46ddb14c550d0247eabc53d460ef782",
+      "body_bytes": 428,
+      "body_sha256": "sha256:b516f6d8c416d4dfdef0f03c6812f136edb4d480ee2da2da8754eae702a6a860",
       "capabilities": [],
       "category": null,
       "child_ids": [],

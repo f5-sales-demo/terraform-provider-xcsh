@@ -166,8 +166,8 @@
   "pages": [
     {
       "aliases": ["data type"],
-      "body_bytes": 1327,
-      "body_sha256": "sha256:cde62d053f5cb1e5b0136b943fdf8338bcd6536cd1f91cb247fcbb0cb520257c",
+      "body_bytes": 1284,
+      "body_sha256": "sha256:3445c3dee13f1a85e41c5c503f31f17d302a03b8b39da1218a4b3d02a1e77306",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:data_type:reference", "xcsh-docs:data-sources:data_type:examples"],
@@ -195,7 +195,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages data_type creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
+      "summary": "Reads Data Type information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_data_type",
       "unresolved_relationships": [],
@@ -207,8 +207,8 @@
     },
     {
       "aliases": ["data type"],
-      "body_bytes": 16300,
-      "body_sha256": "sha256:fd7784aee1e83481f035872a0cf570b8702b3194f70014fd598741c69c53e691",
+      "body_bytes": 15765,
+      "body_sha256": "sha256:6ed59b6be0956f66f87e71817e4127713faaeb3faa49adc6ecb1cadd34a82aea",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:data_type:properties:rules"],
@@ -408,8 +408,8 @@
     },
     {
       "aliases": ["rules"],
-      "body_bytes": 2679,
-      "body_sha256": "sha256:aef7968c0c5000c1b5eb4bcf6586d7bb9f87a3f7d634b76f763237b5393cccd4",
+      "body_bytes": 2036,
+      "body_sha256": "sha256:22a9fa108f3aa896228990943f998cb6d557399acaa90a6d7d1031a6951dc2d3",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -501,8 +501,8 @@
     },
     {
       "aliases": ["rules key pattern"],
-      "body_bytes": 3562,
-      "body_sha256": "sha256:46e497d1bb8fb0d205ef2405991ff43ba999d0873820a4e762a6c7d30643990e",
+      "body_bytes": 2944,
+      "body_sha256": "sha256:59182a9f16b876dd79c23075cf469a4af243c60e813420c70116b6b597d7d673",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:data_type:properties:rules:key_pattern:exact_values"],
@@ -590,8 +590,8 @@
     },
     {
       "aliases": ["rules key pattern exact values"],
-      "body_bytes": 2312,
-      "body_sha256": "sha256:939aa7ec8184c4498d0ac7de68331182d0318ee6a6d94e52c55984d09600a597",
+      "body_bytes": 2016,
+      "body_sha256": "sha256:15110ffe4a8852988e8fe3ca23a2bc3b6a100ccfa33dcd91ac8d276d0752c01c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -647,8 +647,8 @@
     },
     {
       "aliases": ["rules key value pattern"],
-      "body_bytes": 1732,
-      "body_sha256": "sha256:567f9d93835ced35bdf48324c4b7033cf5fd4332b636e5963efb8961e94db13d",
+      "body_bytes": 1168,
+      "body_sha256": "sha256:48e616a4250d4a362225372fd9ffd45afc71df1bc10e376644a0f3a34c97d1b8",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -723,8 +723,8 @@
     },
     {
       "aliases": ["rules key value pattern key pattern"],
-      "body_bytes": 3870,
-      "body_sha256": "sha256:0fee998234a6700e1c0c87d48f19312d380e5a320810660f1c8147eb743de8a4",
+      "body_bytes": 3180,
+      "body_sha256": "sha256:37e4371f8a6a958611d5569cf75236608fbad9b448e8e4aefa792b2b8daacf2f",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:data_type:properties:rules:key_value_pattern:key_pattern:exact_values"],
@@ -812,8 +812,8 @@
     },
     {
       "aliases": ["rules key value pattern key pattern exact values"],
-      "body_bytes": 2583,
-      "body_sha256": "sha256:9dd129ecbe46bb7f20bd9bb9ed86f324d7ba09a62df45d71659ff1656b6693e2",
+      "body_bytes": 2251,
+      "body_sha256": "sha256:4276feb030563f2ed8cda39666bb7bfcbf4ae4fc098a1777dbc307e8a96f28ed",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -869,8 +869,8 @@
     },
     {
       "aliases": ["rules key value pattern value pattern"],
-      "body_bytes": 3886,
-      "body_sha256": "sha256:dfdece9af45be88d21cdd1c50de75cc7adc7ea90100e0c15b003081b1999c840",
+      "body_bytes": 3192,
+      "body_sha256": "sha256:58d6362f9aa8e4a7dd09e38bbd45d05de9dc4bf97149da8f9b04cc67f7e2759d",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:data_type:properties:rules:key_value_pattern:value_pattern:exact_values"],
@@ -958,8 +958,8 @@
     },
     {
       "aliases": ["rules key value pattern value pattern exact values"],
-      "body_bytes": 2597,
-      "body_sha256": "sha256:964d8722f7ec26b2e31988cc91aa1c0443f1bf7c32e28eec157378c6dabd6286",
+      "body_bytes": 2261,
+      "body_sha256": "sha256:73607b22a7c66e93465eec0680524c7d3b172bd6f9e4740d8818b464fe22eb17",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1015,8 +1015,8 @@
     },
     {
       "aliases": ["rules value pattern"],
-      "body_bytes": 3578,
-      "body_sha256": "sha256:7889f7fba27c1b05a8fff264bbd37bb381cec82cb508813c8ad0e8b0cfefbd75",
+      "body_bytes": 2956,
+      "body_sha256": "sha256:16884664d08b99f623fea821c8e1ad89d1ccdf4c2812f47ae89c6bd2bc6f10b2",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:data_type:properties:rules:value_pattern:exact_values"],
@@ -1104,8 +1104,8 @@
     },
     {
       "aliases": ["rules value pattern exact values"],
-      "body_bytes": 2326,
-      "body_sha256": "sha256:f0881293ecc46277db57d2160935c9c79a81de17f88b47b3042f9ab7a7587bab",
+      "body_bytes": 2026,
+      "body_sha256": "sha256:9647635c1ac8bbe9d96f43c2f56a96bb784d6ea31313e9fa97e12edd05fcf6a4",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1161,8 +1161,8 @@
     },
     {
       "aliases": ["data type"],
-      "body_bytes": 639,
-      "body_sha256": "sha256:bcf82ec92805b1edc55cf8bf375e0bfd2d662dc1e3d0bd1ccb818913756c67f8",
+      "body_bytes": 405,
+      "body_sha256": "sha256:9864ed1f7dab40d598bc661fa7b5d6febe74de62debd78917b59da2d8e7230bf",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:data_type:example:data-source"],
@@ -1201,8 +1201,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1240,
-      "body_sha256": "sha256:5431e4da62582ba75f1ee56dc1d90f39a0aeaec1c623ade52095c065cf93b150",
+      "body_bytes": 1021,
+      "body_sha256": "sha256:ae3764650ac6da6529749f3d178671300dea24c55fc099b757a6771ee2e00956",
       "capabilities": [],
       "category": null,
       "child_ids": [],

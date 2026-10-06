@@ -47,8 +47,8 @@
   "pages": [
     {
       "aliases": ["segment"],
-      "body_bytes": 1263,
-      "body_sha256": "sha256:865a47c6f33557cace56b61dc7c3cc0636dd26fa1a0561bda31435edfa0d71b3",
+      "body_bytes": 1250,
+      "body_sha256": "sha256:47f774f7a2dabaddae2bebc47ec4fcae0f17057a51607c5f167a09c06f8240ec",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:segment:reference", "xcsh-docs:data-sources:segment:examples"],
@@ -76,7 +76,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/segment/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Segment resource in F5 Distributed Cloud for segment. configuration.",
+      "summary": "Reads Segment information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_segment",
       "unresolved_relationships": [],
@@ -88,8 +88,8 @@
     },
     {
       "aliases": ["segment"],
-      "body_bytes": 8174,
-      "body_sha256": "sha256:97adab4a477a2e5ce7a8bbfd8bff06f5f35a52a16fd19ff82e14c7fee966682c",
+      "body_bytes": 7869,
+      "body_sha256": "sha256:8c621ab58dda402acad8b5312359899c2d8ea2e5b7067846a3febfe701ca5f78",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -260,8 +260,8 @@
     },
     {
       "aliases": ["disable spec"],
-      "body_bytes": 1010,
-      "body_sha256": "sha256:a37a1237b7e69fe4ef4dc9f9f4576009d2df1f8e5a4d6fa3febdc30d46ceb088",
+      "body_bytes": 763,
+      "body_sha256": "sha256:fb88f30c84faf769ab64cad5204c364dee3cb01dbe0ad2339f71f4112ac71545",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -300,8 +300,8 @@
     },
     {
       "aliases": ["enable"],
-      "body_bytes": 994,
-      "body_sha256": "sha256:415a01a0588ff7f921c94c01ce9e74d1bbf01ac994b9d09415207c8a1bcc1f0d",
+      "body_bytes": 754,
+      "body_sha256": "sha256:3715acddb6a2f79a65b96760ea24feb7f88deebdb5962d6edb8087b65f2992e8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -340,8 +340,8 @@
     },
     {
       "aliases": ["segment"],
-      "body_bytes": 627,
-      "body_sha256": "sha256:db703ee1cab1c6638c2493677ec1069d220898b179518f37383798132d507bc1",
+      "body_bytes": 399,
+      "body_sha256": "sha256:5f948873541a810ab9fb7f2453f566a66c52acff5bf87dc1825e3149a14eb23d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:segment:example:data-source"],
@@ -380,8 +380,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1215,
-      "body_sha256": "sha256:401ccfa4ea493881b64bb25938d3a55858dcdf4ec2faef65bd09a1fc0ba1a110",
+      "body_bytes": 1002,
+      "body_sha256": "sha256:b036588badddedaa58ade90481eba5ef6e4b9b2c37a5c502973ea139f6dca208",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],

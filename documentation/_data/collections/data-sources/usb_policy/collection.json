@@ -76,8 +76,8 @@
   "pages": [
     {
       "aliases": ["usb policy"],
-      "body_bytes": 1281,
-      "body_sha256": "sha256:a51bad337b2251a02a829d7f71abd2c0b7df374982bc1d33be83d999e8191d3e",
+      "body_bytes": 1295,
+      "body_sha256": "sha256:8ea88ad3a5307f7a7a2e75671321a17d92aee31acb10474c872814577772e508",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:usb_policy:reference", "xcsh-docs:data-sources:usb_policy:examples"],
@@ -105,7 +105,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/usb_policy/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages new USB policy object in F5 Distributed Cloud.",
+      "summary": "Reads USB Policy information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_usb_policy",
       "unresolved_relationships": [],
@@ -117,8 +117,8 @@
     },
     {
       "aliases": ["usb policy"],
-      "body_bytes": 9148,
-      "body_sha256": "sha256:9802861599ce96a1d105427654527db9edc737a08e1e1a39c8d99e12e47a4bb4",
+      "body_bytes": 8936,
+      "body_sha256": "sha256:fb123c45c04bcc0d1332d67432512492fea303143ff0932aac4f13be28b628cc",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:usb_policy:properties:allowed_devices"],
@@ -270,8 +270,8 @@
     },
     {
       "aliases": ["allowed devices"],
-      "body_bytes": 5347,
-      "body_sha256": "sha256:9566fb72ed7bf5537d6b40eafca1744d6a60d147d3bc4a4a969e5b28f1f8c0cb",
+      "body_bytes": 4946,
+      "body_sha256": "sha256:5111a0f4d0644435426963673efaccc825776cf7c37e32523de5cde5b633b4fa",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -407,8 +407,8 @@
     },
     {
       "aliases": ["usb policy"],
-      "body_bytes": 645,
-      "body_sha256": "sha256:0282834f70d9b5c883e8eeb4505f7602d6cad1f847898910e8582b568c708353",
+      "body_bytes": 408,
+      "body_sha256": "sha256:e2a9a0cab2ac68dbac421f0f57a4c4767f6015f2088b9be6fd94fd8d15008736",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:usb_policy:example:data-source"],
@@ -447,8 +447,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1253,
-      "body_sha256": "sha256:e1021f32143078567a2bdb9822b38d685cdebcda05d496e67c737a1fe87937fb",
+      "body_bytes": 1031,
+      "body_sha256": "sha256:6d65ee9ac3128091bee87567a21455c72fcc21ec8e26dc16273135764609a245",
       "capabilities": [],
       "category": null,
       "child_ids": [],
