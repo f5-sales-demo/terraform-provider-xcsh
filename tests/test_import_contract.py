@@ -44,6 +44,17 @@ class ImportContractTests(unittest.TestCase):
                     "terraform import xcsh_fixture.example " + expected + "\n",
                 )
 
+    def test_swagger_import_keeps_exact_version(self):
+        contract = resolve_import_contract(
+            "// Import ID format: namespace/name/version\nfunc (r *SwaggerObject) ImportState() {}",
+            "swagger_object",
+        )
+        assert contract is not None
+        self.assertEqual(
+            contract["command"],
+            "terraform import xcsh_swagger_object.example system/example/v1\n",
+        )
+
     def test_missing_unknown_and_duplicate_metadata_fail(self):
         for metadata in (
             "",

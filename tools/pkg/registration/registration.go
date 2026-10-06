@@ -30,6 +30,7 @@ var CoreResources = []string{}
 // the generator but are not generated from an API schema.
 var StandaloneResources = []string{
 	"public_ip_binding",
+	"swagger_object",
 	"smsv2_kvm_runtime_interface",
 }
 

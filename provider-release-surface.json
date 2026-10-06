@@ -318,6 +318,7 @@
     "smsv2_kvm_runtime_interface",
     "srv6_network_slice",
     "subnet",
+    "swagger_object",
     "tcp_loadbalancer",
     "tenant_configuration",
     "token",
