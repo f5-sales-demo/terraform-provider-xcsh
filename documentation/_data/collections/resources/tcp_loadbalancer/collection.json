@@ -1098,7 +1098,7 @@
       "path": "documentation/resources/tcp_loadbalancer/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3323211002020332-1021200301211012-2311222223233022-1102201001122211-1023322232300130-0300323320330112-1021022331100101-3210113012102001",
       "registry_path": "docs/resources/tcp_loadbalancer.md",
@@ -1123,21 +1123,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Manages a TCP Load Balancer resource in F5 Distributed Cloud for load balancing TCP traffic across origin pools.",
       "tasks": ["configuration"],
       "title": "xcsh_tcp_loadbalancer",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tcp loadbalancer"],
       "body_bytes": 73771,
-      "body_sha256": "sha256:c120d356a70eccb97bc61f069eb3376f1564b8c8dbaafb828994d2a425c1bdcd",
+      "body_sha256": "sha256:a98ec757d0218227d54b8f1d4c6c994808dacd29a22e0c97e376b58529cb6e65",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -1176,7 +1176,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2012213313231232-3113222123311030-1312023102102220-1333030303022022-3132112211312313-0310133313220331-3313212213313330-2132122131111001",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -1784,14 +1784,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Property reference for xcsh_tcp_loadbalancer.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1814,7 +1814,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/active_service_policies/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2123332010300020-1023231311030232-1300031122101011-1032023203210220-1200333010322303-0323133123222003-1020130133223133-1112131030203102",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -1859,20 +1859,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/active_service_policies/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "List of service policies.",
       "tasks": ["configuration"],
       "title": "active_service_policies",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["active service policies policies"],
       "body_bytes": 6595,
-      "body_sha256": "sha256:a193acfed9cdd6698604e470a4b2d1aad476f62144d1335af54293791474bfac",
+      "body_sha256": "sha256:d8269c61acb3b5077b85351383cfdac49b3dddb148e4ffd4290c93333bab36fe",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -1889,7 +1889,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/active_service_policies/policies/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3131001221313221-0211331023022001-0110003203230011-1312001122213133-2111103232033312-0120333101021323-2203101020232232-3010122220001001",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -1978,14 +1978,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/active_service_policies/policies/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Service Policies is a sequential engine where policies (and rules within the policy) are evaluated one after the other. It's important to define the correct order (policies evaluated from top to bottom in the list) for service policies, to GET the intended result. For each request, its characteristics are evaluated",
       "tasks": ["configuration"],
       "title": "active_service_policies.policies",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2008,7 +2008,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0101013130323102-0111020001013232-1223003210233021-3112202320110020-1310022023311310-1003000113120300-2312202022202013-0222311212101130",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -2541,20 +2541,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_custom/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This defines a way to advertise a VIP on specific sites.",
       "tasks": ["configuration"],
       "title": "advertise_custom",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["advertise custom advertise where"],
       "body_bytes": 9151,
-      "body_sha256": "sha256:fce1a5f3ac1d2a26e04d70ea9579c796ffd2c8d51fad29598c6dfcb76cbcbb02",
+      "body_sha256": "sha256:e92b4fd751b15a9e25ab30ac578b7215f8fc2d4e9b231d1148a6be02bc8abe0b",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -2581,7 +2581,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2220031130203102-2210011003013002-3311212001302200-0330220102220213-0312033302222203-3301311320102322-2002200311110023-0013020221203332",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -3315,14 +3315,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Where should this load balancer be available.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3347,7 +3347,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/advertise_dualstack_on_public/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3021201332333301-1221103113230301-2222130122300123-1303203313031312-2113012101013220-3333202101332112-3112113102220123-3003103203310001",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -3383,20 +3383,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/advertise_dualstack_on_public/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.advertise_dualstack_on_public",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["advertise custom advertise where advertise dualstack on public public ip"],
       "body_bytes": 5883,
-      "body_sha256": "sha256:33a96b01bc31af6b0a1477104c8cedbadad66c1674c66edb99839b5c1611e442",
+      "body_sha256": "sha256:313403c8139fb27e2a2f7361e2fdc0955e623f73d79f4d46839e261951c651f4",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3413,7 +3413,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/advertise_dualstack_on_public/public_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2302312312303212-3133301300110213-2212211221023002-2212112003010020-2322330212112320-0032013303322111-1102103121032303-0000120110201313",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -3514,14 +3514,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/advertise_dualstack_on_public/public_ip/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3546,7 +3546,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/advertise_on_public/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3313033122011113-0012321000120221-3030301223212102-0322311032301001-1312203032330232-1233032011232103-2302012030122212-0020323220220130",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -3582,20 +3582,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/advertise_on_public/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.advertise_on_public",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["advertise custom advertise where advertise on public public ip"],
       "body_bytes": 5813,
-      "body_sha256": "sha256:ca03a2a2b23a689742b874784ce61366dfeaf41d2276457e15374ab1607a5371",
+      "body_sha256": "sha256:acb67ed9eba9cece499a766c706973414552002fb89b45bd1d1e7d4c6ac87cbb",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3612,7 +3612,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/advertise_on_public/public_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0121132110213323-3121330201102232-2300130311101220-3121032120210331-2122312032032232-3331211232221233-1213102221212133-3203022130100213",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -3701,14 +3701,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/advertise_on_public/public_ip/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.advertise_on_public.public_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3733,7 +3733,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/advertise_v6_on_public/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0020010320102332-2030221110332020-0302003031113211-1211232110302323-2133310300202132-3131311232123211-3120121031321210-1201000300021230",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -3769,20 +3769,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/advertise_v6_on_public/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.advertise_v6_on_public",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["advertise custom advertise where advertise v6 on public public ip"],
       "body_bytes": 5834,
-      "body_sha256": "sha256:e6288ded0a4bc687073ea2e6daca481f587b2874e0706a686033db5097323505",
+      "body_sha256": "sha256:f06098cace33bf2dbb3549a73b7798efcaa07be18c129524ac20c722772543e3",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3799,7 +3799,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/advertise_v6_on_public/public_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0013123222000011-2102200221113321-2212131130321231-1103213322233220-1212121101221010-2300021213130011-1000113000130132-1011112310302222",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -3888,20 +3888,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/advertise_v6_on_public/public_ip/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.advertise_v6_on_public.public_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["advertise custom advertise where site"],
       "body_bytes": 4969,
-      "body_sha256": "sha256:7394804a0afcd06f62c7b0d537ac4269752127a47ab381846e627213ee1c73af",
+      "body_sha256": "sha256:6ca682a412e6a25fc51c9c4d801c7b9bdcf166500b311d814dd15a7b3dcfd36d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where:site:site"],
@@ -3918,7 +3918,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/site/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0212220231301321-1302012333301320-1033203121232320-2312031111320321-1011312223000220-2301211003310223-0322223221300313-1111000033023321",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -4003,20 +4003,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/site/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This defines a reference to a CE site along with network type and an optional IP address where a load balancer could be advertised.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.site",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["advertise custom advertise where site site"],
       "body_bytes": 5678,
-      "body_sha256": "sha256:011785b376ee75155095e562c57fbc3f64ba5b5c6d10b26a0cec1a9677949af6",
+      "body_sha256": "sha256:f4cc4ea9955aad124cd93c0f9585f5d1839d2a18167443187955692e5ff950a2",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4033,7 +4033,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/site/site/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2000212032131230-3031223031320310-3321022200321323-0112030200221113-2110233200133223-2101230233220331-2111000321222102-1031313203321122",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -4122,14 +4122,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/site/site/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.site.site",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4152,7 +4152,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/use_default_port/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1101203011303313-3221210002023210-0302033021031331-2121122302332230-3323030202321000-3001331232322320-3330220021022113-1030311210112112",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -4162,20 +4162,20 @@
       "schema_path": ["advertise_custom", "advertise_where", "use_default_port"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/use_default_port/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.use_default_port",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["advertise custom advertise where virtual network"],
       "body_bytes": 4350,
-      "body_sha256": "sha256:0fc7cae36deda63c5fee183648ad34ab1605ed3e037502e97bdfabd4e2a7dfd8",
+      "body_sha256": "sha256:36bd0bcb9680827f854c24b2e1380a1477826a4ab2597eedf74945bc75606f12",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -4196,7 +4196,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1003112313011332-2020131311011001-0030223322103102-1202300132320101-1111022212122021-1030301120012112-0331021223030333-0330020330031020",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -4329,14 +4329,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Parameters to advertise on a given virtual network.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.virtual_network",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4359,7 +4359,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/default_v6_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3022220111330023-2033301113121011-0103101011332303-2132012011023202-2013032210001032-3030011120200301-1033300322022213-2033331112303313",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -4369,14 +4369,14 @@
       "schema_path": ["advertise_custom", "advertise_where", "virtual_network", "default_v6_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/default_v6_vip/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.virtual_network.default_v6_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4399,7 +4399,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/default_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2032130230213230-3303113002020202-3030213303311100-1301120021221311-2201300123303031-2332211032000302-1000323111133012-2212221120012222",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -4409,20 +4409,20 @@
       "schema_path": ["advertise_custom", "advertise_where", "virtual_network", "default_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/default_vip/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.virtual_network.default_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["advertise custom advertise where virtual network virtual network"],
       "body_bytes": 5821,
-      "body_sha256": "sha256:c0b4cfc6a82fd66554865681d6f9660d03de4e684dccf1b25c23217e3ef28445",
+      "body_sha256": "sha256:229143c3d49ecdb2edd3161660878fd4e7c881456111716065b9a19db16b808f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4439,7 +4439,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/virtual_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0320000010022301-3300003102221232-3203200210312200-0013230101012112-0012033102333001-2000100301113312-3220103030121213-2102232111101311",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -4528,14 +4528,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/virtual_network/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.virtual_network.virtual_network",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4560,7 +4560,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1122231030213111-1302221130230031-0331311330131011-0113323220002101-1200331300203123-1110330313212100-3233313332101212-2310321002101013",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -4629,20 +4629,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This defines a reference to a customer site virtual site along with network type where a load balancer could be advertised.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["advertise custom advertise where virtual site virtual site"],
       "body_bytes": 5782,
-      "body_sha256": "sha256:fe74cd84cfd230428fe734b507dbda7a4480e7f67c4f6759a9570b01bc71681d",
+      "body_sha256": "sha256:cbc033486bb01ecf661d67eeccabce949a464d5ff28b906abc1c695f2f8e5491",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4659,7 +4659,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site/virtual_site/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0023122310132301-1032230311102222-0133211121311212-1302103110110131-0202200031103103-1312221201211012-0012101231330202-1301002220111023",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -4748,20 +4748,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.virtual_site.virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["advertise custom advertise where virtual site with vip"],
       "body_bytes": 3942,
-      "body_sha256": "sha256:48bd78b34d1b98248f13df1ae397c14e95a6775bab4bcab1a08c11f85cce9046",
+      "body_sha256": "sha256:6ed7912d30bdc210876cc29788ca24b274e611829c232497a6215e278a3fa332",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -4780,7 +4780,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site_with_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1121201333003001-3211103001030232-1120020013233002-1201212112111322-2313032201232300-2313132333210321-3020122003000202-2203220100301301",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -4857,20 +4857,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site_with_vip/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This defines a reference to a customer site virtual site along with network type and IP where a load balancer could be advertised.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.virtual_site_with_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["advertise custom advertise where virtual site with vip virtual site"],
       "body_bytes": 5845,
-      "body_sha256": "sha256:7f8bc041af39f2ee97d0bf69168d6f33ce7102e8c829ed3e3e6bd71df81bfbf6",
+      "body_sha256": "sha256:cc4a66f2ef537728a40267431ba735d5b9939d3e607aac7ed95010fd8d1c8499",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4887,7 +4887,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site_with_vip/virtual_site/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2011102020302121-2213133103233212-3030222111013333-1023313331013001-1123031331021123-0203213100310001-2101011002203333-2033111322013123",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -4976,14 +4976,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site_with_vip/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.virtual_site_with_vip.virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5009,7 +5009,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/vk8s_service/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2310032102311332-1320010320220300-3000131113132003-3031300330001303-3011312212131020-2233012333120212-1031220012331120-3102210330032022",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5087,20 +5087,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/vk8s_service/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.vk8s_service",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["advertise custom advertise where vk8s service site"],
       "body_bytes": 5734,
-      "body_sha256": "sha256:04974a43f9e57017cb86fb1f898a8938a16756731a72314c23cb7272e411d58a",
+      "body_sha256": "sha256:c3cb7f73b046e13a348e856d309c808edc05cc9ce4a6207f9308a94034b4e3e7",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5117,7 +5117,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/vk8s_service/site/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0011122310030103-3322230232311222-2232133023303210-2301302032000120-3001000330230130-0232311010133030-1021101232130312-2031310113021012",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5206,20 +5206,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/vk8s_service/site/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.vk8s_service.site",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["advertise custom advertise where vk8s service virtual site"],
       "body_bytes": 5782,
-      "body_sha256": "sha256:a0bfb25fa3470436658d5b2f927b9fc8a9e479c0adeb6f38efb6376a72c26a58",
+      "body_sha256": "sha256:8c1ead9d4f2ad614fe78a426d00d133d7f51bbe08e9db969f89a1f0b95831c77",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5236,7 +5236,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/vk8s_service/virtual_site/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0102002101330311-3203311313223300-1030302122122311-2331332203030221-0201130111312302-1310112222312130-3133301001133013-2333130010233330",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5325,14 +5325,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/vk8s_service/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.vk8s_service.virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5355,7 +5355,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_on_public/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1101101122210003-2330111331303010-2130211300213202-2120322121300012-2033321200023022-3103313203330222-2302000021033232-1221001021130221",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5391,20 +5391,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_on_public/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
       "tasks": ["configuration"],
       "title": "advertise_on_public",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["advertise on public public ip"],
       "body_bytes": 5276,
-      "body_sha256": "sha256:aa590d641a3857d903f7fdc3c77a3930e9df9b860d2b68be19a5b8329aef95ac",
+      "body_sha256": "sha256:086437a1ec5e8c0da4f7d2e74459625f05c29940056164c57ab9c2cdbccce5a3",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5421,7 +5421,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_on_public/public_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1202122111210021-3012203133200102-2103133031030132-1001321000010000-0321112231023232-3212123332122232-0230203020213311-2312120301320102",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5510,14 +5510,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_on_public/public_ip/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "advertise_on_public.public_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5540,7 +5540,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_on_public_default_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3333100232210200-1000122300031311-3012302322223020-3032022132323133-3310012110333012-2333013330001120-1130222201132013-1120103002011310",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5550,14 +5550,14 @@
       "schema_path": ["advertise_on_public_default_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/advertise_on_public_default_vip/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "advertise_on_public_default_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5580,7 +5580,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/default_lb_with_sni/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1233300113221313-3110203321303320-1132100212321211-3233111001220210-2202120330231303-1320322300203123-3132233222313123-1030123011100010",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5590,14 +5590,14 @@
       "schema_path": ["default_lb_with_sni"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/default_lb_with_sni/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "default_lb_with_sni",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5620,7 +5620,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/do_not_advertise/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2322213221112110-0231131200021100-2323031112011321-2113223331230331-1110202310201022-0323112230111011-3203121033311100-1130120122122120",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5630,14 +5630,14 @@
       "schema_path": ["do_not_advertise"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/do_not_advertise/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "do_not_advertise",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5660,7 +5660,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/do_not_retract_cluster/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2322113213320330-0102033300000032-1130020131303320-1130033301222310-0100131123323030-1300033212333030-2033201321130131-2130003330320013",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5670,14 +5670,14 @@
       "schema_path": ["do_not_retract_cluster"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/do_not_retract_cluster/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "do_not_retract_cluster",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5700,7 +5700,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/hash_policy_choice_least_active/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3231312101111010-1230322232102131-1310111121030233-1233021020330300-2012003120131022-3230203210022022-1331310221131200-1310111032002330",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5710,14 +5710,14 @@
       "schema_path": ["hash_policy_choice_least_active"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/hash_policy_choice_least_active/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "hash_policy_choice_least_active",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5740,7 +5740,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/hash_policy_choice_random/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2133201212213303-3220313201223303-0031130110231110-1213131231101232-3321233020122003-3302010033002303-0202202110320320-1222200211330032",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5750,14 +5750,14 @@
       "schema_path": ["hash_policy_choice_random"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/hash_policy_choice_random/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "hash_policy_choice_random",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5780,7 +5780,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/hash_policy_choice_round_robin/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2011303133011102-2021121122120220-1133330230131122-0002121330231010-2103102030013022-2020210201310012-0000100210012131-3213113301223032",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5790,14 +5790,14 @@
       "schema_path": ["hash_policy_choice_round_robin"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/hash_policy_choice_round_robin/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "hash_policy_choice_round_robin",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5820,7 +5820,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/hash_policy_choice_source_ip_stickiness/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3123323133211320-2223021102110033-2023122331312031-1312102001331031-2023122213321233-0303012321200222-1233301221213131-3010122320223012",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5830,14 +5830,14 @@
       "schema_path": ["hash_policy_choice_source_ip_stickiness"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/hash_policy_choice_source_ip_stickiness/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "hash_policy_choice_source_ip_stickiness",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5860,7 +5860,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/no_service_policies/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0211303031122133-3002101102330112-3303102231112031-0323212233100110-3023331222023022-0122331220121021-0201223330103012-0220122230220001",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5870,14 +5870,14 @@
       "schema_path": ["no_service_policies"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/no_service_policies/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "no_service_policies",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5900,7 +5900,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/no_sni/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0332121320022012-0131110131002221-3211220033203220-3333221011312320-1303130303113032-2011002222333033-3001212201031002-1010101011201223",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5910,20 +5910,20 @@
       "schema_path": ["no_sni"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/no_sni/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "no_sni",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["backend servers", "origin pools weights", "origin servers", "upstream servers"],
       "body_bytes": 3984,
-      "body_sha256": "sha256:8f28ae057c784797243f667bf8aa16cef9199674a7f6836800084d62c49b8123",
+      "body_sha256": "sha256:08db0b5a7391d253567d0970e922973cd8a141facd1c36114f685f38040bfadd",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -5944,7 +5944,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/origin_pools_weights/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2100010003132033-1331210120313310-0212003223033302-1320122132000102-1302201010312200-3333221331300211-3332023322113011-0102012310233122",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -6070,20 +6070,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/origin_pools_weights/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Origin pools and weights used for this load balancer.",
       "tasks": ["configuration"],
       "title": "origin_pools_weights",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["origin pools weights cluster"],
       "body_bytes": 5271,
-      "body_sha256": "sha256:e4a19e61fae5079e28ef1431c5169ea857674dbd0e4afd862589447ad80cf804",
+      "body_sha256": "sha256:a4088f442b55888a32953c76f910a5efe676b5a0cce8fc2175ba73b1c8056f1d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -6100,7 +6100,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/origin_pools_weights/cluster/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1011120330133113-3221310102110212-3012110211103032-1212313330022332-2303330232010101-3212113330300201-2331100110002001-3330111113013333",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -6189,14 +6189,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/origin_pools_weights/cluster/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "origin_pools_weights.cluster",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -6219,7 +6219,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/origin_pools_weights/endpoint_subsets/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0233132302001113-1013122023210222-1222022303323200-3120101033031121-0232202032202111-0031100302133121-1303233330230201-1301123310033123",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -6229,20 +6229,20 @@
       "schema_path": ["origin_pools_weights", "endpoint_subsets"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/origin_pools_weights/endpoint_subsets/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul cluster, the label of",
       "tasks": ["configuration"],
       "title": "origin_pools_weights.endpoint_subsets",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["origin pools weights pool"],
       "body_bytes": 5253,
-      "body_sha256": "sha256:6e9f0682a299bac095af4e9144e4c2f24a5f57bb14696aac46a21cdc549b78d2",
+      "body_sha256": "sha256:4b04d5e0cf85c605e64afc27ecaa336c540cfa3ca8db0cb20bc2dd59807b0de1",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -6259,7 +6259,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/origin_pools_weights/pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0101012032110312-0012103013221021-2000123112202033-2211320112310201-0213110000103010-1321023222113211-3031331212323121-2320012220221031",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -6348,14 +6348,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/origin_pools_weights/pool/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "origin_pools_weights.pool",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -6378,7 +6378,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/retract_cluster/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2203330232231221-0231100222101101-2032200123103102-3022031012302100-0322123221223231-2330022031223301-3202022122302011-3102020113332333",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -6388,14 +6388,14 @@
       "schema_path": ["retract_cluster"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/retract_cluster/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "retract_cluster",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -6418,7 +6418,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/service_policies_from_namespace/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1302000233122001-0330320220303103-0201012112213303-1133102211110130-2333133012210201-3013203312103310-2212130213030102-1122113100303223",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -6428,14 +6428,14 @@
       "schema_path": ["service_policies_from_namespace"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/service_policies_from_namespace/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "service_policies_from_namespace",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -6458,7 +6458,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/sni/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1211312003133330-1223211300322220-2113300203322232-3010131033013022-2332011121303131-3303223200010132-3300002312210210-2000310102320322",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -6468,14 +6468,14 @@
       "schema_path": ["sni"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/sni/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "sni",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -6498,7 +6498,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tcp/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2220232031020123-0333221323000013-0330311311100200-2313132103001132-1300312202210020-1103313303133002-0011300213213202-1132012101023211",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -6508,14 +6508,14 @@
       "schema_path": ["tcp"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tcp/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tcp",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -6538,7 +6538,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1223011333230122-2303021022201212-1030021321212322-1311000300020110-1130221333112233-3223223303001030-2231022021122211-0113200021221011",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -6648,14 +6648,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "timeouts for xcsh_tcp_loadbalancer.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -6681,7 +6681,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3202033002211233-1301122221120120-1033012321102210-2321013132013033-0311312210012210-2023111231301233-1132102221100102-1112232122033120",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -6791,14 +6791,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Choice for selecting TLS over TCP proxy with bring your own certificates.",
       "tasks": ["configuration"],
       "title": "tls_tcp",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -6826,7 +6826,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2102302012003330-3112123130012120-2323212311013211-2232213133230020-2101330212110310-0123002001102200-3023210032122023-2030132220321301",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -7087,14 +7087,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Select TLS Parameters and Certificates.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_cert_params",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -7106,7 +7106,7 @@
         "tls tcp tls cert params certificates"
       ],
       "body_bytes": 6026,
-      "body_sha256": "sha256:2b2d882df652109da4e31f66a98279b573599d0a3709452acf627d36e2443763",
+      "body_sha256": "sha256:dda477e9f8a7420ce7df34aa7906b9ad2b66c047915edb96aa26af8f265bb746",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -7123,7 +7123,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/certificates/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3213110003102033-1303112111202003-2023331320110320-3133112022030112-2203320300332012-0231011200113210-0123111101030111-0201203323200003",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -7212,14 +7212,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/certificates/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Select one or more certificates with any domain names.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_cert_params.certificates",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -7242,7 +7242,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/no_mtls/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0011323331201223-2233033222323031-0123021332131023-2101130020120033-1322010103013022-0000022023200202-2333212121323232-1031132032111203",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -7252,14 +7252,14 @@
       "schema_path": ["tls_tcp", "tls_cert_params", "no_mtls"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/no_mtls/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_cert_params.no_mtls",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -7287,7 +7287,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/tls_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0322111112121223-3032310231220110-0301012010113032-3030001001013032-3222020211121322-0310302230223200-2310031131231120-2022130022302130",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -7468,20 +7468,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/tls_config/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This defines various OPTIONS to configure TLS configuration parameters.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_cert_params.tls_config",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls tcp tls cert params tls config custom security"],
       "body_bytes": 6426,
-      "body_sha256": "sha256:2e46d28c7c678369e461198005013ffb6ac36ac32dc6358dfa75a270f5f80a31",
+      "body_sha256": "sha256:d2f226bb79bb079dc7f1fe4e83911e17b70d09f1a26e04f619401480c01d26ec",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -7498,7 +7498,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/tls_config/custom_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3320220203210203-3010313213202302-0013120331113012-3331210220313000-0303222000322212-3000121230313001-2332320121112310-3112221030310331",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -7584,14 +7584,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/tls_config/custom_security/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This defines TLS protocol config including min/max versions and allowed ciphers.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_cert_params.tls_config.custom_security",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -7614,7 +7614,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/tls_config/default_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2211123331233312-2131002001130330-1033033000202002-1113120302302011-2303321232232213-0030213231213022-0021123310020203-0212203202100301",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -7624,14 +7624,14 @@
       "schema_path": ["tls_tcp", "tls_cert_params", "tls_config", "default_security"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/tls_config/default_security/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_cert_params.tls_config.default_security",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -7654,7 +7654,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/tls_config/low_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3211203330313011-1301102230023230-1221213021020013-2103100111020231-1231100223233220-3102232113203303-0222110120112032-2133031112020113",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -7664,14 +7664,14 @@
       "schema_path": ["tls_tcp", "tls_cert_params", "tls_config", "low_security"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/tls_config/low_security/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_cert_params.tls_config.low_security",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -7694,7 +7694,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/tls_config/medium_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3331020220302000-0002023130121130-3302231310301101-0330001232103201-2220022300103220-2221032222003310-3222021022322002-2312232130120111",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -7704,20 +7704,20 @@
       "schema_path": ["tls_tcp", "tls_cert_params", "tls_config", "medium_security"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/tls_config/medium_security/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_cert_params.tls_config.medium_security",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls tcp tls cert params use mtls"],
       "body_bytes": 4535,
-      "body_sha256": "sha256:819b9b7ac7a4faf73cc80bc56b059a49a118e2a33e9ab729fa0f271a5973d8dc",
+      "body_sha256": "sha256:35b9af4276af3ac57c9045b73a94ee06c6b33799b99c3e5d76a321e6f46dafd7",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -7740,7 +7740,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/use_mtls/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2003301203003021-0233021122121211-2233213111211112-2233232003100000-0310023133013131-0000031312323032-1332232311131110-1021031210223313",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -7939,20 +7939,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/use_mtls/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Validation context for downstream client TLS connections.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_cert_params.use_mtls",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls tcp tls cert params use mtls crl"],
       "body_bytes": 5601,
-      "body_sha256": "sha256:2a86bca4fd70d5712211371c1cc53b1e3a49269ae3021fb06016b387955e3319",
+      "body_sha256": "sha256:48867db5a048b0da9a352540bd41d18f839021ffdf84253019e923f8730d499d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -7969,7 +7969,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/use_mtls/crl/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0013203232221122-3131111332200030-1203322032032201-3020301221113322-2031221333332022-1223321321032033-1230301223121200-3020112202333022",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -8058,14 +8058,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/use_mtls/crl/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_cert_params.use_mtls.crl",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -8088,7 +8088,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/use_mtls/no_crl/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3112230111023311-3101102123323312-0012002232001030-2310033001231110-3230312221301102-2001013123020332-1113120033111310-0200211220101232",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -8098,20 +8098,20 @@
       "schema_path": ["tls_tcp", "tls_cert_params", "use_mtls", "no_crl"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/use_mtls/no_crl/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_cert_params.use_mtls.no_crl",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls tcp tls cert params use mtls trusted ca"],
       "body_bytes": 5643,
-      "body_sha256": "sha256:d228e5597aa05ec3bd7e1a087e3de9b2e25533911462b53ddf3b7c7af536939f",
+      "body_sha256": "sha256:5646e0804ab41382c5b2045541d8b1c27011642e48bb2700b236398d8e52f86b",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -8128,7 +8128,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/use_mtls/trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0200003100030200-2110123332302230-3021233032202021-2113003301313222-1010010331203122-1331032301012223-3233003001322033-3201021231230232",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -8217,14 +8217,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/use_mtls/trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_cert_params.use_mtls.trusted_ca",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -8247,7 +8247,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/use_mtls/xfcc_disabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0232003220003202-2001302003310012-3101300112231123-2000131303013013-0230313130011112-2201230112233231-2311110123132210-0221213112031311",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -8257,14 +8257,14 @@
       "schema_path": ["tls_tcp", "tls_cert_params", "use_mtls", "xfcc_disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/use_mtls/xfcc_disabled/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_cert_params.use_mtls.xfcc_disabled",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -8287,7 +8287,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/use_mtls/xfcc_options/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2211233203111001-0112213331212320-2030100120211101-1123203223220031-0213311102100010-1322132321202230-1210010301011010-3231020331123320",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -8323,14 +8323,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/use_mtls/xfcc_options/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "X-Forwarded-Client-Cert header elements to be added to requests.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_cert_params.use_mtls.xfcc_options",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -8358,7 +8358,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0121111300120302-2230031133133130-2123131213221130-1002012101111221-2123331230122003-0131120123223023-3320211032330010-1110023113101132",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -8667,14 +8667,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Inline TLS parameters.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_parameters",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -8697,7 +8697,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/no_mtls/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3312032102310132-3313333033231033-2033013201212031-0312003323222322-1333102130012332-3313300133122000-1013213111230231-1333131222103221",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -8707,14 +8707,14 @@
       "schema_path": ["tls_tcp", "tls_parameters", "no_mtls"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/no_mtls/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_parameters.no_mtls",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -8726,7 +8726,7 @@
         "tls tcp tls parameters tls certificates"
       ],
       "body_bytes": 4895,
-      "body_sha256": "sha256:aff27c84edc8ae1208023c5dd063f36532aaf2ed5da3551084d41a6d4a0b55ff",
+      "body_sha256": "sha256:82aec72c55fe5a56fae0b01f1011dd3fcb05ca86e242c2e75b970e3406d89e7f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -8748,7 +8748,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_certificates/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0002320022201130-0310033133223112-1210131011131021-0233000132012002-0030201320130223-3020131322232320-1330011330112100-0231301213311120",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -8944,20 +8944,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_certificates/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_parameters.tls_certificates",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls tcp tls parameters tls certificates custom hash algorithms"],
       "body_bytes": 3055,
-      "body_sha256": "sha256:9fd380424ebd19b6577ff3e010f506b263208320f3fccd4eac50e70420795ce5",
+      "body_sha256": "sha256:ef653494d1dc6e2ed2f4fa23c1cd402864adeb0fece7072a64484f9c8ac54dce",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -8974,7 +8974,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_certificates/custom_hash_algorithms/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3301303122202032-0100230000013222-3021011212311010-0230130121121012-1321031020230022-2221312323210312-2333010103101231-0313112121312113",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -9010,14 +9010,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_certificates/custom_hash_algorithms/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Specifies the hash algorithms to be used.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_parameters.tls_certificates.custom_hash_algorithms",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -9040,7 +9040,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_certificates/disable_ocsp_stapling/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1130133232111030-1313232203303110-3131200030333223-0333033223000000-0222210123323020-0202130300123102-1122110121333233-1003022103200212",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -9050,14 +9050,14 @@
       "schema_path": ["tls_tcp", "tls_parameters", "tls_certificates", "disable_ocsp_stapling"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_certificates/disable_ocsp_stapling/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_parameters.tls_certificates.disable_ocsp_stapling",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -9083,7 +9083,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_certificates/private_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0100333102101300-3220200132001223-0030120230300122-3331201232232302-1232301113321120-0330221011030203-2110332331210010-2021112323003013",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -9161,20 +9161,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_certificates/private_key/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_parameters.tls_certificates.private_key",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls tcp tls parameters tls certificates private key blindfold secret info"],
       "body_bytes": 4803,
-      "body_sha256": "sha256:5f389eac03b4bf001283a4b36f72e2c96fa97ec9c35eb862988adadad47dbfe7",
+      "body_sha256": "sha256:f26288aa47a5c447f37bf84242f50336ab3ab0d2f2be231cef624bcf5808bb1f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9191,7 +9191,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_certificates/private_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0320313320210230-1002123322100231-1303211120310011-1001023000201010-0110021301010220-1120210310223301-3320002323332001-0323323232130210",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -9280,20 +9280,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_certificates/private_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_parameters.tls_certificates.private_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls tcp tls parameters tls certificates private key clear secret info"],
       "body_bytes": 3794,
-      "body_sha256": "sha256:70b876630d9bb7e6c8b8f58f20d72b4acaa188b598def996e376f8ae5c0e9f64",
+      "body_sha256": "sha256:7288027806a1057707ce65480da28940007c13313bff598ddecb5963e0f40a7a",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9310,7 +9310,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_certificates/private_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0203120320001120-1303310322101331-1333232131022333-1101032230333221-2201100331122131-0311223122332330-0203003300131013-2010200203233322",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -9369,14 +9369,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_certificates/private_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_parameters.tls_certificates.private_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -9399,7 +9399,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_certificates/use_system_defaults/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0102010120213331-3223223023110201-0122232110302212-0323110331103310-3031012201011103-1013011002200011-3202010123303321-1231222302131132",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -9409,14 +9409,14 @@
       "schema_path": ["tls_tcp", "tls_parameters", "tls_certificates", "use_system_defaults"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_certificates/use_system_defaults/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_parameters.tls_certificates.use_system_defaults",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -9444,7 +9444,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3312211030133232-3210300013231003-3101021322121230-0131120002223323-1231030021010300-2313111331303031-1312020033300201-1030323332322003",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -9625,20 +9625,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_config/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This defines various OPTIONS to configure TLS configuration parameters.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_parameters.tls_config",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls tcp tls parameters tls config custom security"],
       "body_bytes": 6417,
-      "body_sha256": "sha256:dd033b35fafb6f90b401f2cc7712ba2427bbc299d4e26e5abe6fa32ba3fad826",
+      "body_sha256": "sha256:110767a68bd42832d35ee85c8f114a6b3c48349fd5537132c797e24ee7d4b3b3",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9655,7 +9655,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_config/custom_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0130120303200203-2030112320030203-0133122321202013-1233130133222211-2322200122103223-0120023212110033-0231012031200131-1233012301231213",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -9741,14 +9741,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_config/custom_security/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This defines TLS protocol config including min/max versions and allowed ciphers.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_parameters.tls_config.custom_security",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -9771,7 +9771,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_config/default_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3011313102103121-3231233210201221-0022213002310313-1032322300233321-0200302013232133-3300313101210033-2330210102022303-2303013013130210",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -9781,14 +9781,14 @@
       "schema_path": ["tls_tcp", "tls_parameters", "tls_config", "default_security"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_config/default_security/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_parameters.tls_config.default_security",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -9811,7 +9811,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_config/low_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2300003002320102-2022222323333210-2301101111110221-0202120131321310-1011003021132121-1012223013100001-0302333020233012-0111332122032303",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -9821,14 +9821,14 @@
       "schema_path": ["tls_tcp", "tls_parameters", "tls_config", "low_security"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_config/low_security/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_parameters.tls_config.low_security",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -9851,7 +9851,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_config/medium_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0122101212100122-0123222332303022-3031313101311112-3132323113331202-1021023112312302-0003111030202031-1320222133300130-2222121221213212",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -9861,20 +9861,20 @@
       "schema_path": ["tls_tcp", "tls_parameters", "tls_config", "medium_security"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_config/medium_security/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_parameters.tls_config.medium_security",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls tcp tls parameters use mtls"],
       "body_bytes": 4524,
-      "body_sha256": "sha256:4433fd338e36449cb0b506573a9c0972c7ce5f61caa6b01a81dc3c8cdccd7d46",
+      "body_sha256": "sha256:dbff82bab2aeb2bfd145fa94a602fa6649cb92c7e03db8a90d4f85bb49f2912d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -9897,7 +9897,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/use_mtls/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3212302133121022-3003310220033333-2103011321231131-1323011000210123-1202121231231222-3333333012323210-1130103201331103-3103101011323000",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -10096,20 +10096,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/use_mtls/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Validation context for downstream client TLS connections.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_parameters.use_mtls",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls tcp tls parameters use mtls crl"],
       "body_bytes": 5592,
-      "body_sha256": "sha256:902d71bc3bfde61ff6a12b82d05a5098bb0e4f3c08b4956a97cf4402970656fa",
+      "body_sha256": "sha256:43143b6b032eb423f6f0a5c79cc2bf63e6a3b7fdd3aee6bb3d4ae1ef6de2d1cb",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -10126,7 +10126,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/use_mtls/crl/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0221011232132102-3013223103032110-1212203323321123-1200223110001020-2321033103122302-2120320330031323-2303023100221123-2200033122213033",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -10215,14 +10215,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/use_mtls/crl/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_parameters.use_mtls.crl",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -10245,7 +10245,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/use_mtls/no_crl/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0123330020221011-0130332120131212-0123313133232112-3111230010033011-2221002101021100-0200001231202201-1212210333330011-0011131110130111",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -10255,20 +10255,20 @@
       "schema_path": ["tls_tcp", "tls_parameters", "use_mtls", "no_crl"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/use_mtls/no_crl/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_parameters.use_mtls.no_crl",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls tcp tls parameters use mtls trusted ca"],
       "body_bytes": 5634,
-      "body_sha256": "sha256:75305ba1433cc83a5d31adac59217763d329ca0253f82af9313a827cde7a4d37",
+      "body_sha256": "sha256:0816dfec72d51cdc7dddfc0896322a964246c4edb98b650a3a22f757a3a1bc72",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -10285,7 +10285,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/use_mtls/trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2011233303322103-3011101331001312-3210102103312000-2200300102303003-0101022230330103-1013222332313000-2002201113122021-1203021300001330",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -10374,14 +10374,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/use_mtls/trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_parameters.use_mtls.trusted_ca",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -10404,7 +10404,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/use_mtls/xfcc_disabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3221120302133200-2013113331332203-0323332322332331-2113030121313132-3201101323233220-1002123231331100-3030233310332120-3033231201103012",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -10414,14 +10414,14 @@
       "schema_path": ["tls_tcp", "tls_parameters", "use_mtls", "xfcc_disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/use_mtls/xfcc_disabled/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_parameters.use_mtls.xfcc_disabled",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -10444,7 +10444,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/use_mtls/xfcc_options/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0000312003001302-1122232200100212-2311230011331001-2201013210031300-0230220320310321-3013203311333033-3322330201331111-2213231322023111",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -10480,14 +10480,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/use_mtls/xfcc_options/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "X-Forwarded-Client-Cert header elements to be added to requests.",
       "tasks": ["configuration"],
       "title": "tls_tcp.tls_parameters.use_mtls.xfcc_options",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -10514,7 +10514,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1020000333221312-0212323132120330-0112301302023312-1010022111201312-0212120203321302-3011031322120320-0022031132030332-3001230220212331",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -10736,14 +10736,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Choice for selecting TLS over TCP proxy with automatic certificates.",
       "tasks": ["configuration"],
       "title": "tls_tcp_auto_cert",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -10766,7 +10766,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/no_mtls/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2332303230031210-0302010003210303-0310320200311033-1033332033110010-0002031132312001-3011301111002122-3230213021313202-1110210010312033",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -10776,14 +10776,14 @@
       "schema_path": ["tls_tcp_auto_cert", "no_mtls"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/no_mtls/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_tcp_auto_cert.no_mtls",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -10811,7 +10811,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/tls_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2022320330100222-1002022331311031-2300333321023112-2213021113122210-3001322002201333-3021221123102103-0203321133220210-0203000303130301",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -10992,20 +10992,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/tls_config/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This defines various OPTIONS to configure TLS configuration parameters.",
       "tasks": ["configuration"],
       "title": "tls_tcp_auto_cert.tls_config",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls tcp auto cert tls config custom security"],
       "body_bytes": 6253,
-      "body_sha256": "sha256:4cf622db4ca5faa1688b65b387894e772e45dcf4229c1a270c149463758ccc1c",
+      "body_sha256": "sha256:3562fb08acbab004f53a9dfbda331c88209979e2ec0fc19fd85b2c3a03eec0c2",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -11022,7 +11022,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/tls_config/custom_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2313013020003011-3223231210320332-2110311102211120-3033132323001101-0011210322131033-0132220020103033-0003120020233123-2220023113001312",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -11108,14 +11108,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/tls_config/custom_security/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This defines TLS protocol config including min/max versions and allowed ciphers.",
       "tasks": ["configuration"],
       "title": "tls_tcp_auto_cert.tls_config.custom_security",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -11138,7 +11138,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/tls_config/default_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1200213310211002-1313301303222331-2312132112130122-1300233203000230-3222000322331122-1023012300132233-2011131302132312-2322000302023220",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -11148,14 +11148,14 @@
       "schema_path": ["tls_tcp_auto_cert", "tls_config", "default_security"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/tls_config/default_security/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_tcp_auto_cert.tls_config.default_security",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -11178,7 +11178,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/tls_config/low_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2201112121202132-0000011113332030-3232020202200320-2131120132123300-0331302111333333-2313220001121022-3111212221132303-1112311301131322",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -11188,14 +11188,14 @@
       "schema_path": ["tls_tcp_auto_cert", "tls_config", "low_security"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/tls_config/low_security/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_tcp_auto_cert.tls_config.low_security",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -11218,7 +11218,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/tls_config/medium_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3000323120232101-0221013010300110-2213311012323201-0213132003100230-2121333300332311-1101023310121302-3121012021212101-3330311103103320",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -11228,20 +11228,20 @@
       "schema_path": ["tls_tcp_auto_cert", "tls_config", "medium_security"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/tls_config/medium_security/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_tcp_auto_cert.tls_config.medium_security",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls tcp auto cert use mtls"],
       "body_bytes": 4351,
-      "body_sha256": "sha256:e8ba932bf4ca0f2f8888146fa7899ea9b0ba99b847d48280e105237b63b31a43",
+      "body_sha256": "sha256:267b086032679503c64a05a47e23bd49b58a3617d180e30e0024d97926c36b43",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -11264,7 +11264,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/use_mtls/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2122133202102320-2301201232130231-3003320030220113-3103213110221101-3011102202003030-0301303131230113-2232330000320302-3111231012201330",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -11463,20 +11463,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/use_mtls/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Validation context for downstream client TLS connections.",
       "tasks": ["configuration"],
       "title": "tls_tcp_auto_cert.use_mtls",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls tcp auto cert use mtls crl"],
       "body_bytes": 5428,
-      "body_sha256": "sha256:9ddd11042abb2386d5d0a43e2550c69e48ba08e00a7f588093c4ad922484888d",
+      "body_sha256": "sha256:74b0e8670d26852286fbcedc70b80b676335bb09d4ca2b10a0addd085b82736f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -11493,7 +11493,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/use_mtls/crl/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1211131111020302-1000023331233231-2300202002002211-2312321110020022-2222322300110003-2030101231311323-2120313123031031-3123103313130203",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -11582,14 +11582,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/use_mtls/crl/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "tls_tcp_auto_cert.use_mtls.crl",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -11612,7 +11612,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/use_mtls/no_crl/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0221331323323322-2233111213111121-2103120211102130-2112133132101331-2100213203012113-1213303221011011-2112132230030001-2022231220113302",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -11622,20 +11622,20 @@
       "schema_path": ["tls_tcp_auto_cert", "use_mtls", "no_crl"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/use_mtls/no_crl/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_tcp_auto_cert.use_mtls.no_crl",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls tcp auto cert use mtls trusted ca"],
       "body_bytes": 5470,
-      "body_sha256": "sha256:22b83d51ebf446d48ed0a6f76aa22cafddd294129f6e5fda414c4dbeaacee439",
+      "body_sha256": "sha256:f2cdcf2a9ff9ad98ab355ae7196bc4cadd046766d6e3b4c30f4818cdb603b4c6",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -11652,7 +11652,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/use_mtls/trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1313322021032031-2133113312113013-0313333312300101-0000313030010021-2101100033003031-2103231100121022-1311023121103301-0312120231221130",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -11741,14 +11741,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/use_mtls/trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "tls_tcp_auto_cert.use_mtls.trusted_ca",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -11771,7 +11771,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/use_mtls/xfcc_disabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3332232033013000-2032222110022033-0001300033312133-0211031021233110-0110331002111312-1311101022331130-3223133323323212-3031212323210310",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -11781,14 +11781,14 @@
       "schema_path": ["tls_tcp_auto_cert", "use_mtls", "xfcc_disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/use_mtls/xfcc_disabled/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_tcp_auto_cert.use_mtls.xfcc_disabled",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -11811,7 +11811,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/use_mtls/xfcc_options/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1130133122020122-1203201011332202-0113220130221321-3031122013001103-1211212012303103-2210110030111113-0133120302322110-1110212200100300",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -11847,14 +11847,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/use_mtls/xfcc_options/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "X-Forwarded-Client-Cert header elements to be added to requests.",
       "tasks": ["configuration"],
       "title": "tls_tcp_auto_cert.use_mtls.xfcc_options",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -11885,7 +11885,7 @@
       "path": "documentation/resources/tcp_loadbalancer/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0323311213221221-0113310031031222-1330121211223312-1203013310022301-2100320220013120-3302231301121302-0132302333323132-0011101322313000",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--examples--group-001.md",
@@ -11895,14 +11895,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/examples/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Examples for xcsh_tcp_loadbalancer.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -11932,7 +11932,7 @@
       "path": "documentation/resources/tcp_loadbalancer/examples/all-attributes/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1301201233302211-1210110022130302-1231201101130010-2300123023001031-3221310221210311-1311101113122321-1220331031023323-0031331021202001",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--examples--group-001.md",
@@ -11942,14 +11942,14 @@
       "schema_path": ["all-attributes"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/examples/all-attributes/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "All attributes for xcsh_tcp_loadbalancer.",
       "tasks": ["configuration"],
       "title": "All attributes",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -11979,7 +11979,7 @@
       "path": "documentation/resources/tcp_loadbalancer/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3030132121321003-2013130021300310-3112112030301121-3102020110020233-2021003331113332-3103233212023320-3122111323100032-3110120202132001",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--examples--group-001.md",
@@ -11989,14 +11989,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Resource for xcsh_tcp_loadbalancer.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -12026,7 +12026,7 @@
       "path": "documentation/resources/tcp_loadbalancer/examples/with-annotations/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3220100320321221-0012022032320233-2212312002132202-3101120132123322-3330111233032310-0122101011131321-1231103213313112-1111012223123330",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--examples--group-001.md",
@@ -12036,14 +12036,14 @@
       "schema_path": ["with-annotations"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/examples/with-annotations/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "With annotations for xcsh_tcp_loadbalancer.",
       "tasks": ["configuration"],
       "title": "With annotations",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -12073,7 +12073,7 @@
       "path": "documentation/resources/tcp_loadbalancer/examples/with-description/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2332333133312100-2313121003203331-2133101333332332-1022213331101312-0002032003132003-3030312102032312-0030333122031122-0021031112031122",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--examples--group-001.md",
@@ -12083,14 +12083,14 @@
       "schema_path": ["with-description"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/examples/with-description/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "With description for xcsh_tcp_loadbalancer.",
       "tasks": ["configuration"],
       "title": "With description",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -12120,7 +12120,7 @@
       "path": "documentation/resources/tcp_loadbalancer/examples/with-healthcheck/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1213131201102133-2000302012101102-2030113221011230-0312000232013011-0120022300223021-0301113103321321-3100211002203223-1000133203101100",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--examples--group-001.md",
@@ -12130,14 +12130,14 @@
       "schema_path": ["with-healthcheck"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/examples/with-healthcheck/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "With healthcheck for xcsh_tcp_loadbalancer.",
       "tasks": ["configuration"],
       "title": "With healthcheck",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -12167,7 +12167,7 @@
       "path": "documentation/resources/tcp_loadbalancer/examples/with-labels/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1222200102003200-0033011311323320-2102221133112331-2123101222301132-0130320320232323-2331331332003330-2010330231103332-0101300200020222",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--examples--group-001.md",
@@ -12177,14 +12177,14 @@
       "schema_path": ["with-labels"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/examples/with-labels/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "With labels for xcsh_tcp_loadbalancer.",
       "tasks": ["configuration"],
       "title": "With labels",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -12214,7 +12214,7 @@
       "path": "documentation/resources/tcp_loadbalancer/examples/with-listen-port/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1301223213021230-0103300221332112-2210310131020331-0222120223000330-1210132111201310-0001333321020232-2231032313320311-1033021130000002",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--examples--group-001.md",
@@ -12224,14 +12224,14 @@
       "schema_path": ["with-listen-port"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/examples/with-listen-port/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "With listen port for xcsh_tcp_loadbalancer.",
       "tasks": ["configuration"],
       "title": "With listen port",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -12255,7 +12255,7 @@
       "path": "documentation/resources/tcp_loadbalancer/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0010103130330001-3321333010133010-0123010301022122-0013201010103131-2103100023233113-3300122101333230-2102201103021130-2001121313201221",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--lifecycle--group-001.md",
@@ -12265,14 +12265,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Import for xcsh_tcp_loadbalancer.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -12295,7 +12295,7 @@
       "path": "documentation/resources/tcp_loadbalancer/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0113230333002312-3121321100313030-2332210230213110-1001203203302201-2030120211111123-2000020211011020-2322332023011313-3212203323213223",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--lifecycle--group-001.md",
@@ -12305,14 +12305,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Timeouts for xcsh_tcp_loadbalancer.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["tcp_loadbalancerCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     }
   ],

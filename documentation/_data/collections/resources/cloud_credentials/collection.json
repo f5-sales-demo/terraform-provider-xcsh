@@ -354,7 +354,7 @@
       "path": "documentation/resources/cloud_credentials/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120",
       "registry_path": "docs/resources/cloud_credentials.md",
@@ -364,21 +364,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Manages a Cloud Credentials resource in F5 Distributed Cloud for api to create cloud_credentials object. configuration.",
       "tasks": ["authentication", "configuration"],
       "title": "xcsh_cloud_credentials",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["authentication", "cloud credentials", "credential setup", "credentials"],
       "body_bytes": 24394,
-      "body_sha256": "sha256:0774e0e8a04a764115a511f444b35f79467e3d0e5918ec302ae7bce7bff3d95a",
+      "body_sha256": "sha256:465d5399c57e042970aecf42580d6a2e52882e39ed264631e3b5a0260c961711",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -402,7 +402,7 @@
       "path": "documentation/resources/cloud_credentials/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
@@ -761,20 +761,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Property reference for xcsh_cloud_credentials.",
       "tasks": ["authentication", "configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["aws assume role"],
       "body_bytes": 9608,
-      "body_sha256": "sha256:5ad2ae8ab013fbd9f8365bef4d5c12fd8d6dc41f18c7059a9fc631d77147067c",
+      "body_sha256": "sha256:b7800590e702fab36f727463bf145ca5e0a28740c93970c07c34471ed7fef7db",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -794,7 +794,7 @@
       "path": "documentation/resources/cloud_credentials/properties/aws_assume_role/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3201131310302023-0122011012123001-0130131130232113-3232133100213330-3012223312001231-3021312122320320-3313012123220011-3033311203311103",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
@@ -990,14 +990,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/aws_assume_role/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "AWS Assume Role to Handle Delegated Access.",
       "tasks": ["authentication", "configuration"],
       "title": "aws_assume_role",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1020,7 +1020,7 @@
       "path": "documentation/resources/cloud_credentials/properties/aws_assume_role/external_id_is_optional/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3122230332231220-2323133033302121-2100003011232100-0331002310102220-2203130002323111-3100121320132111-0113231202303222-2220133223231210",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
@@ -1030,14 +1030,14 @@
       "schema_path": ["aws_assume_role", "external_id_is_optional"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/aws_assume_role/external_id_is_optional/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["authentication", "configuration"],
       "title": "aws_assume_role.external_id_is_optional",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1060,7 +1060,7 @@
       "path": "documentation/resources/cloud_credentials/properties/aws_assume_role/external_id_is_tenant_id/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2203103211303300-3032003222210131-0131212122013230-0313303303201103-1023331120233333-1313220201120323-1032330303131223-0003332300111312",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
@@ -1070,20 +1070,20 @@
       "schema_path": ["aws_assume_role", "external_id_is_tenant_id"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/aws_assume_role/external_id_is_tenant_id/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["authentication", "configuration"],
       "title": "aws_assume_role.external_id_is_tenant_id",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["aws secret key"],
       "body_bytes": 2194,
-      "body_sha256": "sha256:298a24ba2ee52c360a6be9971042bb912ad07ee221ecd1d01244e2ce0874fc47",
+      "body_sha256": "sha256:f6036e59b47c645deede2547bd48816afa680eee1afce1dc8aed79d0929c62be",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key"],
@@ -1100,7 +1100,7 @@
       "path": "documentation/resources/cloud_credentials/properties/aws_secret_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3233111313023123-2112001202221123-1003132111031121-1301010333300232-2201130032133313-3201203222322230-0230201100222323-2123010303221211",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
@@ -1169,14 +1169,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/aws_secret_key/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "AWS Programmatic Access Credentials type.",
       "tasks": ["authentication", "configuration"],
       "title": "aws_secret_key",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1202,7 +1202,7 @@
       "path": "documentation/resources/cloud_credentials/properties/aws_secret_key/secret_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0213131110213223-0223232101023323-2123311133211101-3201320111130300-1021022120000213-3110212022203331-2313010131003223-2002021021331003",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
@@ -1280,20 +1280,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/aws_secret_key/secret_key/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["authentication", "configuration"],
       "title": "aws_secret_key.secret_key",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["aws secret key secret key blindfold secret info"],
       "body_bytes": 4308,
-      "body_sha256": "sha256:3a98eec7483cb96185a8c0dcd9a32344bc1610eaf24312af4bd1f51147cf4b0e",
+      "body_sha256": "sha256:f16709027c79befb631ce38cf8a548eddbe400cf28eec6ae3f948149832b8252",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1310,7 +1310,7 @@
       "path": "documentation/resources/cloud_credentials/properties/aws_secret_key/secret_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3333201120120231-3223100301331100-0123323312200330-3203322313201130-3232222302032021-1100011301032210-0312133112310022-2321231001010313",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
@@ -1378,20 +1378,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/aws_secret_key/secret_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["authentication", "configuration"],
       "title": "aws_secret_key.secret_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["aws secret key secret key clear secret info"],
       "body_bytes": 3327,
-      "body_sha256": "sha256:4ac235ee311e9e8bde1caa4db345b5dd93fcac6583a903c0d9d49cfa80cff7b4",
+      "body_sha256": "sha256:a1d4ec413a5d34475b60900fe98412b59aebbbcaff5cc21d1eaf3a73f1c23e1a",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1408,7 +1408,7 @@
       "path": "documentation/resources/cloud_credentials/properties/aws_secret_key/secret_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0012032032232232-2020022112230222-0333130123120132-0300101302302230-3112111221011310-0201213011013012-0202122113030311-3103322202223021",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
@@ -1460,20 +1460,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/aws_secret_key/secret_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["authentication", "configuration"],
       "title": "aws_secret_key.secret_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["azure client secret"],
       "body_bytes": 4365,
-      "body_sha256": "sha256:6aabe85649f885605f0e1cdff54ccbbd685ec4dab17da761b2a29a3f13293581",
+      "body_sha256": "sha256:7311e1876ef6d6243623e569c59e729640d3874a020529180ee864dc7bfc4ddd",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret"],
@@ -1490,7 +1490,7 @@
       "path": "documentation/resources/cloud_credentials/properties/azure_client_secret/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0031003222133102-3220220230302231-3221203120103122-2132001113201132-2100013132100213-2210320123302223-3120332020133311-3031023322021323",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
@@ -1607,14 +1607,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/azure_client_secret/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Azure Credentials Client Secret type.",
       "tasks": ["authentication", "configuration"],
       "title": "azure_client_secret",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1640,7 +1640,7 @@
       "path": "documentation/resources/cloud_credentials/properties/azure_client_secret/client_secret/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2010100203212332-1110203230303022-1312013232030032-0311031313033313-3311310202030013-2320110323223123-3220210021311103-0203100022211200",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
@@ -1718,20 +1718,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/azure_client_secret/client_secret/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["authentication", "configuration"],
       "title": "azure_client_secret.client_secret",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["azure client secret client secret blindfold secret info"],
       "body_bytes": 4374,
-      "body_sha256": "sha256:ab25863f671e587b13aead5d91385a178bbb2d3ba3119ccf074546c1be553b4e",
+      "body_sha256": "sha256:41773a4c132bdbb17afe4e435c9cb955d0943a08050925911600ca944e354343",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1748,7 +1748,7 @@
       "path": "documentation/resources/cloud_credentials/properties/azure_client_secret/client_secret/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0130201031022210-0211013222301100-0333222111233120-1321331002131100-0033033103302122-3113302012123222-2133200113023021-1102333301021330",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
@@ -1816,20 +1816,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/azure_client_secret/client_secret/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["authentication", "configuration"],
       "title": "azure_client_secret.client_secret.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["azure client secret client secret clear secret info"],
       "body_bytes": 3385,
-      "body_sha256": "sha256:7426347d87e971796b2ff6ac875cf1d8e1324e828513387e7a4782d64aa8837b",
+      "body_sha256": "sha256:3a1af7dc0dd4fbf60e913dbfd614665cd1d95f5e2cc339ed07fe54a2898b901f",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1846,7 +1846,7 @@
       "path": "documentation/resources/cloud_credentials/properties/azure_client_secret/client_secret/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1113001302011012-3122110020131131-0321023013110311-0023333123113132-2322023320021101-2331020331232120-0000331030003000-1201201131131211",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
@@ -1898,20 +1898,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/azure_client_secret/client_secret/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["authentication", "configuration"],
       "title": "azure_client_secret.client_secret.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["azure pfx certificate"],
       "body_bytes": 5796,
-      "body_sha256": "sha256:26fac2137980dad94e1b8e70c241500d8e257e772e469f5d297636abd2bd79aa",
+      "body_sha256": "sha256:d1c26d12b97159249ffb62cd3cab46edf5f1047a21f91ea9c4a9776f256e2270",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password"],
@@ -1928,7 +1928,7 @@
       "path": "documentation/resources/cloud_credentials/properties/azure_pfx_certificate/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3121121300221320-0323123210301120-3332103121012010-0133333031111230-3231111231030100-0102030303212231-0002210222100033-0213220221123010",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
@@ -2075,14 +2075,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/azure_pfx_certificate/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Azure Credentials Client Certificate type.",
       "tasks": ["authentication", "configuration"],
       "title": "azure_pfx_certificate",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2108,7 +2108,7 @@
       "path": "documentation/resources/cloud_credentials/properties/azure_pfx_certificate/password/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2031130313303332-1313101222131123-2013331003223330-0210331002102030-2321321100123023-1122332123000113-0213011110303113-0100122132020231",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
@@ -2186,20 +2186,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/azure_pfx_certificate/password/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["authentication", "configuration"],
       "title": "azure_pfx_certificate.password",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["azure pfx certificate password blindfold secret info"],
       "body_bytes": 4357,
-      "body_sha256": "sha256:51a886fd343aebe06f27c814377dcc1a6f158f43fb53e1d84aa642ba7b7005d7",
+      "body_sha256": "sha256:1dbb1812365526250855557a9c6557d181ed842bd7ae492fcb84737f5e77d98f",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2216,7 +2216,7 @@
       "path": "documentation/resources/cloud_credentials/properties/azure_pfx_certificate/password/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1310001113023013-3001022212223113-2120100110203131-2030210221001020-3020220111302020-1331111210101031-0030122310010200-0333302212101311",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
@@ -2284,20 +2284,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/azure_pfx_certificate/password/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["authentication", "configuration"],
       "title": "azure_pfx_certificate.password.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["azure pfx certificate password clear secret info"],
       "body_bytes": 3371,
-      "body_sha256": "sha256:ce55a07ac788e010500b837c34e7d8b95458ee72b8c8e4a33bd568a7a2f0df6b",
+      "body_sha256": "sha256:e96c2a2e23f30c03c0bcab9d3dd436020b84dcbae35b727b21cac53dda15b860",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2314,7 +2314,7 @@
       "path": "documentation/resources/cloud_credentials/properties/azure_pfx_certificate/password/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0020203022020331-0102202103100332-3301232132332130-1331010013313123-0233022330321020-2210302021003012-3100021220023210-3002203232332002",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
@@ -2366,14 +2366,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/azure_pfx_certificate/password/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["authentication", "configuration"],
       "title": "azure_pfx_certificate.password.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2396,7 +2396,7 @@
       "path": "documentation/resources/cloud_credentials/properties/gcp_cred_file/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3222330220322011-0302130220202222-3211013011122330-0030301333103222-2332221013220321-3331320310312200-2132212011130212-0002121112103213",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
@@ -2440,14 +2440,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/gcp_cred_file/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "GCP Credentials type.",
       "tasks": ["authentication", "configuration"],
       "title": "gcp_cred_file",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2473,7 +2473,7 @@
       "path": "documentation/resources/cloud_credentials/properties/gcp_cred_file/credential_file/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1030130012133333-0222122201313312-1201132103211113-1330031302032020-2323202310330000-3000120330331113-2003212222202203-0133001000320110",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
@@ -2551,20 +2551,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/gcp_cred_file/credential_file/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["authentication", "configuration"],
       "title": "gcp_cred_file.credential_file",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["gcp cred file credential file blindfold secret info"],
       "body_bytes": 4334,
-      "body_sha256": "sha256:4a6b016787513ae1a1745efa9d2730843be99470efdc2d475818ac41df107a23",
+      "body_sha256": "sha256:2e0758183d7402136d6f4edd2471337c62cdce7741c56f060b87b51177c892bd",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2581,7 +2581,7 @@
       "path": "documentation/resources/cloud_credentials/properties/gcp_cred_file/credential_file/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3001331110213211-0011102121131001-3030222021121213-1211203220232221-3120303000001110-3300020303331002-1222023101003301-2113023232301120",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
@@ -2649,20 +2649,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/gcp_cred_file/credential_file/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["authentication", "configuration"],
       "title": "gcp_cred_file.credential_file.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["gcp cred file credential file clear secret info"],
       "body_bytes": 3349,
-      "body_sha256": "sha256:ea38d2d6670aae96dd1eb426d33b269c2884b3d2476fdd5af2da3340a5a708e6",
+      "body_sha256": "sha256:329ec4a1a480188483cd2471596bd3236e1468aaab555018d551a3271eb6edfd",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2679,7 +2679,7 @@
       "path": "documentation/resources/cloud_credentials/properties/gcp_cred_file/credential_file/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0223211232323111-1121032210201033-0130202123010220-1003132111331311-2212010330330210-0020333211101222-1322201333022123-2010112332112320",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
@@ -2731,14 +2731,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/gcp_cred_file/credential_file/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["authentication", "configuration"],
       "title": "gcp_cred_file.credential_file.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2761,7 +2761,7 @@
       "path": "documentation/resources/cloud_credentials/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0322303012302112-3031111001122203-3201002312132113-1301113100000020-0130001003100221-3021000310323011-1230333102123130-3302111233300121",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
@@ -2871,14 +2871,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "timeouts for xcsh_cloud_credentials.",
       "tasks": ["authentication", "configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2901,7 +2901,7 @@
       "path": "documentation/resources/cloud_credentials/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3120020011033110-3030221321302133-3001201311303003-0200222331003321-3311303322032013-0001302102303201-3100011302032313-0333323311023021",
       "registry_path": "docs/guides/resources--cloud_credentials--examples--group-001.md",
@@ -2911,14 +2911,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/examples/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Examples for xcsh_cloud_credentials.",
       "tasks": ["authentication", "configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2948,7 +2948,7 @@
       "path": "documentation/resources/cloud_credentials/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1311302123221221-1320030133321200-2312101213223331-1230210011313132-1110231031310201-0133030030003102-2212201012002100-0200233100032300",
       "registry_path": "docs/guides/resources--cloud_credentials--examples--group-001.md",
@@ -2958,14 +2958,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Resource for xcsh_cloud_credentials.",
       "tasks": ["authentication", "configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2989,7 +2989,7 @@
       "path": "documentation/resources/cloud_credentials/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1100112101112012-0311100211012110-3221001133101211-2122001021022023-0232233203111021-3323211210312032-0320303120222020-0322212111313330",
       "registry_path": "docs/guides/resources--cloud_credentials--lifecycle--group-001.md",
@@ -2999,14 +2999,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Import for xcsh_cloud_credentials.",
       "tasks": ["authentication", "import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3029,7 +3029,7 @@
       "path": "documentation/resources/cloud_credentials/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1011021231212103-3020302031233101-1131021320030301-0120112330301012-3303122231013323-0222301123003302-2321033022031131-0023313013030312",
       "registry_path": "docs/guides/resources--cloud_credentials--lifecycle--group-001.md",
@@ -3039,14 +3039,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Timeouts for xcsh_cloud_credentials.",
       "tasks": ["authentication", "lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cloud_credentialsCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     }
   ],

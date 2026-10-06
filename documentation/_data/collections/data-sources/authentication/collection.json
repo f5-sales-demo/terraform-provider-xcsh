@@ -257,7 +257,7 @@
       "path": "documentation/data-sources/authentication/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3330131022001332-3012131003233201-0203110311220323-2121221200223033-3213320331001200-2020031013302300-0110311123332221-2120122213100103",
       "registry_path": "docs/data-sources/authentication.md",
@@ -267,21 +267,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Reads Authentication information from F5 Distributed Cloud.",
       "tasks": ["authentication", "configuration"],
       "title": "xcsh_authentication",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["authentication", "credential setup", "credentials"],
       "body_bytes": 18560,
-      "body_sha256": "sha256:1cf015efc278ea47a477e765d51cca4349eb7804a89f72f60c60a0121781a17a",
+      "body_sha256": "sha256:0b2a14f80edc82decd30169b73af44d3ffb056bb4e13b4173eb9f14c5689e7b0",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -301,7 +301,7 @@
       "path": "documentation/data-sources/authentication/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2002323222211220-0230023001010221-0122022322200120-0100003312210032-3002222000120032-3021211330022230-1032122111002303-1111303000311210",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -440,20 +440,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Property reference for xcsh_authentication.",
       "tasks": ["authentication", "configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["cookie params"],
       "body_bytes": 4072,
-      "body_sha256": "sha256:6e8aba20311512916891966a7b577a9bdd4aa2232cc8dc17e412fc195efc57e7",
+      "body_sha256": "sha256:23c3758ca039ba6bacffcdead84e97bea6e7769690732ed6107b2a9cbe499042",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -473,7 +473,7 @@
       "path": "documentation/data-sources/authentication/properties/cookie_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1300021200300133-3100001310211100-2030223301303321-2302101322131100-3223222311000313-2113212332213331-0112020123202230-1120121332232333",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -564,20 +564,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/cookie_params/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Specifies different cookie related config parameters for authentication.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["cookie params auth hmac"],
       "body_bytes": 2845,
-      "body_sha256": "sha256:7d9610e50cec1fdc4b852083f2a124c7d307c5ab4686fa69b7fd60479e9292cd",
+      "body_sha256": "sha256:609b865f10c7e0232803049ffbc876f56b362e45f29e1bbc3e96613cd3d5a860",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -597,7 +597,7 @@
       "path": "documentation/data-sources/authentication/properties/cookie_params/auth_hmac/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2303222302130330-3012122012220000-3131320001202302-2323313002202101-3000120022013222-3010101312301201-2131303332100031-3011220001023323",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -672,14 +672,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/cookie_params/auth_hmac/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "HMAC primary and secondary keys to be used for hashing the Cookie. Each key also have an associated expiry timestamp, beyond which key is invalid.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.auth_hmac",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -705,7 +705,7 @@
       "path": "documentation/data-sources/authentication/properties/cookie_params/auth_hmac/prim_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3321032301130201-0113110300133310-0201011031110333-1220021311320202-2203301321130321-0222123101311323-1013312121311031-1302112212300011",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -748,20 +748,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/cookie_params/auth_hmac/prim_key/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.auth_hmac.prim_key",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["cookie params auth hmac prim key blindfold secret info"],
       "body_bytes": 4023,
-      "body_sha256": "sha256:5f1b397b104d3620e159854a1bc0c8e24e21712ead183f83a31c0e03be145a55",
+      "body_sha256": "sha256:5bb35ca6bb99e4cc8dcd74e5e57967ca61b61063438a5f43dfcc8b4860938283",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -778,7 +778,7 @@
       "path": "documentation/data-sources/authentication/properties/cookie_params/auth_hmac/prim_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1333102221213011-3332010220211130-3333222211011222-2210123203013312-1333131331120203-2112320301111223-0311113330221112-0211031002012100",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -837,20 +837,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/cookie_params/auth_hmac/prim_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.auth_hmac.prim_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["cookie params auth hmac prim key clear secret info"],
       "body_bytes": 3043,
-      "body_sha256": "sha256:11995b0b4f37b674e0ff17e7edf5865b26929b2ba272e1585cfdb44229c9f8a6",
+      "body_sha256": "sha256:8cb52864ae0d6568a4412bf2b7ab08ea54c13ecbc5080f13e6ae1766abf1f465",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -867,7 +867,7 @@
       "path": "documentation/data-sources/authentication/properties/cookie_params/auth_hmac/prim_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0102110320223032-2203201201021032-1202311003111222-2122212030011010-3210202133223300-2320030020231322-2001122013330101-2211121021210303",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -910,14 +910,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/cookie_params/auth_hmac/prim_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.auth_hmac.prim_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -943,7 +943,7 @@
       "path": "documentation/data-sources/authentication/properties/cookie_params/auth_hmac/sec_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0233322220022012-2130111323222131-2221113230111320-1310210030132213-2233232313033201-0211130320131123-3123320311322201-1001100311222201",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -986,20 +986,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/cookie_params/auth_hmac/sec_key/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.auth_hmac.sec_key",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["cookie params auth hmac sec key blindfold secret info"],
       "body_bytes": 4016,
-      "body_sha256": "sha256:8ad742c1dd8a057c3c4c525d81dcf41ff2cd513808af3cb3ad239af1ab299e44",
+      "body_sha256": "sha256:2377c9c367db8384a39a78aa446de71727acf014daf7dc641df3ed86a8063d70",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -1016,7 +1016,7 @@
       "path": "documentation/data-sources/authentication/properties/cookie_params/auth_hmac/sec_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2100013302203110-0013232130231223-1210201331333101-2120233002013021-3013031120230320-1203102201333203-1020000200032222-3212112301023022",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -1075,20 +1075,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/cookie_params/auth_hmac/sec_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.auth_hmac.sec_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["cookie params auth hmac sec key clear secret info"],
       "body_bytes": 3037,
-      "body_sha256": "sha256:bc81c9cce8e3677a2f6f37bcee784332027a6e4a002ff8fb9307019e61f6304c",
+      "body_sha256": "sha256:d03e52901112b80194ec7df53c6feb6e771246ee5ac0f5d52629c64f0637a66c",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -1105,7 +1105,7 @@
       "path": "documentation/data-sources/authentication/properties/cookie_params/auth_hmac/sec_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3021203302103031-1010001303211213-1113212300120201-3210123022220322-0023101031032121-1012200322302030-3133031113201003-2330330312232003",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -1148,14 +1148,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/cookie_params/auth_hmac/sec_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.auth_hmac.sec_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1178,7 +1178,7 @@
       "path": "documentation/data-sources/authentication/properties/cookie_params/kms_key_hmac/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1122032132211133-3221102303211012-3310003020230231-2020330020233321-2301211333312333-2220222021012130-3120332310133212-1100101331103330",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -1188,20 +1188,20 @@
       "schema_path": ["cookie_params", "kms_key_hmac"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/cookie_params/kms_key_hmac/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Reference to KMS Key Object.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.kms_key_hmac",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["oidc auth"],
       "body_bytes": 3262,
-      "body_sha256": "sha256:b12c359f596a53b2d9002af578ab8203b8011367a5a8f7c8863e93d6dbd46224",
+      "body_sha256": "sha256:5fbf59084606fa28834347749008b98c40248ff5ca2512d7b7fa0e710e2f29f4",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -1221,7 +1221,7 @@
       "path": "documentation/data-sources/authentication/properties/oidc_auth/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0031110023022323-1212131130130231-2113110302012310-3311202301313322-2312132012100201-2323221103000200-2310003300131031-0221311313011123",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -1296,14 +1296,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/oidc_auth/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "OIDCAuthType.",
       "tasks": ["authentication", "configuration"],
       "title": "oidc_auth",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1329,7 +1329,7 @@
       "path": "documentation/data-sources/authentication/properties/oidc_auth/client_secret/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3230011212002033-3231130123201030-0221202213110032-1110301332101132-3330101221132121-1033323000113201-1033122020221130-2030100331302021",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -1372,20 +1372,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/oidc_auth/client_secret/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["authentication", "configuration"],
       "title": "oidc_auth.client_secret",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["oidc auth client secret blindfold secret info"],
       "body_bytes": 3800,
-      "body_sha256": "sha256:efeed2d42a7c8cc903f78bd056522151b68762b0918d6d10750f82b7058d9627",
+      "body_sha256": "sha256:c97021737c50ae143737eb48657fb5437c68b09a58e4c051d84833c201b7372e",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -1402,7 +1402,7 @@
       "path": "documentation/data-sources/authentication/properties/oidc_auth/client_secret/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3001030121221333-3120302031320123-1103310332130203-0231203102212223-3221331002020220-2230310030121203-1001223231100233-3202101332012320",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -1461,20 +1461,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/oidc_auth/client_secret/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["authentication", "configuration"],
       "title": "oidc_auth.client_secret.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["oidc auth client secret clear secret info"],
       "body_bytes": 2830,
-      "body_sha256": "sha256:8f9eb5987798c17de5b2fee342ab2124cfeb0a9006abd904a823fdc99bbd4051",
+      "body_sha256": "sha256:1621c605edcb8d4bd42b98fa39e398a1113ddea9bc7fd0b0b3ea1c4fe319a264",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -1491,7 +1491,7 @@
       "path": "documentation/data-sources/authentication/properties/oidc_auth/client_secret/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1201103321223230-0311223321303011-0101311130031021-1113102222112123-3131213202203133-1331202301310303-2101221330330031-2211123101300333",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -1534,20 +1534,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/oidc_auth/client_secret/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["authentication", "configuration"],
       "title": "oidc_auth.client_secret.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["oidc auth oidc auth params"],
       "body_bytes": 4326,
-      "body_sha256": "sha256:4beafc7742c9b5e2d3f4b608fc5d338360ada8741bdb3876d8fdf66bc5cca96a",
+      "body_sha256": "sha256:5565476a6f7963245155a69215da6b9eb806701090fdf0b40b33d46636d569cf",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -1564,7 +1564,7 @@
       "path": "documentation/data-sources/authentication/properties/oidc_auth/oidc_auth_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1221330010102002-2102120122013232-1202123012303113-0312030123202321-0102003103331033-0213013330332320-1012102300010132-2232213123132012",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -1623,14 +1623,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/properties/oidc_auth/oidc_auth_params/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Configuration parameter for oidc auth params.",
       "tasks": ["authentication", "configuration"],
       "title": "oidc_auth.oidc_auth_params",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1653,7 +1653,7 @@
       "path": "documentation/data-sources/authentication/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3311100333131130-3203031113312032-0213122233111110-1002111313031302-0000011213332103-0001333330310320-1333121200120313-0112111020223000",
       "registry_path": "docs/guides/data-sources--authentication--examples--group-001.md",
@@ -1663,14 +1663,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/examples/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Examples for xcsh_authentication.",
       "tasks": ["authentication", "configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1700,7 +1700,7 @@
       "path": "documentation/data-sources/authentication/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0123220332103303-1322311321030321-3231001223333000-0323201230010231-0332330330200220-0233121310120303-3123121322311302-3301120023202033",
       "registry_path": "docs/guides/data-sources--authentication--examples--group-001.md",
@@ -1710,14 +1710,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Data source for xcsh_authentication.",
       "tasks": ["authentication", "configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     }
   ],

@@ -681,7 +681,7 @@
       "path": "documentation/data-sources/network_interface/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132",
       "registry_path": "docs/data-sources/network_interface.md",
@@ -691,21 +691,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Reads network device interface configuration in the system namespace.",
       "tasks": ["configuration"],
       "title": "xcsh_network_interface",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["network interface"],
       "body_bytes": 40045,
-      "body_sha256": "sha256:114c92d19158568cbf900bca6c40b055b1b13d6ea6de3eba739492b7db257c1b",
+      "body_sha256": "sha256:eb4bc09e3bc4453afe7e92b8e1f33e25c69ba2304d3b73e7a30df1c6ee40b475",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -728,7 +728,7 @@
       "path": "documentation/data-sources/network_interface/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -915,20 +915,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Property reference for xcsh_network_interface.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["dedicated interface"],
       "body_bytes": 6636,
-      "body_sha256": "sha256:fa28d08714cdf042b9ff169e97bd86529068cd781a2e60ae4cecc150036166b1",
+      "body_sha256": "sha256:31734353212424ef5b580ae0c3640e73ccdbd97ed472032332077b1e1e38d5ad",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -951,7 +951,7 @@
       "path": "documentation/data-sources/network_interface/properties/dedicated_interface/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2111100003310000-3312321232302132-3230210113110323-1133111201200010-1211100011233201-2312033201321122-3130121003002133-2332211313132321",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -1106,14 +1106,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/dedicated_interface/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Dedicated Interface Configuration.",
       "tasks": ["configuration"],
       "title": "dedicated_interface",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1136,7 +1136,7 @@
       "path": "documentation/data-sources/network_interface/properties/dedicated_interface/cluster/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1211132330113332-3212031033012102-0222101221133332-0311302120203213-2032132300102321-3222013032130332-1210023202332201-1100023032023022",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -1146,14 +1146,14 @@
       "schema_path": ["dedicated_interface", "cluster"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/dedicated_interface/cluster/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "dedicated_interface.cluster",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1176,7 +1176,7 @@
       "path": "documentation/data-sources/network_interface/properties/dedicated_interface/is_primary/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0022131012331121-3101130212200322-2211202021211213-3113002032312120-1022122112303230-1223110011121212-3323100130212100-2330110111233331",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -1186,14 +1186,14 @@
       "schema_path": ["dedicated_interface", "is_primary"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/dedicated_interface/is_primary/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "dedicated_interface.is_primary",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1216,7 +1216,7 @@
       "path": "documentation/data-sources/network_interface/properties/dedicated_interface/monitor/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1301300033020023-2330210123101223-3133232003002121-1100233103130100-1100331332330110-0203112300000220-2321033203313011-2310121123120321",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -1226,14 +1226,14 @@
       "schema_path": ["dedicated_interface", "monitor"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/dedicated_interface/monitor/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Link Quality Monitoring configuration for a network interface.",
       "tasks": ["configuration"],
       "title": "dedicated_interface.monitor",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1256,7 +1256,7 @@
       "path": "documentation/data-sources/network_interface/properties/dedicated_interface/monitor_disabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0030313302121202-1233123111231332-3332201001311232-1022220000121011-2130021022031232-3321001222222110-1130010012122033-2033000003310300",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -1266,14 +1266,14 @@
       "schema_path": ["dedicated_interface", "monitor_disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/dedicated_interface/monitor_disabled/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "dedicated_interface.monitor_disabled",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1296,7 +1296,7 @@
       "path": "documentation/data-sources/network_interface/properties/dedicated_interface/not_primary/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2101232323003203-3203010310132201-2231031113103111-2121012100323012-1302210102202103-2001313101033321-2133320212012010-3330031331120011",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -1306,20 +1306,20 @@
       "schema_path": ["dedicated_interface", "not_primary"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/dedicated_interface/not_primary/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "dedicated_interface.not_primary",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["dedicated management interface"],
       "body_bytes": 3851,
-      "body_sha256": "sha256:7971692c3b686692cf80043c6d7b9a1018d380cf3ba7f69c9321de9670df4266",
+      "body_sha256": "sha256:fe04669faf1bca6e06c1e4e737c43d909c126d51ede74d5af89784407591e7aa",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:network_interface:properties:dedicated_management_interface:cluster"],
@@ -1336,7 +1336,7 @@
       "path": "documentation/data-sources/network_interface/properties/dedicated_management_interface/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0031110031232313-1231101221020103-3111000020011113-3113300131113000-1123010222111130-0023230223301022-2202230222001100-3100123330301302",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -1411,14 +1411,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/dedicated_management_interface/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Dedicated Interface Configuration.",
       "tasks": ["configuration"],
       "title": "dedicated_management_interface",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1441,7 +1441,7 @@
       "path": "documentation/data-sources/network_interface/properties/dedicated_management_interface/cluster/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1121030012320221-0012303030303003-3203112120202321-3003221000313133-3022112200032123-3312331333222030-3212201010232230-3221200033002033",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -1451,20 +1451,20 @@
       "schema_path": ["dedicated_management_interface", "cluster"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/dedicated_management_interface/cluster/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "dedicated_management_interface.cluster",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["ethernet interface"],
       "body_bytes": 8760,
-      "body_sha256": "sha256:d1c826544abee96d6203b6f74e2420b3a5e1087b07295c3fba6f0d02d497e8c8",
+      "body_sha256": "sha256:418a6738308b69421a040b96e954d7298ec4ab271a6418332a7c55474081b881",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1497,7 +1497,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1231221132033202-1203021230002130-0223011322110002-1101210333012230-1031331120120320-3210100301333310-3003231230333101-0332232310023112",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -1828,14 +1828,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Ethernet Interface Configuration.",
       "tasks": ["configuration"],
       "title": "ethernet_interface",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1858,7 +1858,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/cluster/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1000310232301022-0020330010030121-0022102133110121-2323122310112011-0022100321232112-1021210323112113-2211012232330000-3121002333213032",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -1868,14 +1868,14 @@
       "schema_path": ["ethernet_interface", "cluster"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/cluster/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.cluster",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1898,7 +1898,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/dhcp_client/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2111203310333301-0203133201310122-3302311102203221-0033033020213331-3321331221303031-1022320231103221-0030211110001111-3102232032320223",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -1908,14 +1908,14 @@
       "schema_path": ["ethernet_interface", "dhcp_client"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/dhcp_client/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.dhcp_client",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1943,7 +1943,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/dhcp_server/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2201300003132010-2001113313300220-3310301103130123-0223210020331113-3222121212002301-1002313312212312-2323031230022222-1220213121000033",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -2050,14 +2050,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/dhcp_server/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Configuration parameter for dhcp server.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.dhcp_server",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2080,7 +2080,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/dhcp_server/automatic_from_end/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0122220112022100-1110200101331310-3120100032020331-3000303033202113-3333320102233320-0230121232130021-3200320032100023-1132030210220311",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -2090,14 +2090,14 @@
       "schema_path": ["ethernet_interface", "dhcp_server", "automatic_from_end"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/dhcp_server/automatic_from_end/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.dhcp_server.automatic_from_end",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2120,7 +2120,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/dhcp_server/automatic_from_start/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1213132133310111-3012101232022020-1230330321131133-0221221213002212-2110020031120002-3003123011123212-1013322212033222-2110032231323132",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -2130,20 +2130,20 @@
       "schema_path": ["ethernet_interface", "dhcp_server", "automatic_from_start"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/dhcp_server/automatic_from_start/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.dhcp_server.automatic_from_start",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["ethernet interface dhcp server dhcp networks"],
       "body_bytes": 6205,
-      "body_sha256": "sha256:9469b640e535470224648b96a4d3ec5073010c393e5210940f57ac936b76640c",
+      "body_sha256": "sha256:ef7d7131a2e8a202a98a96fd988f4fac2b69d84876452e24a231eaeabb07e37b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2165,7 +2165,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/dhcp_server/dhcp_networks/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0002220131312232-1111230002220223-2331300112311102-3121320021111033-2100023311210123-1333033000000011-1200010213322320-0121002323322121",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -2304,14 +2304,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/dhcp_server/dhcp_networks/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "List of networks from which DHCP Server can allocate IPv4 Addresses.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.dhcp_server.dhcp_networks",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2334,7 +2334,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/dhcp_server/dhcp_networks/first_address/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3123310101130231-2320101120233203-2220003303302101-1213302031220223-3123011331301303-0131230131202121-3320220012120331-0231031312013221",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -2344,14 +2344,14 @@
       "schema_path": ["ethernet_interface", "dhcp_server", "dhcp_networks", "first_address"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/dhcp_server/dhcp_networks/first_address/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.dhcp_server.dhcp_networks.first_address",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2374,7 +2374,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/dhcp_server/dhcp_networks/last_address/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2003030231203230-1000320233212023-0200100232232103-0001120101003303-3030023223201200-1023230300221132-1311121130112322-3220003330310022",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -2384,20 +2384,20 @@
       "schema_path": ["ethernet_interface", "dhcp_server", "dhcp_networks", "last_address"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/dhcp_server/dhcp_networks/last_address/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.dhcp_server.dhcp_networks.last_address",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["ethernet interface dhcp server dhcp networks pools"],
       "body_bytes": 3890,
-      "body_sha256": "sha256:c9523ddac3761a5abee044a0a5969bc712556d14f3f4c55447e5a0564a11f0a7",
+      "body_sha256": "sha256:5be37d7cb6d8a33d35700bbb3353cbf80ec96d509c838f3300ed3cd8b3a0008e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2414,7 +2414,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/dhcp_server/dhcp_networks/pools/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1302301201311002-1320301322113132-2000100103202213-2210303302320331-2323233210101001-0001332021013311-0323120033310013-0300311330201332",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -2473,14 +2473,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/dhcp_server/dhcp_networks/pools/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "List of non overlapping IP address ranges.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.dhcp_server.dhcp_networks.pools",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2503,7 +2503,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/dhcp_server/dhcp_networks/same_as_dgw/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0312033220223213-2031132300300320-2110022121023323-1113220300222231-2110323210012211-1201303002102033-2312201121300001-3032031301201131",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -2513,14 +2513,14 @@
       "schema_path": ["ethernet_interface", "dhcp_server", "dhcp_networks", "same_as_dgw"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/dhcp_server/dhcp_networks/same_as_dgw/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.dhcp_server.dhcp_networks.same_as_dgw",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2543,7 +2543,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/dhcp_server/interface_ip_map/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0102031303123133-3210033231031111-3332001310200032-0302121200120133-0231111002210130-0021232021310111-0301232112000213-3003102103212232",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -2570,14 +2570,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/dhcp_server/interface_ip_map/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Specify static IPv4 addresses per node.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.dhcp_server.interface_ip_map",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2603,7 +2603,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1323010232231123-0020113031301313-0002210103011230-0020131232002220-2212322122113213-1222233132010112-3032131220301300-1300133010231001",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -2646,14 +2646,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "IPV6AutoConfigType.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2676,7 +2676,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/host/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3131222310022111-2212231101112200-3221122330332001-1000003310221013-3003113102023211-0030331000001311-3112101313002313-3201302310133130",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -2686,20 +2686,20 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "host"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/host/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.host",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router"],
       "body_bytes": 2530,
-      "body_sha256": "sha256:9427e7fa223c662ea4ec5880c97a85f4df41aaf140a4949379801221da76a11b",
+      "body_sha256": "sha256:f2fed1edc616b2f878dfc7056230e511b1cea6b4062140c6167dddacffa06e02",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2719,7 +2719,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0021212102220102-3132201322323033-3312000213120233-3210202111213333-0230000030131231-3332223210331000-0220222023023030-3313011101202201",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -2778,14 +2778,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "IPV6AutoConfigRouterType.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2811,7 +2811,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/dns_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1123300211221313-0221201311100130-2111213002121232-2001132003331220-2130103202001321-1121012031132202-0120203022123031-0033130032303033",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -2854,20 +2854,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/dns_config/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "IPV6DnsConfig.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router.dns_config",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router dns config configured list"],
       "body_bytes": 2807,
-      "body_sha256": "sha256:d8b69608402c0d3020735df33e9f6eeafdfa004a9db9b74fed1937262616f537",
+      "body_sha256": "sha256:6e3aa2b10116507b0bb7f84da55563082f8bbfc4d179d9a2dcad0a360c0a927c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2884,7 +2884,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/dns_config/configured_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2020032120123230-1213332300010231-2012301301013001-2111202322121303-0332000203211102-1303223203320202-0130103330312030-0132123002103133",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -2918,20 +2918,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/dns_config/configured_list/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "IPV6DnsList.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router.dns_config.configured_list",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router dns config local dns"],
       "body_bytes": 2947,
-      "body_sha256": "sha256:50859ecf4aeda0ccc8ae976536b261c4db73d5ea78932d5f7fe08b0b8c488f40",
+      "body_sha256": "sha256:27be421160a03b80410b86b0e59ffab8410ce36c469403433914c32c8c33822e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2951,7 +2951,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/dns_config/local_dns/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3011320002132222-1233021013113230-3012233031331233-2120030233312312-2000222130011230-1031022121233020-1230112020202132-1002312132302332",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -3031,14 +3031,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/dns_config/local_dns/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "IPV6LocalDnsAddress.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router.dns_config.local_dns",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3061,7 +3061,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/dns_config/local_dns/first_address/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2300300312202001-1330222030310001-0032123200032033-2010230023312032-2130331230030203-3030010233033310-0210103200211000-1113022111013112",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-001.md",
@@ -3071,14 +3071,14 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router", "dns_config", "local_dns", "first_address"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/dns_config/local_dns/first_address/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.first_address",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3101,7 +3101,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/dns_config/local_dns/last_address/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0320130330003210-3303331021101321-1000330020223030-0010033332003002-0122230011310020-3220302021132223-2030122012211023-0001031233101332",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -3111,14 +3111,14 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router", "dns_config", "local_dns", "last_address"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/dns_config/local_dns/last_address/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.last_address",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3146,7 +3146,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/stateful/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2110300223322131-2103211300101333-3321030213032101-1102312213013133-1010130220220221-2030332303212213-3132301322132131-0201031123200020",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -3237,14 +3237,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/stateful/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "DHCPIPV6 Stateful Server.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router.stateful",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3267,7 +3267,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/stateful/automatic_from_end/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0000012033230200-2123322310320231-3023332320131122-2113112303013230-3121022111002322-3101310220220213-3313302121303200-1220311003030223",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -3277,14 +3277,14 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router", "stateful", "automatic_from_end"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/stateful/automatic_from_end/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_end",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3307,7 +3307,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/stateful/automatic_from_start/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2010033133131333-2200020111311110-3233200132131213-1323112111122201-3123200131221030-3012302210110002-3233132121302011-0323120301311233",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -3317,20 +3317,20 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router", "stateful", "automatic_from_start"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/stateful/automatic_from_start/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_start",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router stateful dhcp networks"],
       "body_bytes": 4344,
-      "body_sha256": "sha256:b147908d1a26934508ecba34ec5d713ceab6ffda68ab650133ac1945474270c5",
+      "body_sha256": "sha256:798d204e4bb5e07011cc15f4609d3ba0c0443a5a9ec20629b9081788932e42cd",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -3349,7 +3349,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/stateful/dhcp_networks/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3231212111002233-0013103002113131-1200210212010331-0002131212313132-2023203102133010-1133011031123310-1200001010211332-0322313033312311",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -3422,20 +3422,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/stateful/dhcp_networks/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "List of networks from which DHCP server can allocate IP addresses.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["ethernet interface ipv6 auto config router stateful dhcp networks pools"],
       "body_bytes": 4188,
-      "body_sha256": "sha256:ce0fe230866065906e44781c44730607d09795bf2cfbaa44d6cc35261dee81cb",
+      "body_sha256": "sha256:a296a10575767f190b7a09710c37511e0abce448007428ef48226376da37f870",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3452,7 +3452,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/stateful/dhcp_networks/pools/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2122032230101010-0300100203020123-1230133021121321-3110131013003313-0022203123012130-0101232010230201-1222303132013023-0123303122130232",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -3511,14 +3511,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/stateful/dhcp_networks/pools/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "List of non overlapping IP address ranges.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks.pools",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3541,7 +3541,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/stateful/interface_ip_map/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0313100122221133-0112300123320232-3110111202202033-2033121211010013-2332101313222002-0200022012131121-0232032031100332-1212210312222200",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -3575,14 +3575,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/ipv6_auto_config/router/stateful/interface_ip_map/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Map of Interface IPv6 assignments per node.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.ipv6_auto_config.router.stateful.interface_ip_map",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3605,7 +3605,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/is_primary/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0131322022011012-2232101232210032-1121023033132330-2102122010330022-0303011212231321-0030120321323012-0002332223030223-2331132203033201",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -3615,14 +3615,14 @@
       "schema_path": ["ethernet_interface", "is_primary"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/is_primary/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.is_primary",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3645,7 +3645,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/monitor/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1332112132010022-2002033222322231-0013003130323320-3003020332121213-2220110320101212-2120330123312013-1221021231031213-2211123321110201",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -3655,14 +3655,14 @@
       "schema_path": ["ethernet_interface", "monitor"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/monitor/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Link Quality Monitoring configuration for a network interface.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.monitor",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3685,7 +3685,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/monitor_disabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3121330013003013-2100012130332222-1133031333201222-2021321321232111-2002301003121210-2322111332332230-0221011000030231-2023233203032113",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -3695,14 +3695,14 @@
       "schema_path": ["ethernet_interface", "monitor_disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/monitor_disabled/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.monitor_disabled",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3725,7 +3725,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/no_ipv6_address/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1113032321321001-2310200133001032-3213200220203223-3000220113031202-1230221312200012-1202311001030122-0321131000121000-1111313323032111",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -3735,14 +3735,14 @@
       "schema_path": ["ethernet_interface", "no_ipv6_address"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/no_ipv6_address/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.no_ipv6_address",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3765,7 +3765,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/not_primary/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3312231302230300-0022030322113100-2201123131132030-3100011010120320-3310232100021031-1310303103110322-1031013222131303-3130102302313330",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -3775,14 +3775,14 @@
       "schema_path": ["ethernet_interface", "not_primary"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/not_primary/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.not_primary",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3805,7 +3805,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/site_local_inside_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0212312303120132-1113000211222110-0213011322231122-3213230332311203-0133301012122321-3102222301230020-2232303202233323-3312131000300010",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -3815,14 +3815,14 @@
       "schema_path": ["ethernet_interface", "site_local_inside_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/site_local_inside_network/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.site_local_inside_network",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3845,7 +3845,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/site_local_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3132210030013112-1102213013013232-0321001230003132-1320121232330023-0311112012212022-2113030330100121-0300331333001210-3033033130201021",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -3855,14 +3855,14 @@
       "schema_path": ["ethernet_interface", "site_local_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/site_local_network/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.site_local_network",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3888,7 +3888,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/static_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3312221322021303-3120113113303322-0130201201103221-3232302303112021-3223032010200211-1122330011012312-2200002231303102-1310333113123231",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -3931,14 +3931,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/static_ip/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Configure Static IP parameters.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.static_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3961,7 +3961,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/static_ip/cluster_static_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0133120302310230-3112011022020110-2212301300100010-3200021301000220-0202020000132300-0023233133013112-2103031120130301-2233202332102013",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -3988,20 +3988,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/static_ip/cluster_static_ip/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Configure Static IP parameters for cluster.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.static_ip.cluster_static_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["ethernet interface static ip node static ip"],
       "body_bytes": 3120,
-      "body_sha256": "sha256:5449e6926cb8eff0fbf7c0fc8c6070ee900c61cdfabeaaa7efa0295a65e3df2a",
+      "body_sha256": "sha256:79dff2030d54c2069c6eb2c7b05d6f891ceb91fc5c74a63da7c5c9480728b274",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4018,7 +4018,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/static_ip/node_static_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3230031122333310-1130013023032301-3303011331212201-2231332320203231-3323013210221212-3302000020222320-0210111121010031-2312311202031102",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -4077,14 +4077,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/static_ip/node_static_ip/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Configure Static IP parameters for a node.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.static_ip.node_static_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4110,7 +4110,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/static_ipv6_address/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2122131222310110-1332200023023011-0111031123111230-3110000330210323-2132201123233021-2222111300011033-3001000030212323-0221213333013310",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -4153,14 +4153,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/static_ipv6_address/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Configure Static IP parameters.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.static_ipv6_address",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4183,7 +4183,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/static_ipv6_address/cluster_static_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2000333032022001-3322313322223203-1013133100320320-3033310202132103-2203113332121223-2322020003032112-1131120000310220-2132120112013312",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -4210,20 +4210,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/static_ipv6_address/cluster_static_ip/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Configure Static IP parameters for cluster.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.static_ipv6_address.cluster_static_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["ethernet interface static ipv6 address node static ip"],
       "body_bytes": 3190,
-      "body_sha256": "sha256:fd132f5126f00c78c0aeaf00ca116b4b5e23b2bfb54eef6f8c3c93ed0433ecfb",
+      "body_sha256": "sha256:25b42eddd978888f30ed8737a74c720e7e62202fcb99bf32127a587e74e5d8cb",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4240,7 +4240,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/static_ipv6_address/node_static_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2302202323030311-3302100320112003-2033232230321102-1101111301001110-1220330230220000-3231210201001121-0323103312331311-0111020120231012",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -4299,14 +4299,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/static_ipv6_address/node_static_ip/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Configure Static IP parameters for a node.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.static_ipv6_address.node_static_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4329,7 +4329,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/storage_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0333033210010321-2132211112223013-1230003210301302-3330133302221210-0113332030013030-1331320233211220-3001013200001121-2203312010010122",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -4339,14 +4339,14 @@
       "schema_path": ["ethernet_interface", "storage_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/storage_network/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.storage_network",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4369,7 +4369,7 @@
       "path": "documentation/data-sources/network_interface/properties/ethernet_interface/untagged/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2303100002223300-2211310120020011-3133100223301321-2323322300103112-1230330031231133-3230103021330133-1023322211311012-0001221012231312",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -4379,14 +4379,14 @@
       "schema_path": ["ethernet_interface", "untagged"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/ethernet_interface/untagged/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ethernet_interface.untagged",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4413,7 +4413,7 @@
       "path": "documentation/data-sources/network_interface/properties/layer2_interface/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0203332310121320-0320201223332130-3003222223202313-0112031223031223-1020213311213033-3313000032021132-3232210333100223-0230211123130030",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -4472,20 +4472,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/layer2_interface/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Layer2 Interface Configuration.",
       "tasks": ["configuration"],
       "title": "layer2_interface",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["layer2 interface l2sriov interface"],
       "body_bytes": 3110,
-      "body_sha256": "sha256:70b15244bead4da43b744a1aea11f1eb66b8fa043fb550d781233af52b4d9173",
+      "body_sha256": "sha256:40021cdc1d5ba17274b3079ee399030d44fcca693184da700e3db09afaa25938",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:network_interface:properties:layer2_interface:l2sriov_interface:untagged"],
@@ -4502,7 +4502,7 @@
       "path": "documentation/data-sources/network_interface/properties/layer2_interface/l2sriov_interface/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2321233030331021-2213203223212012-2300223322311023-3130133333303222-0211302321321120-2232321231200220-2302011030310300-3221333030301021",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -4561,14 +4561,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/layer2_interface/l2sriov_interface/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Layer2 SR-IOV Interface Configuration.",
       "tasks": ["configuration"],
       "title": "layer2_interface.l2sriov_interface",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4591,7 +4591,7 @@
       "path": "documentation/data-sources/network_interface/properties/layer2_interface/l2sriov_interface/untagged/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2103020311113321-3031302111201022-1221222221011223-2111222311100331-0012102101211202-1212301213000001-3301323103311010-0210321110232213",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -4601,20 +4601,20 @@
       "schema_path": ["layer2_interface", "l2sriov_interface", "untagged"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/layer2_interface/l2sriov_interface/untagged/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "layer2_interface.l2sriov_interface.untagged",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["layer2 interface l2vlan interface"],
       "body_bytes": 2904,
-      "body_sha256": "sha256:01e97c5b539a1105e1053a3910ed2f6e449a419d1d9c3716ba5a2abe94576656",
+      "body_sha256": "sha256:add57d3534ffe6b7266e181c599c3d68b25fc8bacab8ca12894d12338429829b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4631,7 +4631,7 @@
       "path": "documentation/data-sources/network_interface/properties/layer2_interface/l2vlan_interface/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0330330120020103-1222300012103030-1232232331201001-2303012223312000-1223302103300000-1221113313122123-1013010302300132-0102113300031232",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -4674,20 +4674,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/layer2_interface/l2vlan_interface/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Layer2 VLAN Interface Configuration.",
       "tasks": ["configuration"],
       "title": "layer2_interface.l2vlan_interface",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["layer2 interface l2vlan slo interface"],
       "body_bytes": 1841,
-      "body_sha256": "sha256:23ee783e15bbab2a568d230ffcdef3fc307a7544fc909a7cc33afda65f268f0e",
+      "body_sha256": "sha256:1549506337ae6ddb1b579bab902e7bba41b990cbd23f9d22a7ebf4b5b869c786",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4704,7 +4704,7 @@
       "path": "documentation/data-sources/network_interface/properties/layer2_interface/l2vlan_slo_interface/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1310020032101313-3031201121133011-1230010330213320-2222133123313220-0222120030331301-1221220002202101-1300220222313213-3101332120332022",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -4731,20 +4731,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/layer2_interface/l2vlan_slo_interface/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Layer2 Site Local Outside VLAN Interface Configuration.",
       "tasks": ["configuration"],
       "title": "layer2_interface.l2vlan_slo_interface",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tunnel interface"],
       "body_bytes": 4345,
-      "body_sha256": "sha256:58de7d9685792a5f561fdfae504beea722d987b0812afa6f52e3943fcb518ee0",
+      "body_sha256": "sha256:01a413740a33be8355ecf0d264ff65a3b8265c9254fd3c43568e98863bc1ca4c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -4766,7 +4766,7 @@
       "path": "documentation/data-sources/network_interface/properties/tunnel_interface/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1030102220310031-2101220021010303-1132023020221330-1013302003330133-2331301123030223-3233302202221123-3320020030202302-1320303030232313",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -4889,14 +4889,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/tunnel_interface/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Tunnel Interface Configuration.",
       "tasks": ["configuration"],
       "title": "tunnel_interface",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4919,7 +4919,7 @@
       "path": "documentation/data-sources/network_interface/properties/tunnel_interface/site_local_inside_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3200332131130022-3120200023013333-2002211203321130-1322310032233303-1003303131302120-0101303201220213-2222001110031020-2221303132033100",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -4929,14 +4929,14 @@
       "schema_path": ["tunnel_interface", "site_local_inside_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/tunnel_interface/site_local_inside_network/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tunnel_interface.site_local_inside_network",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4959,7 +4959,7 @@
       "path": "documentation/data-sources/network_interface/properties/tunnel_interface/site_local_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2221222222220313-0103032102101022-3232123232013030-1030202202321210-1300333113001022-0000302010201210-1310302133012213-1002100222303130",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -4969,14 +4969,14 @@
       "schema_path": ["tunnel_interface", "site_local_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/tunnel_interface/site_local_network/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tunnel_interface.site_local_network",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5002,7 +5002,7 @@
       "path": "documentation/data-sources/network_interface/properties/tunnel_interface/static_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3121212033100033-0132200113233111-1130113303120101-0331313032310301-2312200021332010-0102333211323101-0333123111113031-2303203102211032",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -5045,14 +5045,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/tunnel_interface/static_ip/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Configure Static IP parameters.",
       "tasks": ["configuration"],
       "title": "tunnel_interface.static_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5075,7 +5075,7 @@
       "path": "documentation/data-sources/network_interface/properties/tunnel_interface/static_ip/cluster_static_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0000300202223022-3302100312022303-0202020302222110-3320022230230331-3210013203103021-1231321223111312-1003233220110010-3332031202310001",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -5102,20 +5102,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/tunnel_interface/static_ip/cluster_static_ip/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Configure Static IP parameters for cluster.",
       "tasks": ["configuration"],
       "title": "tunnel_interface.static_ip.cluster_static_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tunnel interface static ip node static ip"],
       "body_bytes": 3102,
-      "body_sha256": "sha256:bd3d35ad168873e09b01e33ffc561971123dd06e1760f3d732cae12d8bf88520",
+      "body_sha256": "sha256:cbc16e64139799149738e0a5b620b0863cba58c90eebe3605f24aa1dc5c26a16",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5132,7 +5132,7 @@
       "path": "documentation/data-sources/network_interface/properties/tunnel_interface/static_ip/node_static_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1113231101321112-3303000123310131-2000230003120133-1313010210333012-2131222233000220-3000230022123310-1032020033112020-0223203121322031",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -5191,20 +5191,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/tunnel_interface/static_ip/node_static_ip/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Configure Static IP parameters for a node.",
       "tasks": ["configuration"],
       "title": "tunnel_interface.static_ip.node_static_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tunnel interface tunnel"],
       "body_bytes": 4445,
-      "body_sha256": "sha256:97f41d0620fbe9d947b692982e9be73c8c7c8c630c87d8d7867f82c18e36380b",
+      "body_sha256": "sha256:661e1913c60d4e4927fc9fd9b59961b98f1954e4e34ff07b797e659a4b678b2f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5221,7 +5221,7 @@
       "path": "documentation/data-sources/network_interface/properties/tunnel_interface/tunnel/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0102301312001330-2110301120232212-0101133301010002-3123313010311003-0221110020121013-1330123002102212-1022122002001323-1202110330310231",
       "registry_path": "docs/guides/data-sources--network_interface--reference--group-002.md",
@@ -5301,14 +5301,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/properties/tunnel_interface/tunnel/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "tunnel_interface.tunnel",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5331,7 +5331,7 @@
       "path": "documentation/data-sources/network_interface/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2133221333220133-3003232131233011-0323131130131010-0032031132202203-3203132322000010-3200121132023132-3333031110011010-0230013230113030",
       "registry_path": "docs/guides/data-sources--network_interface--examples--group-001.md",
@@ -5341,14 +5341,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/examples/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Examples for xcsh_network_interface.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5378,7 +5378,7 @@
       "path": "documentation/data-sources/network_interface/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_interface",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1030333002233230-1030302301300310-0330313123230111-0013312003023032-0230013211000220-3022102220031021-2013001023323221-0200202201121023",
       "registry_path": "docs/guides/data-sources--network_interface--examples--group-001.md",
@@ -5388,14 +5388,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Data source for xcsh_network_interface.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_interfaceCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     }
   ],

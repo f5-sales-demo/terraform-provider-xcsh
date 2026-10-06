@@ -347,7 +347,7 @@
       "path": "documentation/data-sources/api_testing/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1103130220132111-1121033102212030-2032323111203320-0101012101310232-3300331302031232-1332131330231320-0212001110131013-1010030122002230",
       "registry_path": "docs/data-sources/api_testing.md",
@@ -357,21 +357,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Reads API Testing information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_api_testing",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["api testing"],
       "body_bytes": 24045,
-      "body_sha256": "sha256:aad9a8dc876498468f55f48d547b5e5fdb3b07008256b3be743b71ae2b7aa260",
+      "body_sha256": "sha256:c6f69b79816aea2b782db6f4d8352534117a0d634bdb887fdd812f8962ab583a",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [
@@ -393,7 +393,7 @@
       "path": "documentation/data-sources/api_testing/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3002213323001033-3300321333010022-1122133200032233-1213022031201310-3110232103211233-0103222003311303-0323133133201020-2103123031102103",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -580,20 +580,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Property reference for xcsh_api_testing.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["domains"],
       "body_bytes": 2973,
-      "body_sha256": "sha256:4fadcc26bd9dd91192662d36071c05065d1606a70d3da2c6590976fd9fc1429f",
+      "body_sha256": "sha256:cc37bc61114ee1e07bd97667a0ccdbb91ebee8233c5c5def197ff286984c3477",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_testing:properties:domains:credentials"],
@@ -610,7 +610,7 @@
       "path": "documentation/data-sources/api_testing/properties/domains/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3131031132021133-3010303022131200-2033203230030023-3131100130120320-1203210003222110-1020112003233203-2133130033211033-0011012200000012",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -669,20 +669,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/domains/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Add and configure testing domains and credentials.",
       "tasks": ["configuration"],
       "title": "domains",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["authentication", "credential setup", "credentials", "domains credentials"],
       "body_bytes": 2908,
-      "body_sha256": "sha256:8f3b8f12e16e716711be86b86f52e5f9a66b1af7f326d42a21edb6cb31c0022a",
+      "body_sha256": "sha256:e1d68dec00423556928b5f228bb9184aaf4d1620fcb9bea6a67fc8c55a5cd80a",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [
@@ -706,7 +706,7 @@
       "path": "documentation/data-sources/api_testing/properties/domains/credentials/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3300302021011323-1233011033232202-0001131123022203-0113010333011001-2021301130020132-0223321201313022-3300013030331020-3221333322300112",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -829,14 +829,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/domains/credentials/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Add credentials for API testing to use in the selected environment.",
       "tasks": ["configuration"],
       "title": "domains.credentials",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -859,7 +859,7 @@
       "path": "documentation/data-sources/api_testing/properties/domains/credentials/admin/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1323002131113221-1230221322223220-1302203131311221-2122133201003322-0011323330132323-1311321103321231-0101022313013030-0332132022112202",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -869,20 +869,20 @@
       "schema_path": ["domains", "credentials", "admin"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/domains/credentials/admin/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "domains.credentials.admin",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["domains credentials api key"],
       "body_bytes": 1939,
-      "body_sha256": "sha256:03561627144186b2895f7430331d8472262cbd6b156e09102a819f159c72e2d1",
+      "body_sha256": "sha256:ebe0d13730e9e38fa057ece4703425b43d8fbeb74d26387d2016a126e34fcdfa",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_testing:properties:domains:credentials:api_key:value"],
@@ -899,7 +899,7 @@
       "path": "documentation/data-sources/api_testing/properties/domains/credentials/api_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2323012032023313-2023111230121123-3012012100133321-3110102131113012-1312012331001023-3102320211110021-2123213113002301-1122312003302023",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -942,14 +942,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/domains/credentials/api_key/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "API Key",
       "tasks": ["configuration"],
       "title": "domains.credentials.api_key",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -975,7 +975,7 @@
       "path": "documentation/data-sources/api_testing/properties/domains/credentials/api_key/value/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2033133221021103-2323110122222020-0103300020123113-2231302321001321-1102320020231113-1332111033311102-3201302311123202-3101312303232320",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -1018,20 +1018,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/domains/credentials/api_key/value/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "domains.credentials.api_key.value",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["domains credentials api key value blindfold secret info"],
       "body_bytes": 4149,
-      "body_sha256": "sha256:3badaccb17877342026edfcbb19e8d204a3d1c22f6875780d7692c6a5c3baa7c",
+      "body_sha256": "sha256:37bb522b3423d447d98ad873dba2156feb862e2bd6af171d0fcf46caba0f4604",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
@@ -1048,7 +1048,7 @@
       "path": "documentation/data-sources/api_testing/properties/domains/credentials/api_key/value/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3202113212311301-1233231231220212-0102033031210012-3332132201231212-3033320331302011-1022303312322132-1121032122203003-2303203202231211",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -1107,20 +1107,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/domains/credentials/api_key/value/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "domains.credentials.api_key.value.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["domains credentials api key value clear secret info"],
       "body_bytes": 3167,
-      "body_sha256": "sha256:6c25ee5016d543081c724059cfeff13d0654c7426e1501511daddfc68765ac0a",
+      "body_sha256": "sha256:1cc2bb5b159f9f3a46de3453922d6030d35da8c5d58537fff5881c695cdb7583",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
@@ -1137,7 +1137,7 @@
       "path": "documentation/data-sources/api_testing/properties/domains/credentials/api_key/value/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1313320330100020-0132213202021012-0133001322202321-2222303123201132-3022202321210121-1222031323320321-3121313211332123-0201310323000102",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -1180,20 +1180,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/domains/credentials/api_key/value/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "domains.credentials.api_key.value.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["domains credentials basic auth"],
       "body_bytes": 2164,
-      "body_sha256": "sha256:5a998b06c395605d04c1358d07d19982140b03c4644cca3dc7844657860c12dc",
+      "body_sha256": "sha256:7406adc06b8047126eb5fdb4b2484491fb4d769e50cea74c7a62876fac764e46",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_testing:properties:domains:credentials:basic_auth:password"],
@@ -1210,7 +1210,7 @@
       "path": "documentation/data-sources/api_testing/properties/domains/credentials/basic_auth/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2222012103200021-2301131133131111-1001100303300203-1312321200133203-1112233030011310-1033130110010302-0020033113311323-1103302310233122",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -1253,14 +1253,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/domains/credentials/basic_auth/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Basic Authentication.",
       "tasks": ["configuration"],
       "title": "domains.credentials.basic_auth",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1286,7 +1286,7 @@
       "path": "documentation/data-sources/api_testing/properties/domains/credentials/basic_auth/password/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1110003032023122-2000201110200230-0320101020230033-2311010103202303-0021230333313321-3113200303121203-0213030333023202-1132021011011031",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -1329,20 +1329,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/domains/credentials/basic_auth/password/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "domains.credentials.basic_auth.password",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["domains credentials basic auth password blindfold secret info"],
       "body_bytes": 4197,
-      "body_sha256": "sha256:9008263b8d600188db1c83c6bbb15a3e44a302a2d5fb80214bfa4118b62d89ed",
+      "body_sha256": "sha256:1be6aa4699504f005eb3174da81466b6b88beae760fd2181b13cc22be04308c0",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
@@ -1359,7 +1359,7 @@
       "path": "documentation/data-sources/api_testing/properties/domains/credentials/basic_auth/password/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1302202121201313-1333323201223222-3333002012213321-2001131122230032-1000013230330312-0202233331023021-0333222010322101-2300122022131222",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -1432,20 +1432,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/domains/credentials/basic_auth/password/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "domains.credentials.basic_auth.password.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["domains credentials basic auth password clear secret info"],
       "body_bytes": 3209,
-      "body_sha256": "sha256:d04c4d5fb15bc043c25b68612e7ae1019030239772b02ed94531bff3f35d32d7",
+      "body_sha256": "sha256:b41f7ae4013f709254f4c15dc810e254c5cf940a95ea2f209c4efb5ccf38d998",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
@@ -1462,7 +1462,7 @@
       "path": "documentation/data-sources/api_testing/properties/domains/credentials/basic_auth/password/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1131031303102011-3202301021233203-0000110333212331-0223201020103322-1302232000220332-3132133112132020-3010011202030302-3303312212213122",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -1505,14 +1505,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/domains/credentials/basic_auth/password/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "domains.credentials.basic_auth.password.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1535,7 +1535,7 @@
       "path": "documentation/data-sources/api_testing/properties/domains/credentials/bearer_token/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1002300133110320-3332210320021021-1111101131301023-0231213012302320-0122202302002011-0210210210210113-3032002033021311-1031201330223013",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -1562,14 +1562,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/domains/credentials/bearer_token/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Configuration parameter for bearer token.",
       "tasks": ["configuration"],
       "title": "domains.credentials.bearer_token",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1595,7 +1595,7 @@
       "path": "documentation/data-sources/api_testing/properties/domains/credentials/bearer_token/token/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2321300003011131-3322013221100103-0031022101130311-3101120310232002-0011110233101202-1132233333232000-2030130212012000-3022013123230123",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -1638,20 +1638,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/domains/credentials/bearer_token/token/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "domains.credentials.bearer_token.token",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["domains credentials bearer token token blindfold secret info"],
       "body_bytes": 4194,
-      "body_sha256": "sha256:b326461026fb2ff8cbe075a63f734f23039f66bd474ed2eac344278219f8b61b",
+      "body_sha256": "sha256:361e372637ec921bd3255e39efec39c5b687721211b81fd342c0c390a29a48ab",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
@@ -1668,7 +1668,7 @@
       "path": "documentation/data-sources/api_testing/properties/domains/credentials/bearer_token/token/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1032133100230011-3200332110132202-0120303023012213-1032133220102220-2113120030210210-0130300010023331-2013021103301230-1132311003223220",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -1734,20 +1734,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/domains/credentials/bearer_token/token/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "domains.credentials.bearer_token.token.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["domains credentials bearer token token clear secret info"],
       "body_bytes": 3207,
-      "body_sha256": "sha256:80612f593b426dc8b0d7d143207126f896830f611e9502e1ac6db51f26ddbb2f",
+      "body_sha256": "sha256:06736a6cfa1a871d66f75e7e8df11b6fac8d6b3ad8bf2b416bf5a61ce56794d1",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
@@ -1764,7 +1764,7 @@
       "path": "documentation/data-sources/api_testing/properties/domains/credentials/bearer_token/token/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3021231312020223-1333110231202332-3010232002120011-1220122332032012-3211132022132311-1323030102111321-3033333023232133-2022130033123303",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -1807,20 +1807,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/domains/credentials/bearer_token/token/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "domains.credentials.bearer_token.token.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["domains credentials login endpoint", "login", "login result", "sign in"],
       "body_bytes": 3693,
-      "body_sha256": "sha256:8737e80db22f0c129839da0262e3239fe420174a3e2886a6f23c12efaf7fac69",
+      "body_sha256": "sha256:cb537a51194cf53c052ce99a881debb667a5e686b302925626bbd15e90e9f29c",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_testing:properties:domains:credentials:login_endpoint:json_payload"],
@@ -1837,7 +1837,7 @@
       "path": "documentation/data-sources/api_testing/properties/domains/credentials/login_endpoint/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0221111312210123-2010030233223322-3000002131202012-3033031111303313-0012021113313032-1232111121100330-2132230211331112-2231110212122030",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -1912,14 +1912,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/domains/credentials/login_endpoint/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Login Endpoint.",
       "tasks": ["configuration"],
       "title": "domains.credentials.login_endpoint",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1945,7 +1945,7 @@
       "path": "documentation/data-sources/api_testing/properties/domains/credentials/login_endpoint/json_payload/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1032020103220110-1223321110010000-0130003201003131-0201302222102212-0322033310232232-1300022101013023-2023002120231330-3211103232321133",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -1998,14 +1998,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/domains/credentials/login_endpoint/json_payload/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "domains.credentials.login_endpoint.json_payload",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2016,7 +2016,7 @@
         "sign in"
       ],
       "body_bytes": 4261,
-      "body_sha256": "sha256:9d6cff1f6158d656060233863acf4f50d3bfb13104b7b610a0414e54e1a1c912",
+      "body_sha256": "sha256:0c648b1408b6ca244b65d9acb8820aa49090a507150b1dd1f3000973fb6d6846",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
@@ -2033,7 +2033,7 @@
       "path": "documentation/data-sources/api_testing/properties/domains/credentials/login_endpoint/json_payload/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3331221132100012-0232102030221322-0133033003121003-3310010000231201-1132003312101232-2121032220022011-1102300212222000-1031222103012033",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -2128,14 +2128,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/domains/credentials/login_endpoint/json_payload/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "domains.credentials.login_endpoint.json_payload.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2146,7 +2146,7 @@
         "sign in"
       ],
       "body_bytes": 3265,
-      "body_sha256": "sha256:028ad7e24e90e90e99c9d4f65de7fbd8776e7396c44a9bf35b2b966928a4939b",
+      "body_sha256": "sha256:e10861874642aa88f82a801b96f169ccb52c6fcddf8d03f21e00e9bb7888cf9a",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
@@ -2163,7 +2163,7 @@
       "path": "documentation/data-sources/api_testing/properties/domains/credentials/login_endpoint/json_payload/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2031221303032320-3032320030331003-2113313300030331-0011031311122010-2030101312310203-1000303002033021-1232001110113120-3002033202202210",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -2223,14 +2223,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/domains/credentials/login_endpoint/json_payload/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "domains.credentials.login_endpoint.json_payload.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2253,7 +2253,7 @@
       "path": "documentation/data-sources/api_testing/properties/domains/credentials/standard/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3002030031233231-3203321203210311-3323002110331313-0000211312223220-2331122312020232-0300312011303021-2313102000201302-2122100300103000",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -2263,14 +2263,14 @@
       "schema_path": ["domains", "credentials", "standard"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/domains/credentials/standard/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "domains.credentials.standard",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2293,7 +2293,7 @@
       "path": "documentation/data-sources/api_testing/properties/every_day/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2332330000101223-2332033331213132-1301121202210033-3103023332020211-1332031203333033-1103110000210321-0012010013012201-0313032122013212",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -2303,14 +2303,14 @@
       "schema_path": ["every_day"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/every_day/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "every_day",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2333,7 +2333,7 @@
       "path": "documentation/data-sources/api_testing/properties/every_month/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0122310103331021-2020002230323013-1010102020012020-0010131103300303-2132223303320021-2313113101112011-2022122010230101-3111013330111132",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -2343,14 +2343,14 @@
       "schema_path": ["every_month"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/every_month/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "every_month",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2373,7 +2373,7 @@
       "path": "documentation/data-sources/api_testing/properties/every_week/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1113210123100310-3302013201121202-0001131003030011-3012002030222033-3121033100323211-0012003202031021-0012001301310130-2133332223112101",
       "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md",
@@ -2383,14 +2383,14 @@
       "schema_path": ["every_week"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/properties/every_week/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "every_week",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2413,7 +2413,7 @@
       "path": "documentation/data-sources/api_testing/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2332231100103211-2032311033113031-3002312201302303-1303231131130130-0310212022223232-1201123210232101-0230031123302302-0012222311112303",
       "registry_path": "docs/guides/data-sources--api_testing--examples--group-001.md",
@@ -2423,14 +2423,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/examples/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Examples for xcsh_api_testing.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2460,7 +2460,7 @@
       "path": "documentation/data-sources/api_testing/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3330001211231130-1030221022230232-2223323322000123-0133313130201001-0132022222302222-2221123013220202-0231300013303320-0121231221110120",
       "registry_path": "docs/guides/data-sources--api_testing--examples--group-001.md",
@@ -2470,14 +2470,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Data source for xcsh_api_testing.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["api_testingCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     }
   ],

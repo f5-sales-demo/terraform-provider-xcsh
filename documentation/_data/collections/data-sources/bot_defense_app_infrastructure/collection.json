@@ -172,7 +172,7 @@
       "path": "documentation/data-sources/bot_defense_app_infrastructure/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_defense_app_infrastructure",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3303122223102311-0202101033323122-0020322211123301-2100013330111310-1031210220113020-3201200231330321-3231001213311211-2220120313100211",
       "registry_path": "docs/data-sources/bot_defense_app_infrastructure.md",
@@ -182,21 +182,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_defense_app_infrastructure/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Reads Bot Defense App Infrastructure information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_bot_defense_app_infrastructure",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["bot defense app infrastructure"],
       "body_bytes": 13861,
-      "body_sha256": "sha256:eb6606ce8adf2af6b2b3d0c7840b4f9cf8ac3aaad0f4e9ca0985546d82163dcb",
+      "body_sha256": "sha256:81db0ec62042f79246e7ca27e6dc5688bf0f599fa5e624d10e307ba0efa65426",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -216,7 +216,7 @@
       "path": "documentation/data-sources/bot_defense_app_infrastructure/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_defense_app_infrastructure",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2132310132221331-3023323033302023-2020313301002322-3022221322122223-3020302132133032-3320001331003303-2321302323320112-2100121000233122",
       "registry_path": "docs/guides/data-sources--bot_defense_app_infrastructure--reference--group-001.md",
@@ -387,20 +387,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_defense_app_infrastructure/properties/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Property reference for xcsh_bot_defense_app_infrastructure.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["cloud hosted"],
       "body_bytes": 2956,
-      "body_sha256": "sha256:fbb85cdfb80350010f7dd3668265e75ef36fc5860d528cdc9451934e89816193",
+      "body_sha256": "sha256:114f9800ad2049ed4b99acc4d3f43213e302a6c76387f36ba327c64b81c5692c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -420,7 +420,7 @@
       "path": "documentation/data-sources/bot_defense_app_infrastructure/properties/cloud_hosted/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_defense_app_infrastructure",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1103310101020302-1303233332110101-0231320222231323-0233221013020013-0333122021130002-1312103123303001-3021222211302231-2313310212322103",
       "registry_path": "docs/guides/data-sources--bot_defense_app_infrastructure--reference--group-001.md",
@@ -495,20 +495,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_defense_app_infrastructure/properties/cloud_hosted/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Infra F5 Hosted.",
       "tasks": ["configuration"],
       "title": "cloud_hosted",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["cloud hosted egress"],
       "body_bytes": 6785,
-      "body_sha256": "sha256:7f5180239c07a75653c6b90073a309ff4a7ca3e7a6c9b0f4056ff3d2ee28954e",
+      "body_sha256": "sha256:1eb6a141895df7776f8e4cdfe01d69c5a26b84be7ea6196e371f48c2ed43642a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -525,7 +525,7 @@
       "path": "documentation/data-sources/bot_defense_app_infrastructure/properties/cloud_hosted/egress/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_defense_app_infrastructure",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0023312311332123-0221102122213030-3200211213031023-1103111110301130-1132001223310022-0300322013110331-1221003022130001-1033003112233011",
       "registry_path": "docs/guides/data-sources--bot_defense_app_infrastructure--reference--group-001.md",
@@ -568,20 +568,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_defense_app_infrastructure/properties/cloud_hosted/egress/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Egress",
       "tasks": ["configuration"],
       "title": "cloud_hosted.egress",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["cloud hosted ingress"],
       "body_bytes": 7641,
-      "body_sha256": "sha256:23821806d2e20a5d9b6bc109e41f5a84c621ee745471fb225c9b78482d62bb9f",
+      "body_sha256": "sha256:ba4716ffd481677bc45125afda03c7df1cb1d98625b03c1dc75f9c1193e321b8",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -598,7 +598,7 @@
       "path": "documentation/data-sources/bot_defense_app_infrastructure/properties/cloud_hosted/ingress/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_defense_app_infrastructure",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3212133321032131-1102223321001133-3211232110000131-0020130030120300-0130101311022012-1203102203102102-1121123310203211-2001001103300201",
       "registry_path": "docs/guides/data-sources--bot_defense_app_infrastructure--reference--group-001.md",
@@ -657,20 +657,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_defense_app_infrastructure/properties/cloud_hosted/ingress/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Ingress",
       "tasks": ["configuration"],
       "title": "cloud_hosted.ingress",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["data center hosted"],
       "body_bytes": 2525,
-      "body_sha256": "sha256:693c1461add59138b66f47f2f928703ba71c939527e263d78cc1a4aca67c8eb5",
+      "body_sha256": "sha256:7c8515bf4c747d51a9d0e06cff234ac9df28d4e8919675e6904e7845894ca6f1",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -690,7 +690,7 @@
       "path": "documentation/data-sources/bot_defense_app_infrastructure/properties/data_center_hosted/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_defense_app_infrastructure",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3020301332100300-3133221002233332-3131022122123002-3023220030220010-3123110321022223-3103033023022121-0002110311100232-1102230222113001",
       "registry_path": "docs/guides/data-sources--bot_defense_app_infrastructure--reference--group-001.md",
@@ -765,20 +765,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_defense_app_infrastructure/properties/data_center_hosted/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Infra F5 Hosted.",
       "tasks": ["configuration"],
       "title": "data_center_hosted",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["data center hosted egress"],
       "body_bytes": 6821,
-      "body_sha256": "sha256:94d3893bd4af6712b62eeb198592ca8e36b82fd9e9c7fdc6d66916b659a4597b",
+      "body_sha256": "sha256:2810b2139940662c5783fbdf5ab03cb62d737cdd142a5f03f5a63634b540aa5b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -795,7 +795,7 @@
       "path": "documentation/data-sources/bot_defense_app_infrastructure/properties/data_center_hosted/egress/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_defense_app_infrastructure",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2011223320333230-0030030221131322-1221130213210311-2320221332111331-1021012312031222-0210333023301103-1221331222011002-1020033031010000",
       "registry_path": "docs/guides/data-sources--bot_defense_app_infrastructure--reference--group-001.md",
@@ -838,20 +838,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_defense_app_infrastructure/properties/data_center_hosted/egress/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Egress",
       "tasks": ["configuration"],
       "title": "data_center_hosted.egress",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["data center hosted ingress"],
       "body_bytes": 7683,
-      "body_sha256": "sha256:34958e3c60b0c38bc06c07cac36cfd68e6232e92005204c8b339844f2facf809",
+      "body_sha256": "sha256:2d7ddf28834eca63d2faa7943dde652630c2d539df378a38f896e905a19866b6",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -868,7 +868,7 @@
       "path": "documentation/data-sources/bot_defense_app_infrastructure/properties/data_center_hosted/ingress/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_defense_app_infrastructure",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2332132211113123-0320021203313232-3302130030312112-3002010012133101-1132123033332312-1022033303130002-2000100333021131-2121111210222313",
       "registry_path": "docs/guides/data-sources--bot_defense_app_infrastructure--reference--group-001.md",
@@ -927,14 +927,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_defense_app_infrastructure/properties/data_center_hosted/ingress/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Ingress",
       "tasks": ["configuration"],
       "title": "data_center_hosted.ingress",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -957,7 +957,7 @@
       "path": "documentation/data-sources/bot_defense_app_infrastructure/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_defense_app_infrastructure",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2203320102322222-3033130103223000-2221233312330220-3132103002232130-3311323002122313-1102223020232110-3002130020332031-3121022001133130",
       "registry_path": "docs/guides/data-sources--bot_defense_app_infrastructure--examples--group-001.md",
@@ -967,14 +967,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_defense_app_infrastructure/examples/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Examples for xcsh_bot_defense_app_infrastructure.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1004,7 +1004,7 @@
       "path": "documentation/data-sources/bot_defense_app_infrastructure/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_defense_app_infrastructure",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3310222001301223-3222221111211002-1103321222223201-0132033202120020-3012311220222302-0210012033102201-0233023132131000-2102300310203212",
       "registry_path": "docs/guides/data-sources--bot_defense_app_infrastructure--examples--group-001.md",
@@ -1014,14 +1014,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_defense_app_infrastructure/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Data source for xcsh_bot_defense_app_infrastructure.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["bot_defense_app_infrastructureCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     }
   ],
