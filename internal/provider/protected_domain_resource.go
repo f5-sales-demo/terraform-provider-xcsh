@@ -270,12 +270,27 @@ func (r *ProtectedDomainResource) Create(ctx context.Context, req resource.Creat
 		createReq.Spec["protected_domain"] = data.ProtectedDomain.ValueString()
 	}
 
-	apiResource, err := r.client.CreateProtectedDomain(ctx, createReq)
+	apiResource, created, err := r.client.CreateProtectedDomainRegistration(ctx, createReq)
 	if err != nil {
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create ProtectedDomain: %s", err))
+		if created {
+			data.ID = data.Name
+			resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+		}
+		resp.Diagnostics.AddError("Unable to Verify Created Registration", client.ProtectedDomainDiagnostic(err))
 		return
 	}
 
+	data.ID = data.Name
+	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	if err := client.ValidateProtectedDomainCreateResponse(apiResource, data.Namespace.ValueString(), data.Name.ValueString(), data.ProtectedDomain.ValueString()); err != nil {
+		resp.Diagnostics.AddError("Unable to Verify Created Registration", err.Error())
+		return
+	}
+	apiResource, err = r.client.VerifyProtectedDomain(ctx, data.Namespace.ValueString(), data.Name.ValueString(), data.ProtectedDomain.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError("Unable to Verify Created Registration", "The create completed, but authoritative verification failed. Ownership is retained; refresh before another mutation.")
+		return
+	}
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
@@ -285,7 +300,7 @@ func (r *ProtectedDomainResource) Create(ctx context.Context, req resource.Creat
 		return
 	}
 
-	data.ID = types.StringValue(apiResource.Metadata.Name)
+	data.ID = data.Name
 
 	// Unmarshal spec fields from API response to Terraform state
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
@@ -317,10 +332,10 @@ func (r *ProtectedDomainResource) Read(ctx context.Context, req resource.ReadReq
 	ctx, cancel := context.WithTimeout(ctx, readTimeout)
 	defer cancel()
 
-	apiResource, err := r.client.GetProtectedDomain(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.VerifyProtectedDomain(ctx, data.Namespace.ValueString(), data.Name.ValueString(), data.ProtectedDomain.ValueString())
 	if err != nil {
 		// Check if the resource was deleted outside Terraform
-		if strings.Contains(err.Error(), "NOT_FOUND") || strings.Contains(err.Error(), "404") {
+		if client.HasHTTPStatus(err, 404) {
 			tflog.Warn(ctx, "ProtectedDomain not found, removing from state", map[string]interface{}{
 				"name":      data.Name.ValueString(),
 				"namespace": data.Namespace.ValueString(),
@@ -328,88 +343,74 @@ func (r *ProtectedDomainResource) Read(ctx context.Context, req resource.ReadReq
 			resp.State.RemoveResource(ctx)
 			return
 		}
-		// Some F5 XC APIs do not implement GET-by-name (read returns 501 Not
-		// Implemented — e.g. the shape/csd domain objects, which support only
-		// list/create/delete). Treat that as "cannot refresh" and preserve the
-		// prior state rather than erroring, so the resource stays manageable and
-		// idempotent (create/delete still work).
-		if strings.Contains(err.Error(), "501") {
-			tflog.Warn(ctx, "ProtectedDomain read not implemented by API (501); keeping prior state", map[string]interface{}{
-				"name":      data.Name.ValueString(),
-				"namespace": data.Namespace.ValueString(),
-			})
-			resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
-			return
-		}
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read ProtectedDomain: %s", err))
+		resp.Diagnostics.AddError("Client Error", client.ProtectedDomainDiagnostic(err))
 		return
 	}
 
-	data.ID = types.StringValue(apiResource.Metadata.Name)
-	data.Name = types.StringValue(apiResource.Metadata.Name)
-	data.Namespace = types.StringValue(apiResource.Metadata.Namespace)
+	if apiResource.Metadata.Name != "" {
+		// Read description from metadata
+		if apiResource.Metadata.Description != "" {
+			data.Description = types.StringValue(apiResource.Metadata.Description)
+		} else {
+			data.Description = types.StringNull()
+		}
 
-	// Read description from metadata
-	if apiResource.Metadata.Description != "" {
-		data.Description = types.StringValue(apiResource.Metadata.Description)
-	} else {
-		data.Description = types.StringNull()
-	}
+		// #1286: the API omits an empty metadata map entirely, so "no entries in the
+		// response" is ambiguous — it means either "never declared" or "declared empty".
+		// Nulling both makes a config that declares labels = {} drift (+ labels = {}) on
+		// every plan after apply, with no import involved. Resolve it from the prior
+		// value: a known-empty prior map stays an empty map, anything else (null = never
+		// declared, or unknown) becomes null. A prior map WITH entries still nulls, so a
+		// genuine out-of-band deletion is still reported as drift.
+		// The MapValueMust below cannot panic: it panics only on diagnostics, and with nil
+		// elements NewMapValue's sole error path (per-element type mismatch) is unreachable.
+		priorLabelsEmpty := !data.Labels.IsNull() && !data.Labels.IsUnknown() && len(data.Labels.Elements()) == 0
+		priorAnnotationsEmpty := !data.Annotations.IsNull() && !data.Annotations.IsUnknown() && len(data.Annotations.Elements()) == 0
 
-	// #1286: the API omits an empty metadata map entirely, so "no entries in the
-	// response" is ambiguous — it means either "never declared" or "declared empty".
-	// Nulling both makes a config that declares labels = {} drift (+ labels = {}) on
-	// every plan after apply, with no import involved. Resolve it from the prior
-	// value: a known-empty prior map stays an empty map, anything else (null = never
-	// declared, or unknown) becomes null. A prior map WITH entries still nulls, so a
-	// genuine out-of-band deletion is still reported as drift.
-	// The MapValueMust below cannot panic: it panics only on diagnostics, and with nil
-	// elements NewMapValue's sole error path (per-element type mismatch) is unreachable.
-	priorLabelsEmpty := !data.Labels.IsNull() && !data.Labels.IsUnknown() && len(data.Labels.Elements()) == 0
-	priorAnnotationsEmpty := !data.Annotations.IsNull() && !data.Annotations.IsUnknown() && len(data.Annotations.Elements()) == 0
-
-	// Filter out the labels the platform authors itself, which Terraform must not
-	// propose deleting just because the configuration does not mention them (#1391) —
-	// except any key the configuration declared at the last Create or Update, recorded
-	// in private state. Without that exemption a configuration cannot own a label in the
-	// ves.io/ namespace at all: the write succeeds, the read-back strips it, and the next
-	// plan proposes adding it again, forever (#1398). Prior state cannot serve as the
-	// record, because providers up to 3.81.1 wrote the platform's own labels into it.
-	ownedLabels := map[string]struct{}{}
-	if rawOwned, ownedDiags := req.Private.GetKey(ctx, ownedLabelKeysPrivateKey); !ownedDiags.HasError() {
-		ownedLabels = decodeOwnedLabelKeys(rawOwned)
-	}
-	if len(apiResource.Metadata.Labels) > 0 {
-		filteredLabels := filterSystemLabelsOwning(apiResource.Metadata.Labels, false, ownedLabels)
-		if len(filteredLabels) > 0 {
-			labels, diags := types.MapValueFrom(ctx, types.StringType, filteredLabels)
-			resp.Diagnostics.Append(diags...)
-			if !resp.Diagnostics.HasError() {
-				data.Labels = labels
+		// Filter out the labels the platform authors itself, which Terraform must not
+		// propose deleting just because the configuration does not mention them (#1391) —
+		// except any key the configuration declared at the last Create or Update, recorded
+		// in private state. Without that exemption a configuration cannot own a label in the
+		// ves.io/ namespace at all: the write succeeds, the read-back strips it, and the next
+		// plan proposes adding it again, forever (#1398). Prior state cannot serve as the
+		// record, because providers up to 3.81.1 wrote the platform's own labels into it.
+		ownedLabels := map[string]struct{}{}
+		if rawOwned, ownedDiags := req.Private.GetKey(ctx, ownedLabelKeysPrivateKey); !ownedDiags.HasError() {
+			ownedLabels = decodeOwnedLabelKeys(rawOwned)
+		}
+		if len(apiResource.Metadata.Labels) > 0 {
+			filteredLabels := filterSystemLabelsOwning(apiResource.Metadata.Labels, false, ownedLabels)
+			if len(filteredLabels) > 0 {
+				labels, diags := types.MapValueFrom(ctx, types.StringType, filteredLabels)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() {
+					data.Labels = labels
+				}
+			} else if priorLabelsEmpty {
+				data.Labels = types.MapValueMust(types.StringType, nil)
+			} else {
+				data.Labels = types.MapNull(types.StringType)
 			}
 		} else if priorLabelsEmpty {
 			data.Labels = types.MapValueMust(types.StringType, nil)
 		} else {
 			data.Labels = types.MapNull(types.StringType)
 		}
-	} else if priorLabelsEmpty {
-		data.Labels = types.MapValueMust(types.StringType, nil)
-	} else {
-		data.Labels = types.MapNull(types.StringType)
-	}
 
-	if len(apiResource.Metadata.Annotations) > 0 {
-		annotations, diags := types.MapValueFrom(ctx, types.StringType, apiResource.Metadata.Annotations)
-		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() {
-			data.Annotations = annotations
+		if len(apiResource.Metadata.Annotations) > 0 {
+			annotations, diags := types.MapValueFrom(ctx, types.StringType, apiResource.Metadata.Annotations)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() {
+				data.Annotations = annotations
+			}
+		} else if priorAnnotationsEmpty {
+			data.Annotations = types.MapValueMust(types.StringType, nil)
+		} else {
+			data.Annotations = types.MapNull(types.StringType)
 		}
-	} else if priorAnnotationsEmpty {
-		data.Annotations = types.MapValueMust(types.StringType, nil)
-	} else {
-		data.Annotations = types.MapNull(types.StringType)
-	}
 
+	}
+	tflog.Debug(ctx, "Protected-domain registration verified", map[string]interface{}{"scope": "requested namespace", "matching": "exact protected root"})
 	// Check if this Read is triggered by an import operation
 	// Import sets a private state marker so we know to populate all nested blocks from API response
 	isImport := false
@@ -474,7 +475,7 @@ func (r *ProtectedDomainResource) Delete(ctx context.Context, req resource.Delet
 	// terminal and handled after the loop.
 	var err error
 	for attempt := 0; ; attempt++ {
-		err = r.client.DeleteProtectedDomain(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+		err = r.client.DeleteProtectedDomainRegistration(ctx, data.Namespace.ValueString(), data.Name.ValueString(), data.ProtectedDomain.ValueString())
 		if err == nil {
 			break
 		}
@@ -498,7 +499,7 @@ func (r *ProtectedDomainResource) Delete(ctx context.Context, req resource.Delet
 	}
 	if err != nil {
 		// If the resource is already gone, consider deletion successful (idempotent delete)
-		if strings.Contains(err.Error(), "NOT_FOUND") || strings.Contains(err.Error(), "404") {
+		if client.HasHTTPStatus(err, 404) {
 			tflog.Warn(ctx, "ProtectedDomain already deleted, removing from state", map[string]interface{}{
 				"name":      data.Name.ValueString(),
 				"namespace": data.Namespace.ValueString(),
@@ -508,7 +509,7 @@ func (r *ProtectedDomainResource) Delete(ctx context.Context, req resource.Delet
 		// Every non-404 failure, including NOT_IMPLEMENTED/501, must remain a
 		// diagnostic. Returning success here would make Terraform forget a remote
 		// object that the API did not delete, creating an unrecoverable orphan.
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to delete ProtectedDomain: %s", err))
+		resp.Diagnostics.AddError("Client Error", client.ProtectedDomainDiagnostic(err))
 		return
 	}
 }
@@ -526,6 +527,14 @@ func (r *ProtectedDomainResource) ImportState(ctx context.Context, req resource.
 		return
 	}
 
+	if parts[2] == "" {
+		resp.Diagnostics.AddError("Invalid Import ID", "A nonempty protected root is required.")
+		return
+	}
+	if _, err := r.client.VerifyProtectedDomain(ctx, parts[0], parts[1], parts[2]); err != nil {
+		resp.Diagnostics.AddError("Unable to Verify Imported Registration", "Import requires a unique authoritative match for the provided namespace and protected root.")
+		return
+	}
 	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("namespace"), parts[0])...)
 	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("name"), parts[1])...)
 	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("id"), parts[1])...)

@@ -360,11 +360,12 @@ func GenerateDataSource(resource *openapi.ResourceTemplate, outputDir string) er
 	outputPath := filepath.Join(outputDir, resource.Name+"_data_source.go")
 
 	funcMap := template.FuncMap{
-		"dataSourceReadableAttributes":     DataSourceReadableAttributes,
-		"dataSourceNamespaceDefault":       DataSourceNamespaceDefault,
-		"renderDataSourceModelFields":      RenderDataSourceModelFields,
-		"renderDataSourceSchemaAttributes": RenderDataSourceSchemaAttributes,
-		"renderDataSourceSpecUnmarshal":    RenderDataSourceSpecUnmarshalCode,
+		"dataSourceReadableAttributes":          DataSourceReadableAttributes,
+		"dataSourceNamespaceDefault":            DataSourceNamespaceDefault,
+		"renderDataSourceModelFields":           RenderDataSourceModelFields,
+		"renderDataSourceSchemaAttributes":      RenderDataSourceSchemaAttributes,
+		"renderProtectedDomainLookupAttributes": RenderProtectedDomainLookupAttributes,
+		"renderDataSourceSpecUnmarshal":         RenderDataSourceSpecUnmarshalCode,
 	}
 	tmpl, err := template.New("datasource").Funcs(funcMap).Parse(DataSourceTemplate)
 	if err != nil {

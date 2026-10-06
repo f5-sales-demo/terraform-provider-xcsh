@@ -1166,7 +1166,7 @@ func TestResourceTemplate_DeleteRetainsStateOnNotImplemented(t *testing.T) {
 			t.Errorf("Delete template still suppresses 501 with %q", forbidden)
 		}
 	}
-	if !strings.Contains(ResourceTemplate, `resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to delete {{.TitleCase}}: %s", err))`) {
+	if !strings.Contains(ResourceTemplate, `fmt.Sprintf("Unable to delete {{.TitleCase}}: %s", err)`) {
 		t.Error("Delete template must return every non-404 failure as a diagnostic")
 	}
 }
