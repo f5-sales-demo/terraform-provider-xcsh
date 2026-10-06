@@ -1,6 +1,6 @@
 # Resources
 
-This provider includes 125 resources.
+This provider includes 126 resources.
 
 - [xcsh_address_allocator](address_allocator.md)
 - [xcsh_advertise_policy](advertise_policy.md)
@@ -112,6 +112,7 @@ This provider includes 125 resources.
 - [xcsh_smsv2_kvm_runtime_interface](smsv2_kvm_runtime_interface.md)
 - [xcsh_srv6_network_slice](srv6_network_slice.md)
 - [xcsh_subnet](subnet.md)
+- [xcsh_swagger_object](swagger_object.md)
 - [xcsh_tcp_loadbalancer](tcp_loadbalancer.md)
 - [xcsh_tenant_configuration](tenant_configuration.md)
 - [xcsh_token](token.md)

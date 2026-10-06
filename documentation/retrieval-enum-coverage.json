@@ -2,9 +2,9 @@
   "complete": false,
   "complete_fields": 3573,
   "enum_fields": 576,
-  "installed_fields": 34603,
+  "installed_fields": 34610,
   "runtime_registration_verified": false,
-  "schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
+  "schema_digest": "sha256:5a7fb41daf7683904c87458d3d7c40e4f3e095bd9d9aff0ef4c2c67cb6c9a8b5",
   "unresolved": [
     {
       "reason": "coverage-not-exported",
@@ -130603,6 +130603,41 @@
     },
     {
       "reason": "coverage-not-exported",
+      "schema_path": "content",
+      "source": "swagger_object_resource.go"
+    },
+    {
+      "reason": "coverage-not-exported",
+      "schema_path": "id",
+      "source": "swagger_object_resource.go"
+    },
+    {
+      "reason": "coverage-not-exported",
+      "schema_path": "name",
+      "source": "swagger_object_resource.go"
+    },
+    {
+      "reason": "coverage-not-exported",
+      "schema_path": "namespace",
+      "source": "swagger_object_resource.go"
+    },
+    {
+      "reason": "coverage-not-exported",
+      "schema_path": "path",
+      "source": "swagger_object_resource.go"
+    },
+    {
+      "reason": "coverage-not-exported",
+      "schema_path": "sha256",
+      "source": "swagger_object_resource.go"
+    },
+    {
+      "reason": "coverage-not-exported",
+      "schema_path": "version",
+      "source": "swagger_object_resource.go"
+    },
+    {
+      "reason": "coverage-not-exported",
       "schema_path": "active_service_policies",
       "source": "tcp_loadbalancer_data_source.go"
     },
@@ -155157,6 +155192,6 @@
       "source": "workload_resource.go"
     }
   ],
-  "unresolved_fields": 31030,
+  "unresolved_fields": 31037,
   "version": 1
 }

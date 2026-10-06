@@ -2,6 +2,223 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:network_policy:fundamentals",
+      "section_id": "xcsh-docs:data-sources:network_policy:fundamentals:section:4",
+      "source_sha256": "sha256:6e7bd70534e1ca8d53ee62f3d679e7ae15907f4343cb5c72bc80f97c8a9125e7",
+      "source_bytes": 256,
+      "canonical_source_sha256": "sha256:c42856618c5f548639d7719879ab72b275be9502c0ff25e5726f0b2281b794da",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_policy/",
+      "anchor": "canonical-3200223232021311-0002102020002102-3031211203201111-1302211203122212-1303123013223121-3211201212222333-1200301001002131-1133031203332320",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/data-sources/network_policy.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:network_policy:reference",
+      "section_id": "xcsh-docs:data-sources:network_policy:reference:section:0",
+      "source_sha256": "sha256:cb48a75391cf4a289d41fdabe8e52d24dac4ba170f0d93d86c827f0c7f675d3a",
+      "source_bytes": 267,
+      "canonical_source_sha256": "sha256:31850a6deea42668d9482af5022a2b257ba635551c6c6340bc5b4a88e8b16d4e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_policy/properties/",
+      "anchor": "canonical-1311103202221102-1230113110322222-0330120323322123-0223212230313111-1113112233013330-2101223313322112-3011012123300123-2111301323113333",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--network_policy--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:network_policy:reference",
+      "section_id": "xcsh-docs:data-sources:network_policy:reference:section:1",
+      "source_sha256": "sha256:d1cfef8c336ae63b1cb0d555969d6ac0a84d09d050622d4cd43d16223f1b0d05",
+      "source_bytes": 1706,
+      "canonical_source_sha256": "sha256:31850a6deea42668d9482af5022a2b257ba635551c6c6340bc5b4a88e8b16d4e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_policy/properties/",
+      "anchor": "canonical-3301122133002021-1221033030112230-0013220021333210-3210020313022012-0002120023213210-2102323010323231-2020010102000232-0233030201133303",
+      "anchor_map": [
+        [
+          "schema-annotations",
+          "canonical-1131321201212221-0132232210101123-1201300303330003-2003212103300103-0032101330112021-2121100100130123-0332332231210322-3232020131323001"
+        ],
+        [
+          "schema-description",
+          "canonical-0013230330321010-2030121212311132-3130302102200021-2212223112330200-1320032001201022-1232230321200122-2320001130233012-1132322112111332"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--network_policy--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:network_policy:reference",
+      "section_id": "xcsh-docs:data-sources:network_policy:reference:section:2",
+      "source_sha256": "sha256:5d87c5edd07c5ef26bdfc3df824bccfb8b3f8d3c4139a68ee911ffe9d97c13d9",
+      "source_bytes": 1120,
+      "canonical_source_sha256": "sha256:31850a6deea42668d9482af5022a2b257ba635551c6c6340bc5b4a88e8b16d4e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_policy/properties/",
+      "anchor": "canonical-0110013220103331-2231012223130020-0203201100300103-1231100302332100-1121231132112013-3130120013201311-0133121110302111-3231103222111312",
+      "anchor_map": [
+        [
+          "schema-id",
+          "canonical-3010313121111023-3010002322102120-3012121023023002-1001102123303001-3313323113033123-0113133303110012-3021022123221021-0201010212012302"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--network_policy--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:network_policy:reference",
+      "section_id": "xcsh-docs:data-sources:network_policy:reference:section:3",
+      "source_sha256": "sha256:33cc7a13e6890eccaab91442cb9e22a1948d2218dbdad32c1472ae170c849fa1",
+      "source_bytes": 111,
+      "canonical_source_sha256": "sha256:31850a6deea42668d9482af5022a2b257ba635551c6c6340bc5b4a88e8b16d4e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_policy/properties/",
+      "anchor": "canonical-1132023121021220-3331123213120010-3223201101020222-3321311313223230-2322223230333321-3220311131112123-0211020001221322-1022211021202110",
+      "anchor_map": [
+        [
+          "schema-labels",
+          "canonical-0031302010302201-2111203012303001-1323000230123132-2122333100313000-0302231011122113-3130121300100023-1132013122000223-2123101133231203"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--network_policy--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:network_policy:reference",
+      "section_id": "xcsh-docs:data-sources:network_policy:reference:section:4",
+      "source_sha256": "sha256:e7243ddb1ddaeadd84cb9ffdcb21bac77e5ee18dbf7c62d71b6ad044a4f1344e",
+      "source_bytes": 508,
+      "canonical_source_sha256": "sha256:31850a6deea42668d9482af5022a2b257ba635551c6c6340bc5b4a88e8b16d4e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_policy/properties/",
+      "anchor": "canonical-3023332023130210-0313323301133223-2102012130001312-0012001011013130-2310100330200233-0220013322031213-2013333101100302-2002112033303011",
+      "anchor_map": [
+        [
+          "schema-name",
+          "canonical-0100030011230122-0112322010322030-2022303010110331-2000310321211103-3010032100030122-3311000333021332-2032131301023203-1230022110012211"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--network_policy--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:network_policy:reference",
+      "section_id": "xcsh-docs:data-sources:network_policy:reference:section:5",
+      "source_sha256": "sha256:3451c730ed1cd392d8a8b6fb89f679cc6b7a7b5e63bf10705bff9bd31b710584",
+      "source_bytes": 1525,
+      "canonical_source_sha256": "sha256:31850a6deea42668d9482af5022a2b257ba635551c6c6340bc5b4a88e8b16d4e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_policy/properties/",
+      "anchor": "canonical-2310131100001323-2033121322131130-0331103110202233-3021121333133201-2203102120213101-3303200000202122-2220200203320013-2322232203031320",
+      "anchor_map": [
+        [
+          "schema-namespace",
+          "canonical-0131130223013111-0302321322112311-0232123033313302-0100103132123033-1221311210210232-2200230100100201-3323122123220221-3302032332211002"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--network_policy--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:network_policy:reference",
+      "section_id": "xcsh-docs:data-sources:network_policy:reference:section:6",
+      "source_sha256": "sha256:f5edb9daf6fce2e5219707ce732b37a86cd781f4cd6ea156fb5e5e90c777d63d",
+      "source_bytes": 1375,
+      "canonical_source_sha256": "sha256:31850a6deea42668d9482af5022a2b257ba635551c6c6340bc5b4a88e8b16d4e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_policy/properties/",
+      "anchor": "canonical-1133203213002320-1301123301030020-2313022200002230-1001200131000311-1102101213232001-0222130021122213-2301023032030232-1010101031312033",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--network_policy--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:network_policy:reference",
+      "section_id": "xcsh-docs:data-sources:network_policy:reference:section:7",
+      "source_sha256": "sha256:a0a6bda75659bbbdbf14bcd569822fbc8856a0163f990984626d7532e75617ee",
+      "source_bytes": 17837,
+      "canonical_source_sha256": "sha256:31850a6deea42668d9482af5022a2b257ba635551c6c6340bc5b4a88e8b16d4e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_policy/properties/",
+      "anchor": "canonical-1223001300302020-0121130122203312-2011123300112302-1101102122123230-0110010100112020-1013210011131112-0331213331321121-3012131333331020",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--network_policy--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:network_policy:properties:endpoint",
+      "section_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:section:0",
+      "source_sha256": "sha256:7bdf0be22aa742778a37c71afdbdad2312da0aa16ecba87ef3fbd74fdc5171eb",
+      "source_bytes": 766,
+      "canonical_source_sha256": "sha256:39cf66cd54c1883844b19884d53777a4dccd3bbe68473ca759a1ef18d7bb57ed",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_policy/properties/endpoint/",
+      "anchor": "canonical-2010012201232320-2010013322332122-0013213131201033-3002130013232130-3220032133312220-3320003223121202-3200123230202233-3230211302203332",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3232220003100230-2233132333122323-2111102320210222-3303122302023023-2202110223002013-2020231223010123-2130103112031123-1200232100031113"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--network_policy--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:network_policy:properties:endpoint",
+      "section_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:section:1",
+      "source_sha256": "sha256:ecd58d47fa32074cc0990b7ed5cdaf8b4fc30609112da1161fcd0eb120918dc8",
+      "source_bytes": 868,
+      "canonical_source_sha256": "sha256:39cf66cd54c1883844b19884d53777a4dccd3bbe68473ca759a1ef18d7bb57ed",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_policy/properties/endpoint/",
+      "anchor": "canonical-1033213311230303-0130001101323113-1013030230202103-2330002213122123-0110311230330333-1222221120132002-3122120130323222-3203100300112221",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--network_policy--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:any",
+      "section_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:any:section:0",
+      "source_sha256": "sha256:1ac36a9688ecaa4165c425a31712e858b5f7bfe1689274e6c890b24b03845324",
+      "source_bytes": 906,
+      "canonical_source_sha256": "sha256:1ac36a9688ecaa4165c425a31712e858b5f7bfe1689274e6c890b24b03845324",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_policy/properties/endpoint/any/",
+      "anchor": "canonical-1100220321311001-3323101312111330-3202110012132120-2212023133302233-1120133211023030-2030301332013000-0103001303102132-2101222022130121",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3232013012203212-0012301022233020-0331311100033233-0213031121330010-2323111012122203-1033111101213223-2220030101112020-2023331321202101"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--network_policy--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:inside_endpoints",
+      "section_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:inside_endpoints:section:0",
+      "source_sha256": "sha256:e88379e9f330707a9e81abb37367f7076beb850d8a49e4d720e9c85aa0f7b7e1",
+      "source_bytes": 932,
+      "canonical_source_sha256": "sha256:e88379e9f330707a9e81abb37367f7076beb850d8a49e4d720e9c85aa0f7b7e1",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_policy/properties/endpoint/inside_endpoints/",
+      "anchor": "canonical-3010321223011300-2003110322110112-2220322030312232-0122121302033332-0302031021030102-3301011100331001-0230130322023320-2233321220111231",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2001020302322200-1010103321113112-3112121031023132-3231203301323213-2000120003001001-1202031323212322-0110211113003230-1010123033200101"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--network_policy--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:label_selector",
+      "section_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:label_selector:section:0",
+      "source_sha256": "sha256:5107e34064e3f6da18fd551eeb52395cab6b1d2def02d7c27085be459d75f84a",
+      "source_bytes": 1844,
+      "canonical_source_sha256": "sha256:3450f7fb2d0f7090d5c792ff0f14426a5b4cf0c916d5a08734b92ff0018a4c1d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_policy/properties/endpoint/label_selector/",
+      "anchor": "canonical-2030203133002310-0331033121120000-0010033231200120-3321223011112123-0212231112310300-2233332001031021-1302001122201002-2032021302300031",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-1301132102300103-2123120313033300-1003332102202222-3113323221000302-1210000300303021-2021230321331101-1233211223002331-1103322001233021"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--network_policy--reference--group-001.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:label_selector",
       "section_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:label_selector:section:1",
       "source_sha256": "sha256:6e358744556fab7c7b401f4fadde7be02c04f6baf33be4881c72e078447439f5",
@@ -7662,169 +7879,6 @@
         [
           "section",
           "canonical-2023321032211332-0103323222331103-2030223023200111-0231130223102001-3230000021032000-3122211131230232-0111220220031111-2122010233012110"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--nfv_service--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:private_key",
-      "section_id": "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:private_key:section:0",
-      "source_sha256": "sha256:764f3fc940fdb89bedd4d24e8d653dd0fafd1869236c9802eaad79999f3b5be9",
-      "source_bytes": 1385,
-      "canonical_source_sha256": "sha256:50dc5937a154cc8e73bd8107076f747f726d3904e6a0eaeaecf966a565519c61",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nfv_service/properties/https_management/advertise_on_slo_vip/tls_certificates/private_key/",
-      "anchor": "canonical-1022230000233122-0013300323020303-2031230212033333-2112001010210000-2311031113331101-2131231221301132-2303333321320302-2033233200133201",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3123231300111133-3110002301033002-3123233302201310-0310111320110032-2002320013002103-1032022011231322-2010301212332331-3211212321122010"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--nfv_service--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:private_key",
-      "section_id": "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:private_key:section:1",
-      "source_sha256": "sha256:f9ba8245c36056f2c225a69b3f6513a7e7abb6a65908476a072390f070df8714",
-      "source_bytes": 497,
-      "canonical_source_sha256": "sha256:50dc5937a154cc8e73bd8107076f747f726d3904e6a0eaeaecf966a565519c61",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nfv_service/properties/https_management/advertise_on_slo_vip/tls_certificates/private_key/",
-      "anchor": "canonical-2213223221202111-2021300010121130-0202321003022302-2310231133212032-0323220030133320-3221312230231323-3223000133220203-2032003102330331",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--nfv_service--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:private_key:blindfold_secret_info",
-      "section_id": "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:private_key:blindfold_secret_info:section:0",
-      "source_sha256": "sha256:eebdb1a38abf02f61a97ec7c22d7a16c26d877d6bdf23d111047094136674a79",
-      "source_bytes": 1589,
-      "canonical_source_sha256": "sha256:c0f606c97c68d0af1e688d648251d3db7b3e78eaeb2e997ad056d1b659037e85",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nfv_service/properties/https_management/advertise_on_slo_vip/tls_certificates/private_key/blindfold_secret_info/",
-      "anchor": "canonical-0031321200102323-3033032000210210-3120313102002310-0230031222323222-2233211332203121-3032011233023200-2323220132023030-0022310322222210",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3011320311322121-1221001133201211-0330102213303330-1230130220032130-2221130002331221-1111201303222201-3302310010021133-0211023002331111"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--nfv_service--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:private_key:blindfold_secret_info",
-      "section_id": "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:private_key:blindfold_secret_info:section:1",
-      "source_sha256": "sha256:5d9acf974fdf06e00bea2011f3a637f08d3a8c9cbfd58babe79940724951fc3b",
-      "source_bytes": 875,
-      "canonical_source_sha256": "sha256:c0f606c97c68d0af1e688d648251d3db7b3e78eaeb2e997ad056d1b659037e85",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nfv_service/properties/https_management/advertise_on_slo_vip/tls_certificates/private_key/blindfold_secret_info/",
-      "anchor": "canonical-3333103311132320-1101310212330000-3023200003111123-0302000210130210-0213031332002002-3320201301301332-0120132112110331-0133223023113312",
-      "anchor_map": [
-        [
-          "schema-https_management--advertise_on_slo_vip--tls_certificates--private_key--blindfold_secret_info--decryption_provider",
-          "canonical-3122211320123100-0333111203023112-2022331012133010-1030202301011023-2230330131321032-3211010302120120-3113213011231130-0212110001211212"
-        ],
-        [
-          "schema-https_management--advertise_on_slo_vip--tls_certificates--private_key--blindfold_secret_info--location",
-          "canonical-2201302300211210-1001313133331333-0222223200112033-2030133101323223-0021101303313032-3211132022032203-2331022010123131-1030111310232011"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--nfv_service--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:private_key:blindfold_secret_info",
-      "section_id": "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:private_key:blindfold_secret_info:section:2",
-      "source_sha256": "sha256:e2ae2c1e4c0c346a42c67b53992c18439833c7d994daa50026ed625889d9956f",
-      "source_bytes": 1368,
-      "canonical_source_sha256": "sha256:c0f606c97c68d0af1e688d648251d3db7b3e78eaeb2e997ad056d1b659037e85",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nfv_service/properties/https_management/advertise_on_slo_vip/tls_certificates/private_key/blindfold_secret_info/",
-      "anchor": "canonical-1323323131111112-2312211133303022-0330202230203130-1223213013002302-3313001221311223-1000010123200122-3022222302122202-1311000320013011",
-      "anchor_map": [
-        [
-          "schema-https_management--advertise_on_slo_vip--tls_certificates--private_key--blindfold_secret_info--store_provider",
-          "canonical-1332200202330211-2033111200022200-2121333221212013-3212321212221231-1202130312133021-2210032201203233-0032221212011220-1200133112331210"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--nfv_service--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:private_key:blindfold_secret_info",
-      "section_id": "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:private_key:blindfold_secret_info:section:3",
-      "source_sha256": "sha256:304060f6f09e7f748f42f6f62a521bb739c5752c69da0c91ac19f4122d2d78d2",
-      "source_bytes": 656,
-      "canonical_source_sha256": "sha256:c0f606c97c68d0af1e688d648251d3db7b3e78eaeb2e997ad056d1b659037e85",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nfv_service/properties/https_management/advertise_on_slo_vip/tls_certificates/private_key/blindfold_secret_info/",
-      "anchor": "canonical-0030323321301102-3303100333032022-1122023230000130-1133122003331321-3203213111130131-3020031330223012-1121201323230102-1212110110112123",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--nfv_service--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:private_key:clear_secret_info",
-      "section_id": "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:private_key:clear_secret_info:section:0",
-      "source_sha256": "sha256:f0982de1081e9a48dcc06acd734017b3dc9f8b6c10c2d463e2f2f69804d6e6dd",
-      "source_bytes": 1565,
-      "canonical_source_sha256": "sha256:a71cf42a0114c0ff068290d445ac8105c2e3245315ab6763a5d449ccb91c0dca",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nfv_service/properties/https_management/advertise_on_slo_vip/tls_certificates/private_key/clear_secret_info/",
-      "anchor": "canonical-1120022112132112-0123020212030331-1311122312300330-3123320100221133-1320031221221133-1010003212000020-0312322003022132-2003130122310131",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2321112223130110-1300120031131131-1330232121012122-3330303311000200-0131011223223121-2130122313300320-2232112032103203-1322233313303312"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--nfv_service--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:private_key:clear_secret_info",
-      "section_id": "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:private_key:clear_secret_info:section:1",
-      "source_sha256": "sha256:b71985e5fdaea0c2c5a3d14cc15e63c77dd692c56ccf088abd7a423bd729e44d",
-      "source_bytes": 501,
-      "canonical_source_sha256": "sha256:a71cf42a0114c0ff068290d445ac8105c2e3245315ab6763a5d449ccb91c0dca",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nfv_service/properties/https_management/advertise_on_slo_vip/tls_certificates/private_key/clear_secret_info/",
-      "anchor": "canonical-1210222110231320-2102112211230211-3203112311001113-1020321010223121-3203322123323301-1000200023033031-2103031311121212-2220301121312302",
-      "anchor_map": [
-        [
-          "schema-https_management--advertise_on_slo_vip--tls_certificates--private_key--clear_secret_info--provider_ref",
-          "canonical-3202321232020211-1123033003113021-1333000330131303-3322112112132202-3303130122320112-0030300132300122-2112222303210023-0111021001211013"
-        ],
-        [
-          "schema-https_management--advertise_on_slo_vip--tls_certificates--private_key--clear_secret_info--url",
-          "canonical-0121211120313132-1121222130130003-3223311113021333-2221102312001112-0033300113003032-0210022111223333-1212111120011322-1331021011132120"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--nfv_service--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:private_key:clear_secret_info",
-      "section_id": "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:private_key:clear_secret_info:section:2",
-      "source_sha256": "sha256:b3b9b364b9be63fa8446e1367206fafc16cfc2d135cf2b3add74099b75b72a6f",
-      "source_bytes": 1407,
-      "canonical_source_sha256": "sha256:a71cf42a0114c0ff068290d445ac8105c2e3245315ab6763a5d449ccb91c0dca",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nfv_service/properties/https_management/advertise_on_slo_vip/tls_certificates/private_key/clear_secret_info/",
-      "anchor": "canonical-2001001322130210-3111301001111320-0333202232233130-2232233320032023-0112001333122011-3033120000222322-3021201003033112-0121011010022311",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--nfv_service--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:use_system_defaults",
-      "section_id": "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:use_system_defaults:section:0",
-      "source_sha256": "sha256:454ec15535ed12b09b9ac59a9a3ff80959ea0b85ab60d3d6438a554d02f8ceb5",
-      "source_bytes": 1446,
-      "canonical_source_sha256": "sha256:454ec15535ed12b09b9ac59a9a3ff80959ea0b85ab60d3d6438a554d02f8ceb5",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nfv_service/properties/https_management/advertise_on_slo_vip/tls_certificates/use_system_defaults/",
-      "anchor": "canonical-3120001133113131-1121113132221211-2220223333332210-1133330221220002-2332133022211320-3110123332103223-1012132320111232-1232332131231111",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2113020101012132-1303202132222230-1102010311001030-2033300013033310-2101111202131100-1232223233133230-2320013211022331-0123322321000103"
         ]
       ],
       "mode": "embedded",

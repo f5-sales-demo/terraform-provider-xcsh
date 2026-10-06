@@ -2,6 +2,261 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:bgp:reference",
+      "section_id": "xcsh-docs:data-sources:bgp:reference:section:5",
+      "source_sha256": "sha256:5a12ba8ae76c73adf18fe39ac840284e73d9c9625d2ec277ceacba02933ae2f7",
+      "source_bytes": 1515,
+      "canonical_source_sha256": "sha256:29159e4b1e12b98ea4561ebc2d83f9952cd2863d4d716d4d50f723ebf0faa90c",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/",
+      "anchor": "canonical-2000031230002112-0113222333021102-1010332122002110-1130303311213303-1013331113011323-3001232000110232-3130023313210131-2312122230012111",
+      "anchor_map": [
+        [
+          "schema-namespace",
+          "canonical-1132201002020113-2301232223101221-2010101013333332-0210011101032312-3131112220033023-1330123011121302-0130310233323100-3232302213220321"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bgp--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bgp:reference",
+      "section_id": "xcsh-docs:data-sources:bgp:reference:section:6",
+      "source_sha256": "sha256:cbc17d0ed4eaeab8a554687d1292169e81166ab8bb90148062014106a1b481e3",
+      "source_bytes": 1489,
+      "canonical_source_sha256": "sha256:29159e4b1e12b98ea4561ebc2d83f9952cd2863d4d716d4d50f723ebf0faa90c",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/",
+      "anchor": "canonical-2010020213101101-0213020332323113-0332111232310211-2011221231210302-3101001312200321-2102312113220113-1211213220020222-2000232102200001",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bgp--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bgp:reference",
+      "section_id": "xcsh-docs:data-sources:bgp:reference:section:7",
+      "source_sha256": "sha256:8a291d907aad207d6966af6d2aba4e48eda3a3996bf5c67f51be007d4da185ac",
+      "source_bytes": 19622,
+      "canonical_source_sha256": "sha256:29159e4b1e12b98ea4561ebc2d83f9952cd2863d4d716d4d50f723ebf0faa90c",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/",
+      "anchor": "canonical-0111200313020221-1132020233023310-3302002202031033-1003103001202120-2302211113211212-1232110032130021-1000323101230310-0023123301213231",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bgp--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bgp:properties:bgp_parameters",
+      "section_id": "xcsh-docs:data-sources:bgp:properties:bgp_parameters:section:0",
+      "source_sha256": "sha256:b425b8df25a3c1c72fa5e6d2220164a5f5e8738c835e07107477f5b0a407defc",
+      "source_bytes": 775,
+      "canonical_source_sha256": "sha256:71f338ecdcb1d0d9c14e8b2f65d97e939f0ecac2aa6de632551852158851ba66",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/bgp_parameters/",
+      "anchor": "canonical-1333100302301220-1213100230321130-1223021312221103-3121023012300002-0123222300312200-0012102122302300-3011220000310312-1112210021202011",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-1331102210001001-3233333012232210-2133213322320300-0122301322301212-0331120111212111-2000211122130131-1200213000230022-2312103201120222"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bgp--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bgp:properties:bgp_parameters",
+      "section_id": "xcsh-docs:data-sources:bgp:properties:bgp_parameters:section:1",
+      "source_sha256": "sha256:120b15b2c1e023be3de2cf708ea91abf9dc7922565f233361945d72640e3aebf",
+      "source_bytes": 1041,
+      "canonical_source_sha256": "sha256:71f338ecdcb1d0d9c14e8b2f65d97e939f0ecac2aa6de632551852158851ba66",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/bgp_parameters/",
+      "anchor": "canonical-2323033033300321-2120331033211132-3201210223113320-2131322201231213-2223210311211021-1031003200221203-3011233230212011-0332200302310202",
+      "anchor_map": [
+        [
+          "schema-bgp_parameters--asn",
+          "canonical-0303133002131301-0213301031332131-1031221331211030-1013010320220113-3031121222312130-2112333001311223-1130202022232220-2021010022302321"
+        ],
+        [
+          "schema-bgp_parameters--ip_address",
+          "canonical-1231103313020232-3122103313123022-1002021313302233-3310103201003223-0303332133131211-1011220102023103-1120223223122100-0322012231222110"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bgp--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bgp:properties:bgp_parameters",
+      "section_id": "xcsh-docs:data-sources:bgp:properties:bgp_parameters:section:2",
+      "source_sha256": "sha256:74881673b925f11a705499a15bf9ffc17a9d8dc6cd88883623bca093aba7a1d0",
+      "source_bytes": 1099,
+      "canonical_source_sha256": "sha256:71f338ecdcb1d0d9c14e8b2f65d97e939f0ecac2aa6de632551852158851ba66",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/bgp_parameters/",
+      "anchor": "canonical-0231003330321202-1313123320230113-0111011301001011-1313210313111112-2003020311033203-1303120202231131-1223312003222130-0022131331331022",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bgp--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bgp:properties:bgp_parameters:from_site",
+      "section_id": "xcsh-docs:data-sources:bgp:properties:bgp_parameters:from_site:section:0",
+      "source_sha256": "sha256:840fbba8fb62c942be785e4906b43583858ea28f7fdabea9d9fb8f3a20b1558b",
+      "source_bytes": 898,
+      "canonical_source_sha256": "sha256:840fbba8fb62c942be785e4906b43583858ea28f7fdabea9d9fb8f3a20b1558b",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/bgp_parameters/from_site/",
+      "anchor": "canonical-0022310012030221-1213011121130033-1003200300022300-3132203211031211-0232111302120130-1121332200113312-3010031203211310-2211102103113101",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3220223122020320-3211101131121003-1211111213321021-0010232021301202-3201021111301202-0033233220322102-3032010010302110-2310103100312112"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bgp--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bgp:properties:bgp_parameters:local_address",
+      "section_id": "xcsh-docs:data-sources:bgp:properties:bgp_parameters:local_address:section:0",
+      "source_sha256": "sha256:3bc06fbfc12c4e1792463ad948226eb34b50277564424f25b0f8215b8591bbd3",
+      "source_bytes": 906,
+      "canonical_source_sha256": "sha256:3bc06fbfc12c4e1792463ad948226eb34b50277564424f25b0f8215b8591bbd3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/bgp_parameters/local_address/",
+      "anchor": "canonical-3111011321003313-1121200210332311-2321030331002223-2020202110220122-1132011030011110-0011030002211231-1101012321300323-0121122203002102",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3003311203202311-2133333121121312-3201223331032303-2012001200101020-0203112121330130-2300122132232312-0023232321321311-0320311302221223"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bgp--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bgp:properties:peers",
+      "section_id": "xcsh-docs:data-sources:bgp:properties:peers:section:0",
+      "source_sha256": "sha256:3d491837f4375684bee1aac85a27d3e5842ba090f0532946ae0bda7b91dcf99b",
+      "source_bytes": 1255,
+      "canonical_source_sha256": "sha256:e116cab05ed8f62c3833626eac23fc78a13dd69b10e1c447bd8a638b7e9ea589",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/peers/",
+      "anchor": "canonical-2101012020132223-0200301120200112-1021132231322112-2320020022131312-1220110313323122-2033302131332110-2211111110210022-1201330210213203",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0103320030001203-2210113302313322-2102201203303201-3220122113223211-1320132330302102-2212221010233321-3030230223112103-1020203200020231"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bgp--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bgp:properties:peers",
+      "section_id": "xcsh-docs:data-sources:bgp:properties:peers:section:1",
+      "source_sha256": "sha256:27a995393ac5f24bc4bfc8b6cbcc8fd4e92bfa330fef0e6c444caf2a9edc4ac4",
+      "source_bytes": 1014,
+      "canonical_source_sha256": "sha256:e116cab05ed8f62c3833626eac23fc78a13dd69b10e1c447bd8a638b7e9ea589",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/peers/",
+      "anchor": "canonical-3201310103133001-1220133113131211-3121233022232312-3002022103012033-1213110003321220-2000310233232011-3102130320202222-3223321232002130",
+      "anchor_map": [
+        [
+          "schema-peers--label",
+          "canonical-0123121322103020-0223020301300330-3211123132213213-0022323023121220-0233230123220203-3001022322331020-1210110333123222-1111311331003032"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bgp--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bgp:properties:peers",
+      "section_id": "xcsh-docs:data-sources:bgp:properties:peers:section:2",
+      "source_sha256": "sha256:5305fab5a92d31a8db56595fc73921dd204496de75e14841a5e8c655c7002696",
+      "source_bytes": 1219,
+      "canonical_source_sha256": "sha256:e116cab05ed8f62c3833626eac23fc78a13dd69b10e1c447bd8a638b7e9ea589",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/peers/",
+      "anchor": "canonical-3121100300031000-2323123201301303-3202302230102210-1033313013121020-2112330122120203-2220010121132130-0212200131132030-0122313121203002",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bgp--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bgp:properties:peers:bfd_disabled",
+      "section_id": "xcsh-docs:data-sources:bgp:properties:peers:bfd_disabled:section:0",
+      "source_sha256": "sha256:68450fe1c9f537887afb70553f6456965e3ae7a39d4531e31c73fb5ca8997756",
+      "source_bytes": 868,
+      "canonical_source_sha256": "sha256:68450fe1c9f537887afb70553f6456965e3ae7a39d4531e31c73fb5ca8997756",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/peers/bfd_disabled/",
+      "anchor": "canonical-0333102131200232-0212101230300102-0120213222211232-1221030212211333-2011321012232211-0020030102113110-2031300103321002-3123101301312330",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0300221110021101-1012301311120321-2203013110210213-3023010220313321-3021311222020031-1110300012020213-1131323131213002-1103331213012123"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bgp--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bgp:properties:peers:bfd_enabled",
+      "section_id": "xcsh-docs:data-sources:bgp:properties:peers:bfd_enabled:section:0",
+      "source_sha256": "sha256:90f725fe40098c1d9de5674d86f398b1ae05585673bcaf9f5d37d85cbe3d41ca",
+      "source_bytes": 702,
+      "canonical_source_sha256": "sha256:1bebe8a1b04fa53f6c22822de8d20b094d9a6a519f2d75568f3ba1753e286505",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/peers/bfd_enabled/",
+      "anchor": "canonical-0101313101233210-3201102200021201-0210020233311333-3010133210220310-3211312111020311-1323220303202223-0113132322000221-3301133030301130",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3000003210321332-2111213301021333-0202021220032121-3302212331100010-0030202111103110-3320330310320002-3223203213212331-2113311321001102"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bgp--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bgp:properties:peers:bfd_enabled",
+      "section_id": "xcsh-docs:data-sources:bgp:properties:peers:bfd_enabled:section:1",
+      "source_sha256": "sha256:28880af8a31361084760c48854dd99faba1914fc1fdd45ee3b510ebdfe368b63",
+      "source_bytes": 1147,
+      "canonical_source_sha256": "sha256:1bebe8a1b04fa53f6c22822de8d20b094d9a6a519f2d75568f3ba1753e286505",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/peers/bfd_enabled/",
+      "anchor": "canonical-2032100311032321-2033003020230201-3123300012022100-3201333232313022-3201111110212333-0133030000203001-0211110333010000-0311202221013330",
+      "anchor_map": [
+        [
+          "schema-peers--bfd_enabled--multiplier",
+          "canonical-0320301111200211-3002313200232102-3122001200012030-0012121011101123-2232100323031211-3222302312103200-2212030310120300-3032223111213120"
+        ],
+        [
+          "schema-peers--bfd_enabled--receive_interval_milliseconds",
+          "canonical-3333301022110111-1232010123231231-3213012111010120-3223003201130122-2103302100130022-0210100220012010-0231130333300113-1302320011110103"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bgp--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bgp:properties:peers:bfd_enabled",
+      "section_id": "xcsh-docs:data-sources:bgp:properties:peers:bfd_enabled:section:2",
+      "source_sha256": "sha256:b086f9a0a1c82f9313c5b2344cf394aff5ab4620502dd1543b282b8d1f9773e1",
+      "source_bytes": 1006,
+      "canonical_source_sha256": "sha256:1bebe8a1b04fa53f6c22822de8d20b094d9a6a519f2d75568f3ba1753e286505",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/peers/bfd_enabled/",
+      "anchor": "canonical-1122130012013122-0310323031131203-1202330302320210-2121022013012030-0132311323013231-1122002031300331-2032320010130333-2023011013121022",
+      "anchor_map": [
+        [
+          "schema-peers--bfd_enabled--transmit_interval_milliseconds",
+          "canonical-3112112313103220-0100033332121321-1011001222213021-3320012020330121-2203222323022020-2001113332002212-3221222201130330-2103220113122200"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bgp--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bgp:properties:peers:bfd_enabled",
+      "section_id": "xcsh-docs:data-sources:bgp:properties:peers:bfd_enabled:section:3",
+      "source_sha256": "sha256:3bd848b21fb750005ec660e14904463e383f22aca92f02276135c31858bb9f40",
+      "source_bytes": 935,
+      "canonical_source_sha256": "sha256:1bebe8a1b04fa53f6c22822de8d20b094d9a6a519f2d75568f3ba1753e286505",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/peers/bfd_enabled/",
+      "anchor": "canonical-2300301113302221-0331330300301112-2122213333120221-1030123332332032-2120210202013030-3300210110130322-2112203121332231-0331000113202102",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bgp--reference--group-001.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:bgp:properties:peers:disable_spec",
       "section_id": "xcsh-docs:data-sources:bgp:properties:peers:disable_spec:section:0",
       "source_sha256": "sha256:58de6cce7c25c5f1981b94c8693751de852918ee182891085504926df9fdfd48",
@@ -7422,220 +7677,6 @@
         [
           "schema-proxy_config--https_auto_cert--tls_config--custom_security--min_version",
           "canonical-1221333111022133-1022311032122131-1030232203331120-1220022011021102-2022302233020333-1130102321203211-2312030322103123-3210202301232310"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bigip_http_proxy--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:tls_config:custom_security",
-      "section_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:tls_config:custom_security:section:3",
-      "source_sha256": "sha256:ed310519cde7043a954de8b8267ad31fad8b8c08eb7512cc0194b6051f94109e",
-      "source_bytes": 632,
-      "canonical_source_sha256": "sha256:a2f9644444f1b6ed54eff426fd95aca6ed0e533d5c9e17c87cd39bd93a0fe7f4",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bigip_http_proxy/properties/proxy_config/https_auto_cert/tls_config/custom_security/",
-      "anchor": "canonical-3033213331030333-1113133013111130-1122003131303003-1123313321120111-3202013102011312-1100030213320211-0110000321032000-0232000313012223",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bigip_http_proxy--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:tls_config:default_security",
-      "section_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:tls_config:default_security:section:0",
-      "source_sha256": "sha256:f654a91ed3589a269e8a047539a0548ef19fe0f0439d8f039b5a4bdcfda5e29b",
-      "source_bytes": 1354,
-      "canonical_source_sha256": "sha256:f654a91ed3589a269e8a047539a0548ef19fe0f0439d8f039b5a4bdcfda5e29b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bigip_http_proxy/properties/proxy_config/https_auto_cert/tls_config/default_security/",
-      "anchor": "canonical-1012133112021320-3130100100122231-0211230002020233-0322232323210330-0012101220010231-1110232031030032-0312102221101331-3220223232220000",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1130311323123333-3312300113330031-2021101101210033-3012221101100113-3211013031122301-1101003131212121-3103131100321303-0232312103303001"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bigip_http_proxy--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:tls_config:low_security",
-      "section_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:tls_config:low_security:section:0",
-      "source_sha256": "sha256:70fea2220da490cea7414bc1413a71e7448cf376213c8559cc1d36882e366d0a",
-      "source_bytes": 1346,
-      "canonical_source_sha256": "sha256:70fea2220da490cea7414bc1413a71e7448cf376213c8559cc1d36882e366d0a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bigip_http_proxy/properties/proxy_config/https_auto_cert/tls_config/low_security/",
-      "anchor": "canonical-3102332131122100-2011331213122200-1312320233130232-1212312131030131-3301302201303212-3312302200112230-3322310221123210-1332112122113113",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1101303112301021-3003211301010330-1331211211103300-1312221123010220-1123222332332122-0330012110022103-3223320133212100-2021210321121021"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bigip_http_proxy--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:tls_config:medium_security",
-      "section_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:tls_config:medium_security:section:0",
-      "source_sha256": "sha256:a7448a28a90471b2316b734d969d553fc26a5410181b081d56b823aa659767d9",
-      "source_bytes": 1352,
-      "canonical_source_sha256": "sha256:a7448a28a90471b2316b734d969d553fc26a5410181b081d56b823aa659767d9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bigip_http_proxy/properties/proxy_config/https_auto_cert/tls_config/medium_security/",
-      "anchor": "canonical-3011030212111000-0031311313020310-2303131101210302-0133230212310003-1130220313222013-1112133232232012-2321200001333021-2000302301312111",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2123133032132331-3121020200133302-3302122031201012-2032303132033312-0200312103233303-0112333100321030-0222123100023210-2113320213301110"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bigip_http_proxy--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls",
-      "section_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls:section:0",
-      "source_sha256": "sha256:80a09356aadb1214f5f9e625489ba79f14e811394e4125bda61cedb0f4352c3d",
-      "source_bytes": 1219,
-      "canonical_source_sha256": "sha256:113743d129db9f42625197cc00c0d56504834f9a69e44a1203a832fdfae25b39",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bigip_http_proxy/properties/proxy_config/https_auto_cert/use_mtls/",
-      "anchor": "canonical-1112313302100303-2032300331001320-2003221231112012-1211210332212020-0212133012203301-0102220003302101-3022121110222030-3000130033323200",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3100112110323131-2322332323120032-2300211010031102-2000232020301131-2121021022120332-0330023300120121-1232010210001300-2132000113320332"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bigip_http_proxy--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls",
-      "section_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls:section:1",
-      "source_sha256": "sha256:d5882a81e42abf1579495cef0e1cda63e0ffeff2b8f4cbeb8ddeb9d2108fa1d7",
-      "source_bytes": 1259,
-      "canonical_source_sha256": "sha256:113743d129db9f42625197cc00c0d56504834f9a69e44a1203a832fdfae25b39",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bigip_http_proxy/properties/proxy_config/https_auto_cert/use_mtls/",
-      "anchor": "canonical-0000011113202112-1321110121313212-1033133231222113-1122130100213232-3232030113311212-2132303230302011-3223331003031300-0011121222200332",
-      "anchor_map": [
-        [
-          "schema-proxy_config--https_auto_cert--use_mtls--client_certificate_optional",
-          "canonical-2303031233311231-2200311010130121-1131131000032033-2110020320303110-0132101101323320-0120003330303132-1320101120130002-0113102232120320"
-        ],
-        [
-          "schema-proxy_config--https_auto_cert--use_mtls--trusted_ca_url",
-          "canonical-1030320220010232-3333301023100212-0122212210330310-3131301312300210-2312122020022010-3110033122333220-0020332233021123-2113001100031111"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bigip_http_proxy--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls",
-      "section_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls:section:2",
-      "source_sha256": "sha256:524e0586ebf93e2093d750328ff5a9fcee6c6651e8d10b3420c1ab74c1ee706e",
-      "source_bytes": 1512,
-      "canonical_source_sha256": "sha256:113743d129db9f42625197cc00c0d56504834f9a69e44a1203a832fdfae25b39",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bigip_http_proxy/properties/proxy_config/https_auto_cert/use_mtls/",
-      "anchor": "canonical-2021110000122212-0222033012130110-3113022200110122-0100331321222222-2203211213002202-0322312121000112-1231121122330201-2233133030310022",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bigip_http_proxy--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls:crl",
-      "section_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls:crl:section:0",
-      "source_sha256": "sha256:f447ed74497b8f7bf8c9a773856f7201dca756669f621e1c73dd30682282df05",
-      "source_bytes": 1286,
-      "canonical_source_sha256": "sha256:b91731fa979c17ecf0e40f3f1757787ec59ebf8a358fd1637c2470b173cd69a8",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bigip_http_proxy/properties/proxy_config/https_auto_cert/use_mtls/crl/",
-      "anchor": "canonical-3332122033322000-2313321210232312-3200030030003012-0222213102223031-2211030021311203-1223010001111230-2020203011332033-2201033121330200",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2230220111033113-2111323130131011-2211003213102120-0333230030303001-1112330011122010-2300001321200212-0112202303123022-3100003220231113"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bigip_http_proxy--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls:crl",
-      "section_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls:crl:section:1",
-      "source_sha256": "sha256:87657fbbf8369b8e5715318cbd45f02f077c147be14eadde2b085cbfc5a74d09",
-      "source_bytes": 1287,
-      "canonical_source_sha256": "sha256:b91731fa979c17ecf0e40f3f1757787ec59ebf8a358fd1637c2470b173cd69a8",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bigip_http_proxy/properties/proxy_config/https_auto_cert/use_mtls/crl/",
-      "anchor": "canonical-2231023311331032-2102200303100022-0302210023100301-3001223303310002-3123211123302323-2113031030010320-0103301121111221-2333202012111332",
-      "anchor_map": [
-        [
-          "schema-proxy_config--https_auto_cert--use_mtls--crl--name",
-          "canonical-0300300001310211-0223302321020330-3130203110122012-1012220020332232-3012031113031300-2130323113010233-3211031320233020-1112313002220021"
-        ],
-        [
-          "schema-proxy_config--https_auto_cert--use_mtls--crl--namespace",
-          "canonical-0000222033002333-1200323302013222-0220313032232320-1203030113113111-3131002130030033-0323200202200301-0211011312112112-1232222100122212"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bigip_http_proxy--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls:crl",
-      "section_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls:crl:section:2",
-      "source_sha256": "sha256:0b2181ac11fb32194587cdd7a2f2bbc3eb2931fd074a9baedbefff042b714f41",
-      "source_bytes": 1434,
-      "canonical_source_sha256": "sha256:b91731fa979c17ecf0e40f3f1757787ec59ebf8a358fd1637c2470b173cd69a8",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bigip_http_proxy/properties/proxy_config/https_auto_cert/use_mtls/crl/",
-      "anchor": "canonical-1000020302011233-1012100031001131-0002013033230233-3131002013313111-0111203013332230-0022301103301120-0301110122232330-1032332112320131",
-      "anchor_map": [
-        [
-          "schema-proxy_config--https_auto_cert--use_mtls--crl--tenant",
-          "canonical-1210130312000102-0201213020301100-3321211303002202-1030031220230010-1023130310133302-0212123221110133-3303200110310230-2101032013222232"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bigip_http_proxy--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls:crl",
-      "section_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls:crl:section:3",
-      "source_sha256": "sha256:7cef62c4c74991d0997fe4e0f303cadca7c8fc3902749072ab8892668831a2e2",
-      "source_bytes": 862,
-      "canonical_source_sha256": "sha256:b91731fa979c17ecf0e40f3f1757787ec59ebf8a358fd1637c2470b173cd69a8",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bigip_http_proxy/properties/proxy_config/https_auto_cert/use_mtls/crl/",
-      "anchor": "canonical-3011202201210120-1232301320112112-3011301220323101-1001210332000203-0322232331032001-0303210000003223-1223131032101200-3213123300321001",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bigip_http_proxy--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls:no_crl",
-      "section_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls:no_crl:section:0",
-      "source_sha256": "sha256:53c7299dd3ecefc06663cd8e0068428fd692bfd5bd26fd45a0ec45d27fd21900",
-      "source_bytes": 1326,
-      "canonical_source_sha256": "sha256:53c7299dd3ecefc06663cd8e0068428fd692bfd5bd26fd45a0ec45d27fd21900",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bigip_http_proxy/properties/proxy_config/https_auto_cert/use_mtls/no_crl/",
-      "anchor": "canonical-1122203310210213-0031221303120111-1302322221103122-3003302122232300-2230003233010232-0203110210310131-0022310112333330-2133101311301022",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3001321301202301-0032033230313231-1220013022033001-3120332212120311-1111332201322111-1212202302232033-1233113321122111-2132023310021322"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bigip_http_proxy--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls:trusted_ca",
-      "section_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls:trusted_ca:section:0",
-      "source_sha256": "sha256:73460db6ccfa0c7d61925e15584a9e1c67029aad8e997005e9e8a4d0249a64f9",
-      "source_bytes": 1300,
-      "canonical_source_sha256": "sha256:66c59c6165fa3d50918b16d91250ab75351032c648586281adcf8ef1584911d6",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bigip_http_proxy/properties/proxy_config/https_auto_cert/use_mtls/trusted_ca/",
-      "anchor": "canonical-1302111123333232-3011131213310300-0331132203231312-1203223302320231-1022311022023022-2031003213000112-0131321033010003-0130322013322132",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2000202221311312-0023123202220111-2330023030332203-0211131310322113-1202213100003130-2003103030033120-0112333330023023-0002231230020130"
         ]
       ],
       "mode": "embedded",

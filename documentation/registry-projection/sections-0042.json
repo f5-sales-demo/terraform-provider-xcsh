@@ -2,6 +2,226 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:high_medium_accuracy_signatures",
+      "section_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:high_medium_accuracy_signatures:section:0",
+      "source_sha256": "sha256:2b9c9b3034bd29625f834e5d0d2c772a1c93291c05c4ca457bb65e8e9b321199",
+      "source_bytes": 1285,
+      "canonical_source_sha256": "sha256:2b9c9b3034bd29625f834e5d0d2c772a1c93291c05c4ca457bb65e8e9b321199",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/app_firewall/properties/detection_settings/signature_selection_setting/high_medium_accuracy_signatures/",
+      "anchor": "canonical-0201013103122001-3301002020033222-3011223121032320-1202202222212310-0033303120023320-0000023232321002-1300323021303320-1211022100103102",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2332133310112020-2131113200012221-3323020331232220-2221031300010311-0221332001211131-2001203231030120-1231232200233110-0320322121011321"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--app_firewall--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:high_medium_low_accuracy_signatures",
+      "section_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:high_medium_low_accuracy_signatures:section:0",
+      "source_sha256": "sha256:6085ee6a42deee3c9b9c22f54de9b033a90d24199ac98b7e72e1f8c2faf11529",
+      "source_bytes": 1297,
+      "canonical_source_sha256": "sha256:6085ee6a42deee3c9b9c22f54de9b033a90d24199ac98b7e72e1f8c2faf11529",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/app_firewall/properties/detection_settings/signature_selection_setting/high_medium_low_accuracy_signatures/",
+      "anchor": "canonical-3330321130231200-0323132213300203-3221203311133032-1122202210312033-2320202022333232-3303102302000011-3221322012111000-1212320230330233",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3320122120012101-3320323331132202-1033220000113023-3023000122013223-2033031003000301-3023331211311002-1210303202102232-0112021302300331"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--app_firewall--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:only_high_accuracy_signatures",
+      "section_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:only_high_accuracy_signatures:section:0",
+      "source_sha256": "sha256:1efba67d304141307a87c53655eb019d4f4ce3569392232cc1593bfe6c14b51b",
+      "source_bytes": 1279,
+      "canonical_source_sha256": "sha256:1efba67d304141307a87c53655eb019d4f4ce3569392232cc1593bfe6c14b51b",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/app_firewall/properties/detection_settings/signature_selection_setting/only_high_accuracy_signatures/",
+      "anchor": "canonical-0200303013011003-1012011220100202-2002301213013230-2302022330301100-1333212110223030-0221112031203303-1130233331121112-0102113230023022",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0211221033311230-1003012022230001-0110000123203300-0213200012101033-2130031302022332-3230210011331302-3220111121302310-2230323323113320"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--app_firewall--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:signature_settings_by_accuracy",
+      "section_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:signature_settings_by_accuracy:section:0",
+      "source_sha256": "sha256:2e606d735a298125abe9f559ae922850315dbbb93e90de8e98b3a3ab69897ae3",
+      "source_bytes": 1099,
+      "canonical_source_sha256": "sha256:821dd2ce5640cb537fc4f5ae7212b38409c52d7e771aa8fd5da91c83ab7c5012",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/app_firewall/properties/detection_settings/signature_selection_setting/signature_settings_by_accuracy/",
+      "anchor": "canonical-0223310013322210-0201120110122302-3210110002210201-3320130230112032-3011301330100222-2110113001223200-0133333012023221-2021202010331032",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3000233222232323-2020200211122111-2103312200200320-1130330212132210-3001322310213001-2001301202022200-1330201323312003-1002222330202120"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--app_firewall--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:signature_settings_by_accuracy",
+      "section_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:signature_settings_by_accuracy:section:1",
+      "source_sha256": "sha256:382d2c2d25a0cbbbeb37c15c78d9db96b0918d0471a5f15396fdad093e5cdb29",
+      "source_bytes": 825,
+      "canonical_source_sha256": "sha256:821dd2ce5640cb537fc4f5ae7212b38409c52d7e771aa8fd5da91c83ab7c5012",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/app_firewall/properties/detection_settings/signature_selection_setting/signature_settings_by_accuracy/",
+      "anchor": "canonical-0213230302302000-2333023303222221-3011132033333330-1213202320312302-2012112003223130-2301311002233130-0021110130131120-3101232332331022",
+      "anchor_map": [
+        [
+          "schema-detection_settings--signature_selection_setting--signature_settings_by_accuracy--high_accuracy_action",
+          "canonical-1111233023211301-0210102322322012-1032331322020131-3200300022133331-2103003302102032-3010220202211230-2013023130302213-1232033311130013"
+        ],
+        [
+          "schema-detection_settings--signature_selection_setting--signature_settings_by_accuracy--low_accuracy_action",
+          "canonical-2002302102032300-0332333032103201-1133122003312122-1330123222131323-3201320102323320-0130332001030023-1031032313121021-1201112101302030"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--app_firewall--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:signature_settings_by_accuracy",
+      "section_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:signature_settings_by_accuracy:section:2",
+      "source_sha256": "sha256:2a8826a71dd18fd0d716312a4447c4118c62a3be9c2c205b0383573aa5a969b8",
+      "source_bytes": 682,
+      "canonical_source_sha256": "sha256:821dd2ce5640cb537fc4f5ae7212b38409c52d7e771aa8fd5da91c83ab7c5012",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/app_firewall/properties/detection_settings/signature_selection_setting/signature_settings_by_accuracy/",
+      "anchor": "canonical-1011002230302230-2200333113021213-3110320030132022-0302203213002013-0320033013220122-0203013103201202-2113100001233330-1311203310120312",
+      "anchor_map": [
+        [
+          "schema-detection_settings--signature_selection_setting--signature_settings_by_accuracy--medium_accuracy_action",
+          "canonical-1111221210233300-2311102131331013-1223320133300132-3331323231130223-2202121112231201-0203223133131031-1332012013233310-1310033223233131"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--app_firewall--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:signature_settings_by_accuracy",
+      "section_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:signature_settings_by_accuracy:section:3",
+      "source_sha256": "sha256:0d8b9ef8c505633421f2121da8ab6c9908f46480577fd227ec360e88eb8522ed",
+      "source_bytes": 559,
+      "canonical_source_sha256": "sha256:821dd2ce5640cb537fc4f5ae7212b38409c52d7e771aa8fd5da91c83ab7c5012",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/app_firewall/properties/detection_settings/signature_selection_setting/signature_settings_by_accuracy/",
+      "anchor": "canonical-3021332212103312-2030322002122130-1113030232201223-2301221102321220-2010032003101102-0100323203301302-3233230311231213-3233011133203320",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--app_firewall--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:stage_new_and_updated_signatures",
+      "section_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:stage_new_and_updated_signatures:section:0",
+      "source_sha256": "sha256:2d404e8001328283b35662e678b62f06c7503d19cc45bd3a93a57b7344a57f58",
+      "source_bytes": 852,
+      "canonical_source_sha256": "sha256:5cc71f1b90add87f96ccf7d347f08c11c146f264a78d79a0dc0da7f6450c197d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/app_firewall/properties/detection_settings/stage_new_and_updated_signatures/",
+      "anchor": "canonical-3232200212223300-3320023110332300-2331320211020031-2030102130000220-0223112011310321-1201312331132011-3211130013001233-0110330201332011",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2201301213222212-2231213131333210-1312323123123201-2133300021013131-3010011101321210-3333022002010101-3222310121330331-1310233122301003"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--app_firewall--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:stage_new_and_updated_signatures",
+      "section_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:stage_new_and_updated_signatures:section:1",
+      "source_sha256": "sha256:0c0f60ef5fef45b0250d5d565416ea1267ab379c55a697d83f69718ac300658b",
+      "source_bytes": 1247,
+      "canonical_source_sha256": "sha256:5cc71f1b90add87f96ccf7d347f08c11c146f264a78d79a0dc0da7f6450c197d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/app_firewall/properties/detection_settings/stage_new_and_updated_signatures/",
+      "anchor": "canonical-1121233213201122-1001120230203333-2330312213010300-1001002030130102-3323022322302322-3000100013032103-2011221221231322-3323011101022333",
+      "anchor_map": [
+        [
+          "schema-detection_settings--stage_new_and_updated_signatures--staging_period",
+          "canonical-2331322200201221-0022322221232311-2003011021303213-3222133213233232-1332100202321003-0112020132133202-1033113121131330-0311232320321321"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--app_firewall--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:stage_new_signatures",
+      "section_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:stage_new_signatures:section:0",
+      "source_sha256": "sha256:229a037d849c37c4f4a3d3e0b9516555cb7ed7f40820711ca5cf5fec3a5acf1a",
+      "source_bytes": 828,
+      "canonical_source_sha256": "sha256:7a309a4c4c693ed438053224fdecc26802a0e0d7f396d9b9b85c8675168e5cfe",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/app_firewall/properties/detection_settings/stage_new_signatures/",
+      "anchor": "canonical-0101303121302322-2223101111022103-0223111322103201-2331300003032212-0010323021122300-0030013133200230-2223201020120133-0121121332212103",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0230303201022123-1222030230130302-3032303320023001-0022331112333023-1230131032210202-0222112010103320-3302232323231120-3323213200203221"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--app_firewall--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:stage_new_signatures",
+      "section_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:stage_new_signatures:section:1",
+      "source_sha256": "sha256:12d6cff1fd53c09681a51b4c82ac7c7cd2e041495628f505fc31600e46c3924b",
+      "source_bytes": 1235,
+      "canonical_source_sha256": "sha256:7a309a4c4c693ed438053224fdecc26802a0e0d7f396d9b9b85c8675168e5cfe",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/app_firewall/properties/detection_settings/stage_new_signatures/",
+      "anchor": "canonical-3123200121332013-3013103123012000-2000012300231223-0103323313010223-0313301330311200-1212300221013333-2331132120122130-3101011201113220",
+      "anchor_map": [
+        [
+          "schema-detection_settings--stage_new_signatures--staging_period",
+          "canonical-1231203222031221-2030031232201100-3100121330213021-3130131222130121-1312021222013322-3333100002222223-0011030222323110-0123223302330003"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--app_firewall--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:violation_settings",
+      "section_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:violation_settings:section:0",
+      "source_sha256": "sha256:701a8a73ab3e7722b776a2fea25b82bf4aeda7675c7badb9d47de66b019490e7",
+      "source_bytes": 831,
+      "canonical_source_sha256": "sha256:5a4cad7f359236609162586f6a4f04986c9ab7241db1c381a75a9443da296b03",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/app_firewall/properties/detection_settings/violation_settings/",
+      "anchor": "canonical-1121231313133202-1000332220232313-2120221311012113-0021001032211022-0120102000133031-2233210131133020-2201101111231221-3332020012132031",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-1213010100321222-3300210220300200-3101021102222212-0331303202020330-1123221012210020-1130130222231232-3021200130323313-2200213103032030"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--app_firewall--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:violation_settings",
+      "section_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:violation_settings:section:1",
+      "source_sha256": "sha256:10579196175c73870b296f5d9d5a7aec5c6067d5c2ddf41195ed7efe8535e8a9",
+      "source_bytes": 3406,
+      "canonical_source_sha256": "sha256:5a4cad7f359236609162586f6a4f04986c9ab7241db1c381a75a9443da296b03",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/app_firewall/properties/detection_settings/violation_settings/",
+      "anchor": "canonical-1021230133233230-3002201000322330-0022310320122013-3133201201322130-3102221232322011-3033211322122000-1222023131013202-0033102111112013",
+      "anchor_map": [
+        [
+          "schema-detection_settings--violation_settings--disabled_violation_types",
+          "canonical-0002010230321123-0310302130113321-2221213201211122-2122123100032211-3321333302221131-2203300112013201-3002333201123320-2001002023231131"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--app_firewall--reference--group-001.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:violations_view",
       "section_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:violations_view:section:0",
       "source_sha256": "sha256:5ee47d7994982867945f4f89ee637448c19403d8c3f91b661fa974a342828a84",
@@ -7512,228 +7732,6 @@
           "canonical-1211021330212112-0113010233101110-3213130122212220-3122221003303033-3220003021232020-0230220003222200-0120231211301201-3100113311233200"
         ]
       ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--application_profiles--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:request_logging_profile",
-      "section_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:request_logging_profile:section:5",
-      "source_sha256": "sha256:d1b41a6b0dec857464b883fdddb87a2567f553a259b9d2059a284b84f8ee2987",
-      "source_bytes": 599,
-      "canonical_source_sha256": "sha256:3e6fb171806f101c905f18daf2cb5284a8a81e4558aa7b04f82fdc84f21e1f5f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/application_profiles/properties/virtual_server/request_logging_profile/",
-      "anchor": "canonical-1000200211132020-2133122022320230-0100032131032230-3300010310023131-0220210321230210-3121200221012312-3113030233031230-1202111233132131",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--application_profiles--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:source_port",
-      "section_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:source_port:section:0",
-      "source_sha256": "sha256:c653cd0dc340fd274903ed6f74e0bc47fe362149c108b3de9d33b0fbd4bf54c8",
-      "source_bytes": 1011,
-      "canonical_source_sha256": "sha256:3eae10e1b0b86368557380a8fa6d10f7c2575d56a9b7b982cbf0a42e900c7162",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/application_profiles/properties/virtual_server/source_port/",
-      "anchor": "canonical-1000133010120020-1221212220013310-3203232303131320-2201230212112001-3230003001002030-0010312331212203-2010213211021213-0221332122203203",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2231031203231101-1320022022331310-2302331331320012-0013323110030013-0322230203211311-0231131003221110-2123031233033330-3020101331100032"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--application_profiles--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:source_port",
-      "section_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:source_port:section:1",
-      "source_sha256": "sha256:5853d8444c3831a4550b755e267e9abd9af157b6b8216c3fab55cbd98b38eb81",
-      "source_bytes": 658,
-      "canonical_source_sha256": "sha256:3eae10e1b0b86368557380a8fa6d10f7c2575d56a9b7b982cbf0a42e900c7162",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/application_profiles/properties/virtual_server/source_port/",
-      "anchor": "canonical-1030013022030230-1111202330120203-0213102313311010-0033113230031202-2230022213311211-1211003121021310-2022201211000113-1000120033010202",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--application_profiles--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:source_port:source_port_change",
-      "section_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:source_port:source_port_change:section:0",
-      "source_sha256": "sha256:9ad44e840a15c6805ff15c799d4e17a8f06415fe8dbabafd190e954e5bb0dd65",
-      "source_bytes": 1169,
-      "canonical_source_sha256": "sha256:9ad44e840a15c6805ff15c799d4e17a8f06415fe8dbabafd190e954e5bb0dd65",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/application_profiles/properties/virtual_server/source_port/source_port_change/",
-      "anchor": "canonical-1323123103122011-2030010212212212-3032020203020021-0312023101310131-0132200230200033-2130313320131300-3113332320113233-2220123122222023",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1033230100021110-1232321310030300-0013311113121012-3131323201213223-3131121020222213-2123022303233030-0200332113031001-0112011010112101"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--application_profiles--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:source_port:source_port_preserve",
-      "section_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:source_port:source_port_preserve:section:0",
-      "source_sha256": "sha256:d98777d8c19d2fb46887f113eeb1f9121d3b16ff1e2ce809a176aaf608af3c27",
-      "source_bytes": 1173,
-      "canonical_source_sha256": "sha256:d98777d8c19d2fb46887f113eeb1f9121d3b16ff1e2ce809a176aaf608af3c27",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/application_profiles/properties/virtual_server/source_port/source_port_preserve/",
-      "anchor": "canonical-0330311022021121-0102221001112332-1012113013030313-1020320310333013-1123321003312213-3233332220100202-0120032020223221-0221012001023101",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3122210132111330-3213033313322121-2230323132323233-0202202102221001-2303103302013330-1203220001233003-0133322023132333-3231231023120323"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--application_profiles--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:source_port:source_port_preserve_strict",
-      "section_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:source_port:source_port_preserve_strict:section:0",
-      "source_sha256": "sha256:2b590c745287078b741316454ab34e84b2cf732370410425dbb9222f2e3cda1f",
-      "source_bytes": 1187,
-      "canonical_source_sha256": "sha256:2b590c745287078b741316454ab34e84b2cf732370410425dbb9222f2e3cda1f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/application_profiles/properties/virtual_server/source_port/source_port_preserve_strict/",
-      "anchor": "canonical-1122102321003221-3211213201020003-0010031201013323-2313110220301200-1300131012122331-0030322133003203-0011020313220021-0302002233210021",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2103231131103021-2223110201303233-3123113133113121-2130101121221022-2030110102132300-0102210010213033-2201112112020000-0330100113133120"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--application_profiles--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:statistics_profile",
-      "section_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:statistics_profile:section:0",
-      "source_sha256": "sha256:57d62e1877c602097b1b1d5f30497aa43b11f180927131b719cb05c7b3bab9f9",
-      "source_bytes": 1420,
-      "canonical_source_sha256": "sha256:f00513d985b9cbd071378938aa17f26a2647e84584532b2c1564a344277ee6e3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/application_profiles/properties/virtual_server/statistics_profile/",
-      "anchor": "canonical-0230033123202003-3221010301120301-1321302111033133-3300013133310233-0333313030302000-0200200313230110-2223320101301232-1322122301001122",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2030120322312202-1311203300012321-0321320031013201-3233002122323031-2033010022232303-2110113120103221-1303322002232120-0232013212222013"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--application_profiles--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:statistics_profile",
-      "section_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:statistics_profile:section:1",
-      "source_sha256": "sha256:3f8213e7b79d1dc0f0b3a6c25785484e555cbc8ca1752cb1e2a8f6193fc830eb",
-      "source_bytes": 887,
-      "canonical_source_sha256": "sha256:f00513d985b9cbd071378938aa17f26a2647e84584532b2c1564a344277ee6e3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/application_profiles/properties/virtual_server/statistics_profile/",
-      "anchor": "canonical-1203011212210010-2313010312133211-2202021011203003-2320110013013112-2120031123003122-0130321200111203-0232010110310232-3103031223201022",
-      "anchor_map": [
-        [
-          "schema-virtual_server--statistics_profile--kind",
-          "canonical-2302010102032211-2101220322000120-1122102130000030-0331230231012103-2033003332311120-1211011002101230-2122113311020032-3233202230133301"
-        ],
-        [
-          "schema-virtual_server--statistics_profile--name",
-          "canonical-1210213022223212-3133101111210020-3322303133122300-0123123013113330-2003233011230003-3122232322221131-1113313133211010-2201303221233131"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--application_profiles--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:statistics_profile",
-      "section_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:statistics_profile:section:2",
-      "source_sha256": "sha256:a4eab0c64dbf81817154d92e4316b3b6139ea488e7f6931cd63985624bcc8727",
-      "source_bytes": 670,
-      "canonical_source_sha256": "sha256:f00513d985b9cbd071378938aa17f26a2647e84584532b2c1564a344277ee6e3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/application_profiles/properties/virtual_server/statistics_profile/",
-      "anchor": "canonical-3210110331310221-1032203031003113-2332132321001123-3010020231333013-0130021201302230-3022010103321211-2220100333301232-3033110322012131",
-      "anchor_map": [
-        [
-          "schema-virtual_server--statistics_profile--namespace",
-          "canonical-3233300113322310-1133113133232223-1230022323013133-1211132212130013-2113321221200310-3121033032102200-0220012013130010-0221021211333210"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--application_profiles--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:statistics_profile",
-      "section_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:statistics_profile:section:3",
-      "source_sha256": "sha256:bfef178d3f63dbc044d64e928cafc4344f719ee6fd022e7694c3a2c39ce72a8e",
-      "source_bytes": 1194,
-      "canonical_source_sha256": "sha256:f00513d985b9cbd071378938aa17f26a2647e84584532b2c1564a344277ee6e3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/application_profiles/properties/virtual_server/statistics_profile/",
-      "anchor": "canonical-2233323200230031-1210000103202131-0130330231202303-3031331000330222-0111110301123303-3323233122110331-3200322132001121-0010301013131020",
-      "anchor_map": [
-        [
-          "schema-virtual_server--statistics_profile--tenant",
-          "canonical-3200032003300132-3303302103202001-2000030303131112-3100100220110121-3330100231021011-2333200103022023-0302221203020032-2031313331032301"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--application_profiles--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:statistics_profile",
-      "section_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:statistics_profile:section:4",
-      "source_sha256": "sha256:e9acb1f0751b2b62500b4c07303a9d4528ceb1332436fec98b105cd29647c9ad",
-      "source_bytes": 670,
-      "canonical_source_sha256": "sha256:f00513d985b9cbd071378938aa17f26a2647e84584532b2c1564a344277ee6e3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/application_profiles/properties/virtual_server/statistics_profile/",
-      "anchor": "canonical-0021301231322122-0032301323112330-2233112331000231-2223123011103132-3122331033210122-3232103101320333-1112323210333012-1112120222230332",
-      "anchor_map": [
-        [
-          "schema-virtual_server--statistics_profile--uid",
-          "canonical-3101021230321013-1312011302130111-3030332132013102-0111212322122021-3203222232012013-1112302322213300-3330331220232323-2233030123302330"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--application_profiles--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:statistics_profile",
-      "section_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:statistics_profile:section:5",
-      "source_sha256": "sha256:d1b41a6b0dec857464b883fdddb87a2567f553a259b9d2059a284b84f8ee2987",
-      "source_bytes": 599,
-      "canonical_source_sha256": "sha256:f00513d985b9cbd071378938aa17f26a2647e84584532b2c1564a344277ee6e3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/application_profiles/properties/virtual_server/statistics_profile/",
-      "anchor": "canonical-3033221013013321-2220323103030311-0203321102112101-1100033002231301-1303203201001201-1130301111332103-2221333302001120-1202221321333310",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--application_profiles--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:tcp",
-      "section_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:tcp:section:0",
-      "source_sha256": "sha256:bc33371ea79715dd595ff0ca6d0dac6b65d9ffb2d9042c18c5cc8ebeb9ff3249",
-      "source_bytes": 783,
-      "canonical_source_sha256": "sha256:a696b29ca9e14a69a3593fc82a60917019831e80ff9bdd3227c61df9e87fd0fc",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/application_profiles/properties/virtual_server/tcp/",
-      "anchor": "canonical-1332122030012230-3112023330232023-3120100021202202-2130120302110303-1003010002323020-0300001302111033-2112323013011103-3321010030001101",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3332310323031233-0313321330000232-3300010012123032-3321003311001223-1002000031011012-1221013001120331-2103101021011301-1010110123323100"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--application_profiles--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:tcp",
-      "section_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:tcp:section:1",
-      "source_sha256": "sha256:76872e0c0ce7d8aa2a95bde7d3f7d26674a2414e34522faf6aa50215c2de16b6",
-      "source_bytes": 994,
-      "canonical_source_sha256": "sha256:a696b29ca9e14a69a3593fc82a60917019831e80ff9bdd3227c61df9e87fd0fc",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/application_profiles/properties/virtual_server/tcp/",
-      "anchor": "canonical-3200332232302003-0202220332200232-3002022113000120-0303023020010233-1333321303012321-0221012013330232-1010323021102130-3223110122202211",
-      "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/data-sources--application_profiles--reference--group-004.md"
     }

@@ -2,6 +2,215 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:exclude_list:metadata",
+      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:exclude_list:metadata:section:2",
+      "source_sha256": "sha256:70eb0b06660901e51e006afed0c2a6b9d4220ad862ddacb76e448fe30f0c283b",
+      "source_bytes": 1531,
+      "canonical_source_sha256": "sha256:83f4a1528dfc852c926f4aee8ea17aee54f7c3e78319de8e3f6f93045c598921",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/client_side_defense/policy/js_insertion_rules/exclude_list/metadata/",
+      "anchor": "canonical-2111230102223131-2330122211203113-2013232000012223-3121330121310233-3222002213010120-2230300100203110-3123102101100011-2321000110130322",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-010.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:exclude_list:path",
+      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:exclude_list:path:section:0",
+      "source_sha256": "sha256:b9d510c6b2756de30e0e0416549122fa21bb3dbedc415bf4b067d877061b2805",
+      "source_bytes": 1592,
+      "canonical_source_sha256": "sha256:269b25d108fc1d196dd7f01d0a88be287dd492b01062c9dec4994c4f48ca43e6",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/client_side_defense/policy/js_insertion_rules/exclude_list/path/",
+      "anchor": "canonical-2332022103111110-1222123202220231-3023030032100301-3101123031211231-0233101132200313-2121013323222301-0111130201132120-1311231313032201",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-1322132110031212-1101110031210123-3013211332103112-2002333001213131-3331222030032310-2033232330032112-2212102002100013-1200200023112023"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-010.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:exclude_list:path",
+      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:exclude_list:path:section:1",
+      "source_sha256": "sha256:0329c6b94d002e44c57976f3af045e272f39369ff44b308a7e649ddf8d691640",
+      "source_bytes": 1109,
+      "canonical_source_sha256": "sha256:269b25d108fc1d196dd7f01d0a88be287dd492b01062c9dec4994c4f48ca43e6",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/client_side_defense/policy/js_insertion_rules/exclude_list/path/",
+      "anchor": "canonical-3032300112122210-3113130001301001-0333031101203202-1301222101203130-1332222212113132-3033230320032322-1211231011233020-3012130300203001",
+      "anchor_map": [
+        [
+          "schema-client_side_defense--policy--js_insertion_rules--exclude_list--path--path",
+          "canonical-1302212100000100-0232000220310301-3321130331213111-0131301121213130-0012203020311332-3213200000201222-2122330120032100-3122012122322121"
+        ],
+        [
+          "schema-client_side_defense--policy--js_insertion_rules--exclude_list--path--prefix",
+          "canonical-2113210221301102-1213120132301333-0002103121112323-3221112222232032-2031023000120003-0121003203321113-3231033322130131-3011312133322033"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-010.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:exclude_list:path",
+      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:exclude_list:path:section:2",
+      "source_sha256": "sha256:586a7fd1d53ba25f8cb7d435e672a0ca398607fc4a7c93ed9846ca0a1c5ca634",
+      "source_bytes": 971,
+      "canonical_source_sha256": "sha256:269b25d108fc1d196dd7f01d0a88be287dd492b01062c9dec4994c4f48ca43e6",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/client_side_defense/policy/js_insertion_rules/exclude_list/path/",
+      "anchor": "canonical-3010132133233100-0303022200133133-3021211133202303-3233023022232310-1030231010012311-3100102030112123-2301333022200113-2201202230221103",
+      "anchor_map": [
+        [
+          "schema-client_side_defense--policy--js_insertion_rules--exclude_list--path--regex",
+          "canonical-2003120121330122-1232121312001302-0201330030100332-3313201010002000-1211231023222131-0123103001113332-1210032002231013-1303333122213211"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-010.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:exclude_list:path",
+      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:exclude_list:path:section:3",
+      "source_sha256": "sha256:905473143aa5de154118c18b9cbafe867894a883d7cff5a938a4f3dc783bd312",
+      "source_bytes": 1081,
+      "canonical_source_sha256": "sha256:269b25d108fc1d196dd7f01d0a88be287dd492b01062c9dec4994c4f48ca43e6",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/client_side_defense/policy/js_insertion_rules/exclude_list/path/",
+      "anchor": "canonical-0233312302312223-3222020212103223-0001220202312133-2011333003122321-3203131012320002-2103120132122000-1203200221210032-2322011211302200",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-010.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:rules",
+      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:rules:section:0",
+      "source_sha256": "sha256:3bb0d8344b5225403ad90488d271cbf6b53343a2a2faf0a09db6581dc1f4629a",
+      "source_bytes": 2074,
+      "canonical_source_sha256": "sha256:f9394fe00c3250cd4fdbcaded36d3e3f8313d89f4af94bcbec9191a03a31abd5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/client_side_defense/policy/js_insertion_rules/rules/",
+      "anchor": "canonical-2230201130322102-2313103001002212-3103231131202123-3312132213332213-0302000332310333-3110032231331023-1210321321210233-3321012200203101",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3200230122200032-3300301330231113-0031111221301210-0303203331322003-3022320123000303-2122011032030122-2222101330123232-1301021102210323"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-010.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:rules",
+      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:rules:section:1",
+      "source_sha256": "sha256:c3becdd72c6329015a06a40a5d7978a9a5818ec58f40b28543884391232d82d2",
+      "source_bytes": 837,
+      "canonical_source_sha256": "sha256:f9394fe00c3250cd4fdbcaded36d3e3f8313d89f4af94bcbec9191a03a31abd5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/client_side_defense/policy/js_insertion_rules/rules/",
+      "anchor": "canonical-0311023312001123-1122310230220331-2303100213323101-1320133030310320-3311301011302103-0031300213230210-3132000212100110-2110220122013301",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-010.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:rules:any_domain",
+      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:rules:any_domain:section:0",
+      "source_sha256": "sha256:812d775c1df8a3b01490b4ee2e4ecd16b19ae038200463354eb3ae27938b82d4",
+      "source_bytes": 1595,
+      "canonical_source_sha256": "sha256:812d775c1df8a3b01490b4ee2e4ecd16b19ae038200463354eb3ae27938b82d4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/client_side_defense/policy/js_insertion_rules/rules/any_domain/",
+      "anchor": "canonical-1032233310300203-0121031021221100-0200130010110113-0020131202333001-0111322332320222-1103201100110022-0010332101121003-3022120310323222",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-1021102132132221-1013333031222012-3003100010313001-2301010222102001-2022302112130213-0033312020301103-3222011223203310-3023011220032120"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-010.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:rules:domain",
+      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:rules:domain:section:0",
+      "source_sha256": "sha256:3439d8c639e47c506cda40dc2ec8f03eb13e56f1690225e6c3432fa201d36a83",
+      "source_bytes": 1583,
+      "canonical_source_sha256": "sha256:55fff6a31b0ed55a9ccdded76ebc22a50852dad3aa52c60c80a9eec521f03dd2",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/client_side_defense/policy/js_insertion_rules/rules/domain/",
+      "anchor": "canonical-0331232032213020-3320203122130001-0201311133300031-2321200333311022-0222110302110002-2013020031210203-2213330012122123-2311030210200222",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3323133330301202-0201232102131232-0233332303300230-2311323213033323-3313233201213303-0302020212331201-1023311222230010-2020331133300133"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-010.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:rules:domain",
+      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:rules:domain:section:1",
+      "source_sha256": "sha256:31a6a2e06ad5f55b5aafa5a40a9c404b61371a0ed214e55dbc34f1da6da7212c",
+      "source_bytes": 1223,
+      "canonical_source_sha256": "sha256:55fff6a31b0ed55a9ccdded76ebc22a50852dad3aa52c60c80a9eec521f03dd2",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/client_side_defense/policy/js_insertion_rules/rules/domain/",
+      "anchor": "canonical-1013231210010233-3302123220002233-0300001101030303-2000200331230121-2132312003312230-1330322220112220-0302211320032321-2211010103122032",
+      "anchor_map": [
+        [
+          "schema-client_side_defense--policy--js_insertion_rules--rules--domain--exact_value",
+          "canonical-1330100022023110-2302320310103211-1022102312200202-3210333033001312-3001200210130030-0323121023310333-3033000310120113-3021131130022021"
+        ],
+        [
+          "schema-client_side_defense--policy--js_insertion_rules--rules--domain--regex_value",
+          "canonical-0220223112133321-3331321201310120-1011330010233111-2203110131031300-1003321100031132-1123301330331000-1233030221132003-0312310012130133"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-010.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:rules:domain",
+      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:rules:domain:section:2",
+      "source_sha256": "sha256:c739b8d30844f2d8e90245afc636c14c67b8e86e828df01a13c2bb1a90663d26",
+      "source_bytes": 1100,
+      "canonical_source_sha256": "sha256:55fff6a31b0ed55a9ccdded76ebc22a50852dad3aa52c60c80a9eec521f03dd2",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/client_side_defense/policy/js_insertion_rules/rules/domain/",
+      "anchor": "canonical-3012033310122302-0000122211123113-2122323200330013-2212232130210211-1033003001111121-0233330100232302-0201213113103113-0213322211323103",
+      "anchor_map": [
+        [
+          "schema-client_side_defense--policy--js_insertion_rules--rules--domain--suffix_value",
+          "canonical-2123010300031203-2222230320221002-0232033102133321-3002032132211202-2312111121330212-3333333122112003-1331033311311130-2222231333020322"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-010.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:rules:domain",
+      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:rules:domain:section:3",
+      "source_sha256": "sha256:e733919e97fbc6066299d68db0549dd5883b7cdde39baaf5ecf214f37ff61b10",
+      "source_bytes": 1212,
+      "canonical_source_sha256": "sha256:55fff6a31b0ed55a9ccdded76ebc22a50852dad3aa52c60c80a9eec521f03dd2",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/client_side_defense/policy/js_insertion_rules/rules/domain/",
+      "anchor": "canonical-0003013303023231-0222321312123132-3110122032332222-0021320213002113-3222202222321112-2303131232332133-1312121113111020-0212011233311013",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-010.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:rules:metadata",
+      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:rules:metadata:section:0",
+      "source_sha256": "sha256:4aae24c9cbe4207ea95150a7327904024262ac25b8f39288474d80ea02db03d0",
+      "source_bytes": 1721,
+      "canonical_source_sha256": "sha256:6c75f8e10f637d0eeeb1c53f3e1bcc800dfc8a0fbd10608e2fb181a190eed95e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/client_side_defense/policy/js_insertion_rules/rules/metadata/",
+      "anchor": "canonical-0322112110103312-2132031001323311-0100200330331100-2003310002322221-2030030202121032-0232221323230110-3323313020203102-1113013322133011",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0010021131003311-1313020211232133-0102112311302320-1330013030330231-1223210323032303-3012322121320233-2330123312101100-3333033331113222"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-010.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:rules:metadata",
       "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:client_side_defense:policy:js_insertion_rules:rules:metadata:section:1",
       "source_sha256": "sha256:008968e54d70254ba328b642f7255084f64cc369210a0bdb37adaac2daaa73be",
@@ -7365,216 +7574,6 @@
         [
           "schema-policy_based_challenge--rule_list--rules--spec--asn_matcher--asn_sets--uid",
           "canonical-2300232101202000-1100301323002100-3122003013112312-3123011131011030-3032000231221013-1220032001333333-1023222210020300-2231311222020022"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-013.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:asn_matcher:asn_sets",
-      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:asn_matcher:asn_sets:section:5",
-      "source_sha256": "sha256:d1b41a6b0dec857464b883fdddb87a2567f553a259b9d2059a284b84f8ee2987",
-      "source_bytes": 599,
-      "canonical_source_sha256": "sha256:40a42fe1ea879cc29a281ab14a478f93a4312b197d9cc5de2e2eeefc2118e5f7",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/policy_based_challenge/rule_list/rules/spec/asn_matcher/asn_sets/",
-      "anchor": "canonical-0312023322132022-0030032110300302-3120113231223021-2303012320131330-1120120022220222-1020120333320223-3030111133212313-3223031011111020",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-013.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:body_matcher",
-      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:body_matcher:section:0",
-      "source_sha256": "sha256:1cca136b78bcfafefe9989aa9f686d993d71fad25bc795ec1d34d2d4bd26df23",
-      "source_bytes": 1630,
-      "canonical_source_sha256": "sha256:6fee7ed2e5cee376c22a4354e7e0c34706ba39d4f138550ed617ccf5c15863f1",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/policy_based_challenge/rule_list/rules/spec/body_matcher/",
-      "anchor": "canonical-1213311021203302-2332101131201022-1122221301221222-2300200300120230-2022132311130021-0100323233103233-1000133330002011-1123331220122111",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0021232132332231-3223332321120113-3201201200022220-0122000031122303-0133332031130012-1312202320200002-1101300212001312-1130112331202120"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-013.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:body_matcher",
-      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:body_matcher:section:1",
-      "source_sha256": "sha256:dc8405eb7ca0719b4fa10169580a054ba012c377c45208ee05301253cfeae7fe",
-      "source_bytes": 1352,
-      "canonical_source_sha256": "sha256:6fee7ed2e5cee376c22a4354e7e0c34706ba39d4f138550ed617ccf5c15863f1",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/policy_based_challenge/rule_list/rules/spec/body_matcher/",
-      "anchor": "canonical-2121303001201111-2221023203220123-1333333023330023-0202110221232322-3030102001320110-0003230001313332-1331312231311122-2102112301003110",
-      "anchor_map": [
-        [
-          "schema-policy_based_challenge--rule_list--rules--spec--body_matcher--exact_values",
-          "canonical-2132032230201331-0011122332301110-1302233312203020-0101122032013022-3012123331201201-1223233223033300-1231102120220013-1301212200323012"
-        ],
-        [
-          "schema-policy_based_challenge--rule_list--rules--spec--body_matcher--regex_values",
-          "canonical-2321111220332203-2013233313030233-3010131221302231-1213001213323112-2021132323121120-0022010122012230-2022120111223200-3200013112303302"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-013.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:body_matcher",
-      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:body_matcher:section:2",
-      "source_sha256": "sha256:b0aa54f75388ef9fd872620354d39c398d7f902e75174a1212de90332ebee654",
-      "source_bytes": 1367,
-      "canonical_source_sha256": "sha256:6fee7ed2e5cee376c22a4354e7e0c34706ba39d4f138550ed617ccf5c15863f1",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/policy_based_challenge/rule_list/rules/spec/body_matcher/",
-      "anchor": "canonical-3302033322331100-1230100033213220-2302231102013103-0202302222221000-1001233322323321-2210100300021031-1033032323222112-1232322302130203",
-      "anchor_map": [
-        [
-          "schema-policy_based_challenge--rule_list--rules--spec--body_matcher--transformers",
-          "canonical-3032020033121332-1001222222312021-3132002312313110-0301113103230102-2301110123032231-3212010020013303-2201113000313022-3033031211332110"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-013.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:body_matcher",
-      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:body_matcher:section:3",
-      "source_sha256": "sha256:3dc187780276663a07e467f4eded9530645926ca5be514e39ed7017a42423cd5",
-      "source_bytes": 1345,
-      "canonical_source_sha256": "sha256:6fee7ed2e5cee376c22a4354e7e0c34706ba39d4f138550ed617ccf5c15863f1",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/policy_based_challenge/rule_list/rules/spec/body_matcher/",
-      "anchor": "canonical-2231212320011101-3221112032202110-2332010202331301-0002303111200312-3023310233122102-3300322330121030-0002032333033332-3022020010313213",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-013.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:client_selector",
-      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:client_selector:section:0",
-      "source_sha256": "sha256:3bf6506fe33e1cc618563b869e11158d26f54e17eb080e844f876ea931852617",
-      "source_bytes": 2493,
-      "canonical_source_sha256": "sha256:a450bcbfcbbd524df92deb34d4e2e87aed69767ed0dc2a9af738436a328587e7",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/policy_based_challenge/rule_list/rules/spec/client_selector/",
-      "anchor": "canonical-3102120111001203-1112131330132320-2121010233221012-2320103020332010-2113223021322212-2311332300120013-1311000030211222-2132213323012211",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3100302003100121-2101031212313311-1311211200120000-1311230200122221-0012312132010120-1001030032031120-3112020230310203-0212302200232321"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-013.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:client_selector",
-      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:client_selector:section:1",
-      "source_sha256": "sha256:f0bd9eea1157dc932232c4bdbf92517bd078179f32ff67995312c45b99c22880",
-      "source_bytes": 1391,
-      "canonical_source_sha256": "sha256:a450bcbfcbbd524df92deb34d4e2e87aed69767ed0dc2a9af738436a328587e7",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/policy_based_challenge/rule_list/rules/spec/client_selector/",
-      "anchor": "canonical-2221301222131313-3321300312011223-2122011031110131-2030220210201232-3132332033020223-3132313111200203-3203110000103313-1123322030300012",
-      "anchor_map": [
-        [
-          "schema-policy_based_challenge--rule_list--rules--spec--client_selector--expressions",
-          "canonical-2131123020323300-3330102312212223-0333023321332310-1332111232113223-0101100110211322-3110023321302223-1201000131021112-3132323002212030"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-013.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:cookie_matchers",
-      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:cookie_matchers:section:0",
-      "source_sha256": "sha256:1e524652821919812c7ef401e9bb858afd9233c0e29921cdb2743b859a84d0e8",
-      "source_bytes": 2177,
-      "canonical_source_sha256": "sha256:e9f775cb32fb13e8f4a8a36895a3d55971117f2d6939c9eb8f035711bb5d10e7",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/policy_based_challenge/rule_list/rules/spec/cookie_matchers/",
-      "anchor": "canonical-3331311132121000-2302123312033003-2201211023002032-1200012322011112-2032220231112221-0300003102013101-0133332332130220-3120231102333000",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2031303023020310-2103200303200230-3002122313010321-2031022003310100-1301103113000112-2232311000303201-1122231010203230-1121210232211223"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-013.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:cookie_matchers",
-      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:cookie_matchers:section:1",
-      "source_sha256": "sha256:5a6258727192282077a28ea81c3ee9f743f2e5312368c24cba31310adc226e6b",
-      "source_bytes": 579,
-      "canonical_source_sha256": "sha256:e9f775cb32fb13e8f4a8a36895a3d55971117f2d6939c9eb8f035711bb5d10e7",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/policy_based_challenge/rule_list/rules/spec/cookie_matchers/",
-      "anchor": "canonical-3301320120132212-3231002032123200-2231332230213221-3132032033201132-3202323201120230-0113111012211210-2120102232301100-1001222132231203",
-      "anchor_map": [
-        [
-          "schema-policy_based_challenge--rule_list--rules--spec--cookie_matchers--invert_matcher",
-          "canonical-1012313202332301-2232231121213032-0212202321210203-3313232200222023-3123300022230003-0103203230331211-1313112010130122-2101120010233103"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-013.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:cookie_matchers",
-      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:cookie_matchers:section:2",
-      "source_sha256": "sha256:754d2f8c03018ffed7f672d9c9c5618ba3e91aa7cf2918f43b534d0d38b3837c",
-      "source_bytes": 585,
-      "canonical_source_sha256": "sha256:e9f775cb32fb13e8f4a8a36895a3d55971117f2d6939c9eb8f035711bb5d10e7",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/policy_based_challenge/rule_list/rules/spec/cookie_matchers/",
-      "anchor": "canonical-0121031201102213-2223311230212023-0133211231012201-2011001220013101-2301120113011313-1312332031301300-0032132320101322-3130200333012020",
-      "anchor_map": [
-        [
-          "schema-policy_based_challenge--rule_list--rules--spec--cookie_matchers--name",
-          "canonical-3130122012201320-2223012321213233-0132302020100322-1101010030332232-1330023102031013-0232110020201313-3313110331321103-1120212021231201"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-013.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:cookie_matchers",
-      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:cookie_matchers:section:3",
-      "source_sha256": "sha256:edcf9df93f99efe6883716eab316dfc05c7f742cdcb1f1774a43d4d122e1d0eb",
-      "source_bytes": 1430,
-      "canonical_source_sha256": "sha256:e9f775cb32fb13e8f4a8a36895a3d55971117f2d6939c9eb8f035711bb5d10e7",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/policy_based_challenge/rule_list/rules/spec/cookie_matchers/",
-      "anchor": "canonical-1002313331010211-0230031223222101-2021203211113122-0123301211321012-3112100203311123-1302130111323233-0100100300333012-0101302201003212",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-013.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:cookie_matchers:check_not_present",
-      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:cookie_matchers:check_not_present:section:0",
-      "source_sha256": "sha256:d846e324a2f12651ad7daff30e0809bff0b3e5fd58912aa8f6163697d79c2953",
-      "source_bytes": 1864,
-      "canonical_source_sha256": "sha256:d846e324a2f12651ad7daff30e0809bff0b3e5fd58912aa8f6163697d79c2953",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/policy_based_challenge/rule_list/rules/spec/cookie_matchers/check_not_present/",
-      "anchor": "canonical-3112220113030003-1023031111132130-2220033031110223-1032201132133310-1330231202211113-1022011132301320-2303211202203221-3111103110113310",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2021002211123001-2031320102012002-1013131100103120-3311312013031120-3100232202101030-1333011031130111-1131010211123202-2010232322132102"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-013.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:cookie_matchers:check_present",
-      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:cookie_matchers:check_present:section:0",
-      "source_sha256": "sha256:f473ca2d042e5999f3d0287866ef1e915620bbac9057454f143e5e5f933738de",
-      "source_bytes": 1852,
-      "canonical_source_sha256": "sha256:f473ca2d042e5999f3d0287866ef1e915620bbac9057454f143e5e5f933738de",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/policy_based_challenge/rule_list/rules/spec/cookie_matchers/check_present/",
-      "anchor": "canonical-2023012013122221-2232310323120110-3321321301313210-3212121020112212-3110120110022013-3223200222002302-0031001220313001-3100132033311312",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2022223301220301-2322200011203323-2301131320120223-2230210000110311-3311101322112232-3003132133102311-2222320223132211-0201022003323230"
         ]
       ],
       "mode": "embedded",
