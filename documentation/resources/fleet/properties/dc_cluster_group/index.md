@@ -2,7 +2,7 @@
 page_title: "dc_cluster_group"
 subcategory: ""
 description: "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name."
-xcsh_docs: {"aliases": ["dc cluster group"], "body_bytes": 6445, "body_sha256": "sha256:f55faebcaca2c52806b165517e73d647139402e084e4d6b0cc32761e1f8432d7", "capabilities": [], "category": null, "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": [], "status": "unresolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:fleet:collection", "completeness": "complete", "id": "xcsh-docs:resources:fleet:properties:dc_cluster_group", "parent_id": "xcsh-docs:resources:fleet:reference", "path": "documentation/resources/fleet/properties/dc_cluster_group/index.md", "product": "distributed-cloud", "provider_name": "fleet", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2220011112301110-2101322302212032-2331222020113323-3333113013301010-2200210103313131-3003210110031021-1011111332222330-3232220020111203", "registry_path": "docs/guides/resources--fleet--reference--group-002.md", "relationships": [{"anchor": "schema-dc_cluster_group--name", "enforcement": "provider-schema", "group": "dc_cluster_group:RequiredObjectAttributes:name", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:fleet:properties:dc_cluster_group", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["dc_cluster_group"], "schema_version": 1, "sections": [{"aliases": ["dc cluster group name"], "anchor": "schema-dc_cluster_group--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:fleet:properties:dc_cluster_group", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["dc_cluster_group", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["dc cluster group namespace"], "anchor": "schema-dc_cluster_group--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:fleet:properties:dc_cluster_group", "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["dc_cluster_group", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["dc cluster group tenant"], "anchor": "schema-dc_cluster_group--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:fleet:properties:dc_cluster_group", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["dc_cluster_group", "tenant"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/dc_cluster_group/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["fleetCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["dc cluster group"], "body_bytes": 5682, "body_sha256": "sha256:c3fd0d67fa4fecac3f16edb9fb547b163ff265898c05cb1f8b842ed11d3460f7", "capabilities": [], "category": null, "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": [], "status": "unresolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:fleet:collection", "completeness": "complete", "id": "xcsh-docs:resources:fleet:properties:dc_cluster_group", "parent_id": "xcsh-docs:resources:fleet:reference", "path": "documentation/resources/fleet/properties/dc_cluster_group/index.md", "product": "distributed-cloud", "provider_name": "fleet", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2220011112301110-2101322302212032-2331222020113323-3333113013301010-2200210103313131-3003210110031021-1011111332222330-3232220020111203", "registry_path": "docs/guides/resources--fleet--reference--group-002.md", "relationships": [{"anchor": "schema-dc_cluster_group--name", "enforcement": "provider-schema", "group": "dc_cluster_group:RequiredObjectAttributes:name", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:fleet:properties:dc_cluster_group", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["dc_cluster_group"], "schema_version": 1, "sections": [{"aliases": ["dc cluster group name"], "anchor": "schema-dc_cluster_group--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:fleet:properties:dc_cluster_group", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["dc_cluster_group", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["dc cluster group namespace"], "anchor": "schema-dc_cluster_group--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:fleet:properties:dc_cluster_group", "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["dc_cluster_group", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["dc cluster group tenant"], "anchor": "schema-dc_cluster_group--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:fleet:properties:dc_cluster_group", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["dc_cluster_group", "tenant"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/dc_cluster_group/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["fleetCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -25,10 +25,9 @@ Type: `"object"`. single nested block, Optional.
 no\_dc\_cluster\_group\] Type establishes a direct reference from one object(the referrer) to
 another(the referred). Such a reference is in form of tenant/namespace/name.
 
-Upstream description:
+Additional upstream details:
 
 This type establishes a direct reference from one object(the referrer) to another(the referred).
-Such a reference is in form of tenant/namespace/name.
 
 Provider validators and defaults (from schema source):
 
@@ -72,11 +71,6 @@ dc_cluster_group {
 ### name property
 
 Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
@@ -135,11 +129,6 @@ Receipt-pinned upstream constraints:
 ### namespace property
 
 Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -209,11 +198,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -255,8 +239,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/fleet/properties/)
-- [xcsh_fleet](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/fleet/)

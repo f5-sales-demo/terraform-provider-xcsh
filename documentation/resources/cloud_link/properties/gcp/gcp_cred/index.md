@@ -2,7 +2,7 @@
 page_title: "gcp.gcp_cred"
 subcategory: ""
 description: "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name."
-xcsh_docs: {"aliases": ["gcp gcp cred"], "body_bytes": 5907, "body_sha256": "sha256:4ad3eb946fe66a2fb879997204f867ba5290c5ed403a688b0d558d6a5f963bc3", "capabilities": ["infrastructure"], "category": "infrastructure", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:cloud_link:collection", "completeness": "complete", "id": "xcsh-docs:resources:cloud_link:properties:gcp:gcp_cred", "parent_id": "xcsh-docs:resources:cloud_link:properties:gcp", "path": "documentation/resources/cloud_link/properties/gcp/gcp_cred/index.md", "product": "distributed-cloud", "provider_name": "cloud_link", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3123231132230302-2000202222031322-1313322313312231-0011203110123103-3123132132132123-1100101001001230-1032310011123330-0300211020002302", "registry_path": "docs/guides/resources--cloud_link--reference--group-001.md", "relationships": [{"anchor": "schema-gcp--gcp_cred--name", "enforcement": "provider-schema", "group": "gcp.gcp_cred:RequiredObjectAttributes:name", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:cloud_link:properties:gcp:gcp_cred", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["gcp", "gcp_cred"], "schema_version": 1, "sections": [{"aliases": ["gcp gcp cred name"], "anchor": "schema-gcp--gcp_cred--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:cloud_link:properties:gcp:gcp_cred", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["gcp", "gcp_cred", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["gcp gcp cred namespace"], "anchor": "schema-gcp--gcp_cred--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:cloud_link:properties:gcp:gcp_cred", "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["gcp", "gcp_cred", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["gcp gcp cred tenant"], "anchor": "schema-gcp--gcp_cred--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:cloud_link:properties:gcp:gcp_cred", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["gcp", "gcp_cred", "tenant"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/properties/gcp/gcp_cred/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["cloud_linkCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["gcp gcp cred"], "body_bytes": 5017, "body_sha256": "sha256:9829de8285feda4d6ead955cf54ace7aa637d381fb84a667ccd8a9dcefe39322", "capabilities": ["infrastructure"], "category": "infrastructure", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:cloud_link:collection", "completeness": "complete", "id": "xcsh-docs:resources:cloud_link:properties:gcp:gcp_cred", "parent_id": "xcsh-docs:resources:cloud_link:properties:gcp", "path": "documentation/resources/cloud_link/properties/gcp/gcp_cred/index.md", "product": "distributed-cloud", "provider_name": "cloud_link", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3123231132230302-2000202222031322-1313322313312231-0011203110123103-3123132132132123-1100101001001230-1032310011123330-0300211020002302", "registry_path": "docs/guides/resources--cloud_link--reference--group-001.md", "relationships": [{"anchor": "schema-gcp--gcp_cred--name", "enforcement": "provider-schema", "group": "gcp.gcp_cred:RequiredObjectAttributes:name", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:cloud_link:properties:gcp:gcp_cred", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["gcp", "gcp_cred"], "schema_version": 1, "sections": [{"aliases": ["gcp gcp cred name"], "anchor": "schema-gcp--gcp_cred--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:cloud_link:properties:gcp:gcp_cred", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["gcp", "gcp_cred", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["gcp gcp cred namespace"], "anchor": "schema-gcp--gcp_cred--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:cloud_link:properties:gcp:gcp_cred", "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["gcp", "gcp_cred", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["gcp gcp cred tenant"], "anchor": "schema-gcp--gcp_cred--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:cloud_link:properties:gcp:gcp_cred", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["gcp", "gcp_cred", "tenant"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/properties/gcp/gcp_cred/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["cloud_linkCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -21,11 +21,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
-reference is in form of tenant/namespace/name.
-
-Upstream description:
 
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
@@ -64,11 +59,6 @@ gcp_cred {
 ### name property
 
 Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
@@ -127,11 +117,6 @@ Receipt-pinned upstream constraints:
 ### namespace property
 
 Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -201,11 +186,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -247,8 +227,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [gcp](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/cloud_link/properties/gcp/)
-- [xcsh_cloud_link](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/cloud_link/)

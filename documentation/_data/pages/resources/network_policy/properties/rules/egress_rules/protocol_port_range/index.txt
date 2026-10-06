@@ -2,7 +2,7 @@
 page_title: "rules.egress_rules.protocol_port_range"
 subcategory: "Security"
 description: "Protocol and Port ranges."
-xcsh_docs: {"aliases": ["rules egress rules protocol port range"], "body_bytes": 3821, "body_sha256": "sha256:24e0c3641c55448678969fa9e98c583e90c424b938578a37ae191b5f0f5b0e82", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:network_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:network_policy:properties:rules:egress_rules:protocol_port_range", "parent_id": "xcsh-docs:resources:network_policy:properties:rules:egress_rules", "path": "documentation/resources/network_policy/properties/rules/egress_rules/protocol_port_range/index.md", "product": "distributed-cloud", "provider_name": "network_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2012213131312232-1113312032121130-0210323122310013-2201130220112023-3013002302203233-3301202123303110-2223102202313111-2323300301101122", "registry_path": "docs/guides/resources--network_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["rules", "egress_rules", "protocol_port_range"], "schema_version": 1, "sections": [{"aliases": ["rules egress rules protocol port range port ranges"], "anchor": "schema-rules--egress_rules--protocol_port_range--port_ranges", "description": "List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192.", "document_id": "xcsh-docs:resources:network_policy:properties:rules:egress_rules:protocol_port_range", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "egress_rules", "protocol_port_range", "port_ranges"], "syntax": "attribute", "type": "list"}, {"aliases": ["rules egress rules protocol port range protocol"], "anchor": "schema-rules--egress_rules--protocol_port_range--protocol", "description": "Protocol in IP packet to be used as match criteria Values are TCP, UDP, and icmp.", "document_id": "xcsh-docs:resources:network_policy:properties:rules:egress_rules:protocol_port_range", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "egress_rules", "protocol_port_range", "protocol"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_policy/properties/rules/egress_rules/protocol_port_range/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Protocol and Port ranges.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["network_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["rules egress rules protocol port range"], "body_bytes": 3406, "body_sha256": "sha256:95c698809e5bef2647a3b3e9e4e4859e02d653fdb4df2303fd86c03bf8314ffa", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:network_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:network_policy:properties:rules:egress_rules:protocol_port_range", "parent_id": "xcsh-docs:resources:network_policy:properties:rules:egress_rules", "path": "documentation/resources/network_policy/properties/rules/egress_rules/protocol_port_range/index.md", "product": "distributed-cloud", "provider_name": "network_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2012213131312232-1113312032121130-0210323122310013-2201130220112023-3013002302203233-3301202123303110-2223102202313111-2323300301101122", "registry_path": "docs/guides/resources--network_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["rules", "egress_rules", "protocol_port_range"], "schema_version": 1, "sections": [{"aliases": ["rules egress rules protocol port range port ranges"], "anchor": "schema-rules--egress_rules--protocol_port_range--port_ranges", "description": "List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192.", "document_id": "xcsh-docs:resources:network_policy:properties:rules:egress_rules:protocol_port_range", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "egress_rules", "protocol_port_range", "port_ranges"], "syntax": "attribute", "type": "list"}, {"aliases": ["rules egress rules protocol port range protocol"], "anchor": "schema-rules--egress_rules--protocol_port_range--protocol", "description": "Protocol in IP packet to be used as match criteria Values are TCP, UDP, and icmp.", "document_id": "xcsh-docs:resources:network_policy:properties:rules:egress_rules:protocol_port_range", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "egress_rules", "protocol_port_range", "protocol"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_policy/properties/rules/egress_rules/protocol_port_range/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Protocol and Port ranges.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["network_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -24,10 +24,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Protocol and Port. Protocol and Port ranges.
-
-Upstream description:
-
-Protocol and Port ranges.
 
 Receipt-pinned upstream constraints:
 
@@ -110,10 +106,6 @@ Type: `"string"`. Optional.
 \[Enum: ALL|TCP|UDP|ICMP\] Protocol in IP packet to be used as match criteria Values are TCP, UDP,
 and icmp. Possible values are \`ALL\`, \`TCP\`, \`UDP\`, \`ICMP\`.
 
-Upstream description:
-
-Protocol in IP packet to be used as match criteria Values are TCP, UDP, and icmp.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -159,8 +151,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [rules.egress_rules](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/network_policy/properties/rules/egress_rules/)
-- [xcsh_network_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/network_policy/)

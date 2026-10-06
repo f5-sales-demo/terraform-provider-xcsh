@@ -56,8 +56,8 @@
   "pages": [
     {
       "aliases": ["ip prefix set"],
-      "body_bytes": 1370,
-      "body_sha256": "sha256:b2e81121c30c4e595d7ad3d8b51d60bc6bd45ce9df68bef695525649320775ac",
+      "body_bytes": 1326,
+      "body_sha256": "sha256:9b9e538ac130cc6024f0f2b75c9096a7f10a667c3525f69e376c9df301749790",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:ip_prefix_set:reference", "xcsh-docs:data-sources:ip_prefix_set:examples"],
@@ -85,7 +85,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ip_prefix_set/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages ip_prefix_set creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
+      "summary": "Reads IP Prefix Set information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_ip_prefix_set",
       "unresolved_relationships": [],
@@ -97,8 +97,8 @@
     },
     {
       "aliases": ["ip prefix set"],
-      "body_bytes": 8310,
-      "body_sha256": "sha256:465f9fa24287488a9483394fe7e01e9148c6756acc47e619e5bcaee182fb6279",
+      "body_bytes": 8093,
+      "body_sha256": "sha256:a237c6180b7045b02d56bda80a44d8b27f725792c50e23bcbbea9d885f113693",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:ip_prefix_set:properties:ipv4_prefixes"],
@@ -236,8 +236,8 @@
     },
     {
       "aliases": ["ipv4 prefixes"],
-      "body_bytes": 2712,
-      "body_sha256": "sha256:96e10b53242f0ba3edf03930a3f6d67dc0307f3ac9322713d65b61979ff25804",
+      "body_bytes": 2356,
+      "body_sha256": "sha256:8410446e07e060f79af5de0a5edb614e8b8470e93a1d18e36fbb92ae880cbfed",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -305,8 +305,8 @@
     },
     {
       "aliases": ["ip prefix set"],
-      "body_bytes": 663,
-      "body_sha256": "sha256:968a71daf2713a60488ec3539fbad9b8118dbe48a833c61d26d555fc950dcb15",
+      "body_bytes": 417,
+      "body_sha256": "sha256:b0504de34efbf91c300889b7ed552b54b1402ddb323119e011391339d46e520a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:ip_prefix_set:example:data-source"],
@@ -345,8 +345,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1290,
-      "body_sha256": "sha256:4af244722638dbcaf5cbc0f961bcf1dff968e02854647edfbe287f46bc53bc65",
+      "body_bytes": 1059,
+      "body_sha256": "sha256:4e52d61775fe34daf0892a8e6dc97c7c50bfc82411ebf4baa2f5cd4d60ca2dd4",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],

@@ -71,8 +71,8 @@
   "pages": [
     {
       "aliases": ["device intelligence multi account devices"],
-      "body_bytes": 1424,
-      "body_sha256": "sha256:275aa7fde52a668e4d32b9b4950d77caa4e724465a6da2a2393d4fa9c1743a54",
+      "body_bytes": 1495,
+      "body_sha256": "sha256:d07dec2d740453de78a0f65f3ca7ef9facdd8ce804061d6936f9da81ed60c6a4",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -103,7 +103,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_multi_account_devices/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource creation operation.",
+      "summary": "Reads Device Intelligence Multi Account Devices information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_device_intelligence_multi_account_devices",
       "unresolved_relationships": [],
@@ -115,8 +115,8 @@
     },
     {
       "aliases": ["device intelligence multi account devices"],
-      "body_bytes": 5085,
-      "body_sha256": "sha256:6828014eecb3ef3eaa59d59ab4b31458256e8136530a8cb2a9584407504cf41f",
+      "body_bytes": 4589,
+      "body_sha256": "sha256:993618018fa18cb5feeb3f0c518fd4e971ba8613f8da1dfbb008a6eb1f943531",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -229,8 +229,8 @@
     },
     {
       "aliases": ["filters"],
-      "body_bytes": 1764,
-      "body_sha256": "sha256:2a5e7f34879a99889cb91aa3d3ef3a50584e85d26d35b6b88d12fd80f729b177",
+      "body_bytes": 1263,
+      "body_sha256": "sha256:f047a3feae903465751b11e8428a3e6453c608c0e7751f6bb7cf57d1f23aeafa",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -300,8 +300,8 @@
     },
     {
       "aliases": ["filters global filters"],
-      "body_bytes": 5522,
-      "body_sha256": "sha256:067148f86cf3574e8fd14174c728c0d79c70524dbdae43b81fe982c30d7b9532",
+      "body_bytes": 5198,
+      "body_sha256": "sha256:533b36c3fe4c214b86a163511bc0fe4dae767856486c173ac57cdc4e6fd1e900",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -383,8 +383,8 @@
     },
     {
       "aliases": ["multi account devices"],
-      "body_bytes": 1282,
-      "body_sha256": "sha256:c0296cdffa9354ae422d56035a885f8e19d6ad163b56aa2d8f388bbe13105860",
+      "body_bytes": 955,
+      "body_sha256": "sha256:8161d4b13fba91ec692dcf665280eb72e2de73cc443170d57cdfcb8bf66669dd",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -452,8 +452,8 @@
     },
     {
       "aliases": ["device intelligence multi account devices"],
-      "body_bytes": 831,
-      "body_sha256": "sha256:b1e79a4d93855a74e493ef0e6ce72dcd3334752c5328e052a9833e37d1292bc4",
+      "body_bytes": 501,
+      "body_sha256": "sha256:a884b847d92e3abf7367b2d2344bd0cd2769521d4df62e3599fedf060cc03069",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:device_intelligence_multi_account_devices:example:data-source"],
@@ -492,8 +492,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1523,
-      "body_sha256": "sha256:296de72305fd354e96b941eecd275e98c79306d0f60b82cd3bb5b5127a50da79",
+      "body_bytes": 1208,
+      "body_sha256": "sha256:4043e171adef45ee00dec914cd66559a02681d904f0e02e0aca281518c323792",
       "capabilities": [],
       "category": null,
       "child_ids": [],

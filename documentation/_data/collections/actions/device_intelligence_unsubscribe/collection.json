@@ -10,8 +10,8 @@
   "pages": [
     {
       "aliases": ["device intelligence unsubscribe"],
-      "body_bytes": 1321,
-      "body_sha256": "sha256:722af403224e5bf6386ea46e3b02b9f2cc198a38b844227267c4fac6ee6fc4bf",
+      "body_bytes": 1352,
+      "body_sha256": "sha256:ae2633928b23b52486d444e34c275dd6d95c4214827a9a094a3bd8a99d260976",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -43,7 +43,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/device_intelligence_unsubscribe/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource creation operation.",
+      "summary": "Unsubscribes from Device Intelligence updates.",
       "tasks": ["configuration"],
       "title": "xcsh_device_intelligence_unsubscribe",
       "unresolved_relationships": [],
@@ -55,8 +55,8 @@
     },
     {
       "aliases": ["device intelligence unsubscribe"],
-      "body_bytes": 763,
-      "body_sha256": "sha256:f11cf9746f54654ccfc38ca09b711c640010fc83b04747100c113708dd053c41",
+      "body_bytes": 586,
+      "body_sha256": "sha256:7784523b2da2a61ebdcec3cfce3baf28978f0d53a7dd410189771e558e18ceba",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -95,8 +95,8 @@
     },
     {
       "aliases": ["device intelligence unsubscribe"],
-      "body_bytes": 731,
-      "body_sha256": "sha256:56993923baf7c725ca1b7e323a7eeb038f18724f425cc030333a3332054c7370",
+      "body_bytes": 451,
+      "body_sha256": "sha256:768b23f1f1197b0d73465c364afa52871ea856e84b04aace6d78615f10952399",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:actions:device_intelligence_unsubscribe:example:action"],
@@ -135,8 +135,8 @@
     },
     {
       "aliases": ["action"],
-      "body_bytes": 1245,
-      "body_sha256": "sha256:1d1e8745c2d18580e65393e4a05d097f184535aecf4029000d6d6a8951bfcd83",
+      "body_bytes": 970,
+      "body_sha256": "sha256:42c9c142ba2aeadb583252774aa034b02fdb5f18128dc45c18da0d1094d51cdf",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -182,8 +182,8 @@
     },
     {
       "aliases": ["device intelligence unsubscribe"],
-      "body_bytes": 674,
-      "body_sha256": "sha256:80cbb8190808946800d613cb5af9b34b8df924a7386cf5a34072fa5fa9d91960",
+      "body_bytes": 519,
+      "body_sha256": "sha256:877c73f435164d91511535de1595bbaef1d80e07320dd0858619a30d57d3b47b",
       "capabilities": [],
       "category": null,
       "child_ids": [],

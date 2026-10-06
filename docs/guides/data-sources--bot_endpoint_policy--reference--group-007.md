@@ -6,15 +6,13 @@ description: "Complete grouped canonical reference for xcsh_bot_endpoint_policy 
 
 # xcsh_bot_endpoint_policy reference
 
-<a id="canonical-0330331223132231-1311321003222132-0321100312000032-1130030321103302-3223200112113202-0313221312022112-0110330122022030-1103210212011110"></a>
+<a id="canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0223302122300302-1003011103012132-1232312013311122-3112132121311022-2002113121120210-2312102323301031-0030300110021021-2101112031211232"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_schedule_pickup — shop_schedule_pickup / 102320020212 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards` properties
 
 Breadcrumbs:
 
@@ -23,8 +21,506 @@ Breadcrumbs:
 - [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
 - [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
 - [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards
+
+<a id="canonical-3031320030010211-2202303200330331-2121121301211202-0210300110303131-0011313223133233-2212222032000223-0013321120312103-3103200321321101"></a>
+
+Type: `"single"`. Computed.
+
+Flow Label Shopping &amp; Gift Cards Category.
+
+<a id="canonical-3132310022322320-0022210000330003-1013010001110300-2230113110300322-0001122321231320-2123211110013221-3123001030231022-0303112323132212"></a>
+
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards`
+
+- [gift_card_check_balance](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-3000012330301301-2121011131232113-1130323313301023-1122011213230000-2330002033223033-3103222313001310-2111331310101220-1333130301230103): complete subsection reference.
+
+- [gift_card_make_purches_with_card](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1323303302121332-3022133112031312-1022201330320321-2320030111323003-3233332313101223-1001301113213113-3320330010131020-3101221212212020): complete subsection reference.
+
+- [gift_card_purchase_card](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-3330321133313301-0333223302210021-2032113201013013-3202301203101113-1230331100133133-0010323302310322-3231220102303210-2300230210200300): complete subsection reference.
+
+- [shop_add_to_cart](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-3212220032313330-0121333331113211-2022322123311201-0110331101002103-0103002130332111-0311012203122121-3010112000112203-0230003133313100): complete subsection reference.
+
+- [shop_apply_gift_card](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2321320022311032-1100112010212001-3031321210313011-2320122303131031-0233203201230112-1121101020011131-3301001120100333-0302130103331003): complete subsection reference.
+
+- [shop_apply_promo_code](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1220230002301332-0020110323020322-0030031002033131-1220113003211202-0200321313232301-3221101203330332-2232022322031232-2221020302023230): complete subsection reference.
+
+- [shop_checkout](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0032132132213201-0121131332330311-3311311010111320-2132311232312013-2221130111313233-2023321033112302-0020212233000130-3020220222321111): complete subsection reference.
+
+- [shop_choose_seat](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-3001031120100111-2103320121132203-2030321303302311-0220020310230033-1300122230332213-2101322331213100-1202002220131320-1110331012102022): complete subsection reference.
+
+- [shop_enter_drawing_submission](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-3220220133212133-1300130231130330-1212112033002203-3130020213132211-3313101220223002-2220012321212302-3333032001002211-1210322032100000): complete subsection reference.
+
+- [shop_hold_inventory](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1200022301031010-2030000322132030-1312321202311311-3201130021300233-3122123130111210-2202020310020000-1212031023312202-0133031131102010): complete subsection reference.
+
+- [shop_make_payment](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2122113011110020-3320102303113121-3301032022000033-0220030023320001-1322031323113301-2132312013122330-2212131012323320-0231120113003010): complete subsection reference.
+
+- [shop_offer](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1113003203122130-3200002322132122-1233202332211002-0233201011202323-1221212101321100-0311222013103222-3102330231221210-0233333323033301): complete subsection reference.
+
+- [shop_order](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-3323102021012221-3212223111001000-3232012021230221-0111123312311302-2230011021010203-1100202011001302-1301202002310020-2332230001000323): complete subsection reference.
+
+- [shop_price_inquiry](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0300032313111000-0201103022331100-3313103100111023-2031320231032230-0201320112312021-3333100012200010-1120011002210220-3020201131101010): complete subsection reference.
+
+- [shop_purchase_gift_card](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1222000330132112-2313212201030203-0220020023320010-2100230133300020-3220021303132221-3230032311020100-3332131032013023-2310310211221323): complete subsection reference.
+
+- [shop_return](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2023022011300020-0123032202301003-3103110200203120-1213123021122010-3232312101231012-3020122203221211-1302121312010021-1331303322101210): complete subsection reference.
+
+- [shop_schedule_pickup](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0330331223132231-1311321003222132-0321100312000032-1130030321103302-3223200112113202-0313221312022112-0110330122022030-1103210212011110): complete subsection reference.
+
+- [shop_track_order](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-3003230023030132-2220113231232202-0311010112321130-1303231030200002-1323313223213230-3010202010222320-0222132013110033-0112122023032232): complete subsection reference.
+
+- [shop_update_quantity](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1120333113332213-0333232222333211-0202233133232120-2003312203103101-3030032223332033-2112313211112201-1302110132301102-0301203300122201): complete subsection reference.
+
+<a id="canonical-3000012330301301-2121011131232113-1130323313301023-1122011213230000-2330002033223033-3103222313001310-2111331310101220-1333130301230103"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.gift_card_check_balance` properties
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.gift_card_check_balance
+
+<a id="canonical-1022330033200111-2033313103100021-2003011030301130-0313002012031102-0121323011123202-3302031022321030-3010300111113000-1111030000011113"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for gift card check balance.
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1323303302121332-3022133112031312-1022201330320321-2320030111323003-3233332313101223-1001301113213113-3320330010131020-3101221212212020"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.gift_card_make_purches_with_card` properties
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.gift_card_make_purches_with_card
+
+<a id="canonical-3122232313031222-3133001100131203-0033212020212302-0012003322123023-0113323001032212-3200000222000022-1013030021202211-1230311213203313"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for gift card make purches with card.
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3330321133313301-0333223302210021-2032113201013013-3202301203101113-1230331100133133-0010323302310322-3231220102303210-2300230210200300"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.gift_card_purchase_card` properties
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.gift_card_purchase_card
+
+<a id="canonical-2032201203300300-0212010233103220-1023132300320200-0111010132031213-2301330010010333-1010333031302133-2001111023222210-3121323212001103"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for gift card purchase card.
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3212220032313330-0121333331113211-2022322123311201-0110331101002103-0103002130332111-0311012203122121-3010112000112203-0230003133313100"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_add_to_cart` properties
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_add_to_cart
+
+<a id="canonical-1222221112231221-1011302122121023-2330000211021020-3312220001113303-1221123101132221-2213212210202101-2302030230201313-1322311333133002"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for shop add to cart.
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2321320022311032-1100112010212001-3031321210313011-2320122303131031-0233203201230112-1121101020011131-3301001120100333-0302130103331003"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_apply_gift_card` properties
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_apply_gift_card
+
+<a id="canonical-3100212220213012-2312331211122203-1002231013332131-1100110131111002-2003223113300032-0010222310133100-2211103013213321-3121001112030213"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for shop apply gift card.
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1220230002301332-0020110323020322-0030031002033131-1220113003211202-0200321313232301-3221101203330332-2232022322031232-2221020302023230"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_apply_promo_code` properties
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_apply_promo_code
+
+<a id="canonical-3211322233213133-0331133111132132-0110310201321030-1323022201212320-3210233023113333-0202330203032033-2123333330130001-0012230120112113"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for shop apply promo code.
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0032132132213201-0121131332330311-3311311010111320-2132311232312013-2221130111313233-2023321033112302-0020212233000130-3020220222321111"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_checkout` properties
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_checkout
+
+<a id="canonical-1101210110012200-2203223103320210-3023202221110101-2110301013230230-0032331332312010-0323211021322102-2103101020212120-3211023202112132"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for shop checkout.
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3001031120100111-2103320121132203-2030321303302311-0220020310230033-1300122230332213-2101322331213100-1202002220131320-1110331012102022"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_choose_seat` properties
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_choose_seat
+
+<a id="canonical-3311331313031132-1200002333202302-3200303320200101-0130212302300011-1131220010323221-1332102000020132-3133301322111321-3303113333331011"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for shop choose seat.
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3220220133212133-1300130231130330-1212112033002203-3130020213132211-3313101220223002-2220012321212302-3333032001002211-1210322032100000"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_enter_drawing_submission` properties
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_enter_drawing_submission
+
+<a id="canonical-0221300310213030-0020110322123031-0301330021300302-1300122132010030-3312231123212310-2130220230232330-1102200201232000-3303103130101102"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for shop enter drawing submission.
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1200022301031010-2030000322132030-1312321202311311-3201130021300233-3122123130111210-2202020310020000-1212031023312202-0133031131102010"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_hold_inventory` properties
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_hold_inventory
+
+<a id="canonical-3221313323020023-2301333112331113-0013103303323011-1330201320022301-2222202300133200-0223332210233121-0021232232211200-0031320011133202"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for shop hold inventory.
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2122113011110020-3320102303113121-3301032022000033-0220030023320001-1322031323113301-2132312013122330-2212131012323320-0231120113003010"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_make_payment` properties
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_make_payment
+
+<a id="canonical-1113122111102200-1013121213301212-2200332211211113-1213013032000022-2310021003032122-2102030211111120-1020302122130233-3311120033031322"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for shop make payment.
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1113003203122130-3200002322132122-1233202332211002-0233201011202323-1221212101321100-0311222013103222-3102330231221210-0233333323033301"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_offer` properties
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_offer
+
+<a id="canonical-2000032113021122-0303110032103331-2213100211211220-0213122311131013-2222323332300003-1331313331221300-0301012220122031-2322322001012031"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3323102021012221-3212223111001000-3232012021230221-0111123312311302-2230011021010203-1100202011001302-1301202002310020-2332230001000323"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_order` properties
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_order
+
+<a id="canonical-2013011211311110-3202223021213123-3022230322300020-1212301111130122-2001202330223223-3101232121022323-3223101323102221-2213010020312323"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0300032313111000-0201103022331100-3313103100111023-2031320231032230-0201320112312021-3333100012200010-1120011002210220-3020201131101010"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_price_inquiry` properties
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_price_inquiry
+
+<a id="canonical-1221303303233210-3012323011311101-0232022001231233-3020321122123001-2030203022032312-1211312000103233-0122031321231123-1233131100110001"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for shop price inquiry.
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1222000330132112-2313212201030203-0220020023320010-2100230133300020-3220021303132221-3230032311020100-3332131032013023-2310310211221323"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_purchase_gift_card` properties
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_purchase_gift_card
+
+<a id="canonical-0312000123022001-0200312223131233-3232231231020320-0033121200211003-2231300013333121-0011322210101220-0003333323101303-0203121213331322"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for shop purchase gift card.
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2023022011300020-0123032202301003-3103110200203120-1213123021122010-3232312101231012-3020122203221211-1302121312010021-1331303322101210"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_return` properties
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_return
+
+<a id="canonical-1331223222010332-2222230232121331-1000223101332123-1003120101103302-1030110001320002-1120211120012010-0131002200132001-0001020112331202"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for shop return.
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0330331223132231-1311321003222132-0321100312000032-1130030321103302-3223200112113202-0313221312022112-0110330122022030-1103210212011110"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_schedule_pickup` properties
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_schedule_pickup
 
 <a id="canonical-1033303330010010-3313211110312030-3110201132201121-1312213120211023-3120023313130120-3031321313102001-0222011223211322-1321031022010010"></a>
@@ -33,18 +529,7 @@ Type: `["object", {}]`. Computed.
 
 Configuration parameter for shop schedule pickup.
 
-<a id="canonical-2113201001210331-2130201233301033-3300002222011021-3123023022033310-0302030111311322-1300122102022010-2223023103312100-1331133332332203"></a>
-
-## Direct properties — shop_schedule_pickup / 102320020212 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1032121301310330-2213012101221020-0111301331033223-0111013002001301-3033231113230213-3322201201210321-1202100322132323-1110011001022002"></a>
-
-## Next pages — shop_schedule_pickup / 102320020212 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-3003230023030132-2220113231232202-0311010112321130-1303231030200002-1323313223213230-3010202010222320-0222132013110033-0112122023032232"></a>
 
@@ -52,9 +537,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0210332001113212-3200110121101301-1111111200220130-3323223011311112-2002201200130101-3232113213203220-0231233111013113-1322013233033220"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_track_order — shop_track_order / 332133330122 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_track_order` properties
 
 Breadcrumbs:
 
@@ -63,8 +546,8 @@ Breadcrumbs:
 - [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
 - [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
 - [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_track_order
 
 <a id="canonical-3022011323111233-1110113303231321-0302213323312113-3330212102230031-2012103102311112-3030231120130322-1020130003033022-1001013313110301"></a>
@@ -73,18 +556,7 @@ Type: `["object", {}]`. Computed.
 
 Configuration parameter for shop track order.
 
-<a id="canonical-2302001330130133-2213112123122002-3300223330322112-1132131200312311-0012022113332020-3331210013230320-2210221301211110-2200211103022221"></a>
-
-## Direct properties — shop_track_order / 332133330122 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3210210330131220-1210111222102023-3333323030111310-0232321123122332-3120033020132020-2321012230011302-2320303000003223-3112213213002020"></a>
-
-## Next pages — shop_track_order / 332133330122 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-1120333113332213-0333232222333211-0202233133232120-2003312203103101-3030032223332033-2112313211112201-1302110132301102-0301203300122201"></a>
 
@@ -92,9 +564,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3112231333111123-2201300201032232-3322332130012000-0111203010333330-1103221200020332-3133232102213312-3213030011030001-1130111311130220"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_update_quantity — shop_update_quantity / 200321233332 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_update_quantity` properties
 
 Breadcrumbs:
 
@@ -103,8 +573,8 @@ Breadcrumbs:
 - [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
 - [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
 - [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards.shop_update_quantity
 
 <a id="canonical-2201213213111200-0211311122200313-3110020220331203-3230003302132003-3331130210011020-3201213121220310-0213023302202223-1011222221133232"></a>
@@ -113,18 +583,7 @@ Type: `["object", {}]`. Computed.
 
 Configuration parameter for shop update quantity.
 
-<a id="canonical-0232021203133320-1002222323033012-2103132130222112-1330212303101222-3032310010321222-0312002233213321-1121332321001212-0303321011201010"></a>
-
-## Direct properties — shop_update_quantity / 200321233332 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0223320013202013-1302023131212133-3303202122230032-0323020210221102-3121220003210031-2022231221032020-2101033303211311-0220120130123102"></a>
-
-## Next pages — shop_update_quantity / 200321233332 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.shopping_gift_cards](data-sources--bot_endpoint_policy--reference--group-006.md#canonical-2221332230230203-0001300233312111-3033330032100303-0222300020133110-1030023002210013-1100110112020023-0002010012023103-0220200121113331)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-2313222301231320-1021130021111020-2122011033032130-2032301133111203-1230123231220100-3230133000121211-0210231103110020-1232311032201221"></a>
 
@@ -132,9 +591,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1012210310003101-1310023133121313-0202302313133012-3100321110313230-3131001130301121-1203022012032232-3130331122032102-1010312313311012"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.socials — socials / 201122301222 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.socials` properties
 
 Breadcrumbs:
 
@@ -143,7 +600,7 @@ Breadcrumbs:
 - [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
 - [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
 - [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.socials
 
 <a id="canonical-1122123002313332-2202022220220033-3300030321331113-2203002303022303-2211100233333322-1233020132102102-2103200322223113-3011212102110300"></a>
@@ -152,9 +609,9 @@ Type: `"single"`. Computed.
 
 Socials Category. Flow Label Socials Category.
 
-<a id="canonical-3022031111333200-1112112030303021-2010001321033302-0302031030203221-2131332102132010-3323011120213032-2110111313013112-1110201323021013"></a>
+<a id="canonical-1012210310003101-1310023133121313-0202302313133012-3100321110313230-3131001130301121-1203022012032232-3130331122032102-1010312313311012"></a>
 
-## Direct properties — socials / 201122301222 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.socials`
 
 - [follow](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1003302333330320-0201133111213113-2211322003110012-3233332323322201-0123022302321213-0333330022033232-2031013322011230-2331230120101013): complete subsection reference.
 
@@ -162,25 +619,13 @@ Socials Category. Flow Label Socials Category.
 
 - [message](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1001111333331102-0203232231120201-3332010120230300-0022002010300020-1133003311110103-2312112010022312-1330333302310122-3203203002230232): complete subsection reference.
 
-<a id="canonical-3123023031220331-2233213233223011-3313323213211012-2233021012031002-0031000323322010-2313112332322002-2022322231213113-2302133123333010"></a>
-
-## Next pages — socials / 201122301222 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.socials.follow](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1003302333330320-0201133111213113-2211322003110012-3233332323322201-0123022302321213-0333330022033232-2031013322011230-2331230120101013)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.socials.like](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0310220122300111-2233013222230013-2231202313302330-3020101121132001-3322300012110003-3103012130220212-2031021213123212-2310001232132332)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.socials.message](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1001111333331102-0203232231120201-3332010120230300-0022002010300020-1133003311110103-2312112010022312-1330333302310122-3203203002230232)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
-
 <a id="canonical-1003302333330320-0201133111213113-2211322003110012-3233332323322201-0123022302321213-0333330022033232-2031013322011230-2331230120101013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1233313112021201-0121210313323012-2101332222232211-1333220333113001-2222103233112201-1333311003110102-0112313132123312-1202310122110132"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.socials.follow — follow / 223322003132 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.socials.follow` properties
 
 Breadcrumbs:
 
@@ -189,7 +634,7 @@ Breadcrumbs:
 - [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
 - [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
 - [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
 - [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.socials](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2313222301231320-1021130021111020-2122011033032130-2032301133111203-1230123231220100-3230133000121211-0210231103110020-1232311032201221)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.socials.follow
 
@@ -199,18 +644,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-2300002221103003-3200220113232022-3000301103133033-0312001103301223-1203300123130212-3001123222210120-2100101330222233-1111231221223100"></a>
-
-## Direct properties — follow / 223322003132 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1331330200201211-3211130131303111-2122213313310002-3302302330003132-2121320121221302-1332131102333101-0111022113001322-1112123100210110"></a>
-
-## Next pages — follow / 223322003132 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.socials](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2313222301231320-1021130021111020-2122011033032130-2032301133111203-1230123231220100-3230133000121211-0210231103110020-1232311032201221)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-0310220122300111-2233013222230013-2231202313302330-3020101121132001-3322300012110003-3103012130220212-2031021213123212-2310001232132332"></a>
 
@@ -218,9 +652,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2002212022331301-0013102111313030-1100311213023201-1033231113111303-1011303221132103-2112013221300221-3222002200100022-1333333021232200"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.socials.like — like / 200111103213 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.socials.like` properties
 
 Breadcrumbs:
 
@@ -229,7 +661,7 @@ Breadcrumbs:
 - [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
 - [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
 - [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
 - [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.socials](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2313222301231320-1021130021111020-2122011033032130-2032301133111203-1230123231220100-3230133000121211-0210231103110020-1232311032201221)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.socials.like
 
@@ -239,18 +671,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-1013103121003312-0132222002203323-2321132101300330-2111112231231033-1300131213312201-3301032333303323-1232311121211031-2220313112032332"></a>
-
-## Direct properties — like / 200111103213 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2110103221111001-3322112132200202-0303011221022113-0001232112103221-2001130303110302-2331213311033311-2322003003201322-0010131132132103"></a>
-
-## Next pages — like / 200111103213 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.socials](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2313222301231320-1021130021111020-2122011033032130-2032301133111203-1230123231220100-3230133000121211-0210231103110020-1232311032201221)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-1001111333331102-0203232231120201-3332010120230300-0022002010300020-1133003311110103-2312112010022312-1330333302310122-3203203002230232"></a>
 
@@ -258,9 +679,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1133133203313201-2330310301113023-1323330132000022-1003320210121300-0303002213000212-1023010001002220-2332312221223111-1112012212222010"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.socials.message — message / 310331000003 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.socials.message` properties
 
 Breadcrumbs:
 
@@ -269,7 +688,7 @@ Breadcrumbs:
 - [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
 - [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
 - [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
 - [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.socials](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2313222301231320-1021130021111020-2122011033032130-2032301133111203-1230123231220100-3230133000121211-0210231103110020-1232311032201221)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.socials.message
 
@@ -279,18 +698,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-1332132000130033-0203131213033210-2322021010020213-3022003003221000-1133033002312112-3230120210111133-2010131121300000-3132223232222102"></a>
-
-## Direct properties — message / 310331000003 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2123320321213301-3001031300212132-3212301323232302-0212132321123100-2221210032322200-3213031330020323-1011020321231312-2011231330132102"></a>
-
-## Next pages — message / 310331000003 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.socials](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2313222301231320-1021130021111020-2122011033032130-2032301133111203-1230123231220100-3230133000121211-0210231103110020-1232311032201221)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-3011321313220310-0212312013122312-3232222320230133-0303220010221132-0313322111022313-0103222110103302-1103200110202301-3011030221313023"></a>
 
@@ -298,9 +706,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3310221210102320-0122131020032321-2232312322013122-3230010012222131-0021310013101213-3211220320133002-0303220121011302-1000213111133302"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.undefined_flow_label — undefined_flow_label / 331212102001 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.undefined_flow_label` properties
 
 Breadcrumbs:
 
@@ -309,7 +715,7 @@ Breadcrumbs:
 - [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
 - [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
 - [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-005.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
 - endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice.undefined_flow_label
 
 <a id="canonical-3322301310233000-1213003030003331-1003023012033023-2332333233223003-0020222033101121-0120102121203021-3200113021303110-0331112003231112"></a>
@@ -318,18 +724,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-0003102212103100-2133030022022222-0202200020313113-2222120123001210-3301022320023020-2033132120203322-2010202021333212-1322022012220211"></a>
-
-## Direct properties — undefined_flow_label / 331212102001 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2013301331210003-1022321200110031-0221101031031132-2323320102301220-1220130232202332-3031033001322103-3213020220222320-0222222001202101"></a>
-
-## Next pages — undefined_flow_label / 331212102001 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.flow_label_choice](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0230203122003222-3200300002313312-1312221110131313-0320013233313303-3331033212313331-3302113203230111-0311223003321022-3121231032132212)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-2301102211002031-2100310313001232-0330003002220230-2222000111212131-2032120112032131-2102322210021132-2101330302101311-1230122103100020"></a>
 
@@ -337,9 +732,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1032013012111010-3131000333031110-2211122300222031-2130220202122311-2220112021131103-1122131210222010-1302332303130312-1022220102322103"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header — header / 103130221231 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header` properties
 
 Breadcrumbs:
 
@@ -356,9 +749,9 @@ Type: `"list"`. Computed.
 
 Header. Header matcher.
 
-<a id="canonical-1100110313100133-1323013301031003-3200233303322331-1332201320320202-3120302232330233-1011201100231021-0210322113221323-3213020300010221"></a>
+<a id="canonical-1032013012111010-3131000333031110-2211122300222031-2130220202122311-2220112021131103-1122131210222010-1302332303130312-1022220102322103"></a>
 
-## Direct properties — header / 103130221231 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header`
 
 - [all_header](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0011300300102131-3333310133113101-2221030132032011-2132223222332213-2222313321033232-3333102303110021-1030033023102200-2011112200023133): complete subsection reference.
 
@@ -370,9 +763,9 @@ Header. Header matcher.
 
 <a id="canonical-0213211111311212-3303330222320112-3030122013320002-0221203332321031-0010101203033200-3010212201001133-3031210111300233-0020312022220302"></a>
 
-<a id="canonical-0303231222002212-2223021331212320-1021003223003111-3323120030133031-2131020331320202-1313333212331213-3203133113222213-0103023300300300"></a>
+<a id="canonical-1100110313100133-1323013301031003-3200233303322331-1332201320320202-3120302232330233-1011201100231021-0210322113221323-3213020300010221"></a>
 
-## name property — header / 103130221231 / 4
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.name` property
 
 Type: `"string"`. Computed.
 
@@ -380,27 +773,13 @@ Name. Operator Name.
 
 - [not_present_header](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-3021200310031333-2002301321031011-1331100312203233-3002100121111331-0322303301222302-0201303210111023-3122202131021230-0221133330310320): complete subsection reference.
 
-<a id="canonical-1131002010021102-2011131221303122-0000232002231103-0032333111330313-0031133212330132-2031023022221203-0103221122313332-3213132203111110"></a>
-
-## Next pages — header / 103130221231 / 5
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.all_header](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0011300300102131-3333310133113101-2221030132032011-2132223222332213-2222313321033232-3333102303110021-1030033023102200-2011112200023133)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1302013211213013-3210330230112110-3301202010001323-0103211202330232-0200010313303303-2300220230202000-2202322010331231-2033310212231233)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2311233310231303-1203001113111332-3313021100332330-1000321031201331-0121101131320133-0010121022312112-0121121103032031-0311000012310332)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0102103032313333-3301010110012020-0220300302332311-3001223000322102-0012300220000000-0001302300231220-2023200100033323-2132221321100203)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.not_present_header](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-3021200310031333-2002301321031011-1331100312203233-3002100121111331-0322303301222302-0201303210111023-3122202131021230-0221133330310320)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
-
 <a id="canonical-0011300300102131-3333310133113101-2221030132032011-2132223222332213-2222313321033232-3333102303110021-1030033023102200-2011112200023133"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3333212021030212-3222212330210030-0300111132112031-0330213210031013-1320301200303103-1002112210133130-0102322200112231-2203321233003102"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.all_header — all_header / 000021030313 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.all_header` properties
 
 Breadcrumbs:
 
@@ -418,18 +797,7 @@ Type: `["object", {}]`. Computed.
 
 Can be used for the header operator choice where no values are needed.
 
-<a id="canonical-3302010311013030-0110121020313301-1300303020201100-2303013130111320-0030032211023312-3201231233303131-2211103100313321-0032103203130230"></a>
-
-## Direct properties — all_header / 000021030313 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2132321021222230-2031212203203320-2221310312211020-1011131220223220-2023301001211231-3222213301131112-1223321232000221-3222131223320013"></a>
-
-## Next pages — all_header / 000021030313 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2301102211002031-2100310313001232-0330003002220230-2222000111212131-2032120112032131-2102322210021132-2101330302101311-1230122103100020)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-1302013211213013-3210330230112110-3301202010001323-0103211202330232-0200010313303303-2300220230202000-2202322010331231-2033310212231233"></a>
 
@@ -437,9 +805,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3033003012021322-0311301131031301-3023322203221003-1100123322203202-1221302121310221-0232222332122233-0002133112220311-3310312033001310"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and — header_and / 202013022123 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and` properties
 
 Breadcrumbs:
 
@@ -457,19 +823,11 @@ Type: `"single"`. Computed.
 
 Request Body Matcher(s). A list of Header Matcher.
 
-<a id="canonical-2300323111303112-2311133102310110-1100120001312210-3123012233332303-1103203122323210-2331022223112331-2302331233302312-3031210131001221"></a>
+<a id="canonical-3033003012021322-0311301131031301-3023322203221003-1100123322203202-1221302121310221-0232222332122233-0002133112220311-3310312033001310"></a>
 
-## Direct properties — header_and / 202013022123 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and`
 
 - [header_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1132312111111203-0031103211021122-3131223312321131-0303223003332010-2133120130120031-3302111032211322-2321032310001312-2002113331003001): complete subsection reference.
-
-<a id="canonical-2002332013031310-0300032123223001-0210131301021312-1100032300223322-3111003223021003-3210031130032311-2113121130030033-0232031000131001"></a>
-
-## Next pages — header_and / 202013022123 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1132312111111203-0031103211021122-3131223312321131-0303223003332010-2133120130120031-3302111032211322-2321032310001312-2002113331003001)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2301102211002031-2100310313001232-0330003002220230-2222000111212131-2032120112032131-2102322210021132-2101330302101311-1230122103100020)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-1132312111111203-0031103211021122-3131223312321131-0303223003332010-2133120130120031-3302111032211322-2321032310001312-2002113331003001"></a>
 
@@ -477,9 +835,7 @@ Request Body Matcher(s). A list of Header Matcher.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0003300313131311-1011001111203011-2313301101013101-3100333110232232-0331021221222333-3133323313330030-3321011120010201-0001011330300230"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match — header_match / 230202132122 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match` properties
 
 Breadcrumbs:
 
@@ -498,9 +854,9 @@ Type: `"list"`. Computed.
 
 Header Matcher(s). Header Matchers.
 
-<a id="canonical-2133001110331333-0221111010111310-3301033320220000-1111322001302003-2201103202123023-0321222200203230-3233010021112201-2102120300220021"></a>
+<a id="canonical-0003300313131311-1011001111203011-2313301101013101-3100333110232232-0331021221222333-3133323313330030-3321011120010201-0001011330300230"></a>
 
-## Direct properties — header_match / 230202132122 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match`
 
 - [contain_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0302232002202000-1231133023131112-3031112003203313-3212001133101212-2232002031331202-2012033302211331-1323131113221122-0221113121000211): complete subsection reference.
 
@@ -510,26 +866,13 @@ Header Matcher(s). Header Matchers.
 
 - [start_with_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1023000121333013-1030302110203113-0120223321303032-0122332232331203-1300332110122032-2321311103310211-1123101032213131-0111132100333330): complete subsection reference.
 
-<a id="canonical-0121313220231033-0320223332211323-2212122121302010-3211301032301212-0003201220201031-0221223002311101-1102101210312010-0123230021010333"></a>
-
-## Next pages — header_match / 230202132122 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.contain_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0302232002202000-1231133023131112-3031112003203313-3212001133101212-2232002031331202-2012033302211331-1323131113221122-0221113121000211)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.end_with_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-3121222332211032-2233121310000202-0310020101211030-2013203300022310-3221130110310102-3130013302123332-0331211020101222-0222120203103133)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.exact_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0132231103032230-1211311212110000-2312211203233333-1013131222000230-1123332320301230-0211102113123121-3022103221300103-0031210110100101)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.start_with_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1023000121333013-1030302110203113-0120223321303032-0122332232331203-1300332110122032-2321311103310211-1123101032213131-0111132100333330)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1302013211213013-3210330230112110-3301202010001323-0103211202330232-0200010313303303-2300220230202000-2202322010331231-2033310212231233)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
-
 <a id="canonical-0302232002202000-1231133023131112-3031112003203313-3212001133101212-2232002031331202-2012033302211331-1323131113221122-0221113121000211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2302203000131300-2103102110210202-3023033101332023-2010222102023203-1010111101200213-1003221102133210-3231100100333103-3233131211130101"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.contain_value — contain_value / 320121222120 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.contain_value` properties
 
 Breadcrumbs:
 
@@ -549,15 +892,13 @@ Type: `"single"`. Computed.
 
 Configuration parameter for contain value.
 
-<a id="canonical-3100323333301021-2130101213032101-0103000133112310-1232210021233121-2303222331010200-0201301312213121-2033301233022302-2132221230003002"></a>
+<a id="canonical-2302203000131300-2103102110210202-3023033101332023-2010222102023203-1010111101200213-1003221102133210-3231100100333103-3233131211130101"></a>
 
-## Direct properties — contain_value / 320121222120 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.contain_value`
 
 <a id="canonical-1121313133122201-1110210200022233-0320221222322000-1011133212101303-0201121230021030-3102302222333012-0223212333103130-3301030230133301"></a>
 
-<a id="canonical-0332031231231112-2310030000002123-0030320333203331-2201033001022222-2023233233131002-3301110123031323-0021120023032012-0001301233113221"></a>
-
-## case_insensitive property — contain_value / 320121222120 / 4
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.contain_value.case_insensitive` property
 
 Type: `"bool"`. Computed.
 
@@ -565,9 +906,9 @@ Case-Insensitive. Case insensitive checker.
 
 <a id="canonical-3001021311311103-1033023120313121-2110011033023022-3010100021213121-1132310231113113-3330310330311320-3223303012332201-1020002002323131"></a>
 
-<a id="canonical-0200310223030221-3320322020233333-2113333121102101-2212112031032332-2001131220220213-3130331122112212-1020032220030031-1101220030331133"></a>
+<a id="canonical-3100323333301021-2130101213032101-0103000133112310-1232210021233121-2303222331010200-0201301312213121-2033301233022302-2132221230003002"></a>
 
-## not property — contain_value / 320121222120 / 5
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.contain_value.not` property
 
 Type: `"bool"`. Computed.
 
@@ -575,20 +916,13 @@ Not(!). Not checker.
 
 <a id="canonical-3113030101302220-1021132213011310-1313011301311310-0222213231021130-0203313211131123-1022031201122112-1121001010213223-0112021233200231"></a>
 
-<a id="canonical-1322101212012223-0132212320210333-2031222132310023-0130320220031100-0310013033110022-1303130031310012-3211132130323203-0220331102020131"></a>
+<a id="canonical-0332031231231112-2310030000002123-0030320333203331-2201033001022222-2023233233131002-3301110123031323-0021120023032012-0001301233113221"></a>
 
-## value property — contain_value / 320121222120 / 6
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.contain_value.value` property
 
 Type: `"string"`. Computed.
 
 Value. Query Matcher Value.
-
-<a id="canonical-3021203100001031-3330023312322010-0023323110323232-2300100301011201-1202203131031222-2231013212302002-3220012100313002-1000232000230302"></a>
-
-## Next pages — contain_value / 320121222120 / 7
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1132312111111203-0031103211021122-3131223312321131-0303223003332010-2133120130120031-3302111032211322-2321032310001312-2002113331003001)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-3121222332211032-2233121310000202-0310020101211030-2013203300022310-3221130110310102-3130013302123332-0331211020101222-0222120203103133"></a>
 
@@ -596,9 +930,7 @@ Value. Query Matcher Value.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2332311312301113-3231000301013212-3200013210321221-0232220230233111-1113131312110122-0031320003232322-2230200023033023-0133003011320233"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.end_with_value — end_with_value / 030110123032 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.end_with_value` properties
 
 Breadcrumbs:
 
@@ -618,15 +950,13 @@ Type: `"single"`. Computed.
 
 Configuration parameter for end with value.
 
-<a id="canonical-2130300200311223-2223321313311033-1111002333121100-3301330212213200-0332231122012321-3113311203013000-3111000001000022-3320100312302000"></a>
+<a id="canonical-2332311312301113-3231000301013212-3200013210321221-0232220230233111-1113131312110122-0031320003232322-2230200023033023-0133003011320233"></a>
 
-## Direct properties — end_with_value / 030110123032 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.end_with_value`
 
 <a id="canonical-3011303101300312-3200221332120021-3312211220121231-2201000112002032-2121230131303230-3103011223131233-3200323303132312-3133100323133211"></a>
 
-<a id="canonical-3332230100311133-1000232000222303-1303322101321112-1322013231133010-3332222020302220-0220301301200222-1033013020001332-3323321310300010"></a>
-
-## case_insensitive property — end_with_value / 030110123032 / 4
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.end_with_value.case_insensitive` property
 
 Type: `"bool"`. Computed.
 
@@ -634,9 +964,9 @@ Case-Insensitive. Case insensitive checker.
 
 <a id="canonical-1133001223221330-2223131222133320-1211311013233111-2300131330122203-3231302102311310-0111133130223101-3323130312330223-0321120302232221"></a>
 
-<a id="canonical-1112323331330203-0310322100110023-3201210011302103-3001213101100131-3202001203033120-1012330113013200-0301232130330122-2102000133213101"></a>
+<a id="canonical-2130300200311223-2223321313311033-1111002333121100-3301330212213200-0332231122012321-3113311203013000-3111000001000022-3320100312302000"></a>
 
-## not property — end_with_value / 030110123032 / 5
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.end_with_value.not` property
 
 Type: `"bool"`. Computed.
 
@@ -644,20 +974,13 @@ Not(!). Not checker.
 
 <a id="canonical-2123212012333022-3131102002021322-2011031102211202-0020211122033010-1032212122301311-1303012332233120-0201232322223100-1300012213133231"></a>
 
-<a id="canonical-2210200320323131-1233003100232120-0203220322031301-0321111102231031-3131200013230113-0013112020212310-3023210221020231-2100212223201313"></a>
+<a id="canonical-3332230100311133-1000232000222303-1303322101321112-1322013231133010-3332222020302220-0220301301200222-1033013020001332-3323321310300010"></a>
 
-## value property — end_with_value / 030110123032 / 6
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.end_with_value.value` property
 
 Type: `"string"`. Computed.
 
 Value. Query Matcher Value.
-
-<a id="canonical-3012330223300110-1213221020033312-3230030223320032-1321132213101312-2120021033221200-3312102030022023-0133021220132110-1310310100201000"></a>
-
-## Next pages — end_with_value / 030110123032 / 7
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1132312111111203-0031103211021122-3131223312321131-0303223003332010-2133120130120031-3302111032211322-2321032310001312-2002113331003001)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-0132231103032230-1211311212110000-2312211203233333-1013131222000230-1123332320301230-0211102113123121-3022103221300103-0031210110100101"></a>
 
@@ -665,9 +988,7 @@ Value. Query Matcher Value.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0233133201222232-2221320011331031-2132210131032320-3130201311120202-3010332313103212-2031111022331200-3211223121322311-0200212223032223"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.exact_value — exact_value / 322222003003 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.exact_value` properties
 
 Breadcrumbs:
 
@@ -687,15 +1008,13 @@ Type: `"single"`. Computed.
 
 Configuration parameter for exact value.
 
-<a id="canonical-0201310110113130-3210231220210302-1332020110232010-3230301001320113-2023131133000313-3310023211232113-2022212311121300-2331103220201311"></a>
+<a id="canonical-0233133201222232-2221320011331031-2132210131032320-3130201311120202-3010332313103212-2031111022331200-3211223121322311-0200212223032223"></a>
 
-## Direct properties — exact_value / 322222003003 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.exact_value`
 
 <a id="canonical-0220011313202000-3320303212112333-3302312320010130-0330203120033210-3000123312210213-0013103333313032-0321131321213331-0230211113201030"></a>
 
-<a id="canonical-1313303220333130-2100211120331032-1000320021210103-0310201331212200-1023310303311321-2111001223001031-0112110012123331-3301310213201321"></a>
-
-## case_insensitive property — exact_value / 322222003003 / 4
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.exact_value.case_insensitive` property
 
 Type: `"bool"`. Computed.
 
@@ -703,9 +1022,9 @@ Case-Insensitive. Case insensitive checker.
 
 <a id="canonical-0011211101331233-0301300301321222-0201311200120211-3121211132321003-2333100103220103-2321032203132001-3031102100111231-0223221323003102"></a>
 
-<a id="canonical-1031103332030202-1323120211300020-3130302130322211-2121223203122013-0022301103213032-2220110321312200-2112030200122030-1201021230023011"></a>
+<a id="canonical-0201310110113130-3210231220210302-1332020110232010-3230301001320113-2023131133000313-3310023211232113-2022212311121300-2331103220201311"></a>
 
-## not property — exact_value / 322222003003 / 5
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.exact_value.not` property
 
 Type: `"bool"`. Computed.
 
@@ -713,20 +1032,13 @@ Not(!). Not checker.
 
 <a id="canonical-2303132113023230-0000030211200200-2112211230332120-2003011022231312-0331321133200310-0200230110332230-2011133103301123-0211320302020003"></a>
 
-<a id="canonical-1110200032101123-3100102320032212-2213113001220222-0213330120323011-0312123300300200-1302012332003031-2000210003011110-1022032212310121"></a>
+<a id="canonical-1313303220333130-2100211120331032-1000320021210103-0310201331212200-1023310303311321-2111001223001031-0112110012123331-3301310213201321"></a>
 
-## value property — exact_value / 322222003003 / 6
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.exact_value.value` property
 
 Type: `"string"`. Computed.
 
 Value. Query Matcher Value.
-
-<a id="canonical-1232121200320322-2100303201010010-2332210200111323-0003133121231323-1232232000321223-0220332323232330-1033101203132021-3102200321133203"></a>
-
-## Next pages — exact_value / 322222003003 / 7
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1132312111111203-0031103211021122-3131223312321131-0303223003332010-2133120130120031-3302111032211322-2321032310001312-2002113331003001)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-1023000121333013-1030302110203113-0120223321303032-0122332232331203-1300332110122032-2321311103310211-1123101032213131-0111132100333330"></a>
 
@@ -734,9 +1046,7 @@ Value. Query Matcher Value.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1222230033123023-2200312020312013-0320201312010302-3112211311213220-2302303332102003-1233110330021032-0232320212121003-1023002100122223"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.start_with_value — start_with_value / 202101130303 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.start_with_value` properties
 
 Breadcrumbs:
 
@@ -756,15 +1066,13 @@ Type: `"single"`. Computed.
 
 Configuration parameter for start with value.
 
-<a id="canonical-2013330201130113-0110301200131023-3112302130013233-2101003111031100-2032211330123303-1301331121202231-0100223102132212-2113001013123102"></a>
+<a id="canonical-1222230033123023-2200312020312013-0320201312010302-3112211311213220-2302303332102003-1233110330021032-0232320212121003-1023002100122223"></a>
 
-## Direct properties — start_with_value / 202101130303 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.start_with_value`
 
 <a id="canonical-3232122232012322-0320023310200211-3131312113222121-0302212322220133-3211030023213032-0110030312323220-2101012130001013-2301232332221032"></a>
 
-<a id="canonical-0212011013131330-1120021103202230-3301301332030003-3033330111302001-3211031131101133-1312102203120222-0110311312313330-0213323020212230"></a>
-
-## case_insensitive property — start_with_value / 202101130303 / 4
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.start_with_value.case_insensitive` property
 
 Type: `"bool"`. Computed.
 
@@ -772,9 +1080,9 @@ Case-Insensitive. Case insensitive checker.
 
 <a id="canonical-1302032003112021-3112032023210202-2231310210130300-3123320333202302-0033121011002232-2203123210001203-1011111331001313-2213131221300201"></a>
 
-<a id="canonical-0113103130200123-2120100233001201-2013330313331201-3332222211322000-3000120321232320-3023132202131233-2202230003200320-0033303111222121"></a>
+<a id="canonical-2013330201130113-0110301200131023-3112302130013233-2101003111031100-2032211330123303-1301331121202231-0100223102132212-2113001013123102"></a>
 
-## not property — start_with_value / 202101130303 / 5
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.start_with_value.not` property
 
 Type: `"bool"`. Computed.
 
@@ -782,20 +1090,13 @@ Not(!). Not checker.
 
 <a id="canonical-1001313102211110-1321100311001323-2003311133120221-3333202021010032-2310022122210301-3113101203033211-2210331031202203-3312310110333003"></a>
 
-<a id="canonical-1103311022202212-1303312130023011-1133200331021030-0311231202002232-0031133332221222-2033123121222103-0021202013221200-2101330010221312"></a>
+<a id="canonical-0212011013131330-1120021103202230-3301301332030003-3033330111302001-3211031131101133-1312102203120222-0110311312313330-0213323020212230"></a>
 
-## value property — start_with_value / 202101130303 / 6
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match.start_with_value.value` property
 
 Type: `"string"`. Computed.
 
 Value. Query Matcher Value.
-
-<a id="canonical-3100011022331221-1110333023203123-3033012222310132-2230302303033322-2020221210232002-2013321011112230-3232111202100103-2222300231320203"></a>
-
-## Next pages — start_with_value / 202101130303 / 7
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_and.header_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1132312111111203-0031103211021122-3131223312321131-0303223003332010-2133120130120031-3302111032211322-2321032310001312-2002113331003001)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-2311233310231303-1203001113111332-3313021100332330-1000321031201331-0121101131320133-0010121022312112-0121121103032031-0311000012310332"></a>
 
@@ -803,9 +1104,7 @@ Value. Query Matcher Value.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3201120131133301-1210313132322003-0303333113101110-3201012020202300-2122123312332322-0120300230020113-2023011232312110-1220231230020103"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none — header_none / 132303031203 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none` properties
 
 Breadcrumbs:
 
@@ -823,19 +1122,11 @@ Type: `"single"`. Computed.
 
 Configuration parameter for header none.
 
-<a id="canonical-2311222220312303-1031200302312020-0231031022311011-1303133310201331-3201233011010011-0002323010330100-3301102203031313-1030030022200223"></a>
+<a id="canonical-3201120131133301-1210313132322003-0303333113101110-3201012020202300-2122123312332322-0120300230020113-2023011232312110-1220231230020103"></a>
 
-## Direct properties — header_none / 132303031203 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none`
 
 - [header_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1230202303231022-1321303103213002-0102001330323002-2213023201231132-3312122001331010-0020002333101121-3222320122312312-1221202003030320): complete subsection reference.
-
-<a id="canonical-3323321123013010-0210003023332112-0030223301321212-0000122213010002-0023300322311223-1023111102323232-3200330333020211-3101100230222131"></a>
-
-## Next pages — header_none / 132303031203 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1230202303231022-1321303103213002-0102001330323002-2213023201231132-3312122001331010-0020002333101121-3222320122312312-1221202003030320)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2301102211002031-2100310313001232-0330003002220230-2222000111212131-2032120112032131-2102322210021132-2101330302101311-1230122103100020)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-1230202303231022-1321303103213002-0102001330323002-2213023201231132-3312122001331010-0020002333101121-3222320122312312-1221202003030320"></a>
 
@@ -843,9 +1134,7 @@ Configuration parameter for header none.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2313023233001101-3201331223212330-2121330321322011-1223003120312020-1232022000002123-2013003123202200-2022023300223012-3200322103130130"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match — header_match / 022021322003 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match` properties
 
 Breadcrumbs:
 
@@ -864,9 +1153,9 @@ Type: `"list"`. Computed.
 
 Header Matcher(s). Header Matchers.
 
-<a id="canonical-3200020333301203-0122313000230200-3333120221210213-3221331301310300-1200333120001332-3232213211331222-1112213320303211-3212313010102101"></a>
+<a id="canonical-2313023233001101-3201331223212330-2121330321322011-1223003120312020-1232022000002123-2013003123202200-2022023300223012-3200322103130130"></a>
 
-## Direct properties — header_match / 022021322003 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match`
 
 - [contain_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-3302022212312210-0331212330230303-0000100331102331-0013103302233001-2103100222203131-0200232320110122-3023230203310301-3311002101110033): complete subsection reference.
 
@@ -876,26 +1165,13 @@ Header Matcher(s). Header Matchers.
 
 - [start_with_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1310231332312231-2232022101201102-1203213212111202-3312013132313200-0212320103102320-3301200000002202-1231023020202313-2122303123311321): complete subsection reference.
 
-<a id="canonical-0232230011012131-1030221202220322-1123100021211233-0331200211110333-0002111120201031-1230330113322223-2023103203233303-0001131030200003"></a>
-
-## Next pages — header_match / 022021322003 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.contain_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-3302022212312210-0331212330230303-0000100331102331-0013103302233001-2103100222203131-0200232320110122-3023230203310301-3311002101110033)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.end_with_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0333320200233323-2300311120100112-0232212233213200-3033131300330230-2130111331001323-0233231123100123-1320110331120110-0002201202122302)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.exact_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2201332200312000-2230202000220223-3301322122200231-2032002032210133-0321210021032111-3211132000131221-3233021313001311-2121131011002321)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.start_with_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1310231332312231-2232022101201102-1203213212111202-3312013132313200-0212320103102320-3301200000002202-1231023020202313-2122303123311321)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2311233310231303-1203001113111332-3313021100332330-1000321031201331-0121101131320133-0010121022312112-0121121103032031-0311000012310332)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
-
 <a id="canonical-3302022212312210-0331212330230303-0000100331102331-0013103302233001-2103100222203131-0200232320110122-3023230203310301-3311002101110033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2210123012333313-0330301032313000-2111222031102101-3122001210002213-0323201121110221-1223322223232201-1112311130300310-3233022322010001"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.contain_value — contain_value / 032130121203 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.contain_value` properties
 
 Breadcrumbs:
 
@@ -915,15 +1191,13 @@ Type: `"single"`. Computed.
 
 Configuration parameter for contain value.
 
-<a id="canonical-1110031320301032-1020021002201222-1112000113312301-1333023111302200-1230031330110210-0223323313212130-1013132202002133-0012303012233322"></a>
+<a id="canonical-2210123012333313-0330301032313000-2111222031102101-3122001210002213-0323201121110221-1223322223232201-1112311130300310-3233022322010001"></a>
 
-## Direct properties — contain_value / 032130121203 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.contain_value`
 
 <a id="canonical-0020022133323121-3303333223212022-3100230020303113-1123112131300103-1301300301200310-1320121313323210-1333120100303330-2020230022010012"></a>
 
-<a id="canonical-1311322111221230-2301001011103023-1110033131001112-0110010210202131-1030022001321112-3011311203101130-3310012112202020-1013123211223232"></a>
-
-## case_insensitive property — contain_value / 032130121203 / 4
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.contain_value.case_insensitive` property
 
 Type: `"bool"`. Computed.
 
@@ -931,9 +1205,9 @@ Case-Insensitive. Case insensitive checker.
 
 <a id="canonical-1030311302313033-0312120130030130-0130101101033023-0021033121302130-1020210020230223-2223302013022030-1332031002020121-3220220022031310"></a>
 
-<a id="canonical-2221222032322012-0123311000112133-1321210330202131-3023110133220120-2321012133032010-2030210112013030-3132033032033300-1012111032231132"></a>
+<a id="canonical-1110031320301032-1020021002201222-1112000113312301-1333023111302200-1230031330110210-0223323313212130-1013132202002133-0012303012233322"></a>
 
-## not property — contain_value / 032130121203 / 5
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.contain_value.not` property
 
 Type: `"bool"`. Computed.
 
@@ -941,20 +1215,13 @@ Not(!). Not checker.
 
 <a id="canonical-3133112310322222-1002022133110332-3211210013110210-0101130011321223-2201030030001110-0030221230332320-3012032302012000-1313221100231232"></a>
 
-<a id="canonical-0132312210212312-0303323212110113-1102221130000220-2310131220021032-3222332330331130-0122100323101312-1023222333003133-3210130201021113"></a>
+<a id="canonical-1311322111221230-2301001011103023-1110033131001112-0110010210202131-1030022001321112-3011311203101130-3310012112202020-1013123211223232"></a>
 
-## value property — contain_value / 032130121203 / 6
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.contain_value.value` property
 
 Type: `"string"`. Computed.
 
 Value. Query Matcher Value.
-
-<a id="canonical-0010031110113013-1111130130023231-3202301102230031-3131202001233111-2322133130011111-2302330022132021-0132320120301201-1032011123031130"></a>
-
-## Next pages — contain_value / 032130121203 / 7
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1230202303231022-1321303103213002-0102001330323002-2213023201231132-3312122001331010-0020002333101121-3222320122312312-1221202003030320)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-0333320200233323-2300311120100112-0232212233213200-3033131300330230-2130111331001323-0233231123100123-1320110331120110-0002201202122302"></a>
 
@@ -962,9 +1229,7 @@ Value. Query Matcher Value.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2203333111211233-3321223102012121-0113331023002312-0100203330213331-0300012033033030-1113012221001201-0001332021312213-2011102120223133"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.end_with_value — end_with_value / 310110202222 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.end_with_value` properties
 
 Breadcrumbs:
 
@@ -984,15 +1249,13 @@ Type: `"single"`. Computed.
 
 Configuration parameter for end with value.
 
-<a id="canonical-3130200132213223-2122203212222211-3233231130103000-3111113221201002-0011031211023100-3222032111333231-2021022112221211-3202003131213220"></a>
+<a id="canonical-2203333111211233-3321223102012121-0113331023002312-0100203330213331-0300012033033030-1113012221001201-0001332021312213-2011102120223133"></a>
 
-## Direct properties — end_with_value / 310110202222 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.end_with_value`
 
 <a id="canonical-0032220220200003-3331313101302032-0313033023003331-1313130022212132-1200213222322132-3322303102133311-2103300002002230-2311223113223221"></a>
 
-<a id="canonical-1013113223123221-1301302133220333-0130202123031332-0101313020230031-0202302022301300-1232332200212211-0311231200202320-1121320102112303"></a>
-
-## case_insensitive property — end_with_value / 310110202222 / 4
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.end_with_value.case_insensitive` property
 
 Type: `"bool"`. Computed.
 
@@ -1000,9 +1263,9 @@ Case-Insensitive. Case insensitive checker.
 
 <a id="canonical-1211302220312321-1333121032301021-0301002003102032-0113011022232332-2002331302212203-0300330122232313-3322122331011200-0131330320223003"></a>
 
-<a id="canonical-3313210302001011-2031103232231023-0011132310133230-1312113222030103-2113222003033130-0131032323233013-2031201213110111-2111002211303121"></a>
+<a id="canonical-3130200132213223-2122203212222211-3233231130103000-3111113221201002-0011031211023100-3222032111333231-2021022112221211-3202003131213220"></a>
 
-## not property — end_with_value / 310110202222 / 5
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.end_with_value.not` property
 
 Type: `"bool"`. Computed.
 
@@ -1010,20 +1273,13 @@ Not(!). Not checker.
 
 <a id="canonical-1030121023202231-2303310020211133-3032123020331033-3312021230301112-3132100220320300-0310213232320121-1220103010132301-1311322303030101"></a>
 
-<a id="canonical-2013212002300202-3203033231101101-3230101231130010-0010213310110133-1331001002101300-2133030110010221-2103001100300012-2321022133301333"></a>
+<a id="canonical-1013113223123221-1301302133220333-0130202123031332-0101313020230031-0202302022301300-1232332200212211-0311231200202320-1121320102112303"></a>
 
-## value property — end_with_value / 310110202222 / 6
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.end_with_value.value` property
 
 Type: `"string"`. Computed.
 
 Value. Query Matcher Value.
-
-<a id="canonical-3221022232132000-3122103103232011-2221130123123000-3301000033301332-3031213033322213-1301203110313200-1311031200100331-2032200131202302"></a>
-
-## Next pages — end_with_value / 310110202222 / 7
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1230202303231022-1321303103213002-0102001330323002-2213023201231132-3312122001331010-0020002333101121-3222320122312312-1221202003030320)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-2201332200312000-2230202000220223-3301322122200231-2032002032210133-0321210021032111-3211132000131221-3233021313001311-2121131011002321"></a>
 
@@ -1031,9 +1287,7 @@ Value. Query Matcher Value.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3203003231100233-0220103201103210-1311211031130202-3331132023123222-3101200021020332-0032310213022130-1113300023102231-0320022220221033"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.exact_value — exact_value / 302103023211 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.exact_value` properties
 
 Breadcrumbs:
 
@@ -1053,15 +1307,13 @@ Type: `"single"`. Computed.
 
 Configuration parameter for exact value.
 
-<a id="canonical-1133230102331030-3003031230202303-1000033322133213-3331001213202010-0200003110300321-3132233312100213-2030121232330232-3000321332332122"></a>
+<a id="canonical-3203003231100233-0220103201103210-1311211031130202-3331132023123222-3101200021020332-0032310213022130-1113300023102231-0320022220221033"></a>
 
-## Direct properties — exact_value / 302103023211 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.exact_value`
 
 <a id="canonical-3131032022223320-2030231132210000-1022222230012110-1133210200321111-1312011301332102-0323122222101122-2213230311322333-2312001030222300"></a>
 
-<a id="canonical-3003210200232020-2131201113312012-2033302213323210-2201313332333000-3032212310002333-0130210301123111-3022131312332331-0011132102231020"></a>
-
-## case_insensitive property — exact_value / 302103023211 / 4
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.exact_value.case_insensitive` property
 
 Type: `"bool"`. Computed.
 
@@ -1069,9 +1321,9 @@ Case-Insensitive. Case insensitive checker.
 
 <a id="canonical-2203102033032202-1232222222123233-3020132323100130-0022313331311300-2222231202312313-1132021130130100-1332101233033133-3212312333311003"></a>
 
-<a id="canonical-3210210231220320-2110121021333212-2113233323203101-0321230303030303-3101230120300120-3300132100021310-3131310121232331-1033130222320101"></a>
+<a id="canonical-1133230102331030-3003031230202303-1000033322133213-3331001213202010-0200003110300321-3132233312100213-2030121232330232-3000321332332122"></a>
 
-## not property — exact_value / 302103023211 / 5
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.exact_value.not` property
 
 Type: `"bool"`. Computed.
 
@@ -1079,20 +1331,13 @@ Not(!). Not checker.
 
 <a id="canonical-2013110003031211-1200223033303300-2030011131022210-0202101103233232-0301321003223301-2313002031101231-1100021131201033-2033312122113110"></a>
 
-<a id="canonical-0032320030210202-1223331033210022-3112202310303010-0312012013333201-3023003111323312-2111222033213032-0103130300231003-0332203332111012"></a>
+<a id="canonical-3003210200232020-2131201113312012-2033302213323210-2201313332333000-3032212310002333-0130210301123111-3022131312332331-0011132102231020"></a>
 
-## value property — exact_value / 302103023211 / 6
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.exact_value.value` property
 
 Type: `"string"`. Computed.
 
 Value. Query Matcher Value.
-
-<a id="canonical-2030330030221002-0310110113201333-0310302221101331-2132101322122131-2300020221000201-0101222223001330-2031120130002022-3123220022003211"></a>
-
-## Next pages — exact_value / 302103023211 / 7
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1230202303231022-1321303103213002-0102001330323002-2213023201231132-3312122001331010-0020002333101121-3222320122312312-1221202003030320)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-1310231332312231-2232022101201102-1203213212111202-3312013132313200-0212320103102320-3301200000002202-1231023020202313-2122303123311321"></a>
 
@@ -1100,9 +1345,7 @@ Value. Query Matcher Value.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1032131003002313-0303132321121103-3132212101103220-0311310212110020-3323010031111330-3331112201233021-3230120233231211-0120113311132323"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.start_with_value — start_with_value / 012320321331 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.start_with_value` properties
 
 Breadcrumbs:
 
@@ -1122,15 +1365,13 @@ Type: `"single"`. Computed.
 
 Configuration parameter for start with value.
 
-<a id="canonical-0120013303221003-3111331121332030-1122020221123221-1333210023102311-0223122200323001-2202321221201313-2221311311312333-0121313332323011"></a>
+<a id="canonical-1032131003002313-0303132321121103-3132212101103220-0311310212110020-3323010031111330-3331112201233021-3230120233231211-0120113311132323"></a>
 
-## Direct properties — start_with_value / 012320321331 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.start_with_value`
 
 <a id="canonical-1132331011210233-2132102320221103-3211322311230110-0032213210021211-1113321303202022-0023311210203202-0302131022213232-0021030023110031"></a>
 
-<a id="canonical-3132020010212023-1233002120201301-2103012031131221-1002021201333013-2220331332231331-0012112131320131-2230022213310332-1103301122103220"></a>
-
-## case_insensitive property — start_with_value / 012320321331 / 4
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.start_with_value.case_insensitive` property
 
 Type: `"bool"`. Computed.
 
@@ -1138,9 +1379,9 @@ Case-Insensitive. Case insensitive checker.
 
 <a id="canonical-2221020331222311-3231331211011212-0120221210233303-3212132003122030-3100003101001113-1322323300121303-2210012121003233-1233212301310121"></a>
 
-<a id="canonical-3101320003122013-3311332200111122-3020331033331300-0331030231033202-1130112102320303-1202333301303130-3220210323312211-0112103001213221"></a>
+<a id="canonical-0120013303221003-3111331121332030-1122020221123221-1333210023102311-0223122200323001-2202321221201313-2221311311312333-0121313332323011"></a>
 
-## not property — start_with_value / 012320321331 / 5
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.start_with_value.not` property
 
 Type: `"bool"`. Computed.
 
@@ -1148,20 +1389,13 @@ Not(!). Not checker.
 
 <a id="canonical-0100102330033032-0112312321112000-1312210221133002-2110122020012132-0300103300132112-0322013320130022-0132133212300010-3013132100302330"></a>
 
-<a id="canonical-1303121322222313-3000102033102313-0113301030333231-1122110020013320-0331022210012002-2133223230333113-2231123222201033-0320300110231321"></a>
+<a id="canonical-3132020010212023-1233002120201301-2103012031131221-1002021201333013-2220331332231331-0012112131320131-2230022213310332-1103301122103220"></a>
 
-## value property — start_with_value / 012320321331 / 6
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match.start_with_value.value` property
 
 Type: `"string"`. Computed.
 
 Value. Query Matcher Value.
-
-<a id="canonical-2312101301333111-3130333300210112-0032231101112131-0003312320211223-1313130020120200-1312122211020011-0300213233033310-3102002013312312"></a>
-
-## Next pages — start_with_value / 012320321331 / 7
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_none.header_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1230202303231022-1321303103213002-0102001330323002-2213023201231132-3312122001331010-0020002333101121-3222320122312312-1221202003030320)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-0102103032313333-3301010110012020-0220300302332311-3001223000322102-0012300220000000-0001302300231220-2023200100033323-2132221321100203"></a>
 
@@ -1169,9 +1403,7 @@ Value. Query Matcher Value.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0303033303130022-3121031123333322-2220130133211232-2233223030031202-2021203133133202-2013233032321111-1211130322102113-0001330032010103"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or — header_or / 023111010103 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or` properties
 
 Breadcrumbs:
 
@@ -1189,19 +1421,11 @@ Type: `"single"`. Computed.
 
 Request Body Matcher(s). A list of Header Matcher.
 
-<a id="canonical-0010031312330013-3231020201203301-0131302221232232-0012003303133201-0222323021111233-2010012313100103-1322201310121330-0012333010332202"></a>
+<a id="canonical-0303033303130022-3121031123333322-2220130133211232-2233223030031202-2021203133133202-2013233032321111-1211130322102113-0001330032010103"></a>
 
-## Direct properties — header_or / 023111010103 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or`
 
 - [header_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2231200020333013-1130103212303312-3131313132233020-3231112203110303-0332330330020220-1120121123213010-3112100230233221-0311300121030011): complete subsection reference.
-
-<a id="canonical-0033302221203011-3111030232110200-2221033012003221-2110202222221132-3310112010312311-0113033311320033-3332122122102123-0323313221232211"></a>
-
-## Next pages — header_or / 023111010103 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2231200020333013-1130103212303312-3131313132233020-3231112203110303-0332330330020220-1120121123213010-3112100230233221-0311300121030011)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2301102211002031-2100310313001232-0330003002220230-2222000111212131-2032120112032131-2102322210021132-2101330302101311-1230122103100020)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-2231200020333013-1130103212303312-3131313132233020-3231112203110303-0332330330020220-1120121123213010-3112100230233221-0311300121030011"></a>
 
@@ -1209,9 +1433,7 @@ Request Body Matcher(s). A list of Header Matcher.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0331330030132101-0322021200210002-1130120232230232-3110121010331132-0112313313120203-0002031201210321-2010300012001021-3130331122110010"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match — header_match / 132331223132 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match` properties
 
 Breadcrumbs:
 
@@ -1230,9 +1452,9 @@ Type: `"list"`. Computed.
 
 Header Matcher(s). Header Matchers.
 
-<a id="canonical-1121031002021120-2200200133131232-2333001212331303-0020311203100310-1032223213001133-1103121023221220-1210020033223302-3103311331113023"></a>
+<a id="canonical-0331330030132101-0322021200210002-1130120232230232-3110121010331132-0112313313120203-0002031201210321-2010300012001021-3130331122110010"></a>
 
-## Direct properties — header_match / 132331223132 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match`
 
 - [contain_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1130220332013322-1131031022300310-2201310020203003-2213211131003130-0020313011231110-0220231001221100-1001232112120030-2000013321322102): complete subsection reference.
 
@@ -1242,26 +1464,13 @@ Header Matcher(s). Header Matchers.
 
 - [start_with_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1030212012332201-2132312033313301-2301120102003101-1211310210212000-2310302022100222-0321302322302220-3032130111113302-2213122303232313): complete subsection reference.
 
-<a id="canonical-1301011231312102-2311223302302300-0022313112111011-0301333332022232-2300123023132010-0322202212111232-1200013203332301-3003213033211230"></a>
-
-## Next pages — header_match / 132331223132 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.contain_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1130220332013322-1131031022300310-2201310020203003-2213211131003130-0020313011231110-0220231001221100-1001232112120030-2000013321322102)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.end_with_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-3322111201231013-0002010302011212-3110112033303301-2323112013002033-3231012310122311-0321333220313033-2121231300201321-1202203313311331)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.exact_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1012031331003203-2201122213032230-0231303013223230-0112220202103211-0231020022111010-3302210002131213-0130222333020300-3131010202131220)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.start_with_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1030212012332201-2132312033313301-2301120102003101-1211310210212000-2310302022100222-0321302322302220-3032130111113302-2213122303232313)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0102103032313333-3301010110012020-0220300302332311-3001223000322102-0012300220000000-0001302300231220-2023200100033323-2132221321100203)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
-
 <a id="canonical-1130220332013322-1131031022300310-2201310020203003-2213211131003130-0020313011231110-0220231001221100-1001232112120030-2000013321322102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1033311233111321-3311211332332113-3100111032122221-1023332300120013-2023200110213132-1012233112201022-1021212320002101-3102011331230202"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.contain_value — contain_value / 123130120122 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.contain_value` properties
 
 Breadcrumbs:
 
@@ -1281,15 +1490,13 @@ Type: `"single"`. Computed.
 
 Configuration parameter for contain value.
 
-<a id="canonical-0001101213013122-0012312021100331-1310223310112001-3010323302230023-3200131131211110-0330230123011300-1213002221130013-0223102010122222"></a>
+<a id="canonical-1033311233111321-3311211332332113-3100111032122221-1023332300120013-2023200110213132-1012233112201022-1021212320002101-3102011331230202"></a>
 
-## Direct properties — contain_value / 123130120122 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.contain_value`
 
 <a id="canonical-2321233130110301-1312332301003100-1201301201223230-1103101330220121-3003100221002112-1123123203001301-1302011312330131-1133213131202013"></a>
 
-<a id="canonical-0201221000032100-1212011221023021-3010103112332012-2001311203013000-1113000132023312-0323133332321202-3300022122202213-0303220320202112"></a>
-
-## case_insensitive property — contain_value / 123130120122 / 4
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.contain_value.case_insensitive` property
 
 Type: `"bool"`. Computed.
 
@@ -1297,9 +1504,9 @@ Case-Insensitive. Case insensitive checker.
 
 <a id="canonical-3301320011210032-0001001310020121-3122100122331213-0202233300132122-3032112023132133-1033000020303113-3021233232131200-3201300201131112"></a>
 
-<a id="canonical-2111002133102231-1332333220133000-3230102303103210-3020010132012201-2110102212211032-2123112021201002-2120003311311023-3033233330100220"></a>
+<a id="canonical-0001101213013122-0012312021100331-1310223310112001-3010323302230023-3200131131211110-0330230123011300-1213002221130013-0223102010122222"></a>
 
-## not property — contain_value / 123130120122 / 5
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.contain_value.not` property
 
 Type: `"bool"`. Computed.
 
@@ -1307,20 +1514,13 @@ Not(!). Not checker.
 
 <a id="canonical-1310322110123213-3220133121100103-0100223331103130-1321200102300012-0002303332233300-2202323122012010-1213203231211023-0233212230301210"></a>
 
-<a id="canonical-0012011103200132-3201021223103101-1230021223330221-3301132202300303-3133030030120102-1030033311221330-3312020031231221-0111122300310210"></a>
+<a id="canonical-0201221000032100-1212011221023021-3010103112332012-2001311203013000-1113000132023312-0323133332321202-3300022122202213-0303220320202112"></a>
 
-## value property — contain_value / 123130120122 / 6
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.contain_value.value` property
 
 Type: `"string"`. Computed.
 
 Value. Query Matcher Value.
-
-<a id="canonical-2232012322211131-1002330103023032-2313330201333213-3011002122201123-0321013103030302-2321021231221300-2111000201211303-2000313213321003"></a>
-
-## Next pages — contain_value / 123130120122 / 7
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2231200020333013-1130103212303312-3131313132233020-3231112203110303-0332330330020220-1120121123213010-3112100230233221-0311300121030011)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-3322111201231013-0002010302011212-3110112033303301-2323112013002033-3231012310122311-0321333220313033-2121231300201321-1202203313311331"></a>
 
@@ -1328,9 +1528,7 @@ Value. Query Matcher Value.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0032031230011103-3100322222000302-0100332332130212-2230222203310220-0213312122032231-0022112210123030-0133103113131230-0302310331123021"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.end_with_value — end_with_value / 010103313230 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.end_with_value` properties
 
 Breadcrumbs:
 
@@ -1350,15 +1548,13 @@ Type: `"single"`. Computed.
 
 Configuration parameter for end with value.
 
-<a id="canonical-0133313301313110-3203233233120021-0003311222233221-3121001210130221-0310230323003323-0012020002100120-1203311321000021-0013201321303121"></a>
+<a id="canonical-0032031230011103-3100322222000302-0100332332130212-2230222203310220-0213312122032231-0022112210123030-0133103113131230-0302310331123021"></a>
 
-## Direct properties — end_with_value / 010103313230 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.end_with_value`
 
 <a id="canonical-2131010133113320-0010312100021112-3001002312011033-3302022310211032-2300023321002020-0221300131112320-1203210110111021-2020333232010202"></a>
 
-<a id="canonical-0332031120301313-0210112130312032-0122202003213313-2210303321302213-0001333130321110-1130133133300212-3003313002110300-2113332121120300"></a>
-
-## case_insensitive property — end_with_value / 010103313230 / 4
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.end_with_value.case_insensitive` property
 
 Type: `"bool"`. Computed.
 
@@ -1366,9 +1562,9 @@ Case-Insensitive. Case insensitive checker.
 
 <a id="canonical-3302120200331133-3332101321122032-2111103110031321-2012002320301020-0020111011133222-3330031020211201-2312210203113303-0103020103013131"></a>
 
-<a id="canonical-1211103310122303-0233131112230020-1223123331300230-1033003131130012-0322122102121203-1313303300222321-1221110013002101-2010332213301122"></a>
+<a id="canonical-0133313301313110-3203233233120021-0003311222233221-3121001210130221-0310230323003323-0012020002100120-1203311321000021-0013201321303121"></a>
 
-## not property — end_with_value / 010103313230 / 5
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.end_with_value.not` property
 
 Type: `"bool"`. Computed.
 
@@ -1376,20 +1572,13 @@ Not(!). Not checker.
 
 <a id="canonical-0021220103101110-3220010301010333-0211332002001200-3221033200023311-0303023201130232-2001231113331133-2310101313321120-3312301200321033"></a>
 
-<a id="canonical-0002131311233203-1002012131330332-0000110021121330-1203031102100112-2312300223220233-1132103201301112-2122011003021232-2211023213123120"></a>
+<a id="canonical-0332031120301313-0210112130312032-0122202003213313-2210303321302213-0001333130321110-1130133133300212-3003313002110300-2113332121120300"></a>
 
-## value property — end_with_value / 010103313230 / 6
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.end_with_value.value` property
 
 Type: `"string"`. Computed.
 
 Value. Query Matcher Value.
-
-<a id="canonical-2013220021103002-1000021101223031-0201200232103003-1300020311311301-0120313130000332-0133011311111103-1123001113213303-1323021233213220"></a>
-
-## Next pages — end_with_value / 010103313230 / 7
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2231200020333013-1130103212303312-3131313132233020-3231112203110303-0332330330020220-1120121123213010-3112100230233221-0311300121030011)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-1012031331003203-2201122213032230-0231303013223230-0112220202103211-0231020022111010-3302210002131213-0130222333020300-3131010202131220"></a>
 
@@ -1397,9 +1586,7 @@ Value. Query Matcher Value.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1321031030320112-0121102213233311-2331323023222200-3201313213233013-2323122203033111-3202113132132332-0123030212333303-3012132123320022"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.exact_value — exact_value / 310333013133 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.exact_value` properties
 
 Breadcrumbs:
 
@@ -1419,15 +1606,13 @@ Type: `"single"`. Computed.
 
 Configuration parameter for exact value.
 
-<a id="canonical-3333113010021110-1101222303200230-0132003123331322-2110130302032100-1331033110120311-3031231033000121-1103032003200110-0211031233022320"></a>
+<a id="canonical-1321031030320112-0121102213233311-2331323023222200-3201313213233013-2323122203033111-3202113132132332-0123030212333303-3012132123320022"></a>
 
-## Direct properties — exact_value / 310333013133 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.exact_value`
 
 <a id="canonical-1211102220213112-3121112030122201-1001313131203110-0013200002302213-3332310102210200-0201210313213333-2221330100021223-3021230202213123"></a>
 
-<a id="canonical-0232011323102223-3303300022020223-2102231003011103-2311220221221102-0000310002231102-1021013003030102-1023302131322333-2213301231012232"></a>
-
-## case_insensitive property — exact_value / 310333013133 / 4
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.exact_value.case_insensitive` property
 
 Type: `"bool"`. Computed.
 
@@ -1435,9 +1620,9 @@ Case-Insensitive. Case insensitive checker.
 
 <a id="canonical-1230211300030331-1211323200210303-2303330120222313-2310220003123002-0123300322223320-1022112303331132-1210123020312320-2231120203300233"></a>
 
-<a id="canonical-1200313113033310-0323323100311010-1131231312003310-1033303113220231-0302000203322133-0133032201321322-3211213303201313-2303003301012321"></a>
+<a id="canonical-3333113010021110-1101222303200230-0132003123331322-2110130302032100-1331033110120311-3031231033000121-1103032003200110-0211031233022320"></a>
 
-## not property — exact_value / 310333013133 / 5
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.exact_value.not` property
 
 Type: `"bool"`. Computed.
 
@@ -1445,20 +1630,13 @@ Not(!). Not checker.
 
 <a id="canonical-0131232000111120-2221030010332213-1230021133211211-0331123333201112-3133122011002110-0130031313320321-2313112322111032-2131300023213123"></a>
 
-<a id="canonical-0321122331322131-1222002311313110-3200313110013123-0033133213110210-1200303330212213-3013321210210203-0301110030302012-2312032033221333"></a>
+<a id="canonical-0232011323102223-3303300022020223-2102231003011103-2311220221221102-0000310002231102-1021013003030102-1023302131322333-2213301231012232"></a>
 
-## value property — exact_value / 310333013133 / 6
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.exact_value.value` property
 
 Type: `"string"`. Computed.
 
 Value. Query Matcher Value.
-
-<a id="canonical-1331311030210333-2320131223020003-3200111131102233-0213100320030001-0310032303311303-3102120122123321-0310030000010322-0113313111201311"></a>
-
-## Next pages — exact_value / 310333013133 / 7
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2231200020333013-1130103212303312-3131313132233020-3231112203110303-0332330330020220-1120121123213010-3112100230233221-0311300121030011)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-1030212012332201-2132312033313301-2301120102003101-1211310210212000-2310302022100222-0321302322302220-3032130111113302-2213122303232313"></a>
 
@@ -1466,9 +1644,7 @@ Value. Query Matcher Value.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0332221131010020-3131203123131121-2230222131003213-3212311303121332-0130320331130233-1122232103331230-1323011233012213-2310333101320233"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.start_with_value — start_with_value / 213133030301 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.start_with_value` properties
 
 Breadcrumbs:
 
@@ -1488,15 +1664,13 @@ Type: `"single"`. Computed.
 
 Configuration parameter for start with value.
 
-<a id="canonical-1011032113200203-0303020031201301-2312313113003120-3313102330100120-2302012231031030-3320123130323033-3010312012203230-2311030032000203"></a>
+<a id="canonical-0332221131010020-3131203123131121-2230222131003213-3212311303121332-0130320331130233-1122232103331230-1323011233012213-2310333101320233"></a>
 
-## Direct properties — start_with_value / 213133030301 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.start_with_value`
 
 <a id="canonical-1212103230302311-3011001131033122-1203010010312331-3130301012320022-3203112113122323-1201000223212303-2010303112332020-1330100212122212"></a>
 
-<a id="canonical-2232021120201330-0031321121110111-3213123022222330-2121332030331103-3203330013200223-0032221101111132-2130103221311122-2133010103122230"></a>
-
-## case_insensitive property — start_with_value / 213133030301 / 4
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.start_with_value.case_insensitive` property
 
 Type: `"bool"`. Computed.
 
@@ -1504,9 +1678,9 @@ Case-Insensitive. Case insensitive checker.
 
 <a id="canonical-3321031023233311-2002221332310131-1021232002302302-3201221220202211-2133303303100211-2223111020012130-0101312320301012-0013020333233222"></a>
 
-<a id="canonical-0200312131310030-1330133332322200-1201011013032302-0022302302130333-0311022233032320-2300131021022110-0232200321313112-3022202313020010"></a>
+<a id="canonical-1011032113200203-0303020031201301-2312313113003120-3313102330100120-2302012231031030-3320123130323033-3010312012203230-2311030032000203"></a>
 
-## not property — start_with_value / 213133030301 / 5
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.start_with_value.not` property
 
 Type: `"bool"`. Computed.
 
@@ -1514,20 +1688,13 @@ Not(!). Not checker.
 
 <a id="canonical-2001021222123002-1211320100101021-2030220310100000-0301001312213132-2211220032010303-1333322223120122-2102013331122211-2302002222310002"></a>
 
-<a id="canonical-3131302231323123-1231330133122111-2312333022130120-2002211013133010-3002220231313200-1023310023203021-1001100012110301-0213332021211311"></a>
+<a id="canonical-2232021120201330-0031321121110111-3213123022222330-2121332030331103-3203330013200223-0032221101111132-2130103221311122-2133010103122230"></a>
 
-## value property — start_with_value / 213133030301 / 6
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match.start_with_value.value` property
 
 Type: `"string"`. Computed.
 
 Value. Query Matcher Value.
-
-<a id="canonical-1313130331332303-1103333010330101-0123232303213232-3212323210230000-0233222031231301-1033203023320331-3322000320100333-1212330030012002"></a>
-
-## Next pages — start_with_value / 213133030301 / 7
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.header_or.header_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2231200020333013-1130103212303312-3131313132233020-3231112203110303-0332330330020220-1120121123213010-3112100230233221-0311300121030011)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-3021200310031333-2002301321031011-1331100312203233-3002100121111331-0322303301222302-0201303210111023-3122202131021230-0221133330310320"></a>
 
@@ -1535,9 +1702,7 @@ Value. Query Matcher Value.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2211220302032031-1331033120112132-1203211203132020-1312222310121321-3131102032223212-2220011321113200-2213233101210232-0221000032202230"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.not_present_header — not_present_header / 332232120312 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header.not_present_header` properties
 
 Breadcrumbs:
 
@@ -1555,18 +1720,7 @@ Type: `["object", {}]`. Computed.
 
 Can be used for the header operator choice where no values are needed.
 
-<a id="canonical-2032221033301123-3013201123323010-1033223323010233-0300000003003110-3303320333100101-2130120113210200-0003031331123203-1000300023203021"></a>
-
-## Direct properties — not_present_header / 332232120312 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3233013331102303-1011131011103033-1220232001111310-3023030321220020-1221330103200111-0101322110002231-1133131013223020-1330313230232103"></a>
-
-## Next pages — not_present_header / 332232120312 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.header](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2301102211002031-2100310313001232-0330003002220230-2222000111212131-2032120112032131-2102322210021132-2101330302101311-1230122103100020)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-1123003111220232-3320332121333021-3320310031130231-3121211021312003-0332111100310301-2301333130130012-0223030213200133-2000101001200312"></a>
 
@@ -1574,9 +1728,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3220111032121101-3212023230000233-1312130102310021-0112200123333021-3002030133200302-2331130331110031-2123213130132230-1032111232223332"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.metadata — metadata / 201001012201 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.metadata` properties
 
 Breadcrumbs:
 
@@ -1596,15 +1748,13 @@ information is propagated to the metadata of a child object that gets created fr
 message during view processing. The information in this type can be specified by user during
 create..
 
-<a id="canonical-3302210211112310-0130100233330322-0003310030321200-1310020330311320-0101101202100023-1130223201023211-3333222011221132-3130303023012213"></a>
+<a id="canonical-3220111032121101-3212023230000233-1312130102310021-0112200123333021-3002030133200302-2331130331110031-2123213130132230-1032111232223332"></a>
 
-## Direct properties — metadata / 201001012201 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.metadata`
 
 <a id="canonical-0332311130201112-2233112210310332-3233113130320203-0102112230031321-1030321232002332-1232113203120132-3302220001212003-2230300231001232"></a>
 
-<a id="canonical-2323233111122301-0020322032201221-2100221022301030-1212032313233211-1000023303331130-3102130022230001-0030023230132013-1120301000303131"></a>
-
-## description_spec property — metadata / 201001012201 / 4
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.metadata.description_spec` property
 
 Type: `"string"`. Computed.
 
@@ -1612,20 +1762,13 @@ Description. Human readable description.
 
 <a id="canonical-3210233320221022-0310323233111221-3331003022203011-3320203222033112-0003000313013022-0222330232301133-0233112321133132-2112313212323231"></a>
 
-<a id="canonical-3213033313320111-0211212002333030-1003101023022112-0300322311020021-0211010031023022-3022301333031312-3302002202100131-3103131311013302"></a>
+<a id="canonical-3302210211112310-0130100233330322-0003310030321200-1310020330311320-0101101202100023-1130223201023211-3333222011221132-3130303023012213"></a>
 
-## name property — metadata / 201001012201 / 5
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.metadata.name` property
 
 Type: `"string"`. Computed.
 
 Name of the message. The value of name has to follow DNS-1035 format.
-
-<a id="canonical-1300313023131102-1102000303013332-3002000103302203-0203302130233011-0003113320000021-3020231022213100-0200122201022312-0030200033113020"></a>
-
-## Next pages — metadata / 201001012201 / 6
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-1302113010000313-0023312313032110-2030123300012202-1120113100122213-3122022132030213-1032233203223302-1212032212003301-1000310320331220"></a>
 
@@ -1633,9 +1776,7 @@ Name of the message. The value of name has to follow DNS-1035 format.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0131320331011032-2210330121111233-1111201201132322-3202323310313000-0300323132231020-0032011203231331-3321003302321200-2202331311323232"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path — path / 011110021122 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path` properties
 
 Breadcrumbs:
 
@@ -1652,9 +1793,9 @@ Type: `"single"`. Computed.
 
 Operator. Path Operators.
 
-<a id="canonical-3023101312300110-2013021320310132-1213332303210312-0333130301030033-1301332203200321-2322110132313000-3123031022113123-0130022012332131"></a>
+<a id="canonical-0131320331011032-2210330121111233-1111201201132322-3202323310313000-0300323132231020-0032011203231331-3321003302321200-2202331311323232"></a>
 
-## Direct properties — path / 011110021122 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path`
 
 - [all_path](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2313202323201323-3321033332010133-3331203030101000-3223000310011303-0321003003303210-0132333020101222-2131112023303201-2200212111102002): complete subsection reference.
 
@@ -1664,26 +1805,13 @@ Operator. Path Operators.
 
 - [path_or](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0200300303321120-3321022223003103-3313011333130103-1332221122032003-2212123333103302-0023013102101231-3220230322110122-1313123333333220): complete subsection reference.
 
-<a id="canonical-1122200123113312-0000230132130212-3122230322130333-3202001112223311-0033100323121333-0001012220020320-2020230310332011-1120130011222233"></a>
-
-## Next pages — path / 011110021122 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.all_path](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2313202323201323-3321033332010133-3331203030101000-3223000310011303-0321003003303210-0132333020101222-2131112023303201-2200212111102002)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1010033120121301-1321303331301313-3100011020110123-1000001202013233-2103321231013021-1213120013112213-3121333112220203-1122212203101010)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1033012022221310-2133020022010310-0033320032001132-2013331200310012-0231212223112303-3133101230000010-1303221033113203-0020011312323120)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_or](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0200300303321120-3321022223003103-3313011333130103-1332221122032003-2212123333103302-0023013102101231-3220230322110122-1313123333333220)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
-
 <a id="canonical-2313202323201323-3321033332010133-3331203030101000-3223000310011303-0321003003303210-0132333020101222-2131112023303201-2200212111102002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2123012101031322-2123132300020213-0230321022212002-3032030330000101-0200103122301322-1100232333203322-2032221031101133-3131320211022002"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.all_path — all_path / 003330032013 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.all_path` properties
 
 Breadcrumbs:
 
@@ -1701,18 +1829,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-2331303321330322-3021312222023322-2212101013011121-2110103130130200-2032002013322131-0132301101230331-3331131323202232-1210311321312301"></a>
-
-## Direct properties — all_path / 003330032013 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3011300320031023-0233211223201031-2012331122120012-0222122103333023-1230022220210203-1203303021333100-0330123123112011-0003332030202011"></a>
-
-## Next pages — all_path / 003330032013 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1302113010000313-0023312313032110-2030123300012202-1120113100122213-3122022132030213-1032233203223302-1212032212003301-1000310320331220)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-1010033120121301-1321303331301313-3100011020110123-1000001202013233-2103321231013021-1213120013112213-3121333112220203-1122212203101010"></a>
 
@@ -1720,9 +1837,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0210101032021212-3320123131222302-1111230113320012-0120323113103332-3031202311022031-3300132002200011-1003311300112030-2233022101323012"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and — path_and / 011000301201 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and` properties
 
 Breadcrumbs:
 
@@ -1740,19 +1855,11 @@ Type: `"single"`. Computed.
 
 Path Matcher(s). A list of Path Matcher.
 
-<a id="canonical-1133222201232230-1020123133010231-0212110031333321-0010102100231032-2130132131010123-3021202100012330-2012001220203231-1313011333332301"></a>
+<a id="canonical-0210101032021212-3320123131222302-1111230113320012-0120323113103332-3031202311022031-3300132002200011-1003311300112030-2233022101323012"></a>
 
-## Direct properties — path_and / 011000301201 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and`
 
 - [path_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1121311110313131-2232113212302111-1130301110121013-0130010023030013-1100100311211223-3230233031113121-0210232131320200-3100230001102121): complete subsection reference.
-
-<a id="canonical-2312331213331203-2330021313003111-1332330213231112-2311323010033233-2123131030222013-1121331301202313-2300202310032330-3031233103103003"></a>
-
-## Next pages — path_and / 011000301201 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1121311110313131-2232113212302111-1130301110121013-0130010023030013-1100100311211223-3230233031113121-0210232131320200-3100230001102121)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1302113010000313-0023312313032110-2030123300012202-1120113100122213-3122022132030213-1032233203223302-1212032212003301-1000310320331220)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-1121311110313131-2232113212302111-1130301110121013-0130010023030013-1100100311211223-3230233031113121-0210232131320200-3100230001102121"></a>
 
@@ -1760,9 +1867,7 @@ Path Matcher(s). A list of Path Matcher.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2111120230122122-0123121230202030-2232223002312200-2111130121300300-3130320103231320-2212211030132300-3303032031200210-2231120220303102"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match — path_match / 101211200302 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match` properties
 
 Breadcrumbs:
 
@@ -1781,9 +1886,9 @@ Type: `"list"`. Computed.
 
 Path Matcher(s). Path Matchers.
 
-<a id="canonical-1031120211132203-3221331130003213-3332001310220033-0330201131003020-1111013101112133-3302032233000323-2232100022023132-1312023231030103"></a>
+<a id="canonical-2111120230122122-0123121230202030-2232223002312200-2111130121300300-3130320103231320-2212211030132300-3303032031200210-2231120220303102"></a>
 
-## Direct properties — path_match / 101211200302 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match`
 
 - [contain_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0011313222123313-1130121130312030-0213322110231320-2110330220132210-2130210111013220-0013023331333103-2312121320031030-3122131002121223): complete subsection reference.
 
@@ -1793,26 +1898,13 @@ Path Matcher(s). Path Matchers.
 
 - [start_with_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1112231220013111-0321221311011121-3213313213130312-0210132121110220-2223230031212320-3023132103030331-0113003312213331-2211302323103120): complete subsection reference.
 
-<a id="canonical-2330310221300132-0102023333022000-2132310030023203-3330021332322011-3130320322000313-2331113033120123-3221201111230332-2032330213122132"></a>
-
-## Next pages — path_match / 101211200302 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.contain_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0011313222123313-1130121130312030-0213322110231320-2110330220132210-2130210111013220-0013023331333103-2312121320031030-3122131002121223)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.end_with_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2123111120003322-1202222012103322-0313202132123311-0312203330310213-3133320132000312-0323133002023101-3012022201313111-0012103013220211)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.exact_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2322033301213111-3231113033321203-2020020321200213-3323122131202101-1321312332313322-3223302133010230-0133321102122031-1133121203133113)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.start_with_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1112231220013111-0321221311011121-3213313213130312-0210132121110220-2223230031212320-3023132103030331-0113003312213331-2211302323103120)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1010033120121301-1321303331301313-3100011020110123-1000001202013233-2103321231013021-1213120013112213-3121333112220203-1122212203101010)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
-
 <a id="canonical-0011313222123313-1130121130312030-0213322110231320-2110330220132210-2130210111013220-0013023331333103-2312121320031030-3122131002121223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1001013132011101-0302210111123203-1103121220120223-1130111210303122-2213211011033202-0203300032202210-0223322203021010-0100303122211332"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.contain_value — contain_value / 000210103333 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.contain_value` properties
 
 Breadcrumbs:
 
@@ -1832,15 +1924,13 @@ Type: `"single"`. Computed.
 
 Configuration parameter for contain value.
 
-<a id="canonical-1030202233032210-2133010322203211-3012032021332030-0010102013310232-1320200122303210-2222022221321212-2112300102111012-0323131311100231"></a>
+<a id="canonical-1001013132011101-0302210111123203-1103121220120223-1130111210303122-2213211011033202-0203300032202210-0223322203021010-0100303122211332"></a>
 
-## Direct properties — contain_value / 000210103333 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.contain_value`
 
 <a id="canonical-0323013032032010-3112100210013203-1330100031220330-3313201330202121-0212120301212221-3302203230203203-3022213112322203-1211311013131211"></a>
 
-<a id="canonical-2130303111123122-2102213111020010-2200233211203222-2311030210203123-1103300101322313-1012220113231210-1310333131313313-3230012222110101"></a>
-
-## case_insensitive property — contain_value / 000210103333 / 4
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.contain_value.case_insensitive` property
 
 Type: `"bool"`. Computed.
 
@@ -1848,9 +1938,9 @@ Case-Insensitive. Case insensitive checker.
 
 <a id="canonical-0132112023122131-2103331302312023-2323102033003311-0210022013001330-1032033002332312-2122232011313113-0301001221213330-3312012303022013"></a>
 
-<a id="canonical-2133020033202330-1133110301222322-0021310300113331-2000032122021100-1120200111103002-0133323123112000-1310312321322322-2103103323302233"></a>
+<a id="canonical-1030202233032210-2133010322203211-3012032021332030-0010102013310232-1320200122303210-2222022221321212-2112300102111012-0323131311100231"></a>
 
-## not property — contain_value / 000210103333 / 5
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.contain_value.not` property
 
 Type: `"bool"`. Computed.
 
@@ -1858,20 +1948,13 @@ Not(!). Not checker.
 
 <a id="canonical-3033113020122112-2013130301131321-0221113111130123-3232130203203100-1333310202222322-1223322011221011-1333313232102222-3010010130200333"></a>
 
-<a id="canonical-3222301110001321-1200222003112123-3302333331013213-0000301121002132-0113122102303323-3131112212103033-1102012110302110-3033011223233013"></a>
+<a id="canonical-2130303111123122-2102213111020010-2200233211203222-2311030210203123-1103300101322313-1012220113231210-1310333131313313-3230012222110101"></a>
 
-## value property — contain_value / 000210103333 / 6
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.contain_value.value` property
 
 Type: `"string"`. Computed.
 
 Value. Path Matcher Value.
-
-<a id="canonical-1233120031230101-1121212103002001-3113033122133323-2322022313111020-2233221232001302-0202023122102112-1301330223311102-3031323320013302"></a>
-
-## Next pages — contain_value / 000210103333 / 7
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1121311110313131-2232113212302111-1130301110121013-0130010023030013-1100100311211223-3230233031113121-0210232131320200-3100230001102121)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-2123111120003322-1202222012103322-0313202132123311-0312203330310213-3133320132000312-0323133002023101-3012022201313111-0012103013220211"></a>
 
@@ -1879,9 +1962,7 @@ Value. Path Matcher Value.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0122233012231321-1203023302022113-1210023321032101-0322013102203133-3321030322013310-3303210333032232-3231300022302323-3312031202203112"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.end_with_value — end_with_value / 233121022202 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.end_with_value` properties
 
 Breadcrumbs:
 
@@ -1901,15 +1982,13 @@ Type: `"single"`. Computed.
 
 Configuration parameter for end with value.
 
-<a id="canonical-0310322032130322-1211030103132000-0333122332012003-1021201103023311-3130310321230300-1203002101302303-3013021330123300-2211211313301310"></a>
+<a id="canonical-0122233012231321-1203023302022113-1210023321032101-0322013102203133-3321030322013310-3303210333032232-3231300022302323-3312031202203112"></a>
 
-## Direct properties — end_with_value / 233121022202 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.end_with_value`
 
 <a id="canonical-0321023233111130-3033023322201102-1310220320302122-0331330220123022-0113130132130100-1121022011320333-0010313000211223-3113122131231011"></a>
 
-<a id="canonical-2313121300202031-3131000132031331-0130311201301123-3211330222313220-2103200331230211-2031201232110011-0320021203331021-3331332111123101"></a>
-
-## case_insensitive property — end_with_value / 233121022202 / 4
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.end_with_value.case_insensitive` property
 
 Type: `"bool"`. Computed.
 
@@ -1917,9 +1996,9 @@ Case-Insensitive. Case insensitive checker.
 
 <a id="canonical-2130102133223202-1203220203123103-0022112131122000-3311100312203001-2123311101112331-0031222212100002-2101200030102231-2002222031122122"></a>
 
-<a id="canonical-1312132312020110-1330301230020313-2000103321032312-1313212311222201-1003111212301312-0003230030212130-0311131202001012-1202213100123032"></a>
+<a id="canonical-0310322032130322-1211030103132000-0333122332012003-1021201103023311-3130310321230300-1203002101302303-3013021330123300-2211211313301310"></a>
 
-## not property — end_with_value / 233121022202 / 5
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.end_with_value.not` property
 
 Type: `"bool"`. Computed.
 
@@ -1927,20 +2006,13 @@ Not(!). Not checker.
 
 <a id="canonical-3321032323300130-0102022311002331-2203003222110222-2232130113102301-0100021210332320-1131310213011211-2230202011101222-3233323200232320"></a>
 
-<a id="canonical-2200301122232223-0313331330122210-3101122211030222-1110001321001210-3332110123112303-2031123011331122-2101301131300310-2210330321303110"></a>
+<a id="canonical-2313121300202031-3131000132031331-0130311201301123-3211330222313220-2103200331230211-2031201232110011-0320021203331021-3331332111123101"></a>
 
-## value property — end_with_value / 233121022202 / 6
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.end_with_value.value` property
 
 Type: `"string"`. Computed.
 
 Value. Path Matcher Value.
-
-<a id="canonical-2331001032330101-0333313013313000-3310033130031212-1302300202301232-0312110211333323-0200112032011331-0100030203220222-3010030210003102"></a>
-
-## Next pages — end_with_value / 233121022202 / 7
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1121311110313131-2232113212302111-1130301110121013-0130010023030013-1100100311211223-3230233031113121-0210232131320200-3100230001102121)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-2322033301213111-3231113033321203-2020020321200213-3323122131202101-1321312332313322-3223302133010230-0133321102122031-1133121203133113"></a>
 
@@ -1948,9 +2020,7 @@ Value. Path Matcher Value.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3103001033201220-2223010233102001-0210202020323221-3102332210100033-2022301311202320-3213033300132210-1302222023221111-2212133333131201"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.exact_value — exact_value / 200222002001 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.exact_value` properties
 
 Breadcrumbs:
 
@@ -1970,15 +2040,13 @@ Type: `"single"`. Computed.
 
 Configuration parameter for exact value.
 
-<a id="canonical-0103123113022231-0023111031003032-2033333201003322-2113121121311012-3300030312313302-0032321210311112-3021300112010003-1212200003032001"></a>
+<a id="canonical-3103001033201220-2223010233102001-0210202020323221-3102332210100033-2022301311202320-3213033300132210-1302222023221111-2212133333131201"></a>
 
-## Direct properties — exact_value / 200222002001 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.exact_value`
 
 <a id="canonical-3123223213210122-0022223120012111-3231121033110321-3221013102300223-0221030310122000-1112313132211203-3302210303221112-3120101132022113"></a>
 
-<a id="canonical-2112001100211031-3021321030212022-2200003023330030-1013011102313213-3222113203310011-2030230132032320-3322331031031302-2102133111100231"></a>
-
-## case_insensitive property — exact_value / 200222002001 / 4
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.exact_value.case_insensitive` property
 
 Type: `"bool"`. Computed.
 
@@ -1986,9 +2054,9 @@ Case-Insensitive. Case insensitive checker.
 
 <a id="canonical-0100010302211232-1110200121010101-2323330000011222-2023300320223212-0100300010112210-2131111332022332-3310333220212310-1001211002200132"></a>
 
-<a id="canonical-1032110011311001-0321032131033210-2232223010301332-0010002230103233-1301312201203023-2030220021030130-0230201331120300-0223233031202033"></a>
+<a id="canonical-0103123113022231-0023111031003032-2033333201003322-2113121121311012-3300030312313302-0032321210311112-3021300112010003-1212200003032001"></a>
 
-## not property — exact_value / 200222002001 / 5
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.exact_value.not` property
 
 Type: `"bool"`. Computed.
 
@@ -1996,20 +2064,13 @@ Not(!). Not checker.
 
 <a id="canonical-1201200002003011-3231112023233023-0110201221121023-1333032230001021-1002302032212321-0121232021020301-0203101103212301-3123012223023232"></a>
 
-<a id="canonical-3222301020211110-1323032030021232-2200202312321030-1111230001102312-0201030013130000-0312320121201210-0020321220003302-1230203103223303"></a>
+<a id="canonical-2112001100211031-3021321030212022-2200003023330030-1013011102313213-3222113203310011-2030230132032320-3322331031031302-2102133111100231"></a>
 
-## value property — exact_value / 200222002001 / 6
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.exact_value.value` property
 
 Type: `"string"`. Computed.
 
 Value. Path Matcher Value.
-
-<a id="canonical-1023321232021323-0230003201013203-0010303123213021-1110220023312320-2102011231003302-3023133133231210-1031011131300313-0112120202233311"></a>
-
-## Next pages — exact_value / 200222002001 / 7
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1121311110313131-2232113212302111-1130301110121013-0130010023030013-1100100311211223-3230233031113121-0210232131320200-3100230001102121)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-1112231220013111-0321221311011121-3213313213130312-0210132121110220-2223230031212320-3023132103030331-0113003312213331-2211302323103120"></a>
 
@@ -2017,9 +2078,7 @@ Value. Path Matcher Value.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0013111212310230-0013221123012330-3311122103302321-1210030001321301-3221202232122012-1122210123230113-0013303000013222-2321323300301302"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.start_with_value — start_with_value / 002203100200 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.start_with_value` properties
 
 Breadcrumbs:
 
@@ -2039,15 +2098,13 @@ Type: `"single"`. Computed.
 
 Configuration parameter for start with value.
 
-<a id="canonical-3013133113113222-3230302012233321-2312113321101203-3203022333302002-0212313202201330-0012223012111211-0301202311321122-0321003322112222"></a>
+<a id="canonical-0013111212310230-0013221123012330-3311122103302321-1210030001321301-3221202232122012-1122210123230113-0013303000013222-2321323300301302"></a>
 
-## Direct properties — start_with_value / 002203100200 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.start_with_value`
 
 <a id="canonical-0211232010120121-0233201303312201-3211121110313023-1203330003320210-3111232221201313-1131031103332321-1312002322020030-0121233023120332"></a>
 
-<a id="canonical-0233202032110101-0300311311332000-1210310033210202-2232002200331101-0121302201323012-1232230023131123-2021303222012013-0300133003231122"></a>
-
-## case_insensitive property — start_with_value / 002203100200 / 4
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.start_with_value.case_insensitive` property
 
 Type: `"bool"`. Computed.
 
@@ -2055,9 +2112,9 @@ Case-Insensitive. Case insensitive checker.
 
 <a id="canonical-0332202103021133-1011003313303033-1130320300121331-0032323130001213-2101121321323323-3031322102231003-2223023221212303-1211210233021302"></a>
 
-<a id="canonical-3220103232322012-3023110112202222-2101301330332311-1113133311120321-2312220201010132-3332220302110222-1023231330300331-3221003323212231"></a>
+<a id="canonical-3013133113113222-3230302012233321-2312113321101203-3203022333302002-0212313202201330-0012223012111211-0301202311321122-0321003322112222"></a>
 
-## not property — start_with_value / 002203100200 / 5
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.start_with_value.not` property
 
 Type: `"bool"`. Computed.
 
@@ -2065,20 +2122,13 @@ Not(!). Not checker.
 
 <a id="canonical-0201210212331302-1303123111111121-0110322112212220-2203213023300323-1121010023000231-2120200332222310-3330322001020000-2320030013222310"></a>
 
-<a id="canonical-3030202001010020-2200312013101133-3303211010322213-2110213200020133-2201302101112013-3111312123131031-0313001003032120-1111002033310303"></a>
+<a id="canonical-0233202032110101-0300311311332000-1210310033210202-2232002200331101-0121302201323012-1232230023131123-2021303222012013-0300133003231122"></a>
 
-## value property — start_with_value / 002203100200 / 6
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match.start_with_value.value` property
 
 Type: `"string"`. Computed.
 
 Value. Path Matcher Value.
-
-<a id="canonical-2222202312210200-2313011212310230-1122330120120033-3210330333010012-2331122001021103-0220003132210232-2301002133333101-3021113211121012"></a>
-
-## Next pages — start_with_value / 002203100200 / 7
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_and.path_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1121311110313131-2232113212302111-1130301110121013-0130010023030013-1100100311211223-3230233031113121-0210232131320200-3100230001102121)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-1033012022221310-2133020022010310-0033320032001132-2013331200310012-0231212223112303-3133101230000010-1303221033113203-0020011312323120"></a>
 
@@ -2086,9 +2136,7 @@ Value. Path Matcher Value.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3121013301230102-3031121301120022-0221313031223202-3031313322022210-3132112023120113-2210322031322012-3233313112221330-1033230223132331"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none — path_none / 312222103223 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none` properties
 
 Breadcrumbs:
 
@@ -2106,19 +2154,11 @@ Type: `"single"`. Computed.
 
 Path Matcher(s). A list of Path Matcher.
 
-<a id="canonical-3003232220311322-2331332020121122-3002323201103111-1122330320123201-1003030310000332-2322021320302323-2102201112102133-0022221321102321"></a>
+<a id="canonical-3121013301230102-3031121301120022-0221313031223202-3031313322022210-3132112023120113-2210322031322012-3233313112221330-1033230223132331"></a>
 
-## Direct properties — path_none / 312222103223 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none`
 
 - [path_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0021111332333102-1223322332201330-1200321222002132-1130023003012102-2232102213102331-3032131201221202-0301300333231130-1113111000012233): complete subsection reference.
-
-<a id="canonical-3312300121303220-3201300211310102-1011232031013112-1010311001032232-2131101011310221-1032112311000202-3300211123311232-0123303212000333"></a>
-
-## Next pages — path_none / 312222103223 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0021111332333102-1223322332201330-1200321222002132-1130023003012102-2232102213102331-3032131201221202-0301300333231130-1113111000012233)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1302113010000313-0023312313032110-2030123300012202-1120113100122213-3122022132030213-1032233203223302-1212032212003301-1000310320331220)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-0021111332333102-1223322332201330-1200321222002132-1130023003012102-2232102213102331-3032131201221202-0301300333231130-1113111000012233"></a>
 
@@ -2126,9 +2166,7 @@ Path Matcher(s). A list of Path Matcher.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0121202130213221-0320111233231002-0320203013212313-3220113102102213-2030003310213101-2023021112133132-3331310133001312-3013130102212031"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match — path_match / 113231231302 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match` properties
 
 Breadcrumbs:
 
@@ -2147,9 +2185,9 @@ Type: `"list"`. Computed.
 
 Path Matcher(s). Path Matchers.
 
-<a id="canonical-1101001233331033-2110202231133322-3323003030000202-1000030013220122-1211222020232310-0303203023123021-0231113100113221-1323212322111110"></a>
+<a id="canonical-0121202130213221-0320111233231002-0320203013212313-3220113102102213-2030003310213101-2023021112133132-3331310133001312-3013130102212031"></a>
 
-## Direct properties — path_match / 113231231302 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match`
 
 - [contain_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2232223102330023-0133230103131200-1102121113113300-2320201321020203-2121001031110112-2222320200032201-3232332210222103-1202320112033013): complete subsection reference.
 
@@ -2159,26 +2197,13 @@ Path Matcher(s). Path Matchers.
 
 - [start_with_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-3013120313232032-2200213213023022-1232321122102021-3103331110302010-3332010030211030-3002120121330201-2123130030003203-2013020201031222): complete subsection reference.
 
-<a id="canonical-3112330210003233-1210231212122213-0003213233223132-3030213212000131-2212300231112101-3302222001231213-3030203222000003-3031223310310133"></a>
-
-## Next pages — path_match / 113231231302 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.contain_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2232223102330023-0133230103131200-1102121113113300-2320201321020203-2121001031110112-2222320200032201-3232332210222103-1202320112033013)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.end_with_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1302110232321030-3102332221313131-3312022030132211-3121323323121100-0130320221200320-2133233121220100-2031233332101000-2221133303210011)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.exact_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-2322111000210112-0221202330333002-2233031003230330-0312212130012321-1111102221320031-1033131012132002-1132113111001302-0023202123133320)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.start_with_value](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-3013120313232032-2200213213023022-1232321122102021-3103331110302010-3332010030211030-3002120121330201-2123130030003203-2013020201031222)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1033012022221310-2133020022010310-0033320032001132-2013331200310012-0231212223112303-3133101230000010-1303221033113203-0020011312323120)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
-
 <a id="canonical-2232223102330023-0133230103131200-1102121113113300-2320201321020203-2121001031110112-2222320200032201-3232332210222103-1202320112033013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2023132311221212-0103203112030323-2231002020300200-2112323230210322-3132033313033300-1221132112202021-3302032333313212-1022032310112012"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.contain_value — contain_value / 330233330000 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.contain_value` properties
 
 Breadcrumbs:
 
@@ -2198,15 +2223,13 @@ Type: `"single"`. Computed.
 
 Configuration parameter for contain value.
 
-<a id="canonical-1103120011130332-3022110003113213-1230312323103210-0303100203123320-1323201103301100-2121300120131002-1033232100010213-0133223220130000"></a>
+<a id="canonical-2023132311221212-0103203112030323-2231002020300200-2112323230210322-3132033313033300-1221132112202021-3302032333313212-1022032310112012"></a>
 
-## Direct properties — contain_value / 330233330000 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.contain_value`
 
 <a id="canonical-0231023010203003-0022021021231002-1222102200232101-1232002132113112-2010220200320020-3130330000133222-3312033223321300-0203322333321021"></a>
 
-<a id="canonical-3010100033201202-3032002122033312-1110103210033121-1211020303203023-1330131332102230-2202010003001332-1110222103133301-1300323102121233"></a>
-
-## case_insensitive property — contain_value / 330233330000 / 4
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.contain_value.case_insensitive` property
 
 Type: `"bool"`. Computed.
 
@@ -2214,9 +2237,9 @@ Case-Insensitive. Case insensitive checker.
 
 <a id="canonical-2213233013000201-1113021310320213-0331230011102213-2313013213223030-2202013230013130-2220220010102132-2322000230101103-2200331203310212"></a>
 
-<a id="canonical-0313232103020203-0022003113002220-0030301133313210-2012131203131120-0002011320312221-3232111021332113-1102211223231021-1221030111312133"></a>
+<a id="canonical-1103120011130332-3022110003113213-1230312323103210-0303100203123320-1323201103301100-2121300120131002-1033232100010213-0133223220130000"></a>
 
-## not property — contain_value / 330233330000 / 5
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.contain_value.not` property
 
 Type: `"bool"`. Computed.
 
@@ -2224,20 +2247,13 @@ Not(!). Not checker.
 
 <a id="canonical-0220323011122322-3211223231202311-2310321102120221-0333320032103012-1120223001321000-1212001230223220-2010313012002303-0012110333322032"></a>
 
-<a id="canonical-0120112322013211-3333330300220222-1021223311031213-1133210200200222-3331202120332023-0303333233331002-1011310131300220-3103222233122001"></a>
+<a id="canonical-3010100033201202-3032002122033312-1110103210033121-1211020303203023-1330131332102230-2202010003001332-1110222103133301-1300323102121233"></a>
 
-## value property — contain_value / 330233330000 / 6
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.contain_value.value` property
 
 Type: `"string"`. Computed.
 
 Value. Path Matcher Value.
-
-<a id="canonical-2131101102033323-2311123322311020-0202212212010130-3202120202232100-0212231013301101-2233323311100023-0332223312202300-2012102213303311"></a>
-
-## Next pages — contain_value / 330233330000 / 7
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0021111332333102-1223322332201330-1200321222002132-1130023003012102-2232102213102331-3032131201221202-0301300333231130-1113111000012233)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-1302110232321030-3102332221313131-3312022030132211-3121323323121100-0130320221200320-2133233121220100-2031233332101000-2221133303210011"></a>
 
@@ -2245,9 +2261,7 @@ Value. Path Matcher Value.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0113120122000111-1331012133223202-1332300210312001-0131203210022110-0201203113202313-1212112012131012-2332010011132231-1110020111332221"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.end_with_value — end_with_value / 023213332013 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.end_with_value` properties
 
 Breadcrumbs:
 
@@ -2267,15 +2281,13 @@ Type: `"single"`. Computed.
 
 Configuration parameter for end with value.
 
-<a id="canonical-0101302022211033-3311102223113002-3001020231301310-3130033212233302-0030300332110130-0203112201121033-1332331200222032-3132302131213231"></a>
+<a id="canonical-0113120122000111-1331012133223202-1332300210312001-0131203210022110-0201203113202313-1212112012131012-2332010011132231-1110020111332221"></a>
 
-## Direct properties — end_with_value / 023213332013 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.end_with_value`
 
 <a id="canonical-3221011233122132-1030331011302230-0311233123020113-2332100133200233-3320012200201232-0203320322101002-3001123210320013-1300211130322200"></a>
 
-<a id="canonical-0212320011033201-3121311130221021-3212320133013102-0303123131000323-3312223322231131-2121330123100203-0222002213022131-3123332031300020"></a>
-
-## case_insensitive property — end_with_value / 023213332013 / 4
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.end_with_value.case_insensitive` property
 
 Type: `"bool"`. Computed.
 
@@ -2283,9 +2295,9 @@ Case-Insensitive. Case insensitive checker.
 
 <a id="canonical-3320211001310121-2011123120213331-2231322212003330-3133321101013103-0013001312003220-2033032120101313-0220313120311302-2323333023201010"></a>
 
-<a id="canonical-0211211121303013-2110003130221231-3200023022330232-3001301330121201-2123223121023003-2332122223213001-1022333100100101-3232112331033110"></a>
+<a id="canonical-0101302022211033-3311102223113002-3001020231301310-3130033212233302-0030300332110130-0203112201121033-1332331200222032-3132302131213231"></a>
 
-## not property — end_with_value / 023213332013 / 5
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.end_with_value.not` property
 
 Type: `"bool"`. Computed.
 
@@ -2293,20 +2305,13 @@ Not(!). Not checker.
 
 <a id="canonical-2002002131310023-2213301301310213-2311330313121321-2122113331230030-0131001033330210-2212222001122131-0001320020102020-3212010301130200"></a>
 
-<a id="canonical-3332133203110331-3330013233132113-3123230230020212-0133133233300102-1021121111312132-1213311033111002-1301003100000330-1130111333312233"></a>
+<a id="canonical-0212320011033201-3121311130221021-3212320133013102-0303123131000323-3312223322231131-2121330123100203-0222002213022131-3123332031300020"></a>
 
-## value property — end_with_value / 023213332013 / 6
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.end_with_value.value` property
 
 Type: `"string"`. Computed.
 
 Value. Path Matcher Value.
-
-<a id="canonical-0110201311203230-3331223102113311-2213113110213020-2110220200323120-2103103001213133-1020132133110103-0202233032132032-3300113132200130"></a>
-
-## Next pages — end_with_value / 023213332013 / 7
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0021111332333102-1223322332201330-1200321222002132-1130023003012102-2232102213102331-3032131201221202-0301300333231130-1113111000012233)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-2322111000210112-0221202330333002-2233031003230330-0312212130012321-1111102221320031-1033131012132002-1132113111001302-0023202123133320"></a>
 
@@ -2314,9 +2319,7 @@ Value. Path Matcher Value.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3230221212030023-0002212333021102-1132110133320033-3023222320201000-1100021032320103-0033132131111222-2202232313113021-0033030122023122"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.exact_value — exact_value / 321212132022 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.exact_value` properties
 
 Breadcrumbs:
 
@@ -2336,15 +2339,13 @@ Type: `"single"`. Computed.
 
 Configuration parameter for exact value.
 
-<a id="canonical-1203321312120133-3213032120213113-2121021223103121-0022031231333010-0122210231330230-3130331130123030-1312223333001032-2310030220200322"></a>
+<a id="canonical-3230221212030023-0002212333021102-1132110133320033-3023222320201000-1100021032320103-0033132131111222-2202232313113021-0033030122023122"></a>
 
-## Direct properties — exact_value / 321212132022 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.exact_value`
 
 <a id="canonical-2110303320013132-3232333230302333-2303133323032220-3003121123222203-3001313130213223-1132201111032102-0223122003113233-0103331212220121"></a>
 
-<a id="canonical-3123301332122303-0331101022301222-2232030022031022-1300010103031113-0233123123101313-3013231100003210-0131201323131322-3201311023213102"></a>
-
-## case_insensitive property — exact_value / 321212132022 / 4
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.exact_value.case_insensitive` property
 
 Type: `"bool"`. Computed.
 
@@ -2352,9 +2353,9 @@ Case-Insensitive. Case insensitive checker.
 
 <a id="canonical-2001021313121303-3120032313330320-3231213331203022-1023112123220303-0210220123221233-1023201213202301-0331313202113201-1121001113300000"></a>
 
-<a id="canonical-1310202202330311-3100332122202133-2012313232131231-1211122321101002-3322233131033100-1233223032310230-0130132211123112-0100000301020003"></a>
+<a id="canonical-1203321312120133-3213032120213113-2121021223103121-0022031231333010-0122210231330230-3130331130123030-1312223333001032-2310030220200322"></a>
 
-## not property — exact_value / 321212132022 / 5
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.exact_value.not` property
 
 Type: `"bool"`. Computed.
 
@@ -2362,20 +2363,13 @@ Not(!). Not checker.
 
 <a id="canonical-0132202102213001-0332013313303120-0222301133223122-3130111110222101-2213222331133311-2330300001030333-3131033112130223-3132323120030100"></a>
 
-<a id="canonical-1132321003130130-3323111120311322-3031033221000203-3002020212200122-2031030323233221-0300123233110010-0201022111202120-3201212130321120"></a>
+<a id="canonical-3123301332122303-0331101022301222-2232030022031022-1300010103031113-0233123123101313-3013231100003210-0131201323131322-3201311023213102"></a>
 
-## value property — exact_value / 321212132022 / 6
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.exact_value.value` property
 
 Type: `"string"`. Computed.
 
 Value. Path Matcher Value.
-
-<a id="canonical-1330211100102000-2200320212230230-2030130010120003-0221301130313033-3113222100021103-1321110312131033-3101221002023123-0303332311213010"></a>
-
-## Next pages — exact_value / 321212132022 / 7
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0021111332333102-1223322332201330-1200321222002132-1130023003012102-2232102213102331-3032131201221202-0301300333231130-1113111000012233)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-3013120313232032-2200213213023022-1232321122102021-3103331110302010-3332010030211030-3002120121330201-2123130030003203-2013020201031222"></a>
 
@@ -2383,9 +2377,7 @@ Value. Path Matcher Value.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3303321110131100-2223210212321313-2313132111212311-3223222111320201-0110313333010030-1120213230111021-2132102011112210-1233000111020310"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.start_with_value — start_with_value / 001220312201 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.start_with_value` properties
 
 Breadcrumbs:
 
@@ -2405,15 +2397,13 @@ Type: `"single"`. Computed.
 
 Configuration parameter for start with value.
 
-<a id="canonical-1003300233310312-3033222002012233-3213230302010330-1210000032230333-1021310201302123-2333301103120331-1303002103332211-2213003231111001"></a>
+<a id="canonical-3303321110131100-2223210212321313-2313132111212311-3223222111320201-0110313333010030-1120213230111021-2132102011112210-1233000111020310"></a>
 
-## Direct properties — start_with_value / 001220312201 / 3
+### Direct properties for `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.start_with_value`
 
 <a id="canonical-1112123332333031-3120112301031302-2203031032130013-0211111320123011-3121011303313123-1200021012022320-0123010131313120-0030322121033013"></a>
 
-<a id="canonical-0200102122231230-1200201300022222-0300033322130233-1001202210121030-1200202312333133-2201320031212312-1223133010212102-0310313020032333"></a>
-
-## case_insensitive property — start_with_value / 001220312201 / 4
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.start_with_value.case_insensitive` property
 
 Type: `"bool"`. Computed.
 
@@ -2421,9 +2411,9 @@ Case-Insensitive. Case insensitive checker.
 
 <a id="canonical-2200002330003310-0123223333112132-1213222330232023-0031323301311313-2303112333110132-3320120132313022-2201101212100101-3120232301002231"></a>
 
-<a id="canonical-1302103332211102-0303002331011111-2110133303022120-0210233220033312-2110020332020232-2333331011220313-2221230313111011-1230101332000021"></a>
+<a id="canonical-1003300233310312-3033222002012233-3213230302010330-1210000032230333-1021310201302123-2333301103120331-1303002103332211-2213003231111001"></a>
 
-## not property — start_with_value / 001220312201 / 5
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.start_with_value.not` property
 
 Type: `"bool"`. Computed.
 
@@ -2431,20 +2421,13 @@ Not(!). Not checker.
 
 <a id="canonical-0202020330133220-1222221033023223-3221022220302310-0200201000212220-1333120310333312-1300321110320320-3123013201310012-2322102123312012"></a>
 
-<a id="canonical-1202330331013321-3130121203120311-0330202132213101-2103033011302310-1233200312223312-3000221212122302-1312202021010222-1302000130301213"></a>
+<a id="canonical-0200102122231230-1200201300022222-0300033322130233-1001202210121030-1200202312333133-2201320031212312-1223133010212102-0310313020032333"></a>
 
-## value property — start_with_value / 001220312201 / 6
+#### `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match.start_with_value.value` property
 
 Type: `"string"`. Computed.
 
 Value. Path Matcher Value.
-
-<a id="canonical-1312111300222001-1023310210002223-1231112202213102-1323100023031012-1320300221020113-0023020030330220-2212223323001312-0212132121312232"></a>
-
-## Next pages — start_with_value / 001220312201 / 7
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_none.path_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-0021111332333102-1223322332201330-1200321222002132-1130023003012102-2232102213102331-3032131201221202-0301300333231130-1113111000012233)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
 
 <a id="canonical-0200300303321120-3321022223003103-3313011333130103-1332221122032003-2212123333103302-0023013102101231-3220230322110122-1313123333333220"></a>
 
@@ -2452,9 +2435,7 @@ Value. Path Matcher Value.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3113321123013120-3120330201101201-0301000213311031-0021001213301112-2133031221313331-2032000131222031-2000003210330031-0010331201130132"></a>
-
-## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_or — path_or / 300011310032 / 2
+## `endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_or` properties
 
 Breadcrumbs:
 
@@ -2471,23 +2452,3 @@ Breadcrumbs:
 Type: `"single"`. Computed.
 
 Path Matcher(s). A list of Path Matcher.
-
-<a id="canonical-0003031103230101-2202133013031021-1111000321020120-1013003111330323-1313211100003101-3310112203330133-2232223210320131-2130212233131200"></a>
-
-## Direct properties — path_or / 300011310032 / 3
-
-- [path_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-3102200231211221-1330301122131200-2113100100212322-2111120131332332-2211211232130113-1032211210203221-3330201231230321-2113131103233023): complete subsection reference.
-
-<a id="canonical-1000130113130332-1333313120100111-2201132202312201-3301221303203211-1231010201222333-3021131310311021-1313212313320320-0212101102132133"></a>
-
-## Next pages — path_or / 300011310032 / 4
-
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path.path_or.path_match](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-3102200231211221-1330301122131200-2113100100212322-2111120131332332-2211211232130113-1032211210203221-3330201231230321-2113131103233023)
-- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.path](data-sources--bot_endpoint_policy--reference--group-007.md#canonical-1302113010000313-0023312313032110-2030123300012202-1120113100122213-3122022132030213-1032233203223302-1212032212003301-1000310320331220)
-- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
-
-<a id="canonical-3102200231211221-1330301122131200-2113100100212322-2111120131332332-2211211232130113-1032211210203221-3330201231230321-2113131103233023"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->

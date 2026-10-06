@@ -2,7 +2,7 @@
 page_title: "protocol_policer.policer"
 subcategory: ""
 description: "Reference to policer object to apply traffic rate limits."
-xcsh_docs: {"aliases": ["protocol policer policer"], "body_bytes": 6445, "body_sha256": "sha256:4887b05557f691cd070ca99b7ed9597e5991af628445b6e969034a10ea0e577e", "capabilities": [], "category": null, "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": [], "status": "unresolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:protocol_policer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:policer", "parent_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer", "path": "documentation/data-sources/protocol_policer/properties/protocol_policer/policer/index.md", "product": "distributed-cloud", "provider_name": "protocol_policer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2132230333102203-0322122020020230-2120203031302132-1302300322113020-3232313111200032-0222220003012123-0120231201220120-3330310100303110", "registry_path": "docs/guides/data-sources--protocol_policer--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["protocol_policer", "policer"], "schema_version": 1, "sections": [{"aliases": ["protocol policer policer kind"], "anchor": "schema-protocol_policer--policer--kind", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")", "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:policer", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["protocol_policer", "policer", "kind"], "syntax": "attribute", "type": "string"}, {"aliases": ["protocol policer policer name"], "anchor": "schema-protocol_policer--policer--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:policer", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["protocol_policer", "policer", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["protocol policer policer namespace"], "anchor": "schema-protocol_policer--policer--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:policer", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["protocol_policer", "policer", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["protocol policer policer tenant"], "anchor": "schema-protocol_policer--policer--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:policer", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["protocol_policer", "policer", "tenant"], "syntax": "attribute", "type": "string"}, {"aliases": ["protocol policer policer uid"], "anchor": "schema-protocol_policer--policer--uid", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.", "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:policer", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["protocol_policer", "policer", "uid"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protocol_policer/properties/protocol_policer/policer/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Reference to policer object to apply traffic rate limits.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["protocol_policerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["protocol policer policer"], "body_bytes": 5488, "body_sha256": "sha256:364cb78a3f57536793f772582082d157188d67d0e993004d7d6f1ec9355936f0", "capabilities": [], "category": null, "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": [], "status": "unresolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:protocol_policer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:policer", "parent_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer", "path": "documentation/data-sources/protocol_policer/properties/protocol_policer/policer/index.md", "product": "distributed-cloud", "provider_name": "protocol_policer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2132230333102203-0322122020020230-2120203031302132-1302300322113020-3232313111200032-0222220003012123-0120231201220120-3330310100303110", "registry_path": "docs/guides/data-sources--protocol_policer--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["protocol_policer", "policer"], "schema_version": 1, "sections": [{"aliases": ["protocol policer policer kind"], "anchor": "schema-protocol_policer--policer--kind", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")", "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:policer", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["protocol_policer", "policer", "kind"], "syntax": "attribute", "type": "string"}, {"aliases": ["protocol policer policer name"], "anchor": "schema-protocol_policer--policer--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:policer", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["protocol_policer", "policer", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["protocol policer policer namespace"], "anchor": "schema-protocol_policer--policer--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:policer", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["protocol_policer", "policer", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["protocol policer policer tenant"], "anchor": "schema-protocol_policer--policer--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:policer", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["protocol_policer", "policer", "tenant"], "syntax": "attribute", "type": "string"}, {"aliases": ["protocol policer policer uid"], "anchor": "schema-protocol_policer--policer--uid", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.", "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:policer", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["protocol_policer", "policer", "uid"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protocol_policer/properties/protocol_policer/policer/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Reference to policer object to apply traffic rate limits.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["protocol_policerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -72,10 +72,10 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
 referred object's kind (e.g. 'route').
 
-Upstream description:
+Additional upstream details:
 
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
-referred object's kind (e.g. "route")
+Virtual\_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g.
+"route")
 
 Receipt-pinned upstream constraints:
 
@@ -109,11 +109,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -142,11 +137,6 @@ Receipt-pinned upstream constraints:
 ### namespace property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -198,11 +188,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -235,11 +220,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
 referred object's(e.g. Route's) uid.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
-referred object's(e.g. Route's) uid.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -262,8 +242,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [protocol_policer](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protocol_policer/properties/protocol_policer/)
-- [xcsh_protocol_policer](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protocol_policer/)

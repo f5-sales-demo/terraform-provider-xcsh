@@ -2,7 +2,7 @@
 page_title: "trusted_clients"
 subcategory: "Load Balancing"
 description: "Define rules to skip processing of one or more features such as WAF, Bot Defense etc. For clients."
-xcsh_docs: {"aliases": ["trusted clients"], "body_bytes": 10488, "body_sha256": "sha256:655ecf9e7aa2bfdf4773ef3d2f8fe85b1dadd38d7dac46783e0390c6e278c663", "capabilities": ["cdn"], "category": "cdn", "child_ids": ["xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:bot_skip_processing", "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:http_header", "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:metadata", "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:skip_processing", "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:waf_skip_processing"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:cdn_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients", "parent_id": "xcsh-docs:data-sources:cdn_loadbalancer:reference", "path": "documentation/data-sources/cdn_loadbalancer/properties/trusted_clients/index.md", "product": "distributed-cloud", "provider_name": "cdn_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1002100210320110-3201332210010310-0021103002112133-3002233130101311-0011130210203103-1302313010232122-0212020011000112-0312323220130232", "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-014.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["trusted_clients"], "schema_version": 1, "sections": [{"aliases": ["trusted clients actions"], "anchor": "schema-trusted_clients--actions", "description": "Actions that should be taken when client identifier matches the rule.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "actions"], "syntax": "attribute", "type": "list"}, {"aliases": ["trusted clients as number"], "anchor": "schema-trusted_clients--as_number", "description": "Exclusive with RFC 6793 defined 4-byte AS number.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "as_number"], "syntax": "attribute", "type": "number"}, {"aliases": ["trusted clients bot skip processing"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:bot_skip_processing", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "bot_skip_processing"], "syntax": "attribute", "type": "object"}, {"aliases": ["trusted clients expiration timestamp"], "anchor": "schema-trusted_clients--expiration_timestamp", "description": "The expiration_timestamp is the RFC 3339 format timestamp at which the containing rule is considered to be logically expired. The rule continues to exist in the configuration but is not applied anymore.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "expiration_timestamp"], "syntax": "attribute", "type": "string"}, {"aliases": ["trusted clients http header"], "anchor": "section", "description": "Request header name and value pairs.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:http_header", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["trusted_clients", "http_header"], "syntax": "attribute", "type": "object"}, {"aliases": ["trusted clients ip prefix"], "anchor": "schema-trusted_clients--ip_prefix", "description": "Exclusive with IPv4 prefix string.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "ip_prefix"], "syntax": "attribute", "type": "string"}, {"aliases": ["trusted clients ipv6 prefix"], "anchor": "schema-trusted_clients--ipv6_prefix", "description": "Exclusive with IPv6 prefix string.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "ipv6_prefix"], "syntax": "attribute", "type": "string"}, {"aliases": ["trusted clients metadata"], "anchor": "section", "description": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:metadata", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["trusted_clients", "metadata"], "syntax": "attribute", "type": "object"}, {"aliases": ["trusted clients skip processing"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:skip_processing", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "skip_processing"], "syntax": "attribute", "type": "object"}, {"aliases": ["trusted clients user identifier"], "anchor": "schema-trusted_clients--user_identifier", "description": "Exclusive with Identify user based on user identifier. User identifier value needs to be copied from security event.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "user_identifier"], "syntax": "attribute", "type": "string"}, {"aliases": ["trusted clients waf skip processing"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:waf_skip_processing", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "waf_skip_processing"], "syntax": "attribute", "type": "object"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_loadbalancer/properties/trusted_clients/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Define rules to skip processing of one or more features such as WAF, Bot Defense etc. For clients.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["cdn_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["trusted clients"], "body_bytes": 8576, "body_sha256": "sha256:4904954933c4dec1d837f2ae426134e76e5de5763c1a6feac18c6afa41f8693f", "capabilities": ["cdn"], "category": "cdn", "child_ids": ["xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:bot_skip_processing", "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:http_header", "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:metadata", "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:skip_processing", "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:waf_skip_processing"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:cdn_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients", "parent_id": "xcsh-docs:data-sources:cdn_loadbalancer:reference", "path": "documentation/data-sources/cdn_loadbalancer/properties/trusted_clients/index.md", "product": "distributed-cloud", "provider_name": "cdn_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1002100210320110-3201332210010310-0021103002112133-3002233130101311-0011130210203103-1302313010232122-0212020011000112-0312323220130232", "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-015.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["trusted_clients"], "schema_version": 1, "sections": [{"aliases": ["trusted clients actions"], "anchor": "schema-trusted_clients--actions", "description": "Actions that should be taken when client identifier matches the rule.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "actions"], "syntax": "attribute", "type": "list"}, {"aliases": ["trusted clients as number"], "anchor": "schema-trusted_clients--as_number", "description": "Exclusive with RFC 6793 defined 4-byte AS number.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "as_number"], "syntax": "attribute", "type": "number"}, {"aliases": ["trusted clients bot skip processing"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:bot_skip_processing", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "bot_skip_processing"], "syntax": "attribute", "type": "object"}, {"aliases": ["trusted clients expiration timestamp"], "anchor": "schema-trusted_clients--expiration_timestamp", "description": "The expiration_timestamp is the RFC 3339 format timestamp at which the containing rule is considered to be logically expired. The rule continues to exist in the configuration but is not applied anymore.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "expiration_timestamp"], "syntax": "attribute", "type": "string"}, {"aliases": ["trusted clients http header"], "anchor": "section", "description": "Request header name and value pairs.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:http_header", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["trusted_clients", "http_header"], "syntax": "attribute", "type": "object"}, {"aliases": ["trusted clients ip prefix"], "anchor": "schema-trusted_clients--ip_prefix", "description": "Exclusive with IPv4 prefix string.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "ip_prefix"], "syntax": "attribute", "type": "string"}, {"aliases": ["trusted clients ipv6 prefix"], "anchor": "schema-trusted_clients--ipv6_prefix", "description": "Exclusive with IPv6 prefix string.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "ipv6_prefix"], "syntax": "attribute", "type": "string"}, {"aliases": ["trusted clients metadata"], "anchor": "section", "description": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:metadata", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["trusted_clients", "metadata"], "syntax": "attribute", "type": "object"}, {"aliases": ["trusted clients skip processing"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:skip_processing", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "skip_processing"], "syntax": "attribute", "type": "object"}, {"aliases": ["trusted clients user identifier"], "anchor": "schema-trusted_clients--user_identifier", "description": "Exclusive with Identify user based on user identifier. User identifier value needs to be copied from security event.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "user_identifier"], "syntax": "attribute", "type": "string"}, {"aliases": ["trusted clients waf skip processing"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:waf_skip_processing", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "waf_skip_processing"], "syntax": "attribute", "type": "object"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_loadbalancer/properties/trusted_clients/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Define rules to skip processing of one or more features such as WAF, Bot Defense etc. For clients.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["cdn_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -20,10 +20,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"list"`. Computed.
-
-Define rules to skip processing of one or more features such as WAF, Bot Defense etc.
-
-Upstream description:
 
 Define rules to skip processing of one or more features such as WAF, Bot Defense etc. For clients.
 
@@ -77,10 +73,6 @@ Actions that should be taken when client identifier matches the rule. Possible v
 \`SKIP\_PROCESSING\_THREAT\_MESH\`, \`SKIP\_PROCESSING\_MALWARE\_PROTECTION\`. Defaults to
 \`SKIP\_PROCESSING\_WAF\`.
 
-Upstream description:
-
-Actions that should be taken when client identifier matches the rule.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -124,11 +116,6 @@ Receipt-pinned upstream constraints:
 ### as_number property
 
 Type: `"number"`. Computed.
-
-Exclusive with \[http\_header ip\_prefix ipv6\_prefix user\_identifier\] RFC 6793 defined 4-byte AS
-number.
-
-Upstream description:
 
 Exclusive with \[http\_header ip\_prefix ipv6\_prefix user\_identifier\] RFC 6793 defined 4-byte AS
 number.
@@ -178,11 +165,10 @@ Specifies expiration\_timestamp the RFC 3339 format timestamp at which the conta
 considered to be logically expired. The rule continues to exist in the configuration but is not
 applied anymore.
 
-Upstream description:
+Additional upstream details:
 
 The expiration\_timestamp is the RFC 3339 format timestamp at which the containing rule is
-considered to be logically expired. The rule continues to exist in the configuration but is not
-applied anymore.
+considered to be logically expired.
 
 Receipt-pinned upstream constraints:
 
@@ -224,10 +210,6 @@ Type: `"string"`. Computed.
 
 Exclusive with \[as\_number http\_header ipv6\_prefix user\_identifier\] IPv4 prefix string.
 
-Upstream description:
-
-Exclusive with \[as\_number http\_header ipv6\_prefix user\_identifier\] IPv4 prefix string.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -262,10 +244,6 @@ Receipt-pinned upstream constraints:
 ### ipv6_prefix property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[as\_number http\_header ip\_prefix user\_identifier\] IPv6 prefix string.
-
-Upstream description:
 
 Exclusive with \[as\_number http\_header ip\_prefix user\_identifier\] IPv6 prefix string.
 
@@ -311,11 +289,6 @@ Type: `"string"`. Computed.
 Exclusive with \[as\_number http\_header ip\_prefix ipv6\_prefix\] Identify user based on user
 identifier. User identifier value needs to be copied from security event.
 
-Upstream description:
-
-Exclusive with \[as\_number http\_header ip\_prefix ipv6\_prefix\] Identify user based on user
-identifier. User identifier value needs to be copied from security event.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -348,13 +321,3 @@ Receipt-pinned upstream constraints:
 ```
 
 - [waf_skip_processing](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/trusted_clients/waf_skip_processing/): complete subsection reference.
-
-## Next pages
-
-- [trusted_clients.bot_skip_processing](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/trusted_clients/bot_skip_processing/)
-- [trusted_clients.http_header](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/trusted_clients/http_header/)
-- [trusted_clients.metadata](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/trusted_clients/metadata/)
-- [trusted_clients.skip_processing](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/trusted_clients/skip_processing/)
-- [trusted_clients.waf_skip_processing](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/trusted_clients/waf_skip_processing/)
-- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/)
-- [xcsh_cdn_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/)

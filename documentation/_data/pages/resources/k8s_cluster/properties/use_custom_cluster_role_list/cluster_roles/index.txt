@@ -2,7 +2,7 @@
 page_title: "use_custom_cluster_role_list.cluster_roles"
 subcategory: ""
 description: "List of active cluster role list for a K8s cluster."
-xcsh_docs: {"aliases": ["use custom cluster role list cluster roles"], "body_bytes": 6723, "body_sha256": "sha256:0d56ffb654bdd2fedbd2ff1ab27e75a09fecc7deab05887324bc43117d0f6356", "capabilities": ["container"], "category": "container", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:k8s_cluster:collection", "completeness": "complete", "id": "xcsh-docs:resources:k8s_cluster:properties:use_custom_cluster_role_list:cluster_roles", "parent_id": "xcsh-docs:resources:k8s_cluster:properties:use_custom_cluster_role_list", "path": "documentation/resources/k8s_cluster/properties/use_custom_cluster_role_list/cluster_roles/index.md", "product": "distributed-cloud", "provider_name": "k8s_cluster", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0330010311013002-3211232211212002-1130322333202333-3101012302321222-0032212233112303-3022031020230120-1001132103232322-0122300233002221", "registry_path": "docs/guides/resources--k8s_cluster--reference--group-001.md", "relationships": [{"anchor": "schema-use_custom_cluster_role_list--cluster_roles--name", "enforcement": "provider-schema", "group": "use_custom_cluster_role_list.cluster_roles:RequiredListObjectAttributes:name", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:k8s_cluster:properties:use_custom_cluster_role_list:cluster_roles", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["use_custom_cluster_role_list", "cluster_roles"], "schema_version": 1, "sections": [{"aliases": ["use custom cluster role list cluster roles name"], "anchor": "schema-use_custom_cluster_role_list--cluster_roles--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:k8s_cluster:properties:use_custom_cluster_role_list:cluster_roles", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["use_custom_cluster_role_list", "cluster_roles", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["use custom cluster role list cluster roles namespace"], "anchor": "schema-use_custom_cluster_role_list--cluster_roles--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:k8s_cluster:properties:use_custom_cluster_role_list:cluster_roles", "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["use_custom_cluster_role_list", "cluster_roles", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["use custom cluster role list cluster roles tenant"], "anchor": "schema-use_custom_cluster_role_list--cluster_roles--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:k8s_cluster:properties:use_custom_cluster_role_list:cluster_roles", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["use_custom_cluster_role_list", "cluster_roles", "tenant"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/use_custom_cluster_role_list/cluster_roles/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of active cluster role list for a K8s cluster.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["k8s_clusterCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["use custom cluster role list cluster roles"], "body_bytes": 5950, "body_sha256": "sha256:ce7f82a25bc21b8161d75e7809566c962821874a5e5e679e6a8f59d00dfc2712", "capabilities": ["container"], "category": "container", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:k8s_cluster:collection", "completeness": "complete", "id": "xcsh-docs:resources:k8s_cluster:properties:use_custom_cluster_role_list:cluster_roles", "parent_id": "xcsh-docs:resources:k8s_cluster:properties:use_custom_cluster_role_list", "path": "documentation/resources/k8s_cluster/properties/use_custom_cluster_role_list/cluster_roles/index.md", "product": "distributed-cloud", "provider_name": "k8s_cluster", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0330010311013002-3211232211212002-1130322333202333-3101012302321222-0032212233112303-3022031020230120-1001132103232322-0122300233002221", "registry_path": "docs/guides/resources--k8s_cluster--reference--group-001.md", "relationships": [{"anchor": "schema-use_custom_cluster_role_list--cluster_roles--name", "enforcement": "provider-schema", "group": "use_custom_cluster_role_list.cluster_roles:RequiredListObjectAttributes:name", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:k8s_cluster:properties:use_custom_cluster_role_list:cluster_roles", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["use_custom_cluster_role_list", "cluster_roles"], "schema_version": 1, "sections": [{"aliases": ["use custom cluster role list cluster roles name"], "anchor": "schema-use_custom_cluster_role_list--cluster_roles--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:k8s_cluster:properties:use_custom_cluster_role_list:cluster_roles", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["use_custom_cluster_role_list", "cluster_roles", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["use custom cluster role list cluster roles namespace"], "anchor": "schema-use_custom_cluster_role_list--cluster_roles--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:k8s_cluster:properties:use_custom_cluster_role_list:cluster_roles", "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["use_custom_cluster_role_list", "cluster_roles", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["use custom cluster role list cluster roles tenant"], "anchor": "schema-use_custom_cluster_role_list--cluster_roles--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:k8s_cluster:properties:use_custom_cluster_role_list:cluster_roles", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["use_custom_cluster_role_list", "cluster_roles", "tenant"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/use_custom_cluster_role_list/cluster_roles/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of active cluster role list for a K8s cluster.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["k8s_clusterCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -89,11 +89,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -148,11 +143,6 @@ Receipt-pinned upstream constraints:
 ### namespace property
 
 Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -222,11 +212,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -268,8 +253,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [use_custom_cluster_role_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/k8s_cluster/properties/use_custom_cluster_role_list/)
-- [xcsh_k8s_cluster](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/k8s_cluster/)

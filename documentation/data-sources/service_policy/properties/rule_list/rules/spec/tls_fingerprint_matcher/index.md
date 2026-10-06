@@ -2,7 +2,7 @@
 page_title: "rule_list.rules.spec.tls_fingerprint_matcher"
 subcategory: "Security"
 description: "A TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positive match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied and the input"
-xcsh_docs: {"aliases": ["rule list rules spec tls fingerprint matcher", "succeeded", "success", "successful"], "body_bytes": 6276, "body_sha256": "sha256:234ebc1e609a921876ae7b9e3e4f5ca8216b4fd9fcc0a892452ef69dba0ab546", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:service_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:tls_fingerprint_matcher", "parent_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec", "path": "documentation/data-sources/service_policy/properties/rule_list/rules/spec/tls_fingerprint_matcher/index.md", "product": "distributed-cloud", "provider_name": "service_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1333003020033103-2303031332133313-1101333013023130-2313101003001221-0111232133300132-2011202312030000-1012231232313131-2333220102021302", "registry_path": "docs/guides/data-sources--service_policy--reference--group-003.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["rule_list", "rules", "spec", "tls_fingerprint_matcher"], "schema_version": 1, "sections": [{"aliases": ["rule list rules spec tls fingerprint matcher classes"], "anchor": "schema-rule_list--rules--spec--tls_fingerprint_matcher--classes", "description": "A list of known classes of TLS fingerprints to match the input TLS JA3 fingerprint against.", "document_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:tls_fingerprint_matcher", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rule_list", "rules", "spec", "tls_fingerprint_matcher", "classes"], "syntax": "attribute", "type": "list"}, {"aliases": ["rule list rules spec tls fingerprint matcher exact values"], "anchor": "schema-rule_list--rules--spec--tls_fingerprint_matcher--exact_values", "description": "A list of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint against.", "document_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:tls_fingerprint_matcher", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rule_list", "rules", "spec", "tls_fingerprint_matcher", "exact_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["rule list rules spec tls fingerprint matcher excluded values"], "anchor": "schema-rule_list--rules--spec--tls_fingerprint_matcher--excluded_values", "description": "A list of TLS JA3 fingerprints to be excluded when matching the input TLS JA3 fingerprint. This can be used to skip known false positives when using one or more known TLS fingerprint classes in the enclosing matcher.", "document_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:tls_fingerprint_matcher", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rule_list", "rules", "spec", "tls_fingerprint_matcher", "excluded_values"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy/properties/rule_list/rules/spec/tls_fingerprint_matcher/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positive match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied and the input", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["service_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["rule list rules spec tls fingerprint matcher", "succeeded", "success", "successful"], "body_bytes": 5346, "body_sha256": "sha256:648c0597b85ace01cb801043d61c18629d070b07e605df32c8508888d8dc7472", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:service_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:tls_fingerprint_matcher", "parent_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec", "path": "documentation/data-sources/service_policy/properties/rule_list/rules/spec/tls_fingerprint_matcher/index.md", "product": "distributed-cloud", "provider_name": "service_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1333003020033103-2303031332133313-1101333013023130-2313101003001221-0111232133300132-2011202312030000-1012231232313131-2333220102021302", "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["rule_list", "rules", "spec", "tls_fingerprint_matcher"], "schema_version": 1, "sections": [{"aliases": ["rule list rules spec tls fingerprint matcher classes"], "anchor": "schema-rule_list--rules--spec--tls_fingerprint_matcher--classes", "description": "A list of known classes of TLS fingerprints to match the input TLS JA3 fingerprint against.", "document_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:tls_fingerprint_matcher", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rule_list", "rules", "spec", "tls_fingerprint_matcher", "classes"], "syntax": "attribute", "type": "list"}, {"aliases": ["rule list rules spec tls fingerprint matcher exact values"], "anchor": "schema-rule_list--rules--spec--tls_fingerprint_matcher--exact_values", "description": "A list of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint against.", "document_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:tls_fingerprint_matcher", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rule_list", "rules", "spec", "tls_fingerprint_matcher", "exact_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["rule list rules spec tls fingerprint matcher excluded values"], "anchor": "schema-rule_list--rules--spec--tls_fingerprint_matcher--excluded_values", "description": "A list of TLS JA3 fingerprints to be excluded when matching the input TLS JA3 fingerprint. This can be used to skip known false positives when using one or more known TLS fingerprint classes in the enclosing matcher.", "document_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:tls_fingerprint_matcher", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rule_list", "rules", "spec", "tls_fingerprint_matcher", "excluded_values"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy/properties/rule_list/rules/spec/tls_fingerprint_matcher/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positive match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied and the input", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["service_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,13 +23,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"single"`. Computed.
-
-TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of
-supported positive match criteria includes a list of known classes of TLS fingerprints and a list of
-exact values. The match is considered successful if either of these positive criteria are
-satisfied..
-
-Upstream description:
 
 A TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of
 supported positive match criteria includes a list of known classes of TLS fingerprints and a list of
@@ -64,7 +57,7 @@ values are \`TLS\_FINGERPRINT\_NONE\`, \`ANY\_MALICIOUS\_FINGERPRINT\`, \`ADWARE
 \`DRIDEX\`, \`GOOTKIT\`, \`GOZI\`, \`JBIFROST\`, \`QUAKBOT\`, \`RANSOMWARE\`, \`TROLDESH\`,
 \`TOFSEE\`, \`TORRENTLOCKER\`, \`TRICKBOT\`. Defaults to \`TLS\_FINGERPRINT\_NONE\`.
 
-Upstream description:
+Additional upstream details:
 
 A list of known classes of TLS fingerprints to match the input TLS JA3 fingerprint against.
 
@@ -107,10 +100,6 @@ Receipt-pinned upstream constraints:
 ### exact_values property
 
 Type: `["list", "string"]`. Computed.
-
-List of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint against.
-
-Upstream description:
 
 A list of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint against.
 
@@ -156,12 +145,6 @@ Receipt-pinned upstream constraints:
 
 Type: `["list", "string"]`. Computed.
 
-List of TLS JA3 fingerprints to be excluded when matching the input TLS JA3 fingerprint. This can be
-used to skip known false positives when using one or more known TLS fingerprint classes in the
-enclosing matcher.
-
-Upstream description:
-
 A list of TLS JA3 fingerprints to be excluded when matching the input TLS JA3 fingerprint. This can
 be used to skip known false positives when using one or more known TLS fingerprint classes in the
 enclosing matcher.
@@ -201,8 +184,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [rule_list.rules.spec](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/)
-- [xcsh_service_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/)

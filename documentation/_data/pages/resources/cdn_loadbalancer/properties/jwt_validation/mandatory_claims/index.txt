@@ -2,7 +2,7 @@
 page_title: "jwt_validation.mandatory_claims"
 subcategory: "Load Balancing"
 description: "Configurable Validation of mandatory Claims."
-xcsh_docs: {"aliases": ["jwt validation mandatory claims"], "body_bytes": 2347, "body_sha256": "sha256:f6b4858c360e136a14910fe91b81c02c5ba2855e61801cdc5889b602202f683d", "capabilities": ["cdn"], "category": "cdn", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:cdn_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:cdn_loadbalancer:properties:jwt_validation:mandatory_claims", "parent_id": "xcsh-docs:resources:cdn_loadbalancer:properties:jwt_validation", "path": "documentation/resources/cdn_loadbalancer/properties/jwt_validation/mandatory_claims/index.md", "product": "distributed-cloud", "provider_name": "cdn_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2313103132331201-1302213302203123-3300032330210320-3332032111310013-2320320003110320-2120230132023221-2312130313220303-1223233010233300", "registry_path": "docs/guides/resources--cdn_loadbalancer--reference--group-012.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["jwt_validation", "mandatory_claims"], "schema_version": 1, "sections": [{"aliases": ["jwt validation mandatory claims claim names"], "anchor": "schema-jwt_validation--mandatory_claims--claim_names", "description": "Human-readable name for the resource", "document_id": "xcsh-docs:resources:cdn_loadbalancer:properties:jwt_validation:mandatory_claims", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["jwt_validation", "mandatory_claims", "claim_names"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_loadbalancer/properties/jwt_validation/mandatory_claims/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Configurable Validation of mandatory Claims.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["cdn_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["jwt validation mandatory claims"], "body_bytes": 2029, "body_sha256": "sha256:5192edab37eb5fb4e79340ec9a47828e2b0a96fb8b860bed1fa7e5c7de401ab4", "capabilities": ["cdn"], "category": "cdn", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:cdn_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:cdn_loadbalancer:properties:jwt_validation:mandatory_claims", "parent_id": "xcsh-docs:resources:cdn_loadbalancer:properties:jwt_validation", "path": "documentation/resources/cdn_loadbalancer/properties/jwt_validation/mandatory_claims/index.md", "product": "distributed-cloud", "provider_name": "cdn_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2313103132331201-1302213302203123-3300032330210320-3332032111310013-2320320003110320-2120230132023221-2312130313220303-1223233010233300", "registry_path": "docs/guides/resources--cdn_loadbalancer--reference--group-012.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["jwt_validation", "mandatory_claims"], "schema_version": 1, "sections": [{"aliases": ["jwt validation mandatory claims claim names"], "anchor": "schema-jwt_validation--mandatory_claims--claim_names", "description": "Human-readable name for the resource", "document_id": "xcsh-docs:resources:cdn_loadbalancer:properties:jwt_validation:mandatory_claims", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["jwt_validation", "mandatory_claims", "claim_names"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_loadbalancer/properties/jwt_validation/mandatory_claims/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Configurable Validation of mandatory Claims.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["cdn_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -55,10 +55,6 @@ Type: `["list", "string"]`. Optional.
 
 Claim Names. Human-readable name for the resource
 
-Upstream description:
-
-Human-readable name for the resource
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -100,8 +96,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [jwt_validation](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/cdn_loadbalancer/properties/jwt_validation/)
-- [xcsh_cdn_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/cdn_loadbalancer/)

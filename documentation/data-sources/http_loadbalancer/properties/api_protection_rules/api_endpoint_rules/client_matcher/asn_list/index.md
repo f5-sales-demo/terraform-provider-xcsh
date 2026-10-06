@@ -2,7 +2,7 @@
 page_title: "api_protection_rules.api_endpoint_rules.client_matcher.asn_list"
 subcategory: "Load Balancing"
 description: "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer."
-xcsh_docs: {"aliases": ["api protection rules api endpoint rules client matcher asn list"], "body_bytes": 3685, "body_sha256": "sha256:21b9337569e6304965a4b7170a2ca73870e953b2a8ab490e0a1aba1ab7c3d68f", "capabilities": ["load-balancing", "security.api-protection"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:http_loadbalancer:properties:api_protection_rules:api_endpoint_rules:client_matcher:asn_list", "parent_id": "xcsh-docs:data-sources:http_loadbalancer:properties:api_protection_rules:api_endpoint_rules:client_matcher", "path": "documentation/data-sources/http_loadbalancer/properties/api_protection_rules/api_endpoint_rules/client_matcher/asn_list/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1002113013302030-1121201010132131-2011023110333110-2232032022233221-2312311001210112-0001121220010220-2021112120103002-0330033331111320", "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-004.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["api_protection_rules", "api_endpoint_rules", "client_matcher", "asn_list"], "schema_version": 1, "sections": [{"aliases": ["api protection rules api endpoint rules client matcher asn list as numbers"], "anchor": "schema-api_protection_rules--api_endpoint_rules--client_matcher--asn_list--as_numbers", "description": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:api_protection_rules:api_endpoint_rules:client_matcher:asn_list", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["api_protection_rules", "api_endpoint_rules", "client_matcher", "asn_list", "as_numbers"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/http_loadbalancer/properties/api_protection_rules/api_endpoint_rules/client_matcher/asn_list/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["api protection rules api endpoint rules client matcher asn list"], "body_bytes": 2867, "body_sha256": "sha256:3e777d7bc08417383fc82d15db5f4c2d5a609df8902c6f6e7e2245ca44733c38", "capabilities": ["load-balancing", "security.api-protection"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:http_loadbalancer:properties:api_protection_rules:api_endpoint_rules:client_matcher:asn_list", "parent_id": "xcsh-docs:data-sources:http_loadbalancer:properties:api_protection_rules:api_endpoint_rules:client_matcher", "path": "documentation/data-sources/http_loadbalancer/properties/api_protection_rules/api_endpoint_rules/client_matcher/asn_list/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1002113013302030-1121201010132131-2011023110333110-2232032022233221-2312311001210112-0001121220010220-2021112120103002-0330033331111320", "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-005.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["api_protection_rules", "api_endpoint_rules", "client_matcher", "asn_list"], "schema_version": 1, "sections": [{"aliases": ["api protection rules api endpoint rules client matcher asn list as numbers"], "anchor": "schema-api_protection_rules--api_endpoint_rules--client_matcher--asn_list--as_numbers", "description": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:api_protection_rules:api_endpoint_rules:client_matcher:asn_list", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["api_protection_rules", "api_endpoint_rules", "client_matcher", "asn_list", "as_numbers"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/http_loadbalancer/properties/api_protection_rules/api_endpoint_rules/client_matcher/asn_list/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,12 +23,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"single"`. Computed.
-
-Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists
-for use in network policy or service policy. It can be used to create the allow list only for DNS
-Load Balancer.
-
-Upstream description:
 
 An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny
 lists for use in network policy or service policy. It can be used to create the allow list only for
@@ -54,12 +48,6 @@ Receipt-pinned upstream constraints:
 ### as_numbers property
 
 Type: `["list", "number"]`. Computed.
-
-Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists
-for use in network policy or service policy. It can be used to create the allow list only for DNS
-Load Balancer.
-
-Upstream description:
 
 An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny
 lists for use in network policy or service policy. It can be used to create the allow list only for
@@ -104,8 +92,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [api_protection_rules.api_endpoint_rules.client_matcher](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/api_protection_rules/api_endpoint_rules/client_matcher/)
-- [xcsh_http_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/)

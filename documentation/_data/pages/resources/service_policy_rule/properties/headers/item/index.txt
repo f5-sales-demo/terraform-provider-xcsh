@@ -2,7 +2,7 @@
 page_title: "headers.item"
 subcategory: ""
 description: "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions."
-xcsh_docs: {"aliases": ["headers item", "succeeded", "success", "successful"], "body_bytes": 6066, "body_sha256": "sha256:a6a786d2101e33b32b5b0f450541b7f46884584ee0c4d80ceb7098d0f4380e64", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:service_policy_rule:collection", "completeness": "complete", "id": "xcsh-docs:resources:service_policy_rule:properties:headers:item", "parent_id": "xcsh-docs:resources:service_policy_rule:properties:headers", "path": "documentation/resources/service_policy_rule/properties/headers/item/index.md", "product": "distributed-cloud", "provider_name": "service_policy_rule", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3003210030231111-2201132003202010-1201112211110122-0103021212200303-2210221210012010-0213120031010030-2320003302032010-1032212303033020", "registry_path": "docs/guides/resources--service_policy_rule--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["headers", "item"], "schema_version": 1, "sections": [{"aliases": ["headers item exact values"], "anchor": "schema-headers--item--exact_values", "description": "A list of exact values to match the input against.", "document_id": "xcsh-docs:resources:service_policy_rule:properties:headers:item", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["headers", "item", "exact_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["headers item regex values"], "anchor": "schema-headers--item--regex_values", "description": "A list of regular expressions to match the input against.", "document_id": "xcsh-docs:resources:service_policy_rule:properties:headers:item", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["headers", "item", "regex_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["headers item transformers"], "anchor": "schema-headers--item--transformers", "description": "An ordered list of transformers (starting from index 0) to be applied to the path before matching.", "document_id": "xcsh-docs:resources:service_policy_rule:properties:headers:item", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["headers", "item", "transformers"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/headers/item/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["service_policy_ruleCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["headers item", "succeeded", "success", "successful"], "body_bytes": 5402, "body_sha256": "sha256:afa950dbbaad738ae2bdedbece76f78a8b72e4ecddf83916943fd2bd9992a0a2", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:service_policy_rule:collection", "completeness": "complete", "id": "xcsh-docs:resources:service_policy_rule:properties:headers:item", "parent_id": "xcsh-docs:resources:service_policy_rule:properties:headers", "path": "documentation/resources/service_policy_rule/properties/headers/item/index.md", "product": "distributed-cloud", "provider_name": "service_policy_rule", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3003210030231111-2201132003202010-1201112211110122-0103021212200303-2210221210012010-0213120031010030-2320003302032010-1032212303033020", "registry_path": "docs/guides/resources--service_policy_rule--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["headers", "item"], "schema_version": 1, "sections": [{"aliases": ["headers item exact values"], "anchor": "schema-headers--item--exact_values", "description": "A list of exact values to match the input against.", "document_id": "xcsh-docs:resources:service_policy_rule:properties:headers:item", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["headers", "item", "exact_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["headers item regex values"], "anchor": "schema-headers--item--regex_values", "description": "A list of regular expressions to match the input against.", "document_id": "xcsh-docs:resources:service_policy_rule:properties:headers:item", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["headers", "item", "regex_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["headers item transformers"], "anchor": "schema-headers--item--transformers", "description": "An ordered list of transformers (starting from index 0) to be applied to the path before matching.", "document_id": "xcsh-docs:resources:service_policy_rule:properties:headers:item", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["headers", "item", "transformers"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/headers/item/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["service_policy_ruleCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -21,12 +21,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Matcher specifies multiple criteria for matching an input string. The match is considered successful
-if any of the criteria are satisfied. The set of supported match criteria includes a list of exact
-values and a list of regular expressions.
-
-Upstream description:
 
 A matcher specifies multiple criteria for matching an input string. The match is considered
 successful if any of the criteria are satisfied. The set of supported match criteria includes a list
@@ -60,10 +54,6 @@ item {
 ### exact_values property
 
 Type: `["list", "string"]`. Optional.
-
-List of exact values to match the input against.
-
-Upstream description:
 
 A list of exact values to match the input against.
 
@@ -118,10 +108,6 @@ Receipt-pinned upstream constraints:
 ### regex_values property
 
 Type: `["list", "string"]`. Optional.
-
-List of regular expressions to match the input against.
-
-Upstream description:
 
 A list of regular expressions to match the input against.
 
@@ -185,7 +171,7 @@ Ordered list of transformers (starting from index 0) to be applied to the path b
 Possible values are \`LOWER\_CASE\`, \`UPPER\_CASE\`, \`BASE64\_DECODE\`, \`NORMALIZE\_PATH\`,
 \`REMOVE\_WHITESPACE\`, \`URL\_DECODE\`, \`TRIM\_LEFT\`, \`TRIM\_RIGHT\`, \`TRIM\`.
 
-Upstream description:
+Additional upstream details:
 
 An ordered list of transformers (starting from index 0) to be applied to the path before matching.
 
@@ -230,8 +216,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [headers](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/service_policy_rule/properties/headers/)
-- [xcsh_service_policy_rule](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/service_policy_rule/)

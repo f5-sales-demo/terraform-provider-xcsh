@@ -2,7 +2,7 @@
 page_title: "secondary"
 subcategory: "DNS"
 description: "SecondaryDNSCreateSpecType."
-xcsh_docs: {"aliases": ["secondary"], "body_bytes": 4605, "body_sha256": "sha256:fcc68bdf409be592ebe500a555180d4f4ca49143955a6a0b41882189eaf9f354", "capabilities": ["dns"], "category": "dns", "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:dns_zone:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_zone:properties:secondary", "parent_id": "xcsh-docs:data-sources:dns_zone:reference", "path": "documentation/data-sources/dns_zone/properties/secondary/index.md", "product": "distributed-cloud", "provider_name": "dns_zone", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-0110011233113032-0002112311333113-1210112333111230-3033232211331300-2300022322300333-2131100301000032-2320031122203212-3103312010003023", "registry_path": "docs/guides/data-sources--dns_zone--reference--group-003.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["secondary"], "schema_version": 1, "sections": [{"aliases": ["secondary primary servers"], "anchor": "schema-secondary--primary_servers", "description": "Configuration parameter for primary servers", "document_id": "xcsh-docs:data-sources:dns_zone:properties:secondary", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["secondary", "primary_servers"], "syntax": "attribute", "type": "list"}, {"aliases": ["secondary tsig key algorithm"], "anchor": "schema-secondary--tsig_key_algorithm", "description": "TSIG key value must be compatible with the specified algorithm - UNDEFINED: UNDEFINED - HMAC_MD5: HMAC_MD5 - HMAC_SHA1: HMAC_SHA1 - HMAC_SHA224: HMAC_SHA224 - HMAC_SHA256: HMAC_SHA256 - HMAC_SHA384: HMAC_SHA384 - HMAC_SHA512: HMAC_SHA512.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:secondary", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["secondary", "tsig_key_algorithm"], "syntax": "attribute", "type": "string"}, {"aliases": ["secondary tsig key name"], "anchor": "schema-secondary--tsig_key_name", "description": "TSIG key name as used in TSIG protocol extension.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:secondary", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["secondary", "tsig_key_name"], "syntax": "attribute", "type": "string"}, {"aliases": ["secondary tsig key value"], "anchor": "section", "description": "SecretType is used in an object to indicate a sensitive/confidential field.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["secondary", "tsig_key_value"], "syntax": "attribute", "type": "object"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/secondary/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "SecondaryDNSCreateSpecType.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["dns_zoneCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["secondary"], "body_bytes": 3833, "body_sha256": "sha256:5d376bd3152e890a08f595bf83d68338cab21da167fba0b653d10f14738126d9", "capabilities": ["dns"], "category": "dns", "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:dns_zone:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_zone:properties:secondary", "parent_id": "xcsh-docs:data-sources:dns_zone:reference", "path": "documentation/data-sources/dns_zone/properties/secondary/index.md", "product": "distributed-cloud", "provider_name": "dns_zone", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-0110011233113032-0002112311333113-1210112333111230-3033232211331300-2300022322300333-2131100301000032-2320031122203212-3103312010003023", "registry_path": "docs/guides/data-sources--dns_zone--reference--group-003.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["secondary"], "schema_version": 1, "sections": [{"aliases": ["secondary primary servers"], "anchor": "schema-secondary--primary_servers", "description": "Configuration parameter for primary servers", "document_id": "xcsh-docs:data-sources:dns_zone:properties:secondary", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["secondary", "primary_servers"], "syntax": "attribute", "type": "list"}, {"aliases": ["secondary tsig key algorithm"], "anchor": "schema-secondary--tsig_key_algorithm", "description": "TSIG key value must be compatible with the specified algorithm - UNDEFINED: UNDEFINED - HMAC_MD5: HMAC_MD5 - HMAC_SHA1: HMAC_SHA1 - HMAC_SHA224: HMAC_SHA224 - HMAC_SHA256: HMAC_SHA256 - HMAC_SHA384: HMAC_SHA384 - HMAC_SHA512: HMAC_SHA512.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:secondary", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["secondary", "tsig_key_algorithm"], "syntax": "attribute", "type": "string"}, {"aliases": ["secondary tsig key name"], "anchor": "schema-secondary--tsig_key_name", "description": "TSIG key name as used in TSIG protocol extension.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:secondary", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["secondary", "tsig_key_name"], "syntax": "attribute", "type": "string"}, {"aliases": ["secondary tsig key value"], "anchor": "section", "description": "SecretType is used in an object to indicate a sensitive/confidential field.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["secondary", "tsig_key_value"], "syntax": "attribute", "type": "object"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/secondary/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "SecondaryDNSCreateSpecType.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["dns_zoneCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -45,10 +45,6 @@ Receipt-pinned upstream constraints:
 Type: `["list", "string"]`. Computed.
 
 Configuration parameter for primary servers.
-
-Upstream description:
-
-Configuration parameter for primary servers
 
 Receipt-pinned upstream constraints:
 
@@ -104,24 +100,6 @@ HMAC\_MD5 - HMAC\_SHA1: HMAC\_SHA1 - HMAC\_SHA224: HMAC\_SHA224 - HMAC\_SHA256: 
 HMAC\_SHA384: HMAC\_SHA384 - HMAC\_SHA512: HMAC\_SHA512. Possible values are \`HMAC\_MD5\`,
 \`UNDEFINED\`, \`HMAC\_SHA1\`, \`HMAC\_SHA224\`, \`HMAC\_SHA256\`, \`HMAC\_SHA384\`,
 \`HMAC\_SHA512\`. Defaults to \`UNDEFINED\`.
-
-Upstream description:
-
-TSIG key value must be compatible with the specified algorithm
-
-&#8203;- UNDEFINED: UNDEFINED
-
-&#8203;- HMAC\_MD5: HMAC\_MD5
-
-&#8203;- HMAC\_SHA1: HMAC\_SHA1
-
-&#8203;- HMAC\_SHA224: HMAC\_SHA224
-
-&#8203;- HMAC\_SHA256: HMAC\_SHA256
-
-&#8203;- HMAC\_SHA384: HMAC\_SHA384
-
-&#8203;- HMAC\_SHA512: HMAC\_SHA512.
 
 Receipt-pinned upstream constraints:
 
@@ -186,9 +164,3 @@ Receipt-pinned upstream constraints:
 ```
 
 - [tsig_key_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/properties/secondary/tsig_key_value/): complete subsection reference.
-
-## Next pages
-
-- [secondary.tsig_key_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/properties/secondary/tsig_key_value/)
-- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/properties/)
-- [xcsh_dns_zone](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/)

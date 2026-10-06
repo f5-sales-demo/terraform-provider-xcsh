@@ -2,7 +2,7 @@
 page_title: "routes.match.headers"
 subcategory: ""
 description: "List of (key, value) headers."
-xcsh_docs: {"aliases": ["routes match headers"], "body_bytes": 7306, "body_sha256": "sha256:fbb36a004d1f0f24b7e004284a1499dd18d0b0d159efbcf22420b78be214407b", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:route:collection", "completeness": "complete", "id": "xcsh-docs:resources:route:properties:routes:match:headers", "parent_id": "xcsh-docs:resources:route:properties:routes:match", "path": "documentation/resources/route/properties/routes/match/headers/index.md", "product": "distributed-cloud", "provider_name": "route", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1231001332220321-3202001223021011-1122010000110133-0332120211030122-2020003311013111-3330112211131113-1211310101122121-2022023230321200", "registry_path": "docs/guides/resources--route--reference--group-001.md", "relationships": [{"anchor": "schema-routes--match--headers--exact", "enforcement": "provider-schema", "group": "routes.match.headers:ConflictingListObjectAttributes:exact,presence", "source": "ast-validator:ConflictingListObjectAttributes", "target_id": "xcsh-docs:resources:route:properties:routes:match:headers", "type": "conflicts"}, {"anchor": "schema-routes--match--headers--exact", "enforcement": "provider-schema", "group": "routes.match.headers:ConflictingListObjectAttributes:exact,regex", "source": "ast-validator:ConflictingListObjectAttributes", "target_id": "xcsh-docs:resources:route:properties:routes:match:headers", "type": "conflicts"}, {"anchor": "schema-routes--match--headers--presence", "enforcement": "provider-schema", "group": "routes.match.headers:ConflictingListObjectAttributes:exact,presence", "source": "ast-validator:ConflictingListObjectAttributes", "target_id": "xcsh-docs:resources:route:properties:routes:match:headers", "type": "conflicts"}, {"anchor": "schema-routes--match--headers--presence", "enforcement": "provider-schema", "group": "routes.match.headers:ConflictingListObjectAttributes:presence,regex", "source": "ast-validator:ConflictingListObjectAttributes", "target_id": "xcsh-docs:resources:route:properties:routes:match:headers", "type": "conflicts"}, {"anchor": "schema-routes--match--headers--regex", "enforcement": "provider-schema", "group": "routes.match.headers:ConflictingListObjectAttributes:exact,regex", "source": "ast-validator:ConflictingListObjectAttributes", "target_id": "xcsh-docs:resources:route:properties:routes:match:headers", "type": "conflicts"}, {"anchor": "schema-routes--match--headers--regex", "enforcement": "provider-schema", "group": "routes.match.headers:ConflictingListObjectAttributes:presence,regex", "source": "ast-validator:ConflictingListObjectAttributes", "target_id": "xcsh-docs:resources:route:properties:routes:match:headers", "type": "conflicts"}, {"anchor": "schema-routes--match--headers--name", "enforcement": "provider-schema", "group": "routes.match.headers:RequiredListObjectAttributes:name", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:route:properties:routes:match:headers", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["routes", "match", "headers"], "schema_version": 1, "sections": [{"aliases": ["routes match headers exact"], "anchor": "schema-routes--match--headers--exact", "description": "Exclusive with Header value to match exactly.", "document_id": "xcsh-docs:resources:route:properties:routes:match:headers", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "match", "headers", "exact"], "syntax": "attribute", "type": "string"}, {"aliases": ["routes match headers invert match"], "anchor": "schema-routes--match--headers--invert_match", "description": "Invert the result of the match to detect missing header or non-matching value.", "document_id": "xcsh-docs:resources:route:properties:routes:match:headers", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "match", "headers", "invert_match"], "syntax": "attribute", "type": "bool"}, {"aliases": ["routes match headers name"], "anchor": "schema-routes--match--headers--name", "description": "Name of the header.", "document_id": "xcsh-docs:resources:route:properties:routes:match:headers", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "match", "headers", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["routes match headers presence"], "anchor": "schema-routes--match--headers--presence", "description": "Exclusive with If true, check for presence of header.", "document_id": "xcsh-docs:resources:route:properties:routes:match:headers", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "match", "headers", "presence"], "syntax": "attribute", "type": "bool"}, {"aliases": ["routes match headers regex"], "anchor": "schema-routes--match--headers--regex", "description": "Exclusive with Regex match of the header value in re2 format.", "document_id": "xcsh-docs:resources:route:properties:routes:match:headers", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "match", "headers", "regex"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/route/properties/routes/match/headers/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of (key, value) headers.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["routeCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["routes match headers"], "body_bytes": 6700, "body_sha256": "sha256:e543396f859f19c72dff1120ad2fe92ad29abc49aec0596e84a262e4dbaead1a", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:route:collection", "completeness": "complete", "id": "xcsh-docs:resources:route:properties:routes:match:headers", "parent_id": "xcsh-docs:resources:route:properties:routes:match", "path": "documentation/resources/route/properties/routes/match/headers/index.md", "product": "distributed-cloud", "provider_name": "route", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1231001332220321-3202001223021011-1122010000110133-0332120211030122-2020003311013111-3330112211131113-1211310101122121-2022023230321200", "registry_path": "docs/guides/resources--route--reference--group-001.md", "relationships": [{"anchor": "schema-routes--match--headers--exact", "enforcement": "provider-schema", "group": "routes.match.headers:ConflictingListObjectAttributes:exact,presence", "source": "ast-validator:ConflictingListObjectAttributes", "target_id": "xcsh-docs:resources:route:properties:routes:match:headers", "type": "conflicts"}, {"anchor": "schema-routes--match--headers--exact", "enforcement": "provider-schema", "group": "routes.match.headers:ConflictingListObjectAttributes:exact,regex", "source": "ast-validator:ConflictingListObjectAttributes", "target_id": "xcsh-docs:resources:route:properties:routes:match:headers", "type": "conflicts"}, {"anchor": "schema-routes--match--headers--presence", "enforcement": "provider-schema", "group": "routes.match.headers:ConflictingListObjectAttributes:exact,presence", "source": "ast-validator:ConflictingListObjectAttributes", "target_id": "xcsh-docs:resources:route:properties:routes:match:headers", "type": "conflicts"}, {"anchor": "schema-routes--match--headers--presence", "enforcement": "provider-schema", "group": "routes.match.headers:ConflictingListObjectAttributes:presence,regex", "source": "ast-validator:ConflictingListObjectAttributes", "target_id": "xcsh-docs:resources:route:properties:routes:match:headers", "type": "conflicts"}, {"anchor": "schema-routes--match--headers--regex", "enforcement": "provider-schema", "group": "routes.match.headers:ConflictingListObjectAttributes:exact,regex", "source": "ast-validator:ConflictingListObjectAttributes", "target_id": "xcsh-docs:resources:route:properties:routes:match:headers", "type": "conflicts"}, {"anchor": "schema-routes--match--headers--regex", "enforcement": "provider-schema", "group": "routes.match.headers:ConflictingListObjectAttributes:presence,regex", "source": "ast-validator:ConflictingListObjectAttributes", "target_id": "xcsh-docs:resources:route:properties:routes:match:headers", "type": "conflicts"}, {"anchor": "schema-routes--match--headers--name", "enforcement": "provider-schema", "group": "routes.match.headers:RequiredListObjectAttributes:name", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:route:properties:routes:match:headers", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["routes", "match", "headers"], "schema_version": 1, "sections": [{"aliases": ["routes match headers exact"], "anchor": "schema-routes--match--headers--exact", "description": "Exclusive with Header value to match exactly.", "document_id": "xcsh-docs:resources:route:properties:routes:match:headers", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "match", "headers", "exact"], "syntax": "attribute", "type": "string"}, {"aliases": ["routes match headers invert match"], "anchor": "schema-routes--match--headers--invert_match", "description": "Invert the result of the match to detect missing header or non-matching value.", "document_id": "xcsh-docs:resources:route:properties:routes:match:headers", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "match", "headers", "invert_match"], "syntax": "attribute", "type": "bool"}, {"aliases": ["routes match headers name"], "anchor": "schema-routes--match--headers--name", "description": "Name of the header.", "document_id": "xcsh-docs:resources:route:properties:routes:match:headers", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "match", "headers", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["routes match headers presence"], "anchor": "schema-routes--match--headers--presence", "description": "Exclusive with If true, check for presence of header.", "document_id": "xcsh-docs:resources:route:properties:routes:match:headers", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "match", "headers", "presence"], "syntax": "attribute", "type": "bool"}, {"aliases": ["routes match headers regex"], "anchor": "schema-routes--match--headers--regex", "description": "Exclusive with Regex match of the header value in re2 format.", "document_id": "xcsh-docs:resources:route:properties:routes:match:headers", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "match", "headers", "regex"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/route/properties/routes/match/headers/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of (key, value) headers.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["routeCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -24,10 +24,6 @@ Breadcrumbs:
 Type: `"object"`. list nested block, Optional.
 
 Headers. List of (key, value) headers.
-
-Upstream description:
-
-List of (key, value) headers.
 
 Provider validators and defaults (from schema source):
 
@@ -91,10 +87,6 @@ headers {
 ### exact property
 
 Type: `"string"`. Optional.
-
-Exclusive with \[presence regex\] Header value to match exactly.
-
-Upstream description:
 
 Exclusive with \[presence regex\] Header value to match exactly.
 
@@ -171,10 +163,6 @@ Type: `"string"`. Optional.
 
 Name. Name of the header.
 
-Upstream description:
-
-Name of the header.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -247,10 +235,6 @@ Type: `"bool"`. Optional.
 
 Exclusive with \[exact regex\] If true, check for presence of header.
 
-Upstream description:
-
-Exclusive with \[exact regex\] If true, check for presence of header.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -269,10 +253,6 @@ Receipt-pinned upstream constraints:
 ### regex property
 
 Type: `"string"`. Optional.
-
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
-
-Upstream description:
 
 Exclusive with \[exact presence\] Regex match of the header value in re2 format.
 
@@ -320,8 +300,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [routes.match](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/match/)
-- [xcsh_route](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/)

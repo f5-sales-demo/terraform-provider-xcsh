@@ -21,8 +21,8 @@
   "pages": [
     {
       "aliases": ["bot peer status"],
-      "body_bytes": 1218,
-      "body_sha256": "sha256:0dc91672efd8d7dca479dd0d65512fce141e416d346feea4c191479e38d68878",
+      "body_bytes": 1263,
+      "body_sha256": "sha256:ce4ca1cf3da93aef39cfc7dc7cf8259d49290ff8768166d2b737282027227779",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -53,7 +53,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_peer_status/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource creation operation.",
+      "summary": "Reads Bot Peer Status information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_bot_peer_status",
       "unresolved_relationships": [],
@@ -65,8 +65,8 @@
     },
     {
       "aliases": ["bot peer status"],
-      "body_bytes": 1248,
-      "body_sha256": "sha256:baac296d0a2952a353afa25a1967ac6a6a360484eafc2459f9b37c72cb0c787a",
+      "body_bytes": 1120,
+      "body_sha256": "sha256:a74b3cb9fd5fc0954ea936c74420a6c0ba6176511841e843e7eed8ee854d35fc",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -134,8 +134,8 @@
     },
     {
       "aliases": ["bot peer status"],
-      "body_bytes": 675,
-      "body_sha256": "sha256:a908122a5740b5fc021d3cdbc87a84eb92b4baf09c3695560fef524df80fb9eb",
+      "body_bytes": 423,
+      "body_sha256": "sha256:0189723faa657349a5f5cc5044332f6cc29441aa7e766f065c799847c68a63a6",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_peer_status:example:data-source"],
@@ -174,8 +174,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1239,
-      "body_sha256": "sha256:8f0c48a1c2a5c84e7f795259366ff8c9bc13d573e034853b761d016e0cd5d452",
+      "body_bytes": 1002,
+      "body_sha256": "sha256:1a682d46b172daec658558f54c420f158085b755b6b8fc268ca9d19ce753b6b1",
       "capabilities": [],
       "category": null,
       "child_ids": [],

@@ -12,18 +12,16 @@ description: "Complete grouped canonical reference for xcsh_service_policy refer
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0030210210313010-1332032311311111-1302002232020010-3033012033321223-1010310030010310-2221302233322132-1221033133101210-3312203222113132"></a>
-
-## Property reference — Property reference / 131111022331 / 2
+## Property reference
 
 Breadcrumbs:
 
 - [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
 - Property reference
 
-<a id="canonical-0200231112013012-2123102323021110-2133301322133110-0302321023303032-1010023311313311-2301131001233330-1101131220110113-2220110202312012"></a>
+<a id="canonical-0030210210313010-1332032311311111-1302002232020010-3033012033321223-1010310030010310-2221302233322132-1221033133101210-3312203222113132"></a>
 
-## Direct properties — Property reference / 131111022331 / 3
+### Direct properties for `xcsh_service_policy`
 
 - [allow_all_requests](data-sources--service_policy--reference--group-001.md#canonical-1310133010132113-2321211101112030-2032301102311223-3121100330132020-0312130331122112-2311320303111131-3110000220310101-2300003320213301): complete subsection reference.
 
@@ -31,15 +29,15 @@ Breadcrumbs:
 
 <a id="canonical-2021002001313310-2331021110333232-2222330130301303-1332102030102203-2101203131212113-1210131103122232-1200132131221020-0201033002220313"></a>
 
-<a id="canonical-2311223302301222-0333031130231200-0020300031132320-1010313003212031-1111320012103003-1010231010110023-0310032130320312-2002233232211322"></a>
+<a id="canonical-0200231112013012-2123102323021110-2133301322133110-0302321023303032-1010023311313311-2301131001233330-1101131220110113-2220110202312012"></a>
 
-## annotations property — Property reference / 131111022331 / 4
+#### `annotations` property
 
 Type: `["map", "string"]`. Computed.
 
 Annotations applied to this resource.
 
-Upstream description:
+Additional upstream details:
 
 Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
@@ -99,15 +97,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0232110201311312-0230113113123310-1223322303321330-3003232220213331-3300013301003002-0003333231011012-2023320321101130-1222133000200112"></a>
 
-<a id="canonical-3121121031022212-2123002201123213-3101300233230002-3122112221333022-2110113303320201-0221333301211232-1003222012232031-0101011122212121"></a>
+<a id="canonical-2311223302301222-0333031130231200-0020300031132320-1010313003212031-1111320012103003-1010231010110023-0310032130320312-2002233232211322"></a>
 
-## description property — Property reference / 131111022331 / 5
+#### `description` property
 
 Type: `"string"`. Computed.
 
 Description of the ServicePolicy.
 
-Upstream description:
+Additional upstream details:
 
 Human readable description for the object.
 
@@ -151,9 +149,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0121013310032101-0231302102220221-3223132121331113-3013020002132000-1023031330021300-1121122011200123-2113333321333123-3003012211332203"></a>
 
-<a id="canonical-2223210031311200-0333201001301320-3000032101122032-0313033031011223-1001311331132100-1222201103221210-3103002030220333-0232002320031013"></a>
+<a id="canonical-3121121031022212-2123002201123213-3101300233230002-3122112221333022-2110113303320201-0221333301211232-1003222012232031-0101011122212121"></a>
 
-## ID property — Property reference / 131111022331 / 6
+#### `id` property
 
 Type: `"string"`. Computed.
 
@@ -161,15 +159,15 @@ Unique identifier for the resource.
 
 <a id="canonical-0022232000222122-2033333001312202-0113233021331200-2010023013110333-0103012302300210-1021303203201002-3330000030220322-1110121110220301"></a>
 
-<a id="canonical-0222312301301230-2030300300013302-0112331300030012-0303013113100230-0230332013031100-1320130101003111-1123103030121332-1212020031333210"></a>
+<a id="canonical-2223210031311200-0333201001301320-3000032101122032-0313033031011223-1001311331132100-1222201103221210-3103002030220333-0232002320031013"></a>
 
-## labels property — Property reference / 131111022331 / 7
+#### `labels` property
 
 Type: `["map", "string"]`. Computed.
 
 Labels applied to this resource.
 
-Upstream description:
+Additional upstream details:
 
 Map of string keys and values that can be used to organize and categorize (scope and select) objects
 as chosen by the user. Values specified here will be used by selector expression.
@@ -189,15 +187,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2022032222200210-0022330332232003-3313001201113221-1110300302113303-3310201201001221-3012033230131210-2021320002112300-0123220313210231"></a>
 
-<a id="canonical-0322303300301302-0113200332301332-1222233130113201-3203022200311002-0300223132023331-0212301333332201-0132032132002222-1333002031010230"></a>
+<a id="canonical-0222312301301230-2030300300013302-0112331300030012-0303013113100230-0230332013031100-1320130101003111-1123103030121332-1212020031333210"></a>
 
-## name property — Property reference / 131111022331 / 8
+#### `name` property
 
 Type: `"string"`. Required.
 
 Name of the ServicePolicy.
 
-Upstream description:
+Additional upstream details:
 
 This is the name of configuration object. It has to be unique within the namespace. It can only be
 specified during create API and cannot be changed during replace API. The value of name has to
@@ -249,15 +247,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3020023302113102-3302301232331100-0001100002030002-2233221110023212-3202030102233323-0033220331013203-3332102103132213-3220031313102112"></a>
 
-<a id="canonical-3312002002323311-1210110023321122-2320222021033022-1331201111001003-1022220302110101-3001010231000022-2001322120021001-0213033312000331"></a>
+<a id="canonical-0322303300301302-0113200332301332-1222233130113201-3203022200311002-0300223132023331-0212301333332201-0132032132002222-1333002031010230"></a>
 
-## namespace property — Property reference / 131111022331 / 9
+#### `namespace` property
 
 Type: `"string"`. Required.
 
 Namespace where the ServicePolicy exists.
 
-Upstream description:
+Additional upstream details:
 
 This defines the workspace within which each the configuration object is to be created. Must be a
 DNS\_LABEL format. For a namespace object itself, namespace value will be ""
@@ -304,18 +302,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0321011233203030-0331130203211121-1031132232322121-0110122031210203-2023032012313300-0320030311200013-1001030211002303-2010110202110133"></a>
 
-<a id="canonical-0231132133121201-3311110321100132-3002322012023301-2231221020321200-1210323310311112-0311200132110312-2231110300323322-1222110213332220"></a>
+<a id="canonical-3312002002323311-1210110023321122-2320222021033022-1331201111001003-1022220302110101-3001010231000022-2001322120021001-0213033312000331"></a>
 
-## server_name property — Property reference / 131111022331 / 10
+#### `server_name` property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[any\_server server\_name\_matcher server\_selector\] The expected name of the
-server to which the request API is directed. The actual names for the server are extracted from the
-HTTP Host header and the name of the virtual\_host to which the request is directed. If the request
-is..
-
-Upstream description:
 
 Exclusive with \[any\_server server\_name\_matcher server\_selector\] The expected name of the
 server to which the request API is directed. The actual names for the server are extracted from the
@@ -361,9 +352,9 @@ Receipt-pinned upstream constraints:
 
 - [server_selector](data-sources--service_policy--reference--group-003.md#canonical-3122313323222133-3022130222310211-0113113011303232-0203212121203123-0123123113030131-0111331230021010-3121011333120221-2330322213331033): complete subsection reference.
 
-<a id="canonical-3220133012112000-3001301100233100-0020323320223111-2002320102211033-3231202111001131-0000000023331100-2321302021221012-0113132311002131"></a>
+<a id="canonical-0231132133121201-3311110321100132-3002322012023301-2231221020321200-1210323310311112-0311200132110312-2231110300323322-1222110213332220"></a>
 
-## All schema paths — Property reference / 131111022331 / 11
+### All schema paths for `xcsh_service_policy`
 
 Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
@@ -423,34 +414,34 @@ Each exact path has one authoritative reference destination. Collection element 
 | `rule_list.rules.metadata.name` | [rule_list.rules.metadata.name](data-sources--service_policy--reference--group-001.md#canonical-1000132132131211-3110100001311320-2302200310113010-2112212130123330-3230221122002300-2131322303012032-0103232131233232-0233231121323210) |
 | `rule_list.rules.spec` | [rule_list.rules.spec](data-sources--service_policy--reference--group-001.md#canonical-1133013120211033-0320113201200113-2030303010023202-2220311210313200-0022221110321003-0302002312313013-0323310011323211-0101213132323023) |
 | `rule_list.rules.spec.action` | [rule_list.rules.spec.action](data-sources--service_policy--reference--group-001.md#canonical-0030310321031303-1210300001000323-0330321121202332-0313300002301030-0102113303323012-1221120000322010-0021322223222103-1201002013030122) |
-| `rule_list.rules.spec.any_asn` | [rule_list.rules.spec.any_asn](data-sources--service_policy--reference--group-002.md#canonical-1020211012322112-2130223103313230-1221102230302302-3121003131023133-2231320201222110-1300320231013220-3313322103033120-2132132220211101) |
-| `rule_list.rules.spec.any_client` | [rule_list.rules.spec.any_client](data-sources--service_policy--reference--group-002.md#canonical-1300330003023333-1333111332220312-2310222203120032-1300110232122131-3203121320022231-3332023213231211-0220220220232233-3210030133023220) |
-| `rule_list.rules.spec.any_ip` | [rule_list.rules.spec.any_ip](data-sources--service_policy--reference--group-002.md#canonical-1003211211011222-3123201310100102-0030313120303132-1101032013110102-1011030231231001-0020010301132211-2101301031032131-2211303133020200) |
-| `rule_list.rules.spec.api_group_matcher` | [rule_list.rules.spec.api_group_matcher](data-sources--service_policy--reference--group-002.md#canonical-2111211320123130-0231032322312103-3203100222330213-3320320203102003-0313131031333320-3100030220111230-3213103121231300-3330103201102121) |
-| `rule_list.rules.spec.api_group_matcher.invert_matcher` | [rule_list.rules.spec.api_group_matcher.invert_matcher](data-sources--service_policy--reference--group-002.md#canonical-3112233332331211-0022302002321222-3203322302302200-2022221123130113-2200320121023302-0223332100303022-3321201300000000-3033331132301132) |
-| `rule_list.rules.spec.api_group_matcher.match` | [rule_list.rules.spec.api_group_matcher.match](data-sources--service_policy--reference--group-002.md#canonical-2332001011133303-3010112113111113-0102001020312120-1000113333310200-2112213020130102-1200330031310033-3121120312111100-2021011002103010) |
-| `rule_list.rules.spec.arg_matchers` | [rule_list.rules.spec.arg_matchers](data-sources--service_policy--reference--group-002.md#canonical-0231002111103112-1231131210320221-1131032201121113-0310202302313003-2203202001203113-0110112201103112-1210001320120210-2212021302223002) |
-| `rule_list.rules.spec.arg_matchers.check_not_present` | [rule_list.rules.spec.arg_matchers.check_not_present](data-sources--service_policy--reference--group-002.md#canonical-3121300003200003-2222002023101200-3000213023322300-1303323332113130-3232031132033301-0013131223012303-0121101101210311-2320311110330232) |
-| `rule_list.rules.spec.arg_matchers.check_present` | [rule_list.rules.spec.arg_matchers.check_present](data-sources--service_policy--reference--group-002.md#canonical-0202121332112331-1303132123020311-0302232021111320-2332233023302320-3101031213202022-1021232001032313-2002132122321201-1300212201021323) |
-| `rule_list.rules.spec.arg_matchers.invert_matcher` | [rule_list.rules.spec.arg_matchers.invert_matcher](data-sources--service_policy--reference--group-002.md#canonical-0303220323213301-3123011333233123-2030210313111003-1213122331302020-3303010332200110-0000211303203020-1211102200013313-0223220211233121) |
-| `rule_list.rules.spec.arg_matchers.item` | [rule_list.rules.spec.arg_matchers.item](data-sources--service_policy--reference--group-002.md#canonical-2332023130032022-1132302310330132-2131001312321022-1113103313112333-3022313223011030-0221021122223210-2112321210013001-0313120133231001) |
-| `rule_list.rules.spec.arg_matchers.item.exact_values` | [rule_list.rules.spec.arg_matchers.item.exact_values](data-sources--service_policy--reference--group-002.md#canonical-3213320220301231-2113020331222313-2010113133122330-2000320110223221-3013200303220123-0101100201110201-1233020101313330-3101013100121303) |
-| `rule_list.rules.spec.arg_matchers.item.regex_values` | [rule_list.rules.spec.arg_matchers.item.regex_values](data-sources--service_policy--reference--group-002.md#canonical-1301323232211312-3312120320132331-2223023212110302-0300033232021011-2122312312132332-1120111323023123-0100121220311013-1321122113130100) |
-| `rule_list.rules.spec.arg_matchers.item.transformers` | [rule_list.rules.spec.arg_matchers.item.transformers](data-sources--service_policy--reference--group-002.md#canonical-2303131320011000-0000330310010011-3121000200001321-0120033112301030-2111000021302120-2220000002100000-0333201011022013-0001133330130001) |
-| `rule_list.rules.spec.arg_matchers.name` | [rule_list.rules.spec.arg_matchers.name](data-sources--service_policy--reference--group-002.md#canonical-2322232213331000-2122332021220233-1220132231233002-0212320233033130-0031023103030010-0233202121223223-0111133213013111-2301133322102121) |
-| `rule_list.rules.spec.asn_list` | [rule_list.rules.spec.asn_list](data-sources--service_policy--reference--group-002.md#canonical-1030233020210002-0201201310003213-2003323131101020-2023121200110312-0202012201302331-2013100012231021-0132003213302302-0031123023213131) |
-| `rule_list.rules.spec.asn_list.as_numbers` | [rule_list.rules.spec.asn_list.as_numbers](data-sources--service_policy--reference--group-002.md#canonical-0230111022020120-2312230000130022-2222323112130003-3202012213102102-3130023312132111-3230231131211301-0231212213230320-0310101302133001) |
-| `rule_list.rules.spec.asn_matcher` | [rule_list.rules.spec.asn_matcher](data-sources--service_policy--reference--group-002.md#canonical-3310301311023211-3212333103231332-1301223331002130-1323130023300133-1200010303133320-1231002331210313-3003231230221310-1103000103033223) |
-| `rule_list.rules.spec.asn_matcher.asn_sets` | [rule_list.rules.spec.asn_matcher.asn_sets](data-sources--service_policy--reference--group-002.md#canonical-1200202203313103-0013212021220122-2311212212023102-1101120113310332-3303303331023210-0033221122022102-2103312010010023-3020300102222003) |
-| `rule_list.rules.spec.asn_matcher.asn_sets.kind` | [rule_list.rules.spec.asn_matcher.asn_sets.kind](data-sources--service_policy--reference--group-002.md#canonical-3213033302123332-1030130013021222-1100202011200203-3232232312322231-3332120020003022-2111203320311011-0213130321310023-1331211301220211) |
-| `rule_list.rules.spec.asn_matcher.asn_sets.name` | [rule_list.rules.spec.asn_matcher.asn_sets.name](data-sources--service_policy--reference--group-002.md#canonical-0022113003211033-1230333333111332-0103301202123231-1212133320020313-0323010110222021-1120102322021200-3123001011132311-0233120231022310) |
-| `rule_list.rules.spec.asn_matcher.asn_sets.namespace` | [rule_list.rules.spec.asn_matcher.asn_sets.namespace](data-sources--service_policy--reference--group-002.md#canonical-0012112203232311-0022022213112112-0310331232100202-2312202201030312-3312213301020310-0030313001200330-3022131320102210-3032030103212003) |
-| `rule_list.rules.spec.asn_matcher.asn_sets.tenant` | [rule_list.rules.spec.asn_matcher.asn_sets.tenant](data-sources--service_policy--reference--group-002.md#canonical-2230200321222023-0122123120032212-3210101013113231-0001200330101313-2030201022302232-2321112011300233-1211230210212321-1203113212322220) |
-| `rule_list.rules.spec.asn_matcher.asn_sets.uid` | [rule_list.rules.spec.asn_matcher.asn_sets.uid](data-sources--service_policy--reference--group-002.md#canonical-1033130001323331-3022202233230230-1211200300222233-3321232100201133-2303321102230031-3232032111123102-2102222320112332-1330332112133133) |
-| `rule_list.rules.spec.body_matcher` | [rule_list.rules.spec.body_matcher](data-sources--service_policy--reference--group-002.md#canonical-1100103221313312-1312213330003231-2032111201030011-3133232310132122-0013222333002231-3223303322013223-0230113211022321-1120220132031332) |
-| `rule_list.rules.spec.body_matcher.exact_values` | [rule_list.rules.spec.body_matcher.exact_values](data-sources--service_policy--reference--group-002.md#canonical-0022310003233020-1313003133110303-1010122030223103-0130120033122203-0212313310003123-1102202301223313-3203213130223100-0021131013200300) |
-| `rule_list.rules.spec.body_matcher.regex_values` | [rule_list.rules.spec.body_matcher.regex_values](data-sources--service_policy--reference--group-002.md#canonical-0020121230121202-3110113013122330-0233120202231010-1213321133313201-2302100030201011-2201123312003000-2031111110300123-2111131013013021) |
-| `rule_list.rules.spec.body_matcher.transformers` | [rule_list.rules.spec.body_matcher.transformers](data-sources--service_policy--reference--group-002.md#canonical-1311120131232022-0012013333132311-3312020230302200-2330022303322300-3310022211101002-3130222112032300-1202032303113200-1331221103232111) |
+| `rule_list.rules.spec.any_asn` | [rule_list.rules.spec.any_asn](data-sources--service_policy--reference--group-001.md#canonical-1020211012322112-2130223103313230-1221102230302302-3121003131023133-2231320201222110-1300320231013220-3313322103033120-2132132220211101) |
+| `rule_list.rules.spec.any_client` | [rule_list.rules.spec.any_client](data-sources--service_policy--reference--group-001.md#canonical-1300330003023333-1333111332220312-2310222203120032-1300110232122131-3203121320022231-3332023213231211-0220220220232233-3210030133023220) |
+| `rule_list.rules.spec.any_ip` | [rule_list.rules.spec.any_ip](data-sources--service_policy--reference--group-001.md#canonical-1003211211011222-3123201310100102-0030313120303132-1101032013110102-1011030231231001-0020010301132211-2101301031032131-2211303133020200) |
+| `rule_list.rules.spec.api_group_matcher` | [rule_list.rules.spec.api_group_matcher](data-sources--service_policy--reference--group-001.md#canonical-2111211320123130-0231032322312103-3203100222330213-3320320203102003-0313131031333320-3100030220111230-3213103121231300-3330103201102121) |
+| `rule_list.rules.spec.api_group_matcher.invert_matcher` | [rule_list.rules.spec.api_group_matcher.invert_matcher](data-sources--service_policy--reference--group-001.md#canonical-3112233332331211-0022302002321222-3203322302302200-2022221123130113-2200320121023302-0223332100303022-3321201300000000-3033331132301132) |
+| `rule_list.rules.spec.api_group_matcher.match` | [rule_list.rules.spec.api_group_matcher.match](data-sources--service_policy--reference--group-001.md#canonical-2332001011133303-3010112113111113-0102001020312120-1000113333310200-2112213020130102-1200330031310033-3121120312111100-2021011002103010) |
+| `rule_list.rules.spec.arg_matchers` | [rule_list.rules.spec.arg_matchers](data-sources--service_policy--reference--group-001.md#canonical-0231002111103112-1231131210320221-1131032201121113-0310202302313003-2203202001203113-0110112201103112-1210001320120210-2212021302223002) |
+| `rule_list.rules.spec.arg_matchers.check_not_present` | [rule_list.rules.spec.arg_matchers.check_not_present](data-sources--service_policy--reference--group-001.md#canonical-3121300003200003-2222002023101200-3000213023322300-1303323332113130-3232031132033301-0013131223012303-0121101101210311-2320311110330232) |
+| `rule_list.rules.spec.arg_matchers.check_present` | [rule_list.rules.spec.arg_matchers.check_present](data-sources--service_policy--reference--group-001.md#canonical-0202121332112331-1303132123020311-0302232021111320-2332233023302320-3101031213202022-1021232001032313-2002132122321201-1300212201021323) |
+| `rule_list.rules.spec.arg_matchers.invert_matcher` | [rule_list.rules.spec.arg_matchers.invert_matcher](data-sources--service_policy--reference--group-001.md#canonical-0303220323213301-3123011333233123-2030210313111003-1213122331302020-3303010332200110-0000211303203020-1211102200013313-0223220211233121) |
+| `rule_list.rules.spec.arg_matchers.item` | [rule_list.rules.spec.arg_matchers.item](data-sources--service_policy--reference--group-001.md#canonical-2332023130032022-1132302310330132-2131001312321022-1113103313112333-3022313223011030-0221021122223210-2112321210013001-0313120133231001) |
+| `rule_list.rules.spec.arg_matchers.item.exact_values` | [rule_list.rules.spec.arg_matchers.item.exact_values](data-sources--service_policy--reference--group-001.md#canonical-3213320220301231-2113020331222313-2010113133122330-2000320110223221-3013200303220123-0101100201110201-1233020101313330-3101013100121303) |
+| `rule_list.rules.spec.arg_matchers.item.regex_values` | [rule_list.rules.spec.arg_matchers.item.regex_values](data-sources--service_policy--reference--group-001.md#canonical-1301323232211312-3312120320132331-2223023212110302-0300033232021011-2122312312132332-1120111323023123-0100121220311013-1321122113130100) |
+| `rule_list.rules.spec.arg_matchers.item.transformers` | [rule_list.rules.spec.arg_matchers.item.transformers](data-sources--service_policy--reference--group-001.md#canonical-2303131320011000-0000330310010011-3121000200001321-0120033112301030-2111000021302120-2220000002100000-0333201011022013-0001133330130001) |
+| `rule_list.rules.spec.arg_matchers.name` | [rule_list.rules.spec.arg_matchers.name](data-sources--service_policy--reference--group-001.md#canonical-2322232213331000-2122332021220233-1220132231233002-0212320233033130-0031023103030010-0233202121223223-0111133213013111-2301133322102121) |
+| `rule_list.rules.spec.asn_list` | [rule_list.rules.spec.asn_list](data-sources--service_policy--reference--group-001.md#canonical-1030233020210002-0201201310003213-2003323131101020-2023121200110312-0202012201302331-2013100012231021-0132003213302302-0031123023213131) |
+| `rule_list.rules.spec.asn_list.as_numbers` | [rule_list.rules.spec.asn_list.as_numbers](data-sources--service_policy--reference--group-001.md#canonical-0230111022020120-2312230000130022-2222323112130003-3202012213102102-3130023312132111-3230231131211301-0231212213230320-0310101302133001) |
+| `rule_list.rules.spec.asn_matcher` | [rule_list.rules.spec.asn_matcher](data-sources--service_policy--reference--group-001.md#canonical-3310301311023211-3212333103231332-1301223331002130-1323130023300133-1200010303133320-1231002331210313-3003231230221310-1103000103033223) |
+| `rule_list.rules.spec.asn_matcher.asn_sets` | [rule_list.rules.spec.asn_matcher.asn_sets](data-sources--service_policy--reference--group-001.md#canonical-1200202203313103-0013212021220122-2311212212023102-1101120113310332-3303303331023210-0033221122022102-2103312010010023-3020300102222003) |
+| `rule_list.rules.spec.asn_matcher.asn_sets.kind` | [rule_list.rules.spec.asn_matcher.asn_sets.kind](data-sources--service_policy--reference--group-001.md#canonical-3213033302123332-1030130013021222-1100202011200203-3232232312322231-3332120020003022-2111203320311011-0213130321310023-1331211301220211) |
+| `rule_list.rules.spec.asn_matcher.asn_sets.name` | [rule_list.rules.spec.asn_matcher.asn_sets.name](data-sources--service_policy--reference--group-001.md#canonical-0022113003211033-1230333333111332-0103301202123231-1212133320020313-0323010110222021-1120102322021200-3123001011132311-0233120231022310) |
+| `rule_list.rules.spec.asn_matcher.asn_sets.namespace` | [rule_list.rules.spec.asn_matcher.asn_sets.namespace](data-sources--service_policy--reference--group-001.md#canonical-0012112203232311-0022022213112112-0310331232100202-2312202201030312-3312213301020310-0030313001200330-3022131320102210-3032030103212003) |
+| `rule_list.rules.spec.asn_matcher.asn_sets.tenant` | [rule_list.rules.spec.asn_matcher.asn_sets.tenant](data-sources--service_policy--reference--group-001.md#canonical-2230200321222023-0122123120032212-3210101013113231-0001200330101313-2030201022302232-2321112011300233-1211230210212321-1203113212322220) |
+| `rule_list.rules.spec.asn_matcher.asn_sets.uid` | [rule_list.rules.spec.asn_matcher.asn_sets.uid](data-sources--service_policy--reference--group-001.md#canonical-1033130001323331-3022202233230230-1211200300222233-3321232100201133-2303321102230031-3232032111123102-2102222320112332-1330332112133133) |
+| `rule_list.rules.spec.body_matcher` | [rule_list.rules.spec.body_matcher](data-sources--service_policy--reference--group-001.md#canonical-1100103221313312-1312213330003231-2032111201030011-3133232310132122-0013222333002231-3223303322013223-0230113211022321-1120220132031332) |
+| `rule_list.rules.spec.body_matcher.exact_values` | [rule_list.rules.spec.body_matcher.exact_values](data-sources--service_policy--reference--group-001.md#canonical-0022310003233020-1313003133110303-1010122030223103-0130120033122203-0212313310003123-1102202301223313-3203213130223100-0021131013200300) |
+| `rule_list.rules.spec.body_matcher.regex_values` | [rule_list.rules.spec.body_matcher.regex_values](data-sources--service_policy--reference--group-001.md#canonical-0020121230121202-3110113013122330-0233120202231010-1213321133313201-2302100030201011-2201123312003000-2031111110300123-2111131013013021) |
+| `rule_list.rules.spec.body_matcher.transformers` | [rule_list.rules.spec.body_matcher.transformers](data-sources--service_policy--reference--group-001.md#canonical-1311120131232022-0012013333132311-3312020230302200-2330022303322300-3310022211101002-3130222112032300-1202032303113200-1331221103232111) |
 | `rule_list.rules.spec.bot_action` | [rule_list.rules.spec.bot_action](data-sources--service_policy--reference--group-002.md#canonical-0133132310332033-1121101121102222-0003231011211121-1121212002010233-2100112013133303-1010033012022130-0202303032132322-1233303100300200) |
 | `rule_list.rules.spec.bot_action.bot_skip_processing` | [rule_list.rules.spec.bot_action.bot_skip_processing](data-sources--service_policy--reference--group-002.md#canonical-2130033111300203-1221231230001123-3000103031321132-3101102230212103-0201220011111323-0213130321010030-0231030100131201-1000112123012113) |
 | `rule_list.rules.spec.bot_action.none` | [rule_list.rules.spec.bot_action.none](data-sources--service_policy--reference--group-002.md#canonical-2312322002032001-1100123303302213-1212233230320012-2303113313033131-0000233201010130-0133000200102313-0200022313231202-0323012002200221) |
@@ -537,65 +528,65 @@ Each exact path has one authoritative reference destination. Collection element 
 | `rule_list.rules.spec.query_params.item.regex_values` | [rule_list.rules.spec.query_params.item.regex_values](data-sources--service_policy--reference--group-002.md#canonical-2033303300020230-2200230100301121-0321021232131000-2213031322111010-3000112101020022-0021303000110010-0032001311313020-0301012201202311) |
 | `rule_list.rules.spec.query_params.item.transformers` | [rule_list.rules.spec.query_params.item.transformers](data-sources--service_policy--reference--group-002.md#canonical-2012231103001332-3203110113113021-2312122100101111-3101210123200311-2010223300311002-0213030222130002-1122211202301003-1233033133111212) |
 | `rule_list.rules.spec.query_params.key` | [rule_list.rules.spec.query_params.key](data-sources--service_policy--reference--group-002.md#canonical-2103011311212312-2032012112102200-0311323221101311-0010312312220323-0300032233313000-3122132111021110-1322111100110320-0323113310320331) |
-| `rule_list.rules.spec.request_constraints` | [rule_list.rules.spec.request_constraints](data-sources--service_policy--reference--group-003.md#canonical-2112123331021132-0331130211222303-1220320200120130-2123332130032032-1232330002003032-1003011220032133-0200332210010013-3303233302321003) |
-| `rule_list.rules.spec.request_constraints.max_cookie_count_exceeds` | [rule_list.rules.spec.request_constraints.max_cookie_count_exceeds](data-sources--service_policy--reference--group-003.md#canonical-1131210031223213-1132313020110003-1011223120333302-2100330202123121-3223011130121221-3201303130330123-0203131231131233-1331023213220011) |
-| `rule_list.rules.spec.request_constraints.max_cookie_count_none` | [rule_list.rules.spec.request_constraints.max_cookie_count_none](data-sources--service_policy--reference--group-003.md#canonical-1111313123200300-3212220133232203-1300023320321201-0122130333002003-3001130311302312-1000301222001313-1323233131120130-1203222310311223) |
-| `rule_list.rules.spec.request_constraints.max_cookie_key_size_exceeds` | [rule_list.rules.spec.request_constraints.max_cookie_key_size_exceeds](data-sources--service_policy--reference--group-003.md#canonical-3031223001320213-2021311110120300-3032323002000221-0031033113031331-2101111233203233-0012311311100212-0111322132031123-0220330111110331) |
-| `rule_list.rules.spec.request_constraints.max_cookie_key_size_none` | [rule_list.rules.spec.request_constraints.max_cookie_key_size_none](data-sources--service_policy--reference--group-003.md#canonical-2021221011301022-3011212022323322-3001223110300212-0311230002132131-3310122203230113-3332032132012031-2332021012123322-3201221303223213) |
-| `rule_list.rules.spec.request_constraints.max_cookie_value_size_exceeds` | [rule_list.rules.spec.request_constraints.max_cookie_value_size_exceeds](data-sources--service_policy--reference--group-003.md#canonical-2121130112321031-1313331103233102-2020121322012102-0301033212030200-3301123312331201-3131123103231230-0001330132231032-3120133300102203) |
-| `rule_list.rules.spec.request_constraints.max_cookie_value_size_none` | [rule_list.rules.spec.request_constraints.max_cookie_value_size_none](data-sources--service_policy--reference--group-003.md#canonical-0121330310211302-2003222211210310-0212230230301210-3330023103312300-1220132113112132-3313133311130222-0333022021331003-1113123123000333) |
-| `rule_list.rules.spec.request_constraints.max_header_count_exceeds` | [rule_list.rules.spec.request_constraints.max_header_count_exceeds](data-sources--service_policy--reference--group-003.md#canonical-2230132211021102-3303102212231301-2122030321302023-3021323033330122-0131231202013311-2302202323232223-2021201232131232-1132223133210203) |
-| `rule_list.rules.spec.request_constraints.max_header_count_none` | [rule_list.rules.spec.request_constraints.max_header_count_none](data-sources--service_policy--reference--group-003.md#canonical-1311313201013113-1212123033301013-0201322220033001-2011103102121023-3232133201022011-1303310131012321-1200120011010321-2033301222023130) |
-| `rule_list.rules.spec.request_constraints.max_header_key_size_exceeds` | [rule_list.rules.spec.request_constraints.max_header_key_size_exceeds](data-sources--service_policy--reference--group-003.md#canonical-3302231322211230-0022112201303001-3103031030301013-2032031303130020-1331313020302123-1321222133121203-0013010232032212-1020013221012012) |
-| `rule_list.rules.spec.request_constraints.max_header_key_size_none` | [rule_list.rules.spec.request_constraints.max_header_key_size_none](data-sources--service_policy--reference--group-003.md#canonical-2221002200001123-3212303123011102-1222130123011013-2010123222030023-2330230120132310-1102132303311221-0333210211333013-2220232220220200) |
-| `rule_list.rules.spec.request_constraints.max_header_value_size_exceeds` | [rule_list.rules.spec.request_constraints.max_header_value_size_exceeds](data-sources--service_policy--reference--group-003.md#canonical-3331202323031333-1320202023223301-3001120321133101-3100313222110002-2233021033000331-0101331233102332-2001120112020010-1002022013112131) |
-| `rule_list.rules.spec.request_constraints.max_header_value_size_none` | [rule_list.rules.spec.request_constraints.max_header_value_size_none](data-sources--service_policy--reference--group-003.md#canonical-2033001132200123-2321030230232231-2212130213013221-2121321112321123-3012121310323302-3023133310122302-3100010120101123-0003230301103103) |
-| `rule_list.rules.spec.request_constraints.max_parameter_count_exceeds` | [rule_list.rules.spec.request_constraints.max_parameter_count_exceeds](data-sources--service_policy--reference--group-003.md#canonical-0101110133003132-2032222120310332-3002311033110331-1333330113322011-1300032121032031-0101322011033000-3320233021023122-1201022030031223) |
-| `rule_list.rules.spec.request_constraints.max_parameter_count_none` | [rule_list.rules.spec.request_constraints.max_parameter_count_none](data-sources--service_policy--reference--group-003.md#canonical-0313322233111221-1210021213200123-3231221212033211-3312310330100321-0201032030100102-0022133123230211-3212130210111222-2333100110021230) |
-| `rule_list.rules.spec.request_constraints.max_parameter_name_size_exceeds` | [rule_list.rules.spec.request_constraints.max_parameter_name_size_exceeds](data-sources--service_policy--reference--group-003.md#canonical-2032232301003310-0000322220332033-1020311210122010-1001023223331112-3121120321302001-2022200311210120-3133313102013032-3123033213120001) |
-| `rule_list.rules.spec.request_constraints.max_parameter_name_size_none` | [rule_list.rules.spec.request_constraints.max_parameter_name_size_none](data-sources--service_policy--reference--group-003.md#canonical-3101312003323232-0032113110210331-2321113220033213-0023130003312201-2223212030323220-1301323121000213-3320321233033012-3212333220323302) |
-| `rule_list.rules.spec.request_constraints.max_parameter_value_size_exceeds` | [rule_list.rules.spec.request_constraints.max_parameter_value_size_exceeds](data-sources--service_policy--reference--group-003.md#canonical-2033122330120011-2122021120213110-2100110310323022-2231120103003212-1310000210331302-2223101111230132-0021100223110221-3303113300121132) |
-| `rule_list.rules.spec.request_constraints.max_parameter_value_size_none` | [rule_list.rules.spec.request_constraints.max_parameter_value_size_none](data-sources--service_policy--reference--group-003.md#canonical-0002210320222020-1300110232313333-3012300310132032-1011303323333311-0100331302223311-2003333101032303-2301210011100320-1231223103102123) |
-| `rule_list.rules.spec.request_constraints.max_query_size_exceeds` | [rule_list.rules.spec.request_constraints.max_query_size_exceeds](data-sources--service_policy--reference--group-003.md#canonical-0032010330202320-3002001301210231-3323121111223121-3033200010213011-2231113121002333-0210211102212200-2022212130022111-3312221233131001) |
-| `rule_list.rules.spec.request_constraints.max_query_size_none` | [rule_list.rules.spec.request_constraints.max_query_size_none](data-sources--service_policy--reference--group-003.md#canonical-2302321312102200-0233313322120033-2310132332032032-1001111220102121-3030020302032323-3321112312323322-2331303333100020-2003311223202201) |
-| `rule_list.rules.spec.request_constraints.max_request_line_size_exceeds` | [rule_list.rules.spec.request_constraints.max_request_line_size_exceeds](data-sources--service_policy--reference--group-003.md#canonical-1233202013023031-0202311120202333-3012313030031120-2102101110133111-3210123211101232-0231032013100200-2032313323221111-0012303302203311) |
-| `rule_list.rules.spec.request_constraints.max_request_line_size_none` | [rule_list.rules.spec.request_constraints.max_request_line_size_none](data-sources--service_policy--reference--group-003.md#canonical-3131101223332303-3021032331023101-2232323000321112-0230333123331211-0111103111303200-1323112132023102-0111110012123303-2120320320121113) |
-| `rule_list.rules.spec.request_constraints.max_request_size_exceeds` | [rule_list.rules.spec.request_constraints.max_request_size_exceeds](data-sources--service_policy--reference--group-003.md#canonical-0011232231110030-3323303223203001-2113221232332112-3121131310333022-0303130033201111-0021300320323302-3322322332212231-2220102220200113) |
-| `rule_list.rules.spec.request_constraints.max_request_size_none` | [rule_list.rules.spec.request_constraints.max_request_size_none](data-sources--service_policy--reference--group-003.md#canonical-2032300221313213-2323021323221310-2230003003033312-2101131033103331-0210020313003103-3320100033301110-1102301113012302-2211132101112103) |
-| `rule_list.rules.spec.request_constraints.max_url_size_exceeds` | [rule_list.rules.spec.request_constraints.max_url_size_exceeds](data-sources--service_policy--reference--group-003.md#canonical-3102321322200020-0201221200020012-2332200321023110-3021313221230132-2200132210221103-3103222112233222-0212001222221231-3120102233223013) |
-| `rule_list.rules.spec.request_constraints.max_url_size_none` | [rule_list.rules.spec.request_constraints.max_url_size_none](data-sources--service_policy--reference--group-003.md#canonical-1313023023203300-0032003021013100-1302123103200301-2121223010312110-2013102002212233-1002000013001322-0121231202230231-0213321321331003) |
-| `rule_list.rules.spec.segment_policy` | [rule_list.rules.spec.segment_policy](data-sources--service_policy--reference--group-003.md#canonical-3323232232032330-1122211331303130-1023302210003331-0013122122013120-1002031300033001-2331202230203020-1031113221232130-1002212101031213) |
-| `rule_list.rules.spec.segment_policy.dst_any` | [rule_list.rules.spec.segment_policy.dst_any](data-sources--service_policy--reference--group-003.md#canonical-1321312333231211-2012322212003330-1002310223333030-1202100132013202-2030132101123031-1130131223203111-1023332120210333-2122311100310133) |
-| `rule_list.rules.spec.segment_policy.dst_segments` | [rule_list.rules.spec.segment_policy.dst_segments](data-sources--service_policy--reference--group-003.md#canonical-0031213203022332-1022112230002233-2203321002120022-1133112331111202-3300311331010213-0022102322032123-1023020002302211-3001021021023002) |
-| `rule_list.rules.spec.segment_policy.dst_segments.segments` | [rule_list.rules.spec.segment_policy.dst_segments.segments](data-sources--service_policy--reference--group-003.md#canonical-1002310132133310-0201232300331013-0301123313122333-1131113103202010-3220122322323201-2201223110003021-2303112112230112-1303201201010000) |
-| `rule_list.rules.spec.segment_policy.dst_segments.segments.name` | [rule_list.rules.spec.segment_policy.dst_segments.segments.name](data-sources--service_policy--reference--group-003.md#canonical-1221110230301310-0131201212321122-0113003003312103-0232010031031121-1110302312211233-2030202321211333-0203333032201300-0223232330003130) |
-| `rule_list.rules.spec.segment_policy.dst_segments.segments.namespace` | [rule_list.rules.spec.segment_policy.dst_segments.segments.namespace](data-sources--service_policy--reference--group-003.md#canonical-2120202321223210-2122112212030221-2221021330201121-1013023030301202-0300121210330333-0100311130313211-3013202223322221-1012320300222201) |
-| `rule_list.rules.spec.segment_policy.dst_segments.segments.tenant` | [rule_list.rules.spec.segment_policy.dst_segments.segments.tenant](data-sources--service_policy--reference--group-003.md#canonical-3011301032103032-1233300121303113-0031122021013133-2220333002203010-2233131313023311-1001333033100330-3032030220010002-3233032100103301) |
-| `rule_list.rules.spec.segment_policy.intra_segment` | [rule_list.rules.spec.segment_policy.intra_segment](data-sources--service_policy--reference--group-003.md#canonical-1230110130222112-0033112022211020-0200023213002330-1223122322211222-2123221023313332-3013022001202203-0001312021201121-0033213231022131) |
-| `rule_list.rules.spec.segment_policy.src_any` | [rule_list.rules.spec.segment_policy.src_any](data-sources--service_policy--reference--group-003.md#canonical-1101103031230102-0230020121302021-2001333033001031-3023002312220232-1302000131223222-3313132130030110-0023031003332310-3132002333101203) |
-| `rule_list.rules.spec.segment_policy.src_segments` | [rule_list.rules.spec.segment_policy.src_segments](data-sources--service_policy--reference--group-003.md#canonical-2301133103201303-2001023333321101-0132010032100323-1030203123002021-1100021200021233-1320101333332010-2230331010212112-2210232020122310) |
-| `rule_list.rules.spec.segment_policy.src_segments.segments` | [rule_list.rules.spec.segment_policy.src_segments.segments](data-sources--service_policy--reference--group-003.md#canonical-3010233120011013-0220003003232100-1220130101303213-0232203100213013-1122133000103112-1033220213020101-0210122121030133-1030030213021023) |
-| `rule_list.rules.spec.segment_policy.src_segments.segments.name` | [rule_list.rules.spec.segment_policy.src_segments.segments.name](data-sources--service_policy--reference--group-003.md#canonical-2320133321111300-3211202300330000-3123020210222102-0112120102130231-2330211230222122-1100212120320010-2221233321323330-1101320131012010) |
-| `rule_list.rules.spec.segment_policy.src_segments.segments.namespace` | [rule_list.rules.spec.segment_policy.src_segments.segments.namespace](data-sources--service_policy--reference--group-003.md#canonical-1230301122130022-0203020120330023-2330000013103220-1310100333320033-2213100010322130-2002032220100312-0211030220313133-2322310232202113) |
-| `rule_list.rules.spec.segment_policy.src_segments.segments.tenant` | [rule_list.rules.spec.segment_policy.src_segments.segments.tenant](data-sources--service_policy--reference--group-003.md#canonical-1321133222213232-3313200100232002-3231022123330231-0130302331000310-2133101112123201-1030323223131133-1331313020103033-2312303012113023) |
-| `rule_list.rules.spec.tls_fingerprint_matcher` | [rule_list.rules.spec.tls_fingerprint_matcher](data-sources--service_policy--reference--group-003.md#canonical-3311100032302102-2323202000133230-2023032001333021-1201210301202211-1223001232030332-3002102203101103-0312130010013122-1133130200001323) |
-| `rule_list.rules.spec.tls_fingerprint_matcher.classes` | [rule_list.rules.spec.tls_fingerprint_matcher.classes](data-sources--service_policy--reference--group-003.md#canonical-0333121223330310-3322313032201230-0013120222103300-3003203120231123-1332230003322001-0112022203101232-0013231101021231-2321333333332220) |
-| `rule_list.rules.spec.tls_fingerprint_matcher.exact_values` | [rule_list.rules.spec.tls_fingerprint_matcher.exact_values](data-sources--service_policy--reference--group-003.md#canonical-2011231012212202-2021321320303201-0312332010222313-2222120231002131-2330133220203113-0021122300313021-3012121121312031-0223303013010030) |
-| `rule_list.rules.spec.tls_fingerprint_matcher.excluded_values` | [rule_list.rules.spec.tls_fingerprint_matcher.excluded_values](data-sources--service_policy--reference--group-003.md#canonical-1200131312313331-0021301110001231-2020033301023203-2020100202230221-0300203113201130-1333021011032201-1312231123332333-0000113031133221) |
-| `rule_list.rules.spec.user_identity_matcher` | [rule_list.rules.spec.user_identity_matcher](data-sources--service_policy--reference--group-003.md#canonical-0100212130233102-1310321312010333-2030333021002020-0223013210212033-3201132300013202-3220332031312301-2333203202012002-0211003212223012) |
-| `rule_list.rules.spec.user_identity_matcher.exact_values` | [rule_list.rules.spec.user_identity_matcher.exact_values](data-sources--service_policy--reference--group-003.md#canonical-2233132333222131-0231231101030331-1223112100320122-1323202021302012-0122002132001213-2302112323131103-0232310133211212-3132022030202221) |
-| `rule_list.rules.spec.user_identity_matcher.regex_values` | [rule_list.rules.spec.user_identity_matcher.regex_values](data-sources--service_policy--reference--group-003.md#canonical-1131312023312021-1230101210102111-2311331301310200-3201232002222003-2202210120300210-2231031302101120-3221231123211010-3233111032100223) |
-| `rule_list.rules.spec.waf_action` | [rule_list.rules.spec.waf_action](data-sources--service_policy--reference--group-003.md#canonical-2201213013321111-0021023302222322-3012030010120000-0313121021213130-0213311111011011-3132001123022010-0013200303120001-0010312221111010) |
-| `rule_list.rules.spec.waf_action.app_firewall_detection_control` | [rule_list.rules.spec.waf_action.app_firewall_detection_control](data-sources--service_policy--reference--group-003.md#canonical-0020213223313321-2120133310320131-2011210000132312-3113301020021323-0302030302133130-0203011310312310-0112222313103012-1001301021303002) |
-| `rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_attack_type_contexts` | [rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_attack_type_contexts](data-sources--service_policy--reference--group-003.md#canonical-0313223222013300-2223010213233203-3000112212111221-1300011232121130-1012212112013302-3001330322220022-1201310312333133-3330230221001133) |
-| `rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_attack_type_contexts.context` | [rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_attack_type_contexts.context](data-sources--service_policy--reference--group-003.md#canonical-3121103133132030-0130203123101231-3223300333120333-0011100233023020-2101231323232111-1112123213130202-3020010302003300-0321200300301321) |
-| `rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_attack_type_contexts.context_name` | [rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_attack_type_contexts.context_name](data-sources--service_policy--reference--group-003.md#canonical-3110231203333213-2100132103102023-2002232113203223-3011311300330011-2220312103212200-1031213011003321-2002323130010303-1322133302203303) |
-| `rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_attack_type_contexts.exclude_attack_type` | [rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_attack_type_contexts.exclude_attack_type](data-sources--service_policy--reference--group-003.md#canonical-2012101323113130-2322301023023333-1001022231231003-1131310120203112-2123010102302122-1332001302033030-2332303331031232-0120332211102301) |
-| `rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_bot_name_contexts` | [rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_bot_name_contexts](data-sources--service_policy--reference--group-003.md#canonical-0100022320130212-0121002013023332-2121022130012331-1013120021320110-1103233103001031-2020212020100033-3013123002120033-3213112223212333) |
-| `rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_bot_name_contexts.bot_name` | [rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_bot_name_contexts.bot_name](data-sources--service_policy--reference--group-003.md#canonical-1223031212301030-3302120030211111-2311012131320230-3220013222002312-1013232001233222-1110102202001032-1012112103321022-3322203213131131) |
-| `rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_signature_contexts` | [rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_signature_contexts](data-sources--service_policy--reference--group-003.md#canonical-3232303210031312-3033010222203121-0320100002303131-2030300312300110-2123132031302323-3331330031132312-1222222311001223-1320310302201320) |
-| `rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_signature_contexts.context` | [rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_signature_contexts.context](data-sources--service_policy--reference--group-003.md#canonical-1332010312113312-1222033200113132-3130310022333322-2022301122032021-3102112122101313-3310200131020332-1012201313030131-1202232330323011) |
-| `rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_signature_contexts.context_name` | [rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_signature_contexts.context_name](data-sources--service_policy--reference--group-003.md#canonical-0020111011133001-3233222011223222-1131010313311201-3230000233201331-1123103231210002-1232303332322002-2301321003132221-3032102300223220) |
+| `rule_list.rules.spec.request_constraints` | [rule_list.rules.spec.request_constraints](data-sources--service_policy--reference--group-002.md#canonical-2112123331021132-0331130211222303-1220320200120130-2123332130032032-1232330002003032-1003011220032133-0200332210010013-3303233302321003) |
+| `rule_list.rules.spec.request_constraints.max_cookie_count_exceeds` | [rule_list.rules.spec.request_constraints.max_cookie_count_exceeds](data-sources--service_policy--reference--group-002.md#canonical-1131210031223213-1132313020110003-1011223120333302-2100330202123121-3223011130121221-3201303130330123-0203131231131233-1331023213220011) |
+| `rule_list.rules.spec.request_constraints.max_cookie_count_none` | [rule_list.rules.spec.request_constraints.max_cookie_count_none](data-sources--service_policy--reference--group-002.md#canonical-1111313123200300-3212220133232203-1300023320321201-0122130333002003-3001130311302312-1000301222001313-1323233131120130-1203222310311223) |
+| `rule_list.rules.spec.request_constraints.max_cookie_key_size_exceeds` | [rule_list.rules.spec.request_constraints.max_cookie_key_size_exceeds](data-sources--service_policy--reference--group-002.md#canonical-3031223001320213-2021311110120300-3032323002000221-0031033113031331-2101111233203233-0012311311100212-0111322132031123-0220330111110331) |
+| `rule_list.rules.spec.request_constraints.max_cookie_key_size_none` | [rule_list.rules.spec.request_constraints.max_cookie_key_size_none](data-sources--service_policy--reference--group-002.md#canonical-2021221011301022-3011212022323322-3001223110300212-0311230002132131-3310122203230113-3332032132012031-2332021012123322-3201221303223213) |
+| `rule_list.rules.spec.request_constraints.max_cookie_value_size_exceeds` | [rule_list.rules.spec.request_constraints.max_cookie_value_size_exceeds](data-sources--service_policy--reference--group-002.md#canonical-2121130112321031-1313331103233102-2020121322012102-0301033212030200-3301123312331201-3131123103231230-0001330132231032-3120133300102203) |
+| `rule_list.rules.spec.request_constraints.max_cookie_value_size_none` | [rule_list.rules.spec.request_constraints.max_cookie_value_size_none](data-sources--service_policy--reference--group-002.md#canonical-0121330310211302-2003222211210310-0212230230301210-3330023103312300-1220132113112132-3313133311130222-0333022021331003-1113123123000333) |
+| `rule_list.rules.spec.request_constraints.max_header_count_exceeds` | [rule_list.rules.spec.request_constraints.max_header_count_exceeds](data-sources--service_policy--reference--group-002.md#canonical-2230132211021102-3303102212231301-2122030321302023-3021323033330122-0131231202013311-2302202323232223-2021201232131232-1132223133210203) |
+| `rule_list.rules.spec.request_constraints.max_header_count_none` | [rule_list.rules.spec.request_constraints.max_header_count_none](data-sources--service_policy--reference--group-002.md#canonical-1311313201013113-1212123033301013-0201322220033001-2011103102121023-3232133201022011-1303310131012321-1200120011010321-2033301222023130) |
+| `rule_list.rules.spec.request_constraints.max_header_key_size_exceeds` | [rule_list.rules.spec.request_constraints.max_header_key_size_exceeds](data-sources--service_policy--reference--group-002.md#canonical-3302231322211230-0022112201303001-3103031030301013-2032031303130020-1331313020302123-1321222133121203-0013010232032212-1020013221012012) |
+| `rule_list.rules.spec.request_constraints.max_header_key_size_none` | [rule_list.rules.spec.request_constraints.max_header_key_size_none](data-sources--service_policy--reference--group-002.md#canonical-2221002200001123-3212303123011102-1222130123011013-2010123222030023-2330230120132310-1102132303311221-0333210211333013-2220232220220200) |
+| `rule_list.rules.spec.request_constraints.max_header_value_size_exceeds` | [rule_list.rules.spec.request_constraints.max_header_value_size_exceeds](data-sources--service_policy--reference--group-002.md#canonical-3331202323031333-1320202023223301-3001120321133101-3100313222110002-2233021033000331-0101331233102332-2001120112020010-1002022013112131) |
+| `rule_list.rules.spec.request_constraints.max_header_value_size_none` | [rule_list.rules.spec.request_constraints.max_header_value_size_none](data-sources--service_policy--reference--group-002.md#canonical-2033001132200123-2321030230232231-2212130213013221-2121321112321123-3012121310323302-3023133310122302-3100010120101123-0003230301103103) |
+| `rule_list.rules.spec.request_constraints.max_parameter_count_exceeds` | [rule_list.rules.spec.request_constraints.max_parameter_count_exceeds](data-sources--service_policy--reference--group-002.md#canonical-0101110133003132-2032222120310332-3002311033110331-1333330113322011-1300032121032031-0101322011033000-3320233021023122-1201022030031223) |
+| `rule_list.rules.spec.request_constraints.max_parameter_count_none` | [rule_list.rules.spec.request_constraints.max_parameter_count_none](data-sources--service_policy--reference--group-002.md#canonical-0313322233111221-1210021213200123-3231221212033211-3312310330100321-0201032030100102-0022133123230211-3212130210111222-2333100110021230) |
+| `rule_list.rules.spec.request_constraints.max_parameter_name_size_exceeds` | [rule_list.rules.spec.request_constraints.max_parameter_name_size_exceeds](data-sources--service_policy--reference--group-002.md#canonical-2032232301003310-0000322220332033-1020311210122010-1001023223331112-3121120321302001-2022200311210120-3133313102013032-3123033213120001) |
+| `rule_list.rules.spec.request_constraints.max_parameter_name_size_none` | [rule_list.rules.spec.request_constraints.max_parameter_name_size_none](data-sources--service_policy--reference--group-002.md#canonical-3101312003323232-0032113110210331-2321113220033213-0023130003312201-2223212030323220-1301323121000213-3320321233033012-3212333220323302) |
+| `rule_list.rules.spec.request_constraints.max_parameter_value_size_exceeds` | [rule_list.rules.spec.request_constraints.max_parameter_value_size_exceeds](data-sources--service_policy--reference--group-002.md#canonical-2033122330120011-2122021120213110-2100110310323022-2231120103003212-1310000210331302-2223101111230132-0021100223110221-3303113300121132) |
+| `rule_list.rules.spec.request_constraints.max_parameter_value_size_none` | [rule_list.rules.spec.request_constraints.max_parameter_value_size_none](data-sources--service_policy--reference--group-002.md#canonical-0002210320222020-1300110232313333-3012300310132032-1011303323333311-0100331302223311-2003333101032303-2301210011100320-1231223103102123) |
+| `rule_list.rules.spec.request_constraints.max_query_size_exceeds` | [rule_list.rules.spec.request_constraints.max_query_size_exceeds](data-sources--service_policy--reference--group-002.md#canonical-0032010330202320-3002001301210231-3323121111223121-3033200010213011-2231113121002333-0210211102212200-2022212130022111-3312221233131001) |
+| `rule_list.rules.spec.request_constraints.max_query_size_none` | [rule_list.rules.spec.request_constraints.max_query_size_none](data-sources--service_policy--reference--group-002.md#canonical-2302321312102200-0233313322120033-2310132332032032-1001111220102121-3030020302032323-3321112312323322-2331303333100020-2003311223202201) |
+| `rule_list.rules.spec.request_constraints.max_request_line_size_exceeds` | [rule_list.rules.spec.request_constraints.max_request_line_size_exceeds](data-sources--service_policy--reference--group-002.md#canonical-1233202013023031-0202311120202333-3012313030031120-2102101110133111-3210123211101232-0231032013100200-2032313323221111-0012303302203311) |
+| `rule_list.rules.spec.request_constraints.max_request_line_size_none` | [rule_list.rules.spec.request_constraints.max_request_line_size_none](data-sources--service_policy--reference--group-002.md#canonical-3131101223332303-3021032331023101-2232323000321112-0230333123331211-0111103111303200-1323112132023102-0111110012123303-2120320320121113) |
+| `rule_list.rules.spec.request_constraints.max_request_size_exceeds` | [rule_list.rules.spec.request_constraints.max_request_size_exceeds](data-sources--service_policy--reference--group-002.md#canonical-0011232231110030-3323303223203001-2113221232332112-3121131310333022-0303130033201111-0021300320323302-3322322332212231-2220102220200113) |
+| `rule_list.rules.spec.request_constraints.max_request_size_none` | [rule_list.rules.spec.request_constraints.max_request_size_none](data-sources--service_policy--reference--group-002.md#canonical-2032300221313213-2323021323221310-2230003003033312-2101131033103331-0210020313003103-3320100033301110-1102301113012302-2211132101112103) |
+| `rule_list.rules.spec.request_constraints.max_url_size_exceeds` | [rule_list.rules.spec.request_constraints.max_url_size_exceeds](data-sources--service_policy--reference--group-002.md#canonical-3102321322200020-0201221200020012-2332200321023110-3021313221230132-2200132210221103-3103222112233222-0212001222221231-3120102233223013) |
+| `rule_list.rules.spec.request_constraints.max_url_size_none` | [rule_list.rules.spec.request_constraints.max_url_size_none](data-sources--service_policy--reference--group-002.md#canonical-1313023023203300-0032003021013100-1302123103200301-2121223010312110-2013102002212233-1002000013001322-0121231202230231-0213321321331003) |
+| `rule_list.rules.spec.segment_policy` | [rule_list.rules.spec.segment_policy](data-sources--service_policy--reference--group-002.md#canonical-3323232232032330-1122211331303130-1023302210003331-0013122122013120-1002031300033001-2331202230203020-1031113221232130-1002212101031213) |
+| `rule_list.rules.spec.segment_policy.dst_any` | [rule_list.rules.spec.segment_policy.dst_any](data-sources--service_policy--reference--group-002.md#canonical-1321312333231211-2012322212003330-1002310223333030-1202100132013202-2030132101123031-1130131223203111-1023332120210333-2122311100310133) |
+| `rule_list.rules.spec.segment_policy.dst_segments` | [rule_list.rules.spec.segment_policy.dst_segments](data-sources--service_policy--reference--group-002.md#canonical-0031213203022332-1022112230002233-2203321002120022-1133112331111202-3300311331010213-0022102322032123-1023020002302211-3001021021023002) |
+| `rule_list.rules.spec.segment_policy.dst_segments.segments` | [rule_list.rules.spec.segment_policy.dst_segments.segments](data-sources--service_policy--reference--group-002.md#canonical-1002310132133310-0201232300331013-0301123313122333-1131113103202010-3220122322323201-2201223110003021-2303112112230112-1303201201010000) |
+| `rule_list.rules.spec.segment_policy.dst_segments.segments.name` | [rule_list.rules.spec.segment_policy.dst_segments.segments.name](data-sources--service_policy--reference--group-002.md#canonical-1221110230301310-0131201212321122-0113003003312103-0232010031031121-1110302312211233-2030202321211333-0203333032201300-0223232330003130) |
+| `rule_list.rules.spec.segment_policy.dst_segments.segments.namespace` | [rule_list.rules.spec.segment_policy.dst_segments.segments.namespace](data-sources--service_policy--reference--group-002.md#canonical-2120202321223210-2122112212030221-2221021330201121-1013023030301202-0300121210330333-0100311130313211-3013202223322221-1012320300222201) |
+| `rule_list.rules.spec.segment_policy.dst_segments.segments.tenant` | [rule_list.rules.spec.segment_policy.dst_segments.segments.tenant](data-sources--service_policy--reference--group-002.md#canonical-3011301032103032-1233300121303113-0031122021013133-2220333002203010-2233131313023311-1001333033100330-3032030220010002-3233032100103301) |
+| `rule_list.rules.spec.segment_policy.intra_segment` | [rule_list.rules.spec.segment_policy.intra_segment](data-sources--service_policy--reference--group-002.md#canonical-1230110130222112-0033112022211020-0200023213002330-1223122322211222-2123221023313332-3013022001202203-0001312021201121-0033213231022131) |
+| `rule_list.rules.spec.segment_policy.src_any` | [rule_list.rules.spec.segment_policy.src_any](data-sources--service_policy--reference--group-002.md#canonical-1101103031230102-0230020121302021-2001333033001031-3023002312220232-1302000131223222-3313132130030110-0023031003332310-3132002333101203) |
+| `rule_list.rules.spec.segment_policy.src_segments` | [rule_list.rules.spec.segment_policy.src_segments](data-sources--service_policy--reference--group-002.md#canonical-2301133103201303-2001023333321101-0132010032100323-1030203123002021-1100021200021233-1320101333332010-2230331010212112-2210232020122310) |
+| `rule_list.rules.spec.segment_policy.src_segments.segments` | [rule_list.rules.spec.segment_policy.src_segments.segments](data-sources--service_policy--reference--group-002.md#canonical-3010233120011013-0220003003232100-1220130101303213-0232203100213013-1122133000103112-1033220213020101-0210122121030133-1030030213021023) |
+| `rule_list.rules.spec.segment_policy.src_segments.segments.name` | [rule_list.rules.spec.segment_policy.src_segments.segments.name](data-sources--service_policy--reference--group-002.md#canonical-2320133321111300-3211202300330000-3123020210222102-0112120102130231-2330211230222122-1100212120320010-2221233321323330-1101320131012010) |
+| `rule_list.rules.spec.segment_policy.src_segments.segments.namespace` | [rule_list.rules.spec.segment_policy.src_segments.segments.namespace](data-sources--service_policy--reference--group-002.md#canonical-1230301122130022-0203020120330023-2330000013103220-1310100333320033-2213100010322130-2002032220100312-0211030220313133-2322310232202113) |
+| `rule_list.rules.spec.segment_policy.src_segments.segments.tenant` | [rule_list.rules.spec.segment_policy.src_segments.segments.tenant](data-sources--service_policy--reference--group-002.md#canonical-1321133222213232-3313200100232002-3231022123330231-0130302331000310-2133101112123201-1030323223131133-1331313020103033-2312303012113023) |
+| `rule_list.rules.spec.tls_fingerprint_matcher` | [rule_list.rules.spec.tls_fingerprint_matcher](data-sources--service_policy--reference--group-002.md#canonical-3311100032302102-2323202000133230-2023032001333021-1201210301202211-1223001232030332-3002102203101103-0312130010013122-1133130200001323) |
+| `rule_list.rules.spec.tls_fingerprint_matcher.classes` | [rule_list.rules.spec.tls_fingerprint_matcher.classes](data-sources--service_policy--reference--group-002.md#canonical-0333121223330310-3322313032201230-0013120222103300-3003203120231123-1332230003322001-0112022203101232-0013231101021231-2321333333332220) |
+| `rule_list.rules.spec.tls_fingerprint_matcher.exact_values` | [rule_list.rules.spec.tls_fingerprint_matcher.exact_values](data-sources--service_policy--reference--group-002.md#canonical-2011231012212202-2021321320303201-0312332010222313-2222120231002131-2330133220203113-0021122300313021-3012121121312031-0223303013010030) |
+| `rule_list.rules.spec.tls_fingerprint_matcher.excluded_values` | [rule_list.rules.spec.tls_fingerprint_matcher.excluded_values](data-sources--service_policy--reference--group-002.md#canonical-1200131312313331-0021301110001231-2020033301023203-2020100202230221-0300203113201130-1333021011032201-1312231123332333-0000113031133221) |
+| `rule_list.rules.spec.user_identity_matcher` | [rule_list.rules.spec.user_identity_matcher](data-sources--service_policy--reference--group-002.md#canonical-0100212130233102-1310321312010333-2030333021002020-0223013210212033-3201132300013202-3220332031312301-2333203202012002-0211003212223012) |
+| `rule_list.rules.spec.user_identity_matcher.exact_values` | [rule_list.rules.spec.user_identity_matcher.exact_values](data-sources--service_policy--reference--group-002.md#canonical-2233132333222131-0231231101030331-1223112100320122-1323202021302012-0122002132001213-2302112323131103-0232310133211212-3132022030202221) |
+| `rule_list.rules.spec.user_identity_matcher.regex_values` | [rule_list.rules.spec.user_identity_matcher.regex_values](data-sources--service_policy--reference--group-002.md#canonical-1131312023312021-1230101210102111-2311331301310200-3201232002222003-2202210120300210-2231031302101120-3221231123211010-3233111032100223) |
+| `rule_list.rules.spec.waf_action` | [rule_list.rules.spec.waf_action](data-sources--service_policy--reference--group-002.md#canonical-2201213013321111-0021023302222322-3012030010120000-0313121021213130-0213311111011011-3132001123022010-0013200303120001-0010312221111010) |
+| `rule_list.rules.spec.waf_action.app_firewall_detection_control` | [rule_list.rules.spec.waf_action.app_firewall_detection_control](data-sources--service_policy--reference--group-002.md#canonical-0020213223313321-2120133310320131-2011210000132312-3113301020021323-0302030302133130-0203011310312310-0112222313103012-1001301021303002) |
+| `rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_attack_type_contexts` | [rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_attack_type_contexts](data-sources--service_policy--reference--group-002.md#canonical-0313223222013300-2223010213233203-3000112212111221-1300011232121130-1012212112013302-3001330322220022-1201310312333133-3330230221001133) |
+| `rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_attack_type_contexts.context` | [rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_attack_type_contexts.context](data-sources--service_policy--reference--group-002.md#canonical-3121103133132030-0130203123101231-3223300333120333-0011100233023020-2101231323232111-1112123213130202-3020010302003300-0321200300301321) |
+| `rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_attack_type_contexts.context_name` | [rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_attack_type_contexts.context_name](data-sources--service_policy--reference--group-002.md#canonical-3110231203333213-2100132103102023-2002232113203223-3011311300330011-2220312103212200-1031213011003321-2002323130010303-1322133302203303) |
+| `rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_attack_type_contexts.exclude_attack_type` | [rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_attack_type_contexts.exclude_attack_type](data-sources--service_policy--reference--group-002.md#canonical-2012101323113130-2322301023023333-1001022231231003-1131310120203112-2123010102302122-1332001302033030-2332303331031232-0120332211102301) |
+| `rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_bot_name_contexts` | [rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_bot_name_contexts](data-sources--service_policy--reference--group-002.md#canonical-0100022320130212-0121002013023332-2121022130012331-1013120021320110-1103233103001031-2020212020100033-3013123002120033-3213112223212333) |
+| `rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_bot_name_contexts.bot_name` | [rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_bot_name_contexts.bot_name](data-sources--service_policy--reference--group-002.md#canonical-1223031212301030-3302120030211111-2311012131320230-3220013222002312-1013232001233222-1110102202001032-1012112103321022-3322203213131131) |
+| `rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_signature_contexts` | [rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_signature_contexts](data-sources--service_policy--reference--group-002.md#canonical-3232303210031312-3033010222203121-0320100002303131-2030300312300110-2123132031302323-3331330031132312-1222222311001223-1320310302201320) |
+| `rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_signature_contexts.context` | [rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_signature_contexts.context](data-sources--service_policy--reference--group-002.md#canonical-1332010312113312-1222033200113132-3130310022333322-2022301122032021-3102112122101313-3310200131020332-1012201313030131-1202232330323011) |
+| `rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_signature_contexts.context_name` | [rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_signature_contexts.context_name](data-sources--service_policy--reference--group-002.md#canonical-0020111011133001-3233222011223222-1131010313311201-3230000233201331-1123103231210002-1232303332322002-2301321003132221-3032102300223220) |
 | `rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_signature_contexts.signature_id` | [rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_signature_contexts.signature_id](data-sources--service_policy--reference--group-003.md#canonical-3133010203031111-3030010100300220-1213331210330100-3232011213113231-1303230323033130-1022103132032131-0113032213230231-1212102000021003) |
 | `rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_violation_contexts` | [rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_violation_contexts](data-sources--service_policy--reference--group-003.md#canonical-1221312223200101-1021231322200023-0320023100020323-3313123222113123-3333120013100121-1323222002111003-1103303311030123-1302011122232211) |
 | `rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_violation_contexts.context` | [rule_list.rules.spec.waf_action.app_firewall_detection_control.exclude_violation_contexts.context](data-sources--service_policy--reference--group-003.md#canonical-1220123322101023-0120030220103020-1221310033032110-0100132033311030-3133332212032200-2003113302323023-2131110233001010-2002332333311212) |
@@ -610,29 +601,13 @@ Each exact path has one authoritative reference destination. Collection element 
 | `server_selector` | [server_selector](data-sources--service_policy--reference--group-003.md#canonical-3031212021313110-0302012231302222-1103201333123221-1112231301032212-3312311023100330-0321020012301232-0331330301220320-3112122133101112) |
 | `server_selector.expressions` | [server_selector.expressions](data-sources--service_policy--reference--group-003.md#canonical-0220131332331303-2310002010012121-2302003200221023-1132030230311202-2010221001010303-1122120300033102-3322323013300002-0101103301110200) |
 
-<a id="canonical-1311210320201012-3003012023122122-3231031333320332-0132112212232213-1223203003212110-0021013101021232-2121120223112020-1330312320210102"></a>
-
-## Next pages — Property reference / 131111022331 / 12
-
-- [allow_all_requests](data-sources--service_policy--reference--group-001.md#canonical-1310133010132113-2321211101112030-2032301102311223-3121100330132020-0312130331122112-2311320303111131-3110000220310101-2300003320213301)
-- [allow_list](data-sources--service_policy--reference--group-001.md#canonical-3210232132133332-2232321312121110-0111111310110022-2030312322330300-2002320322232323-1133002023213102-2130223332331111-3332033011101311)
-- [any_server](data-sources--service_policy--reference--group-001.md#canonical-3101033101321213-3011013020303022-2020233002120302-0120121332310033-2321321210322320-3100211331032333-1210331221301022-3010231111133032)
-- [deny_all_requests](data-sources--service_policy--reference--group-001.md#canonical-1321120122221121-2211201320102032-3231122122100213-0112323220103312-2132331120321323-3313311212102223-3013200033323302-3032330332020102)
-- [deny_list](data-sources--service_policy--reference--group-001.md#canonical-1133210330221300-2302313012231010-0300310022202220-2111123320332210-2101000320030120-3220020323311021-3132220133231132-0021330023303013)
-- [rule_list](data-sources--service_policy--reference--group-001.md#canonical-0200021302120322-3330103111223310-0110033233312323-2211001021302330-2000313233321013-1330302203133111-3101023222321313-3302013113202033)
-- [server_name_matcher](data-sources--service_policy--reference--group-003.md#canonical-3021113112310011-2312023300100332-3211231333010200-0121033221312122-0113321130233033-3313001233322031-0000023202030312-0011301313100330)
-- [server_selector](data-sources--service_policy--reference--group-003.md#canonical-3122313323222133-3022130222310211-0113113011303232-0203212121203123-0123123113030131-0111331230021010-3121011333120221-2330322213331033)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
-
 <a id="canonical-1310133010132113-2321211101112030-2032301102311223-3121100330132020-0312130331122112-2311320303111131-3110000220310101-2300003320213301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1203301210133201-1333310333010313-0030100232133311-3210102323112120-2300311001311201-2132122112133030-3010012000132113-0320101013223223"></a>
-
-## allow_all_requests — allow_all_requests / 030331130300 / 2
+## `allow_all_requests` properties
 
 Breadcrumbs:
 
@@ -647,7 +622,7 @@ Type: `["object", {}]`. Computed.
 \[OneOf: allow\_all\_requests, allow\_list, deny\_all\_requests, deny\_list, rule\_list\]
 Configuration parameter for allow all requests.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -674,18 +649,7 @@ OneOf alternatives in this subsection:
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-1000331311133311-1111101330333102-0333000000311322-2232031112331333-2112213232102001-0123130120330212-3132301330131020-1001132031012232"></a>
-
-## Direct properties — allow_all_requests / 030331130300 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1003013221023033-3122122330100223-2221200220330102-0230302202222332-1211101303222000-1323003311301313-0133120331203131-1212001202323211"></a>
-
-## Next pages — allow_all_requests / 030331130300 / 4
-
-- [Property reference](data-sources--service_policy--reference--group-001.md#canonical-3312102302111103-0221020013211300-2120323123300113-1101123102331230-1032322121222101-1332231300102132-0233300331323303-0031323122032013)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
 
 <a id="canonical-3210232132133332-2232321312121110-0111111310110022-2030312322330300-2002320322232323-1133002023213102-2130223332331111-3332033011101311"></a>
 
@@ -693,9 +657,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3302310102112202-2233122010132013-1112213332230000-2313013133313230-2211012322311021-3131333112332212-0312332302000103-2200112222030222"></a>
-
-## allow_list — allow_list / 232323321222 / 2
+## `allow_list` properties
 
 Breadcrumbs:
 
@@ -723,9 +685,9 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3121032103121001-3011220133303303-3203311233320021-0312131110232331-3003131021202012-3300000011231113-0323232130321030-1321231022302332"></a>
+<a id="canonical-3302310102112202-2233122010132013-1112213332230000-2313013133313230-2211012322311021-3131333112332212-0312332302000103-2200112222030222"></a>
 
-## Direct properties — allow_list / 232323321222 / 3
+### Direct properties for `allow_list`
 
 - [asn_list](data-sources--service_policy--reference--group-001.md#canonical-1030023303231232-1203220100313322-1201010102120033-2212032011303213-1002012301022210-2000311031200033-1013133002020321-3332330213230000): complete subsection reference.
 
@@ -733,9 +695,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3201223210332200-0210030310212133-1013320230232111-3133223331303232-0320233110212313-1101232230010231-3301233222201211-1310222323131220"></a>
 
-<a id="canonical-0202033201000020-2002122112120330-2130130313233310-3003122211313121-0311002013213013-0022100230322321-3202023301123123-3223010113100313"></a>
+<a id="canonical-3121032103121001-3011220133303303-3203311233320021-0312131110232331-3003131021202012-3300000011231113-0323232130321030-1321231022302332"></a>
 
-## country_list property — allow_list / 232323321222 / 4
+#### `allow_list.country_list` property
 
 Type: `["list", "string"]`. Computed.
 
@@ -795,11 +757,6 @@ performing a lookup for the source IPv4 Address in a GeoIP DB. Possible values a
 \`COUNTRY\_WF\`, \`COUNTRY\_WS\`, \`COUNTRY\_XK\`, \`COUNTRY\_XT\`, \`COUNTRY\_YE\`,
 \`COUNTRY\_YT\`, \`COUNTRY\_ZA\`, \`COUNTRY\_ZM\`, \`COUNTRY\_ZW\`. Defaults to \`COUNTRY\_NONE\`.
 
-Upstream description:
-
-Addresses that belong to one of the countries in the given list The country is obtained by
-performing a lookup for the source IPv4 Address in a GeoIP DB.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -850,9 +807,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2200032110111002-1232302122323330-0102211101331001-2111120100003320-0222132102301333-2320033332131303-0111121102231032-1111131000112002"></a>
 
-<a id="canonical-0102123200303210-3220130230003011-2200131032213310-2220010110322111-2033221331323111-1332221012232210-1131000000113233-1323303101100330"></a>
+<a id="canonical-0202033201000020-2002122112120330-2130130313233310-3003122211313121-0311002013213013-0022100230322321-3202023301123123-3223010113100313"></a>
 
-## tls_fingerprint_classes property — allow_list / 232323321222 / 5
+#### `allow_list.tls_fingerprint_classes` property
 
 Type: `["list", "string"]`. Computed.
 
@@ -863,7 +820,7 @@ values are \`TLS\_FINGERPRINT\_NONE\`, \`ANY\_MALICIOUS\_FINGERPRINT\`, \`ADWARE
 \`DRIDEX\`, \`GOOTKIT\`, \`GOZI\`, \`JBIFROST\`, \`QUAKBOT\`, \`RANSOMWARE\`, \`TROLDESH\`,
 \`TOFSEE\`, \`TORRENTLOCKER\`, \`TRICKBOT\`. Defaults to \`TLS\_FINGERPRINT\_NONE\`.
 
-Upstream description:
+Additional upstream details:
 
 A list of known classes of TLS fingerprints to match the input TLS JA3 fingerprint against.
 
@@ -903,15 +860,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2103232203012222-3010303310201122-2213221301222313-1300301201221030-2030213031211021-3123201120130323-0002110030232031-2113123103033301"></a>
 
-<a id="canonical-0333112232201113-2000122131000332-2011121000010230-3320020032111012-2000211231123320-3132200320202310-2200000321223233-2213132012212310"></a>
+<a id="canonical-0102123200303210-3220130230003011-2200131032213310-2220010110322111-2033221331323111-1332221012232210-1131000000113233-1323303101100330"></a>
 
-## tls_fingerprint_values property — allow_list / 232323321222 / 6
+#### `allow_list.tls_fingerprint_values` property
 
 Type: `["list", "string"]`. Computed.
-
-List of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint against.
-
-Upstream description:
 
 A list of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint against.
 
@@ -951,29 +904,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1103113332130321-3130220112322101-3013032000003312-1021223302223102-0113323122112202-0333132021232200-1211323101111200-3131122131020100"></a>
-
-## Next pages — allow_list / 232323321222 / 7
-
-- [allow_list.asn_list](data-sources--service_policy--reference--group-001.md#canonical-1030023303231232-1203220100313322-1201010102120033-2212032011303213-1002012301022210-2000311031200033-1013133002020321-3332330213230000)
-- [allow_list.asn_set](data-sources--service_policy--reference--group-001.md#canonical-2300030202120333-3232001100201110-3312133322102112-1321122132012201-3321011130110232-0322102203130031-3132022230313230-2230311020310000)
-- [allow_list.default_action_allow](data-sources--service_policy--reference--group-001.md#canonical-1301032303223002-2333121011032232-3221312123103230-0002332203102010-1213011203333311-3100302221210211-2230101103022102-0102030110323210)
-- [allow_list.default_action_deny](data-sources--service_policy--reference--group-001.md#canonical-2222313323121033-0013032032201330-0223330301212312-1200331323300022-2232311323031023-3311101132202333-0200033320310320-1122033110021000)
-- [allow_list.default_action_next_policy](data-sources--service_policy--reference--group-001.md#canonical-0123210213101221-1310012000232320-0110030303011022-1133113300201030-0002301300113223-0121203230123330-1202001302332131-0331211230120212)
-- [allow_list.ip_prefix_set](data-sources--service_policy--reference--group-001.md#canonical-3331231301111102-2131121010003012-1202332302000012-0200103120202213-1003003323311301-2301002131322213-1111121210233122-2112223211322013)
-- [allow_list.prefix_list](data-sources--service_policy--reference--group-001.md#canonical-0323021122221023-1303210122113001-3201333131021030-2021211223130210-3002312031023211-0113002000303112-3101313003210323-0333030021002103)
-- [Property reference](data-sources--service_policy--reference--group-001.md#canonical-3312102302111103-0221020013211300-2120323123300113-1101123102331230-1032322121222101-1332231300102132-0233300331323303-0031323122032013)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
-
 <a id="canonical-1030023303231232-1203220100313322-1201010102120033-2212032011303213-1002012301022210-2000311031200033-1013133002020321-3332330213230000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0013132233000301-1311102020001322-1201220300313230-2131230311000203-0010121202321023-3122123111102000-3110322321303223-2013302211202010"></a>
-
-## allow_list.asn_list — asn_list / 102213103112 / 2
+## `allow_list.asn_list` properties
 
 Breadcrumbs:
 
@@ -985,12 +922,6 @@ Breadcrumbs:
 <a id="canonical-1312111133013001-0010333311120122-2202201333312132-2110322133223101-0202130220103231-1122012112132031-2122112232221223-1130221213013113"></a>
 
 Type: `"single"`. Computed.
-
-Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists
-for use in network policy or service policy. It can be used to create the allow list only for DNS
-Load Balancer.
-
-Upstream description:
 
 An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny
 lists for use in network policy or service policy. It can be used to create the allow list only for
@@ -1009,23 +940,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2120110330031133-2230030103213322-2133212111001103-1322212123000223-2330010031313222-3030121133101232-3023010211021212-3001012312333131"></a>
+<a id="canonical-0013132233000301-1311102020001322-1201220300313230-2131230311000203-0010121202321023-3122123111102000-3110322321303223-2013302211202010"></a>
 
-## Direct properties — asn_list / 102213103112 / 3
+### Direct properties for `allow_list.asn_list`
 
 <a id="canonical-2132211032001022-3322120022132121-2223203200103133-3333123030310232-2330103300033022-2122210021302323-0110230302332032-3033123210210331"></a>
 
-<a id="canonical-2133101123232130-3231322002133103-0131022322013312-3313120312123002-3302210303330100-2312313310010012-1332233102322003-2201033020212310"></a>
-
-## as_numbers property — asn_list / 102213103112 / 4
+#### `allow_list.asn_list.as_numbers` property
 
 Type: `["list", "number"]`. Computed.
-
-Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists
-for use in network policy or service policy. It can be used to create the allow list only for DNS
-Load Balancer.
-
-Upstream description:
 
 An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny
 lists for use in network policy or service policy. It can be used to create the allow list only for
@@ -1071,22 +994,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0331121121133112-2202212023323131-1211001003133010-3320302132102322-3123133301203230-0133123212311313-1121003331033001-0001002323321103"></a>
-
-## Next pages — asn_list / 102213103112 / 5
-
-- [allow_list](data-sources--service_policy--reference--group-001.md#canonical-3210232132133332-2232321312121110-0111111310110022-2030312322330300-2002320322232323-1133002023213102-2130223332331111-3332033011101311)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
-
 <a id="canonical-2300030202120333-3232001100201110-3312133322102112-1321122132012201-3321011130110232-0322102203130031-3132022230313230-2230311020310000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2211011001301211-0321323112232011-2110120212333302-0322200321101011-2311033023302103-2121032301302222-0130102302213321-2301120030330103"></a>
-
-## allow_list.asn_set — asn_set / 131310221321 / 2
+## `allow_list.asn_set` properties
 
 Breadcrumbs:
 
@@ -1098,11 +1012,6 @@ Breadcrumbs:
 <a id="canonical-1333322332223310-0113001220232202-1030100121101210-1310033023330202-0213121232200211-1311003320013113-1211220210131201-3010220113203230"></a>
 
 Type: `"list"`. Computed.
-
-Addresses that belong to the ASNs in the given bgp\_asn\_set The ASN is obtained by performing a
-lookup for the source IPv4 Address in a GeoIP DB.
-
-Upstream description:
 
 Addresses that belong to the ASNs in the given bgp\_asn\_set The ASN is obtained by performing a
 lookup for the source IPv4 Address in a GeoIP DB.
@@ -1141,22 +1050,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2332131202313200-2033313033100103-0110232332320331-3210022012310220-3332321123301332-2133022321210130-0220100020201200-1321320010023121"></a>
+<a id="canonical-2211011001301211-0321323112232011-2110120212333302-0322200321101011-2311033023302103-2121032301302222-0130102302213321-2301120030330103"></a>
 
-## Direct properties — asn_set / 131310221321 / 3
+### Direct properties for `allow_list.asn_set`
 
 <a id="canonical-2221233200011120-0303202320311030-2010201213030012-3131030100213023-0101201103313300-1033323231231210-1233021333033231-3213110030013332"></a>
 
-<a id="canonical-1220101023320121-1302113130300022-0320001220211331-3313003112132121-0110303201232013-3110132010021311-3111230330131012-2113223312002011"></a>
-
-## name property — asn_set / 131310221321 / 4
+#### `allow_list.asn_set.name` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
@@ -1204,16 +1106,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0220223321300300-2111330112030220-0033233310031130-0333311011302202-0102112222320131-3201101201011310-0301002012111222-2231102212310203"></a>
 
-<a id="canonical-2013200300103010-3210323012221011-0131030200233202-0121321312121031-3313101223230122-1010120330022331-0213002022123032-2013232103120300"></a>
+<a id="canonical-2332131202313200-2033313033100103-0110232332320331-3210022012310220-3332321123301332-2133022321210130-0220100020201200-1321320010023121"></a>
 
-## namespace property — asn_set / 131310221321 / 5
+#### `allow_list.asn_set.namespace` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -1268,16 +1165,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3101003101330333-2031030003200212-2300322231023111-2112133320223232-1123030223320230-1330322102132031-0120023220220123-2020200002200212"></a>
 
-<a id="canonical-3001020201003201-3212213231011320-3233110331203201-0103020302112113-3220221012323000-3120331000200330-2002012212120011-3012021331001202"></a>
+<a id="canonical-1220101023320121-1302113130300022-0320001220211331-3313003112132121-0110303201232013-3110132010021311-3111230330131012-2113223312002011"></a>
 
-## tenant property — asn_set / 131310221321 / 6
+#### `allow_list.asn_set.tenant` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
@@ -1316,22 +1208,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1112121300232303-2101112202333320-2211030023020220-3223202310103133-3331223130110300-2030131230101300-0203203131111212-3222032110122033"></a>
-
-## Next pages — asn_set / 131310221321 / 7
-
-- [allow_list](data-sources--service_policy--reference--group-001.md#canonical-3210232132133332-2232321312121110-0111111310110022-2030312322330300-2002320322232323-1133002023213102-2130223332331111-3332033011101311)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
-
 <a id="canonical-1301032303223002-2333121011032232-3221312123103230-0002332203102010-1213011203333311-3100302221210211-2230101103022102-0102030110323210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2232313312133101-3133312111023003-3102231023112221-1221122321121122-0222033013020313-1221101232021000-0313303032301022-0211203113231130"></a>
-
-## allow_list.default_action_allow — default_action_allow / 002201232332 / 2
+## `allow_list.default_action_allow` properties
 
 Breadcrumbs:
 
@@ -1346,7 +1229,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1363,18 +1246,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0032321332302333-2321123002111012-1000223300120110-0333000322031233-2200201310331231-2312010102222013-1303002100112023-2332321013203130"></a>
-
-## Direct properties — default_action_allow / 002201232332 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1303130232303202-3320022111211313-0113130313112111-1312233333011030-0102231233222312-3232203131011132-1011230320222023-3300300323030233"></a>
-
-## Next pages — default_action_allow / 002201232332 / 4
-
-- [allow_list](data-sources--service_policy--reference--group-001.md#canonical-3210232132133332-2232321312121110-0111111310110022-2030312322330300-2002320322232323-1133002023213102-2130223332331111-3332033011101311)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
 
 <a id="canonical-2222313323121033-0013032032201330-0223330301212312-1200331323300022-2232311323031023-3311101132202333-0200033320310320-1122033110021000"></a>
 
@@ -1382,9 +1254,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0033022113131313-3301312032221211-3301332222130013-3230220210313013-3002200220111323-1010303233210130-3333221200231203-3201322100231203"></a>
-
-## allow_list.default_action_deny — default_action_deny / 013022032332 / 2
+## `allow_list.default_action_deny` properties
 
 Breadcrumbs:
 
@@ -1399,7 +1269,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1416,18 +1286,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1322010222002100-3221323023220120-3033101231030010-0313312030020031-2301221010130321-2013320210332221-2330211222022023-2031011120323330"></a>
-
-## Direct properties — default_action_deny / 013022032332 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0023333021321300-1003232200301233-0001030312221023-0322201203123130-3000010113313313-2302320113221133-1101312200032200-1110121110330323"></a>
-
-## Next pages — default_action_deny / 013022032332 / 4
-
-- [allow_list](data-sources--service_policy--reference--group-001.md#canonical-3210232132133332-2232321312121110-0111111310110022-2030312322330300-2002320322232323-1133002023213102-2130223332331111-3332033011101311)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
 
 <a id="canonical-0123210213101221-1310012000232320-0110030303011022-1133113300201030-0002301300113223-0121203230123330-1202001302332131-0331211230120212"></a>
 
@@ -1435,9 +1294,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2032312221330203-1113012300123033-3102200012121021-1032012331102031-3033311132033101-3330022303310010-0032232201102201-3301222030313201"></a>
-
-## allow_list.default_action_next_policy — default_action_next_policy / 120022223010 / 2
+## `allow_list.default_action_next_policy` properties
 
 Breadcrumbs:
 
@@ -1452,7 +1309,7 @@ Type: `["object", {}]`. Computed.
 
 Policy configuration for this feature.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1469,18 +1326,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0101020223121220-1231130231213130-1031033131112131-1332001122301220-1032020130303010-3002211221131000-0203322112200313-1020000021230113"></a>
-
-## Direct properties — default_action_next_policy / 120022223010 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0023131032300021-2202301332200312-0331210213001300-1120223121331021-1022102233102303-0123012302231003-0200222030112322-2300310310013330"></a>
-
-## Next pages — default_action_next_policy / 120022223010 / 4
-
-- [allow_list](data-sources--service_policy--reference--group-001.md#canonical-3210232132133332-2232321312121110-0111111310110022-2030312322330300-2002320322232323-1133002023213102-2130223332331111-3332033011101311)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
 
 <a id="canonical-3331231301111102-2131121010003012-1202332302000012-0200103120202213-1003003323311301-2301002131322213-1111121210233122-2112223211322013"></a>
 
@@ -1488,9 +1334,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2311332120030333-1323232120230301-3202113232132230-2321300030021011-0022210233232221-3021123122312230-0111302101331232-3033210320030233"></a>
-
-## allow_list.ip_prefix_set — ip_prefix_set / 122132321123 / 2
+## `allow_list.ip_prefix_set` properties
 
 Breadcrumbs:
 
@@ -1539,22 +1383,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3100202220203100-1333303101030013-0230233313333031-0311011212110311-0122323122313021-0321111110323101-2133110020322213-3120332310221211"></a>
+<a id="canonical-2311332120030333-1323232120230301-3202113232132230-2321300030021011-0022210233232221-3021123122312230-0111302101331232-3033210320030233"></a>
 
-## Direct properties — ip_prefix_set / 122132321123 / 3
+### Direct properties for `allow_list.ip_prefix_set`
 
 <a id="canonical-3313001222300132-0112013233111320-3123031221030121-0022331031223121-3033123032302333-1331222302310233-0002232221013032-0220132213323321"></a>
 
-<a id="canonical-1212113123122020-3133212312230301-2032302200223310-1211311131000103-3203000131312022-1331110110023030-1011131132222003-1011011132232303"></a>
-
-## name property — ip_prefix_set / 122132321123 / 4
+#### `allow_list.ip_prefix_set.name` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
@@ -1602,16 +1439,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3323002203313220-2021332210200302-1310110331330112-2322203033010112-2033232330322213-0301233211322321-3203203010023103-1313212020321223"></a>
 
-<a id="canonical-1202300111212112-0122110312220210-1113111313301233-0000100012323201-0223320332111001-2023210220100231-3020200032201331-0112011033201321"></a>
+<a id="canonical-3100202220203100-1333303101030013-0230233313333031-0311011212110311-0122323122313021-0321111110323101-2133110020322213-3120332310221211"></a>
 
-## namespace property — ip_prefix_set / 122132321123 / 5
+#### `allow_list.ip_prefix_set.namespace` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -1666,16 +1498,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0102323230313202-3330101233033303-0102021200202000-1023013233232320-3130010303332323-1200000320323223-3223203013103213-2120123321311311"></a>
 
-<a id="canonical-3313031021202202-1330311313211303-0333001020232300-3320111321112111-1300321203213303-0110223101322031-1220003001100033-2301030232330033"></a>
+<a id="canonical-1212113123122020-3133212312230301-2032302200223310-1211311131000103-3203000131312022-1331110110023030-1011131132222003-1011011132232303"></a>
 
-## tenant property — ip_prefix_set / 122132321123 / 6
+#### `allow_list.ip_prefix_set.tenant` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
@@ -1714,22 +1541,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2332300021130131-2332113130230230-0121021202032011-1223233022132133-1302200002133310-1131332020120023-1230230312012200-0001002011322023"></a>
-
-## Next pages — ip_prefix_set / 122132321123 / 7
-
-- [allow_list](data-sources--service_policy--reference--group-001.md#canonical-3210232132133332-2232321312121110-0111111310110022-2030312322330300-2002320322232323-1133002023213102-2130223332331111-3332033011101311)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
-
 <a id="canonical-0323021122221023-1303210122113001-3201333131021030-2021211223130210-3002312031023211-0113002000303112-3101313003210323-0333030021002103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2031221221022011-2033110230320320-3132232023220100-3223100300323132-1011300122000211-0131132122012301-0022320320211230-2333010300111322"></a>
-
-## allow_list.prefix_list — prefix_list / 311311331333 / 2
+## `allow_list.prefix_list` properties
 
 Breadcrumbs:
 
@@ -1757,15 +1575,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3130220120110320-2030030030321131-2332113232313313-1003132323121210-1013101203303033-2303202012120312-2330131310212223-3300110113030013"></a>
+<a id="canonical-2031221221022011-2033110230320320-3132232023220100-3223100300323132-1011300122000211-0131132122012301-0022320320211230-2333010300111322"></a>
 
-## Direct properties — prefix_list / 311311331333 / 3
+### Direct properties for `allow_list.prefix_list`
 
 <a id="canonical-0233220002202113-0012322213010201-2300000130020120-0123220121012031-1322300320222220-2301121202201031-3312122230120123-2031332203122221"></a>
 
-<a id="canonical-3312112033330303-2113112020112003-1201122322203000-0203123032130220-0032021312113233-3011133000010022-0123233020302133-2110323311111311"></a>
-
-## prefixes property — prefix_list / 311311331333 / 4
+#### `allow_list.prefix_list.prefixes` property
 
 Type: `["list", "string"]`. Computed.
 
@@ -1807,22 +1623,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0111123123133021-3220333210112022-3330213200212300-2022011012032112-1223113111100211-0321110321322010-0101201023333131-2010012320330113"></a>
-
-## Next pages — prefix_list / 311311331333 / 5
-
-- [allow_list](data-sources--service_policy--reference--group-001.md#canonical-3210232132133332-2232321312121110-0111111310110022-2030312322330300-2002320322232323-1133002023213102-2130223332331111-3332033011101311)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
-
 <a id="canonical-3101033101321213-3011013020303022-2020233002120302-0120121332310033-2321321210322320-3100211331032333-1210331221301022-3010231111133032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2301230322000011-0303320011132210-1130322130202032-2211201113012010-2120201300313303-1032031201000222-1100233331003201-2121032020233123"></a>
-
-## any_server — any_server / 003113013301 / 2
+## `any_server` properties
 
 Breadcrumbs:
 
@@ -1837,7 +1644,7 @@ Type: `["object", {}]`. Computed.
 \[OneOf: any\_server, server\_name, server\_name\_matcher, server\_selector\] Enable this option.
 Defaults to \`map\[\]\`. Server applies default when omitted.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1863,18 +1670,7 @@ OneOf alternatives in this subsection:
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-1113220113230200-1012202213012121-0303011311132220-2203210003203121-3231121012203310-0133312111121030-2013233120303221-0310022113311033"></a>
-
-## Direct properties — any_server / 003113013301 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3023200213133232-1103223302101201-2020203320211202-2012222210121021-3110011300113121-1310103033221322-2313123122322213-3102301100111001"></a>
-
-## Next pages — any_server / 003113013301 / 4
-
-- [Property reference](data-sources--service_policy--reference--group-001.md#canonical-3312102302111103-0221020013211300-2120323123300113-1101123102331230-1032322121222101-1332231300102132-0233300331323303-0031323122032013)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
 
 <a id="canonical-1321120122221121-2211201320102032-3231122122100213-0112323220103312-2132331120321323-3313311212102223-3013200033323302-3032330332020102"></a>
 
@@ -1882,9 +1678,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0313322333313013-3223232130220211-1200112010130023-2313013332123123-0312203012310011-0301100000310031-2032230201103220-2000122313123120"></a>
-
-## deny_all_requests — deny_all_requests / 202020323210 / 2
+## `deny_all_requests` properties
 
 Breadcrumbs:
 
@@ -1898,7 +1692,7 @@ Type: `["object", {}]`. Computed.
 
 Configuration parameter for deny all requests.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1915,18 +1709,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3121311121011302-1033122112221323-3011032231010220-0023023210232022-0131000323212100-3221032002200122-0201133230133301-3031233300221320"></a>
-
-## Direct properties — deny_all_requests / 202020323210 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2113230202200200-1230101320201203-3231103013300000-2130002311310212-2213110120131022-3120003221300200-3012321121203001-0210021022302231"></a>
-
-## Next pages — deny_all_requests / 202020323210 / 4
-
-- [Property reference](data-sources--service_policy--reference--group-001.md#canonical-3312102302111103-0221020013211300-2120323123300113-1101123102331230-1032322121222101-1332231300102132-0233300331323303-0031323122032013)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
 
 <a id="canonical-1133210330221300-2302313012231010-0300310022202220-2111123320332210-2101000320030120-3220020323311021-3132220133231132-0021330023303013"></a>
 
@@ -1934,9 +1717,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2013211320032321-1201332113211102-0321011231302312-2110312313321211-1200023032111201-1112313003203132-1111021202301320-2002132233120312"></a>
-
-## deny_list — deny_list / 123131232230 / 2
+## `deny_list` properties
 
 Breadcrumbs:
 
@@ -1964,9 +1745,9 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3333011101122011-3102211231211033-0320031110102312-3113322311032222-0323130232033031-0213313020313332-3333200003033230-0112333300002000"></a>
+<a id="canonical-2013211320032321-1201332113211102-0321011231302312-2110312313321211-1200023032111201-1112313003203132-1111021202301320-2002132233120312"></a>
 
-## Direct properties — deny_list / 123131232230 / 3
+### Direct properties for `deny_list`
 
 - [asn_list](data-sources--service_policy--reference--group-001.md#canonical-0011132331310313-1312032302323313-3130122322230323-0312311112332011-0301221013302132-2232030313211110-3320321122333033-2011332130311213): complete subsection reference.
 
@@ -1974,9 +1755,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2311232000332011-2201122232020320-1013331123021023-3310120330200230-1022330200320213-0303123130122130-3221302201321333-1202203312110320"></a>
 
-<a id="canonical-1113221113132311-0013001322230011-2311200303310130-0233100013103103-1322022330022120-1222233121310200-3011132033222121-2210032330030111"></a>
+<a id="canonical-3333011101122011-3102211231211033-0320031110102312-3113322311032222-0323130232033031-0213313020313332-3333200003033230-0112333300002000"></a>
 
-## country_list property — deny_list / 123131232230 / 4
+#### `deny_list.country_list` property
 
 Type: `["list", "string"]`. Computed.
 
@@ -2036,11 +1817,6 @@ performing a lookup for the source IPv4 Address in a GeoIP DB. Possible values a
 \`COUNTRY\_WF\`, \`COUNTRY\_WS\`, \`COUNTRY\_XK\`, \`COUNTRY\_XT\`, \`COUNTRY\_YE\`,
 \`COUNTRY\_YT\`, \`COUNTRY\_ZA\`, \`COUNTRY\_ZM\`, \`COUNTRY\_ZW\`. Defaults to \`COUNTRY\_NONE\`.
 
-Upstream description:
-
-Addresses that belong to one of the countries in the given list The country is obtained by
-performing a lookup for the source IPv4 Address in a GeoIP DB.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2091,9 +1867,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2011001300111011-3222122130222330-2110323331320203-0200310020130120-2031011133012120-0030102213221301-2230010111321111-0330112130013301"></a>
 
-<a id="canonical-2201001312001231-1123221030003312-1111033312210320-1111232112312110-2310120220310121-0111103002231130-0121100000102120-2002331232033213"></a>
+<a id="canonical-1113221113132311-0013001322230011-2311200303310130-0233100013103103-1322022330022120-1222233121310200-3011132033222121-2210032330030111"></a>
 
-## tls_fingerprint_classes property — deny_list / 123131232230 / 5
+#### `deny_list.tls_fingerprint_classes` property
 
 Type: `["list", "string"]`. Computed.
 
@@ -2104,7 +1880,7 @@ values are \`TLS\_FINGERPRINT\_NONE\`, \`ANY\_MALICIOUS\_FINGERPRINT\`, \`ADWARE
 \`DRIDEX\`, \`GOOTKIT\`, \`GOZI\`, \`JBIFROST\`, \`QUAKBOT\`, \`RANSOMWARE\`, \`TROLDESH\`,
 \`TOFSEE\`, \`TORRENTLOCKER\`, \`TRICKBOT\`. Defaults to \`TLS\_FINGERPRINT\_NONE\`.
 
-Upstream description:
+Additional upstream details:
 
 A list of known classes of TLS fingerprints to match the input TLS JA3 fingerprint against.
 
@@ -2144,15 +1920,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2302323023100211-1322210121030130-2013000310003202-3013222010301123-1220331331121130-2120332030312110-1111323102030231-2021012013301120"></a>
 
-<a id="canonical-2232021222100302-3003033122300033-2322112121232020-2012313121201332-0323001132212313-1003300010221221-1023221303112023-2022330013333301"></a>
+<a id="canonical-2201001312001231-1123221030003312-1111033312210320-1111232112312110-2310120220310121-0111103002231130-0121100000102120-2002331232033213"></a>
 
-## tls_fingerprint_values property — deny_list / 123131232230 / 6
+#### `deny_list.tls_fingerprint_values` property
 
 Type: `["list", "string"]`. Computed.
-
-List of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint against.
-
-Upstream description:
 
 A list of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint against.
 
@@ -2192,29 +1964,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3012021203312103-2232021310321213-1302011230223230-0111233020110002-3102132311201112-2002220121220001-0332013133320110-1311021000111100"></a>
-
-## Next pages — deny_list / 123131232230 / 7
-
-- [deny_list.asn_list](data-sources--service_policy--reference--group-001.md#canonical-0011132331310313-1312032302323313-3130122322230323-0312311112332011-0301221013302132-2232030313211110-3320321122333033-2011332130311213)
-- [deny_list.asn_set](data-sources--service_policy--reference--group-001.md#canonical-3330311320223113-1300223221102113-2100032022322001-3132023001102020-2231000000200300-1032221303212201-3031130220103020-2332321310301200)
-- [deny_list.default_action_allow](data-sources--service_policy--reference--group-001.md#canonical-3112033300312200-1133221301333110-1031111213320001-1231202110320203-0230001331012002-0000121113020102-2323123112003130-3222311321233002)
-- [deny_list.default_action_deny](data-sources--service_policy--reference--group-001.md#canonical-3100231301121321-2302333102303320-1123012022001032-0300112200033312-0012111311103332-2102210033110333-0303232102013103-2132013220231121)
-- [deny_list.default_action_next_policy](data-sources--service_policy--reference--group-001.md#canonical-3321002310033200-2102112201330133-0323133010230133-2330223033100332-2131121122102132-2130113211111112-1302100121323202-2332312133133111)
-- [deny_list.ip_prefix_set](data-sources--service_policy--reference--group-001.md#canonical-0033133330311211-2231012230313202-0100221313200200-0023202013303210-3312222002033023-0313321120323122-3011233010030100-3233033301200001)
-- [deny_list.prefix_list](data-sources--service_policy--reference--group-001.md#canonical-2222000312112021-0020321133320222-2020121021111001-1330320020131232-2032000031320323-3012330110202112-2000030102313310-3220312230110121)
-- [Property reference](data-sources--service_policy--reference--group-001.md#canonical-3312102302111103-0221020013211300-2120323123300113-1101123102331230-1032322121222101-1332231300102132-0233300331323303-0031323122032013)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
-
 <a id="canonical-0011132331310313-1312032302323313-3130122322230323-0312311112332011-0301221013302132-2232030313211110-3320321122333033-2011332130311213"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2012231300321313-1210323330102031-1131313113303013-0030102301211330-3021333021032211-2221101011223323-3023321130032123-0023322331123323"></a>
-
-## deny_list.asn_list — asn_list / 301233231113 / 2
+## `deny_list.asn_list` properties
 
 Breadcrumbs:
 
@@ -2226,12 +1982,6 @@ Breadcrumbs:
 <a id="canonical-3332222101231202-1210322010202011-0013010022332202-2202132202003130-1121231101200103-1113013103100003-3220323330201113-2223221100012100"></a>
 
 Type: `"single"`. Computed.
-
-Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists
-for use in network policy or service policy. It can be used to create the allow list only for DNS
-Load Balancer.
-
-Upstream description:
 
 An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny
 lists for use in network policy or service policy. It can be used to create the allow list only for
@@ -2250,23 +2000,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1120001130211031-3303010212322202-2320322112303031-0110211023021011-1021033013002103-0122101113222231-1333211111322010-3312113013002221"></a>
+<a id="canonical-2012231300321313-1210323330102031-1131313113303013-0030102301211330-3021333021032211-2221101011223323-3023321130032123-0023322331123323"></a>
 
-## Direct properties — asn_list / 301233231113 / 3
+### Direct properties for `deny_list.asn_list`
 
 <a id="canonical-2101133123131110-1302322012322202-2012210132012210-2300001321102332-0032120222022221-3113212101021210-3313330223232121-3102232211332200"></a>
 
-<a id="canonical-3313030320223313-2302130203321013-3020222111323330-0311313112011102-1310013111330331-1323020130310322-2232002112021220-2000131123011332"></a>
-
-## as_numbers property — asn_list / 301233231113 / 4
+#### `deny_list.asn_list.as_numbers` property
 
 Type: `["list", "number"]`. Computed.
-
-Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists
-for use in network policy or service policy. It can be used to create the allow list only for DNS
-Load Balancer.
-
-Upstream description:
 
 An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny
 lists for use in network policy or service policy. It can be used to create the allow list only for
@@ -2312,22 +2054,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1133130013222203-1100232311122120-1311001110130330-3123122110212020-1301000223013022-0011210003000130-1130023203213302-3311000331123020"></a>
-
-## Next pages — asn_list / 301233231113 / 5
-
-- [deny_list](data-sources--service_policy--reference--group-001.md#canonical-1133210330221300-2302313012231010-0300310022202220-2111123320332210-2101000320030120-3220020323311021-3132220133231132-0021330023303013)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
-
 <a id="canonical-3330311320223113-1300223221102113-2100032022322001-3132023001102020-2231000000200300-1032221303212201-3031130220103020-2332321310301200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1321221032221030-2202033122110001-0323132333011023-3333212231213100-3333130100300302-3321321200001013-1011202323111120-3231322200211313"></a>
-
-## deny_list.asn_set — asn_set / 323302211013 / 2
+## `deny_list.asn_set` properties
 
 Breadcrumbs:
 
@@ -2339,11 +2072,6 @@ Breadcrumbs:
 <a id="canonical-1223201123120023-1121020133310021-3022130023232101-1232230023010223-2223201020231013-2323332121000001-0032310302313233-3323010302220232"></a>
 
 Type: `"list"`. Computed.
-
-Addresses that belong to the ASNs in the given bgp\_asn\_set The ASN is obtained by performing a
-lookup for the source IPv4 Address in a GeoIP DB.
-
-Upstream description:
 
 Addresses that belong to the ASNs in the given bgp\_asn\_set The ASN is obtained by performing a
 lookup for the source IPv4 Address in a GeoIP DB.
@@ -2382,22 +2110,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0100011131011103-3231320211303001-0101110313023322-0130022003102222-2300223131322203-2211013200010011-1312021110330200-2021033313112103"></a>
+<a id="canonical-1321221032221030-2202033122110001-0323132333011023-3333212231213100-3333130100300302-3321321200001013-1011202323111120-3231322200211313"></a>
 
-## Direct properties — asn_set / 323302211013 / 3
+### Direct properties for `deny_list.asn_set`
 
 <a id="canonical-3133013100213233-1123003200103120-0132030122013220-0231202323013311-2322330313313103-2120100231012310-0112312102212311-2201222103200013"></a>
 
-<a id="canonical-2001112320122211-3320030300003200-3133011111313230-1003302313022331-0123321310100320-3211222131101033-3333123012220132-3331220012302330"></a>
-
-## name property — asn_set / 323302211013 / 4
+#### `deny_list.asn_set.name` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
@@ -2445,16 +2166,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0221330232123000-3213121022302233-3010022230301220-2123231222031102-0201300132013111-1310110322111231-0312201303222011-3100133111233313"></a>
 
-<a id="canonical-2230010300303330-2022003111311200-2120032303131123-3231113201132213-2030112313013023-1320201131201012-3100233003120003-2313111300001120"></a>
+<a id="canonical-0100011131011103-3231320211303001-0101110313023322-0130022003102222-2300223131322203-2211013200010011-1312021110330200-2021033313112103"></a>
 
-## namespace property — asn_set / 323302211013 / 5
+#### `deny_list.asn_set.namespace` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -2509,16 +2225,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3113232323331121-3002210020002123-2203021210132330-1010102323131133-0320033013222223-3033030203133010-1322010302233233-2332311220021011"></a>
 
-<a id="canonical-2301032222323203-0302130022123032-0322212321233203-3132033132100323-0021022323323320-1023200211201101-1033201011211331-1131313123223330"></a>
+<a id="canonical-2001112320122211-3320030300003200-3133011111313230-1003302313022331-0123321310100320-3211222131101033-3333123012220132-3331220012302330"></a>
 
-## tenant property — asn_set / 323302211013 / 6
+#### `deny_list.asn_set.tenant` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
@@ -2557,22 +2268,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3230133031230113-0202000300313213-1011232223321021-1020212301221230-1100002312110131-1120230110210302-2200013303002031-3122222231010302"></a>
-
-## Next pages — asn_set / 323302211013 / 7
-
-- [deny_list](data-sources--service_policy--reference--group-001.md#canonical-1133210330221300-2302313012231010-0300310022202220-2111123320332210-2101000320030120-3220020323311021-3132220133231132-0021330023303013)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
-
 <a id="canonical-3112033300312200-1133221301333110-1031111213320001-1231202110320203-0230001331012002-0000121113020102-2323123112003130-3222311321233002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3120213131200121-3323001230220111-0333130300220020-1223333022203303-2033110301132112-2011100320011310-1120022112001311-1130130001112211"></a>
-
-## deny_list.default_action_allow — default_action_allow / 023120003303 / 2
+## `deny_list.default_action_allow` properties
 
 Breadcrumbs:
 
@@ -2587,7 +2289,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -2604,18 +2306,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0223311030120013-2032130310023300-1123010021131232-1120011112212212-0102023000122311-1313031012033023-0112213103110020-1302222122231320"></a>
-
-## Direct properties — default_action_allow / 023120003303 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3301321002201122-1323133313332220-1332322100030020-3000023231231133-1231100312331100-1230102220313302-3120222320231322-1010131303132000"></a>
-
-## Next pages — default_action_allow / 023120003303 / 4
-
-- [deny_list](data-sources--service_policy--reference--group-001.md#canonical-1133210330221300-2302313012231010-0300310022202220-2111123320332210-2101000320030120-3220020323311021-3132220133231132-0021330023303013)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
 
 <a id="canonical-3100231301121321-2302333102303320-1123012022001032-0300112200033312-0012111311103332-2102210033110333-0303232102013103-2132013220231121"></a>
 
@@ -2623,9 +2314,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2021022200102303-3032000203110333-0022323123311030-2323120300233003-1333223031323330-1330222023332322-0101021000110313-3202200001103320"></a>
-
-## deny_list.default_action_deny — default_action_deny / 323320123220 / 2
+## `deny_list.default_action_deny` properties
 
 Breadcrumbs:
 
@@ -2640,7 +2329,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -2657,18 +2346,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1303030202101032-3202033303330113-3122331303310211-0313210022202322-0202003210210311-0003313121111330-3021301002201033-0212230102001331"></a>
-
-## Direct properties — default_action_deny / 323320123220 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1100232131233332-1022032320002012-1333000311323031-2203012303222321-3331131233321013-1232130202201301-0101220101012211-0002303123012230"></a>
-
-## Next pages — default_action_deny / 323320123220 / 4
-
-- [deny_list](data-sources--service_policy--reference--group-001.md#canonical-1133210330221300-2302313012231010-0300310022202220-2111123320332210-2101000320030120-3220020323311021-3132220133231132-0021330023303013)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
 
 <a id="canonical-3321002310033200-2102112201330133-0323133010230133-2330223033100332-2131121122102132-2130113211111112-1302100121323202-2332312133133111"></a>
 
@@ -2676,9 +2354,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1003332321023100-2022032302101132-1330203131032001-2330112120120131-1213331111002011-0001110133202011-1020100021102111-3012312321002233"></a>
-
-## deny_list.default_action_next_policy — default_action_next_policy / 321122230310 / 2
+## `deny_list.default_action_next_policy` properties
 
 Breadcrumbs:
 
@@ -2693,7 +2369,7 @@ Type: `["object", {}]`. Computed.
 
 Policy configuration for this feature.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -2710,18 +2386,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0301211021121111-2303131001030022-0030103101013032-2102332233301211-1220022102213203-0333203320231322-0330202120311311-2101011101010322"></a>
-
-## Direct properties — default_action_next_policy / 321122230310 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0312230123012230-3132222303312312-3131310111223323-0222020320200032-3131313023013032-2012332321003232-0031303321233010-3130231333010210"></a>
-
-## Next pages — default_action_next_policy / 321122230310 / 4
-
-- [deny_list](data-sources--service_policy--reference--group-001.md#canonical-1133210330221300-2302313012231010-0300310022202220-2111123320332210-2101000320030120-3220020323311021-3132220133231132-0021330023303013)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
 
 <a id="canonical-0033133330311211-2231012230313202-0100221313200200-0023202013303210-3312222002033023-0313321120323122-3011233010030100-3233033301200001"></a>
 
@@ -2729,9 +2394,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2311112321112120-2111002022222020-0323121201030320-0322102030113023-2112231012120013-2200032031132230-2222222130112220-1020201021110222"></a>
-
-## deny_list.ip_prefix_set — ip_prefix_set / 002321030122 / 2
+## `deny_list.ip_prefix_set` properties
 
 Breadcrumbs:
 
@@ -2780,22 +2443,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1311103333223301-0220103122100333-2213123031322110-2230011101303323-2321130112212323-2113110103023112-1230102212130013-1302203011110200"></a>
+<a id="canonical-2311112321112120-2111002022222020-0323121201030320-0322102030113023-2112231012120013-2200032031132230-2222222130112220-1020201021110222"></a>
 
-## Direct properties — ip_prefix_set / 002321030122 / 3
+### Direct properties for `deny_list.ip_prefix_set`
 
 <a id="canonical-2210122210300313-2002032131301223-3002133333020310-0322022312111321-3233200013031303-0202131212312020-0213203200110131-1210222212003001"></a>
 
-<a id="canonical-2130100111330033-0331002030010233-0100332001321303-2111133231120212-2213333201113213-1300121022030312-1123320123320223-1333001330001010"></a>
-
-## name property — ip_prefix_set / 002321030122 / 4
+#### `deny_list.ip_prefix_set.name` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
@@ -2843,16 +2499,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3020322220330301-1012122310200221-3001133123110323-1013022100002322-0013000123130021-1101001320302102-1323033102200201-3331302231202311"></a>
 
-<a id="canonical-2112330303202313-0031300200012012-0000302231201103-1123113223121100-1110300033322023-2301101103220101-2110101010111113-1300331120001030"></a>
+<a id="canonical-1311103333223301-0220103122100333-2213123031322110-2230011101303323-2321130112212323-2113110103023112-1230102212130013-1302203011110200"></a>
 
-## namespace property — ip_prefix_set / 002321030122 / 5
+#### `deny_list.ip_prefix_set.namespace` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -2907,16 +2558,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2002313233122232-0221101110210101-0321301020311333-0031332013032230-1031301011201121-3232313331100132-2321000330101113-1331010213131333"></a>
 
-<a id="canonical-0322321121101301-1021113303103303-2003110332202233-2233132201122203-1212001211320033-1102133213011131-2303210112213103-0100102313013320"></a>
+<a id="canonical-2130100111330033-0331002030010233-0100332001321303-2111133231120212-2213333201113213-1300121022030312-1123320123320223-1333001330001010"></a>
 
-## tenant property — ip_prefix_set / 002321030122 / 6
+#### `deny_list.ip_prefix_set.tenant` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
@@ -2955,22 +2601,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0221322020131131-0332033031210103-1121313311011032-2123223001012031-3000020010011220-1122130301121310-0332020233031310-3332111302220032"></a>
-
-## Next pages — ip_prefix_set / 002321030122 / 7
-
-- [deny_list](data-sources--service_policy--reference--group-001.md#canonical-1133210330221300-2302313012231010-0300310022202220-2111123320332210-2101000320030120-3220020323311021-3132220133231132-0021330023303013)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
-
 <a id="canonical-2222000312112021-0020321133320222-2020121021111001-1330320020131232-2032000031320323-3012330110202112-2000030102313310-3220312230110121"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1011310110102300-2021213021000332-1233220110323222-3123103023202302-0200303102301230-2203120020031022-3131022320020133-1233302223023330"></a>
-
-## deny_list.prefix_list — prefix_list / 232321132330 / 2
+## `deny_list.prefix_list` properties
 
 Breadcrumbs:
 
@@ -2998,15 +2635,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3332123303323001-0323133210110210-3031320232032323-1000313312131010-0221333202132002-1122001320221211-2311203033112302-0213000121203113"></a>
+<a id="canonical-1011310110102300-2021213021000332-1233220110323222-3123103023202302-0200303102301230-2203120020031022-3131022320020133-1233302223023330"></a>
 
-## Direct properties — prefix_list / 232321132330 / 3
+### Direct properties for `deny_list.prefix_list`
 
 <a id="canonical-3013121103313210-0202220302200012-3031023202212211-0010011131201322-2101113030100213-3000131331113010-3033210223202333-3112030011001321"></a>
 
-<a id="canonical-3330111331022012-0030212233213313-0211222302101303-3331133320221232-3311111103301131-2303023102302130-0132131201303000-3212011003222300"></a>
-
-## prefixes property — prefix_list / 232321132330 / 4
+#### `deny_list.prefix_list.prefixes` property
 
 Type: `["list", "string"]`. Computed.
 
@@ -3048,22 +2683,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0221033112313322-1222211203220012-1103121110213001-3013320331023012-2232112201001332-0223303200302010-1312223330120021-0002233102002211"></a>
-
-## Next pages — prefix_list / 232321132330 / 5
-
-- [deny_list](data-sources--service_policy--reference--group-001.md#canonical-1133210330221300-2302313012231010-0300310022202220-2111123320332210-2101000320030120-3220020323311021-3132220133231132-0021330023303013)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
-
 <a id="canonical-0200021302120322-3330103111223310-0110033233312323-2211001021302330-2000313233321013-1330302203133111-3101023222321313-3302013113202033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2203330202021131-0332010231031330-0103023230022133-2133211323122203-0232312130101333-0033301302113312-3023210113000103-1132313020223020"></a>
-
-## rule_list — rule_list / 222133301121 / 2
+## `rule_list` properties
 
 Breadcrumbs:
 
@@ -3074,12 +2700,6 @@ Breadcrumbs:
 <a id="canonical-1323033222302302-3111221111132320-3301101131323321-3012033101003230-1210201102233222-0102310331101011-1003003201123022-2202030210300232"></a>
 
 Type: `"single"`. Computed.
-
-Ordered service-policy rules for non-geographic predicates and actions. Do not use country\_list for
-a geo-only rule here: the platform adds match-all any\_ip and any\_asn selectors on readback, so the
-rule can match all traffic. Use deny\_list or allow\_list with country\_list for geographic source..
-
-Upstream description:
 
 Ordered service-policy rules for non-geographic predicates and actions. Do not use country\_list for
 a geo-only rule here: the platform adds match-all any\_ip and any\_asn selectors on readback, so the
@@ -3099,19 +2719,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0331231123312220-3131233031330011-0223112121131231-0231120301032230-2310013312333332-1210032110303022-0003121310222232-3222233123202220"></a>
+<a id="canonical-2203330202021131-0332010231031330-0103023230022133-2133211323122203-0232312130101333-0033301302113312-3023210113000103-1132313020223020"></a>
 
-## Direct properties — rule_list / 222133301121 / 3
+### Direct properties for `rule_list`
 
 - [rules](data-sources--service_policy--reference--group-001.md#canonical-2332210012031020-3130121121203233-2133312023012212-1300213020002321-0210122201111201-2313301011130132-1102100221012102-3320333010302121): complete subsection reference.
-
-<a id="canonical-3301033213033202-3002011003331131-0132122131022132-2220330310331130-3131220213130233-0302113002333023-3331032220221103-3031010110331202"></a>
-
-## Next pages — rule_list / 222133301121 / 4
-
-- [rule_list.rules](data-sources--service_policy--reference--group-001.md#canonical-2332210012031020-3130121121203233-2133312023012212-1300213020002321-0210122201111201-2313301011130132-1102100221012102-3320333010302121)
-- [Property reference](data-sources--service_policy--reference--group-001.md#canonical-3312102302111103-0221020013211300-2120323123300113-1101123102331230-1032322121222101-1332231300102132-0233300331323303-0031323122032013)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
 
 <a id="canonical-2332210012031020-3130121121203233-2133312023012212-1300213020002321-0210122201111201-2313301011130132-1102100221012102-3320333010302121"></a>
 
@@ -3119,9 +2731,7 @@ Receipt-pinned upstream constraints:
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2023030022232023-3033100233003232-3032303211332322-3231010311003101-3000223323232300-3221100111030000-0111012131301112-0132020301133312"></a>
-
-## rule_list.rules — rules / 023113201201 / 2
+## `rule_list.rules` properties
 
 Breadcrumbs:
 
@@ -3133,11 +2743,6 @@ Breadcrumbs:
 <a id="canonical-2101123033112122-2302210303331323-0113210121020123-3130021131003022-3210120301201231-1310022213100132-3100013031031120-0123232230222033"></a>
 
 Type: `"list"`. Computed.
-
-Define the list of rules (with an order) that should be evaluated by this service policy. Rules are
-evaluated from top to bottom in the list.
-
-Upstream description:
 
 Define the list of rules (with an order) that should be evaluated by this service policy. Rules are
 evaluated from top to bottom in the list.
@@ -3177,22 +2782,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1013100231303220-0113111203001323-3330321120123322-2330103201021111-0313033023011313-1101310311033312-1220111333312211-2100130131023111"></a>
+<a id="canonical-2023030022232023-3033100233003232-3032303211332322-3231010311003101-3000223323232300-3221100111030000-0111012131301112-0132020301133312"></a>
 
-## Direct properties — rules / 023113201201 / 3
+### Direct properties for `rule_list.rules`
 
 - [metadata](data-sources--service_policy--reference--group-001.md#canonical-0312100030223123-0101030013231223-2112033202221103-0033223300021311-0112310011000120-2200101332312223-0221102111131111-0211010031222231): complete subsection reference.
 
 - [spec](data-sources--service_policy--reference--group-001.md#canonical-1313133011110120-1202202112012022-0312300012021010-2230300132201133-1123333233212022-2100210133123323-2030333300021222-2110310211021210): complete subsection reference.
-
-<a id="canonical-3223101312000032-1002202020113112-1030303212110323-2102021120303020-1021002131133313-2011312313231300-3311331211323211-1000222122230110"></a>
-
-## Next pages — rules / 023113201201 / 4
-
-- [rule_list.rules.metadata](data-sources--service_policy--reference--group-001.md#canonical-0312100030223123-0101030013231223-2112033202221103-0033223300021311-0112310011000120-2200101332312223-0221102111131111-0211010031222231)
-- [rule_list.rules.spec](data-sources--service_policy--reference--group-001.md#canonical-1313133011110120-1202202112012022-0312300012021010-2230300132201133-1123333233212022-2100210133123323-2030333300021222-2110310211021210)
-- [rule_list](data-sources--service_policy--reference--group-001.md#canonical-0200021302120322-3330103111223310-0110033233312323-2211001021302330-2000313233321013-1330302203133111-3101023222321313-3302013113202033)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
 
 <a id="canonical-0312100030223123-0101030013231223-2112033202221103-0033223300021311-0112310011000120-2200101332312223-0221102111131111-0211010031222231"></a>
 
@@ -3200,9 +2796,7 @@ Receipt-pinned upstream constraints:
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0121321102101002-2312031302222311-2312312020212300-0003230202221320-3010101211111033-2001332312001120-2102223323220311-2101131201003331"></a>
-
-## rule_list.rules.metadata — metadata / 120013020232 / 2
+## `rule_list.rules.metadata` properties
 
 Breadcrumbs:
 
@@ -3215,13 +2809,6 @@ Breadcrumbs:
 <a id="canonical-2132122221011103-1233111033030100-3231103313200310-0200202333111121-1011321030232023-3132303212002110-0111033113000111-2013212221213320"></a>
 
 Type: `"single"`. Computed.
-
-MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
-information is propagated to the metadata of a child object that gets created from the containing
-message during view processing. The information in this type can be specified by user during
-create..
-
-Upstream description:
 
 MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
 information is propagated to the metadata of a child object that gets created from the containing
@@ -3241,15 +2828,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2030132103203330-0320311211332002-3020322322302232-3133102002121003-0332002002102000-1301131320313302-1021333133030322-3330011202013103"></a>
+<a id="canonical-0121321102101002-2312031302222311-2312312020212300-0003230202221320-3010101211111033-2001332312001120-2102223323220311-2101131201003331"></a>
 
-## Direct properties — metadata / 120013020232 / 3
+### Direct properties for `rule_list.rules.metadata`
 
 <a id="canonical-0212221232311013-3022222221012223-1023030033300300-3020230111333121-1312100333310020-3100233212123211-3121332300122110-1203203222301111"></a>
 
-<a id="canonical-0033020332032232-0110232223101332-2203211112022211-2130213110223001-0302131133003013-2231133103111221-0311233102011020-0212120203031112"></a>
-
-## description_spec property — metadata / 120013020232 / 4
+#### `rule_list.rules.metadata.description_spec` property
 
 Type: `"string"`. Computed.
 
@@ -3257,15 +2842,11 @@ Description. Human readable description.
 
 <a id="canonical-1000132132131211-3110100001311320-2302200310113010-2112212130123330-3230221122002300-2131322303012032-0103232131233232-0233231121323210"></a>
 
-<a id="canonical-3131332333302311-3301021012102010-2211300022110323-0313021021000232-3103102003021321-1330001133332111-3133001222300101-3021000331032100"></a>
+<a id="canonical-2030132103203330-0320311211332002-3020322322302232-3133102002121003-0332002002102000-1301131320313302-1021333133030322-3330011202013103"></a>
 
-## name property — metadata / 120013020232 / 5
+#### `rule_list.rules.metadata.name` property
 
 Type: `"string"`. Computed.
-
-Name of the message. The value of name has to follow DNS-1035 format.
-
-Upstream description:
 
 This is the name of the message. The value of name has to follow DNS-1035 format.
 
@@ -3318,22 +2899,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0023333113231123-3313213003030202-3332331310320330-1010121232310010-2303113300203202-2111002330003012-0323120130122030-1122300023231300"></a>
-
-## Next pages — metadata / 120013020232 / 6
-
-- [rule_list.rules](data-sources--service_policy--reference--group-001.md#canonical-2332210012031020-3130121121203233-2133312023012212-1300213020002321-0210122201111201-2313301011130132-1102100221012102-3320333010302121)
-- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
-
 <a id="canonical-1313133011110120-1202202112012022-0312300012021010-2230300132201133-1123333233212022-2100210133123323-2030333300021222-2110310211021210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2120211230020211-2312002011010111-0122132133001233-1213332102100120-3213201110003320-2211202013322121-1030231330213331-0032030332110012"></a>
-
-## rule_list.rules.spec — spec / 103133313302 / 2
+## `rule_list.rules.spec` properties
 
 Breadcrumbs:
 
@@ -3368,15 +2940,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3222230031330032-2200333302122011-1111333022100331-2102203320000300-0020202202020230-2323023303210020-1033121111302030-1221212110323200"></a>
+<a id="canonical-2120211230020211-2312002011010111-0122132133001233-1213332102100120-3213201110003320-2211202013322121-1030231330213331-0032030332110012"></a>
 
-## Direct properties — spec / 103133313302 / 3
+### Direct properties for `rule_list.rules.spec`
 
 <a id="canonical-0030310321031303-1210300001000323-0330321121202332-0313300002301030-0102113303323012-1221120000322010-0021322223222103-1201002013030122"></a>
 
-<a id="canonical-1232022321320030-1333220031120112-1230000200211200-0302332220023013-3300300332321121-0203000021012111-1033302113330020-3021211100211310"></a>
-
-## action property — spec / 103133313302 / 4
+#### `rule_list.rules.spec.action` property
 
 Type: `"string"`. Computed.
 
@@ -3386,13 +2956,12 @@ forward. If it matches a rule with a DENY action, the processing of the request 
 appropriate message/code returned to.. Possible values are \`DENY\`, \`ALLOW\`, \`NEXT\_POLICY\`.
 Defaults to \`DENY\`.
 
-Upstream description:
+Additional upstream details:
 
-The rule action determines the disposition of the input request API. If a policy matches a rule with
-an ALLOW action, the processing of the request proceeds forward. If it matches a rule with a DENY
-action, the processing of the request is terminated and an appropriate message/code returned to the
-originator. If it matches a rule with a NEXT\_POLICY\_SET action, evaluation of the current policy
-set terminates and evaluation of the next policy set in the chain begins.
+The rule action determines the disposition of the input request API. If it matches a rule with a
+DENY action, the processing of the request is terminated and an appropriate message/code returned to
+the originator. If it matches a rule with a NEXT\_POLICY\_SET action, evaluation of the current
+policy set terminates and evaluation of the next policy set in the chain begins.
 
 &#8203;- DENY: DENY
 
@@ -3435,37 +3004,31 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [any_asn](data-sources--service_policy--reference--group-002.md#canonical-3111231132021020-0103003300320300-1233210021330021-0321230021103103-0011233333002210-2213133330230222-1121132210022102-3110030011232022): complete subsection reference.
+- [any_asn](data-sources--service_policy--reference--group-001.md#canonical-3111231132021020-0103003300320300-1233210021330021-0321230021103103-0011233333002210-2213133330230222-1121132210022102-3110030011232022): complete subsection reference.
 
-- [any_client](data-sources--service_policy--reference--group-002.md#canonical-1121101031021212-2012012123031320-0013123212100031-2101010322122020-1001232020303133-0230331001201001-2133130000213113-3131210103230101): complete subsection reference.
+- [any_client](data-sources--service_policy--reference--group-001.md#canonical-1121101031021212-2012012123031320-0013123212100031-2101010322122020-1001232020303133-0230331001201001-2133130000213113-3131210103230101): complete subsection reference.
 
-- [any_ip](data-sources--service_policy--reference--group-002.md#canonical-3322011213231210-0211030030100003-2120231130000333-3110210120020010-2330202211213313-2323310212211220-2020333221321321-0122230020030221): complete subsection reference.
+- [any_ip](data-sources--service_policy--reference--group-001.md#canonical-3322011213231210-0211030030100003-2120231130000333-3110210120020010-2330202211213313-2323310212211220-2020333221321321-0122230020030221): complete subsection reference.
 
-- [api_group_matcher](data-sources--service_policy--reference--group-002.md#canonical-0000330011302112-1212312313102203-0221331010012030-1233110131113232-0132032001100133-1233020003212002-1232220310301031-3113012300230333): complete subsection reference.
+- [api_group_matcher](data-sources--service_policy--reference--group-001.md#canonical-0000330011302112-1212312313102203-0221331010012030-1233110131113232-0132032001100133-1233020003212002-1232220310301031-3113012300230333): complete subsection reference.
 
-- [arg_matchers](data-sources--service_policy--reference--group-002.md#canonical-0322132120012130-1302303202022130-3333202213132012-3332222012222013-1122230102030120-3303120100313000-3131231103000201-3020233310033201): complete subsection reference.
+- [arg_matchers](data-sources--service_policy--reference--group-001.md#canonical-0322132120012130-1302303202022130-3333202213132012-3332222012222013-1122230102030120-3303120100313000-3131231103000201-3020233310033201): complete subsection reference.
 
-- [asn_list](data-sources--service_policy--reference--group-002.md#canonical-0003110021000230-3123203102130033-2313031311212300-3212013310032302-1030231200103320-2032330222011323-3320101221001100-1101302312333033): complete subsection reference.
+- [asn_list](data-sources--service_policy--reference--group-001.md#canonical-0003110021000230-3123203102130033-2313031311212300-3212013310032302-1030231200103320-2032330222011323-3320101221001100-1101302312333033): complete subsection reference.
 
-- [asn_matcher](data-sources--service_policy--reference--group-002.md#canonical-3003212230320021-1130112110220111-3212200301310132-0123111321310113-3213001310131320-2031031330231203-1132023221020001-3002123211023021): complete subsection reference.
+- [asn_matcher](data-sources--service_policy--reference--group-001.md#canonical-3003212230320021-1130112110220111-3212200301310132-0123111321310113-3213001310131320-2031031330231203-1132023221020001-3002123211023021): complete subsection reference.
 
-- [body_matcher](data-sources--service_policy--reference--group-002.md#canonical-3120003330322333-0013033122113213-1031303002011013-0121111101233222-2001211210033333-2313220132320101-0011222020013012-0022323101113322): complete subsection reference.
+- [body_matcher](data-sources--service_policy--reference--group-001.md#canonical-3120003330322333-0013033122113213-1031303002011013-0121111101233222-2001211210033333-2313220132320101-0011222020013012-0022323101113322): complete subsection reference.
 
 - [bot_action](data-sources--service_policy--reference--group-002.md#canonical-1312131031200012-0323222232212311-0110213200221122-3131110311121211-1002113122132211-1032112220111030-3100011123222312-2232213111221012): complete subsection reference.
 
 <a id="canonical-0122122233031311-1200303031303233-2001113120113211-2021121031101002-0003132111113300-0011211221021110-0310231003032211-3202122120001313"></a>
 
-<a id="canonical-2030323111132000-2110212011332312-2221012031113013-1113133320203212-1303222110233223-2312200013230031-1101300123222130-0123330103212120"></a>
+<a id="canonical-3222230031330032-2200333302122011-1111333022100331-2102203320000300-0020202202020230-2323023303210020-1033121111302030-1221212110323200"></a>
 
-## client_name property — spec / 103133313302 / 5
+#### `rule_list.rules.spec.client_name` property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[any\_client client\_name\_matcher client\_selector ip\_threat\_category\_list\] The
-expected name of the client invoking the request API. The predicate evaluates to true if any of the
-actual names is the same as the expected client name.
-
-Upstream description:
 
 Exclusive with \[any\_client client\_name\_matcher client\_selector ip\_threat\_category\_list\] The
 expected name of the client invoking the request API. The predicate evaluates to true if any of the
@@ -3515,9 +3078,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2221011121222100-1023211233032112-1321023312012332-0320001222332330-3020230011132223-1202111202123103-3121210033103020-3031010220121000"></a>
 
-<a id="canonical-0232103030223001-2323032321101011-3300231210100102-1202013121122012-1102331020000112-0302132003301220-3323011023213010-2231232322323311"></a>
+<a id="canonical-1232022321320030-1333220031120112-1230000200211200-0302332220023013-3300300332321121-0203000021012111-1033302113330020-3021211100211310"></a>
 
-## expiration_timestamp property — spec / 103133313302 / 6
+#### `rule_list.rules.spec.expiration_timestamp` property
 
 Type: `"string"`. Computed.
 
@@ -3525,11 +3088,10 @@ Specifies expiration\_timestamp the RFC 3339 format timestamp at which the conta
 considered to be logically expired. The rule continues to exist in the configuration but is not
 applied anymore.
 
-Upstream description:
+Additional upstream details:
 
 The expiration\_timestamp is the RFC 3339 format timestamp at which the containing rule is
-considered to be logically expired. The rule continues to exist in the configuration but is not
-applied anymore.
+considered to be logically expired.
 
 Receipt-pinned upstream constraints:
 
@@ -3573,9 +3135,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3100030233213202-2131211321003130-0313102000123103-3310210200223132-3313233322332131-2201131301113002-2300200102330321-1132220122121223"></a>
 
-<a id="canonical-2331130120112233-0012022231331331-2130311211203033-2212312231002000-3132021231223013-0000312003223210-3230330130200220-1111012330301313"></a>
+<a id="canonical-2030323111132000-2110212011332312-2221012031113013-1113133320203212-1303222110233223-2312200013230031-1101300123222130-0123330103212120"></a>
 
-## log_rule_evaluation property — spec / 103133313302 / 7
+#### `rule_list.rules.spec.log_rule_evaluation` property
 
 Type: `"bool"`. Computed.
 
@@ -3604,10 +3166,1249 @@ Receipt-pinned upstream constraints:
 
 - [request_constraints](data-sources--service_policy--reference--group-002.md#canonical-2110021331103130-3023312121033312-2231302230120211-1103201133030222-0221022130001011-3002013103120132-1321211031031000-0320022212322013): complete subsection reference.
 
-- [segment_policy](data-sources--service_policy--reference--group-003.md#canonical-0121322232330011-2001200302133213-0020123132212012-0113020311112312-0201321011303010-1302103121002333-1323212012233310-1210231031031002): complete subsection reference.
+- [segment_policy](data-sources--service_policy--reference--group-002.md#canonical-0121322232330011-2001200302133213-0020123132212012-0113020311112312-0201321011303010-1302103121002333-1323212012233310-1210231031031002): complete subsection reference.
 
-- [tls_fingerprint_matcher](data-sources--service_policy--reference--group-003.md#canonical-1333003020033103-2303031332133313-1101333013023130-2313101003001221-0111232133300132-2011202312030000-1012231232313131-2333220102021302): complete subsection reference.
+- [tls_fingerprint_matcher](data-sources--service_policy--reference--group-002.md#canonical-1333003020033103-2303031332133313-1101333013023130-2313101003001221-0111232133300132-2011202312030000-1012231232313131-2333220102021302): complete subsection reference.
 
-- [user_identity_matcher](data-sources--service_policy--reference--group-003.md#canonical-3302232320022303-1301323100000232-2222223202031122-2132301121130100-3212113133030300-0223231120230100-3101210030303312-3003333002303311): complete subsection reference.
+- [user_identity_matcher](data-sources--service_policy--reference--group-002.md#canonical-3302232320022303-1301323100000232-2222223202031122-2132301121130100-3212113133030300-0223231120230100-3101210030303312-3003333002303311): complete subsection reference.
 
-- [waf_action](data-sources--service_policy--reference--group-003.md#canonical-1321030020301232-0323133310020002-1031312201202122-2313331303112210-3101113223232332-0322221031012323-3201210323110133-2121002301220100): complete subsection reference.
+- [waf_action](data-sources--service_policy--reference--group-002.md#canonical-1321030020301232-0323133310020002-1031312201202122-2313331303112210-3101113223232332-0322221031012323-3201210323110133-2121002301220100): complete subsection reference.
+
+<a id="canonical-3111231132021020-0103003300320300-1233210021330021-0321230021103103-0011233333002210-2213133330230222-1121132210022102-3110030011232022"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `rule_list.rules.spec.any_asn` properties
+
+Breadcrumbs:
+
+- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
+- [Property reference](data-sources--service_policy--reference--group-001.md#canonical-3312102302111103-0221020013211300-2120323123300113-1101123102331230-1032322121222101-1332231300102132-0233300331323303-0031323122032013)
+- [rule_list](data-sources--service_policy--reference--group-001.md#canonical-0200021302120322-3330103111223310-0110033233312323-2211001021302330-2000313233321013-1330302203133111-3101023222321313-3302013113202033)
+- [rule_list.rules](data-sources--service_policy--reference--group-001.md#canonical-2332210012031020-3130121121203233-2133312023012212-1300213020002321-0210122201111201-2313301011130132-1102100221012102-3320333010302121)
+- [rule_list.rules.spec](data-sources--service_policy--reference--group-001.md#canonical-1313133011110120-1202202112012022-0312300012021010-2230300132201133-1123333233212022-2100210133123323-2030333300021222-2110310211021210)
+- rule_list.rules.spec.any_asn
+
+<a id="canonical-1020211012322112-2130223103313230-1221102230302302-3121003131023133-2231320201222110-1300320231013220-3313322103033120-2132132220211101"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1121101031021212-2012012123031320-0013123212100031-2101010322122020-1001232020303133-0230331001201001-2133130000213113-3131210103230101"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `rule_list.rules.spec.any_client` properties
+
+Breadcrumbs:
+
+- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
+- [Property reference](data-sources--service_policy--reference--group-001.md#canonical-3312102302111103-0221020013211300-2120323123300113-1101123102331230-1032322121222101-1332231300102132-0233300331323303-0031323122032013)
+- [rule_list](data-sources--service_policy--reference--group-001.md#canonical-0200021302120322-3330103111223310-0110033233312323-2211001021302330-2000313233321013-1330302203133111-3101023222321313-3302013113202033)
+- [rule_list.rules](data-sources--service_policy--reference--group-001.md#canonical-2332210012031020-3130121121203233-2133312023012212-1300213020002321-0210122201111201-2313301011130132-1102100221012102-3320333010302121)
+- [rule_list.rules.spec](data-sources--service_policy--reference--group-001.md#canonical-1313133011110120-1202202112012022-0312300012021010-2230300132201133-1123333233212022-2100210133123323-2030333300021222-2110310211021210)
+- rule_list.rules.spec.any_client
+
+<a id="canonical-1300330003023333-1333111332220312-2310222203120032-1300110232122131-3203121320022231-3332023213231211-0220220220232233-3210030133023220"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3322011213231210-0211030030100003-2120231130000333-3110210120020010-2330202211213313-2323310212211220-2020333221321321-0122230020030221"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `rule_list.rules.spec.any_ip` properties
+
+Breadcrumbs:
+
+- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
+- [Property reference](data-sources--service_policy--reference--group-001.md#canonical-3312102302111103-0221020013211300-2120323123300113-1101123102331230-1032322121222101-1332231300102132-0233300331323303-0031323122032013)
+- [rule_list](data-sources--service_policy--reference--group-001.md#canonical-0200021302120322-3330103111223310-0110033233312323-2211001021302330-2000313233321013-1330302203133111-3101023222321313-3302013113202033)
+- [rule_list.rules](data-sources--service_policy--reference--group-001.md#canonical-2332210012031020-3130121121203233-2133312023012212-1300213020002321-0210122201111201-2313301011130132-1102100221012102-3320333010302121)
+- [rule_list.rules.spec](data-sources--service_policy--reference--group-001.md#canonical-1313133011110120-1202202112012022-0312300012021010-2230300132201133-1123333233212022-2100210133123323-2030333300021222-2110310211021210)
+- rule_list.rules.spec.any_ip
+
+<a id="canonical-1003211211011222-3123201310100102-0030313120303132-1101032013110102-1011030231231001-0020010301132211-2101301031032131-2211303133020200"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0000330011302112-1212312313102203-0221331010012030-1233110131113232-0132032001100133-1233020003212002-1232220310301031-3113012300230333"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `rule_list.rules.spec.api_group_matcher` properties
+
+Breadcrumbs:
+
+- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
+- [Property reference](data-sources--service_policy--reference--group-001.md#canonical-3312102302111103-0221020013211300-2120323123300113-1101123102331230-1032322121222101-1332231300102132-0233300331323303-0031323122032013)
+- [rule_list](data-sources--service_policy--reference--group-001.md#canonical-0200021302120322-3330103111223310-0110033233312323-2211001021302330-2000313233321013-1330302203133111-3101023222321313-3302013113202033)
+- [rule_list.rules](data-sources--service_policy--reference--group-001.md#canonical-2332210012031020-3130121121203233-2133312023012212-1300213020002321-0210122201111201-2313301011130132-1102100221012102-3320333010302121)
+- [rule_list.rules.spec](data-sources--service_policy--reference--group-001.md#canonical-1313133011110120-1202202112012022-0312300012021010-2230300132201133-1123333233212022-2100210133123323-2030333300021222-2110310211021210)
+- rule_list.rules.spec.api_group_matcher
+
+<a id="canonical-2111211320123130-0231032322312103-3203100222330213-3320320203102003-0313131031333320-3100030220111230-3213103121231300-3330103201102121"></a>
+
+Type: `"single"`. Computed.
+
+A matcher specifies a list of values for matching an input string. The match is considered
+successful if the input value is present in the list. The result of the match is inverted if
+invert\_matcher is true.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0132102133000101-1313021220022202-0223210220120200-1113010212210230-0031223120001112-3220333221121022-0102303023212331-0122303202230001"></a>
+
+### Direct properties for `rule_list.rules.spec.api_group_matcher`
+
+<a id="canonical-3112233332331211-0022302002321222-3203322302302200-2022221123130113-2200320121023302-0223332100303022-3321201300000000-3033331132301132"></a>
+
+#### `rule_list.rules.spec.api_group_matcher.invert_matcher` property
+
+Type: `"bool"`. Computed.
+
+Invert String Matcher. Invert the match result.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2332001011133303-3010112113111113-0102001020312120-1000113333310200-2112213020130102-1200330031310033-3121120312111100-2021011002103010"></a>
+
+<a id="canonical-0333200312000301-2020100113002221-2121110100030321-0023223101311231-0122012100100323-1003100223213213-1120220133321200-3302223103113223"></a>
+
+#### `rule_list.rules.spec.api_group_matcher.match` property
+
+Type: `["list", "string"]`. Computed.
+
+A list of exact values to match the input against.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 64,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "63",
+    "ves.io.schema.rules.repeated.max_items": "64",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "63",
+    "ves.io.schema.rules.repeated.max_items": "64",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-0322132120012130-1302303202022130-3333202213132012-3332222012222013-1122230102030120-3303120100313000-3131231103000201-3020233310033201"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `rule_list.rules.spec.arg_matchers` properties
+
+Breadcrumbs:
+
+- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
+- [Property reference](data-sources--service_policy--reference--group-001.md#canonical-3312102302111103-0221020013211300-2120323123300113-1101123102331230-1032322121222101-1332231300102132-0233300331323303-0031323122032013)
+- [rule_list](data-sources--service_policy--reference--group-001.md#canonical-0200021302120322-3330103111223310-0110033233312323-2211001021302330-2000313233321013-1330302203133111-3101023222321313-3302013113202033)
+- [rule_list.rules](data-sources--service_policy--reference--group-001.md#canonical-2332210012031020-3130121121203233-2133312023012212-1300213020002321-0210122201111201-2313301011130132-1102100221012102-3320333010302121)
+- [rule_list.rules.spec](data-sources--service_policy--reference--group-001.md#canonical-1313133011110120-1202202112012022-0312300012021010-2230300132201133-1123333233212022-2100210133123323-2030333300021222-2110310211021210)
+- rule_list.rules.spec.arg_matchers
+
+<a id="canonical-0231002111103112-1231131210320221-1131032201121113-0310202302313003-2203202001203113-0110112201103112-1210001320120210-2212021302223002"></a>
+
+Type: `"list"`. Computed.
+
+A list of predicates for all POST args that need to be matched. The criteria for matching each arg
+are described in individual instances of ArgMatcherType. The actual arg values are extracted from
+the request API as a list of strings for each arg selector name. Note that all specified arg matcher
+predicates must evaluate to true. A request body greater than 64KB will not be evaluated.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 16,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 16,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "16"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "16"
+  }
+}
+```
+
+<a id="canonical-1000121220013100-1133210000023102-0300010201223211-0000120021313313-1203302231032102-3211121200300103-2013102132023231-2000022202113331"></a>
+
+### Direct properties for `rule_list.rules.spec.arg_matchers`
+
+- [check_not_present](data-sources--service_policy--reference--group-001.md#canonical-2003200000213131-0030010000212011-2201300000210130-1012010310100130-3330123123110012-1232130120332230-3032300310322030-2310030200022333): complete subsection reference.
+
+- [check_present](data-sources--service_policy--reference--group-001.md#canonical-0312132223002221-3310011220203010-3030230313011212-2320203220300331-0023302210233011-0022122111313031-3003130203001002-0013230313301322): complete subsection reference.
+
+<a id="canonical-0303220323213301-3123011333233123-2030210313111003-1213122331302020-3303010332200110-0000211303203020-1211102200013313-0223220211233121"></a>
+
+<a id="canonical-1203030300011121-2222101002110212-2303233013222110-1020331111313010-1301203220200000-3333212333021012-2202212031013010-1201303020133200"></a>
+
+#### `rule_list.rules.spec.arg_matchers.invert_matcher` property
+
+Type: `"bool"`. Computed.
+
+Invert Matcher. Invert Match of the expression defined.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+- [item](data-sources--service_policy--reference--group-001.md#canonical-2033010332011023-3320020022223200-3031320122220001-3001131221121032-3012133133113200-1133101211332332-2211213221032213-0333320022301100): complete subsection reference.
+
+<a id="canonical-2322232213331000-2122332021220233-1220132231233002-0212320233033130-0031023103030010-0233202121223223-0111133213013111-2301133322102121"></a>
+
+<a id="canonical-1112031123301020-1211332023201033-2201332033232121-2103000322301021-3023311201021323-0023120330210000-0023213131031312-2103322120233103"></a>
+
+#### `rule_list.rules.spec.arg_matchers.name` property
+
+Type: `"string"`. Computed.
+
+A case-sensitive JSON path in the HTTP request body.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 256
+    },
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.json_path": "true",
+    "ves.io.schema.rules.string.max_bytes": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.json_path": "true",
+    "ves.io.schema.rules.string.max_bytes": "256"
+  }
+}
+```
+
+<a id="canonical-2003200000213131-0030010000212011-2201300000210130-1012010310100130-3330123123110012-1232130120332230-3032300310322030-2310030200022333"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `rule_list.rules.spec.arg_matchers.check_not_present` properties
+
+Breadcrumbs:
+
+- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
+- [Property reference](data-sources--service_policy--reference--group-001.md#canonical-3312102302111103-0221020013211300-2120323123300113-1101123102331230-1032322121222101-1332231300102132-0233300331323303-0031323122032013)
+- [rule_list](data-sources--service_policy--reference--group-001.md#canonical-0200021302120322-3330103111223310-0110033233312323-2211001021302330-2000313233321013-1330302203133111-3101023222321313-3302013113202033)
+- [rule_list.rules](data-sources--service_policy--reference--group-001.md#canonical-2332210012031020-3130121121203233-2133312023012212-1300213020002321-0210122201111201-2313301011130132-1102100221012102-3320333010302121)
+- [rule_list.rules.spec](data-sources--service_policy--reference--group-001.md#canonical-1313133011110120-1202202112012022-0312300012021010-2230300132201133-1123333233212022-2100210133123323-2030333300021222-2110310211021210)
+- [rule_list.rules.spec.arg_matchers](data-sources--service_policy--reference--group-001.md#canonical-0322132120012130-1302303202022130-3333202213132012-3332222012222013-1122230102030120-3303120100313000-3131231103000201-3020233310033201)
+- rule_list.rules.spec.arg_matchers.check_not_present
+
+<a id="canonical-3121300003200003-2222002023101200-3000213023322300-1303323332113130-3232031132033301-0013131223012303-0121101101210311-2320311110330232"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for check not present.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0312132223002221-3310011220203010-3030230313011212-2320203220300331-0023302210233011-0022122111313031-3003130203001002-0013230313301322"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `rule_list.rules.spec.arg_matchers.check_present` properties
+
+Breadcrumbs:
+
+- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
+- [Property reference](data-sources--service_policy--reference--group-001.md#canonical-3312102302111103-0221020013211300-2120323123300113-1101123102331230-1032322121222101-1332231300102132-0233300331323303-0031323122032013)
+- [rule_list](data-sources--service_policy--reference--group-001.md#canonical-0200021302120322-3330103111223310-0110033233312323-2211001021302330-2000313233321013-1330302203133111-3101023222321313-3302013113202033)
+- [rule_list.rules](data-sources--service_policy--reference--group-001.md#canonical-2332210012031020-3130121121203233-2133312023012212-1300213020002321-0210122201111201-2313301011130132-1102100221012102-3320333010302121)
+- [rule_list.rules.spec](data-sources--service_policy--reference--group-001.md#canonical-1313133011110120-1202202112012022-0312300012021010-2230300132201133-1123333233212022-2100210133123323-2030333300021222-2110310211021210)
+- [rule_list.rules.spec.arg_matchers](data-sources--service_policy--reference--group-001.md#canonical-0322132120012130-1302303202022130-3333202213132012-3332222012222013-1122230102030120-3303120100313000-3131231103000201-3020233310033201)
+- rule_list.rules.spec.arg_matchers.check_present
+
+<a id="canonical-0202121332112331-1303132123020311-0302232021111320-2332233023302320-3101031213202022-1021232001032313-2002132122321201-1300212201021323"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for check present.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2033010332011023-3320020022223200-3031320122220001-3001131221121032-3012133133113200-1133101211332332-2211213221032213-0333320022301100"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `rule_list.rules.spec.arg_matchers.item` properties
+
+Breadcrumbs:
+
+- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
+- [Property reference](data-sources--service_policy--reference--group-001.md#canonical-3312102302111103-0221020013211300-2120323123300113-1101123102331230-1032322121222101-1332231300102132-0233300331323303-0031323122032013)
+- [rule_list](data-sources--service_policy--reference--group-001.md#canonical-0200021302120322-3330103111223310-0110033233312323-2211001021302330-2000313233321013-1330302203133111-3101023222321313-3302013113202033)
+- [rule_list.rules](data-sources--service_policy--reference--group-001.md#canonical-2332210012031020-3130121121203233-2133312023012212-1300213020002321-0210122201111201-2313301011130132-1102100221012102-3320333010302121)
+- [rule_list.rules.spec](data-sources--service_policy--reference--group-001.md#canonical-1313133011110120-1202202112012022-0312300012021010-2230300132201133-1123333233212022-2100210133123323-2030333300021222-2110310211021210)
+- [rule_list.rules.spec.arg_matchers](data-sources--service_policy--reference--group-001.md#canonical-0322132120012130-1302303202022130-3333202213132012-3332222012222013-1122230102030120-3303120100313000-3131231103000201-3020233310033201)
+- rule_list.rules.spec.arg_matchers.item
+
+<a id="canonical-2332023130032022-1132302310330132-2131001312321022-1113103313112333-3022313223011030-0221021122223210-2112321210013001-0313120133231001"></a>
+
+Type: `"single"`. Computed.
+
+A matcher specifies multiple criteria for matching an input string. The match is considered
+successful if any of the criteria are satisfied. The set of supported match criteria includes a list
+of exact values and a list of regular expressions.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0321320131031132-2203013030202001-2222011112331322-0010023303132222-0322230313201300-1313303201012330-2010112103311130-1123320330030120"></a>
+
+### Direct properties for `rule_list.rules.spec.arg_matchers.item`
+
+<a id="canonical-3213320220301231-2113020331222313-2010113133122330-2000320110223221-3013200303220123-0101100201110201-1233020101313330-3101013100121303"></a>
+
+#### `rule_list.rules.spec.arg_matchers.item.exact_values` property
+
+Type: `["list", "string"]`. Computed.
+
+A list of exact values to match the input against.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 64,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.items.string.not_empty": "true",
+    "ves.io.schema.rules.repeated.max_items": "64",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.items.string.not_empty": "true",
+    "ves.io.schema.rules.repeated.max_items": "64",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-1301323232211312-3312120320132331-2223023212110302-0300033232021011-2122312312132332-1120111323023123-0100121220311013-1321122113130100"></a>
+
+<a id="canonical-1301133120310333-0103301320110332-2121321131232213-2320321312001312-3221213231212312-3231321111011112-3132023103233232-0211003002300333"></a>
+
+#### `rule_list.rules.spec.arg_matchers.item.regex_values` property
+
+Type: `["list", "string"]`. Computed.
+
+A list of regular expressions to match the input against.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 16,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 16,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.items.string.not_empty": "true",
+    "ves.io.schema.rules.repeated.items.string.regex": "true",
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.items.string.not_empty": "true",
+    "ves.io.schema.rules.repeated.items.string.regex": "true",
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-2303131320011000-0000330310010011-3121000200001321-0120033112301030-2111000021302120-2220000002100000-0333201011022013-0001133330130001"></a>
+
+<a id="canonical-1212131220100300-0331012103310230-1323102321232231-3133133121002102-3002131332130023-1201111332230303-1020131022100233-2131012121202130"></a>
+
+#### `rule_list.rules.spec.arg_matchers.item.transformers` property
+
+Type: `["list", "string"]`. Computed.
+
+\[Enum:
+LOWER\_CASE|UPPER\_CASE|BASE64\_DECODE|NORMALIZE\_PATH|REMOVE\_WHITESPACE|URL\_DECODE|TRIM\_LEFT|TRIM\_RIGHT|TRIM\]
+Ordered list of transformers (starting from index 0) to be applied to the path before matching.
+Possible values are \`LOWER\_CASE\`, \`UPPER\_CASE\`, \`BASE64\_DECODE\`, \`NORMALIZE\_PATH\`,
+\`REMOVE\_WHITESPACE\`, \`URL\_DECODE\`, \`TRIM\_LEFT\`, \`TRIM\_RIGHT\`, \`TRIM\`.
+
+Additional upstream details:
+
+An ordered list of transformers (starting from index 0) to be applied to the path before matching.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 9,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 9,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "9",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "9",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-0003110021000230-3123203102130033-2313031311212300-3212013310032302-1030231200103320-2032330222011323-3320101221001100-1101302312333033"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `rule_list.rules.spec.asn_list` properties
+
+Breadcrumbs:
+
+- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
+- [Property reference](data-sources--service_policy--reference--group-001.md#canonical-3312102302111103-0221020013211300-2120323123300113-1101123102331230-1032322121222101-1332231300102132-0233300331323303-0031323122032013)
+- [rule_list](data-sources--service_policy--reference--group-001.md#canonical-0200021302120322-3330103111223310-0110033233312323-2211001021302330-2000313233321013-1330302203133111-3101023222321313-3302013113202033)
+- [rule_list.rules](data-sources--service_policy--reference--group-001.md#canonical-2332210012031020-3130121121203233-2133312023012212-1300213020002321-0210122201111201-2313301011130132-1102100221012102-3320333010302121)
+- [rule_list.rules.spec](data-sources--service_policy--reference--group-001.md#canonical-1313133011110120-1202202112012022-0312300012021010-2230300132201133-1123333233212022-2100210133123323-2030333300021222-2110310211021210)
+- rule_list.rules.spec.asn_list
+
+<a id="canonical-1030233020210002-0201201310003213-2003323131101020-2023121200110312-0202012201302331-2013100012231021-0132003213302302-0031123023213131"></a>
+
+Type: `"single"`. Computed.
+
+An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny
+lists for use in network policy or service policy. It can be used to create the allow list only for
+DNS Load Balancer.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1021211122231313-3100020230330022-0013321202033012-1200103123300133-1333120031102020-0130202102113133-3121102123132311-0033102000201032"></a>
+
+### Direct properties for `rule_list.rules.spec.asn_list`
+
+<a id="canonical-0230111022020120-2312230000130022-2222323112130003-3202012213102102-3130023312132111-3230231131211301-0231212213230320-0310101302133001"></a>
+
+#### `rule_list.rules.spec.asn_list.as_numbers` property
+
+Type: `["list", "number"]`. Computed.
+
+An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny
+lists for use in network policy or service policy. It can be used to create the allow list only for
+DNS Load Balancer.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 16,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 16,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-3003212230320021-1130112110220111-3212200301310132-0123111321310113-3213001310131320-2031031330231203-1132023221020001-3002123211023021"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `rule_list.rules.spec.asn_matcher` properties
+
+Breadcrumbs:
+
+- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
+- [Property reference](data-sources--service_policy--reference--group-001.md#canonical-3312102302111103-0221020013211300-2120323123300113-1101123102331230-1032322121222101-1332231300102132-0233300331323303-0031323122032013)
+- [rule_list](data-sources--service_policy--reference--group-001.md#canonical-0200021302120322-3330103111223310-0110033233312323-2211001021302330-2000313233321013-1330302203133111-3101023222321313-3302013113202033)
+- [rule_list.rules](data-sources--service_policy--reference--group-001.md#canonical-2332210012031020-3130121121203233-2133312023012212-1300213020002321-0210122201111201-2313301011130132-1102100221012102-3320333010302121)
+- [rule_list.rules.spec](data-sources--service_policy--reference--group-001.md#canonical-1313133011110120-1202202112012022-0312300012021010-2230300132201133-1123333233212022-2100210133123323-2030333300021222-2110310211021210)
+- rule_list.rules.spec.asn_matcher
+
+<a id="canonical-3310301311023211-3212333103231332-1301223331002130-1323130023300133-1200010303133320-1231002331210313-3003231230221310-1103000103033223"></a>
+
+Type: `"single"`. Computed.
+
+Match any AS number contained in the list of bgp\_asn\_sets.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2330113223221111-2011303210333212-3321013313020131-0310223023123222-2020202211111130-1133130223331033-2103010013200311-0231033333020101"></a>
+
+### Direct properties for `rule_list.rules.spec.asn_matcher`
+
+- [asn_sets](data-sources--service_policy--reference--group-001.md#canonical-2210012001102210-3202102103331221-3030211102203232-2201311003101123-2200102101211312-2121312011323013-3030323231111130-3032033123303113): complete subsection reference.
+
+<a id="canonical-2210012001102210-3202102103331221-3030211102203232-2201311003101123-2200102101211312-2121312011323013-3030323231111130-3032033123303113"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `rule_list.rules.spec.asn_matcher.asn_sets` properties
+
+Breadcrumbs:
+
+- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
+- [Property reference](data-sources--service_policy--reference--group-001.md#canonical-3312102302111103-0221020013211300-2120323123300113-1101123102331230-1032322121222101-1332231300102132-0233300331323303-0031323122032013)
+- [rule_list](data-sources--service_policy--reference--group-001.md#canonical-0200021302120322-3330103111223310-0110033233312323-2211001021302330-2000313233321013-1330302203133111-3101023222321313-3302013113202033)
+- [rule_list.rules](data-sources--service_policy--reference--group-001.md#canonical-2332210012031020-3130121121203233-2133312023012212-1300213020002321-0210122201111201-2313301011130132-1102100221012102-3320333010302121)
+- [rule_list.rules.spec](data-sources--service_policy--reference--group-001.md#canonical-1313133011110120-1202202112012022-0312300012021010-2230300132201133-1123333233212022-2100210133123323-2030333300021222-2110310211021210)
+- [rule_list.rules.spec.asn_matcher](data-sources--service_policy--reference--group-001.md#canonical-3003212230320021-1130112110220111-3212200301310132-0123111321310113-3213001310131320-2031031330231203-1132023221020001-3002123211023021)
+- rule_list.rules.spec.asn_matcher.asn_sets
+
+<a id="canonical-1200202203313103-0013212021220122-2311212212023102-1101120113310332-3303303331023210-0033221122022102-2103312010010023-3020300102222003"></a>
+
+Type: `"list"`. Computed.
+
+A list of references to bgp\_asn\_set objects.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 4,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 4,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "4"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "4"
+  }
+}
+```
+
+<a id="canonical-1321133113320210-1330333221031310-3313013222331213-0203231311032030-0223012123033203-0100013313200120-0200231030032230-0210130222333001"></a>
+
+### Direct properties for `rule_list.rules.spec.asn_matcher.asn_sets`
+
+<a id="canonical-3213033302123332-1030130013021222-1100202011200203-3232232312322231-3332120020003022-2111203320311011-0213130321310023-1331211301220211"></a>
+
+#### `rule_list.rules.spec.asn_matcher.asn_sets.kind` property
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
+referred object's kind (e.g. 'route').
+
+Additional upstream details:
+
+Virtual\_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g.
+"route")
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0022113003211033-1230333333111332-0103301202123231-1212133320020313-0323010110222021-1120102322021200-3123001011132311-0233120231022310"></a>
+
+<a id="canonical-1322223120333020-3023303200113020-3123202122300023-3121312320333213-0233223333220003-1200231330000322-0030030212033021-1113123333230311"></a>
+
+#### `rule_list.rules.spec.asn_matcher.asn_sets.name` property
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0012112203232311-0022022213112112-0310331232100202-2312202201030312-3312213301020310-0030313001200330-3022131320102210-3032030103212003"></a>
+
+<a id="canonical-0001303001303323-1013133230020101-3301111210012122-2100303130021233-0012131312323220-2023201223113313-1133011320201013-2003113323302310"></a>
+
+#### `rule_list.rules.spec.asn_matcher.asn_sets.namespace` property
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "naming",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2230200321222023-0122123120032212-3210101013113231-0001200330101313-2030201022302232-2321112011300233-1211230210212321-1203113212322220"></a>
+
+<a id="canonical-2023230330311201-3221100021301010-2201200233021221-0030012121131103-3122211233122212-2000012310320320-3101120201313232-1103232132120033"></a>
+
+#### `rule_list.rules.spec.asn_matcher.asn_sets.tenant` property
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1033130001323331-3022202233230230-1211200300222233-3321232100201133-2303321102230031-3232032111123102-2102222320112332-1330332112133133"></a>
+
+<a id="canonical-1231223320130232-2111230231310000-1210213103211303-1000130310211132-1232120312202333-0301132321323112-0011112133323310-3313203010313022"></a>
+
+#### `rule_list.rules.spec.asn_matcher.asn_sets.uid` property
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
+referred object's(e.g. Route's) uid.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3120003330322333-0013033122113213-1031303002011013-0121111101233222-2001211210033333-2313220132320101-0011222020013012-0022323101113322"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `rule_list.rules.spec.body_matcher` properties
+
+Breadcrumbs:
+
+- [xcsh_service_policy](../data-sources/service_policy.md#canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303)
+- [Property reference](data-sources--service_policy--reference--group-001.md#canonical-3312102302111103-0221020013211300-2120323123300113-1101123102331230-1032322121222101-1332231300102132-0233300331323303-0031323122032013)
+- [rule_list](data-sources--service_policy--reference--group-001.md#canonical-0200021302120322-3330103111223310-0110033233312323-2211001021302330-2000313233321013-1330302203133111-3101023222321313-3302013113202033)
+- [rule_list.rules](data-sources--service_policy--reference--group-001.md#canonical-2332210012031020-3130121121203233-2133312023012212-1300213020002321-0210122201111201-2313301011130132-1102100221012102-3320333010302121)
+- [rule_list.rules.spec](data-sources--service_policy--reference--group-001.md#canonical-1313133011110120-1202202112012022-0312300012021010-2230300132201133-1123333233212022-2100210133123323-2030333300021222-2110310211021210)
+- rule_list.rules.spec.body_matcher
+
+<a id="canonical-1100103221313312-1312213330003231-2032111201030011-3133232310132122-0013222333002231-3223303322013223-0230113211022321-1120220132031332"></a>
+
+Type: `"single"`. Computed.
+
+A matcher specifies multiple criteria for matching an input string. The match is considered
+successful if any of the criteria are satisfied. The set of supported match criteria includes a list
+of exact values and a list of regular expressions.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0333013003333221-3110223222303330-3201032310102000-2303102132221312-0131010203112130-1103203211222221-3203310230111322-0112230102010332"></a>
+
+### Direct properties for `rule_list.rules.spec.body_matcher`
+
+<a id="canonical-0022310003233020-1313003133110303-1010122030223103-0130120033122203-0212313310003123-1102202301223313-3203213130223100-0021131013200300"></a>
+
+#### `rule_list.rules.spec.body_matcher.exact_values` property
+
+Type: `["list", "string"]`. Computed.
+
+A list of exact values to match the input against.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 64,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.items.string.not_empty": "true",
+    "ves.io.schema.rules.repeated.max_items": "64",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.items.string.not_empty": "true",
+    "ves.io.schema.rules.repeated.max_items": "64",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-0020121230121202-3110113013122330-0233120202231010-1213321133313201-2302100030201011-2201123312003000-2031111110300123-2111131013013021"></a>
+
+<a id="canonical-2310323122130110-2311203332230231-1301121303302010-1302321312102032-2300030013321332-3223001302230222-2003023303311212-1001212210110012"></a>
+
+#### `rule_list.rules.spec.body_matcher.regex_values` property
+
+Type: `["list", "string"]`. Computed.
+
+A list of regular expressions to match the input against.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 16,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 16,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.items.string.not_empty": "true",
+    "ves.io.schema.rules.repeated.items.string.regex": "true",
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.items.string.not_empty": "true",
+    "ves.io.schema.rules.repeated.items.string.regex": "true",
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-1311120131232022-0012013333132311-3312020230302200-2330022303322300-3310022211101002-3130222112032300-1202032303113200-1331221103232111"></a>
+
+<a id="canonical-0211311101021333-2323123321031002-2123212301003212-3302011321003322-1113313123102010-3213330322010313-3300230312123002-3212133101310323"></a>
+
+#### `rule_list.rules.spec.body_matcher.transformers` property
+
+Type: `["list", "string"]`. Computed.
+
+\[Enum:
+LOWER\_CASE|UPPER\_CASE|BASE64\_DECODE|NORMALIZE\_PATH|REMOVE\_WHITESPACE|URL\_DECODE|TRIM\_LEFT|TRIM\_RIGHT|TRIM\]
+Ordered list of transformers (starting from index 0) to be applied to the path before matching.
+Possible values are \`LOWER\_CASE\`, \`UPPER\_CASE\`, \`BASE64\_DECODE\`, \`NORMALIZE\_PATH\`,
+\`REMOVE\_WHITESPACE\`, \`URL\_DECODE\`, \`TRIM\_LEFT\`, \`TRIM\_RIGHT\`, \`TRIM\`.
+
+Additional upstream details:
+
+An ordered list of transformers (starting from index 0) to be applied to the path before matching.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 9,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 9,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "9",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "9",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```

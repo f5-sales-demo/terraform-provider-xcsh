@@ -36,8 +36,8 @@
   "pages": [
     {
       "aliases": ["infraprotect mitigation ips"],
-      "body_bytes": 1370,
-      "body_sha256": "sha256:63824e5fc448dc810766364130193286b71096d99e1ae18ae64fdaf61e74c07f",
+      "body_bytes": 1426,
+      "body_sha256": "sha256:0f1880dc2d2e652be60929e287548d1a762cd5e0979c9a2c3a62a8aaf47bacef",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -68,7 +68,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/infraprotect_mitigation_ips/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource retrieval operation.",
+      "summary": "Reads Infraprotect Mitigation Ips information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_infraprotect_mitigation_ips",
       "unresolved_relationships": [],
@@ -80,8 +80,8 @@
     },
     {
       "aliases": ["infraprotect mitigation ips"],
-      "body_bytes": 2058,
-      "body_sha256": "sha256:37d6d84be4a7e4af1415040d33b7d7dd43f953e21460f93c068a8711805c1c7b",
+      "body_bytes": 1784,
+      "body_sha256": "sha256:7029c9a93a4b19293fee8923bfb06a3c89dbb8e49546a16605ee71cfbf6c72e9",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:infraprotect_mitigation_ips:properties:ips"],
@@ -163,8 +163,8 @@
     },
     {
       "aliases": ["ips"],
-      "body_bytes": 1030,
-      "body_sha256": "sha256:e5f2f8712dd3952d8d7145be4765924cfbb4cd9e65dbb24fa18418711f3ab751",
+      "body_bytes": 745,
+      "body_sha256": "sha256:a378815652c2208e2baccb258e2195d1d063743d4ffbcb2dee68ef07bcf818b1",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -232,8 +232,8 @@
     },
     {
       "aliases": ["infraprotect mitigation ips"],
-      "body_bytes": 747,
-      "body_sha256": "sha256:fab150964bd4688ef51a0abda92e4f019ef40017182f6e89c7fabc974126372a",
+      "body_bytes": 459,
+      "body_sha256": "sha256:5f79505c85da90e4108ce54dfdf50ef85e28a135a9b1d5d3947c7c74936b3544",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:infraprotect_mitigation_ips:example:data-source"],
@@ -272,8 +272,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1409,
-      "body_sha256": "sha256:303911c507bf833902df7b37c046b9ec9be160b54522191073d9bd0bc6a3bf73",
+      "body_bytes": 1136,
+      "body_sha256": "sha256:cfffda448d825692eb4013a4e1a591d2dabdf4f0d9a4cde74bb3bf61b596d9f3",
       "capabilities": [],
       "category": null,
       "child_ids": [],

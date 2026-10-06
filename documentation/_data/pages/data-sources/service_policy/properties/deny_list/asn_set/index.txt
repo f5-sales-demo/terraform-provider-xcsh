@@ -2,7 +2,7 @@
 page_title: "deny_list.asn_set"
 subcategory: "Security"
 description: "Addresses that belong to the ASNs in the given bgp_asn_set The ASN is obtained by performing a lookup for the source IPv4 Address in a GeoIP DB."
-xcsh_docs: {"aliases": ["deny list asn set"], "body_bytes": 5879, "body_sha256": "sha256:1422172c4349b04d8ea8aadffd7c6a24ac92133934f1819671028e0182f4c677", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:service_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:service_policy:properties:deny_list:asn_set", "parent_id": "xcsh-docs:data-sources:service_policy:properties:deny_list", "path": "documentation/data-sources/service_policy/properties/deny_list/asn_set/index.md", "product": "distributed-cloud", "provider_name": "service_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-3330311320223113-1300223221102113-2100032022322001-3132023001102020-2231000000200300-1032221303212201-3031130220103020-2332321310301200", "registry_path": "docs/guides/data-sources--service_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["deny_list", "asn_set"], "schema_version": 1, "sections": [{"aliases": ["deny list asn set name"], "anchor": "schema-deny_list--asn_set--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:data-sources:service_policy:properties:deny_list:asn_set", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "asn_set", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["deny list asn set namespace"], "anchor": "schema-deny_list--asn_set--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:data-sources:service_policy:properties:deny_list:asn_set", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "asn_set", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["deny list asn set tenant"], "anchor": "schema-deny_list--asn_set--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:data-sources:service_policy:properties:deny_list:asn_set", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "asn_set", "tenant"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy/properties/deny_list/asn_set/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Addresses that belong to the ASNs in the given bgp_asn_set The ASN is obtained by performing a lookup for the source IPv4 Address in a GeoIP DB.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["service_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["deny list asn set"], "body_bytes": 4958, "body_sha256": "sha256:7ab657b0407fe6073120eadfae2102c1ea0c85ab54e248c73ae04a652062b3f7", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:service_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:service_policy:properties:deny_list:asn_set", "parent_id": "xcsh-docs:data-sources:service_policy:properties:deny_list", "path": "documentation/data-sources/service_policy/properties/deny_list/asn_set/index.md", "product": "distributed-cloud", "provider_name": "service_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-3330311320223113-1300223221102113-2100032022322001-3132023001102020-2231000000200300-1032221303212201-3031130220103020-2332321310301200", "registry_path": "docs/guides/data-sources--service_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["deny_list", "asn_set"], "schema_version": 1, "sections": [{"aliases": ["deny list asn set name"], "anchor": "schema-deny_list--asn_set--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:data-sources:service_policy:properties:deny_list:asn_set", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "asn_set", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["deny list asn set namespace"], "anchor": "schema-deny_list--asn_set--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:data-sources:service_policy:properties:deny_list:asn_set", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "asn_set", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["deny list asn set tenant"], "anchor": "schema-deny_list--asn_set--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:data-sources:service_policy:properties:deny_list:asn_set", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "asn_set", "tenant"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy/properties/deny_list/asn_set/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Addresses that belong to the ASNs in the given bgp_asn_set The ASN is obtained by performing a lookup for the source IPv4 Address in a GeoIP DB.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["service_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -21,11 +21,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"list"`. Computed.
-
-Addresses that belong to the ASNs in the given bgp\_asn\_set The ASN is obtained by performing a
-lookup for the source IPv4 Address in a GeoIP DB.
-
-Upstream description:
 
 Addresses that belong to the ASNs in the given bgp\_asn\_set The ASN is obtained by performing a
 lookup for the source IPv4 Address in a GeoIP DB.
@@ -71,11 +66,6 @@ Receipt-pinned upstream constraints:
 ### name property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
@@ -126,11 +116,6 @@ Receipt-pinned upstream constraints:
 ### namespace property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -192,11 +177,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -230,8 +210,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [deny_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/deny_list/)
-- [xcsh_service_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/)

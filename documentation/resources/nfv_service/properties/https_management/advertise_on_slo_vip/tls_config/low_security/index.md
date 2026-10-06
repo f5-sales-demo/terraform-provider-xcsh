@@ -2,7 +2,7 @@
 page_title: "https_management.advertise_on_slo_vip.tls_config.low_security"
 subcategory: ""
 description: "This can be used for messages where no values are needed."
-xcsh_docs: {"aliases": ["https management advertise on slo vip tls config low security"], "body_bytes": 1743, "body_sha256": "sha256:9cfd93a394e5c8a8e997f3aeb6c8bcfe4aafe6f117dd91c017a299e348b1cf65", "capabilities": [], "category": null, "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": [], "status": "unresolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:nfv_service:collection", "completeness": "complete", "id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_config:low_security", "parent_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_config", "path": "documentation/resources/nfv_service/properties/https_management/advertise_on_slo_vip/tls_config/low_security/index.md", "product": "distributed-cloud", "provider_name": "nfv_service", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0221112003220310-3222311333330300-3303223310301220-1032022013201000-2103003200212201-2133333333032331-0232313212202133-0021123223003122", "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["https_management", "advertise_on_slo_vip", "tls_config", "low_security"], "schema_version": 1, "sections": [], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/nfv_service/properties/https_management/advertise_on_slo_vip/tls_config/low_security/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "This can be used for messages where no values are needed.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["nfv_serviceCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["https management advertise on slo vip tls config low security"], "body_bytes": 1418, "body_sha256": "sha256:5420d46ebeec84dbaecf642ef1b71f6b1a6a8ba293001b5ba0fbc4c7dc9c9749", "capabilities": [], "category": null, "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": [], "status": "unresolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:nfv_service:collection", "completeness": "complete", "id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_config:low_security", "parent_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_config", "path": "documentation/resources/nfv_service/properties/https_management/advertise_on_slo_vip/tls_config/low_security/index.md", "product": "distributed-cloud", "provider_name": "nfv_service", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0221112003220310-3222311333330300-3303223310301220-1032022013201000-2103003200212201-2133333333032331-0232313212202133-0021123223003122", "registry_path": "docs/guides/resources--nfv_service--reference--group-004.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["https_management", "advertise_on_slo_vip", "tls_config", "low_security"], "schema_version": 1, "sections": [], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/nfv_service/properties/https_management/advertise_on_slo_vip/tls_config/low_security/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "This can be used for messages where no values are needed.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["nfv_serviceCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -26,7 +26,7 @@ Type: `["object", {}]`. Optional.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -49,11 +49,4 @@ Terraform syntax:
 low_security = {}
 ```
 
-## Direct properties
-
 This is an empty object or choice marker. It has no direct properties.
-
-## Next pages
-
-- [https_management.advertise_on_slo_vip.tls_config](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nfv_service/properties/https_management/advertise_on_slo_vip/tls_config/)
-- [xcsh_nfv_service](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nfv_service/)

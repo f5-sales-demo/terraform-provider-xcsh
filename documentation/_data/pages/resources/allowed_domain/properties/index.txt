@@ -2,7 +2,7 @@
 page_title: "Property reference"
 subcategory: ""
 description: "Property reference for xcsh_allowed_domain."
-xcsh_docs: {"aliases": ["allowed domain"], "body_bytes": 11342, "body_sha256": "sha256:5c58b1434465f6ce429932b3957b63569aeda62c71464d4da24e15471720cc84", "capabilities": [], "category": null, "child_ids": ["xcsh-docs:resources:allowed_domain:properties:timeouts"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": [], "status": "unresolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:allowed_domain:collection", "completeness": "complete", "id": "xcsh-docs:resources:allowed_domain:reference", "parent_id": "xcsh-docs:resources:allowed_domain:fundamentals", "path": "documentation/resources/allowed_domain/properties/index.md", "product": "distributed-cloud", "provider_name": "allowed_domain", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2310331131020212-1322032001003131-0111302203012211-3201023230322111-0103212210213030-2323300331323331-1322110232101022-3321121103131313", "registry_path": "docs/guides/resources--allowed_domain--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "reference", "schema_path": [], "schema_version": 1, "sections": [{"aliases": ["allowed domain"], "anchor": "schema-allowed_domain", "description": "Enter root domain or domain to be entered to allow list below. Domains can be entered only one at a time. In case of conflicting entries, the domain entry takes precedence over the root domain entry. Example: if you are adding Client-Side Defense JS on checkout.example.com, you should enter example.com here.", "document_id": "xcsh-docs:resources:allowed_domain:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allowed_domain"], "syntax": "attribute", "type": "string"}, {"aliases": ["annotations"], "anchor": "schema-annotations", "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.", "document_id": "xcsh-docs:resources:allowed_domain:reference", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["annotations"], "syntax": "attribute", "type": "map"}, {"aliases": ["description"], "anchor": "schema-description", "description": "Human readable description for the object.", "document_id": "xcsh-docs:resources:allowed_domain:reference", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["description"], "syntax": "attribute", "type": "string"}, {"aliases": ["disable"], "anchor": "schema-disable", "description": "A value of true will administratively disable the object.", "document_id": "xcsh-docs:resources:allowed_domain:reference", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["disable"], "syntax": "attribute", "type": "bool"}, {"aliases": ["id"], "anchor": "schema-id", "description": "Unique identifier for the resource.", "document_id": "xcsh-docs:resources:allowed_domain:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["id"], "syntax": "attribute", "type": "string"}, {"aliases": ["labels"], "anchor": "schema-labels", "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.", "document_id": "xcsh-docs:resources:allowed_domain:reference", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["labels"], "syntax": "attribute", "type": "map"}, {"aliases": ["name"], "anchor": "schema-name", "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.", "document_id": "xcsh-docs:resources:allowed_domain:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["name"], "syntax": "attribute", "type": "string"}, {"aliases": ["namespace"], "anchor": "schema-namespace", "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"", "document_id": "xcsh-docs:resources:allowed_domain:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"], "anchor": "section", "description": "timeouts", "document_id": "xcsh-docs:resources:allowed_domain:properties:timeouts", "flags": [], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["timeouts"], "syntax": "block", "type": "object"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/allowed_domain/properties/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Property reference for xcsh_allowed_domain.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["allowed_domainCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["allowed domain"], "body_bytes": 10739, "body_sha256": "sha256:ce795530b4dc23a2692f3c8fec611bf2ff5ea45a03aca05da7041c6dc71bbb83", "capabilities": [], "category": null, "child_ids": ["xcsh-docs:resources:allowed_domain:properties:timeouts"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": [], "status": "unresolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:allowed_domain:collection", "completeness": "complete", "id": "xcsh-docs:resources:allowed_domain:reference", "parent_id": "xcsh-docs:resources:allowed_domain:fundamentals", "path": "documentation/resources/allowed_domain/properties/index.md", "product": "distributed-cloud", "provider_name": "allowed_domain", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2310331131020212-1322032001003131-0111302203012211-3201023230322111-0103212210213030-2323300331323331-1322110232101022-3321121103131313", "registry_path": "docs/guides/resources--allowed_domain--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "reference", "schema_path": [], "schema_version": 1, "sections": [{"aliases": ["allowed domain"], "anchor": "schema-allowed_domain", "description": "Enter root domain or domain to be entered to allow list below. Domains can be entered only one at a time. In case of conflicting entries, the domain entry takes precedence over the root domain entry. Example: if you are adding Client-Side Defense JS on checkout.example.com, you should enter example.com here.", "document_id": "xcsh-docs:resources:allowed_domain:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allowed_domain"], "syntax": "attribute", "type": "string"}, {"aliases": ["annotations"], "anchor": "schema-annotations", "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.", "document_id": "xcsh-docs:resources:allowed_domain:reference", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["annotations"], "syntax": "attribute", "type": "map"}, {"aliases": ["description"], "anchor": "schema-description", "description": "Human readable description for the object.", "document_id": "xcsh-docs:resources:allowed_domain:reference", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["description"], "syntax": "attribute", "type": "string"}, {"aliases": ["disable"], "anchor": "schema-disable", "description": "A value of true will administratively disable the object.", "document_id": "xcsh-docs:resources:allowed_domain:reference", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["disable"], "syntax": "attribute", "type": "bool"}, {"aliases": ["id"], "anchor": "schema-id", "description": "Unique identifier for the resource.", "document_id": "xcsh-docs:resources:allowed_domain:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["id"], "syntax": "attribute", "type": "string"}, {"aliases": ["labels"], "anchor": "schema-labels", "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.", "document_id": "xcsh-docs:resources:allowed_domain:reference", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["labels"], "syntax": "attribute", "type": "map"}, {"aliases": ["name"], "anchor": "schema-name", "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.", "document_id": "xcsh-docs:resources:allowed_domain:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["name"], "syntax": "attribute", "type": "string"}, {"aliases": ["namespace"], "anchor": "schema-namespace", "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"", "document_id": "xcsh-docs:resources:allowed_domain:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"], "anchor": "section", "description": "timeouts", "document_id": "xcsh-docs:resources:allowed_domain:properties:timeouts", "flags": [], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["timeouts"], "syntax": "block", "type": "object"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/allowed_domain/properties/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Property reference for xcsh_allowed_domain.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["allowed_domainCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,11 +23,6 @@ Breadcrumbs:
 ### allowed_domain property
 
 Type: `"string"`. Required.
-
-Enter root domain or domain to be entered to allow list below. Domains can be entered only one at a
-time. In case of conflicting entries, the domain entry takes precedence over the root domain entry.
-
-Upstream description:
 
 Enter root domain or domain to be entered to allow list below. Domains can be entered only one at a
 time. In case of conflicting entries, the domain entry takes precedence over the root domain entry.
@@ -85,11 +80,6 @@ Receipt-pinned upstream constraints:
 ### annotations property
 
 Type: `["map", "string"]`. Optional.
-
-Annotations is an unstructured key value map stored with a resource that may be set by external
-tools to store and retrieve arbitrary metadata.
-
-Upstream description:
 
 Annotations is an unstructured key value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
@@ -195,7 +185,7 @@ Type: `"bool"`. Optional.
 
 A value of true administratively disables the object.
 
-Upstream description:
+Additional upstream details:
 
 A value of true will administratively disable the object.
 
@@ -229,7 +219,7 @@ Type: `["map", "string"]`. Optional.
 Labels is a user defined key value map that can be attached to resources for organization and
 filtering.
 
-Upstream description:
+Additional upstream details:
 
 Map of string keys and values that can be used to organize and categorize (scope and select) objects
 as chosen by the user. Values specified here will be used by selector expression.
@@ -255,7 +245,7 @@ Type: `"string"`. Required.
 
 Name of the Allowed Domain. Must be unique within the namespace.
 
-Upstream description:
+Additional upstream details:
 
 This is the name of configuration object. It has to be unique within the namespace. It can only be
 specified during create API and cannot be changed during replace API. The value of name has to
@@ -321,7 +311,7 @@ Type: `"string"`. Required.
 
 Namespace where the Allowed Domain is created.
 
-Upstream description:
+Additional upstream details:
 
 This defines the workspace within which each the configuration object is to be created. Must be a
 DNS\_LABEL format. For a namespace object itself, namespace value will be ""
@@ -393,8 +383,3 @@ Each exact path has one authoritative reference destination. Collection element 
 | `timeouts.delete` | [timeouts.delete](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/allowed_domain/properties/timeouts/#schema-timeouts--delete) |
 | `timeouts.read` | [timeouts.read](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/allowed_domain/properties/timeouts/#schema-timeouts--read) |
 | `timeouts.update` | [timeouts.update](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/allowed_domain/properties/timeouts/#schema-timeouts--update) |
-
-## Next pages
-
-- [timeouts](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/allowed_domain/properties/timeouts/)
-- [xcsh_allowed_domain](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/allowed_domain/)

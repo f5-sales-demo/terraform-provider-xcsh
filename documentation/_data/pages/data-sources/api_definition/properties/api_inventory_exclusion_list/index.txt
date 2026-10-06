@@ -2,7 +2,7 @@
 page_title: "api_inventory_exclusion_list"
 subcategory: "API Management"
 description: "List of API Endpoints excluded from the API Inventory."
-xcsh_docs: {"aliases": ["api inventory exclusion list"], "body_bytes": 4077, "body_sha256": "sha256:5788db77a162ec1e7890966d0ef3ac620dcf485717999ffb74f1ceb96092864d", "capabilities": ["api-management"], "category": "api-management", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:api_definition:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:api_definition:properties:api_inventory_exclusion_list", "parent_id": "xcsh-docs:data-sources:api_definition:reference", "path": "documentation/data-sources/api_definition/properties/api_inventory_exclusion_list/index.md", "product": "distributed-cloud", "provider_name": "api_definition", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-0232001312320302-3223003321232222-3021132221111131-2322000200330320-3223333103311211-3020223300332311-3010130312300222-3002230133012130", "registry_path": "docs/guides/data-sources--api_definition--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["api_inventory_exclusion_list"], "schema_version": 1, "sections": [{"aliases": ["api inventory exclusion list method"], "anchor": "schema-api_inventory_exclusion_list--method", "description": "Specifies the HTTP method used to access a resource. Any HTTP Method.", "document_id": "xcsh-docs:data-sources:api_definition:properties:api_inventory_exclusion_list", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["api_inventory_exclusion_list", "method"], "syntax": "attribute", "type": "string"}, {"aliases": ["api inventory exclusion list path"], "anchor": "schema-api_inventory_exclusion_list--path", "description": "An endpoint path, as specified in OpenAPI, including parameters. The path should comply with RFC 3986 and may have parameters according to OpenAPI specification.", "document_id": "xcsh-docs:data-sources:api_definition:properties:api_inventory_exclusion_list", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["api_inventory_exclusion_list", "path"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_definition/properties/api_inventory_exclusion_list/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of API Endpoints excluded from the API Inventory.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["api_definitionCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["api inventory exclusion list"], "body_bytes": 3474, "body_sha256": "sha256:f17de5569c637b2e5bb10ebcf419d7b13fde2f83d7b08b966129610f06644f8f", "capabilities": ["api-management"], "category": "api-management", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:api_definition:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:api_definition:properties:api_inventory_exclusion_list", "parent_id": "xcsh-docs:data-sources:api_definition:reference", "path": "documentation/data-sources/api_definition/properties/api_inventory_exclusion_list/index.md", "product": "distributed-cloud", "provider_name": "api_definition", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-0232001312320302-3223003321232222-3021132221111131-2322000200330320-3223333103311211-3020223300332311-3010130312300222-3002230133012130", "registry_path": "docs/guides/data-sources--api_definition--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["api_inventory_exclusion_list"], "schema_version": 1, "sections": [{"aliases": ["api inventory exclusion list method"], "anchor": "schema-api_inventory_exclusion_list--method", "description": "Specifies the HTTP method used to access a resource. Any HTTP Method.", "document_id": "xcsh-docs:data-sources:api_definition:properties:api_inventory_exclusion_list", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["api_inventory_exclusion_list", "method"], "syntax": "attribute", "type": "string"}, {"aliases": ["api inventory exclusion list path"], "anchor": "schema-api_inventory_exclusion_list--path", "description": "An endpoint path, as specified in OpenAPI, including parameters. The path should comply with RFC 3986 and may have parameters according to OpenAPI specification.", "document_id": "xcsh-docs:data-sources:api_definition:properties:api_inventory_exclusion_list", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["api_inventory_exclusion_list", "path"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_definition/properties/api_inventory_exclusion_list/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of API Endpoints excluded from the API Inventory.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["api_definitionCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,10 +23,6 @@ Type: `"list"`. Computed.
 
 List of API Endpoints excluded from the API Inventory. Defaults to \`\[\]\`. Server applies default
 when omitted.
-
-Upstream description:
-
-List of API Endpoints excluded from the API Inventory.
 
 Receipt-pinned upstream constraints:
 
@@ -75,12 +71,6 @@ used to access a resource. Any HTTP Method. Possible values are \`ANY\`, \`GET\`
 \`POST\`, \`PUT\`, \`DELETE\`, \`CONNECT\`, \`OPTIONS\`, \`TRACE\`, \`PATCH\`, \`COPY\`. Defaults to
 \`ANY\`.
 
-Upstream description:
-
-Specifies the HTTP method used to access a resource.
-
-Any HTTP Method.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -113,11 +103,6 @@ Receipt-pinned upstream constraints:
 ### path property
 
 Type: `"string"`. Computed.
-
-Endpoint path, as specified in OpenAPI, including parameters. The path should comply with RFC 3986
-and may have parameters according to OpenAPI specification.
-
-Upstream description:
 
 An endpoint path, as specified in OpenAPI, including parameters. The path should comply with RFC
 3986 and may have parameters according to OpenAPI specification.
@@ -165,8 +150,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/api_definition/properties/)
-- [xcsh_api_definition](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/api_definition/)

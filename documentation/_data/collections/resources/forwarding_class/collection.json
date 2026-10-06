@@ -136,8 +136,8 @@
   "pages": [
     {
       "aliases": ["forwarding class"],
-      "body_bytes": 1682,
-      "body_sha256": "sha256:aeaeb49a9828af9b36b4922537ab28051c1f450bd732e1bd268701ed00dbb477",
+      "body_bytes": 1695,
+      "body_sha256": "sha256:54b1f9bc2c020f21450585d5373b449f6237ad0221648f354e968bc4c96d013e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -182,8 +182,8 @@
     },
     {
       "aliases": ["forwarding class"],
-      "body_bytes": 17272,
-      "body_sha256": "sha256:a539c73466200c2f8d246e8aa2b791b7da5e83c6964c0e1708f989f982c26baa",
+      "body_bytes": 15873,
+      "body_sha256": "sha256:56cbd54d65973557e3abc8b8aa6f3429770530b8f9eb882766d0554982497b11",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -463,8 +463,8 @@
     },
     {
       "aliases": ["dscp"],
-      "body_bytes": 4585,
-      "body_sha256": "sha256:7978f8d634090147ca573f93b6e52a9da9a5d520d25e4bd7cad8b5b6966a3646",
+      "body_bytes": 4084,
+      "body_sha256": "sha256:4111e364208bafe6af07d5bed8b440a3bb40d89f2a1dab86cb9ab0bbc3236921",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -532,8 +532,8 @@
     },
     {
       "aliases": ["dscp based queue"],
-      "body_bytes": 1579,
-      "body_sha256": "sha256:7f1229c9b5b829581f2c9f35ca713a28ca8a6f3e7eaa8853289c2d4559b4fd56",
+      "body_bytes": 1318,
+      "body_sha256": "sha256:e01f6913f1a5e2042233410e5004d9bdce75430aa7d142ddfcf8d7d20a9c026a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -572,8 +572,8 @@
     },
     {
       "aliases": ["no marking"],
-      "body_bytes": 1097,
-      "body_sha256": "sha256:dbed467cd51ee03b9c1307a7999617bdd4a356e376cdbcb72ac3271766d2208e",
+      "body_bytes": 836,
+      "body_sha256": "sha256:726cab73638bd53af9d0e99104af101d97df252aca1b7d6cb79c7a7020251313",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -612,8 +612,8 @@
     },
     {
       "aliases": ["no policer"],
-      "body_bytes": 1511,
-      "body_sha256": "sha256:857de8ddeeccd59812c2f7a4066820c3a25c60b65a1ddd1e8f4160883c5b8ec8",
+      "body_bytes": 1250,
+      "body_sha256": "sha256:5c8318e478c2038e4a73e762a838bfbcc6ebbeb2b5fb8cb59ffce838eddf8973",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -652,8 +652,8 @@
     },
     {
       "aliases": ["policer"],
-      "body_bytes": 5823,
-      "body_sha256": "sha256:950f03f6c3c106eb49d400462cda959015f5d5278dff0a546a2a3367d3c8e491",
+      "body_bytes": 4904,
+      "body_sha256": "sha256:d87f79853e00235dff6cc24d49c749b71537b2ae20b9cacf8afcdc5d0c2d0ab7",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -744,8 +744,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2255,
-      "body_sha256": "sha256:6b9b1696a05fea83e272ebff1ed2225bd47010970856cc7e664881054c519105",
+      "body_bytes": 2009,
+      "body_sha256": "sha256:c1670dc9eec61a3bc87ec32804600e054decaeec2bfc1d19e4bd7406f63ef03c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -876,8 +876,8 @@
     },
     {
       "aliases": ["forwarding class"],
-      "body_bytes": 657,
-      "body_sha256": "sha256:a31d601639a00f218a4eb7cba9e705c9d4d842064d163b6dfb63c208961864f2",
+      "body_bytes": 414,
+      "body_sha256": "sha256:20c371df99bcaba6a58c0e43380885ec04b6734d565ae8de9a443cb75a58adb6",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:forwarding_class:example:resource"],
@@ -916,8 +916,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1342,
-      "body_sha256": "sha256:86bec1ad891bfa37277d5e8ce94ad898304d2982513cffb1be7181f4dc99e81b",
+      "body_bytes": 1108,
+      "body_sha256": "sha256:5251913723b9bcc0dee892f389c456dde1cf2d9130a751183e200b8c6eac16e2",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -963,8 +963,8 @@
     },
     {
       "aliases": ["forwarding class"],
-      "body_bytes": 500,
-      "body_sha256": "sha256:331dc47f533e31b830f2ffe0c8135986a9a5da5471be8855150f3edc10242aa5",
+      "body_bytes": 373,
+      "body_sha256": "sha256:5054bab06dde3e1d6866c229ac75868e0ab8c1bca375ddfc010d4343d5c49dab",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1004,8 +1004,8 @@
     },
     {
       "aliases": ["forwarding class"],
-      "body_bytes": 588,
-      "body_sha256": "sha256:8a56f1328b9971bcf1aeb7b00177853135c14c7816d5150fa900ea425c7a55fb",
+      "body_bytes": 461,
+      "body_sha256": "sha256:383620af26178a5ddca8b1e740ff68b54fdb634fe98eb16c048957dc802353db",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],

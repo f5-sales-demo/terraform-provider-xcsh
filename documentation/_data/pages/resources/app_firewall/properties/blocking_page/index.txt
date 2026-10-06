@@ -2,7 +2,7 @@
 page_title: "blocking_page"
 subcategory: "Security"
 description: "Custom blocking response page body."
-xcsh_docs: {"aliases": ["blocking page"], "body_bytes": 10419, "body_sha256": "sha256:730e5744c363d91abb06e83c9585f77f68d97930ce9cea70b9bdca349993d185", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:app_firewall:collection", "completeness": "complete", "id": "xcsh-docs:resources:app_firewall:properties:blocking_page", "parent_id": "xcsh-docs:resources:app_firewall:reference", "path": "documentation/resources/app_firewall/properties/blocking_page/index.md", "product": "distributed-cloud", "provider_name": "app_firewall", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0013022111203330-2133332311031331-2100130303213113-2012101032003221-0021310233223323-3232333233020001-3331122121132323-0213121111201120", "registry_path": "docs/guides/resources--app_firewall--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["blocking_page"], "schema_version": 1, "sections": [{"aliases": ["blocking page blocking page"], "anchor": "schema-blocking_page--blocking_page", "description": "Define the content of the response page (e.g., an HTML document or a JSON object), use the {{request_id}} placeholder to provide users with a unique identifier to be able to trace the blocked request in the logs. The maximum allowed size of response body is 4096 bytes after base64 encoding, which would be about 3070", "document_id": "xcsh-docs:resources:app_firewall:properties:blocking_page", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["blocking_page", "blocking_page"], "syntax": "attribute", "type": "string"}, {"aliases": ["blocking page response code", "duration"], "anchor": "schema-blocking_page--response_code", "description": "HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status code OK status code Created status code Accepted status code Non Authoritative Information status code No Content status code Reset Content status code Partial Content status code Multi Status status code Already", "document_id": "xcsh-docs:resources:app_firewall:properties:blocking_page", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["blocking_page", "response_code"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/blocking_page/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Custom blocking response page body.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["app_firewallCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["blocking page"], "body_bytes": 9810, "body_sha256": "sha256:3093df501c1de01f05facf448ca384007cf44078f9b879d61d52c683990a8137", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:app_firewall:collection", "completeness": "complete", "id": "xcsh-docs:resources:app_firewall:properties:blocking_page", "parent_id": "xcsh-docs:resources:app_firewall:reference", "path": "documentation/resources/app_firewall/properties/blocking_page/index.md", "product": "distributed-cloud", "provider_name": "app_firewall", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0013022111203330-2133332311031331-2100130303213113-2012101032003221-0021310233223323-3232333233020001-3331122121132323-0213121111201120", "registry_path": "docs/guides/resources--app_firewall--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["blocking_page"], "schema_version": 1, "sections": [{"aliases": ["blocking page blocking page"], "anchor": "schema-blocking_page--blocking_page", "description": "Define the content of the response page (e.g., an HTML document or a JSON object), use the {{request_id}} placeholder to provide users with a unique identifier to be able to trace the blocked request in the logs. The maximum allowed size of response body is 4096 bytes after base64 encoding, which would be about 3070", "document_id": "xcsh-docs:resources:app_firewall:properties:blocking_page", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["blocking_page", "blocking_page"], "syntax": "attribute", "type": "string"}, {"aliases": ["blocking page response code", "duration"], "anchor": "schema-blocking_page--response_code", "description": "HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status code OK status code Created status code Accepted status code Non Authoritative Information status code No Content status code Reset Content status code Partial Content status code Multi Status status code Already", "document_id": "xcsh-docs:resources:app_firewall:properties:blocking_page", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["blocking_page", "response_code"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/blocking_page/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Custom blocking response page body.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["app_firewallCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,10 +23,6 @@ Type: `"object"`. single nested block, Optional.
 
 \[OneOf: blocking\_page, use\_default\_blocking\_page; Default: use\_default\_blocking\_page\]
 Custom Blocking Response Page. Custom blocking response page body.
-
-Upstream description:
-
-Custom blocking response page body.
 
 Receipt-pinned upstream constraints:
 
@@ -63,13 +59,6 @@ blocking_page {
 ### blocking_page property
 
 Type: `"string"`. Optional.
-
-Define the content of the response page (e.g., an HTML document or a JSON object), use the
-\{\{request\_id\}\} placeholder to provide users with a unique identifier to be able to trace the
-blocked request in the logs. The maximum allowed size of response body is 4096 bytes after base64
-encoding..
-
-Upstream description:
 
 Define the content of the response page (e.g., an HTML document or a JSON object), use the
 \{\{request\_id\}\} placeholder to provide users with a unique identifier to be able to trace the
@@ -146,7 +135,7 @@ Possible values are \`EmptyStatusCode\`, \`Continue\`, \`OK\`, \`Created\`, \`Ac
 \`InsufficientStorage\`, \`LoopDetected\`, \`NotExtended\`, \`NetworkAuthenticationRequired\`.
 Defaults to \`EmptyStatusCode\`.
 
-Upstream description:
+Additional upstream details:
 
 HTTP response status codes
 
@@ -304,8 +293,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/app_firewall/properties/)
-- [xcsh_app_firewall](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/app_firewall/)

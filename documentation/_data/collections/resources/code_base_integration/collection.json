@@ -520,8 +520,8 @@
   "pages": [
     {
       "aliases": ["code base integration"],
-      "body_bytes": 1577,
-      "body_sha256": "sha256:e1a180931c9b1073ca26adac51e6be8438adfd697da7da8bff0a7ba3d125ee63",
+      "body_bytes": 1590,
+      "body_sha256": "sha256:78b801ab2ec98cb5bf145bd4219bd078072337ef83e3dd8be3c2ced710a6a2bf",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -566,8 +566,8 @@
     },
     {
       "aliases": ["code base integration"],
-      "body_bytes": 35374,
-      "body_sha256": "sha256:3daa693f8bc6e0435525dbd9de235603df30ece375b5dda5538f02c15b85502f",
+      "body_bytes": 34825,
+      "body_sha256": "sha256:307d61236540a63338dfe3727cc6e687de3fce12f5fd71d21055eaa93e22768e",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1073,8 +1073,8 @@
     },
     {
       "aliases": ["code base integration"],
-      "body_bytes": 5548,
-      "body_sha256": "sha256:b222187ee9c6c7fa0ed9039fca3d17b5205384f55cbc5902f15a5bc6f59d89da",
+      "body_bytes": 4066,
+      "body_sha256": "sha256:2868f1a8cdefb792a343f2ceddab9b31847c9b940953ba0226f171fd2a329b92",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1618,8 +1618,8 @@
     },
     {
       "aliases": ["code base integration azure repos"],
-      "body_bytes": 1673,
-      "body_sha256": "sha256:a56faca973a9d6f1cc4135503285a065b18eb42bdae92cef05d26893ae1eb98e",
+      "body_bytes": 1188,
+      "body_sha256": "sha256:3d473c8224aaa7c5a7c3405f73476ab6f979dadfb62bc82d4d3ad1f83f0d0999",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1692,8 +1692,8 @@
     },
     {
       "aliases": ["code base integration azure repos access token"],
-      "body_bytes": 2745,
-      "body_sha256": "sha256:fa0ed87a38bd888b908da3357097704069a92d94d6cd1557e2a6cf78bf991ffe",
+      "body_bytes": 1957,
+      "body_sha256": "sha256:018ca5f0b319c1be7eb1ffda7e0a1a124a6e9b78a250be6508555e2807714b79",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1799,8 +1799,8 @@
     },
     {
       "aliases": ["code base integration azure repos access token blindfold secret info"],
-      "body_bytes": 5311,
-      "body_sha256": "sha256:47b8f8122e43a148cafb2bcb533599f9457cb49f91f92e2bfe2aedcf509eb3e5",
+      "body_bytes": 4606,
+      "body_sha256": "sha256:359876cc8d6404214ce6e098fd43fd5353b8eafb136e7fbc573efd966b9853d8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1903,8 +1903,8 @@
     },
     {
       "aliases": ["code base integration azure repos access token clear secret info"],
-      "body_bytes": 4174,
-      "body_sha256": "sha256:3f67a063d9c979d2133a7c686f905bcb3f1bec77e92ee30fbd83a51890191531",
+      "body_bytes": 3603,
+      "body_sha256": "sha256:7cbeda8691c28a0ea4318dee3e32be7d6304c0a313e81eb8706733ac9c94e58b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1981,8 +1981,8 @@
     },
     {
       "aliases": ["code base integration bitbucket"],
-      "body_bytes": 2777,
-      "body_sha256": "sha256:3482249131f2923d6ce12fb908bbfc31f1f5b0ea84355798ed6ec771f11acdd6",
+      "body_bytes": 2247,
+      "body_sha256": "sha256:16230b2757993e76c62da958101b38ee1c268427c6380ea1f1e0612aea7b41a2",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket:passwd"],
@@ -2076,8 +2076,8 @@
     },
     {
       "aliases": ["code base integration bitbucket passwd"],
-      "body_bytes": 2667,
-      "body_sha256": "sha256:eae3515726971af376a322f655802a842d7b60bfc873b281618d616544b0461a",
+      "body_bytes": 1915,
+      "body_sha256": "sha256:95448bdc5568deedffa19bb4cd3803d596019ea6f285b1b53944b2c8f7223cfc",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2183,8 +2183,8 @@
     },
     {
       "aliases": ["code base integration bitbucket passwd blindfold secret info"],
-      "body_bytes": 5235,
-      "body_sha256": "sha256:8b98216d4cc8e98481388c504cb2f3744248e3885d2fddf284cd5a6149df4788",
+      "body_bytes": 4546,
+      "body_sha256": "sha256:047b1c0409003ba7aa2337772dc1a9714d2bf0e8dd7ea7c7117cd321f4d79991",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2281,8 +2281,8 @@
     },
     {
       "aliases": ["code base integration bitbucket passwd clear secret info"],
-      "body_bytes": 4106,
-      "body_sha256": "sha256:f0ab22d6cb05637391fd3d5a33ecb852b3567fc39b563d58da436ae99c3abc52",
+      "body_bytes": 3551,
+      "body_sha256": "sha256:d8731c730267bb704db6d0dd0df783b287f15034d68771f95b7e35b3a6d6516b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2359,8 +2359,8 @@
     },
     {
       "aliases": ["code base integration bitbucket server"],
-      "body_bytes": 4545,
-      "body_sha256": "sha256:b2c7d6aa48806f7e20f63d204f88972a79ae105ec5e1694f3a6c7a682a0c10ad",
+      "body_bytes": 3893,
+      "body_sha256": "sha256:1b448ea52a90a9d7679d07e5e7f4258e7764dd2fb90c09e705f681e55cc68704",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2492,8 +2492,8 @@
     },
     {
       "aliases": ["code base integration bitbucket server passwd"],
-      "body_bytes": 2751,
-      "body_sha256": "sha256:e1731cd62240667be480d3277f70317cc1bad2457dd970d437338995484b2a6c",
+      "body_bytes": 1957,
+      "body_sha256": "sha256:efa8c41dbb286e8cc4a83d09ef0922195c94ac74430d1a41a01775ec290c66c5",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2599,8 +2599,8 @@
     },
     {
       "aliases": ["code base integration bitbucket server passwd blindfold secret info"],
-      "body_bytes": 5312,
-      "body_sha256": "sha256:5eb5fbd4757e7ca3ddd71dc35cd8c682ea0a3a6710cd0f717a4f948bb3746099",
+      "body_bytes": 4609,
+      "body_sha256": "sha256:a089d9e4dd5b6d8f6c78a37e4f34887427c6ccf22856067eb87b797bcbbe9932",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2703,8 +2703,8 @@
     },
     {
       "aliases": ["code base integration bitbucket server passwd clear secret info"],
-      "body_bytes": 4176,
-      "body_sha256": "sha256:300a64fdfb685fd4520f82e6c5586326d7bd8e3775e04dff45275e5b38ba5e3c",
+      "body_bytes": 3607,
+      "body_sha256": "sha256:2c31b4c120dfdc43f8459430bb70ae349636649c0a48f505bd87bad0c09dcfaa",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2781,8 +2781,8 @@
     },
     {
       "aliases": ["code base integration github"],
-      "body_bytes": 3180,
-      "body_sha256": "sha256:7c6cf6ded57d1be1351ccb58c54f8cb1802fb36a342233100bb0f55c7a62cf89",
+      "body_bytes": 2581,
+      "body_sha256": "sha256:a39a078cab9608949af8e20fa1472fa47cc062a3d9e1aed6a3d8c9c6187897ae",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:code_base_integration:properties:code_base_integration:github:access_token"],
@@ -2890,8 +2890,8 @@
     },
     {
       "aliases": ["code base integration github access token"],
-      "body_bytes": 2685,
-      "body_sha256": "sha256:93dc4ec3b6ea55610ef25f837ed05f219b57a7937cf3181269c996d60252a8fe",
+      "body_bytes": 1927,
+      "body_sha256": "sha256:58473be4d7e6eb83a6e6286d6cda159f617b168062f4a437bef6dab7b628104c",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2997,8 +2997,8 @@
     },
     {
       "aliases": ["code base integration github access token blindfold secret info"],
-      "body_bytes": 5256,
-      "body_sha256": "sha256:982a3bffa457e032a8fcb1af559db86f19ad6ba31d6f2c84282e798cf9ee97fb",
+      "body_bytes": 4561,
+      "body_sha256": "sha256:cfdd4ad4caf2f3a9abcd7fda80b44a16252463dbd5ecf438a16575ae79f246d5",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3095,8 +3095,8 @@
     },
     {
       "aliases": ["code base integration github access token clear secret info"],
-      "body_bytes": 4124,
-      "body_sha256": "sha256:f5645158dc7682b456cc738f33e4956bbcd80fe587db5c072114c6eb3fcbb723",
+      "body_bytes": 3563,
+      "body_sha256": "sha256:1819b8cdae3c412d0932eff8be6780331c7d312d8051d729f1d554d86ba1ac8e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3173,8 +3173,8 @@
     },
     {
       "aliases": ["code base integration github enterprise"],
-      "body_bytes": 4206,
-      "body_sha256": "sha256:bab22bb910247bae3f3a68832cfdc7773f19ff95093fbadb1253c921a414c5e8",
+      "body_bytes": 3587,
+      "body_sha256": "sha256:e91d59358e357167b2867743b7f30ed8ba2e200ec9f3274dcc944b2a939f9629",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -3292,8 +3292,8 @@
     },
     {
       "aliases": ["code base integration github enterprise access token"],
-      "body_bytes": 2817,
-      "body_sha256": "sha256:d7c3d179fbaf12e075ac1863a3bbd5abc0e4619ae49cff1a860457a63983ea67",
+      "body_bytes": 1993,
+      "body_sha256": "sha256:5ff91d4bfc928a4ffb43af0b214cc29cfdd9c39a40aa6904d41aedaba64bd51d",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -3399,8 +3399,8 @@
     },
     {
       "aliases": ["code base integration github enterprise access token blindfold secret info"],
-      "body_bytes": 5377,
-      "body_sha256": "sha256:772f067c53ae70fb552cfc8cefa495789266d5cb6ef5f5df03b4af7065a5b171",
+      "body_bytes": 4660,
+      "body_sha256": "sha256:873e6008826809d00c5f254e563583e1d9c76c67c89e1e49bd982abfd4d5e134",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3509,8 +3509,8 @@
     },
     {
       "aliases": ["code base integration github enterprise access token clear secret info"],
-      "body_bytes": 4234,
-      "body_sha256": "sha256:e7a743d7fa87878c8be7e13752903dd9d3f290b15e1176bfb9f8891bcc02b3e2",
+      "body_bytes": 3651,
+      "body_sha256": "sha256:a85a5bf5142582e0d80e04359b81525afa9f3bbb57c5b027e24d9fa2953d6e6b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3593,8 +3593,8 @@
     },
     {
       "aliases": ["code base integration gitlab"],
-      "body_bytes": 1628,
-      "body_sha256": "sha256:7bd8a3d73f0886d77581c53fa6313d6808247526e688c97f81b7b6a59d7b5da7",
+      "body_bytes": 1153,
+      "body_sha256": "sha256:14c802356074aa09da7d0464013a839dbdee9e216c3d670438b3c006c2308b63",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab:access_token"],
@@ -3665,8 +3665,8 @@
     },
     {
       "aliases": ["code base integration gitlab access token"],
-      "body_bytes": 2685,
-      "body_sha256": "sha256:0936b795d803dd3cc0dacf19fc374f35f3bb270bed8fade96c621dc02fe56ce9",
+      "body_bytes": 1927,
+      "body_sha256": "sha256:ef9d6e62e26410e55256c4db0db17d0926dbd29a37894701edb3548522cabec0",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -3772,8 +3772,8 @@
     },
     {
       "aliases": ["code base integration gitlab access token blindfold secret info"],
-      "body_bytes": 5256,
-      "body_sha256": "sha256:c492dc27ec6f2ab24d1544b788e88ad0350fef8b3fd8a338407c70a11d332bc2",
+      "body_bytes": 4561,
+      "body_sha256": "sha256:b521a5e02ff52940554d9b8e52392693edffeb4620b65001f8f4b8ec96b65b63",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3870,8 +3870,8 @@
     },
     {
       "aliases": ["code base integration gitlab access token clear secret info"],
-      "body_bytes": 4124,
-      "body_sha256": "sha256:bd78e751194c2d6e570d0b3225bc770259333e089e7bbb2238dc5664dbc4cca7",
+      "body_bytes": 3563,
+      "body_sha256": "sha256:e5276359ab632b2c0642afaa7082948773548013c73e96297885414ff9cfe033",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3948,8 +3948,8 @@
     },
     {
       "aliases": ["code base integration gitlab enterprise"],
-      "body_bytes": 3117,
-      "body_sha256": "sha256:fd6458c49af33a9472ff6918ef0eaa2a292614a57b5af69b58e718b436a0dd07",
+      "body_bytes": 2575,
+      "body_sha256": "sha256:dfb75b7f732ce4195ea99b50ecb27fc7dd375b50e8fe412e1783512187fa70fd",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -4045,8 +4045,8 @@
     },
     {
       "aliases": ["code base integration gitlab enterprise access token"],
-      "body_bytes": 2817,
-      "body_sha256": "sha256:b5d669d5ecf7607e83aa26488440f79f16d22c5371cd31e1151ac101c14229a4",
+      "body_bytes": 1993,
+      "body_sha256": "sha256:f1181ef8214ecb0982d50bfd79236ccb25c9d187fca2692b989a68ce7ffc09d4",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -4152,8 +4152,8 @@
     },
     {
       "aliases": ["code base integration gitlab enterprise access token blindfold secret info"],
-      "body_bytes": 5377,
-      "body_sha256": "sha256:caa5710dbf3cf5c90f29711ea50ec945ea0f86d6b6073a693688291d317bc65d",
+      "body_bytes": 4660,
+      "body_sha256": "sha256:53b143a0ed528ab468b62360bc1f6e5646ed4a0241d8fed9300d3de3ac80c3b1",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4262,8 +4262,8 @@
     },
     {
       "aliases": ["code base integration gitlab enterprise access token clear secret info"],
-      "body_bytes": 4234,
-      "body_sha256": "sha256:b5e50580271e501e0af4b2e57243fe2cdff6d9702b2c4d7154b8dfe052c78af0",
+      "body_bytes": 3651,
+      "body_sha256": "sha256:04a29e8f0d3a047ff37ea16c1df78e6ae8fa064ed6ec733371a3533170c7371d",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4346,8 +4346,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2285,
-      "body_sha256": "sha256:f66465309ab7a11222adc40e27b42ba1584df79a8b9eac1bdca3977a45b5b1a1",
+      "body_bytes": 2024,
+      "body_sha256": "sha256:28170b3d3f38b121a2e54001fcd4419cdb9a4416caa3c2bcfa06004b49371fcb",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4478,8 +4478,8 @@
     },
     {
       "aliases": ["code base integration"],
-      "body_bytes": 687,
-      "body_sha256": "sha256:bd90be85818082c00b42940ebc8f6f1054a40b8ee3963c34e35fd557617f35d6",
+      "body_bytes": 429,
+      "body_sha256": "sha256:5a32e486cedcee2f747089117c7b32e0cfa3cdafadf0b1e2c54417dd54fd3458",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:code_base_integration:example:resource"],
@@ -4518,8 +4518,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1326,
-      "body_sha256": "sha256:5fb34bcc68cfa07739e8330379e2bf8004dc1cd3d09c31076261c858282cb2c5",
+      "body_bytes": 1077,
+      "body_sha256": "sha256:e25b85f161dbadb601edde3ea13fa4ddd43f9a7b1235a6390a34038724eecb33",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4565,8 +4565,8 @@
     },
     {
       "aliases": ["code base integration"],
-      "body_bytes": 525,
-      "body_sha256": "sha256:aeb9eaa61976ab4e7e9dedab073eff091d875d2c709f00c4014723cf6b98ef30",
+      "body_bytes": 388,
+      "body_sha256": "sha256:6be021b99652c47495b8785843b582182dbdce956d9be4f3fff1ffbf93a6600c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4606,8 +4606,8 @@
     },
     {
       "aliases": ["code base integration"],
-      "body_bytes": 613,
-      "body_sha256": "sha256:15bdf943990c89e4ea4223aabcfd31575793692a7cc638c88d19209584ca4ce7",
+      "body_bytes": 476,
+      "body_sha256": "sha256:52c77743c689191938c7cf4a589a2796c27b0726965e13de2fbad5af3c8448ab",
       "capabilities": [],
       "category": null,
       "child_ids": [],

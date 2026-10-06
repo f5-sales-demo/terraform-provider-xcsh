@@ -405,8 +405,8 @@
   "pages": [
     {
       "aliases": ["k8s cluster"],
-      "body_bytes": 1608,
-      "body_sha256": "sha256:9b5862fd718e6b31cad0c29d052e32a01729e95f96af76b73a2e29a522879518",
+      "body_bytes": 1621,
+      "body_sha256": "sha256:bebb93691ec3de467db0aa506b810e0dc162236d17e1e539c978b3104754439b",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -451,8 +451,8 @@
     },
     {
       "aliases": ["k8s cluster"],
-      "body_bytes": 31361,
-      "body_sha256": "sha256:ee86b6f43331703659bb047247b3166c2b9579548a76d52d51751b1c431abfbd",
+      "body_bytes": 28087,
+      "body_sha256": "sha256:48b5b9a0ef41f9152b6cf63326ceb4eaaa19ddf8a7d59f3433698f6e33728d36",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -985,8 +985,8 @@
     },
     {
       "aliases": ["cluster scoped access deny"],
-      "body_bytes": 1686,
-      "body_sha256": "sha256:06211a8fd10761d992caa01bebe8794a3d5e2ce43a1dc907ff414e590413ebfc",
+      "body_bytes": 1440,
+      "body_sha256": "sha256:90f4cc78e1a0b30b51bee449c9c5691dbd7131d4747590e9dd5e488f98a2a848",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -1025,8 +1025,8 @@
     },
     {
       "aliases": ["cluster scoped access permit"],
-      "body_bytes": 1121,
-      "body_sha256": "sha256:bdfa8d10a103f99eef46cd38e61de5347d2f8202aaadfbc552f515a18a0417b5",
+      "body_bytes": 875,
+      "body_sha256": "sha256:eb2de4275f2b83e844d5eef98781f034541d02bfcb3fe9b6945859545736058a",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -1065,8 +1065,8 @@
     },
     {
       "aliases": ["cluster wide app list"],
-      "body_bytes": 2122,
-      "body_sha256": "sha256:53de52969f3b67023a9b83a252935039d4a83393385167fb6bd60f78d91b8c37",
+      "body_bytes": 1657,
+      "body_sha256": "sha256:d62a1f79b85a341ce0c5b0ef89bd17b5ba3860d36fb7d0d981ed8f2dc61657b5",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:resources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps"],
@@ -1226,8 +1226,8 @@
     },
     {
       "aliases": ["cluster wide app list cluster wide apps"],
-      "body_bytes": 4104,
-      "body_sha256": "sha256:b3edb0d826fd44d05a3b8e6bff76834e8eeb98f677b4fbfacfeae3e6982de21f",
+      "body_bytes": 3001,
+      "body_sha256": "sha256:b1d6bb4f19acb9bbf433bdd0387f4b94078262fef5aa06c48485dcf92868f4f3",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -1425,8 +1425,8 @@
     },
     {
       "aliases": ["cluster wide app list cluster wide apps argo cd"],
-      "body_bytes": 1985,
-      "body_sha256": "sha256:58c223e24c3cf1615d5d50976c8f945bc0ebbad2ff181ea757b6331421302e47",
+      "body_bytes": 1381,
+      "body_sha256": "sha256:e1c1b95eb875e1a64e566a2acea44648c39fcd2d2179b5b5374115195d79b53e",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -1507,8 +1507,8 @@
     },
     {
       "aliases": ["cluster wide app list cluster wide apps argo cd local domain"],
-      "body_bytes": 5699,
-      "body_sha256": "sha256:0eca50e1c13c3ef6b1d057e22632025a9723c2c9373460962a668dc512403d94",
+      "body_bytes": 4769,
+      "body_sha256": "sha256:a19f346542e4a8ab268f15c80007910ccbdbb0bb1ca1036113e3932fbf653a53",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -1649,8 +1649,8 @@
     },
     {
       "aliases": ["cluster wide app list cluster wide apps argo cd local domain default port"],
-      "body_bytes": 2020,
-      "body_sha256": "sha256:d133d73569f89fedba17af6104275f4993b5892f1feead05c641d94cd2ec969b",
+      "body_bytes": 1671,
+      "body_sha256": "sha256:696db2d492786c098d319aa97a51d65ab2600fa6bbee792b8018c9cebd95d002",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -1689,8 +1689,8 @@
     },
     {
       "aliases": ["cluster wide app list cluster wide apps argo cd local domain password"],
-      "body_bytes": 3279,
-      "body_sha256": "sha256:603039d259a2f60efac36dfe3ecf2747836506e87d58568be1dee63dfb0f0a3a",
+      "body_bytes": 2395,
+      "body_sha256": "sha256:4b2ec12ffaf13f7ffed189fb3cfc44fe9df6cb99b91e8af997a0855bfe22273e",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -1810,8 +1810,8 @@
     },
     {
       "aliases": ["cluster wide app list cluster wide apps argo cd local domain password blindfold secret info"],
-      "body_bytes": 5854,
-      "body_sha256": "sha256:addc54c3145a00b1daed197dbf75da0eb152d2ba43ce8face5a8b22afac5f4b7",
+      "body_bytes": 5133,
+      "body_sha256": "sha256:863cc7547e517ca025a6d040bfd0498ecda1d6ac4a517b8dd3ed5ce421934d54",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -1939,8 +1939,8 @@
     },
     {
       "aliases": ["cluster wide app list cluster wide apps argo cd local domain password clear secret info"],
-      "body_bytes": 4692,
-      "body_sha256": "sha256:113f18ed0999978e6f9dde631e42e3e9449ab26ba4afa21cf0f4bdada023a916",
+      "body_bytes": 4105,
+      "body_sha256": "sha256:a2af243c96781ea4258568159335a7b3ed533fcbe8e215dff15294b31a48848c",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2042,8 +2042,8 @@
     },
     {
       "aliases": ["cluster wide app list cluster wide apps dashboard"],
-      "body_bytes": 1526,
-      "body_sha256": "sha256:fb0cbde7bf77ce54a2b37716910adc0cc36ec0a6115990917aa9dca6d64ab31a",
+      "body_bytes": 1146,
+      "body_sha256": "sha256:c694d30e0ccd7376a356085147b7c51b5605586ed6580fd35d25b2fc5e50819e",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2082,8 +2082,8 @@
     },
     {
       "aliases": ["cluster wide app list cluster wide apps metrics server"],
-      "body_bytes": 1589,
-      "body_sha256": "sha256:780ca9514fd63da9724e6d4c28de4458d1a26b8bf4ae4ef72440c7326648be23",
+      "body_bytes": 1185,
+      "body_sha256": "sha256:9381577dd9dd41dee163ef2d76d9fe22aada2bc23cf148748834abfeaa0d1e75",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2122,8 +2122,8 @@
     },
     {
       "aliases": ["cluster wide app list cluster wide apps prometheus"],
-      "body_bytes": 1551,
-      "body_sha256": "sha256:351ca9d8549707ee3a053f115784a4b3981c366d686ed4b006e1cea5fcdbdd28",
+      "body_bytes": 1160,
+      "body_sha256": "sha256:00e440d74c69649214b58704b316a103eb8e3b094abeba7fff24b2301c6b275b",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2162,8 +2162,8 @@
     },
     {
       "aliases": ["global access enable"],
-      "body_bytes": 1599,
-      "body_sha256": "sha256:46215fceccf623ff07a709852cb9fd0a4a53dc834948b47999c42a4e2298ee1a",
+      "body_bytes": 1353,
+      "body_sha256": "sha256:0df9a66c050f78de7a3852fff14a75d8494ce41494159ec55f60f35b27b1a0b5",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2202,8 +2202,8 @@
     },
     {
       "aliases": ["insecure registry list"],
-      "body_bytes": 3461,
-      "body_sha256": "sha256:9d6e94139e614dfa9378b9b926a46de3e6ecb64e281fcf9bb5b5d6e3cfd68587",
+      "body_bytes": 3177,
+      "body_sha256": "sha256:f1c978a2b2201ca429c4172028b3a0964ba35ce89fd57cd8928c63970e08f9f6",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2266,8 +2266,8 @@
     },
     {
       "aliases": ["local access config"],
-      "body_bytes": 4959,
-      "body_sha256": "sha256:972171515e7be7939b88f258e1442225e474e5230da687694c50008ce3c49834",
+      "body_bytes": 4343,
+      "body_sha256": "sha256:2978903b026b1a34110c54337f741308f7c13f9a2a9a7cbe406467bb895afdca",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:resources:k8s_cluster:properties:local_access_config:default_port"],
@@ -2374,8 +2374,8 @@
     },
     {
       "aliases": ["local access config default port"],
-      "body_bytes": 1269,
-      "body_sha256": "sha256:67978e6187f69fa4624cfcba7460668581e0475892e0c35b6d9c708eb0b8697e",
+      "body_bytes": 1002,
+      "body_sha256": "sha256:9b6696c966d740b7aa2c689fdd3bcb94237b88a000432d3aa62fd7d6d0512f11",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2414,8 +2414,8 @@
     },
     {
       "aliases": ["no cluster wide apps"],
-      "body_bytes": 1170,
-      "body_sha256": "sha256:d71a835053302ac2cc1641aa04d29ff53bb89ee1db4dfdb7b9b42b85916138c0",
+      "body_bytes": 924,
+      "body_sha256": "sha256:77fe9f82e41345237c7cf5852035a9e7a1dd7c50cb589e266dd58ce8d245c216",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2454,8 +2454,8 @@
     },
     {
       "aliases": ["no global access"],
-      "body_bytes": 1184,
-      "body_sha256": "sha256:71de865be01c116d8507dfd8d6e4e0947afb5f13d87f95c4f7bba94ed25a3c91",
+      "body_bytes": 938,
+      "body_sha256": "sha256:4b6fbba48a3504b3598aeab17f357d642162c3e351b9ae393e2451fef9a05e20",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2494,8 +2494,8 @@
     },
     {
       "aliases": ["no insecure registries"],
-      "body_bytes": 1176,
-      "body_sha256": "sha256:2a0f02bb4e7ca79f296124d0d1a78464ad30d662e91785a8d8119bf14087d6fd",
+      "body_bytes": 930,
+      "body_sha256": "sha256:a66d34924d6fdb1d58ffa8141020d196f9984dd8923255aff39328ae815d27ad",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2534,8 +2534,8 @@
     },
     {
       "aliases": ["no local access"],
-      "body_bytes": 1180,
-      "body_sha256": "sha256:54b4ddf793162a3961d643f15c437c0b91c63ecc842dc541e5ec57e1bf095b30",
+      "body_bytes": 934,
+      "body_sha256": "sha256:e997f090f559c7a1b5833a567a0bc842f03960ea59db8b69d5e9722336be3c7c",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2574,8 +2574,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2225,
-      "body_sha256": "sha256:6ba121c40037cecc7c4461d2b81329db32a4aa68ce3bd1cac9acbaa6c21f6ddf",
+      "body_bytes": 1994,
+      "body_sha256": "sha256:7146115b98049eed19c27660afc69a8ca919bdd8f68ccf5c17999a0fc9889e54",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2706,8 +2706,8 @@
     },
     {
       "aliases": ["use custom cluster role bindings"],
-      "body_bytes": 2315,
-      "body_sha256": "sha256:b47a152558dedcc78abce801cc6758eeaa5153b16e2d74af9a9d2feb13a16cab",
+      "body_bytes": 1795,
+      "body_sha256": "sha256:6cad01bbb110e76105ac8e0bea41dd57f627feaa31075763e5c61e7c58639586",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -2781,8 +2781,8 @@
     },
     {
       "aliases": ["use custom cluster role bindings cluster role bindings"],
-      "body_bytes": 6815,
-      "body_sha256": "sha256:ad8f9f7d30a92db33becc7841246eae849ad0cb805921c658f3052cb19624b67",
+      "body_bytes": 6034,
+      "body_sha256": "sha256:5e16beabd10ebd1f654531f01df25b472bf43d1114b63228be5b67305a811ba9",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2873,8 +2873,8 @@
     },
     {
       "aliases": ["use custom cluster role list"],
-      "body_bytes": 2189,
-      "body_sha256": "sha256:e69427e3177de4ed78eff84fde1b82388e2e4538ab27ba1c15f0ba86131e486d",
+      "body_bytes": 1701,
+      "body_sha256": "sha256:7c5ee33d54c39c8e5e3955e449ececeec26eb44173436b8c0805a5c279636fc0",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:resources:k8s_cluster:properties:use_custom_cluster_role_list:cluster_roles"],
@@ -2946,8 +2946,8 @@
     },
     {
       "aliases": ["use custom cluster role list cluster roles"],
-      "body_bytes": 6723,
-      "body_sha256": "sha256:0d56ffb654bdd2fedbd2ff1ab27e75a09fecc7deab05887324bc43117d0f6356",
+      "body_bytes": 5950,
+      "body_sha256": "sha256:ce7f82a25bc21b8161d75e7809566c962821874a5e5e679e6a8f59d00dfc2712",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -3038,8 +3038,8 @@
     },
     {
       "aliases": ["use custom pod security admission"],
-      "body_bytes": 6537,
-      "body_sha256": "sha256:c2d349817371edf5475ef0f925b4e339d11714fdfde52089d28a3a79aa301645",
+      "body_bytes": 5756,
+      "body_sha256": "sha256:73a5317678fd1bbd177e0cc0250eb33d2470b039f1096ef43da10ac208fe22e3",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -3130,8 +3130,8 @@
     },
     {
       "aliases": ["use custom psp list"],
-      "body_bytes": 2113,
-      "body_sha256": "sha256:e5bfcc376bc59a04f87e05ae4f44c6feca3b3299c3e1b0859ec9a4748d5ab451",
+      "body_bytes": 1623,
+      "body_sha256": "sha256:538aac577af1956c863bb3d03b834c1cb87595dfbaa53d0e850acc03762eedae",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:resources:k8s_cluster:properties:use_custom_psp_list:pod_security_policies"],
@@ -3203,8 +3203,8 @@
     },
     {
       "aliases": ["use custom psp list pod security policies"],
-      "body_bytes": 6690,
-      "body_sha256": "sha256:204a54b3315ed98e2efd36baff27f333b70898ca751dfb809863edb41e348d8e",
+      "body_bytes": 5935,
+      "body_sha256": "sha256:89fb22a312678a17c7c91bdf9ea8667ea6c32756a2eae61292b1542de8f411bd",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -3295,8 +3295,8 @@
     },
     {
       "aliases": ["use default cluster role bindings"],
-      "body_bytes": 1209,
-      "body_sha256": "sha256:56ca56c2ebfb997926edf5fd0efae4f55b9df0645cac8efbb8ebd3e28421e7f7",
+      "body_bytes": 963,
+      "body_sha256": "sha256:b8ac3d20e1c4c339fa7fedad732a24f0d33e4540550eea092eb62d3dd195b3d5",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -3335,8 +3335,8 @@
     },
     {
       "aliases": ["use default cluster roles"],
-      "body_bytes": 1185,
-      "body_sha256": "sha256:7908f16ddaa5d63efd033e5b7c1f29e5d59c497dac3c66c9460e2799951044f8",
+      "body_bytes": 939,
+      "body_sha256": "sha256:993f7af6121dd414e808cc350a0b73cb4fe9808382d03d5ac0382fa698ef03eb",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -3375,8 +3375,8 @@
     },
     {
       "aliases": ["use default pod security admission"],
-      "body_bytes": 1139,
-      "body_sha256": "sha256:e3ab311665fef8a69248fe34c29cecbb527d671980ff2a91b445160ce20bfc9c",
+      "body_bytes": 893,
+      "body_sha256": "sha256:dd167313a7f65928ca31729a04fedd39f3af3605f4c382607ad29ae6dab59c6f",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -3415,8 +3415,8 @@
     },
     {
       "aliases": ["use default psp"],
-      "body_bytes": 1180,
-      "body_sha256": "sha256:2ad4031ea45144297f24887b74e2a544d85ac371f89b8b109088e263e0fef98c",
+      "body_bytes": 934,
+      "body_sha256": "sha256:72525ed913044ccca5459d7bb494d787a4185fbbde4c3df157ddc8fcd581e5d5",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -3455,8 +3455,8 @@
     },
     {
       "aliases": ["vk8s namespace access deny"],
-      "body_bytes": 1686,
-      "body_sha256": "sha256:1b5290312221bf8f8798cb21819069d10dc0d4821a8127c876e354745e6194ad",
+      "body_bytes": 1440,
+      "body_sha256": "sha256:a396043b7c459a3e7f26f1822c4cfb7e14c4efea47c009b6d9e85a6ef7fc30ec",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -3495,8 +3495,8 @@
     },
     {
       "aliases": ["vk8s namespace access permit"],
-      "body_bytes": 1121,
-      "body_sha256": "sha256:a81008a91583fdfacb7e4ffd458a2671520f078f6d5a47d05698ff0b69777077",
+      "body_bytes": 875,
+      "body_sha256": "sha256:1287ee3fcabddfb41d8d52e292c982d00def1f98a5ec9bfebefeef0cf7157a80",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -3535,8 +3535,8 @@
     },
     {
       "aliases": ["k8s cluster"],
-      "body_bytes": 627,
-      "body_sha256": "sha256:a497fe92ec98a3766b6cf0cd9001de028c3c73f972ccc90fbd76f35ac4ec240d",
+      "body_bytes": 399,
+      "body_sha256": "sha256:5e7654847992f9cfa8905f09bf1bc13e4e6d820529d882ef671f74972f25656d",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:resources:k8s_cluster:example:resource"],
@@ -3575,8 +3575,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1288,
-      "body_sha256": "sha256:8ae21d45785ebd6e9c14b56e63b1380f33e1cf12ce41389cd63575506c14b476",
+      "body_bytes": 1069,
+      "body_sha256": "sha256:bfdb436b840e1a4bd539f13f68ee7734ff3cbe8644445557299b7f6417f180e3",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -3622,8 +3622,8 @@
     },
     {
       "aliases": ["k8s cluster"],
-      "body_bytes": 475,
-      "body_sha256": "sha256:adf7df3f0acc26ed76b5b4286232d14f777caaea9ae168ea8a5490908111adfa",
+      "body_bytes": 358,
+      "body_sha256": "sha256:3fd801e8deb4a6f56aab7460766ba6ec56613cea9db051af91a6f02e1c049b0d",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -3663,8 +3663,8 @@
     },
     {
       "aliases": ["k8s cluster"],
-      "body_bytes": 563,
-      "body_sha256": "sha256:49d90c220ec41f189262cb9db473d141b48459ef034ca8ec36991d257a1dbfc5",
+      "body_bytes": 446,
+      "body_sha256": "sha256:68ac5f8f843507da3e55722733fe2ba744e010278e54ab4eb2dbe5340205dfc0",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],

@@ -16,8 +16,8 @@
   "pages": [
     {
       "aliases": ["infraprotect synchronize configuration"],
-      "body_bytes": 1409,
-      "body_sha256": "sha256:7843a630e4460b4cc28448b6877b6c4aa0150fe5762c9f706bf0b1d2ebf9fee0",
+      "body_bytes": 1447,
+      "body_sha256": "sha256:3ec6b5f30030555f7792c944908cf031508f8c036f8ff82735154d8781fc4041",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -49,7 +49,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/infraprotect_synchronize_configuration/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource creation operation.",
+      "summary": "Synchronizes infrastructure protection configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_infraprotect_synchronize_configuration",
       "unresolved_relationships": [],
@@ -61,8 +61,8 @@
     },
     {
       "aliases": ["infraprotect synchronize configuration"],
-      "body_bytes": 1034,
-      "body_sha256": "sha256:8771ff92306f8ac8133730fafc41c1b0e3e3486a935414db47d6df1ee9c50fc1",
+      "body_bytes": 865,
+      "body_sha256": "sha256:4709331f5d2335e0c9002341809ea1b2da9c4e25eeb28fde3cb14a8d9c692eef",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -116,8 +116,8 @@
     },
     {
       "aliases": ["infraprotect synchronize configuration"],
-      "body_bytes": 773,
-      "body_sha256": "sha256:b3b7bf7d5ff5908a731eebd72443420fcb1ef3015dd62daf30098329b5598493",
+      "body_bytes": 472,
+      "body_sha256": "sha256:5cbf185dbff908b414951f838ccb3c29548a64fe07ed08841c9a5fdc3a548399",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:actions:infraprotect_synchronize_configuration:example:action"],
@@ -156,8 +156,8 @@
     },
     {
       "aliases": ["action"],
-      "body_bytes": 1340,
-      "body_sha256": "sha256:d4593cb480193028e02e4586ef680dba485dcb583cbe1a0e41bed11a8b1d490a",
+      "body_bytes": 1044,
+      "body_sha256": "sha256:4da2c8b3d1b05c564c7fa009a4ae1bd61f304f051c7a2e1208c2ab5751183b67",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -203,8 +203,8 @@
     },
     {
       "aliases": ["infraprotect synchronize configuration"],
-      "body_bytes": 702,
-      "body_sha256": "sha256:e95a321a78b078d7fccb7b9cdd32e829816317e616cfbf827d09b2bff81413dd",
+      "body_bytes": 533,
+      "body_sha256": "sha256:2dcb0f24f0183c56d500b25ae64d09fd3c36f114f652b29e5d69686bd28729da",
       "capabilities": [],
       "category": null,
       "child_ids": [],

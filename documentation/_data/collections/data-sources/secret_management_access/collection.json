@@ -874,8 +874,8 @@
   "pages": [
     {
       "aliases": ["secret management access"],
-      "body_bytes": 1487,
-      "body_sha256": "sha256:645c4f3f2d54f0b6baf35f9405dd61c1565252184a518a941dd2463b83bced1f",
+      "body_bytes": 1447,
+      "body_sha256": "sha256:53a71b0082dbb5e1339db61fcb9f8721f360d3aa324a4e41e670c6ee14bc4a28",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -906,7 +906,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages secret_management_access creates a new object in storage backend for metadata.namespace in F5 Distributed Cloud.",
+      "summary": "Reads Secret Management Access information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_secret_management_access",
       "unresolved_relationships": [],
@@ -918,8 +918,8 @@
     },
     {
       "aliases": ["secret management access"],
-      "body_bytes": 50059,
-      "body_sha256": "sha256:e9e971d907e6fc7a4cc86864f70f50c2fc9e04b47653ac0c7c12229b72675c79",
+      "body_bytes": 49690,
+      "body_sha256": "sha256:1354f95a46014d3cd4f3aa7975b9bc14f4adead34ea7e3ecc10921a96db80de0",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -1088,8 +1088,8 @@
     },
     {
       "aliases": ["access info"],
-      "body_bytes": 3733,
-      "body_sha256": "sha256:3e8e7be8e55ab2d482e279f611dcaf6d313cace53cd4322d03ce44b7a8689bff",
+      "body_bytes": 2869,
+      "body_sha256": "sha256:8aebd59ae2c15aa0392e74e72371996e119254039191089677b54356b29bf394",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -1203,8 +1203,8 @@
     },
     {
       "aliases": ["access info rest auth info"],
-      "body_bytes": 2415,
-      "body_sha256": "sha256:18fd5a732a26c2ad108077456d3b01f186853312425de98a741c64e596773737",
+      "body_bytes": 1555,
+      "body_sha256": "sha256:bf4a3a10558a4ddf4aa358ee7b4eed0311d9e9a126bbae0e94c3ae570a8eb706",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -1290,8 +1290,8 @@
     },
     {
       "aliases": ["access info rest auth info basic auth"],
-      "body_bytes": 2570,
-      "body_sha256": "sha256:8d2e9d93ad85407db20b3839023728700a2bd6fef2caee771c97d4bd35122132",
+      "body_bytes": 2054,
+      "body_sha256": "sha256:3cb89f21260d863c4476f8ab537e9386ea5e435784fb41616203e8b0162bec90",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -1361,8 +1361,8 @@
     },
     {
       "aliases": ["access info rest auth info basic auth password"],
-      "body_bytes": 2663,
-      "body_sha256": "sha256:4ba81c75ff88cb3e1164ee5e5e05771e4c02bd05683d33ca794aa61f77e0d07f",
+      "body_bytes": 1840,
+      "body_sha256": "sha256:309de9d4010d33a244df06586819646bc2ce136541a83825053fcaedc97f0d54",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -1433,8 +1433,8 @@
     },
     {
       "aliases": ["access info rest auth info basic auth password blindfold secret info"],
-      "body_bytes": 5093,
-      "body_sha256": "sha256:76a43f014550530dfd809baec234fd2220d4a4071ad1175c24cb79388144296f",
+      "body_bytes": 4373,
+      "body_sha256": "sha256:9f64a125ba1737f73b9734a7baa1b37f6a88cb502f8252e955a5a406e9c2a9f2",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -1537,8 +1537,8 @@
     },
     {
       "aliases": ["access info rest auth info basic auth password clear secret info"],
-      "body_bytes": 3964,
-      "body_sha256": "sha256:3bfd0c0e4acd021a9f9a70410108af6f4a1da63cab20befd44225b6706350407",
+      "body_bytes": 3378,
+      "body_sha256": "sha256:dab7b07aa556942eebbaab63e63a1a3f0584337cba2bdcae0f8c7b49450a878d",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -1613,8 +1613,8 @@
     },
     {
       "aliases": ["access info rest auth info headers auth"],
-      "body_bytes": 1790,
-      "body_sha256": "sha256:3ebcc9d4fc4313605a5989511275485bedc074c8e872fb5a0f64e1a6a3adaba5",
+      "body_bytes": 1272,
+      "body_sha256": "sha256:a0250b04c6eddef51508bc31c9090b436bcdd61d9e127555f0fe852cb86cee98",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -1670,8 +1670,8 @@
     },
     {
       "aliases": ["access info rest auth info headers auth headers"],
-      "body_bytes": 2523,
-      "body_sha256": "sha256:d5e887324f4eda27686fcac60cb75fa5e93b1810a641245e1d6bd29938479521",
+      "body_bytes": 2164,
+      "body_sha256": "sha256:747f4cf13cc1eecf777ab83d9800b96947443c0ae51a20635d9097da553eafdb",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -1710,8 +1710,8 @@
     },
     {
       "aliases": ["access info rest auth info query params auth"],
-      "body_bytes": 1845,
-      "body_sha256": "sha256:16b640cc9870fbd5ce2b8922eb2ff8e7c357b94685558958e3fd2101c3475154",
+      "body_bytes": 1307,
+      "body_sha256": "sha256:4ce1b0c01ce5a0106f6ecfa70664eaafba3544e988b1d0b6c3bf846eebcaba32",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -1767,8 +1767,8 @@
     },
     {
       "aliases": ["access info rest auth info query params auth query params"],
-      "body_bytes": 2575,
-      "body_sha256": "sha256:4db1cfe31c0ebe912fdaed14f0e6be66365ae7cc210ab3cacd077bba600c3df6",
+      "body_bytes": 2206,
+      "body_sha256": "sha256:22feadb0ed2d21476c6d15f63ff36814ec2286fb263e37760986f5019c02fb36",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -1807,8 +1807,8 @@
     },
     {
       "aliases": ["access info tls config"],
-      "body_bytes": 5977,
-      "body_sha256": "sha256:307cdf0e5920ad45523e4709fdcf6b0ef1eece8f7aaaac8a389c47938d23b8d8",
+      "body_bytes": 4269,
+      "body_sha256": "sha256:a152a2a7ad2aa6fdae9af3ce6b94545595eb661b091db5951c0288f2e0e9a4eb",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -1967,8 +1967,8 @@
     },
     {
       "aliases": ["access info tls config cert params"],
-      "body_bytes": 8744,
-      "body_sha256": "sha256:82e6b3e8740f92a9568faffc43e8411e77670218eaa61ab626ba4a50f39eed2b",
+      "body_bytes": 6926,
+      "body_sha256": "sha256:d9747fdc98f542308eb7e5f7654101a79f32c3de4d5f45ae1192424ff4570c3a",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -2123,8 +2123,8 @@
         "existing certificates",
         "tls certificates"
       ],
-      "body_bytes": 6701,
-      "body_sha256": "sha256:b4e37190dd07a3fc8f3e986af313a73cd0fea4f449d309ba17a09a04e2edfa2d",
+      "body_bytes": 5684,
+      "body_sha256": "sha256:7ffd78921fb8fcc519e222386e9b343e0f4ad8251aa1136a09f0865273f9e367",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -2234,8 +2234,8 @@
     },
     {
       "aliases": ["access info tls config cert params skip server verification"],
-      "body_bytes": 1726,
-      "body_sha256": "sha256:7976fcaf9b627de2095ee1f666a461d1c1cd3f62f2bb4ad2acb4828cb23ae798",
+      "body_bytes": 1384,
+      "body_sha256": "sha256:11b1c874696db215a3c645157818b41726e22943c90ff0ee59ba51283c2da1c0",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -2274,8 +2274,8 @@
     },
     {
       "aliases": ["access info tls config cert params tls validation params"],
-      "body_bytes": 4947,
-      "body_sha256": "sha256:de1b518cf9ad7847d7f0c2284edcc9ea5642bf9fc1af5d91f72a54a16de2502f",
+      "body_bytes": 3736,
+      "body_sha256": "sha256:1f73885a1bfe782c0797aa353200a087299b27cf6e27e4bac8bdf482da2533c2",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -2385,8 +2385,8 @@
     },
     {
       "aliases": ["access info tls config cert params tls validation params trusted ca"],
-      "body_bytes": 2478,
-      "body_sha256": "sha256:90cb659bd9663f4e4bc0e16bd7a00b5701eb49c82d3e87536298a7be9efd3707",
+      "body_bytes": 1770,
+      "body_sha256": "sha256:e51feafa0b18e564ab4f272ea47ab353129a7df4985ac8ce6b2212632cefa5e1",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -2449,8 +2449,8 @@
     },
     {
       "aliases": ["access info tls config cert params tls validation params trusted ca trusted ca list"],
-      "body_bytes": 7661,
-      "body_sha256": "sha256:3757ac5f6900eefde019757117e28e42707fbc8ab1da3f9f0c6cee7fb670e553",
+      "body_bytes": 6520,
+      "body_sha256": "sha256:769b3e121aabbcb25d2aa2606e168358e114737e68b8c4984c52d1c0bfaf912f",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -2607,8 +2607,8 @@
     },
     {
       "aliases": ["access info tls config cert params volterra trusted ca"],
-      "body_bytes": 1746,
-      "body_sha256": "sha256:f9e9aa0741ea2d9c0ec138501c0718c7498d206f767dc2c1686b14771c775b8b",
+      "body_bytes": 1404,
+      "body_sha256": "sha256:d7c9816fdde8bc798147725983e22405ae2f39b09f6dfc60f861b0efaee05b38",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -2647,8 +2647,8 @@
     },
     {
       "aliases": ["access info tls config common params"],
-      "body_bytes": 7897,
-      "body_sha256": "sha256:8176eb0946be07ed44cfb6f6f5608d8790b13a2dd3d2f15b31ccf9a074d180b4",
+      "body_bytes": 6393,
+      "body_sha256": "sha256:b89dc4aebdf4d6d58e9efd7bdd72b5ebc3efe8916e7cdbd6bc237445f4a08edf",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -2773,8 +2773,8 @@
         "existing certificates",
         "tls certificates"
       ],
-      "body_bytes": 5232,
-      "body_sha256": "sha256:98d7881aaf4dee37633fd6f0b132542edf40ff4eec64915d438a0fcfa0a251ce",
+      "body_bytes": 3707,
+      "body_sha256": "sha256:1fc7d2b3ed2dd962a6e04c95062a978560d594bfc063a6811f35a805ca4f487a",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -2909,8 +2909,8 @@
     },
     {
       "aliases": ["access info tls config common params tls certificates custom hash algorithms"],
-      "body_bytes": 3336,
-      "body_sha256": "sha256:4d46abd82476a0a6c8d81655f6906be4d64ee7e868ef7cced6b2ab0eea346160",
+      "body_bytes": 2903,
+      "body_sha256": "sha256:604df08468c5fec7a409c7514937e90a1f84a9ec68a44be083be3cedf2c9761e",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -2971,8 +2971,8 @@
     },
     {
       "aliases": ["access info tls config common params tls certificates disable ocsp stapling"],
-      "body_bytes": 2051,
-      "body_sha256": "sha256:39200999190a31f2505a628d00290ee8becc1ff6abf6ef8492b90314e4f3421b",
+      "body_bytes": 1671,
+      "body_sha256": "sha256:a008cf2aaafcfa3d5728719da99aa1028f9ed963233af516b487c8ab825097cf",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -3011,8 +3011,8 @@
     },
     {
       "aliases": ["access info tls config common params tls certificates private key"],
-      "body_bytes": 3056,
-      "body_sha256": "sha256:23f49331c8c7f13aa4887f26f040cd386ec1d0985d5f8f4a3853595a2b23d59b",
+      "body_bytes": 2125,
+      "body_sha256": "sha256:66a1a195ff15dcb3be2cf7c1c53b088e4b35bf770ccea7e14dce2cd6e463db59",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -3097,8 +3097,8 @@
     },
     {
       "aliases": ["access info tls config common params tls certificates private key blindfold secret info"],
-      "body_bytes": 5476,
-      "body_sha256": "sha256:b5fabc530cd247a8c47ed9907d0233d6a4ec28fe12d096768d3927f9f56a36d9",
+      "body_bytes": 4718,
+      "body_sha256": "sha256:9c4279d1b822925ba3729e0f3bcfdbfe1b0c2672ba7febd29e6cb69c85c5a86a",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -3217,8 +3217,8 @@
     },
     {
       "aliases": ["access info tls config common params tls certificates private key clear secret info"],
-      "body_bytes": 4327,
-      "body_sha256": "sha256:cba72a9cac38dc161ae6ba1c2d356ddcde148d8d6297b3c3a0ef29c6d63fffa1",
+      "body_bytes": 3703,
+      "body_sha256": "sha256:70a0830fa94089957036db7807a16721c93e6125bec37b5a04bbd5102dea24a9",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -3311,8 +3311,8 @@
     },
     {
       "aliases": ["access info tls config common params tls certificates use system defaults"],
-      "body_bytes": 2045,
-      "body_sha256": "sha256:301fccc0c7e3fd7c5bb5dd3ccaa65de05da1389ba9877bd81e98a5c0512a38d1",
+      "body_bytes": 1665,
+      "body_sha256": "sha256:ecdf6913081fb3b47bd92db467a42ada078b76d540a01729e8f8b88efc3ff867",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -3351,8 +3351,8 @@
     },
     {
       "aliases": ["access info tls config common params validation params"],
-      "body_bytes": 4939,
-      "body_sha256": "sha256:905acd9c6e56eff5cef1a205f72a8aa1a6fe8a586615c0e24c7a0b9788c269aa",
+      "body_bytes": 3728,
+      "body_sha256": "sha256:02423c40ce30dffdb05bcaf11865a784c281fb5b3cff72b909521c8b76cbbfc3",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -3462,8 +3462,8 @@
     },
     {
       "aliases": ["access info tls config common params validation params trusted ca"],
-      "body_bytes": 2464,
-      "body_sha256": "sha256:2f37c4d878c4c2350684393592fceaaac74d2b39d9e67b1054b5263fc1310195",
+      "body_bytes": 1764,
+      "body_sha256": "sha256:135ce29837240787ecc67bec6bfe9b2fb803c26a969bcc14f39df7f0fd70090f",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -3526,8 +3526,8 @@
     },
     {
       "aliases": ["access info tls config common params validation params trusted ca trusted ca list"],
-      "body_bytes": 7639,
-      "body_sha256": "sha256:0edef5641cf0c7f8d80b74d942b8eedcefaa5e78b5fffba5aad74d8f5de899ce",
+      "body_bytes": 6502,
+      "body_sha256": "sha256:e461525190f16c1e3a5e2036a9ddcec205360330fb08c47713a15a240a343554",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -3684,8 +3684,8 @@
     },
     {
       "aliases": ["access info tls config default session key caching"],
-      "body_bytes": 1541,
-      "body_sha256": "sha256:55fc5a81aa36ce701688c1954e4ceb4f9b5dd411201be2b6ebb452b76fe7a2a9",
+      "body_bytes": 1223,
+      "body_sha256": "sha256:0ddcf38567768365b7714e80b15cc034a33b237dcca1632df7bacb853bce5488",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -3724,8 +3724,8 @@
     },
     {
       "aliases": ["access info tls config disable session key caching"],
-      "body_bytes": 1541,
-      "body_sha256": "sha256:98b44428590ccfb358c93ae96178f038087777b803d2cb6d23cb2ae00e20eb59",
+      "body_bytes": 1223,
+      "body_sha256": "sha256:c0adc3ca58e970a56c1954a628b7ca58f59f04ecaa22f1cbea0882af19ea7948",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -3764,8 +3764,8 @@
     },
     {
       "aliases": ["access info tls config disable sni"],
-      "body_bytes": 1493,
-      "body_sha256": "sha256:be448bbbb3a03c8e4510ba128fe08474e7feb7d8e7e967b3a2b43d0009711842",
+      "body_bytes": 1175,
+      "body_sha256": "sha256:cd62def05f16609a00a9bedaf14dccf1267133bc3ca03ba779a21f57a83f347c",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -3804,8 +3804,8 @@
     },
     {
       "aliases": ["access info tls config use host header as sni"],
-      "body_bytes": 1493,
-      "body_sha256": "sha256:55be711ad45b22233413cad7642bb7a215613dd3a98d623551630347ddb595d6",
+      "body_bytes": 1175,
+      "body_sha256": "sha256:02e84291226e35a076392b0995f1d3f40a2884b78e25170c3200c16d03af48f6",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -3844,8 +3844,8 @@
     },
     {
       "aliases": ["access info vault auth info"],
-      "body_bytes": 1978,
-      "body_sha256": "sha256:16452847e39eaaa15e784f17fbeb460586855c64bbc7fdbf45460eec9cedeea8",
+      "body_bytes": 1323,
+      "body_sha256": "sha256:e774141e397a91d76868f48ade882a8ac04f22c4b723d0f913f1268a92ef8e10",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -3916,8 +3916,8 @@
     },
     {
       "aliases": ["access info vault auth info app role auth"],
-      "body_bytes": 2486,
-      "body_sha256": "sha256:33f143e35aba585353afba5f7363f926a14c7f76b4ab64af7020e6c1ebb2e87c",
+      "body_bytes": 1895,
+      "body_sha256": "sha256:7eb50ebac125c858638d0d62293f8d721dcd9224ee0155108a28d517f71b1e12",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -3939,7 +3939,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0012301320210212-3110121123113000-2122321022210103-1322002120013000-2311021002123101-3121123121201133-3032133200103013-2133120000130022",
-      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -3987,8 +3987,8 @@
     },
     {
       "aliases": ["access info vault auth info app role auth secret id"],
-      "body_bytes": 2721,
-      "body_sha256": "sha256:c6c777262069f44332f7f5081bd48193d7b5041e5b7878bfd4c1bf0462a0bd90",
+      "body_bytes": 1870,
+      "body_sha256": "sha256:6f6055a6c44ca396bcf7c17d23847fcc077b4463049dd2c0aac78af0ffeaf2d7",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -4011,7 +4011,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2030321233233102-2312311211310012-1202222333323203-3112321211100133-1312211311100300-3011101111101112-0223223303202120-3300333012302020",
-      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4059,8 +4059,8 @@
     },
     {
       "aliases": ["access info vault auth info app role auth secret id blindfold secret info"],
-      "body_bytes": 5148,
-      "body_sha256": "sha256:6d5dc98573a6823db5276d33eb75c00286c4790a46d660b580e25f90bc62c427",
+      "body_bytes": 4418,
+      "body_sha256": "sha256:113465890c887aa44f6481dbf0e3b6d3aaf4da01b8f0888c5942ac7772484b28",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -4080,7 +4080,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1313201332032131-2130101023010103-3323213031000023-0211023332102230-1100103002222230-2202201123302213-0303312223222203-1020132213130330",
-      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4163,8 +4163,8 @@
     },
     {
       "aliases": ["access info vault auth info app role auth secret id clear secret info"],
-      "body_bytes": 4014,
-      "body_sha256": "sha256:0c72c6d0d39f92933e0a3bac03c34556c2c3e36999c8b79ffe6a99d588dc0910",
+      "body_bytes": 3418,
+      "body_sha256": "sha256:6acf146d92bbb3ac62ab03143fa4942166e83d9b3229263c5d610cea8310362b",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -4184,7 +4184,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3210131331231023-2130202300320212-3120220201021330-1100313132122113-3000202123200023-3001310010123021-0110223232203320-0003110101320221",
-      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4239,8 +4239,8 @@
     },
     {
       "aliases": ["access info vault auth info token"],
-      "body_bytes": 2354,
-      "body_sha256": "sha256:82ddf3a9f8fda50a980b367753e7acfeb2959869c44f77348feaed090f17af63",
+      "body_bytes": 1603,
+      "body_sha256": "sha256:2311928ec1cca74b517feee0a5462e7803f4c919004fdea1b87ef85d94a6d681",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -4263,7 +4263,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2200222113222202-3210312221321013-3230302101001032-0202022233223101-0311212122310232-3200300221230331-2113223010002011-2202110112012203",
-      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4311,8 +4311,8 @@
     },
     {
       "aliases": ["access info vault auth info token blindfold secret info"],
-      "body_bytes": 4788,
-      "body_sha256": "sha256:4e1074ba0ed5db3a0e7241f9d3e34bae1a0bad8aa569568d75a6c40b187963ff",
+      "body_bytes": 4094,
+      "body_sha256": "sha256:4b21e9de5c0f333451ec0469ef04bc92284222fa9736b361e407f3f98429fab7",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -4332,7 +4332,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3322012010221021-3220213301022210-3120103012201323-0210322010330132-3001131332202320-3212201213112200-1131211210133311-3303103222123010",
-      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4394,8 +4394,8 @@
     },
     {
       "aliases": ["access info vault auth info token clear secret info"],
-      "body_bytes": 3673,
-      "body_sha256": "sha256:770faa6d78cc22ab45fe51c8014f477b73a94d0246837b1f96e8dc4cc0982233",
+      "body_bytes": 3113,
+      "body_sha256": "sha256:ef55e1a6154dbcd537d08880d4e3e4adbdf7c8cb9636ca38acbcef3c7af3bbc1",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -4415,7 +4415,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1032012332233213-1220021321001313-2132023132202000-1000030120323133-3112100120311330-1100023213013300-1000230130203301-1020101322330113",
-      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4463,8 +4463,8 @@
     },
     {
       "aliases": ["where"],
-      "body_bytes": 2656,
-      "body_sha256": "sha256:10c966a0b0762921f594c5088780d9fd74ab3c7b86ffc4fac6c309aa4b179b04",
+      "body_bytes": 1615,
+      "body_sha256": "sha256:4223ac2afa0c601178a9ebd0e917a1cb102f8f03553f253223f55605dc721e84",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -4488,7 +4488,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0020132303030220-2213313121331030-0233220021033032-3310301211232111-0200012331323110-2102310201202212-0010320210113313-2031031233002101",
-      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4550,8 +4550,8 @@
     },
     {
       "aliases": ["where site"],
-      "body_bytes": 7866,
-      "body_sha256": "sha256:9561a1c23afcd4490547a991b1fae8d3c9d1234cdb3a65b5dcd289e6098af2f7",
+      "body_bytes": 7027,
+      "body_sha256": "sha256:9cc5aff8a6c32f4f8b3e48314a7bda9b4102d08617b45a39a8f7d7001e3d1133",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -4575,7 +4575,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2213021221013101-0232220310211310-3320010300110003-3011301313311110-2001301100021312-1233100133010012-1110203313003001-1331010131223321",
-      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4651,8 +4651,8 @@
     },
     {
       "aliases": ["where site disable internet vip"],
-      "body_bytes": 1405,
-      "body_sha256": "sha256:29d9ea5b5d7edc530d834f8bc4163cbee52b982d9529071fd8f4eb10344f553d",
+      "body_bytes": 1111,
+      "body_sha256": "sha256:e335c990c9de1947c25a53b4bc9529320127238a7a19df1d40e6688c67212df0",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -4672,7 +4672,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0020112212231223-0132311323130321-1120222122103021-0120213121301200-3113000133332023-2332011232112303-3330133000113322-3001220111210031",
-      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4691,8 +4691,8 @@
     },
     {
       "aliases": ["where site enable internet vip"],
-      "body_bytes": 1403,
-      "body_sha256": "sha256:73dd0853d29a0dc9488d256008034ed9ef355c162c4f0e35356a81dd99bee0a5",
+      "body_bytes": 1109,
+      "body_sha256": "sha256:cb869fc5b1903a97d280f7fa624eb50ec2fb868d6c68569b0b147428e3f85cf2",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -4712,7 +4712,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2111130133133231-1331101233332023-0113032000223033-1012103203012032-3011031332333030-1132330302303130-0330112330331310-3021223003231021",
-      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4731,8 +4731,8 @@
     },
     {
       "aliases": ["where site ref"],
-      "body_bytes": 6424,
-      "body_sha256": "sha256:a36701e2b5eed8d00804ca71195499765f696dc31b260b9ac87ee6e4bef4d392",
+      "body_bytes": 5406,
+      "body_sha256": "sha256:5679ac4b8589c6f179bd640a72fb97a80a3b4220c42d0a9b0c4b1fb07f88e286",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -4752,7 +4752,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3322223332330102-2330232001102203-2213010010102323-3200103311331011-0100130131321202-0222213330321201-0100121301230212-1331121303010101",
-      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4842,8 +4842,8 @@
     },
     {
       "aliases": ["where virtual network"],
-      "body_bytes": 1557,
-      "body_sha256": "sha256:4c4705513c386a74ecec1f243da63a469c1898821afcff352085a46bfac3196f",
+      "body_bytes": 1037,
+      "body_sha256": "sha256:3a49fb1f9ee05486610a68a6e5d1c25dc09fff0b84beb3d22ad90ea8d5c1225a",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": ["xcsh-docs:data-sources:secret_management_access:properties:where:virtual_network:ref"],
@@ -4863,7 +4863,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1010100312222110-1101123221213010-1320012022131302-2121232311200201-0133002000213230-3132212101210021-0321212330221100-1322311110200013",
-      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4897,8 +4897,8 @@
     },
     {
       "aliases": ["where virtual network ref"],
-      "body_bytes": 6567,
-      "body_sha256": "sha256:54d8bdc3be8c91f7a339f54ba6380b930e61527707962198c31ea3ab5464b258",
+      "body_bytes": 5516,
+      "body_sha256": "sha256:4ef1d164d6ad6932a01cefec228837eec286fc1a4a0faed8c0838109e34ea0ea",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -4918,7 +4918,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2321122003110310-1200023331323221-3113213010023032-0123112030221013-1132302221123030-2113312011101323-3130330322130320-1231001033133300",
-      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-002.md",
+      "registry_path": "docs/guides/data-sources--secret_management_access--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5008,8 +5008,8 @@
     },
     {
       "aliases": ["where virtual site"],
-      "body_bytes": 7923,
-      "body_sha256": "sha256:b236f9c5b8e8d69337fcd1b420534bded9623e39007d6f3118335eea3e467cab",
+      "body_bytes": 7060,
+      "body_sha256": "sha256:881f58f9ce55f0f471c049b31d64371276d30ea3687da12e66b561786e14a614",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -5109,8 +5109,8 @@
     },
     {
       "aliases": ["where virtual site disable internet vip"],
-      "body_bytes": 1453,
-      "body_sha256": "sha256:c06c4e22e6cf2cb89ffda72ef5ca1be9c69d58cb8caaf2545d60bfbdbc1513e4",
+      "body_bytes": 1143,
+      "body_sha256": "sha256:1da37dd9dddefcd1a705c52f42ac866b1942f98067fd7f55df80a250d125e220",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -5149,8 +5149,8 @@
     },
     {
       "aliases": ["where virtual site enable internet vip"],
-      "body_bytes": 1451,
-      "body_sha256": "sha256:f78dda88e1e7bdf49b7900a25d738980ba07de73203fa7b8ea880bf50aee7e6f",
+      "body_bytes": 1141,
+      "body_sha256": "sha256:408ee5367bc0b991f0e9591971927b6fc46949b6c4b53ff9fae398d08132b32e",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -5189,8 +5189,8 @@
     },
     {
       "aliases": ["where virtual site ref"],
-      "body_bytes": 6530,
-      "body_sha256": "sha256:89a1c8b59619c9e28c7f6332e6e83331f935f1163d07d3caaf20c6ff3287a2aa",
+      "body_bytes": 5487,
+      "body_sha256": "sha256:08dc7549cd574e76a3769df3eab27b5c678fe3afa758c1730c1cb67e9bac4e14",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -5300,8 +5300,8 @@
     },
     {
       "aliases": ["secret management access"],
-      "body_bytes": 729,
-      "body_sha256": "sha256:bc940e6698e6d3c5d846949f3e8ae320359804d6ec71d39ddd2eef04d0f987df",
+      "body_bytes": 450,
+      "body_sha256": "sha256:6324306e590503442ae4abd0d213e912e6c48f667964dbed59004dbcf99cbd2d",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": ["xcsh-docs:data-sources:secret_management_access:example:data-source"],
@@ -5340,8 +5340,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1433,
-      "body_sha256": "sha256:2a42f3360bdf912336624541dc196cfeb0e05b1bb0e2ca2ac82a72f30d6a085f",
+      "body_bytes": 1169,
+      "body_sha256": "sha256:b394d5353fd673b3e32010c2235ffd383f27fb4e7585bc01fced5519a159a702",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],

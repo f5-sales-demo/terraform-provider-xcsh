@@ -2,7 +2,7 @@
 page_title: "policy_based_challenge.rule_list.rules.spec.headers.item"
 subcategory: "Load Balancing"
 description: "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions."
-xcsh_docs: {"aliases": ["policy based challenge rule list rules spec headers item", "succeeded", "success", "successful"], "body_bytes": 7131, "body_sha256": "sha256:ee6177436993d7ce1d7e8d0cff8044bf26490124a1ddb52feb7cff7402694fa6", "capabilities": ["cdn"], "category": "cdn", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:cdn_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:headers:item", "parent_id": "xcsh-docs:resources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:headers", "path": "documentation/resources/cdn_loadbalancer/properties/policy_based_challenge/rule_list/rules/spec/headers/item/index.md", "product": "distributed-cloud", "provider_name": "cdn_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0020010213313231-2230213012100103-3201102112031033-0120000120332332-2021003020323031-1222322303113232-1122212310101013-1031120222103022", "registry_path": "docs/guides/resources--cdn_loadbalancer--reference--group-014.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["policy_based_challenge", "rule_list", "rules", "spec", "headers", "item"], "schema_version": 1, "sections": [{"aliases": ["policy based challenge rule list rules spec headers item exact values"], "anchor": "schema-policy_based_challenge--rule_list--rules--spec--headers--item--exact_values", "description": "A list of exact values to match the input against.", "document_id": "xcsh-docs:resources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:headers:item", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["policy_based_challenge", "rule_list", "rules", "spec", "headers", "item", "exact_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["policy based challenge rule list rules spec headers item regex values"], "anchor": "schema-policy_based_challenge--rule_list--rules--spec--headers--item--regex_values", "description": "A list of regular expressions to match the input against.", "document_id": "xcsh-docs:resources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:headers:item", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["policy_based_challenge", "rule_list", "rules", "spec", "headers", "item", "regex_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["policy based challenge rule list rules spec headers item transformers"], "anchor": "schema-policy_based_challenge--rule_list--rules--spec--headers--item--transformers", "description": "An ordered list of transformers (starting from index 0) to be applied to the path before matching.", "document_id": "xcsh-docs:resources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:headers:item", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["policy_based_challenge", "rule_list", "rules", "spec", "headers", "item", "transformers"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_loadbalancer/properties/policy_based_challenge/rule_list/rules/spec/headers/item/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["cdn_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["policy based challenge rule list rules spec headers item", "succeeded", "success", "successful"], "body_bytes": 6388, "body_sha256": "sha256:382c4db10690dc59501526327f2c5a00c59bfa2e55750bc4c071432fe0cc5037", "capabilities": ["cdn"], "category": "cdn", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:cdn_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:headers:item", "parent_id": "xcsh-docs:resources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:headers", "path": "documentation/resources/cdn_loadbalancer/properties/policy_based_challenge/rule_list/rules/spec/headers/item/index.md", "product": "distributed-cloud", "provider_name": "cdn_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0020010213313231-2230213012100103-3201102112031033-0120000120332332-2021003020323031-1222322303113232-1122212310101013-1031120222103022", "registry_path": "docs/guides/resources--cdn_loadbalancer--reference--group-013.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["policy_based_challenge", "rule_list", "rules", "spec", "headers", "item"], "schema_version": 1, "sections": [{"aliases": ["policy based challenge rule list rules spec headers item exact values"], "anchor": "schema-policy_based_challenge--rule_list--rules--spec--headers--item--exact_values", "description": "A list of exact values to match the input against.", "document_id": "xcsh-docs:resources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:headers:item", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["policy_based_challenge", "rule_list", "rules", "spec", "headers", "item", "exact_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["policy based challenge rule list rules spec headers item regex values"], "anchor": "schema-policy_based_challenge--rule_list--rules--spec--headers--item--regex_values", "description": "A list of regular expressions to match the input against.", "document_id": "xcsh-docs:resources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:headers:item", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["policy_based_challenge", "rule_list", "rules", "spec", "headers", "item", "regex_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["policy based challenge rule list rules spec headers item transformers"], "anchor": "schema-policy_based_challenge--rule_list--rules--spec--headers--item--transformers", "description": "An ordered list of transformers (starting from index 0) to be applied to the path before matching.", "document_id": "xcsh-docs:resources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:headers:item", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["policy_based_challenge", "rule_list", "rules", "spec", "headers", "item", "transformers"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_loadbalancer/properties/policy_based_challenge/rule_list/rules/spec/headers/item/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["cdn_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -25,12 +25,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Matcher specifies multiple criteria for matching an input string. The match is considered successful
-if any of the criteria are satisfied. The set of supported match criteria includes a list of exact
-values and a list of regular expressions.
-
-Upstream description:
 
 A matcher specifies multiple criteria for matching an input string. The match is considered
 successful if any of the criteria are satisfied. The set of supported match criteria includes a list
@@ -64,10 +58,6 @@ item {
 ### exact_values property
 
 Type: `["list", "string"]`. Optional.
-
-List of exact values to match the input against.
-
-Upstream description:
 
 A list of exact values to match the input against.
 
@@ -122,10 +112,6 @@ Receipt-pinned upstream constraints:
 ### regex_values property
 
 Type: `["list", "string"]`. Optional.
-
-List of regular expressions to match the input against.
-
-Upstream description:
 
 A list of regular expressions to match the input against.
 
@@ -189,7 +175,7 @@ Ordered list of transformers (starting from index 0) to be applied to the path b
 Possible values are \`LOWER\_CASE\`, \`UPPER\_CASE\`, \`BASE64\_DECODE\`, \`NORMALIZE\_PATH\`,
 \`REMOVE\_WHITESPACE\`, \`URL\_DECODE\`, \`TRIM\_LEFT\`, \`TRIM\_RIGHT\`, \`TRIM\`.
 
-Upstream description:
+Additional upstream details:
 
 An ordered list of transformers (starting from index 0) to be applied to the path before matching.
 
@@ -234,8 +220,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [policy_based_challenge.rule_list.rules.spec.headers](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/cdn_loadbalancer/properties/policy_based_challenge/rule_list/rules/spec/headers/)
-- [xcsh_cdn_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/cdn_loadbalancer/)

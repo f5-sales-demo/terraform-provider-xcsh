@@ -1778,8 +1778,8 @@
   "pages": [
     {
       "aliases": ["nfv service"],
-      "body_bytes": 1525,
-      "body_sha256": "sha256:9f2dda2a0baded721adedb8d89d8a5c9ff19e64d091e8707e172ceaf757b6019",
+      "body_bytes": 1538,
+      "body_sha256": "sha256:3e85c88d6440c9dd578688a9d3d52a2844484da9a5b6147847d2a898174d300d",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1824,8 +1824,8 @@
     },
     {
       "aliases": ["nfv service"],
-      "body_bytes": 103687,
-      "body_sha256": "sha256:b98bb91201de6551ce2cd7a61de9c3c74cc6dff02dc03bf038c2b10096b8d1e7",
+      "body_bytes": 102501,
+      "body_sha256": "sha256:59129bd52b0a28218265466802b6781923af33d0174c5d68bbaad3a84e840d4a",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2473,8 +2473,8 @@
     },
     {
       "aliases": ["disable https management"],
-      "body_bytes": 1634,
-      "body_sha256": "sha256:929af4eb8850d0ed9e0af6ebbeae49342e1ecddf1c55fdd0d8cc8c4c42c6343e",
+      "body_bytes": 1388,
+      "body_sha256": "sha256:81eaa7735aeb13270de8da8e4d6cba005d73d02c02b14b8e982256604aa08690",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2513,8 +2513,8 @@
     },
     {
       "aliases": ["disable ssh access"],
-      "body_bytes": 1593,
-      "body_sha256": "sha256:433ec1644c034e5d14a11b0ada4ce4d721c1ee6ad48f8cb6b27c72587a5180af",
+      "body_bytes": 1347,
+      "body_sha256": "sha256:cfe0f95b6af9a04dd20ecda76120ada705e7d07defdf2257930d0e4e5eac1882",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2553,8 +2553,8 @@
     },
     {
       "aliases": ["enabled ssh access"],
-      "body_bytes": 4112,
-      "body_sha256": "sha256:bc84eb13d42992604da46ff8b80e2cc33caf597c9058540e766e7b745e3695a3",
+      "body_bytes": 3216,
+      "body_sha256": "sha256:c562e18415d79a0fde83d6052d3624a0c92ca9a572321d793323d2557602c44e",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2751,8 +2751,8 @@
     },
     {
       "aliases": ["enabled ssh access advertise on sli"],
-      "body_bytes": 1302,
-      "body_sha256": "sha256:e7f34070dced5b12aa9fffbab1aa742c4fffe81bce9c79fc71e07f43330f6815",
+      "body_bytes": 1037,
+      "body_sha256": "sha256:37fe5955ac289a5ef9f850308441578cc4674b8ee9c8b76bbe9a49477ff24f04",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2791,8 +2791,8 @@
     },
     {
       "aliases": ["enabled ssh access advertise on slo"],
-      "body_bytes": 1302,
-      "body_sha256": "sha256:34b0548c3709d4b21f65933ff3e7e5b7c157d3debc61e45ec9d16b3be6159707",
+      "body_bytes": 1037,
+      "body_sha256": "sha256:f9016b99e54f97fb0cc88f67cccd591167411eda4271b63e2ad7075b4608070c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2831,8 +2831,8 @@
     },
     {
       "aliases": ["enabled ssh access advertise on slo sli"],
-      "body_bytes": 1318,
-      "body_sha256": "sha256:a288cc4ef85a1dc434e373bda1db6c500028d0d253c7fab642e25160ec98640d",
+      "body_bytes": 1053,
+      "body_sha256": "sha256:d7ab33821ffb5bba889195a225c885f0bf3cf57255b85d785e6982f494156d9b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2871,8 +2871,8 @@
     },
     {
       "aliases": ["enabled ssh access node ssh ports"],
-      "body_bytes": 4486,
-      "body_sha256": "sha256:72bc70f1d1552387c416f9ba9bd9e9aa90a43387179083484beb4a3dcb3434b0",
+      "body_bytes": 4124,
+      "body_sha256": "sha256:022ab8ed5f911da2c08e83a7b171037aed98f6c0ed1d02bf072075d6948f8ca7",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2957,8 +2957,8 @@
     },
     {
       "aliases": ["f5 big ip aws service"],
-      "body_bytes": 7914,
-      "body_sha256": "sha256:6d055dd056625c6b53b1e12ff9dba0096b0067d367babe7dd339a8056c19c4ef",
+      "body_bytes": 6544,
+      "body_sha256": "sha256:ef5e2dcd693453b07d1c4156af24c975f06c1a920f9a267f419e38e2b2396118",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -3465,8 +3465,8 @@
     },
     {
       "aliases": ["f5 big ip aws service admin password"],
-      "body_bytes": 2360,
-      "body_sha256": "sha256:96bc609c70c67ce020b7a25497c78e7b427560d6763f815112f57404173ab500",
+      "body_bytes": 1686,
+      "body_sha256": "sha256:cd0101b6561d80681941f4d50dc0f624a574a0b354934283f87ee6ed0cd774da",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -3572,8 +3572,8 @@
     },
     {
       "aliases": ["f5 big ip aws service admin password blindfold secret info"],
-      "body_bytes": 4965,
-      "body_sha256": "sha256:e74e46b9133ace238846296663286a8a5115489c6b8f42c922654c7ba9a67c30",
+      "body_bytes": 4310,
+      "body_sha256": "sha256:4523f96c041aa7b2123e51bfaa7e9503fa11b7e4f8efa036254baf17e7e24720",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3664,8 +3664,8 @@
     },
     {
       "aliases": ["f5 big ip aws service admin password clear secret info"],
-      "body_bytes": 3839,
-      "body_sha256": "sha256:5fdb92d387924304b747d46cf3981d6a127f1a58910f4b4175c06e799f4cd1ca",
+      "body_bytes": 3318,
+      "body_sha256": "sha256:f0e2a671f011f0bf3144efa2c62b702237e1cf5a19fb450d2da62425f0f15b75",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3742,8 +3742,8 @@
     },
     {
       "aliases": ["f5 big ip aws service aws tgw site params"],
-      "body_bytes": 1705,
-      "body_sha256": "sha256:a27aba5ca0b71b38b467e3a38789a3dc196a46cec548d98a5e1b6cfb3ff0aae5",
+      "body_bytes": 1185,
+      "body_sha256": "sha256:e80a0d016df3f40fdbbf5515493334f1ce482bca3a0e7eb725829a31f595b799",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -3808,8 +3808,8 @@
     },
     {
       "aliases": ["f5 big ip aws service aws tgw site params aws tgw site"],
-      "body_bytes": 6422,
-      "body_sha256": "sha256:4ab118be1cbf5abc1964e361125393d41aa18e110f892d1c252b9b3d500b1025",
+      "body_bytes": 5453,
+      "body_sha256": "sha256:4921fc18739d24269f156ecd5d1b3ea76375c41f3fad6baef94dea8340c5e94a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3900,8 +3900,8 @@
     },
     {
       "aliases": ["f5 big ip aws service endpoint service"],
-      "body_bytes": 9002,
-      "body_sha256": "sha256:9f5a468c3aa42a40a5de34ccbfd85dba70e680a56a3b0623d0dfa52801902f3c",
+      "body_bytes": 6194,
+      "body_sha256": "sha256:7dfa13ccc341793c5236ee5a554eee5987ed70a04fb2ceb54f2ddb3adceacc10",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -4380,8 +4380,8 @@
     },
     {
       "aliases": ["f5 big ip aws service endpoint service advertise on slo ip"],
-      "body_bytes": 1543,
-      "body_sha256": "sha256:80d148620a3bdc6f51ceeced52595ddff0abaf74399ec24a903a05e06f3d9e80",
+      "body_bytes": 1238,
+      "body_sha256": "sha256:d0ae3e1f66fdf08e4687924646a4e6883755ac866e4c4a26885103259dce1b8c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4420,8 +4420,8 @@
     },
     {
       "aliases": ["f5 big ip aws service endpoint service advertise on slo ip external"],
-      "body_bytes": 1570,
-      "body_sha256": "sha256:104295c5ddcafebdc0737c9e7d3c2af800a38f3eb361f1334dedb32cf8d6ccff",
+      "body_bytes": 1265,
+      "body_sha256": "sha256:631bc4febaaa70fe05b99c4099891fb5020f5b3a2b9ac15ffc09a6d3adaf009e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4460,8 +4460,8 @@
     },
     {
       "aliases": ["f5 big ip aws service endpoint service automatic vip"],
-      "body_bytes": 1525,
-      "body_sha256": "sha256:5e00fbd887fd696c021a5a8f51067616a67a4a91a7658da68a4bc568b90591c4",
+      "body_bytes": 1220,
+      "body_sha256": "sha256:034fe6229d728da5a0dc9a066b799c8eddd64758d0bdcfad7340d84fc30037c1",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4500,8 +4500,8 @@
     },
     {
       "aliases": ["f5 big ip aws service endpoint service custom tcp ports"],
-      "body_bytes": 2893,
-      "body_sha256": "sha256:e9e6cc9cbbe25b6f13647426dd1720fa298934c5d04e557f4a25b94f2716eb57",
+      "body_bytes": 2558,
+      "body_sha256": "sha256:3aa238c30306c6fd27a49e906b21275d0d3f4d902a7ad88d34fbaef5cda7251a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4564,8 +4564,8 @@
     },
     {
       "aliases": ["f5 big ip aws service endpoint service custom udp ports"],
-      "body_bytes": 2893,
-      "body_sha256": "sha256:af7c5631f87e430c1d6076bd160c72a459aac2b5ca1869e9f1543d50a8880553",
+      "body_bytes": 2558,
+      "body_sha256": "sha256:7a7e897e57526bbc1500cfe2b647809c943817d711ff6c4d3dbd1ea11f0b818a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4628,8 +4628,8 @@
     },
     {
       "aliases": ["f5 big ip aws service endpoint service default tcp ports"],
-      "body_bytes": 1537,
-      "body_sha256": "sha256:a9475219ed80ca0cdd63008cca9c63cbf234f8cd18db054cb0ef6494caf7782e",
+      "body_bytes": 1232,
+      "body_sha256": "sha256:fd633a2d44bc712c30cf5572d13a9e36f324e5cb94219a7c642ab2133c10abe4",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4668,8 +4668,8 @@
     },
     {
       "aliases": ["f5 big ip aws service endpoint service disable advertise on slo ip"],
-      "body_bytes": 1567,
-      "body_sha256": "sha256:6076821471cdc74c46e5234ed991d49739a91cd0b66f8b07dc99b092f8dd8327",
+      "body_bytes": 1262,
+      "body_sha256": "sha256:30126a6a9bfdde247d5565e1a5be608a04e34d221578332a3a92a5c46d58ecad",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4708,8 +4708,8 @@
     },
     {
       "aliases": ["f5 big ip aws service endpoint service http port"],
-      "body_bytes": 1513,
-      "body_sha256": "sha256:cf7e72f20348bfb68a9f3dace30828d1410f6f93dacf2de8ad4ca2714c563e2a",
+      "body_bytes": 1208,
+      "body_sha256": "sha256:2447fb80017748ea248fb378629d9ef69d42da93e87c7fbbb4c30da9dfc50361",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4748,8 +4748,8 @@
     },
     {
       "aliases": ["f5 big ip aws service endpoint service https port"],
-      "body_bytes": 1516,
-      "body_sha256": "sha256:64de88a8b2c4e214836c3f9bf0ee57f3362c2cc4de0a8bec8dd716571ccd6cc7",
+      "body_bytes": 1211,
+      "body_sha256": "sha256:de2b5bd1f4c9c7d26f38ffff642d1e9a58e5e6740cb53d2a1ae956d7ca216883",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4788,8 +4788,8 @@
     },
     {
       "aliases": ["f5 big ip aws service endpoint service no tcp ports"],
-      "body_bytes": 1522,
-      "body_sha256": "sha256:a6ca519f070297cfa6513c74e12eed1d4e5f615f910a6a8ddacabc9b9a6ef871",
+      "body_bytes": 1217,
+      "body_sha256": "sha256:ea686b71c308a39c461fc0905db7ae2c5526154b0c21bfa80cf4cee37837359e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4828,8 +4828,8 @@
     },
     {
       "aliases": ["f5 big ip aws service endpoint service no udp ports"],
-      "body_bytes": 1522,
-      "body_sha256": "sha256:868d2b61cef526ccad4163b96591fe04aac5f655754c50950225c0621156b1d8",
+      "body_bytes": 1217,
+      "body_sha256": "sha256:c68ad3217bc14fe6e578666b3154dd8d7b747b37c4d41a820e43ac5dac64932a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4849,7 +4849,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0032211122030020-3003323212002133-2120003300011011-1012223010030013-1022302100113132-3330231031213131-3320022302013010-0110001302110001",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-002.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4868,8 +4868,8 @@
     },
     {
       "aliases": ["f5 big ip aws service market place image"],
-      "body_bytes": 2364,
-      "body_sha256": "sha256:d7d8026c136215df560203f8d4bfe1ab8c65d7d63393039260d8dde320b5c7e5",
+      "body_bytes": 1686,
+      "body_sha256": "sha256:37a8c1f16f0c9c32c7f776e785e1a434843a8a8df5aad2f8a0910d9371f5813d",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -4892,7 +4892,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3121221100302221-2312112212213100-2300030203321033-0023133210013231-0322231123223011-1213333100111231-1001202332212022-3001113302213202",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-002.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-001.md",
       "relationships": [
         {
           "anchor": "section",
@@ -4957,8 +4957,8 @@
     },
     {
       "aliases": ["f5 big ip aws service market place image awafpay g200 mbps"],
-      "body_bytes": 1318,
-      "body_sha256": "sha256:4354af3e744c2bc3a255fd9a19bf6f7fed113d11353c0419b8ff80b1b9b331c8",
+      "body_bytes": 1002,
+      "body_sha256": "sha256:e365d81462c679fcae036312e22824c4386132d95e5431c6bacfb0c5e85a03ce",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4978,7 +4978,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3311231311003000-2031121323311100-0331220313322022-1203201010200030-0232111332331122-2002302212312010-1321212203111331-0002303130000202",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-002.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4997,8 +4997,8 @@
     },
     {
       "aliases": ["f5 big ip aws service market place image awafpay g3 gbps"],
-      "body_bytes": 1310,
-      "body_sha256": "sha256:b00e848bb924c66c3a3b38d41a5407b4b98248e59b5bd9a460b774a8f4bac1ff",
+      "body_bytes": 994,
+      "body_sha256": "sha256:5d51e720354105d6a616d4915b30341eef938b17c0c6c601cd7fe8c78e9d5e05",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5018,7 +5018,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3303221122123120-0330230111223322-1021231332330022-3313202301212031-0201230313031302-1121133212211002-0312013330003213-2112113330311011",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-002.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5037,8 +5037,8 @@
     },
     {
       "aliases": ["f5 big ip aws service nodes"],
-      "body_bytes": 6805,
-      "body_sha256": "sha256:8680c14cbe6a68350089c4b05378066a4bc94ffa9e3824a6068317ff4143fb3a",
+      "body_bytes": 5885,
+      "body_sha256": "sha256:98177bf02990cda7c7a8a634da32d773114d9537402d71ee118b7131ec9371b7",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -5062,7 +5062,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0303213133011232-0201322132022131-1321023330330310-0032213003120332-3011101310033312-2030333102020323-2111032131310203-3332013322121201",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-002.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-f5_big_ip_aws_service--nodes--tunnel_prefix",
@@ -5232,8 +5232,8 @@
     },
     {
       "aliases": ["f5 big ip aws service nodes automatic prefix"],
-      "body_bytes": 1495,
-      "body_sha256": "sha256:4e21c7d635cb141db864c81fd695be987a2368436dae3860f3719b0a36dc43e2",
+      "body_bytes": 1212,
+      "body_sha256": "sha256:aed2aa1a55fddca691950e789eb760e04e73da598f3ea377cf63d40d89878d56",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5253,7 +5253,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1001003122322020-2222302032321213-3021110030120031-2311010120113300-0121000200200303-3230122300122323-3003212023130110-2203011222202223",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-002.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5272,8 +5272,8 @@
     },
     {
       "aliases": ["f5 big ip aws service nodes mgmt subnet"],
-      "body_bytes": 3375,
-      "body_sha256": "sha256:f7d724e53faf9caaada1861d6219f78a4e836209a826af432ac8b224b1206494",
+      "body_bytes": 2818,
+      "body_sha256": "sha256:ae2540f578d17da752b5cfdafd8edecf29efc4eff65b3ed38e14d9ec165d4c17",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:nfv_service:properties:f5_big_ip_aws_service:nodes:mgmt_subnet:subnet_param"],
@@ -5293,7 +5293,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1133221000222000-2213120123130103-0130203310131333-2133112220333331-0003003001130320-0222323310321220-1321013301112222-3310100211322021",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-002.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-f5_big_ip_aws_service--nodes--mgmt_subnet--existing_subnet_id",
@@ -5367,8 +5367,8 @@
     },
     {
       "aliases": ["f5 big ip aws service nodes mgmt subnet subnet param"],
-      "body_bytes": 2827,
-      "body_sha256": "sha256:2753b7998f5cf90f33a36d2fad102506d1830b7f7c8b33e31a434f803318db32",
+      "body_bytes": 2475,
+      "body_sha256": "sha256:165cf85b484f2d1e1633dc55fa8145246e65384c3c5e9aa3448099c7af8a0e74",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5388,7 +5388,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2300131333210103-3201113223231000-2311112203311130-1011120033203123-1233123133122113-3101002102330100-0002233130122002-0312232221033011",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-002.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-f5_big_ip_aws_service--nodes--mgmt_subnet--subnet_param--ipv4",
@@ -5431,8 +5431,8 @@
     },
     {
       "aliases": ["f5 big ip aws service nodes reserved mgmt subnet"],
-      "body_bytes": 1511,
-      "body_sha256": "sha256:41881aadd684a4ab9d0706e7910817996554eb9661e4975f82991a72eba2f2bf",
+      "body_bytes": 1228,
+      "body_sha256": "sha256:b813c685a3edc69bd0b22c5e83a51456be57b28126609848f6d846d5de8adb6b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5452,7 +5452,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2010110231023102-2320103003311321-1331301001120003-0133203323300021-2331102311120021-1311331010010103-1221300133122101-2113331113111133",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-002.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5471,8 +5471,8 @@
     },
     {
       "aliases": ["https management"],
-      "body_bytes": 7933,
-      "body_sha256": "sha256:e54da9a522c96454b22f9400be89b93c6bb0ec064e2a89ff8a618672fd411bc5",
+      "body_bytes": 6383,
+      "body_sha256": "sha256:68f69ced073c31f212734b123d4030e17437594bf4a6aec543cba67e70771de9",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -5500,7 +5500,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-002.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-https_management--https_port",
@@ -6011,8 +6011,8 @@
     },
     {
       "aliases": ["https management advertise on internet"],
-      "body_bytes": 1904,
-      "body_sha256": "sha256:6de525a8473716782e6f7f6b33766b211b90b45c6cb8f3e57d756d54df0a3c13",
+      "body_bytes": 1276,
+      "body_sha256": "sha256:d265ef008b532b36f0953ec41d9cd471f8d12b4c3f7e551517603cbd4cc09415",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_internet:public_ip"],
@@ -6032,7 +6032,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0120200112111003-3331321000320321-3001301020110212-2233312213000030-3121001203022212-2312200333022211-2120220200002130-3331131211211023",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-002.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -6075,8 +6075,8 @@
     },
     {
       "aliases": ["https management advertise on internet public ip"],
-      "body_bytes": 6367,
-      "body_sha256": "sha256:298015257bfe575009ec116da65dd6410a3db7135efff167e56ed02d65e6b281",
+      "body_bytes": 5404,
+      "body_sha256": "sha256:18d93a3ce01ebcfb6074d963b0f30fd50e735df392a4ca7801bfc865426ac568",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6167,8 +6167,8 @@
     },
     {
       "aliases": ["https management advertise on internet default vip"],
-      "body_bytes": 1314,
-      "body_sha256": "sha256:fa7e7ec83d9f57a87549cea5522daab0ce4a71efb48d7ca3705dc4bea2ad82bf",
+      "body_bytes": 1053,
+      "body_sha256": "sha256:fa40af022c0f2c432826910cfa5abc6562abd191fdc3bf36c99c1df016fad072",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6207,8 +6207,8 @@
     },
     {
       "aliases": ["https management advertise on sli vip"],
-      "body_bytes": 3072,
-      "body_sha256": "sha256:38f97c456ce390df2bbfab2c5d255b2275b65ad80ce6985df25b35ec4adf203f",
+      "body_bytes": 2005,
+      "body_sha256": "sha256:e119b4e5c5c08759e6d74f8832640af60a17c3ba7608474a9349daea9c330ba1",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -6543,8 +6543,8 @@
     },
     {
       "aliases": ["https management advertise on sli vip no mtls"],
-      "body_bytes": 1491,
-      "body_sha256": "sha256:1d122ce173cab4b9b211552b9d4655dabce0308b9c16cb1887e1f58e8616a836",
+      "body_bytes": 1188,
+      "body_sha256": "sha256:aba9a37c75fd16eabd6556040f4d1c8a1771430a7e89ea43e28d6f791354f0cb",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6589,8 +6589,8 @@
         "https management advertise on sli vip tls certificates",
         "tls certificates"
       ],
-      "body_bytes": 6519,
-      "body_sha256": "sha256:820321539622400c54807dc389fa882d037262f728862e124aebd1dcf743048e",
+      "body_bytes": 4959,
+      "body_sha256": "sha256:9418ca2537fcce59da4fffd18de5ddf4ceb9ce38d42abf465e3d7ee24af93f84",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -6808,8 +6808,8 @@
     },
     {
       "aliases": ["https management advertise on sli vip tls certificates custom hash algorithms"],
-      "body_bytes": 3478,
-      "body_sha256": "sha256:925410a0725bcb4c14c811487ddcc4546dea74cd26f6244f19fa10de69a0b7fd",
+      "body_bytes": 3088,
+      "body_sha256": "sha256:231d33291f029fda636cc3d95d104bc5c636f57bb67a144388dd6ecf9a54717c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6878,8 +6878,8 @@
     },
     {
       "aliases": ["https management advertise on sli vip tls certificates disable ocsp stapling"],
-      "body_bytes": 1838,
-      "body_sha256": "sha256:4cd2550846b5a221457f427bad404a009a9b14db867b21596d16e3a82b501f25",
+      "body_bytes": 1501,
+      "body_sha256": "sha256:17d9bc165848f5d5b278afeae0a46c8e9d7eeb5b2d92d455689d0e493bc72ba8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6918,8 +6918,8 @@
     },
     {
       "aliases": ["https management advertise on sli vip tls certificates private key"],
-      "body_bytes": 3029,
-      "body_sha256": "sha256:cb838399c1a9ff5afa78f2a1a28a27cba0e05e2756775d8b57157ed5692de8b0",
+      "body_bytes": 2169,
+      "body_sha256": "sha256:43d00fece3910131c1cc753992f10dfd14b0b46ace6d1e966a0ccfc5a3160e77",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -7037,8 +7037,8 @@
     },
     {
       "aliases": ["https management advertise on sli vip tls certificates private key blindfold secret info"],
-      "body_bytes": 5607,
-      "body_sha256": "sha256:49dfa1addb458386c057d8d7e03716fa7375e170c6edf3cde4cd4e9f636e5adb",
+      "body_bytes": 4892,
+      "body_sha256": "sha256:abcf3e98d9ca4ac7b8fd6a56b46754e3f257e269f3e84cc4b151c1562c16929a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7162,8 +7162,8 @@
     },
     {
       "aliases": ["https management advertise on sli vip tls certificates private key clear secret info"],
-      "body_bytes": 4449,
-      "body_sha256": "sha256:1788ad54117557951b9567bb04272d763bf8f139b4463cd7156ec4955c7fc3a1",
+      "body_bytes": 3868,
+      "body_sha256": "sha256:000fc06e16e4a81e56c333455e6d309b1c21835140d7e7a327a5f183340634f3",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7262,8 +7262,8 @@
     },
     {
       "aliases": ["https management advertise on sli vip tls certificates use system defaults"],
-      "body_bytes": 1830,
-      "body_sha256": "sha256:d5765ba1f5958d48e0b7fa96a47864ad8d96ba9f415b9018805ee56dd7cf83d6",
+      "body_bytes": 1493,
+      "body_sha256": "sha256:ee0c5ba7b5f5e8c9ff01697e1e9476003f13953df04c2c550e9139e77969d34f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7302,8 +7302,8 @@
     },
     {
       "aliases": ["https management advertise on sli vip tls config"],
-      "body_bytes": 3985,
-      "body_sha256": "sha256:f9c680c6c7b8ed6a426ed8e564a7248ab2de72e5bce0a15c9487d873c966bdfe",
+      "body_bytes": 2710,
+      "body_sha256": "sha256:f653de01f72cd6a630d3b2e6511f404dc506f022d34cc99e6304d45178e2c900",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -7510,8 +7510,8 @@
     },
     {
       "aliases": ["https management advertise on sli vip tls config custom security"],
-      "body_bytes": 6618,
-      "body_sha256": "sha256:c2e106677deb3f9348df68b7b7509a4e540847fd83142b6091ace7299a121f8d",
+      "body_bytes": 5936,
+      "body_sha256": "sha256:94b138e39085f98b731b64d6be2f7f2174f56dc52195fbe36ab59ca99a43577e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7602,8 +7602,8 @@
     },
     {
       "aliases": ["https management advertise on sli vip tls config default security"],
-      "body_bytes": 1755,
-      "body_sha256": "sha256:2ce1da43fed1f14bb5e15dfe20cade54b313a3ae81dfaefab6958f97bb1efcdf",
+      "body_bytes": 1430,
+      "body_sha256": "sha256:291e6644a55cfcffe6952a330736ac3128a4b2aeea426dfae81298291fbe5d8d",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7642,8 +7642,8 @@
     },
     {
       "aliases": ["https management advertise on sli vip tls config low security"],
-      "body_bytes": 1743,
-      "body_sha256": "sha256:1091a165559e812051327edddda7519719af91ef2472379f084498aa4659ed67",
+      "body_bytes": 1418,
+      "body_sha256": "sha256:19da1863e8e1c61960e35a7793b6be16d22dd8db3f8b7ed11a53f7ad274dad1c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7682,8 +7682,8 @@
     },
     {
       "aliases": ["https management advertise on sli vip tls config medium security"],
-      "body_bytes": 1752,
-      "body_sha256": "sha256:e169ad0ba93fe4e15c8c6d2c18c3612c29943dc0d831c0a4b061f200348e7a5b",
+      "body_bytes": 1427,
+      "body_sha256": "sha256:8301c8265afb2120c32add612c999d7329c60d4d2099247cba4eff73602721f2",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7722,8 +7722,8 @@
     },
     {
       "aliases": ["https management advertise on sli vip use mtls"],
-      "body_bytes": 6254,
-      "body_sha256": "sha256:b73cbb8d00b4d9cc1a05451aa33a5bb0e3b152c5e2e1010962f674fe637212a6",
+      "body_bytes": 4598,
+      "body_sha256": "sha256:4960cf0c25890653b68d4deba6e4cc5212feb3040d416f8d125b046d533ca768",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -7943,8 +7943,8 @@
     },
     {
       "aliases": ["https management advertise on sli vip use mtls crl"],
-      "body_bytes": 6577,
-      "body_sha256": "sha256:ade38520a6a3a579e6bed6e40e919efe401d2a77a441badebdd4d50b7f581822",
+      "body_bytes": 5598,
+      "body_sha256": "sha256:1a198ff6c918ba4954a68bef84857efa95dfa4db40cf8425a9702802c6d84e6f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -8035,8 +8035,8 @@
     },
     {
       "aliases": ["https management advertise on sli vip use mtls no crl"],
-      "body_bytes": 1713,
-      "body_sha256": "sha256:6ac59b177359e2d8ec2998b0912491c67003ae78e2dfde3e7460656d9ef3be24",
+      "body_bytes": 1392,
+      "body_sha256": "sha256:3dfce30c4e5ef4f050a10bd672a324c7e110b0af0a409cc6b7ba1833a84ea4a3",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -8075,8 +8075,8 @@
     },
     {
       "aliases": ["https management advertise on sli vip use mtls trusted ca"],
-      "body_bytes": 6619,
-      "body_sha256": "sha256:3ec3b2486867d259f3adb6fee670597ab70d3b469fd2831879ac4fad80e88708",
+      "body_bytes": 5640,
+      "body_sha256": "sha256:8f4ab1f8ba46d30fa4178d886f22d3afdc1cfe46a38c4da577163cd15bf8d85c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -8167,8 +8167,8 @@
     },
     {
       "aliases": ["https management advertise on sli vip use mtls xfcc disabled"],
-      "body_bytes": 1734,
-      "body_sha256": "sha256:cba00ee329cad51db54391c8166350b40096ab28cb3c8c58442c84766b2ed8c9",
+      "body_bytes": 1413,
+      "body_sha256": "sha256:957e6aa5ab8d2274b6f4a39ce498521abc6bd4cc5aff82d7939f11b33c37f820",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -8207,8 +8207,8 @@
     },
     {
       "aliases": ["https management advertise on sli vip use mtls xfcc options"],
-      "body_bytes": 3000,
-      "body_sha256": "sha256:af6a6f371790ee02bb0a20cefa5ff42443572d0d95af689536a04ddb3e07d561",
+      "body_bytes": 2605,
+      "body_sha256": "sha256:be0a1f839c8a846886da42b90ad3873a6d5fc43b9a5071606926317f65c04007",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -8277,8 +8277,8 @@
     },
     {
       "aliases": ["https management advertise on slo internet vip"],
-      "body_bytes": 3207,
-      "body_sha256": "sha256:a8710f3e81f087da42b56c7b70c0ac3d3c7b737d3eaab31e8074fb4013554e07",
+      "body_bytes": 2068,
+      "body_sha256": "sha256:5b416a067c8ef8e65f1443de655a55fd3278bc75f9892b2b7c741b879dc17504",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -8613,8 +8613,8 @@
     },
     {
       "aliases": ["https management advertise on slo internet vip no mtls"],
-      "body_bytes": 1545,
-      "body_sha256": "sha256:fff37c36b46705fb3c725450982a948ea636aec2a2efa616455037dffd90acef",
+      "body_bytes": 1224,
+      "body_sha256": "sha256:83eef2ddd57f9f52c23f32c4d6e0d24ff5acefc30b76c314dffb806e6545793f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -8659,8 +8659,8 @@
         "https management advertise on slo internet vip tls certificates",
         "tls certificates"
       ],
-      "body_bytes": 6699,
-      "body_sha256": "sha256:02329079755bef1b29339a335fce5f08b3c0c05b5eee5742fd5d71a898a89597",
+      "body_bytes": 5049,
+      "body_sha256": "sha256:41f14694b3bc26ca700d87b3a5e5df642c166ddba7576b8c069a19895c84701c",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -8893,8 +8893,8 @@
     },
     {
       "aliases": ["https management advertise on slo internet vip tls certificates custom hash algorithms"],
-      "body_bytes": 3559,
-      "body_sha256": "sha256:e381ada4baebcc6c44c484e1a5eb7236710ad783fa79b1a54b014dcfbf6fa04e",
+      "body_bytes": 3151,
+      "body_sha256": "sha256:02d22338be62fdb9fcda0f7d236c35110af14f41ec5c89d3d9889a2e2da96c34",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -8970,8 +8970,8 @@
     },
     {
       "aliases": ["https management advertise on slo internet vip tls certificates disable ocsp stapling"],
-      "body_bytes": 1910,
-      "body_sha256": "sha256:c47f31c7266f2b31e3edbc318ca7f8af2c1b31f779855738751b1cd402dfbc71",
+      "body_bytes": 1555,
+      "body_sha256": "sha256:001cf29819ac8a3064f783c12095d8ff0b76b56d76ebf44375a069dd51a0629a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -9010,8 +9010,8 @@
     },
     {
       "aliases": ["https management advertise on slo internet vip tls certificates private key"],
-      "body_bytes": 3155,
-      "body_sha256": "sha256:70f022823ce1092dac809ce1a4b738068a360b26c59e3fc210795d3b49af1c3e",
+      "body_bytes": 2241,
+      "body_sha256": "sha256:42421eeaea3a3f2c0122e91a9db37d0fea2238471b2b9723f7621493f1996c5f",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -9131,8 +9131,8 @@
     },
     {
       "aliases": ["https management advertise on slo internet vip tls certificates private key blindfold secret info"],
-      "body_bytes": 5724,
-      "body_sha256": "sha256:2c39d22d900b5c3c665506ce5ad16caa82740987198819039e10553fdb58d3f7",
+      "body_bytes": 4991,
+      "body_sha256": "sha256:6e197f527caed6bea9ef4b642385541f99300d101b17ba31fda894c3e1a1c461",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -9256,8 +9256,8 @@
     },
     {
       "aliases": ["https management advertise on slo internet vip tls certificates private key clear secret info"],
-      "body_bytes": 4557,
-      "body_sha256": "sha256:a09c94647729e28f843f9a7cf8a69fdd28a6014cf1dc8103d2103ccd746531de",
+      "body_bytes": 3958,
+      "body_sha256": "sha256:99400c9f2cb8382b71783a28d7e1f0eebf53d3aa25655a7b61772c09ebe1e4dd",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -9358,8 +9358,8 @@
     },
     {
       "aliases": ["https management advertise on slo internet vip tls certificates use system defaults"],
-      "body_bytes": 1902,
-      "body_sha256": "sha256:d0839251f15d7ddc6cca8b27829b1f1e090962f20f9f92c6130aedbdc51f4586",
+      "body_bytes": 1547,
+      "body_sha256": "sha256:0ff3119d979d5d3ed199d17cc4a9aa106987c16a0b9ff88343f38560525b1ebf",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -9398,8 +9398,8 @@
     },
     {
       "aliases": ["https management advertise on slo internet vip tls config"],
-      "body_bytes": 4147,
-      "body_sha256": "sha256:29bcbded0fd6376298b8819d6e5f923294fe596368d1e30e9146b1a71428bb0a",
+      "body_bytes": 2782,
+      "body_sha256": "sha256:39b9a2a60b1e6fb4790e347c2987aa9cd1af677870503eceaa18cbee27f53996",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -9606,8 +9606,8 @@
     },
     {
       "aliases": ["https management advertise on slo internet vip tls config custom security"],
-      "body_bytes": 6717,
-      "body_sha256": "sha256:202f62705f950f156844d724f89bc3f7e19cfba8a22cf10def47ad4267d67a15",
+      "body_bytes": 6017,
+      "body_sha256": "sha256:e0ab18dc47d3ae5f4b94272ec0f9807cc152384d5e6604789e1ffc7688fd2004",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -9716,8 +9716,8 @@
     },
     {
       "aliases": ["https management advertise on slo internet vip tls config default security"],
-      "body_bytes": 1827,
-      "body_sha256": "sha256:17448ab0821d2988c619e73a741909a3443388e8bed353df6bf12b8531a1339a",
+      "body_bytes": 1484,
+      "body_sha256": "sha256:a24c6101dd7a2b8da607292c1e62cbc20de3c9a315f7e48204b1e9db85abcd0d",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -9737,7 +9737,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1110320013323011-1221022301022012-1322313110032031-0113212112202223-2232123020330103-2103233202220200-1033132313332211-0020110123232000",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-002.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9756,8 +9756,8 @@
     },
     {
       "aliases": ["https management advertise on slo internet vip tls config low security"],
-      "body_bytes": 1815,
-      "body_sha256": "sha256:f98556da54ee9b37027bef64b20a1805d8757d567c2c634b453f4a8896480f50",
+      "body_bytes": 1472,
+      "body_sha256": "sha256:3f31e7ff77d9a5e3ccacf302362967f036e2c08e40b1b7fdd9c3aca6689ba32f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -9777,7 +9777,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1013003000033020-1113232000210310-2321203001320001-1221311323300021-2120320323231233-0022203313121011-1013222232133321-1122203123230300",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-002.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9796,8 +9796,8 @@
     },
     {
       "aliases": ["https management advertise on slo internet vip tls config medium security"],
-      "body_bytes": 1824,
-      "body_sha256": "sha256:1c8f8c4a6378123519c2cff7be03b5862fc4ab0bc92f58acabf7f37599e2b610",
+      "body_bytes": 1481,
+      "body_sha256": "sha256:0c355c82f9b36937c904e18480584a1cdcc4a9d1bfbe87f7c3def168832c5200",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -9817,7 +9817,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3120302233232220-1010103303200001-2103100232033012-3213231322030023-1321011220230003-2011220221130113-0101211112103321-2032030013113020",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-002.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9836,8 +9836,8 @@
     },
     {
       "aliases": ["https management advertise on slo internet vip use mtls"],
-      "body_bytes": 6461,
-      "body_sha256": "sha256:a92bf63755cb0c3989303932016cd1ae4c517fc0f2e21c8962e33a05833d3c3f",
+      "body_bytes": 4697,
+      "body_sha256": "sha256:70675f4ec5b6d8eebf87edbd97028290b9cc6dd8a623de7b05e6a385b15d032f",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -9863,7 +9863,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2220303111010322-0112002023201232-0133012112231002-3103111320133100-1120331002010022-2320111201201332-2112303320000210-2130023033333112",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-002.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-https_management--advertise_on_slo_internet_vip--use_mtls--trusted_ca_url",
@@ -10062,8 +10062,8 @@
     },
     {
       "aliases": ["https management advertise on slo internet vip use mtls crl"],
-      "body_bytes": 6676,
-      "body_sha256": "sha256:746373b1f44f5e2376bdc1b66d5944007de353e4a4e87da0d1d2bf21f2be432f",
+      "body_bytes": 5679,
+      "body_sha256": "sha256:c168c85396e7ab5cbca0d2b3d15e67154fbea81f05de16c2199360a07cc397c3",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -10083,7 +10083,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2312311003223132-2222120000020203-2321301121120103-2231120101321310-2231233000333100-3011031112113230-2020022222311131-3121301202311230",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-002.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-https_management--advertise_on_slo_internet_vip--use_mtls--crl--name",
@@ -10154,8 +10154,8 @@
     },
     {
       "aliases": ["https management advertise on slo internet vip use mtls no crl"],
-      "body_bytes": 1785,
-      "body_sha256": "sha256:d60f68670ff076cfedb65b09a8020d776fe6f181023c8b7ddc50c084d84f8d5c",
+      "body_bytes": 1446,
+      "body_sha256": "sha256:5965bc849a62347cbdfb920ad76d8b1d4ca3d5056a3c88ed27e4f2307ab6f285",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -10194,8 +10194,8 @@
     },
     {
       "aliases": ["https management advertise on slo internet vip use mtls trusted ca"],
-      "body_bytes": 6718,
-      "body_sha256": "sha256:5fd95f4f38d2d66f62e4f84c124b14eadf60d629162e2c5ccecfa642ed7bfaec",
+      "body_bytes": 5721,
+      "body_sha256": "sha256:c0fa99f03b66cf58706b37726ed117d94e810ff96d8a5b932c720d5abcd4feff",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -10286,8 +10286,8 @@
     },
     {
       "aliases": ["https management advertise on slo internet vip use mtls xfcc disabled"],
-      "body_bytes": 1806,
-      "body_sha256": "sha256:7a25516f42bfd2c74b36df3b4e07067b46f685d6b042e250c78f7e6fbf6683fd",
+      "body_bytes": 1467,
+      "body_sha256": "sha256:f8eb34c97b6a802036169384cd6100f2a057abd976cfbf0190704133ae498727",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -10326,8 +10326,8 @@
     },
     {
       "aliases": ["https management advertise on slo internet vip use mtls xfcc options"],
-      "body_bytes": 3081,
-      "body_sha256": "sha256:1280f699d7aecd364c72c1e954816eb73f2af76d8e9f46a28bb9f06d71b90067",
+      "body_bytes": 2668,
+      "body_sha256": "sha256:b474a2b4b4cbe52ab3d14d41f9e14b840e887c1227241a57ff98ac59ca3e915b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -10396,8 +10396,8 @@
     },
     {
       "aliases": ["https management advertise on slo sli"],
-      "body_bytes": 3076,
-      "body_sha256": "sha256:603553f8e49823307593319ca56c6c275cc161ba1139ae50ce79748dbb4c7fe6",
+      "body_bytes": 2063,
+      "body_sha256": "sha256:5b1783560f10b4c499d1458bc08cc09a17dac3a00ac94c3f0e9fe5fb43528f05",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -10732,8 +10732,8 @@
     },
     {
       "aliases": ["https management advertise on slo sli no mtls"],
-      "body_bytes": 1491,
-      "body_sha256": "sha256:a11f48cc7916b8e6c6a27c33f6ba614f675bc91c482983b16df403a3dfd58dcc",
+      "body_bytes": 1188,
+      "body_sha256": "sha256:d18c77bf138f883fbbb22a6963eaeafe1efb792e2a56789ccf4bc5f20923ef2c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -10778,8 +10778,8 @@
         "https management advertise on slo sli tls certificates",
         "tls certificates"
       ],
-      "body_bytes": 6519,
-      "body_sha256": "sha256:a83605e68fc4ff6f3102396925f810e6649bf80e96306b0b844adedd0e85241d",
+      "body_bytes": 4959,
+      "body_sha256": "sha256:7c083a65253a92e0c1c45ca6dd54479566bd5ecd41c5535fc280a3862512270c",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -10997,8 +10997,8 @@
     },
     {
       "aliases": ["https management advertise on slo sli tls certificates custom hash algorithms"],
-      "body_bytes": 3478,
-      "body_sha256": "sha256:0ff0cd6c0c4cde11e7f6b2337b3ce5c969d85005cbeba3aedbbf016e65ddca11",
+      "body_bytes": 3088,
+      "body_sha256": "sha256:0c8cb278875fa038f44f44e1de9ee28ff3ed80868f471fd8bd40fc17398b8155",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -11067,8 +11067,8 @@
     },
     {
       "aliases": ["https management advertise on slo sli tls certificates disable ocsp stapling"],
-      "body_bytes": 1838,
-      "body_sha256": "sha256:43ca3e2b116029835cb397198bf12e4415979b01b7ab38f4b6537a5e8056b145",
+      "body_bytes": 1501,
+      "body_sha256": "sha256:15a4a08fee0577e85271bab8860f436758c009ea32de8dc2fa287399005413f1",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -11107,8 +11107,8 @@
     },
     {
       "aliases": ["https management advertise on slo sli tls certificates private key"],
-      "body_bytes": 3029,
-      "body_sha256": "sha256:3b17b4508764877b782b721c976592fc97f024a7d253e491803e5d124d43005d",
+      "body_bytes": 2169,
+      "body_sha256": "sha256:3e2851748e56dbc838b38d262b0643ef419078de3d4f4333fa8a0718be23c612",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -11226,8 +11226,8 @@
     },
     {
       "aliases": ["https management advertise on slo sli tls certificates private key blindfold secret info"],
-      "body_bytes": 5607,
-      "body_sha256": "sha256:b04127c256e4167786f2807c35446617e861b3f86b1614731f34d87731bbe92f",
+      "body_bytes": 4892,
+      "body_sha256": "sha256:346a68215e99d17e597d2143ea33609cb6aef3994371ba014a0fea40c476f1ee",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -11351,8 +11351,8 @@
     },
     {
       "aliases": ["https management advertise on slo sli tls certificates private key clear secret info"],
-      "body_bytes": 4449,
-      "body_sha256": "sha256:f4dde5d78aca577168e5398e260d7f255b8d96dabe4453ccbc41def4aa5fb0a0",
+      "body_bytes": 3868,
+      "body_sha256": "sha256:ca1ab83b17757acfff3e493bf59bd5d150c707e1862876dab0af4693b167780c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -11451,8 +11451,8 @@
     },
     {
       "aliases": ["https management advertise on slo sli tls certificates use system defaults"],
-      "body_bytes": 1830,
-      "body_sha256": "sha256:99bd2b69fc2ce32d532b22a6a9c5e01f5f699a5afddd00c1d1450e8b5da8c5d5",
+      "body_bytes": 1493,
+      "body_sha256": "sha256:cc4da9af2fc7ee50a5072bcb56749d9abc4914a207f7409a2e57d6782ddaa6eb",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -11491,8 +11491,8 @@
     },
     {
       "aliases": ["https management advertise on slo sli tls config"],
-      "body_bytes": 3985,
-      "body_sha256": "sha256:b6a126f04f40046e93d96ad3a5edc96d84582f09dc04910c761d480a527a6941",
+      "body_bytes": 2710,
+      "body_sha256": "sha256:33f6dde484b272befb3610512c8b01c5a9eec104de4b70facbebde53619e2e31",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -11699,8 +11699,8 @@
     },
     {
       "aliases": ["https management advertise on slo sli tls config custom security"],
-      "body_bytes": 6618,
-      "body_sha256": "sha256:2de516cb5e4f583ff84fa77d088f926b4bbbeca478bbdb5d3c96ac1c5d1d3457",
+      "body_bytes": 5936,
+      "body_sha256": "sha256:f2bb086b000052cdc08138f54e42f4d20d850cb7c482b591b0e02fda71fbcca4",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -11791,8 +11791,8 @@
     },
     {
       "aliases": ["https management advertise on slo sli tls config default security"],
-      "body_bytes": 1755,
-      "body_sha256": "sha256:c61c4dd6109bc93116d03b788dfa6ca540966bf5b4869f0b9cd69fa7fbd6f7d0",
+      "body_bytes": 1430,
+      "body_sha256": "sha256:c70d554a5651140f9f87d33ff378c421a7d5f6f8153eebba00e519ecb2167c54",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -11831,8 +11831,8 @@
     },
     {
       "aliases": ["https management advertise on slo sli tls config low security"],
-      "body_bytes": 1743,
-      "body_sha256": "sha256:584853574db719ff436c1ba91e3ae0d25b1b9abd6c8a3a3f33b487b9634f5c5a",
+      "body_bytes": 1418,
+      "body_sha256": "sha256:f4de90153e53ec3bfc3464fca9b7ff8bdcc99d3ed3d0a84bb4cf96769d2de4ea",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -11871,8 +11871,8 @@
     },
     {
       "aliases": ["https management advertise on slo sli tls config medium security"],
-      "body_bytes": 1752,
-      "body_sha256": "sha256:4b716f09fc8ab3d39d9fbfb5c0e4b1c2b6dc814497c88530b02534b98aeee7fd",
+      "body_bytes": 1427,
+      "body_sha256": "sha256:18533630a2c0b08612a227b52035a65f039e9423384998dfc3cfb9f08110ef52",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -11911,8 +11911,8 @@
     },
     {
       "aliases": ["https management advertise on slo sli use mtls"],
-      "body_bytes": 6254,
-      "body_sha256": "sha256:19a5ea721224a1bc8ff908e5ee1b5fe2b0944e8833715a79b6d1eb74e2f7a5be",
+      "body_bytes": 4598,
+      "body_sha256": "sha256:6d5ccbc02c18c85e81363955221ceed43db81260cced860647846e6b8c316bfd",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -12132,8 +12132,8 @@
     },
     {
       "aliases": ["https management advertise on slo sli use mtls crl"],
-      "body_bytes": 6577,
-      "body_sha256": "sha256:effffe47ff8dcb29a0378abe2f77e379a46a4f858b3ec078d2b5e24b81d26607",
+      "body_bytes": 5598,
+      "body_sha256": "sha256:92f5a65fbe24655a76042f6272e933e67c67b670685258680a8d903ab3a66a70",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -12224,8 +12224,8 @@
     },
     {
       "aliases": ["https management advertise on slo sli use mtls no crl"],
-      "body_bytes": 1713,
-      "body_sha256": "sha256:a5fafe66fbe58c67511b1be386cab39f0f2c128b434ff08bce353b9830e174ed",
+      "body_bytes": 1392,
+      "body_sha256": "sha256:6717fce358d8fe686d0a466844ed3886d6316bbe975e9ac78da405ff2bca02d9",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -12264,8 +12264,8 @@
     },
     {
       "aliases": ["https management advertise on slo sli use mtls trusted ca"],
-      "body_bytes": 6619,
-      "body_sha256": "sha256:585da2dcc80e58aa66bf04daa7323da8c611c78b3d4e18d06c6197967f40a126",
+      "body_bytes": 5640,
+      "body_sha256": "sha256:e42c048a697cf150c1d811b4149a3563963b7b774280fe5575ab195e7f0177c2",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -12356,8 +12356,8 @@
     },
     {
       "aliases": ["https management advertise on slo sli use mtls xfcc disabled"],
-      "body_bytes": 1734,
-      "body_sha256": "sha256:2d6ec9bea219b48a997f1c551d353cd6f4b3e5e96a10efcd9b3d0ece8edd10ea",
+      "body_bytes": 1413,
+      "body_sha256": "sha256:bbcf4f41746e58631f5340f0f77d8fb36dda9e289fb79e925030c4e7922d9b63",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -12396,8 +12396,8 @@
     },
     {
       "aliases": ["https management advertise on slo sli use mtls xfcc options"],
-      "body_bytes": 3000,
-      "body_sha256": "sha256:b61021f74cb2ada3d0d415d77e9bcd9156f268e8ecd624467d6b1a76485f2c40",
+      "body_bytes": 2605,
+      "body_sha256": "sha256:f7b7de97189130451262fa87ae70d9bd44b1efa8ed7e8cb52fee9b0fca7a54c0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -12466,8 +12466,8 @@
     },
     {
       "aliases": ["https management advertise on slo vip"],
-      "body_bytes": 3072,
-      "body_sha256": "sha256:2d3f4e98de934967e0cc93b9486e48300c30c5b27e0c9aeca08df8de05b9b3b4",
+      "body_bytes": 2005,
+      "body_sha256": "sha256:c8c4e4b5a517d38e6a684606e4f9e3f2fe0122f5282345531df21de39ee7770c",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -12802,8 +12802,8 @@
     },
     {
       "aliases": ["https management advertise on slo vip no mtls"],
-      "body_bytes": 1491,
-      "body_sha256": "sha256:fc322380b7cf3d360cb541a738f140139c15347e8fd1b1548e0d096df0841998",
+      "body_bytes": 1188,
+      "body_sha256": "sha256:930978eb89be043666262b15e63c679c34630f3bba07ab7229a710c93fa69c2f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -12848,8 +12848,8 @@
         "https management advertise on slo vip tls certificates",
         "tls certificates"
       ],
-      "body_bytes": 6519,
-      "body_sha256": "sha256:d436b0080baea88ca15ff9ad60d2086e0178238e85cbcb0c40feead9e89f0e01",
+      "body_bytes": 4959,
+      "body_sha256": "sha256:9220933838d32348032fea9195fe70a75b7d7e1ebee903d64a6431a99dda705c",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -13067,8 +13067,8 @@
     },
     {
       "aliases": ["https management advertise on slo vip tls certificates custom hash algorithms"],
-      "body_bytes": 3478,
-      "body_sha256": "sha256:aa944a25460b152bcccd864159bc7118efb4400c5041e7d41b63b8e2876ee981",
+      "body_bytes": 3088,
+      "body_sha256": "sha256:a4ef18d67cd58bed015a0ce7a7aa9f5e8e5f9a27c762c30e7b966ec085b01763",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -13137,8 +13137,8 @@
     },
     {
       "aliases": ["https management advertise on slo vip tls certificates disable ocsp stapling"],
-      "body_bytes": 1838,
-      "body_sha256": "sha256:e2af70bab11bbb51064b10d361bc16711ac8397fee75c44a9ab2d9501060d192",
+      "body_bytes": 1501,
+      "body_sha256": "sha256:a29e421ae6f2fcb8cfc4c3c83f6b52fb8ceb9a769baa7a101b12f0a5fa298902",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -13177,8 +13177,8 @@
     },
     {
       "aliases": ["https management advertise on slo vip tls certificates private key"],
-      "body_bytes": 3029,
-      "body_sha256": "sha256:f3b9d41b87186501db6a709efd0000068dd74bac09fa41935844475b4983d57b",
+      "body_bytes": 2169,
+      "body_sha256": "sha256:70a64b3e97dca9ccb957ea2830dcab4dfb3b966a6dcce6f8ef0e875b8f36544d",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -13296,8 +13296,8 @@
     },
     {
       "aliases": ["https management advertise on slo vip tls certificates private key blindfold secret info"],
-      "body_bytes": 5607,
-      "body_sha256": "sha256:66d52a64455da897031c096afbd9cdbbf9fd1e2272abea707e41b7faf6334e6b",
+      "body_bytes": 4892,
+      "body_sha256": "sha256:1b4b847e9e42c9596f20a93ae128d7c0a0157ec57823f272bcdde6e8db20bf64",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -13317,7 +13317,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0303233320112200-3220033130320200-3223032232212000-2132032213123332-1012210220020200-3102211222300113-0212030203120101-3331102210022210",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-004.md",
       "relationships": [
         {
           "anchor": "schema-https_management--advertise_on_slo_vip--tls_certificates--private_key--blindfold_secret_info--location",
@@ -13421,8 +13421,8 @@
     },
     {
       "aliases": ["https management advertise on slo vip tls certificates private key clear secret info"],
-      "body_bytes": 4449,
-      "body_sha256": "sha256:b08df4a9550a22a809db7d6bd85ea0063698772ba70c66fff3353fa5d60fc18c",
+      "body_bytes": 3868,
+      "body_sha256": "sha256:a9af37f9fb6376f4945c7fd864a43ecb96fb3198c951fa5700bfd8b89185a39a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -13442,7 +13442,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2112031210010210-1111112120300332-0010203003220232-1033332002002210-1311220031111310-0113102010002113-0000010300102300-1001023330320103",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-004.md",
       "relationships": [
         {
           "anchor": "schema-https_management--advertise_on_slo_vip--tls_certificates--private_key--clear_secret_info--url",
@@ -13521,8 +13521,8 @@
     },
     {
       "aliases": ["https management advertise on slo vip tls certificates use system defaults"],
-      "body_bytes": 1830,
-      "body_sha256": "sha256:6731915219010fe345fede26f8d30e8957526e185e47269870319e233db7a542",
+      "body_bytes": 1493,
+      "body_sha256": "sha256:8341d4f6b5251c095bc4522720adaf83212fd31464a4cfbc42dabd4dc628d7a7",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -13542,7 +13542,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1011101211010132-3312322032312331-3113201301221030-0122312102211300-0221000121010231-3102333110002230-2312323213001223-1111002232331221",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -13561,8 +13561,8 @@
     },
     {
       "aliases": ["https management advertise on slo vip tls config"],
-      "body_bytes": 3985,
-      "body_sha256": "sha256:de3fff60a0cacc86155a9b600b58c36ffa607543ad725afd6c74bcba979057f3",
+      "body_bytes": 2710,
+      "body_sha256": "sha256:441edd583b4758a37c0bb688d0d9108ddc1b006efd88aff0ca133ba0d4dbb8e8",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -13587,7 +13587,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1220000301313030-3210123130033303-0000003031222101-0230222200021002-2212330020213020-3221320323031031-1203232101302221-3230202011332313",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-004.md",
       "relationships": [
         {
           "anchor": "section",
@@ -13769,8 +13769,8 @@
     },
     {
       "aliases": ["https management advertise on slo vip tls config custom security"],
-      "body_bytes": 6618,
-      "body_sha256": "sha256:06c989346b770a80fb0f8a2e252f98892bec76f211d3a81e8cb7b93cf31b3376",
+      "body_bytes": 5936,
+      "body_sha256": "sha256:ec6f95182179c1b5f4f2dd4943e58b4250445fe0c964448306e126fd52105412",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -13790,7 +13790,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3201031332003023-3033323011221223-0102102020000213-1300103033102211-2110032320231012-1303123231300102-0332113101133130-1210232003222333",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-004.md",
       "relationships": [
         {
           "anchor": "schema-https_management--advertise_on_slo_vip--tls_config--custom_security--cipher_suites",
@@ -13861,8 +13861,8 @@
     },
     {
       "aliases": ["https management advertise on slo vip tls config default security"],
-      "body_bytes": 1755,
-      "body_sha256": "sha256:d17d8817589d8e6642a1e1989b71df4698723a1d342c7ce329267dae5187d878",
+      "body_bytes": 1430,
+      "body_sha256": "sha256:2a79d04c6467fe2737647281718c3f2bc752318503f6bb50ac1ee71d1e846b8f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -13882,7 +13882,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1330131011213232-0312111203313122-2030100023332311-2111021013121100-2202330011021130-3333030133113322-1111232220133201-0121203113031103",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -13901,8 +13901,8 @@
     },
     {
       "aliases": ["https management advertise on slo vip tls config low security"],
-      "body_bytes": 1743,
-      "body_sha256": "sha256:9cfd93a394e5c8a8e997f3aeb6c8bcfe4aafe6f117dd91c017a299e348b1cf65",
+      "body_bytes": 1418,
+      "body_sha256": "sha256:5420d46ebeec84dbaecf642ef1b71f6b1a6a8ba293001b5ba0fbc4c7dc9c9749",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -13922,7 +13922,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0221112003220310-3222311333330300-3303223310301220-1032022013201000-2103003200212201-2133333333032331-0232313212202133-0021123223003122",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -13941,8 +13941,8 @@
     },
     {
       "aliases": ["https management advertise on slo vip tls config medium security"],
-      "body_bytes": 1752,
-      "body_sha256": "sha256:d9c333a98ac9fd6305a24f40da437d0ebd486d405cc48e610e6a3b1ed590610f",
+      "body_bytes": 1427,
+      "body_sha256": "sha256:09af9a2eacc91d6247f4c2693a0e31a8be6c8b2542e77221599c3a0013a38285",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -13962,7 +13962,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3131221302121031-0301003201212113-0121002010311301-2233331000033101-2332322333202130-1223331020103211-2233033313330003-1212230311012203",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -13981,8 +13981,8 @@
     },
     {
       "aliases": ["https management advertise on slo vip use mtls"],
-      "body_bytes": 6254,
-      "body_sha256": "sha256:42cbb12726fdc22984e9d0ba6a93fdaeb64d83fdfe6427c73613c56903aef4c1",
+      "body_bytes": 4598,
+      "body_sha256": "sha256:c8ecd71164b4c7af434f7fe6582b1aa2411c21f59aeac2367c91813afbe7f0c0",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -14008,7 +14008,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0013001011312211-0302330103310232-2330013030103010-2111232121111121-1132202200220233-3303310322202002-2110202013220100-2223302323332223",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-004.md",
       "relationships": [
         {
           "anchor": "schema-https_management--advertise_on_slo_vip--use_mtls--trusted_ca_url",
@@ -14202,8 +14202,8 @@
     },
     {
       "aliases": ["https management advertise on slo vip use mtls crl"],
-      "body_bytes": 6577,
-      "body_sha256": "sha256:598968c4d621163eb59b29e683a604683f570510f7028692ab123c682bcf354b",
+      "body_bytes": 5598,
+      "body_sha256": "sha256:048504aa49d6b8c2c0591b9fc1cb10348375c5f07946d75c941304edb332e765",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -14223,7 +14223,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1211213133032023-1331331032210202-2232222231230112-1223110221111122-0031133333203122-3211121232003102-0311013132001132-2030130032333110",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-004.md",
       "relationships": [
         {
           "anchor": "schema-https_management--advertise_on_slo_vip--use_mtls--crl--name",
@@ -14294,8 +14294,8 @@
     },
     {
       "aliases": ["https management advertise on slo vip use mtls no crl"],
-      "body_bytes": 1713,
-      "body_sha256": "sha256:782ea110e4986b04f2bb73f9b3bb4a34b16a6c5101004eb3e5152adb4c0a68b8",
+      "body_bytes": 1392,
+      "body_sha256": "sha256:3ffb46b4e98d397584f3c5c5bd52ccc7f7220c41c8ad657d370403874edb9eff",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -14315,7 +14315,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2311332333230021-3322130201230221-3312013100112301-2231212212201121-1210212232111333-1222102200203003-1012133201130323-3110011030102211",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14334,8 +14334,8 @@
     },
     {
       "aliases": ["https management advertise on slo vip use mtls trusted ca"],
-      "body_bytes": 6619,
-      "body_sha256": "sha256:807b7d69e4a6cd251dbefd7b5fbe6394457826d4c49716ac699ae2313e6d1ef6",
+      "body_bytes": 5640,
+      "body_sha256": "sha256:386af9b333c27b4396f927e57e51bd3ab8af73e8a7de9ecabf66fd0f0df0f942",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -14355,7 +14355,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2123010010310132-1121312303020113-1101203321100033-0203101122233000-1331100230312132-0322321103013220-2310323311002011-3222230012313000",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-004.md",
       "relationships": [
         {
           "anchor": "schema-https_management--advertise_on_slo_vip--use_mtls--trusted_ca--name",
@@ -14426,8 +14426,8 @@
     },
     {
       "aliases": ["https management advertise on slo vip use mtls xfcc disabled"],
-      "body_bytes": 1734,
-      "body_sha256": "sha256:18eb326ee939f8e7115346bfbc5f4f6581cefc8e15cecc9e4fd48c9303689654",
+      "body_bytes": 1413,
+      "body_sha256": "sha256:4543f0bcadddcd762611c5225c34df1981f16535cc590c1c08362b9af2af7b2e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -14447,7 +14447,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1021123323213212-2110100230220301-2012331211010233-3133233011211323-3212030003231332-0321230200103330-3030011112320332-0222102101011131",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14466,8 +14466,8 @@
     },
     {
       "aliases": ["https management advertise on slo vip use mtls xfcc options"],
-      "body_bytes": 3000,
-      "body_sha256": "sha256:b0f14cba8b209ff03f25f8a28c0d879216b39c4bae289a36973b1c29b1a97c5b",
+      "body_bytes": 2605,
+      "body_sha256": "sha256:8fd0fe9aff59c4e7fa6c2be2ed1a4177cf011aad5d464757f3c1ab6f5e193ee4",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -14487,7 +14487,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3223112210013103-1311113030331010-3121321332011303-2102323201001131-3220022230313220-2312300022222123-0100011211310032-2231110110020003",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-004.md",
       "relationships": [
         {
           "anchor": "schema-https_management--advertise_on_slo_vip--use_mtls--xfcc_options--xfcc_header_elements",
@@ -14536,8 +14536,8 @@
     },
     {
       "aliases": ["https management default https port"],
-      "body_bytes": 1269,
-      "body_sha256": "sha256:f19453eadc0d3e7c323de8086560fdc8e61a1fea37b96ef7769f76555fbd68f7",
+      "body_bytes": 1008,
+      "body_sha256": "sha256:9218bd7b04feced8f2ebe7825cdb5d830203679daf054e192777aa03489edf77",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -14557,7 +14557,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1031033213022103-1023333001002003-1001122010332122-2120200101013131-3210333031311132-3130212220330310-3120322302022212-0102303131310332",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-004.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -14576,8 +14576,8 @@
     },
     {
       "aliases": ["palo alto fw service"],
-      "body_bytes": 17479,
-      "body_sha256": "sha256:ac38e592349be09a91776d2dad4df3b117d9644bee22ba953b0e9a6af13e2526",
+      "body_bytes": 15697,
+      "body_sha256": "sha256:a60704dd2591c57d828074d654475ab893fb77180e896c69d5d20520db3ea5d3",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -14605,7 +14605,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1220032300320010-0322310310320112-3102020032000031-0230002231133113-1321103031132221-2112211003001211-2001103020013300-3102213200033033",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-004.md",
       "relationships": [
         {
           "anchor": "schema-palo_alto_fw_service--ssh_key",
@@ -14864,8 +14864,8 @@
     },
     {
       "aliases": ["palo alto fw service auto setup"],
-      "body_bytes": 3493,
-      "body_sha256": "sha256:af0c7f71183627fb87d2a55f5aefd427cb8ec6af05d5edd0f33b88798ced1171",
+      "body_bytes": 2666,
+      "body_sha256": "sha256:43ea2e35cebd0dcce6b618b5cf3167163e95e048c41ea13aeb59f9576be2c722",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -14888,7 +14888,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1323331203203220-3311331231103031-1001233001210020-3313130122302010-2233001013101302-3333333033103312-2000002012201020-3033003110033123",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-004.md",
       "relationships": [
         {
           "anchor": "schema-palo_alto_fw_service--auto_setup--admin_username",
@@ -14985,8 +14985,8 @@
     },
     {
       "aliases": ["palo alto fw service auto setup admin password"],
-      "body_bytes": 2617,
-      "body_sha256": "sha256:46de4eeb24810afa23a0a1fe525e30b9cb5cb6d0c2e52b18866431af8427a540",
+      "body_bytes": 1883,
+      "body_sha256": "sha256:ad5c9949c5c7a107d3be338df52c9bc02dccde0ef70543feca6ebd78f45bc2b9",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -15092,8 +15092,8 @@
     },
     {
       "aliases": ["palo alto fw service auto setup admin password blindfold secret info"],
-      "body_bytes": 5215,
-      "body_sha256": "sha256:15256b35994f866abb19ee9a8328f089745a4f22b2fc0a8e58e67d63dc3cdd03",
+      "body_bytes": 4540,
+      "body_sha256": "sha256:3e840c453598e5dd950fdfc97d4d64607fb50d4ad28fd82edfb7773ff8e92634",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -15196,8 +15196,8 @@
     },
     {
       "aliases": ["palo alto fw service auto setup admin password clear secret info"],
-      "body_bytes": 4078,
-      "body_sha256": "sha256:fe6467fd6ff230c7f8eff71b60f50880853398c1d3815a7919baad69b6c34b7e",
+      "body_bytes": 3537,
+      "body_sha256": "sha256:5dce8dbaeef8d88c495ed393358576e4d91514f98ce35e695724a96f43d818c1",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -15274,8 +15274,8 @@
     },
     {
       "aliases": ["palo alto fw service auto setup manual ssh keys"],
-      "body_bytes": 3458,
-      "body_sha256": "sha256:f6593e33e51cf10510c2a087ee1dc17dc6f7c4e9b3c03a92f32adab47fed1f2f",
+      "body_bytes": 2967,
+      "body_sha256": "sha256:5099c80965fefaac8e9fad13a8f2069ffb0a93897006db64066978112ce2e79c",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -15371,8 +15371,8 @@
     },
     {
       "aliases": ["palo alto fw service auto setup manual ssh keys private key"],
-      "body_bytes": 2941,
-      "body_sha256": "sha256:0894bd47fdefb0fd163192928232f4f4f9ddf30ccfd712e1cb249dde3d89072f",
+      "body_bytes": 2123,
+      "body_sha256": "sha256:61821d6acedd5f30799f50e5af685e2033d28f107238ce846713c5fb20f0f006",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -15484,8 +15484,8 @@
     },
     {
       "aliases": ["palo alto fw service auto setup manual ssh keys private key blindfold secret info"],
-      "body_bytes": 5526,
-      "body_sha256": "sha256:51ea9f93e4e1ac10b48c7a9462cc4add3955934c4357bee4b34a003f8239c692",
+      "body_bytes": 4825,
+      "body_sha256": "sha256:b9d27b2bcbd35b2b642f5f2b4ece986052a79515fbb9aa195782e838c9e1a644",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -15601,8 +15601,8 @@
     },
     {
       "aliases": ["palo alto fw service auto setup manual ssh keys private key clear secret info"],
-      "body_bytes": 4375,
-      "body_sha256": "sha256:9ddafa6a07289bbdbbc3bbe898824da57d054c0e000b3b94fd15c4bedf33521d",
+      "body_bytes": 3808,
+      "body_sha256": "sha256:9bf492358d66d5689839a03e1b08deb5872469f44d1c73fe9be6814e8e04f205",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -15693,8 +15693,8 @@
     },
     {
       "aliases": ["palo alto fw service aws tgw site"],
-      "body_bytes": 6091,
-      "body_sha256": "sha256:3d45393a0ce655523caac097172edf256007209cf776168d9d9f6480acd82fec",
+      "body_bytes": 5164,
+      "body_sha256": "sha256:d5d6027b58697eed168746b8bc81e8ae9c9ac030eb391fedd88be67d8ace76c0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -15785,8 +15785,8 @@
     },
     {
       "aliases": ["palo alto fw service disable panaroma"],
-      "body_bytes": 1314,
-      "body_sha256": "sha256:a121cc12a31111591005f8ee84971002ec0c117076bb132307046cd79bac1d71",
+      "body_bytes": 1045,
+      "body_sha256": "sha256:8952a47b54394399796d9a148802e40608aceac216025593c5e8771a2ffac494",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -15825,8 +15825,8 @@
     },
     {
       "aliases": ["palo alto fw service pan ami bundle1"],
-      "body_bytes": 1310,
-      "body_sha256": "sha256:21dd58e32927078c901117eaed6ea782243d3c67f8d90c3cf6ca2902956a100a",
+      "body_bytes": 1041,
+      "body_sha256": "sha256:90d1f925d0e080495d9ac2dc437cc097092b49acca9981133177ad560fd1c100",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -15865,8 +15865,8 @@
     },
     {
       "aliases": ["palo alto fw service pan ami bundle2"],
-      "body_bytes": 1310,
-      "body_sha256": "sha256:c11ed777252bb54d81da0b2671b48ed58d070ef7cb860d8063d19caae1c8f0fb",
+      "body_bytes": 1041,
+      "body_sha256": "sha256:37eac87d064971ffa9648c30db20dfe2551d6b72c439f5ccff19df79dfc8fb63",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -15905,8 +15905,8 @@
     },
     {
       "aliases": ["palo alto fw service panorama server"],
-      "body_bytes": 4864,
-      "body_sha256": "sha256:8157732d336c0f7d1f6d6f165671dbbbc263f9ae4e06f9115e9ac71bd49a5aae",
+      "body_bytes": 4324,
+      "body_sha256": "sha256:5be1ca3111922e3f9d4723c4b7bd0bbaa5fab9709f0ce87792deb52e218f18e8",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -16030,8 +16030,8 @@
     },
     {
       "aliases": ["palo alto fw service panorama server authorization key"],
-      "body_bytes": 2704,
-      "body_sha256": "sha256:2420fe96ab66f6165fb70e904de72f3330aaf1770e6d79b79e759e1febd6bad6",
+      "body_bytes": 1928,
+      "body_sha256": "sha256:3d630be301a819c09eb8020ebee6b070583c76a170e51eff4dc0c5bbb428de0f",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -16137,8 +16137,8 @@
     },
     {
       "aliases": ["palo alto fw service panorama server authorization key blindfold secret info"],
-      "body_bytes": 5297,
-      "body_sha256": "sha256:e61c021a924d2ffa3c887661a50238acac04ecb7597f1d06c44549ba39f83448",
+      "body_bytes": 4606,
+      "body_sha256": "sha256:1285db4bc2d1da54d1f579a0c88c6e84cc270f5d4f17fc2254552d2a55beef7b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -16249,8 +16249,8 @@
     },
     {
       "aliases": ["palo alto fw service panorama server authorization key clear secret info"],
-      "body_bytes": 4152,
-      "body_sha256": "sha256:c9bafa4672121b000ef105bd207472da866aeb20e83d2394d5fc92889de422e2",
+      "body_bytes": 3595,
+      "body_sha256": "sha256:2206c26c2d7d095fb752fd9fb6d5f11992347bd9e3f445075291440a9cbf27a0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -16333,8 +16333,8 @@
     },
     {
       "aliases": ["palo alto fw service service nodes"],
-      "body_bytes": 1704,
-      "body_sha256": "sha256:f7193222643632a6c2537cda2dbfbfb73190c8b1252abfefbc13a1329a8e7c81",
+      "body_bytes": 1273,
+      "body_sha256": "sha256:996069614dd38104348c91234cc51e63837d21609b37520fa080bdc96dfbcf97",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:service_nodes:nodes"],
@@ -16430,8 +16430,8 @@
     },
     {
       "aliases": ["palo alto fw service service nodes nodes"],
-      "body_bytes": 5820,
-      "body_sha256": "sha256:41a582fbc1208ea050eb64a5615161fc416ff1e86fd70d3299c8b0cdc1468d3b",
+      "body_bytes": 5060,
+      "body_sha256": "sha256:9cbae91f4dd4bc1d8fb62c41c628beb1246ec58e6fbe072f3c38a37d272e7319",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -16580,8 +16580,8 @@
     },
     {
       "aliases": ["palo alto fw service service nodes nodes mgmt subnet"],
-      "body_bytes": 3669,
-      "body_sha256": "sha256:365b4ada6a0b78e603515bf399ed9a6a41b453abedaf671c14c99573570e0d62",
+      "body_bytes": 3060,
+      "body_sha256": "sha256:c85f199d47a5fca7ad0307c7546c39634acc1e209e5142e3db899df09fceb60e",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -16677,8 +16677,8 @@
     },
     {
       "aliases": ["palo alto fw service service nodes nodes mgmt subnet subnet param"],
-      "body_bytes": 3108,
-      "body_sha256": "sha256:6f0d161bf7eaa106a08b70b6a10e8f3b35cd6d53a3cfdaf56f95c6caa446bbe3",
+      "body_bytes": 2730,
+      "body_sha256": "sha256:9958686c36e9a0bef912644ebea671e3de8b84343ea8faa8411344683100de6c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -16741,8 +16741,8 @@
     },
     {
       "aliases": ["palo alto fw service service nodes nodes reserved mgmt subnet"],
-      "body_bytes": 1752,
-      "body_sha256": "sha256:176f07d9ef4b65d5a85d12af6ca68c0ec55ba4ee2315a824cc591d2921fd1a00",
+      "body_bytes": 1443,
+      "body_sha256": "sha256:73cc6add876601421910e00821c59833e16023e4553612e3429057d4d28131d9",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -16781,8 +16781,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2225,
-      "body_sha256": "sha256:3ce984523ae80ac8554b69da9cb9be13bec7abcc22d35ac9174cb52dfc9be15e",
+      "body_bytes": 1994,
+      "body_sha256": "sha256:6384ab73ff4553e7ede5167e0265fd4fe4d0266b05b4f0646ddd5df4fd833aeb",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -16913,8 +16913,8 @@
     },
     {
       "aliases": ["nfv service"],
-      "body_bytes": 627,
-      "body_sha256": "sha256:e5bc656a95d4531093bae7e241603b5cd56a655fb73ec4800e721eca674e6462",
+      "body_bytes": 399,
+      "body_sha256": "sha256:f400824a744e8ebbb178a88e229a4a9424833e7911992d2e1a883a5d9c180b7f",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:nfv_service:example:resource"],
@@ -16953,8 +16953,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1241,
-      "body_sha256": "sha256:e5dbfb1d536da3cc906df42e9f72974f1b4eff08fc8180e13bbb8d4c804f4296",
+      "body_bytes": 1022,
+      "body_sha256": "sha256:1698d12988e81f062d84b76122ce574696a7070aa8a8fad652cf4f109bdba9d6",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -17000,8 +17000,8 @@
     },
     {
       "aliases": ["nfv service"],
-      "body_bytes": 475,
-      "body_sha256": "sha256:e8e065bee9ac179c3bd91849bdd9dceebb89f19c7ce5163e5d7cf6a009610c83",
+      "body_bytes": 358,
+      "body_sha256": "sha256:5be2d59a12d51dd13681701e8afec3c497b0c449bf9d8d18309b797bda8fa191",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -17041,8 +17041,8 @@
     },
     {
       "aliases": ["nfv service"],
-      "body_bytes": 563,
-      "body_sha256": "sha256:866d0d1cde7be531434fb47efd332d91b249deaf5de8f2f2508d9a512bd67de9",
+      "body_bytes": 446,
+      "body_sha256": "sha256:4b199da913567fd9339abfd64014ad933f3f847623881712c59c576a71638612",
       "capabilities": [],
       "category": null,
       "child_ids": [],

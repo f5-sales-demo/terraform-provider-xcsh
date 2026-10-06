@@ -2,7 +2,7 @@
 page_title: "rule_list.rules.spec.ja4_tls_fingerprint"
 subcategory: "Security"
 description: "An extended version of JA3 that includes additional fields for more comprehensive fingerprinting of SSL/TLS clients and potentially has a different structure and length."
-xcsh_docs: {"aliases": ["rule list rules spec ja4 tls fingerprint"], "body_bytes": 3152, "body_sha256": "sha256:f61ffe5bbf7ed1bcbb990f0d60160e2e95abba24b31a19d59c3a6ada2472c2de", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:service_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:ja4_tls_fingerprint", "parent_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec", "path": "documentation/resources/service_policy/properties/rule_list/rules/spec/ja4_tls_fingerprint/index.md", "product": "distributed-cloud", "provider_name": "service_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3030030233300323-2201301300112210-1201003030313223-2320311230330003-2013232332000022-0131000212013130-1121021010010202-1011100231001020", "registry_path": "docs/guides/resources--service_policy--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["rule_list", "rules", "spec", "ja4_tls_fingerprint"], "schema_version": 1, "sections": [{"aliases": ["rule list rules spec ja4 tls fingerprint exact values"], "anchor": "schema-rule_list--rules--spec--ja4_tls_fingerprint--exact_values", "description": "A list of exact JA4 TLS fingerprint to match the input JA4 TLS fingerprint against.", "document_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:ja4_tls_fingerprint", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rule_list", "rules", "spec", "ja4_tls_fingerprint", "exact_values"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy/properties/rule_list/rules/spec/ja4_tls_fingerprint/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "An extended version of JA3 that includes additional fields for more comprehensive fingerprinting of SSL/TLS clients and potentially has a different structure and length.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["service_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["rule list rules spec ja4 tls fingerprint"], "body_bytes": 2592, "body_sha256": "sha256:a523f656c8f539afbce1b7540e1e16a71c0f55670b72d7ba5576a9a03f5fdf68", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:service_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:ja4_tls_fingerprint", "parent_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec", "path": "documentation/resources/service_policy/properties/rule_list/rules/spec/ja4_tls_fingerprint/index.md", "product": "distributed-cloud", "provider_name": "service_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3030030233300323-2201301300112210-1201003030313223-2320311230330003-2013232332000022-0131000212013130-1121021010010202-1011100231001020", "registry_path": "docs/guides/resources--service_policy--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["rule_list", "rules", "spec", "ja4_tls_fingerprint"], "schema_version": 1, "sections": [{"aliases": ["rule list rules spec ja4 tls fingerprint exact values"], "anchor": "schema-rule_list--rules--spec--ja4_tls_fingerprint--exact_values", "description": "A list of exact JA4 TLS fingerprint to match the input JA4 TLS fingerprint against.", "document_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:ja4_tls_fingerprint", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rule_list", "rules", "spec", "ja4_tls_fingerprint", "exact_values"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy/properties/rule_list/rules/spec/ja4_tls_fingerprint/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "An extended version of JA3 that includes additional fields for more comprehensive fingerprinting of SSL/TLS clients and potentially has a different structure and length.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["service_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,11 +23,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Extended version of JA3 that includes additional fields for more comprehensive fingerprinting of
-SSL/TLS clients and potentially has a different structure and length.
-
-Upstream description:
 
 An extended version of JA3 that includes additional fields for more comprehensive fingerprinting of
 SSL/TLS clients and potentially has a different structure and length.
@@ -60,10 +55,6 @@ ja4_tls_fingerprint {
 ### exact_values property
 
 Type: `["list", "string"]`. Optional.
-
-List of exact JA4 TLS fingerprint to match the input JA4 TLS fingerprint against.
-
-Upstream description:
 
 A list of exact JA4 TLS fingerprint to match the input JA4 TLS fingerprint against.
 
@@ -110,8 +101,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [rule_list.rules.spec](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/service_policy/properties/rule_list/rules/spec/)
-- [xcsh_service_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/service_policy/)

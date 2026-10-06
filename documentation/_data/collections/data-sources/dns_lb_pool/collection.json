@@ -306,8 +306,8 @@
   "pages": [
     {
       "aliases": ["dns lb pool"],
-      "body_bytes": 1340,
-      "body_sha256": "sha256:3d5a54818a8dac369b0e37aea5cc3c36391de1e82fd9ba8d909d09f44a2c9845",
+      "body_bytes": 1292,
+      "body_sha256": "sha256:e27b4f7d005aa2f63ab2c8b56f63ee38d84bf3d5a0b7710b7ac0d58586e9de4a",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_lb_pool:reference", "xcsh-docs:data-sources:dns_lb_pool:examples"],
@@ -335,7 +335,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages DNS Load Balancer Pool in a given namespace. If one already exist it will give a error in F5 Distributed Cloud.",
+      "summary": "Reads an existing DNS Load Balancer pool in its namespace.",
       "tasks": ["configuration"],
       "title": "xcsh_dns_lb_pool",
       "unresolved_relationships": [],
@@ -347,8 +347,8 @@
     },
     {
       "aliases": ["dns lb pool"],
-      "body_bytes": 22409,
-      "body_sha256": "sha256:5214931db7f8ee01f7cbcda66b2a9e4d37c56eb0e729b7beae16db03a2c2c929",
+      "body_bytes": 21501,
+      "body_sha256": "sha256:187499c12c8ee47070971bedb53f20cfb6b430f2502202a2266d863d4a2422ac",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -591,8 +591,8 @@
     },
     {
       "aliases": ["a pool"],
-      "body_bytes": 3631,
-      "body_sha256": "sha256:408732a0afe69c715883da95a15d1bbbf9c47129bb1f19847a22876f10c720a4",
+      "body_bytes": 2974,
+      "body_sha256": "sha256:cd3a3f04457c49f39ac7d9ab04a013f52715592046d879121b0492e43fbb3da4",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -692,8 +692,8 @@
     },
     {
       "aliases": ["a pool disable health check"],
-      "body_bytes": 1198,
-      "body_sha256": "sha256:b173da5ad3aa88a128a2dc930f0f884c2f2a842fdd16f9ff8f162254894c0410",
+      "body_bytes": 951,
+      "body_sha256": "sha256:e7ca30bcf6748ab5ceae39753c84768c71dd3f1913a2f20c8cdab62bc6575b3b",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -732,8 +732,8 @@
     },
     {
       "aliases": ["a pool health check"],
-      "body_bytes": 5286,
-      "body_sha256": "sha256:23c80a72bc14c276753f5e30221081bb54adbe229b0ad26b2f32aacef38ad768",
+      "body_bytes": 4381,
+      "body_sha256": "sha256:81dfba62b6abd7c1b7db9f8be93549a96e6da2fea8103404e5bf71f9ee194d6b",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -815,8 +815,8 @@
     },
     {
       "aliases": ["a pool members"],
-      "body_bytes": 6030,
-      "body_sha256": "sha256:e378fae85daf6c5fcde4d31ad392aaaed8593e4967ab7bd9fe5ab84bb4384f9f",
+      "body_bytes": 5653,
+      "body_sha256": "sha256:3e9754164e43bd020be2df0787cb4b99519552e249b0c44ef195b5a727de6392",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -926,8 +926,8 @@
     },
     {
       "aliases": ["aaaa pool"],
-      "body_bytes": 2135,
-      "body_sha256": "sha256:9ab65bdc956193dd13f0d329a32cd148b912517597d9a95c429b6f2b423a21ee",
+      "body_bytes": 1764,
+      "body_sha256": "sha256:5327a388f3be77372687ce4f20c096375d265595dacb6819c99303483bea5670",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool:members"],
@@ -995,8 +995,8 @@
     },
     {
       "aliases": ["aaaa pool members"],
-      "body_bytes": 6063,
-      "body_sha256": "sha256:7ce66e896f832c30e0c78a300d4d7f9de709f0beac1c9090ed769612bb827db1",
+      "body_bytes": 5680,
+      "body_sha256": "sha256:d0182cad3f26aec2605d0eb61c2d4ef48814dc91ff53d12607f134cc0994dee1",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -1106,8 +1106,8 @@
     },
     {
       "aliases": ["cname pool"],
-      "body_bytes": 1914,
-      "body_sha256": "sha256:c4e2e078d5f79a5684034f22c8a0bbe0a2c98bf760b39e624f232078ca4fb0bb",
+      "body_bytes": 1233,
+      "body_sha256": "sha256:e74adec5b8ee6f975e92f2492089a3f8d7e57ecab5431301d40c3482ca62123b",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -1193,8 +1193,8 @@
     },
     {
       "aliases": ["cname pool disable health check"],
-      "body_bytes": 1222,
-      "body_sha256": "sha256:43e0ad65c0b66d2b8de8573052b84b0944b94f3a7f256163813148b39e980d61",
+      "body_bytes": 967,
+      "body_sha256": "sha256:38c880c562ecd34024bcb7a2fc95dd7788087e1158037e9453461404c785a813",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -1233,8 +1233,8 @@
     },
     {
       "aliases": ["cname pool health check"],
-      "body_bytes": 5322,
-      "body_sha256": "sha256:21e56883c338ce5ccae22b2bdbeb2cb9d13beb35b6228678ca951bca3dabe626",
+      "body_bytes": 4409,
+      "body_sha256": "sha256:80a67a0d0fb12ba4722e7e78d71a1f4011ce443e9feef66eb5898fabc78b9bb9",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -1316,8 +1316,8 @@
     },
     {
       "aliases": ["cname pool members"],
-      "body_bytes": 6450,
-      "body_sha256": "sha256:e8c814a61fd4fcb540174e7f955bee8311e0096447c80db318819944744c6cba",
+      "body_bytes": 6108,
+      "body_sha256": "sha256:73afc20fa4337ac1cce28810f0f92a714f655c0495b309f00c14a350440eec2f",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -1427,8 +1427,8 @@
     },
     {
       "aliases": ["mx pool"],
-      "body_bytes": 2121,
-      "body_sha256": "sha256:56d0d6c0cee80ce831d8f7fb7b2a174da603703c108b53c2786375ef6613aaaa",
+      "body_bytes": 1754,
+      "body_sha256": "sha256:0b538d32a1223a9ce1ee8ff27c7bbd60f275b77f684ea7d90991b3ab5fcec81f",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool:members"],
@@ -1496,8 +1496,8 @@
     },
     {
       "aliases": ["mx pool members"],
-      "body_bytes": 5990,
-      "body_sha256": "sha256:271ec7569d0a88b23beea200ceec99ce34fad319165a37b5d7df8a0ef8d8cb65",
+      "body_bytes": 5497,
+      "body_sha256": "sha256:15a7cde6f78e2a16c32dc08037002eefaf2ea46de7682a2fc4676b1f4c5d0061",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -1593,8 +1593,8 @@
     },
     {
       "aliases": ["srv pool"],
-      "body_bytes": 2128,
-      "body_sha256": "sha256:7bd2252cc1401b5514ed3cb1bc81ec0551275ec9e46853a5a7d7a3d72502dc27",
+      "body_bytes": 1759,
+      "body_sha256": "sha256:6a940c88b29bcdadce48686913946e3096570ce073a938cb304a6d7417f0d37e",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members"],
@@ -1662,8 +1662,8 @@
     },
     {
       "aliases": ["srv pool members"],
-      "body_bytes": 8808,
-      "body_sha256": "sha256:e518ad2c1da94e196ed2458cdd70ebd1a94072961dddd44e74468279086247f8",
+      "body_bytes": 8348,
+      "body_sha256": "sha256:474b0fe0e32820062981e314d1c1648e5f011a5a8266f04273969e0c0ab1fdcb",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -1801,8 +1801,8 @@
     },
     {
       "aliases": ["use rrset ttl"],
-      "body_bytes": 1056,
-      "body_sha256": "sha256:4b34fa53eb6631a6bb8b94d012b02558490030fef7f2173cbb8937002f061b79",
+      "body_bytes": 804,
+      "body_sha256": "sha256:7febacf354967458cd588b8f73d57d41064b628b4f78dcf20c6119822cf7d46d",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -1841,8 +1841,8 @@
     },
     {
       "aliases": ["dns lb pool"],
-      "body_bytes": 651,
-      "body_sha256": "sha256:62c9ba8a0b6e0db382cf1db631f4bb22b5a9aeb9fde6510e244532a035490ea8",
+      "body_bytes": 411,
+      "body_sha256": "sha256:c7fb66b417a5a7d15206229ac49f31893733f7d848c0d4732f2fb209820f46ff",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_lb_pool:example:data-source"],
@@ -1881,8 +1881,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1263,
-      "body_sha256": "sha256:1d1ccb52b05bd2392339df20e00e5a07b947e0fcf192db5c7088af5b6597ebf4",
+      "body_bytes": 1038,
+      "body_sha256": "sha256:2f0df994dd0a948b9f10aed8880375a892be6a1938cd4188657bea0628fe8d78",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],

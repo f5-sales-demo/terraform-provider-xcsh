@@ -2,7 +2,7 @@
 page_title: "where.virtual_network.ref"
 subcategory: "Networking"
 description: "A virtual network direct reference."
-xcsh_docs: {"aliases": ["where virtual network ref"], "body_bytes": 6439, "body_sha256": "sha256:714ea50eed88133982830bccd1a6fe9e5449d4d9d4f22d9b0d178447fe171bc4", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:endpoint:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:endpoint:properties:where:virtual_network:ref", "parent_id": "xcsh-docs:data-sources:endpoint:properties:where:virtual_network", "path": "documentation/data-sources/endpoint/properties/where/virtual_network/ref/index.md", "product": "distributed-cloud", "provider_name": "endpoint", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1303321222313333-2200331112230130-3212120302121012-0203331102231233-1213023120331010-2001200300312113-3121120020113020-1321131310333110", "registry_path": "docs/guides/data-sources--endpoint--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["where", "virtual_network", "ref"], "schema_version": 1, "sections": [{"aliases": ["where virtual network ref kind"], "anchor": "schema-where--virtual_network--ref--kind", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")", "document_id": "xcsh-docs:data-sources:endpoint:properties:where:virtual_network:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_network", "ref", "kind"], "syntax": "attribute", "type": "string"}, {"aliases": ["where virtual network ref name"], "anchor": "schema-where--virtual_network--ref--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:data-sources:endpoint:properties:where:virtual_network:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_network", "ref", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["where virtual network ref namespace"], "anchor": "schema-where--virtual_network--ref--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:data-sources:endpoint:properties:where:virtual_network:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_network", "ref", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["where virtual network ref tenant"], "anchor": "schema-where--virtual_network--ref--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:data-sources:endpoint:properties:where:virtual_network:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_network", "ref", "tenant"], "syntax": "attribute", "type": "string"}, {"aliases": ["where virtual network ref uid"], "anchor": "schema-where--virtual_network--ref--uid", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.", "document_id": "xcsh-docs:data-sources:endpoint:properties:where:virtual_network:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_network", "ref", "uid"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/endpoint/properties/where/virtual_network/ref/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A virtual network direct reference.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["endpointCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["where virtual network ref"], "body_bytes": 5436, "body_sha256": "sha256:466ef34c280811a4216ea31b8c66cecb925481cf3987e1eb6efc7bf482081e63", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:endpoint:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:endpoint:properties:where:virtual_network:ref", "parent_id": "xcsh-docs:data-sources:endpoint:properties:where:virtual_network", "path": "documentation/data-sources/endpoint/properties/where/virtual_network/ref/index.md", "product": "distributed-cloud", "provider_name": "endpoint", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1303321222313333-2200331112230130-3212120302121012-0203331102231233-1213023120331010-2001200300312113-3121120020113020-1321131310333110", "registry_path": "docs/guides/data-sources--endpoint--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["where", "virtual_network", "ref"], "schema_version": 1, "sections": [{"aliases": ["where virtual network ref kind"], "anchor": "schema-where--virtual_network--ref--kind", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")", "document_id": "xcsh-docs:data-sources:endpoint:properties:where:virtual_network:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_network", "ref", "kind"], "syntax": "attribute", "type": "string"}, {"aliases": ["where virtual network ref name"], "anchor": "schema-where--virtual_network--ref--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:data-sources:endpoint:properties:where:virtual_network:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_network", "ref", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["where virtual network ref namespace"], "anchor": "schema-where--virtual_network--ref--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:data-sources:endpoint:properties:where:virtual_network:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_network", "ref", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["where virtual network ref tenant"], "anchor": "schema-where--virtual_network--ref--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:data-sources:endpoint:properties:where:virtual_network:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_network", "ref", "tenant"], "syntax": "attribute", "type": "string"}, {"aliases": ["where virtual network ref uid"], "anchor": "schema-where--virtual_network--ref--uid", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.", "document_id": "xcsh-docs:data-sources:endpoint:properties:where:virtual_network:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_network", "ref", "uid"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/endpoint/properties/where/virtual_network/ref/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A virtual network direct reference.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["endpointCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -24,10 +24,6 @@ Breadcrumbs:
 Type: `"list"`. Computed.
 
 Reference. A virtual network direct reference.
-
-Upstream description:
-
-A virtual network direct reference.
 
 Receipt-pinned upstream constraints:
 
@@ -73,10 +69,10 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
 referred object's kind (e.g. 'route').
 
-Upstream description:
+Additional upstream details:
 
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
-referred object's kind (e.g. "route")
+Virtual\_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g.
+"route")
 
 Receipt-pinned upstream constraints:
 
@@ -110,11 +106,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -143,11 +134,6 @@ Receipt-pinned upstream constraints:
 ### namespace property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -199,11 +185,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -236,11 +217,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
 referred object's(e.g. Route's) uid.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
-referred object's(e.g. Route's) uid.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -263,8 +239,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [where.virtual_network](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/endpoint/properties/where/virtual_network/)
-- [xcsh_endpoint](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/endpoint/)

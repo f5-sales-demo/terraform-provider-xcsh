@@ -603,8 +603,8 @@
   "pages": [
     {
       "aliases": ["cdn cache rule"],
-      "body_bytes": 1373,
-      "body_sha256": "sha256:31ea79e2ee2117d363d6a00e3b37dcc1277a940f6ec4e05c9e75509cc09ffe92",
+      "body_bytes": 1337,
+      "body_sha256": "sha256:26979423b8f052219929f8ab1ceab593a8438d0b678b1a7422ada45da29c1529",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -635,7 +635,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_cache_rule/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a CDN Cache Rule resource in F5 Distributed Cloud for cdn loadbalancer specification. configuration.",
+      "summary": "Reads CDN Cache Rule information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_cdn_cache_rule",
       "unresolved_relationships": [],
@@ -647,8 +647,8 @@
     },
     {
       "aliases": ["cdn cache rule"],
-      "body_bytes": 33094,
-      "body_sha256": "sha256:39bb82eb34252258bc09a2524bc62069ea319c9c65309604e11f4614c8ae9ab3",
+      "body_bytes": 32878,
+      "body_sha256": "sha256:c49df96dc4e2b1a4f842a194ed11ff5cd1017485911252b9d4bdb8c26ac9f68a",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": ["xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules"],
@@ -786,8 +786,8 @@
     },
     {
       "aliases": ["cache rules"],
-      "body_bytes": 2981,
-      "body_sha256": "sha256:ce283ed16061489ea575b0140ba151b6c7b6b4660f67587b2f2cd826e85a9ddf",
+      "body_bytes": 2151,
+      "body_sha256": "sha256:dee4bf8f05a72b066b380544d1788e7219804d863032254cec753e4db0f476d7",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -887,8 +887,8 @@
     },
     {
       "aliases": ["cache rules cache bypass"],
-      "body_bytes": 1225,
-      "body_sha256": "sha256:330be76b6c5774769519d7cf37a2f6aace947e6425a74706345e16b997f9087c",
+      "body_bytes": 959,
+      "body_sha256": "sha256:af288078b722c006b8ba8c55542d40a1626ed735fe8f07484377ebae099234d8",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -927,8 +927,8 @@
     },
     {
       "aliases": ["cache rules eligible for cache"],
-      "body_bytes": 2112,
-      "body_sha256": "sha256:1a2b54a08442b69ec3fcf2c841daaf97e56f8f37aae01487d8cf3861b879cdfa",
+      "body_bytes": 1438,
+      "body_sha256": "sha256:bfa2e9a1e124a2ad5052868bddbefd972bd1dc50e89af36af9f7c2fe1b60b726",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -999,8 +999,8 @@
     },
     {
       "aliases": ["cache rules eligible for cache scheme proxy host request uri"],
-      "body_bytes": 3524,
-      "body_sha256": "sha256:524fed0b191ef7a2e7fc7b5f787c358e7fbc2c4976cdc7711af143436fb08732",
+      "body_bytes": 2950,
+      "body_sha256": "sha256:2f2ac56765bd3d1b8c6fc9cd764c043103a81f264087bc429a643910a997a96a",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -1087,8 +1087,8 @@
     },
     {
       "aliases": ["cache rules eligible for cache scheme proxy host uri"],
-      "body_bytes": 3484,
-      "body_sha256": "sha256:e22846c940348d191326f3c3a9a112bef9b5117a9360fe898c4f2a96832c785b",
+      "body_bytes": 2910,
+      "body_sha256": "sha256:636df7db8e72c17b60786dae3d5e3f452bee17b5489f3c4072a012be5b55731d",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -1170,8 +1170,8 @@
     },
     {
       "aliases": ["cache rules rule expression list"],
-      "body_bytes": 3451,
-      "body_sha256": "sha256:d164553fe06335c8b71f22c5780100fe7b2011e634f19334e3e5a44853918713",
+      "body_bytes": 2841,
+      "body_sha256": "sha256:d7d7698f4775227b55fa2071dab68e61035aed467ef63308f058e1c56147008b",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -1241,8 +1241,8 @@
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression"],
-      "body_bytes": 3981,
-      "body_sha256": "sha256:5ed0df265ea53c8630de22f820171a64aa72d941c1d6197925b4212d29b7b32d",
+      "body_bytes": 2730,
+      "body_sha256": "sha256:66d19903d273ffa999bf3731e88aeefddfb4255518c02bfd0e0e5d45174941f5",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -1343,8 +1343,8 @@
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression cache headers"],
-      "body_bytes": 3922,
-      "body_sha256": "sha256:6fa69273e058cf795eada43376ea46b478d5e1708a09dc1354051690a9b2d80f",
+      "body_bytes": 2972,
+      "body_sha256": "sha256:352dc4d33737fb4bc91ad5c88fe4fd10ca53a5a7eaa34eb58f1a8bc4361f5426",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -1414,8 +1414,8 @@
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression cache headers operator"],
-      "body_bytes": 5186,
-      "body_sha256": "sha256:646d9f95627b569422306410aa2388bd3b29f3c22139a9693f3f03abb7c5dee5",
+      "body_bytes": 4821,
+      "body_sha256": "sha256:8179aadb8ce40fe56a470ba8bc7dce37817ca48cff176337747969aa6acd0a52",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -1648,8 +1648,8 @@
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression cookie matcher"],
-      "body_bytes": 4853,
-      "body_sha256": "sha256:14a4ddb72921c3806dc539ffba6ca8aa12f3bf3d3482a9d3b2526e13f1e83e7f",
+      "body_bytes": 3910,
+      "body_sha256": "sha256:c6f12b6cf5499f5967ee94f5132b48107bc91f71205bed348fb5003c7e75ed06",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -1719,8 +1719,8 @@
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression cookie matcher operator"],
-      "body_bytes": 5216,
-      "body_sha256": "sha256:5d702c24d721108142fa0bd35589bec2629576e02132dc5b91913129b7667f70",
+      "body_bytes": 4849,
+      "body_sha256": "sha256:817702d75d3b29f2c7199f6c29bfcc19558fe96c009c17a2e0a6a87c21b44188",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -1955,8 +1955,8 @@
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression path match"],
-      "body_bytes": 2135,
-      "body_sha256": "sha256:517344adc0a3de8f83bc0b8c5741dd36cfeff3127abb37172110864f13d54ead",
+      "body_bytes": 1547,
+      "body_sha256": "sha256:34424ec9ac7ec84ceedf0c452e6c12cdca4430c8a28f3a8666ae37e495d48836",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -2012,8 +2012,8 @@
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression path match operator"],
-      "body_bytes": 5244,
-      "body_sha256": "sha256:05aaaee7c51c45a0e16c1c60f5730b149e6ff81159fa1b1ab42b6b87cf8e3113",
+      "body_bytes": 4885,
+      "body_sha256": "sha256:8e0f0fb757c9dc738bae1a31641f75d6ad4a06b0825125a44b013fe30714d5f6",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -2242,8 +2242,8 @@
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression query parameters"],
-      "body_bytes": 3880,
-      "body_sha256": "sha256:67f60d56450ceb01187d774c85247825fd4a8511f835b527e0a9c53001a1e63f",
+      "body_bytes": 3217,
+      "body_sha256": "sha256:14a688646309fc5f7cd295be93c8a94d9c4930f23207b8ac7d7a2fc159e79bb4",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -2319,8 +2319,8 @@
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression query parameters operator"],
-      "body_bytes": 5327,
-      "body_sha256": "sha256:f8594bbaf9b8e19b0d0e6d6c59c2643ada862acbbf548330ec56be21cd594e39",
+      "body_bytes": 4956,
+      "body_sha256": "sha256:b9190847ea557e1f473bf3b018b138decbd6a7410c3d248f6496d2fb0c97782c",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -2557,8 +2557,8 @@
     },
     {
       "aliases": ["cdn cache rule"],
-      "body_bytes": 669,
-      "body_sha256": "sha256:251fe42d7fc2c481579e84d7a11360e3cb4b993cd3fa0f7edd41630a9de81ca3",
+      "body_bytes": 420,
+      "body_sha256": "sha256:38c03b8442f37aa4fb63866f5d6063ebad7e45edb2a9acf860058917146edcce",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": ["xcsh-docs:data-sources:cdn_cache_rule:example:data-source"],
@@ -2597,8 +2597,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1303,
-      "body_sha256": "sha256:9884a2df95f48dec748229b3b4cba0fc79dc6168f2d88410b92a4367d34dd274",
+      "body_bytes": 1069,
+      "body_sha256": "sha256:dcf56643141da70fdd553b2d02dc2d5eeb98a6cd72cd99a2c8a145c54c2638b4",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],

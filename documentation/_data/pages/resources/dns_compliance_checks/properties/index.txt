@@ -2,7 +2,7 @@
 page_title: "Property reference"
 subcategory: ""
 description: "Property reference for xcsh_dns_compliance_checks."
-xcsh_docs: {"aliases": ["dns compliance checks"], "body_bytes": 15191, "body_sha256": "sha256:c44d4aa9ec0d04bd1868eb196ba9e5ee1b513baf125c9fc634cfe765cd95a81a", "capabilities": ["dns"], "category": "dns", "child_ids": ["xcsh-docs:resources:dns_compliance_checks:properties:timeouts"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:dns_compliance_checks:collection", "completeness": "complete", "id": "xcsh-docs:resources:dns_compliance_checks:reference", "parent_id": "xcsh-docs:resources:dns_compliance_checks:fundamentals", "path": "documentation/resources/dns_compliance_checks/properties/index.md", "product": "distributed-cloud", "provider_name": "dns_compliance_checks", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3232320123103113-0100311102312313-0121302010013132-2312320000130313-1222132032330322-2302213002320222-1233300132211231-3112210312300202", "registry_path": "docs/guides/resources--dns_compliance_checks--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "reference", "schema_path": [], "schema_version": 1, "sections": [{"aliases": ["annotations"], "anchor": "schema-annotations", "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.", "document_id": "xcsh-docs:resources:dns_compliance_checks:reference", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["annotations"], "syntax": "attribute", "type": "map"}, {"aliases": ["description"], "anchor": "schema-description", "description": "Human readable description for the object.", "document_id": "xcsh-docs:resources:dns_compliance_checks:reference", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["description"], "syntax": "attribute", "type": "string"}, {"aliases": ["disable"], "anchor": "schema-disable", "description": "A value of true will administratively disable the object.", "document_id": "xcsh-docs:resources:dns_compliance_checks:reference", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["disable"], "syntax": "attribute", "type": "bool"}, {"aliases": ["disallowed query type list"], "anchor": "schema-disallowed_query_type_list", "description": "Disallowed Query Type Values.", "document_id": "xcsh-docs:resources:dns_compliance_checks:reference", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["disallowed_query_type_list"], "syntax": "attribute", "type": "list"}, {"aliases": ["disallowed resource record type list"], "anchor": "schema-disallowed_resource_record_type_list", "description": "Disallowed Resource Record Type List.", "document_id": "xcsh-docs:resources:dns_compliance_checks:reference", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["disallowed_resource_record_type_list"], "syntax": "attribute", "type": "list"}, {"aliases": ["domain denylist"], "anchor": "schema-domain_denylist", "description": "List of domains to be denied by configuration object.", "document_id": "xcsh-docs:resources:dns_compliance_checks:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["domain_denylist"], "syntax": "attribute", "type": "list"}, {"aliases": ["id"], "anchor": "schema-id", "description": "Unique identifier for the resource.", "document_id": "xcsh-docs:resources:dns_compliance_checks:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["id"], "syntax": "attribute", "type": "string"}, {"aliases": ["labels"], "anchor": "schema-labels", "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.", "document_id": "xcsh-docs:resources:dns_compliance_checks:reference", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["labels"], "syntax": "attribute", "type": "map"}, {"aliases": ["name"], "anchor": "schema-name", "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.", "document_id": "xcsh-docs:resources:dns_compliance_checks:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["name"], "syntax": "attribute", "type": "string"}, {"aliases": ["namespace"], "anchor": "schema-namespace", "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"", "document_id": "xcsh-docs:resources:dns_compliance_checks:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"], "anchor": "section", "description": "timeouts", "document_id": "xcsh-docs:resources:dns_compliance_checks:properties:timeouts", "flags": [], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["timeouts"], "syntax": "block", "type": "object"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_compliance_checks/properties/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Property reference for xcsh_dns_compliance_checks.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["dns_compliance_checksCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["dns compliance checks"], "body_bytes": 14675, "body_sha256": "sha256:6d28e6c26e0ef2eea0af557e837057a92d1256dc6de9a546b7db14b5bf6d4134", "capabilities": ["dns"], "category": "dns", "child_ids": ["xcsh-docs:resources:dns_compliance_checks:properties:timeouts"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:dns_compliance_checks:collection", "completeness": "complete", "id": "xcsh-docs:resources:dns_compliance_checks:reference", "parent_id": "xcsh-docs:resources:dns_compliance_checks:fundamentals", "path": "documentation/resources/dns_compliance_checks/properties/index.md", "product": "distributed-cloud", "provider_name": "dns_compliance_checks", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3232320123103113-0100311102312313-0121302010013132-2312320000130313-1222132032330322-2302213002320222-1233300132211231-3112210312300202", "registry_path": "docs/guides/resources--dns_compliance_checks--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "reference", "schema_path": [], "schema_version": 1, "sections": [{"aliases": ["annotations"], "anchor": "schema-annotations", "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.", "document_id": "xcsh-docs:resources:dns_compliance_checks:reference", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["annotations"], "syntax": "attribute", "type": "map"}, {"aliases": ["description"], "anchor": "schema-description", "description": "Human readable description for the object.", "document_id": "xcsh-docs:resources:dns_compliance_checks:reference", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["description"], "syntax": "attribute", "type": "string"}, {"aliases": ["disable"], "anchor": "schema-disable", "description": "A value of true will administratively disable the object.", "document_id": "xcsh-docs:resources:dns_compliance_checks:reference", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["disable"], "syntax": "attribute", "type": "bool"}, {"aliases": ["disallowed query type list"], "anchor": "schema-disallowed_query_type_list", "description": "Disallowed Query Type Values.", "document_id": "xcsh-docs:resources:dns_compliance_checks:reference", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["disallowed_query_type_list"], "syntax": "attribute", "type": "list"}, {"aliases": ["disallowed resource record type list"], "anchor": "schema-disallowed_resource_record_type_list", "description": "Disallowed Resource Record Type List.", "document_id": "xcsh-docs:resources:dns_compliance_checks:reference", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["disallowed_resource_record_type_list"], "syntax": "attribute", "type": "list"}, {"aliases": ["domain denylist"], "anchor": "schema-domain_denylist", "description": "List of domains to be denied by configuration object.", "document_id": "xcsh-docs:resources:dns_compliance_checks:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["domain_denylist"], "syntax": "attribute", "type": "list"}, {"aliases": ["id"], "anchor": "schema-id", "description": "Unique identifier for the resource.", "document_id": "xcsh-docs:resources:dns_compliance_checks:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["id"], "syntax": "attribute", "type": "string"}, {"aliases": ["labels"], "anchor": "schema-labels", "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.", "document_id": "xcsh-docs:resources:dns_compliance_checks:reference", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["labels"], "syntax": "attribute", "type": "map"}, {"aliases": ["name"], "anchor": "schema-name", "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.", "document_id": "xcsh-docs:resources:dns_compliance_checks:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["name"], "syntax": "attribute", "type": "string"}, {"aliases": ["namespace"], "anchor": "schema-namespace", "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"", "document_id": "xcsh-docs:resources:dns_compliance_checks:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"], "anchor": "section", "description": "timeouts", "document_id": "xcsh-docs:resources:dns_compliance_checks:properties:timeouts", "flags": [], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["timeouts"], "syntax": "block", "type": "object"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_compliance_checks/properties/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Property reference for xcsh_dns_compliance_checks.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["dns_compliance_checksCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,11 +23,6 @@ Breadcrumbs:
 ### annotations property
 
 Type: `["map", "string"]`. Optional.
-
-Annotations is an unstructured key value map stored with a resource that may be set by external
-tools to store and retrieve arbitrary metadata.
-
-Upstream description:
 
 Annotations is an unstructured key value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
@@ -133,7 +128,7 @@ Type: `"bool"`. Optional.
 
 A value of true administratively disables the object.
 
-Upstream description:
+Additional upstream details:
 
 A value of true will administratively disable the object.
 
@@ -159,10 +154,6 @@ Type: `["list", "string"]`. Optional.
 \[Enum: QUERY|IQUERY|STATUS|NOTIFY|UPDATE\] Disallowed Query Type Values. Disallowed Query Type
 Values. Possible values are \`QUERY\`, \`IQUERY\`, \`STATUS\`, \`NOTIFY\`, \`UPDATE\`. Defaults to
 \`QUERY\`.
-
-Upstream description:
-
-Disallowed Query Type Values.
 
 Provider validators and defaults (from schema source):
 
@@ -224,10 +215,6 @@ Disallowed Resource Record Types. Disallowed Resource Record Type List. Possible
 \`CDNSKEY\`, \`OPENPGPKEY\`, \`CSYNC\`, \`SPF\`, \`UINFO\`, \`UID\`, \`GID\`, \`UNSPEC\`, \`NID\`,
 \`L32\`, \`L64\`, \`LP\`, \`EUI48\`, \`EUI64\`, \`TKEY\`, \`TSIG\`, \`IXFR\`, \`AXFR\`, \`MAILB\`,
 \`MAILA\`, \`URI\`, \`CAA\`, \`TA\`, \`DLV\`. Defaults to \`T\`.
-
-Upstream description:
-
-Disallowed Resource Record Type List.
 
 Provider validators and defaults (from schema source):
 
@@ -342,7 +329,7 @@ Type: `["map", "string"]`. Optional.
 Labels is a user defined key value map that can be attached to resources for organization and
 filtering.
 
-Upstream description:
+Additional upstream details:
 
 Map of string keys and values that can be used to organize and categorize (scope and select) objects
 as chosen by the user. Values specified here will be used by selector expression.
@@ -368,7 +355,7 @@ Type: `"string"`. Required.
 
 Name of the DNS Compliance Checks. Must be unique within the namespace.
 
-Upstream description:
+Additional upstream details:
 
 This is the name of configuration object. It has to be unique within the namespace. It can only be
 specified during create API and cannot be changed during replace API. The value of name has to
@@ -434,7 +421,7 @@ Type: `"string"`. Required.
 
 Namespace where the DNS Compliance Checks is created.
 
-Upstream description:
+Additional upstream details:
 
 This defines the workspace within which each the configuration object is to be created. Must be a
 DNS\_LABEL format. For a namespace object itself, namespace value will be ""
@@ -508,8 +495,3 @@ Each exact path has one authoritative reference destination. Collection element 
 | `timeouts.delete` | [timeouts.delete](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/dns_compliance_checks/properties/timeouts/#schema-timeouts--delete) |
 | `timeouts.read` | [timeouts.read](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/dns_compliance_checks/properties/timeouts/#schema-timeouts--read) |
 | `timeouts.update` | [timeouts.update](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/dns_compliance_checks/properties/timeouts/#schema-timeouts--update) |
-
-## Next pages
-
-- [timeouts](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/dns_compliance_checks/properties/timeouts/)
-- [xcsh_dns_compliance_checks](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/dns_compliance_checks/)

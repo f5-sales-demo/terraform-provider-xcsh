@@ -2,7 +2,7 @@
 page_title: "l7_ddos_protection.mitigation_captcha_challenge"
 subcategory: "Load Balancing"
 description: "Enables loadbalancer to perform captcha challenge Captcha challenge will be based on Google Recaptcha. With this feature enabled, only clients that pass the captcha challenge will be allowed to complete the HTTP request. When loadbalancer is configured to do Captcha Challenge, it will redirect the browser to an HTML"
-xcsh_docs: {"aliases": ["l7 ddos protection mitigation captcha challenge", "succeeded", "success", "successful"], "body_bytes": 4857, "body_sha256": "sha256:b77b9ca7301c48492fcc3bd7de40d56b3517b49597a691d8b1c7cce6fea5a16c", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:http_loadbalancer:properties:l7_ddos_protection:mitigation_captcha_challenge", "parent_id": "xcsh-docs:data-sources:http_loadbalancer:properties:l7_ddos_protection", "path": "documentation/data-sources/http_loadbalancer/properties/l7_ddos_protection/mitigation_captcha_challenge/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1031133210330210-0121031133213322-2003130133110221-3010213022121020-2230331320300312-2210230200312121-0333133221121311-3022102322112202", "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-020.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["l7_ddos_protection", "mitigation_captcha_challenge"], "schema_version": 1, "sections": [{"aliases": ["l7 ddos protection mitigation captcha challenge cookie expiry"], "anchor": "schema-l7_ddos_protection--mitigation_captcha_challenge--cookie_expiry", "description": "Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:l7_ddos_protection:mitigation_captcha_challenge", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["l7_ddos_protection", "mitigation_captcha_challenge", "cookie_expiry"], "syntax": "attribute", "type": "number"}, {"aliases": ["l7 ddos protection mitigation captcha challenge custom page"], "anchor": "schema-l7_ddos_protection--mitigation_captcha_challenge--custom_page", "description": "Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded plain text message e.g. \"Please Wait..\" or it can be HTML paragraph or a body string encoded as base64 string E.g. \"<p>", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:l7_ddos_protection:mitigation_captcha_challenge", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["l7_ddos_protection", "mitigation_captcha_challenge", "custom_page"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/http_loadbalancer/properties/l7_ddos_protection/mitigation_captcha_challenge/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Enables loadbalancer to perform captcha challenge Captcha challenge will be based on Google Recaptcha. With this feature enabled, only clients that pass the captcha challenge will be allowed to complete the HTTP request. When loadbalancer is configured to do Captcha Challenge, it will redirect the browser to an HTML", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["l7 ddos protection mitigation captcha challenge", "succeeded", "success", "successful"], "body_bytes": 3956, "body_sha256": "sha256:9ab7b606e2913d709ce68c989b9317dc6b8837dc03c0ef2cd5cd2b345b68ebbb", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:http_loadbalancer:properties:l7_ddos_protection:mitigation_captcha_challenge", "parent_id": "xcsh-docs:data-sources:http_loadbalancer:properties:l7_ddos_protection", "path": "documentation/data-sources/http_loadbalancer/properties/l7_ddos_protection/mitigation_captcha_challenge/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1031133210330210-0121031133213322-2003130133110221-3010213022121020-2230331320300312-2210230200312121-0333133221121311-3022102322112202", "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-020.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["l7_ddos_protection", "mitigation_captcha_challenge"], "schema_version": 1, "sections": [{"aliases": ["l7 ddos protection mitigation captcha challenge cookie expiry"], "anchor": "schema-l7_ddos_protection--mitigation_captcha_challenge--cookie_expiry", "description": "Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:l7_ddos_protection:mitigation_captcha_challenge", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["l7_ddos_protection", "mitigation_captcha_challenge", "cookie_expiry"], "syntax": "attribute", "type": "number"}, {"aliases": ["l7 ddos protection mitigation captcha challenge custom page"], "anchor": "schema-l7_ddos_protection--mitigation_captcha_challenge--custom_page", "description": "Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded plain text message e.g. \"Please Wait..\" or it can be HTML paragraph or a body string encoded as base64 string E.g. \"<p>", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:l7_ddos_protection:mitigation_captcha_challenge", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["l7_ddos_protection", "mitigation_captcha_challenge", "custom_page"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/http_loadbalancer/properties/l7_ddos_protection/mitigation_captcha_challenge/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Enables loadbalancer to perform captcha challenge Captcha challenge will be based on Google Recaptcha. With this feature enabled, only clients that pass the captcha challenge will be allowed to complete the HTTP request. When loadbalancer is configured to do Captcha Challenge, it will redirect the browser to an HTML", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -21,13 +21,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"single"`. Computed.
-
-Enables loadbalancer to perform captcha challenge Captcha challenge will be based on Google
-Recaptcha. With this feature enabled, only clients that pass the captcha challenge will be allowed
-to complete the HTTP request. When loadbalancer is configured to do Captcha Challenge, it will
-redirect..
-
-Upstream description:
 
 Enables loadbalancer to perform captcha challenge
 
@@ -66,11 +59,6 @@ Receipt-pinned upstream constraints:
 ### cookie_expiry property
 
 Type: `"number"`. Computed.
-
-Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new
-challenge.
-
-Upstream description:
 
 Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new
 challenge.
@@ -115,11 +103,6 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Computed.
 
 Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format.
-
-Upstream description:
-
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
 scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded
 plain text message e.g. "Please Wait.." or it can be HTML paragraph or a body string encoded as
 base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". Base64 encoded string for this HTML is
@@ -158,8 +141,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [l7_ddos_protection](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/l7_ddos_protection/)
-- [xcsh_http_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/)

@@ -1,10 +1,10 @@
 ---
-page_title: "xcsh_dns_zone landing"
+page_title: "xcsh_dns_zone"
 subcategory: "DNS"
-description: "Complete grouped canonical reference for xcsh_dns_zone landing."
+description: "Complete grouped canonical reference for xcsh_dns_zone."
 ---
 
-# xcsh_dns_zone landing
+# xcsh_dns_zone
 
 <a id="canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131"></a>
 
@@ -12,20 +12,17 @@ description: "Complete grouped canonical reference for xcsh_dns_zone landing."
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2223200121332322-1102120230011223-3212330230221302-2111230012231232-3100300022313321-3312112202323332-2001320301211312-1330010233112313"></a>
-
-## xcsh_dns_zone — xcsh_dns_zone / 000301011221 / 2
+## Overview
 
 Breadcrumbs:
 
 - xcsh_dns_zone
 
-Manages DNS Zone in a given namespace. If one already exist it will give a error in F5 Distributed
-Cloud.
+Reads an existing DNS zone in its namespace.
 
-<a id="canonical-2232203022211023-1122003310021303-2022013033201320-0322203012113330-3232010211213013-3111233003330100-1312313230110322-3303133121122002"></a>
+<a id="canonical-2223200121332322-1102120230011223-3212330230221302-2111230012231232-3100300022313321-3312112202323332-2001320301211312-1330010233112313"></a>
 
-## Prerequisites — xcsh_dns_zone / 000301011221 / 3
+### Prerequisites for `xcsh_dns_zone`
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -35,9 +32,9 @@ Optional integrations: `dns_load_balancer`.
 
 - dns_load_balancer: Geographic or weighted DNS routing
 
-<a id="canonical-1121022113312033-3112212301312233-3320212110001211-2012003230332232-1301032201032103-3310003110101002-1201123231123130-1211312311033111"></a>
+<a id="canonical-2232203022211023-1122003310021303-2022013033201320-0322203012113330-3232010211213013-3111233003330100-1312313230110322-3303133121122002"></a>
 
-## Minimal configuration — xcsh_dns_zone / 000301011221 / 4
+### Minimal configuration for `xcsh_dns_zone`
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -79,15 +76,15 @@ output "dns_zone_id" {
 }
 ```
 
-<a id="canonical-1311310132311313-3330131112310012-0330231120303132-3211312003303130-3021201302210320-3122202202233303-2222121122100202-3120210213311210"></a>
+<a id="canonical-1121022113312033-3112212301312233-3320212110001211-2012003230332232-1301032201032103-3310003110101002-1201123231123130-1211312311033111"></a>
 
-## Root configuration — xcsh_dns_zone / 000301011221 / 5
+### Root configuration for `xcsh_dns_zone`
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-3333110221202203-0111023223101102-3321210223010000-2023310013301120-0031002332223333-0113220313001122-3331302001321220-1033112233213331"></a>
+<a id="canonical-1311310132311313-3330131112310012-0330231120303132-3211312003303130-3021201302210320-3122202202233303-2222121122100202-3120210213311210"></a>
 
-## Next pages — xcsh_dns_zone / 000301011221 / 6
+### Explore this collection for `xcsh_dns_zone`
 
 - [Property reference](../guides/data-sources--dns_zone--reference--group-001.md#canonical-1320000120201111-2203011021030331-2320302132022301-3231311102321211-2320003331323333-0100003331333313-2321331201112230-0113213102020011)
 - [Examples](../guides/data-sources--dns_zone--examples--group-001.md#canonical-0113332031001202-0203203323031122-1110313201121223-0211122311121012-1002330222223130-0033020333320010-2320222023212020-2311211332221300)

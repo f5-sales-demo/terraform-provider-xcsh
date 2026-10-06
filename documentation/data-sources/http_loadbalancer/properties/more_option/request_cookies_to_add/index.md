@@ -2,7 +2,7 @@
 page_title: "more_option.request_cookies_to_add"
 subcategory: "Load Balancing"
 description: "Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies specified at this level are applied after cookies from matched Route are applied."
-xcsh_docs: {"aliases": ["more option request cookies to add"], "body_bytes": 5486, "body_sha256": "sha256:11ccf4f360c4ca0150781a091320992fc4ef5bbc1b7996547cffb98183d3691a", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": ["xcsh-docs:data-sources:http_loadbalancer:properties:more_option:request_cookies_to_add:secret_value"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:request_cookies_to_add", "parent_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option", "path": "documentation/data-sources/http_loadbalancer/properties/more_option/request_cookies_to_add/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1102320100210023-1210033001301330-1020000111230213-0103120220001333-0032231333013111-2231032020310030-2132123001321222-0233303131323331", "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-020.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["more_option", "request_cookies_to_add"], "schema_version": 1, "sections": [{"aliases": ["more option request cookies to add name"], "anchor": "schema-more_option--request_cookies_to_add--name", "description": "Name of the cookie in Cookie header.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:request_cookies_to_add", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["more_option", "request_cookies_to_add", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["more option request cookies to add overwrite"], "anchor": "schema-more_option--request_cookies_to_add--overwrite", "description": "Should the value be overwritten? If true, the value is overwritten to existing values. Default value is do not overwrite.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:request_cookies_to_add", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["more_option", "request_cookies_to_add", "overwrite"], "syntax": "attribute", "type": "bool"}, {"aliases": ["more option request cookies to add secret value"], "anchor": "section", "description": "SecretType is used in an object to indicate a sensitive/confidential field.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:request_cookies_to_add:secret_value", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["more_option", "request_cookies_to_add", "secret_value"], "syntax": "attribute", "type": "object"}, {"aliases": ["more option request cookies to add value"], "anchor": "schema-more_option--request_cookies_to_add--value", "description": "Exclusive with Value of the Cookie header.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:request_cookies_to_add", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["more_option", "request_cookies_to_add", "value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/http_loadbalancer/properties/more_option/request_cookies_to_add/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies specified at this level are applied after cookies from matched Route are applied.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["more option request cookies to add"], "body_bytes": 4653, "body_sha256": "sha256:bf7bf2577bfc29593995e161dbaab94322cc3f108de4f0714b073be68bedbc13", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": ["xcsh-docs:data-sources:http_loadbalancer:properties:more_option:request_cookies_to_add:secret_value"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:request_cookies_to_add", "parent_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option", "path": "documentation/data-sources/http_loadbalancer/properties/more_option/request_cookies_to_add/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1102320100210023-1210033001301330-1020000111230213-0103120220001333-0032231333013111-2231032020310030-2132123001321222-0233303131323331", "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-020.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["more_option", "request_cookies_to_add"], "schema_version": 1, "sections": [{"aliases": ["more option request cookies to add name"], "anchor": "schema-more_option--request_cookies_to_add--name", "description": "Name of the cookie in Cookie header.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:request_cookies_to_add", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["more_option", "request_cookies_to_add", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["more option request cookies to add overwrite"], "anchor": "schema-more_option--request_cookies_to_add--overwrite", "description": "Should the value be overwritten? If true, the value is overwritten to existing values. Default value is do not overwrite.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:request_cookies_to_add", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["more_option", "request_cookies_to_add", "overwrite"], "syntax": "attribute", "type": "bool"}, {"aliases": ["more option request cookies to add secret value"], "anchor": "section", "description": "SecretType is used in an object to indicate a sensitive/confidential field.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:request_cookies_to_add:secret_value", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["more_option", "request_cookies_to_add", "secret_value"], "syntax": "attribute", "type": "object"}, {"aliases": ["more option request cookies to add value"], "anchor": "schema-more_option--request_cookies_to_add--value", "description": "Exclusive with Value of the Cookie header.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:request_cookies_to_add", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["more_option", "request_cookies_to_add", "value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/http_loadbalancer/properties/more_option/request_cookies_to_add/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies specified at this level are applied after cookies from matched Route are applied.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -21,11 +21,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"list"`. Computed.
-
-Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies
-specified at this level are applied after cookies from matched Route are applied.
-
-Upstream description:
 
 Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies
 specified at this level are applied after cookies from matched Route are applied.
@@ -73,10 +68,6 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Computed.
 
 Name. Name of the cookie in Cookie header.
-
-Upstream description:
-
-Name of the cookie in Cookie header.
 
 Receipt-pinned upstream constraints:
 
@@ -136,10 +127,9 @@ Type: `"bool"`. Computed.
 Should the value be overwritten? If true, the value is overwritten to existing values. not
 overwrite. Defaults to \`do\`.
 
-Upstream description:
+Additional upstream details:
 
-Should the value be overwritten? If true, the value is overwritten to existing values. Default value
-is do not overwrite.
+If true, the value is overwritten to existing values. Default value is do not overwrite.
 
 Receipt-pinned upstream constraints:
 
@@ -161,10 +151,6 @@ Receipt-pinned upstream constraints:
 ### value property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[secret\_value\] Value of the Cookie header.
-
-Upstream description:
 
 Exclusive with \[secret\_value\] Value of the Cookie header.
 
@@ -198,9 +184,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [more_option.request_cookies_to_add.secret_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/more_option/request_cookies_to_add/secret_value/)
-- [more_option](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/more_option/)
-- [xcsh_http_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/)

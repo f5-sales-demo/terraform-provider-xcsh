@@ -57,8 +57,8 @@
   "pages": [
     {
       "aliases": ["policer"],
-      "body_bytes": 1268,
-      "body_sha256": "sha256:18ed580f0cd4f680c4abd9b405aaf00114082df9be799788c43176a709a9e964",
+      "body_bytes": 1264,
+      "body_sha256": "sha256:d26d50475941808f7cac6656874090bc1c9a82bbf1e22a2b4a03de510ef68f5b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:policer:reference", "xcsh-docs:data-sources:policer:examples"],
@@ -86,7 +86,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/policer/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages new policer with traffic rate limits in F5 Distributed Cloud.",
+      "summary": "Reads Policer information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_policer",
       "unresolved_relationships": [],
@@ -98,8 +98,8 @@
     },
     {
       "aliases": ["policer"],
-      "body_bytes": 11962,
-      "body_sha256": "sha256:afc0088eb0f25cf1248e9d71e5448c9c48eb66375b7d0e9fdeaee4e2bb9df3ec",
+      "body_bytes": 11280,
+      "body_sha256": "sha256:3fe69a1f351e34bd6ea6573a664a6a96698643bd53b59f2d7786e607060fd08e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -279,8 +279,8 @@
     },
     {
       "aliases": ["policer"],
-      "body_bytes": 627,
-      "body_sha256": "sha256:6e49bc06327bb48596ac2963f11746052b4d2157aa7e0a7dacce4a28b13d6923",
+      "body_bytes": 399,
+      "body_sha256": "sha256:fbf242793e6cdd3aa54e09972ed8e146624e29216f06c49ba16d809d4d03baff",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:policer:example:data-source"],
@@ -319,8 +319,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1216,
-      "body_sha256": "sha256:68b12a5a0314ecc429530bd124d5282d6f43db6d3dd20470711ad5360cec2256",
+      "body_bytes": 1003,
+      "body_sha256": "sha256:b56198cab6b5ddc4d912d4775a9a140c384b16ba306cba07efddf4deee65c7f5",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],

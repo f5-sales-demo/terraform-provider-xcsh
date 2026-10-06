@@ -71,8 +71,8 @@
   "pages": [
     {
       "aliases": ["data group"],
-      "body_bytes": 1336,
-      "body_sha256": "sha256:fedb7f16357d5db37b70606b6cbdc393bc7ea0624a7d72219b954d68342a56d4",
+      "body_bytes": 1295,
+      "body_sha256": "sha256:e15419dc469f7dfbb47a3c73f6c614a1529c0cd6d36309958e7db0598b383031",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:data_group:reference", "xcsh-docs:data-sources:data_group:examples"],
@@ -100,7 +100,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_group/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages data group in a given namespace. If one already exists it will give an error in F5 Distributed Cloud.",
+      "summary": "Reads Data Group information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_data_group",
       "unresolved_relationships": [],
@@ -112,8 +112,8 @@
     },
     {
       "aliases": ["data group"],
-      "body_bytes": 9338,
-      "body_sha256": "sha256:0621812314a82081f2cbf23b52e963584aa9597d4f15d5befe7cd30b2af3af63",
+      "body_bytes": 8870,
+      "body_sha256": "sha256:56272307abec302aa8dab83eeb86974580935df1cbedf524650c56c7990bd321",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -283,8 +283,8 @@
     },
     {
       "aliases": ["address records"],
-      "body_bytes": 2897,
-      "body_sha256": "sha256:bc86157be8edbaf96dc5db44692409a4eb3428e1eb7dc68fe278b0403be99243",
+      "body_bytes": 2542,
+      "body_sha256": "sha256:b8fd31b575b4f512b9173966d37a6fd5fe78d5533fc12cecddbdaf004cbd2d79",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -338,8 +338,8 @@
     },
     {
       "aliases": ["integer records"],
-      "body_bytes": 2101,
-      "body_sha256": "sha256:70dadb9c7f70aa8145fc7dbba64148fcf423456ac2eecb8eeeb50cf2709aee85",
+      "body_bytes": 1814,
+      "body_sha256": "sha256:6097bbf2fbda79d7ff00c8a71782e1b5dae368ed5d9ceb2a469189a0af90b91d",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -393,8 +393,8 @@
     },
     {
       "aliases": ["string records"],
-      "body_bytes": 2068,
-      "body_sha256": "sha256:7155d0b75a15d2383a24263576d9b24b90a867df1b05b7d4aa69913fb2c6b603",
+      "body_bytes": 1781,
+      "body_sha256": "sha256:73ad8a43bb8deea1741fd2eb5e67c16400a541111b84e56b7f669c46b7283290",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -448,8 +448,8 @@
     },
     {
       "aliases": ["data group"],
-      "body_bytes": 645,
-      "body_sha256": "sha256:31ff2e672a67a041d65651a5c4d77d8d2b01d8ed317ac5c9070ca1f31688ee1e",
+      "body_bytes": 408,
+      "body_sha256": "sha256:dfab4b5fe5f55ce8cbfb68145ca28de6a8e972f0a43c10b5032c10fe49792359",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:data_group:example:data-source"],
@@ -488,8 +488,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1253,
-      "body_sha256": "sha256:b8234565ef3bb56c4e669f506a0f900635622b0d666891595cac71f73718d5f4",
+      "body_bytes": 1031,
+      "body_sha256": "sha256:9c39276353cf75448b86cbae9e560b6e181fa33fcac53065d3667c57619284fa",
       "capabilities": [],
       "category": null,
       "child_ids": [],

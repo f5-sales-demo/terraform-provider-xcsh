@@ -1,10 +1,10 @@
 ---
-page_title: "xcsh_alert_template landing"
+page_title: "xcsh_alert_template"
 subcategory: ""
-description: "Complete grouped canonical reference for xcsh_alert_template landing."
+description: "Complete grouped canonical reference for xcsh_alert_template."
 ---
 
-# xcsh_alert_template landing
+# xcsh_alert_template
 
 <a id="canonical-2113333112122122-3132222003103103-2101331030303103-1200332320133001-1230313330112233-3120111103131333-0332111212113231-2112301302213113"></a>
 
@@ -12,9 +12,7 @@ description: "Complete grouped canonical reference for xcsh_alert_template landi
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3100212213213023-3323201310113123-1311322310310332-3110123300133011-2233132020212231-0000310012130301-2102121301322213-1031213330102202"></a>
-
-## xcsh_alert_template — xcsh_alert_template / 333203330131 / 2
+## Overview
 
 Breadcrumbs:
 
@@ -22,15 +20,15 @@ Breadcrumbs:
 
 Manages Domain to protect in F5 Distributed Cloud.
 
-<a id="canonical-2210313232200230-1310121233131033-1301023102330122-2111022312323111-1110130320113331-3133031302002212-0210022001333022-0320011233200201"></a>
+<a id="canonical-3100212213213023-3323201310113123-1311322310310332-3110123300133011-2233132020212231-0000310012130301-2102121301322213-1031213330102202"></a>
 
-## Prerequisites — xcsh_alert_template / 333203330131 / 3
+### Prerequisites for `xcsh_alert_template`
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-1320022201311120-2103212331302230-1012313100132312-0102323221011102-2000222312031133-3210133000211030-1220210333231303-2212231103112033"></a>
+<a id="canonical-2210313232200230-1310121233131033-1301023102330122-2111022312323111-1110130320113331-3133031302002212-0210022001333022-0320011233200201"></a>
 
-## Minimal configuration — xcsh_alert_template / 333203330131 / 4
+### Minimal configuration for `xcsh_alert_template`
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -60,15 +58,15 @@ resource "xcsh_alert_template" "example" {
 }
 ```
 
-<a id="canonical-3301123132332131-3130131133000212-1220032313333300-2323213021312003-1001322203123012-3300330222203302-2120310220312111-2022313132131330"></a>
+<a id="canonical-1320022201311120-2103212331302230-1012313100132312-0102323221011102-2000222312031133-3210133000211030-1220210333231303-2212231103112033"></a>
 
-## Root configuration — xcsh_alert_template / 333203330131 / 5
+### Root configuration for `xcsh_alert_template`
 
 Required root properties: `alert_message`, `alert_message_details`, `alert_name`, `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-3101230313302012-2102021310320330-0233022221221211-2030020003301013-1223110303131120-0032010323230303-2013323220100300-1112220213123232"></a>
+<a id="canonical-3301123132332131-3130131133000212-1220032313333300-2323213021312003-1001322203123012-3300330222203302-2120310220312111-2022313132131330"></a>
 
-## Next pages — xcsh_alert_template / 333203330131 / 6
+### Explore this collection for `xcsh_alert_template`
 
 - [Property reference](../guides/resources--alert_template--reference--group-001.md#canonical-1133313323321313-1021331100132113-3110202222120000-0021012302223200-2222322030331020-2031011132012122-0322111010203330-2101232233133233)
 - [Examples](../guides/resources--alert_template--examples--group-001.md#canonical-1332302023131123-1023300023220300-1231133301313001-2112102020003301-2112101230321132-2020110303233322-1213031323133120-1132031130303123)

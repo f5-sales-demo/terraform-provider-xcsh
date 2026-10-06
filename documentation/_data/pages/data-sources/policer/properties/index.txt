@@ -2,7 +2,7 @@
 page_title: "Property reference"
 subcategory: ""
 description: "Property reference for xcsh_policer."
-xcsh_docs: {"aliases": ["policer"], "body_bytes": 11962, "body_sha256": "sha256:afc0088eb0f25cf1248e9d71e5448c9c48eb66375b7d0e9fdeaee4e2bb9df3ec", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:policer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:policer:reference", "parent_id": "xcsh-docs:data-sources:policer:fundamentals", "path": "documentation/data-sources/policer/properties/index.md", "product": "distributed-cloud", "provider_name": "policer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-3320132331212333-3010302313330232-0221223202012002-1222203102211013-2121323323003011-1111232130221313-0133131033222112-3002101300233013", "registry_path": "docs/guides/data-sources--policer--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "reference", "schema_path": [], "schema_version": 1, "sections": [{"aliases": ["annotations"], "anchor": "schema-annotations", "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.", "document_id": "xcsh-docs:data-sources:policer:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["annotations"], "syntax": "attribute", "type": "map"}, {"aliases": ["burst size"], "anchor": "schema-burst_size", "description": "The maximum size permitted for bursts of data. E.g. 10000 pps burst.", "document_id": "xcsh-docs:data-sources:policer:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["burst_size"], "syntax": "attribute", "type": "number"}, {"aliases": ["committed information rate"], "anchor": "schema-committed_information_rate", "description": "The committed information rate is the guaranteed packets rate for traffic arriving or departing under normal conditions. E.g. 10000 pps.", "document_id": "xcsh-docs:data-sources:policer:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["committed_information_rate"], "syntax": "attribute", "type": "number"}, {"aliases": ["description"], "anchor": "schema-description", "description": "Human readable description for the object.", "document_id": "xcsh-docs:data-sources:policer:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["description"], "syntax": "attribute", "type": "string"}, {"aliases": ["id"], "anchor": "schema-id", "description": "Unique identifier for the resource.", "document_id": "xcsh-docs:data-sources:policer:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["id"], "syntax": "attribute", "type": "string"}, {"aliases": ["labels"], "anchor": "schema-labels", "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.", "document_id": "xcsh-docs:data-sources:policer:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["labels"], "syntax": "attribute", "type": "map"}, {"aliases": ["name"], "anchor": "schema-name", "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.", "document_id": "xcsh-docs:data-sources:policer:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["name"], "syntax": "attribute", "type": "string"}, {"aliases": ["namespace"], "anchor": "schema-namespace", "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"", "document_id": "xcsh-docs:data-sources:policer:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["policer mode"], "anchor": "schema-policer_mode", "description": "- POLICER_MODE_NOT_SHARED: Not Shared A separate policer instance is created for each reference to the policer - POLICER_MODE_SHARED: Shared A common policer instance is used for for all references to the policer.", "document_id": "xcsh-docs:data-sources:policer:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["policer_mode"], "syntax": "attribute", "type": "string"}, {"aliases": ["policer type"], "anchor": "schema-policer_type", "description": "Specifies the type of Policer Basic Single-Rate Two-Color Policer.", "document_id": "xcsh-docs:data-sources:policer:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["policer_type"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/policer/properties/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Property reference for xcsh_policer.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["policerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["policer"], "body_bytes": 11280, "body_sha256": "sha256:3fe69a1f351e34bd6ea6573a664a6a96698643bd53b59f2d7786e607060fd08e", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:policer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:policer:reference", "parent_id": "xcsh-docs:data-sources:policer:fundamentals", "path": "documentation/data-sources/policer/properties/index.md", "product": "distributed-cloud", "provider_name": "policer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-3320132331212333-3010302313330232-0221223202012002-1222203102211013-2121323323003011-1111232130221313-0133131033222112-3002101300233013", "registry_path": "docs/guides/data-sources--policer--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "reference", "schema_path": [], "schema_version": 1, "sections": [{"aliases": ["annotations"], "anchor": "schema-annotations", "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.", "document_id": "xcsh-docs:data-sources:policer:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["annotations"], "syntax": "attribute", "type": "map"}, {"aliases": ["burst size"], "anchor": "schema-burst_size", "description": "The maximum size permitted for bursts of data. E.g. 10000 pps burst.", "document_id": "xcsh-docs:data-sources:policer:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["burst_size"], "syntax": "attribute", "type": "number"}, {"aliases": ["committed information rate"], "anchor": "schema-committed_information_rate", "description": "The committed information rate is the guaranteed packets rate for traffic arriving or departing under normal conditions. E.g. 10000 pps.", "document_id": "xcsh-docs:data-sources:policer:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["committed_information_rate"], "syntax": "attribute", "type": "number"}, {"aliases": ["description"], "anchor": "schema-description", "description": "Human readable description for the object.", "document_id": "xcsh-docs:data-sources:policer:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["description"], "syntax": "attribute", "type": "string"}, {"aliases": ["id"], "anchor": "schema-id", "description": "Unique identifier for the resource.", "document_id": "xcsh-docs:data-sources:policer:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["id"], "syntax": "attribute", "type": "string"}, {"aliases": ["labels"], "anchor": "schema-labels", "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.", "document_id": "xcsh-docs:data-sources:policer:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["labels"], "syntax": "attribute", "type": "map"}, {"aliases": ["name"], "anchor": "schema-name", "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.", "document_id": "xcsh-docs:data-sources:policer:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["name"], "syntax": "attribute", "type": "string"}, {"aliases": ["namespace"], "anchor": "schema-namespace", "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"", "document_id": "xcsh-docs:data-sources:policer:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["policer mode"], "anchor": "schema-policer_mode", "description": "- POLICER_MODE_NOT_SHARED: Not Shared A separate policer instance is created for each reference to the policer - POLICER_MODE_SHARED: Shared A common policer instance is used for for all references to the policer.", "document_id": "xcsh-docs:data-sources:policer:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["policer_mode"], "syntax": "attribute", "type": "string"}, {"aliases": ["policer type"], "anchor": "schema-policer_type", "description": "Specifies the type of Policer Basic Single-Rate Two-Color Policer.", "document_id": "xcsh-docs:data-sources:policer:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["policer_type"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/policer/properties/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Property reference for xcsh_policer.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["policerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -26,7 +26,7 @@ Type: `["map", "string"]`. Computed.
 
 Annotations applied to this resource.
 
-Upstream description:
+Additional upstream details:
 
 Annotations is an unstructured key value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
@@ -86,10 +86,6 @@ Type: `"number"`. Computed.
 
 The maximum size permitted for bursts of data. E.g. 10000 pps burst.
 
-Upstream description:
-
-The maximum size permitted for bursts of data. E.g. 10000 pps burst.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -127,11 +123,6 @@ Receipt-pinned upstream constraints:
 ### committed_information_rate property
 
 Type: `"number"`. Computed.
-
-The committed information rate is the guaranteed packets rate for traffic arriving or departing
-under normal conditions. E.g. 10000 pps.
-
-Upstream description:
 
 The committed information rate is the guaranteed packets rate for traffic arriving or departing
 under normal conditions. E.g. 10000 pps.
@@ -179,7 +170,7 @@ Type: `"string"`. Computed.
 
 Description of the Policer.
 
-Upstream description:
+Additional upstream details:
 
 Human readable description for the object.
 
@@ -237,7 +228,7 @@ Type: `["map", "string"]`. Computed.
 
 Labels applied to this resource.
 
-Upstream description:
+Additional upstream details:
 
 Map of string keys and values that can be used to organize and categorize (scope and select) objects
 as chosen by the user. Values specified here will be used by selector expression.
@@ -263,7 +254,7 @@ Type: `"string"`. Required.
 
 Name of the Policer.
 
-Upstream description:
+Additional upstream details:
 
 This is the name of configuration object. It has to be unique within the namespace. It can only be
 specified during create API and cannot be changed during replace API. The value of name has to
@@ -321,7 +312,7 @@ Type: `"string"`. Required.
 
 Namespace where the Policer exists.
 
-Upstream description:
+Additional upstream details:
 
 This defines the workspace within which each the configuration object is to be created. Must be a
 DNS\_LABEL format. For a namespace object itself, namespace value will be ""
@@ -376,15 +367,6 @@ Shared A common policer instance is used for for all references to the policer. 
 \`POLICER\_MODE\_NOT\_SHARED\`, \`POLICER\_MODE\_SHARED\`. Defaults to
 \`POLICER\_MODE\_NOT\_SHARED\`. Server applies default when omitted.
 
-Upstream description:
-
-&#8203;- POLICER\_MODE\_NOT\_SHARED: Not Shared
-
-A separate policer instance is created for each reference to the policer &#8203;-
-POLICER\_MODE\_SHARED: Shared
-
-A common policer instance is used for for all references to the policer.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -412,12 +394,6 @@ Type: `"string"`. Computed.
 \[Enum: POLICER\_SINGLE\_RATE\_TWO\_COLOR\] Specifies the type of Policer Basic Single-Rate
 Two-Color Policer. The only possible value is \`POLICER\_SINGLE\_RATE\_TWO\_COLOR\`. Defaults to
 \`POLICER\_SINGLE\_RATE\_TWO\_COLOR\`. Server applies default when omitted.
-
-Upstream description:
-
-Specifies the type of Policer
-
-Basic Single-Rate Two-Color Policer.
 
 Receipt-pinned upstream constraints:
 
@@ -452,7 +428,3 @@ Each exact path has one authoritative reference destination. Collection element 
 | `namespace` | [namespace](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/policer/properties/#schema-namespace) |
 | `policer_mode` | [policer_mode](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/policer/properties/#schema-policer_mode) |
 | `policer_type` | [policer_type](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/policer/properties/#schema-policer_type) |
-
-## Next pages
-
-- [xcsh_policer](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/policer/)

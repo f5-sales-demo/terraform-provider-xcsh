@@ -163,8 +163,8 @@
   "pages": [
     {
       "aliases": ["bot detection rule"],
-      "body_bytes": 1433,
-      "body_sha256": "sha256:3997f46a1e9fd5c36812f1f56cca7ea03b837ee508abba5bd83553ac8ef8ba94",
+      "body_bytes": 1381,
+      "body_sha256": "sha256:176047767eef06afffc76d6b5a6cf9c8d6aab5748c93d6b1b4207729167353da",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -195,7 +195,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_detection_rule/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Bot Detection Rule resource in F5 Distributed Cloud for get bot detection rule. configuration. (read-only data source)",
+      "summary": "Reads Bot Detection Rule information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_bot_detection_rule",
       "unresolved_relationships": [],
@@ -207,8 +207,8 @@
     },
     {
       "aliases": ["bot detection rule"],
-      "body_bytes": 10405,
-      "body_sha256": "sha256:5141bb8b7e1792a0d823827bc903a6bc1ca8a09f279d00fd5170ed402aaa73b3",
+      "body_bytes": 10082,
+      "body_sha256": "sha256:870046912c7af7dff40483c08d21726f6401a24cff9272295bc395623045bb82",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_detection_rule:properties:bot_detection_rule_configs_per_bot_infras"],
@@ -472,8 +472,8 @@
     },
     {
       "aliases": ["bot detection rule configs per bot infras"],
-      "body_bytes": 3894,
-      "body_sha256": "sha256:b23ebbbbe74551d02283c9ba7892b4f502642cdf466d6f1bb5f21744b9144fe6",
+      "body_bytes": 2931,
+      "body_sha256": "sha256:d20c84592fbf93ba31250dcfe5c65ee85dd3ebcd6d9169f9e77e54ad02168b7c",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -615,8 +615,8 @@
     },
     {
       "aliases": ["bot detection rule configs per bot infras bot detection rule config"],
-      "body_bytes": 1324,
-      "body_sha256": "sha256:6e0a11596b44606582e1f1baf6cebc2e4bff66fd1d4a855bd20bf2c4222e233f",
+      "body_bytes": 1001,
+      "body_sha256": "sha256:286564207a9facacf558e42daac364bef0871fe0fcd4abfb2805646a19c3fa9c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -670,8 +670,8 @@
     },
     {
       "aliases": ["bot detection rule configs per bot infras k8s cluster rule config"],
-      "body_bytes": 2829,
-      "body_sha256": "sha256:657cbafd2a6326a51a0d8c993128642c0afc9a71c0bd23dd90ee46d05452f37d",
+      "body_bytes": 1613,
+      "body_sha256": "sha256:858a0b2078a7ad7bcd78db1908df62c00016f40a0b58bb0e5e8ba77ab6acb79a",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -773,8 +773,8 @@
     },
     {
       "aliases": ["bot detection rule configs per bot infras k8s cluster rule config in used k8s cluster rule config"],
-      "body_bytes": 1573,
-      "body_sha256": "sha256:8f9917f4528d7715ab0e2b820129c1d543aef79bd8288397044afcea4d5f51e3",
+      "body_bytes": 1180,
+      "body_sha256": "sha256:a64185ff86dd43ea381052bb34c3a1901a3434f09f90fa7fe65730a2909d557c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -817,8 +817,8 @@
     },
     {
       "aliases": ["bot detection rule configs per bot infras k8s cluster rule config sync status per k8s cluster"],
-      "body_bytes": 1538,
-      "body_sha256": "sha256:3fdc5da985588859f361ffdb50a8ada4c85e71b8c28fa6309aac7228765c9776",
+      "body_bytes": 1145,
+      "body_sha256": "sha256:7575810576c3a8ecda28fdafed005f2fae65a2284ac576394765c45a1c2cdd65",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -861,8 +861,8 @@
     },
     {
       "aliases": ["bot detection rule configs per bot infras k8s cluster rule config target k8s cluster rule config"],
-      "body_bytes": 1570,
-      "body_sha256": "sha256:9614c1b802ca15ed347173d7487261800f62403a7a499855ce28880d76cf6d01",
+      "body_bytes": 1177,
+      "body_sha256": "sha256:8a04b9ee782e6179ca4cfd7925af848f859c83e4d2d5b2acdf901dd4ed558c43",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -905,8 +905,8 @@
     },
     {
       "aliases": ["bot detection rule configs per bot infras region rule config"],
-      "body_bytes": 1598,
-      "body_sha256": "sha256:c85b2e940357508acbc40f4569ad01d4ca633ea8c96fb8304a844840dca9b8b0",
+      "body_bytes": 1020,
+      "body_sha256": "sha256:73f4cc188ee4252e9dc052f2a04a92a27ab55195f51e9409c35d89350ee45092",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -962,8 +962,8 @@
     },
     {
       "aliases": ["bot detection rule configs per bot infras region rule config region config"],
-      "body_bytes": 1495,
-      "body_sha256": "sha256:4bb73fd824ad494b70084ede8e2c116911d9fc049aa528fe9576dfdda2134d47",
+      "body_bytes": 1112,
+      "body_sha256": "sha256:65d16ee83463187b1a29637ca2a00dcf8f263d0542a61033fc67a9aaf3405eac",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1002,8 +1002,8 @@
     },
     {
       "aliases": ["bot detection rule"],
-      "body_bytes": 693,
-      "body_sha256": "sha256:393adab48fdca02072a2166389db681dae27bd4e4cada4b974d64be4a4b80c66",
+      "body_bytes": 432,
+      "body_sha256": "sha256:182eb30527e759d10c7762f2a50f3b4ef04b8c258c95e164d3d63c7c3c44e1c7",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_detection_rule:example:data-source"],
@@ -1042,8 +1042,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1355,
-      "body_sha256": "sha256:58611b78171c755d0fdfce18eace6962d18b84303aef60bbf8839ac0be2a769d",
+      "body_bytes": 1109,
+      "body_sha256": "sha256:d055116fa328ddb3540286600b6ab1cca90cc1baaef68fe75c26771d64e29793",
       "capabilities": [],
       "category": null,
       "child_ids": [],

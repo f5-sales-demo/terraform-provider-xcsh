@@ -101,8 +101,8 @@
   "pages": [
     {
       "aliases": ["api crawler"],
-      "body_bytes": 1292,
-      "body_sha256": "sha256:57cd6e4b6405f9e4b17b90e8f7efcf000f53a26e2f3bdeb1292e23aecd445020",
+      "body_bytes": 1306,
+      "body_sha256": "sha256:c817a08e3a8aee69df66cf48b8432aa6b19ab022b84ead684f5d1872d8b76606",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_crawler:reference", "xcsh-docs:data-sources:api_crawler:examples"],
@@ -130,7 +130,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_crawler/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a API Crawler resource in F5 Distributed Cloud.",
+      "summary": "Reads API Crawler information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_api_crawler",
       "unresolved_relationships": [],
@@ -142,8 +142,8 @@
     },
     {
       "aliases": ["api crawler"],
-      "body_bytes": 10856,
-      "body_sha256": "sha256:ba17ba2841d1fe254ff20ab63470282a1a93c1d537c5e2f762a902abcdc7eb97",
+      "body_bytes": 10657,
+      "body_sha256": "sha256:aa025507404d20eefaf1016ffbe3cccde107c2227de522c8b1b0f2c820022701",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_crawler:properties:domains"],
@@ -281,8 +281,8 @@
     },
     {
       "aliases": ["domains"],
-      "body_bytes": 2841,
-      "body_sha256": "sha256:c64965511d5bdc713d3df814fc815517b3321b45b5405f3887244995bfba9a83",
+      "body_bytes": 2413,
+      "body_sha256": "sha256:3a09a54e95cd52d083c22cfc0f534c703f6446599b0c9ae8bfae312e07038bd9",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_crawler:properties:domains:simple_login"],
@@ -350,8 +350,8 @@
     },
     {
       "aliases": ["domains simple login", "login", "login result", "sign in"],
-      "body_bytes": 2331,
-      "body_sha256": "sha256:078b2ffb9f1a9e2d63c09f3bac84aa8e32bf3b6ea6510664b494732b7382c6c0",
+      "body_bytes": 1939,
+      "body_sha256": "sha256:e865ed71598fa0cc4f664133192a0a1a6a6c8b3e0ef0fcc7341f497f08b7e899",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_crawler:properties:domains:simple_login:password"],
@@ -419,8 +419,8 @@
     },
     {
       "aliases": ["domains simple login password", "login", "login result", "sign in"],
-      "body_bytes": 2130,
-      "body_sha256": "sha256:82ec1a36cb7d21ae116afab7b5dd3a901a7614a025386191c0b9c011b2fd18a0",
+      "body_bytes": 1474,
+      "body_sha256": "sha256:440fbb11bbd4081b29ecf414fdf1f6b449fc1bf5fa2f6346c0729df3665f14e9",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [
@@ -491,8 +491,8 @@
     },
     {
       "aliases": ["domains simple login password blindfold secret info", "login", "login result", "sign in"],
-      "body_bytes": 4613,
-      "body_sha256": "sha256:0a75a2242ac22bff712a20e025038f7ceca81c069e74a882af78576e2ce824ae",
+      "body_bytes": 3966,
+      "body_sha256": "sha256:964a4a00dd32b22ae93ab25f52e39639f07f87ca402f4c275fdcc0d838a1dfbb",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
@@ -589,8 +589,8 @@
     },
     {
       "aliases": ["domains simple login password clear secret info", "login", "login result", "sign in"],
-      "body_bytes": 3502,
-      "body_sha256": "sha256:157c2f74f62328e9e1f57f3fb035e6d07c9db432435d1400173ce4b932dbe98d",
+      "body_bytes": 2989,
+      "body_sha256": "sha256:cff9157eee035f84dc78e75951f7594e97bfac3a1a2a480aef322f08fd89dcbf",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
@@ -663,8 +663,8 @@
     },
     {
       "aliases": ["api crawler"],
-      "body_bytes": 651,
-      "body_sha256": "sha256:b42a2eae289b6c8a09f3cf5b0970b842cb9d9129126e2ff46094c08c00fc0037",
+      "body_bytes": 411,
+      "body_sha256": "sha256:4fc98f7af077fc120d322b29869e3fe210b5f8897b87955b49630f2c814b300b",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_crawler:example:data-source"],
@@ -703,8 +703,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1266,
-      "body_sha256": "sha256:01670e350fd5d3c2f93a963d82d9aeda0b4a9cae95db3f789099d2b555de1d90",
+      "body_bytes": 1041,
+      "body_sha256": "sha256:b1824b671d8d5264536807d437ce9cccc7f5c5263e487429cdaf08310c23abd9",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],

@@ -156,8 +156,8 @@
   "pages": [
     {
       "aliases": ["network firewall"],
-      "body_bytes": 1443,
-      "body_sha256": "sha256:1e7818ced50351da0a9d942ecd28ab346f3f63dfc6c4d74c1d43f4b4466fa758",
+      "body_bytes": 1377,
+      "body_sha256": "sha256:a0d2e4659b87717497407727a56a7ce6308bfc28263f4c76175ede3a94033b45",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -188,7 +188,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_firewall/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Network Firewall resource in F5 Distributed Cloud for network firewall is created by users in system namespace. configuration.",
+      "summary": "Reads a Network Firewall created in the system namespace.",
       "tasks": ["configuration"],
       "title": "xcsh_network_firewall",
       "unresolved_relationships": [],
@@ -200,8 +200,8 @@
     },
     {
       "aliases": ["network firewall"],
-      "body_bytes": 16078,
-      "body_sha256": "sha256:3872b76a42f5b8a4dabffbda5112a43e5ee7421a00e8fd9f64336fbe75a2d490",
+      "body_bytes": 14914,
+      "body_sha256": "sha256:904d544e88d139eb2e1da411de1d63e7e56d8421299392fbfd6682e63a9f0e68",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -431,8 +431,8 @@
     },
     {
       "aliases": ["active enhanced firewall policies"],
-      "body_bytes": 2495,
-      "body_sha256": "sha256:ef239a8b210f7a53c4f07c263cea96fe86cd9e1e81e9de788968c3b275675ab1",
+      "body_bytes": 1813,
+      "body_sha256": "sha256:733d4a6102065d1a3a7ab9b736eae737f98c5f64283ecfba21bfa926939b02de",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -488,8 +488,8 @@
     },
     {
       "aliases": ["active enhanced firewall policies enhanced firewall policies"],
-      "body_bytes": 6058,
-      "body_sha256": "sha256:fad9ebaff671f017c103c4c9372c098c84b17fab0b1203b34e66922bc0f1947f",
+      "body_bytes": 5254,
+      "body_sha256": "sha256:25bdf883b5e302a2ef25f916927167b30b686409e64486248063e43293596488",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -571,8 +571,8 @@
     },
     {
       "aliases": ["active fast acls"],
-      "body_bytes": 1785,
-      "body_sha256": "sha256:9abbb465b12429a0eb7416f3d395b498ff942f3fe2185336a53afd4cc285f392",
+      "body_bytes": 1383,
+      "body_sha256": "sha256:16183c324d78028ee6ff006f4f6e929c780e7ef0292715adfeba8436d43e9910",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:network_firewall:properties:active_fast_acls:fast_acls"],
@@ -626,8 +626,8 @@
     },
     {
       "aliases": ["active fast acls fast acls"],
-      "body_bytes": 5831,
-      "body_sha256": "sha256:013e2150f6ef3493f3849b292d9b166942306a733c6f6fedf2b15c86f72173d1",
+      "body_bytes": 5061,
+      "body_sha256": "sha256:bd04a73c28a1cf8efecb36be4cc56c6e1810808e63db42604c72fa72a6e57014",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -709,8 +709,8 @@
     },
     {
       "aliases": ["active forward proxy policies"],
-      "body_bytes": 2019,
-      "body_sha256": "sha256:9f56c0c7910aacc048f3ad1fda652a7268ff2d1a8bf9dfbbfd93a2c1b69e4ae7",
+      "body_bytes": 1487,
+      "body_sha256": "sha256:3f98a44f238c2526385e9490beff999dfcaeb289e1ceb67ec0a7c79a7503bdab",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -766,8 +766,8 @@
     },
     {
       "aliases": ["active forward proxy policies forward proxy policies"],
-      "body_bytes": 5998,
-      "body_sha256": "sha256:a4858b24ad4365b3d5516d8f8e15b52c6d25b0d7aff222a86bcde9d16fa5f787",
+      "body_bytes": 5202,
+      "body_sha256": "sha256:8d60160c23cc0583b49cf5be0a2f8f469caf6c1cc9ac152c31a9e97e494aeaea",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -849,8 +849,8 @@
     },
     {
       "aliases": ["active network policies"],
-      "body_bytes": 1390,
-      "body_sha256": "sha256:afabf0a75ceacb796e492b57fea49d478a58618c335522157664c8770e02f0f9",
+      "body_bytes": 960,
+      "body_sha256": "sha256:d14e6b541c7c0e98c6ba6024c521727a351d14e03d88fcf396c5464451d81845",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:network_firewall:properties:active_network_policies:network_policies"],
@@ -904,8 +904,8 @@
     },
     {
       "aliases": ["active network policies network policies"],
-      "body_bytes": 5935,
-      "body_sha256": "sha256:9579b282f63243b1c691a63da5fbbf5da3c1059f10c32674ea9ad05165f1c439",
+      "body_bytes": 5151,
+      "body_sha256": "sha256:c1e57c6cf04ba1028e4158b2628f0f2246ad00194043d1c6723db78d48b0c71c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -987,8 +987,8 @@
     },
     {
       "aliases": ["disable fast acl"],
-      "body_bytes": 1157,
-      "body_sha256": "sha256:552ae80e1c807384783a8d8244ed0573ee37683fa0a410ec288e089e9b6c5f39",
+      "body_bytes": 890,
+      "body_sha256": "sha256:e659d8ddec6310042a0f3ca082c7e02d4fb109e218aa90df12eb8aa0664d75fb",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1027,8 +1027,8 @@
     },
     {
       "aliases": ["disable forward proxy policy"],
-      "body_bytes": 1174,
-      "body_sha256": "sha256:0c5fc69808a6ef5495cbea7783cd98e1a40255993c72c810012d2a266cbeb9d2",
+      "body_bytes": 907,
+      "body_sha256": "sha256:6540a6b954cf89bb9487cd2de197d5e46106833ee0d65439313ad0e2215a8e5a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1067,8 +1067,8 @@
     },
     {
       "aliases": ["disable network policy"],
-      "body_bytes": 1162,
-      "body_sha256": "sha256:8191cad1d67506e11280757cabbe21d19cd395dbd69c05b63486388ca866f640",
+      "body_bytes": 895,
+      "body_sha256": "sha256:b2e9eb48e748e433d9b510f98de391999b6436e5a53d0f542564cffb8bfe96bf",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1107,8 +1107,8 @@
     },
     {
       "aliases": ["network firewall"],
-      "body_bytes": 681,
-      "body_sha256": "sha256:b329fc83f101b3f71a9ab43cb6780613e362c92cd52a055c685203cc29d4046a",
+      "body_bytes": 426,
+      "body_sha256": "sha256:ab6b38f7c740543a68dafef1c2887fcc4885cbb6bd38f525749a4ad001e2b7c3",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:network_firewall:example:data-source"],
@@ -1147,8 +1147,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1330,
-      "body_sha256": "sha256:f120ae7d6fc46653ad7f25e68979ac2d67711e7ada6ef4df0f797a8ac2f4b36c",
+      "body_bytes": 1090,
+      "body_sha256": "sha256:06e605f33b7c1374ed96d870e447c5b8545fb9c6773b7adad96088d046230c9f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],

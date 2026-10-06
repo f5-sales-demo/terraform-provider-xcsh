@@ -46,8 +46,8 @@
   "pages": [
     {
       "aliases": ["authorization server"],
-      "body_bytes": 1448,
-      "body_sha256": "sha256:c04a3b02fde7ff652af05b820c8b61fd7116b3c984cbb968e4e3cd6263960b59",
+      "body_bytes": 1405,
+      "body_sha256": "sha256:7c365346a49e6d1a48c120e0db19f490e39940425ad080fbffa67f1812c6d218",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -78,7 +78,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authorization_server/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages authorization_server creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
+      "summary": "Reads Authorization Server information from F5 Distributed Cloud.",
       "tasks": ["authentication", "configuration"],
       "title": "xcsh_authorization_server",
       "unresolved_relationships": [],
@@ -90,8 +90,8 @@
     },
     {
       "aliases": ["authorization server"],
-      "body_bytes": 8929,
-      "body_sha256": "sha256:1b498b32e0fc310e491b91061e49942ff433beadd7c916b4a748c0f05c0df7be",
+      "body_bytes": 8651,
+      "body_sha256": "sha256:e5c4c6f2e30b62df05a82322e071dc3238fa7082825161081160f5fc38bfcd5e",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -229,8 +229,8 @@
     },
     {
       "aliases": ["authorization server"],
-      "body_bytes": 705,
-      "body_sha256": "sha256:ae25e751e9a150835c3a1fdb5416d609c0622bae9858c2984594e78b5a9d4234",
+      "body_bytes": 438,
+      "body_sha256": "sha256:f54d4d2e6d667a3c43244e4b1197353becc4b7846f820229c2694e4f11d7b0ca",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": ["xcsh-docs:data-sources:authorization_server:example:data-source"],
@@ -269,8 +269,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1383,
-      "body_sha256": "sha256:b0543e4fff1b93102fb07c13bbb67b97ad8c89a7296b7ab04a6cbc38c2a6df79",
+      "body_bytes": 1131,
+      "body_sha256": "sha256:0429731fe6a47da518fc460c546ebb6489e8c5e44c4370cdabd16250b8815369",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],

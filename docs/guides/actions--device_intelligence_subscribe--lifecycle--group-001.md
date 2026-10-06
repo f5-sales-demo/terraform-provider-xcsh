@@ -12,9 +12,7 @@ description: "Complete grouped canonical reference for xcsh_device_intelligence_
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2010110020113331-3303212301302320-3100122231013121-3332211223132330-0230012112123123-3220003013320133-2211320103113322-3000200021013201"></a>
-
-## Lifecycle — Lifecycle / 003322333102 / 2
+## Lifecycle
 
 Breadcrumbs:
 
@@ -22,9 +20,3 @@ Breadcrumbs:
 - Lifecycle
 
 Invoke this action using Terraform action triggers or `terraform apply -invoke`. The action executes its documented operation; it does not maintain a resource lifecycle. Inspect asynchronous operations separately where described by the API.
-
-<a id="canonical-1010121313122121-1210113312113113-3301203133102020-3130113000223103-1103220223102030-2310110103122132-3020231020312311-2103310122221210"></a>
-
-## Next pages — Lifecycle / 003322333102 / 3
-
-- [xcsh_device_intelligence_subscribe](../actions/device_intelligence_subscribe.md#canonical-2110103333002230-1333113312300003-3031011200033223-1012111303330101-3123021221010332-0102310002201001-2232032323131011-1213333131130320)

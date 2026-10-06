@@ -1,10 +1,10 @@
 ---
-page_title: "xcsh_dns_lb_health_check landing"
+page_title: "xcsh_dns_lb_health_check"
 subcategory: ""
-description: "Complete grouped canonical reference for xcsh_dns_lb_health_check landing."
+description: "Complete grouped canonical reference for xcsh_dns_lb_health_check."
 ---
 
-# xcsh_dns_lb_health_check landing
+# xcsh_dns_lb_health_check
 
 <a id="canonical-0302000112101031-2320313333300101-1000303021303302-2311331100312232-2321211133331232-0230203302202230-0030030332120212-0001210320031333"></a>
 
@@ -12,9 +12,7 @@ description: "Complete grouped canonical reference for xcsh_dns_lb_health_check 
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2010031131321123-2331122320013210-3233111101031331-3311121012300230-0030303201130201-3011023003020302-2332332113121103-0302002033200003"></a>
-
-## xcsh_dns_lb_health_check — xcsh_dns_lb_health_check / 112301022031 / 2
+## Overview
 
 Breadcrumbs:
 
@@ -23,15 +21,15 @@ Breadcrumbs:
 Manages DNS Load Balancer Health Check in a given namespace. If one already exist it will give a
 error in F5 Distributed Cloud.
 
-<a id="canonical-3001301011310002-2212000111322131-1233310222201031-3202301031130210-3123001020332232-2120321113220323-3223021003132232-2121123220211012"></a>
+<a id="canonical-2010031131321123-2331122320013210-3233111101031331-3311121012300230-0030303201130201-3011023003020302-2332332113121103-0302002033200003"></a>
 
-## Prerequisites — xcsh_dns_lb_health_check / 112301022031 / 3
+### Prerequisites for `xcsh_dns_lb_health_check`
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-3010120133033220-1212120033323223-3003223133312303-1100210011022012-0103321332102020-2222232100203322-2301212132012002-1020331130122301"></a>
+<a id="canonical-3001301011310002-2212000111322131-1233310222201031-3202301031130210-3123001020332232-2120321113220323-3223021003132232-2121123220211012"></a>
 
-## Minimal configuration — xcsh_dns_lb_health_check / 112301022031 / 4
+### Minimal configuration for `xcsh_dns_lb_health_check`
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,15 +55,15 @@ resource "xcsh_dns_lb_health_check" "example" {
 }
 ```
 
-<a id="canonical-1232130033003032-1333210022020012-3220311101000033-1312101223323321-2020021022023122-0023032301230121-1233002133332303-0113223233123032"></a>
+<a id="canonical-3010120133033220-1212120033323223-3003223133312303-1100210011022012-0103321332102020-2222232100203322-2301212132012002-1020331130122301"></a>
 
-## Root configuration — xcsh_dns_lb_health_check / 112301022031 / 5
+### Root configuration for `xcsh_dns_lb_health_check`
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-2002331031232010-2032132110311103-2101101131013132-0211101300320031-3230000311003103-1010301202311323-2121301202133220-3320121231101010"></a>
+<a id="canonical-1232130033003032-1333210022020012-3220311101000033-1312101223323321-2020021022023122-0023032301230121-1233002133332303-0113223233123032"></a>
 
-## Next pages — xcsh_dns_lb_health_check / 112301022031 / 6
+### Explore this collection for `xcsh_dns_lb_health_check`
 
 - [Property reference](../guides/resources--dns_lb_health_check--reference--group-001.md#canonical-1123001131012002-2102110230010013-2322302212231031-1022032210330113-3031302203112210-3133030011231302-3030013110113220-2123320331203100)
 - [Examples](../guides/resources--dns_lb_health_check--examples--group-001.md#canonical-0011113330130022-3300001313003320-3323320131301003-0200111123010021-0002311021212303-1202023122132130-2313132003300203-3211022032122203)

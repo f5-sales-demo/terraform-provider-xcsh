@@ -2,7 +2,7 @@
 page_title: "rules.cloud_connect.refs"
 subcategory: ""
 description: "Reference to Cloud Connect Object."
-xcsh_docs: {"aliases": ["rules cloud connect refs"], "body_bytes": 6442, "body_sha256": "sha256:410010388c32fd9f7ace2cf15e474f0b850d3a95a7fff79d890b92eab385faaa", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:nat_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:nat_policy:properties:rules:cloud_connect:refs", "parent_id": "xcsh-docs:data-sources:nat_policy:properties:rules:cloud_connect", "path": "documentation/data-sources/nat_policy/properties/rules/cloud_connect/refs/index.md", "product": "distributed-cloud", "provider_name": "nat_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2220002330201112-0323112221233231-3311202221211121-1311001221013133-2212100233211222-2310231010213222-2220300021021123-2221120122321302", "registry_path": "docs/guides/data-sources--nat_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["rules", "cloud_connect", "refs"], "schema_version": 1, "sections": [{"aliases": ["rules cloud connect refs kind"], "anchor": "schema-rules--cloud_connect--refs--kind", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")", "document_id": "xcsh-docs:data-sources:nat_policy:properties:rules:cloud_connect:refs", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "cloud_connect", "refs", "kind"], "syntax": "attribute", "type": "string"}, {"aliases": ["rules cloud connect refs name"], "anchor": "schema-rules--cloud_connect--refs--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:data-sources:nat_policy:properties:rules:cloud_connect:refs", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "cloud_connect", "refs", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["rules cloud connect refs namespace"], "anchor": "schema-rules--cloud_connect--refs--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:data-sources:nat_policy:properties:rules:cloud_connect:refs", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "cloud_connect", "refs", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["rules cloud connect refs tenant"], "anchor": "schema-rules--cloud_connect--refs--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:data-sources:nat_policy:properties:rules:cloud_connect:refs", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "cloud_connect", "refs", "tenant"], "syntax": "attribute", "type": "string"}, {"aliases": ["rules cloud connect refs uid"], "anchor": "schema-rules--cloud_connect--refs--uid", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.", "document_id": "xcsh-docs:data-sources:nat_policy:properties:rules:cloud_connect:refs", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "cloud_connect", "refs", "uid"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nat_policy/properties/rules/cloud_connect/refs/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Reference to Cloud Connect Object.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["nat_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["rules cloud connect refs"], "body_bytes": 5438, "body_sha256": "sha256:82f1632607c1a5feecfb0a6e52c65893156f1a3fa4dca7baddacb78650bebda3", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:nat_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:nat_policy:properties:rules:cloud_connect:refs", "parent_id": "xcsh-docs:data-sources:nat_policy:properties:rules:cloud_connect", "path": "documentation/data-sources/nat_policy/properties/rules/cloud_connect/refs/index.md", "product": "distributed-cloud", "provider_name": "nat_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2220002330201112-0323112221233231-3311202221211121-1311001221013133-2212100233211222-2310231010213222-2220300021021123-2221120122321302", "registry_path": "docs/guides/data-sources--nat_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["rules", "cloud_connect", "refs"], "schema_version": 1, "sections": [{"aliases": ["rules cloud connect refs kind"], "anchor": "schema-rules--cloud_connect--refs--kind", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")", "document_id": "xcsh-docs:data-sources:nat_policy:properties:rules:cloud_connect:refs", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "cloud_connect", "refs", "kind"], "syntax": "attribute", "type": "string"}, {"aliases": ["rules cloud connect refs name"], "anchor": "schema-rules--cloud_connect--refs--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:data-sources:nat_policy:properties:rules:cloud_connect:refs", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "cloud_connect", "refs", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["rules cloud connect refs namespace"], "anchor": "schema-rules--cloud_connect--refs--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:data-sources:nat_policy:properties:rules:cloud_connect:refs", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "cloud_connect", "refs", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["rules cloud connect refs tenant"], "anchor": "schema-rules--cloud_connect--refs--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:data-sources:nat_policy:properties:rules:cloud_connect:refs", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "cloud_connect", "refs", "tenant"], "syntax": "attribute", "type": "string"}, {"aliases": ["rules cloud connect refs uid"], "anchor": "schema-rules--cloud_connect--refs--uid", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.", "document_id": "xcsh-docs:data-sources:nat_policy:properties:rules:cloud_connect:refs", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "cloud_connect", "refs", "uid"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nat_policy/properties/rules/cloud_connect/refs/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Reference to Cloud Connect Object.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["nat_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -24,10 +24,6 @@ Breadcrumbs:
 Type: `"list"`. Computed.
 
 Cloud Connect. Reference to Cloud Connect Object.
-
-Upstream description:
-
-Reference to Cloud Connect Object.
 
 Receipt-pinned upstream constraints:
 
@@ -73,10 +69,10 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
 referred object's kind (e.g. 'route').
 
-Upstream description:
+Additional upstream details:
 
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
-referred object's kind (e.g. "route")
+Virtual\_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g.
+"route")
 
 Receipt-pinned upstream constraints:
 
@@ -110,11 +106,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -143,11 +134,6 @@ Receipt-pinned upstream constraints:
 ### namespace property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -199,11 +185,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -236,11 +217,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
 referred object's(e.g. Route's) uid.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
-referred object's(e.g. Route's) uid.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -263,8 +239,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [rules.cloud_connect](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nat_policy/properties/rules/cloud_connect/)
-- [xcsh_nat_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nat_policy/)

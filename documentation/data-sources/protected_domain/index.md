@@ -1,8 +1,8 @@
 ---
 page_title: "xcsh_protected_domain"
 subcategory: ""
-description: "Manages Domain to protect in F5 Distributed Cloud."
-xcsh_docs: {"aliases": ["protected domain"], "body_bytes": 1337, "body_sha256": "sha256:8f2e1837560fa504f541748d695dac7f4cda2693bc5a975f6257e4ada0f2aaae", "capabilities": ["security"], "category": "security", "child_ids": ["xcsh-docs:data-sources:protected_domain:reference", "xcsh-docs:data-sources:protected_domain:examples"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:protected_domain:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:protected_domain:fundamentals", "parent_id": "xcsh-docs:data-sources:xcsh:navigation", "path": "documentation/data-sources/protected_domain/index.md", "product": "distributed-cloud", "provider_name": "protected_domain", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-0332111003332231-3231333320302220-0013131312310303-3021021201222321-0302322122212110-0022133313313221-1010303303020331-2102022101100033", "registry_path": "docs/data-sources/protected_domain.md", "relationships": [], "retrieval_version": 1, "role": "fundamentals", "schema_path": [], "schema_version": 1, "sections": [], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protected_domain/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Manages Domain to protect in F5 Distributed Cloud.", "tasks": ["configuration"], "unresolved_relationships": [], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["protected_domainCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+description: "Reads Protected Domain information from F5 Distributed Cloud."
+xcsh_docs: {"aliases": ["protected domain"], "body_bytes": 1361, "body_sha256": "sha256:8570b5b88d7a00de5bdd3118ea8413d30a64cc004c976a766c27f0091dc037f9", "capabilities": ["security"], "category": "security", "child_ids": ["xcsh-docs:data-sources:protected_domain:reference", "xcsh-docs:data-sources:protected_domain:examples"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:protected_domain:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:protected_domain:fundamentals", "parent_id": "xcsh-docs:data-sources:xcsh:navigation", "path": "documentation/data-sources/protected_domain/index.md", "product": "distributed-cloud", "provider_name": "protected_domain", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-0332111003332231-3231333320302220-0013131312310303-3021021201222321-0302322122212110-0022133313313221-1010303303020331-2102022101100033", "registry_path": "docs/data-sources/protected_domain.md", "relationships": [], "retrieval_version": 1, "role": "fundamentals", "schema_path": [], "schema_version": 1, "sections": [], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protected_domain/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Reads Protected Domain information from F5 Distributed Cloud.", "tasks": ["configuration"], "unresolved_relationships": [], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["protected_domainCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -15,7 +15,7 @@ Breadcrumbs:
 
 - xcsh_protected_domain
 
-Manages Domain to protect in F5 Distributed Cloud.
+Reads Protected Domain information from F5 Distributed Cloud.
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ output "protected_domain_id" {
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+## Explore this collection
 
 - [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_domain/properties/)
 - [Examples](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_domain/examples/)

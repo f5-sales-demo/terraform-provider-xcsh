@@ -2,7 +2,7 @@
 page_title: "rules.spec.ip_prefix_list"
 subcategory: "Security"
 description: "List of IP Prefix strings to match against."
-xcsh_docs: {"aliases": ["rules spec ip prefix list"], "body_bytes": 3101, "body_sha256": "sha256:22a42cb1a17d59777487d226dc7dd913168ae6bdba5bb527377b3e86312c528d", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:rate_limiter_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:rate_limiter_policy:properties:rules:spec:ip_prefix_list", "parent_id": "xcsh-docs:resources:rate_limiter_policy:properties:rules:spec", "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/ip_prefix_list/index.md", "product": "distributed-cloud", "provider_name": "rate_limiter_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1022003110312122-0131332020212300-2232023332132000-3020320211320300-0230101300230032-1301303223231100-0120210032032222-1100133300211300", "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["rules", "spec", "ip_prefix_list"], "schema_version": 1, "sections": [{"aliases": ["rules spec ip prefix list invert match"], "anchor": "schema-rules--spec--ip_prefix_list--invert_match", "description": "Invert the match result.", "document_id": "xcsh-docs:resources:rate_limiter_policy:properties:rules:spec:ip_prefix_list", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "spec", "ip_prefix_list", "invert_match"], "syntax": "attribute", "type": "bool"}, {"aliases": ["rules spec ip prefix list ip prefixes"], "anchor": "schema-rules--spec--ip_prefix_list--ip_prefixes", "description": "List of IPv4 prefix strings.", "document_id": "xcsh-docs:resources:rate_limiter_policy:properties:rules:spec:ip_prefix_list", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "spec", "ip_prefix_list", "ip_prefixes"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/ip_prefix_list/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of IP Prefix strings to match against.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["rate_limiter_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["rules spec ip prefix list"], "body_bytes": 2741, "body_sha256": "sha256:0a4c00e5628c3f6dc0e011ac0e8e77a3a4f40f4a0cd408a4c0ad67d21be2191f", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:rate_limiter_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:rate_limiter_policy:properties:rules:spec:ip_prefix_list", "parent_id": "xcsh-docs:resources:rate_limiter_policy:properties:rules:spec", "path": "documentation/resources/rate_limiter_policy/properties/rules/spec/ip_prefix_list/index.md", "product": "distributed-cloud", "provider_name": "rate_limiter_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1022003110312122-0131332020212300-2232023332132000-3020320211320300-0230101300230032-1301303223231100-0120210032032222-1100133300211300", "registry_path": "docs/guides/resources--rate_limiter_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["rules", "spec", "ip_prefix_list"], "schema_version": 1, "sections": [{"aliases": ["rules spec ip prefix list invert match"], "anchor": "schema-rules--spec--ip_prefix_list--invert_match", "description": "Invert the match result.", "document_id": "xcsh-docs:resources:rate_limiter_policy:properties:rules:spec:ip_prefix_list", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "spec", "ip_prefix_list", "invert_match"], "syntax": "attribute", "type": "bool"}, {"aliases": ["rules spec ip prefix list ip prefixes"], "anchor": "schema-rules--spec--ip_prefix_list--ip_prefixes", "description": "List of IPv4 prefix strings.", "document_id": "xcsh-docs:resources:rate_limiter_policy:properties:rules:spec:ip_prefix_list", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rules", "spec", "ip_prefix_list", "ip_prefixes"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter_policy/properties/rules/spec/ip_prefix_list/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of IP Prefix strings to match against.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["rate_limiter_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -56,10 +56,6 @@ Type: `"bool"`. Optional.
 
 Invert Match Result. Invert the match result.
 
-Upstream description:
-
-Invert the match result.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -80,10 +76,6 @@ Receipt-pinned upstream constraints:
 Type: `["list", "string"]`. Optional.
 
 IPv4 Prefix List. List of IPv4 prefix strings.
-
-Upstream description:
-
-List of IPv4 prefix strings.
 
 Provider validators and defaults (from schema source):
 
@@ -130,8 +122,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [rules.spec](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/rate_limiter_policy/properties/rules/spec/)
-- [xcsh_rate_limiter_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/rate_limiter_policy/)

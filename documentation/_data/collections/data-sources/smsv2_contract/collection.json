@@ -121,8 +121,8 @@
   "pages": [
     {
       "aliases": ["smsv2 contract"],
-      "body_bytes": 2115,
-      "body_sha256": "sha256:893af983731226338d8730b21ec42efae33c5e6317fdb0710085ba50a03e79c0",
+      "body_bytes": 2128,
+      "body_sha256": "sha256:7b44da13dc57f2f8905377adf7193d342e6bd08e879d7bc7a3d09f8a4abef0f7",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -165,8 +165,8 @@
     },
     {
       "aliases": ["smsv2 contract"],
-      "body_bytes": 7357,
-      "body_sha256": "sha256:289f083970f49598225cb7a53012ee4245b6ee641696f345eb01dc3e0b9c1fa3",
+      "body_bytes": 7064,
+      "body_sha256": "sha256:5c84cf576e1a6d4cf69f5f8f4525490904f83cce163c66f30f0e662ee8760947",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:smsv2_contract:properties:azure_route_server_ebgp_multihop"],
@@ -388,8 +388,8 @@
     },
     {
       "aliases": ["azure route server ebgp multihop"],
-      "body_bytes": 1547,
-      "body_sha256": "sha256:84f613f90fae87e495caac6a0ac37677ef3e7b35195595fd302df4f74f4de05d",
+      "body_bytes": 1120,
+      "body_sha256": "sha256:4440aa8b9486e1b581801f736a429c303d5a53537f58f8ff94fff2d2ce6dc2fc",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:smsv2_contract:properties:azure_route_server_ebgp_multihop:source"],
@@ -485,8 +485,8 @@
     },
     {
       "aliases": ["azure route server ebgp multihop source"],
-      "body_bytes": 1611,
-      "body_sha256": "sha256:e6a2ecbae1c2d61cfe405f57d025e4725c8ed74cd0ed35c756ccef004812dbb5",
+      "body_bytes": 1318,
+      "body_sha256": "sha256:1a9a770de7c97fbbdfbea2d4ce01fa0a67b2a3abcc6f4c6df130eb5441008622",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -596,8 +596,8 @@
     },
     {
       "aliases": ["smsv2 contract"],
-      "body_bytes": 669,
-      "body_sha256": "sha256:dcb0135941a062765603d59fdd2663d88a4e5ccb6dec7a9c98b18f7cf24bb498",
+      "body_bytes": 420,
+      "body_sha256": "sha256:9f6f82edcf26bcffcbe19591822ef858c2240f480ff38bf5a79ce7507c34f826",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:smsv2_contract:example:data-source"],
@@ -636,8 +636,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 2049,
-      "body_sha256": "sha256:27e7529d7e8150242919c144163c6de7bc5adc163650e5ea0a93d8c6384c1a9b",
+      "body_bytes": 1815,
+      "body_sha256": "sha256:da1ceb1fa46c463b987920d407a10d2183401ac7f709e055b04b442a8a6ef45d",
       "capabilities": [],
       "category": null,
       "child_ids": [],

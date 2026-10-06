@@ -12,32 +12,30 @@ description: "Complete grouped canonical reference for xcsh_protected_applicatio
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2013333020203100-3012221010332013-0121133330233310-2233330202022312-3311200211210100-1122032300120121-2002320211032113-0023231010223121"></a>
-
-## Property reference — Property reference / 300210112021 / 2
+## Property reference
 
 Breadcrumbs:
 
 - [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 - Property reference
 
-<a id="canonical-3131231212102312-2213123013303232-0022020002132233-1221213020210201-2020130123322300-1200031130230211-1003130000033231-2310001203131003"></a>
+<a id="canonical-2013333020203100-3012221010332013-0121133330233310-2233330202022312-3311200211210100-1122032300120121-2002320211032113-0023231010223121"></a>
 
-## Direct properties — Property reference / 300210112021 / 3
+### Direct properties for `xcsh_protected_application`
 
 - [adobe_commerce_connector](data-sources--protected_application--reference--group-001.md#canonical-2131122002322200-1211102013312210-0332313001322211-3203310002112222-1102230310021123-1302303130013203-0210310220203232-1201203310213203): complete subsection reference.
 
 <a id="canonical-0233211010122220-2110201101200013-0131110133102321-0122332013100302-3230032332213031-3010330300130221-1132120313312112-0331303303321312"></a>
 
-<a id="canonical-1333322203121110-2023100213200221-1133232322320133-0023121012102003-2210100311003210-1000232331121133-2222201111303133-1003313111223333"></a>
+<a id="canonical-3131231212102312-2213123013303232-0022020002132233-1221213020210201-2020130123322300-1200031130230211-1003130000033231-2310001203131003"></a>
 
-## annotations property — Property reference / 300210112021 / 4
+#### `annotations` property
 
 Type: `["map", "string"]`. Computed.
 
 Annotations applied to this resource.
 
-Upstream description:
+Additional upstream details:
 
 Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
@@ -99,15 +97,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3312333012213211-0323230320123103-0200121311213311-3200112123103321-2201223203322313-0231111121203232-2313210313102233-2111301333220333"></a>
 
-<a id="canonical-3020121012330230-3113310022130012-1311301021112113-2011013132302123-1112302113032313-1330222211102102-1003210130011203-1031120333301000"></a>
+<a id="canonical-1333322203121110-2023100213200221-1133232322320133-0023121012102003-2210100311003210-1000232331121133-2222201111303133-1003313111223333"></a>
 
-## description property — Property reference / 300210112021 / 5
+#### `description` property
 
 Type: `"string"`. Computed.
 
 Description of the ProtectedApplication.
 
-Upstream description:
+Additional upstream details:
 
 Human readable description for the object.
 
@@ -153,9 +151,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2111001110230031-2101333220323113-3211002122022103-3132331302221002-1211231113133022-3331202333110120-3220321233330201-3211331232110233"></a>
 
-<a id="canonical-1031202113200301-1031323330113100-2213122101032011-2213020131023011-1101002213313232-1131221301201200-1220203213123210-0103011123330230"></a>
+<a id="canonical-3020121012330230-3113310022130012-1311301021112113-2011013132302123-1112302113032313-1330222211102102-1003210130011203-1031120333301000"></a>
 
-## ID property — Property reference / 300210112021 / 6
+#### `id` property
 
 Type: `"string"`. Computed.
 
@@ -163,15 +161,15 @@ Unique identifier for the resource.
 
 <a id="canonical-2132230300201311-3111310330002222-3120230100322021-1022303202131103-0123301030112002-2323220030013321-1123233103333313-0003121203110330"></a>
 
-<a id="canonical-3111212130330101-3031110331313023-0113123301103103-2222333200223210-1223132203120023-2122102330102030-1020102111022022-1123310112023021"></a>
+<a id="canonical-1031202113200301-1031323330113100-2213122101032011-2213020131023011-1101002213313232-1131221301201200-1220203213123210-0103011123330230"></a>
 
-## labels property — Property reference / 300210112021 / 7
+#### `labels` property
 
 Type: `["map", "string"]`. Computed.
 
 Labels applied to this resource.
 
-Upstream description:
+Additional upstream details:
 
 Map of string keys and values that can be used to organize and categorize (scope and select) objects
 as chosen by the user. Values specified here will be used by selector expression.
@@ -191,15 +189,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0023123123230212-1103211322111123-0010012032112213-2323002311113300-2120302132200122-3133233233313222-1022002111200102-1001233211312221"></a>
 
-<a id="canonical-2033033100120320-0231003200213120-3333221023002333-3030011213202303-0003113211111000-0121210033130111-1123322011310322-1303201021012033"></a>
+<a id="canonical-3111212130330101-3031110331313023-0113123301103103-2222333200223210-1223132203120023-2122102330102030-1020102111022022-1123310112023021"></a>
 
-## name property — Property reference / 300210112021 / 8
+#### `name` property
 
 Type: `"string"`. Required.
 
 Name of the ProtectedApplication.
 
-Upstream description:
+Additional upstream details:
 
 This is the name of configuration object. It has to be unique within the namespace. It can only be
 specified during create API and cannot be changed during replace API. The value of name has to
@@ -251,15 +249,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1310103102101223-0230021323212321-3133212230121222-1323131012002322-1230013200010023-1231231003032033-0123021003101203-3100001210023333"></a>
 
-<a id="canonical-1232112012231322-2212332323120201-3033100132112012-2101113333333121-0121012311010121-3333313110011303-2023030311201210-1102231132233321"></a>
+<a id="canonical-2033033100120320-0231003200213120-3333221023002333-3030011213202303-0003113211111000-0121210033130111-1123322011310322-1303201021012033"></a>
 
-## namespace property — Property reference / 300210112021 / 9
+#### `namespace` property
 
 Type: `"string"`. Required.
 
 Namespace where the ProtectedApplication exists.
 
-Upstream description:
+Additional upstream details:
 
 This defines the workspace within which each the configuration object is to be created. Must be a
 DNS\_LABEL format. For a namespace object itself, namespace value will be ""
@@ -304,29 +302,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0010102001012002-1323203111213100-2032220022322220-3320220112200213-3132313211121332-0031001312231200-1031032001313322-3333310111130122"></a>
 
-<a id="canonical-2201120133322013-3323101311231213-2313120233211101-1013030030321003-0330122110212232-0031321211223310-1130022201100230-2312201202332313"></a>
+<a id="canonical-1232112012231322-2212332323120201-3033100132112012-2101113333333121-0121012311010121-3333313110011303-2023030311201210-1102231132233321"></a>
 
-## region property — Property reference / 300210112021 / 10
+#### `region` property
 
 Type: `"string"`. Computed.
 
 \[Enum: US|EU|ASIA|CA\] Defines a selection for Bot Defense region - US: US United States of America
 &#8203;- EU: EU European Union - ASIA: ASIA Asia - CA: CA Canada. Possible values are \`US\`, \`EU\`,
 \`ASIA\`, \`CA\`. Defaults to \`US\`.
-
-Upstream description:
-
-Defines a selection for Bot Defense region
-
-&#8203;- US: US
-
-United States of America &#8203;- EU: EU
-
-European Union &#8203;- ASIA: ASIA
-
-Asia &#8203;- CA: CA
-
-Canada.
 
 Receipt-pinned upstream constraints:
 
@@ -350,9 +334,9 @@ Receipt-pinned upstream constraints:
 
 - [salesforce_commerce_connector](data-sources--protected_application--reference--group-004.md#canonical-3300103021210020-1101231333023233-1202122312030020-1322030202123101-2122211031213030-0203233223330223-3331032100031322-3101033002131222): complete subsection reference.
 
-<a id="canonical-1023021112003110-3012121000121333-2320213002312231-2123130301220312-0332103120201303-3021310233131330-2131131322101013-2111331312101101"></a>
+<a id="canonical-2201120133322013-3323101311231213-2313120233211101-1013030030321003-0330122110212232-0031321211223310-1130022201100230-2312201202332313"></a>
 
-## All schema paths — Property reference / 300210112021 / 11
+### All schema paths for `xcsh_protected_application`
 
 Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
@@ -409,26 +393,26 @@ Each exact path has one authoritative reference destination. Collection element 
 | `cloudflare.protected_endpoints.domain.regex_value` | [cloudflare.protected_endpoints.domain.regex_value](data-sources--protected_application--reference--group-001.md#canonical-2112333002330001-0233013001223330-3013331113012032-2122322013312031-0321131021311032-0203123321233230-3310330231231202-3222300010312221) |
 | `cloudflare.protected_endpoints.domain.suffix_value` | [cloudflare.protected_endpoints.domain.suffix_value](data-sources--protected_application--reference--group-001.md#canonical-0033133302321322-3133320021003021-3012132123202123-0003100120300010-1110021121121323-0203033103013113-0232001221113231-0210103132120000) |
 | `cloudflare.protected_endpoints.http_methods` | [cloudflare.protected_endpoints.http_methods](data-sources--protected_application--reference--group-001.md#canonical-1300001221100003-3322211312030311-2220311233330010-1200011012013221-0113230030113232-1222312033313101-3301232011033223-0011123313022120) |
-| `cloudflare.protected_endpoints.metadata` | [cloudflare.protected_endpoints.metadata](data-sources--protected_application--reference--group-002.md#canonical-3221022120313012-1303120330313233-0020321102321130-0111022310321011-2323201323110120-1012031131222321-3200101033123013-2031130333101212) |
-| `cloudflare.protected_endpoints.metadata.description_spec` | [cloudflare.protected_endpoints.metadata.description_spec](data-sources--protected_application--reference--group-002.md#canonical-0232220100232332-2332111110331120-2101103203100001-3013213121133323-2000221001130302-2031231222203113-1030332010001200-2023231311000330) |
-| `cloudflare.protected_endpoints.metadata.name` | [cloudflare.protected_endpoints.metadata.name](data-sources--protected_application--reference--group-002.md#canonical-1322213010200031-0123000022122010-0321222011132203-3232100110301301-0323300111313021-2200100323133133-0113011023021310-1110013232013221) |
-| `cloudflare.protected_endpoints.mobile_client` | [cloudflare.protected_endpoints.mobile_client](data-sources--protected_application--reference--group-002.md#canonical-1010220333030321-3011112023023130-2000012003112221-3201230323313001-1023022010333321-1223132233320133-1302031320211301-0001321020130330) |
-| `cloudflare.protected_endpoints.mobile_client.block` | [cloudflare.protected_endpoints.mobile_client.block](data-sources--protected_application--reference--group-002.md#canonical-0011030321232033-3112330300003222-2203313000102322-0002121322210020-2212321201102030-3211133011132213-3300013021011003-2333212102321001) |
-| `cloudflare.protected_endpoints.mobile_client.block.body` | [cloudflare.protected_endpoints.mobile_client.block.body](data-sources--protected_application--reference--group-002.md#canonical-3002212002121322-0331311301302111-0012010022113031-2230210221011222-3003200120222332-1322010330021320-3332030300032112-0303010102310223) |
-| `cloudflare.protected_endpoints.mobile_client.block.content_type` | [cloudflare.protected_endpoints.mobile_client.block.content_type](data-sources--protected_application--reference--group-002.md#canonical-1132100231013330-3023221030031000-2100323111010232-1011033311333212-3323321023312112-2220201332223303-3232002233220031-3000023120031022) |
-| `cloudflare.protected_endpoints.mobile_client.block.status` | [cloudflare.protected_endpoints.mobile_client.block.status](data-sources--protected_application--reference--group-002.md#canonical-0330033333010320-3100002011320022-2130100230032300-1222332212012123-0033010303330201-3211233131301203-1000100310233232-1231111111020322) |
-| `cloudflare.protected_endpoints.mobile_client.continue` | [cloudflare.protected_endpoints.mobile_client.continue](data-sources--protected_application--reference--group-002.md#canonical-1023223321310210-3331200330112313-2012330003311121-3331213123320200-1133031020111031-3003121231301002-1313100030131010-0232210303022310) |
-| `cloudflare.protected_endpoints.mobile_client.continue.add_header` | [cloudflare.protected_endpoints.mobile_client.continue.add_header](data-sources--protected_application--reference--group-002.md#canonical-2233131220133101-3320211231301300-0012002002200121-1321030012023211-1311203032023033-3020032301233210-3302020022232133-3101023103230002) |
-| `cloudflare.protected_endpoints.mobile_client.continue.no_header` | [cloudflare.protected_endpoints.mobile_client.continue.no_header](data-sources--protected_application--reference--group-002.md#canonical-3123322100331231-2200302121210320-0222112133223112-3011323032221213-2011211113231233-3021111323231201-2120221131321112-3330002100121031) |
-| `cloudflare.protected_endpoints.path` | [cloudflare.protected_endpoints.path](data-sources--protected_application--reference--group-002.md#canonical-1000132322033112-3231322312102012-1222330212022121-0300021310033210-3013021100123112-1303103332231231-2133103032313212-0030112230320003) |
-| `cloudflare.protected_endpoints.path.caseinsensitive` | [cloudflare.protected_endpoints.path.caseinsensitive](data-sources--protected_application--reference--group-002.md#canonical-0312232213302331-2320312320032131-1120002000222233-0313233322213231-1031223322233202-3030333132113130-1200231023301011-3120122300231301) |
-| `cloudflare.protected_endpoints.path.path` | [cloudflare.protected_endpoints.path.path](data-sources--protected_application--reference--group-002.md#canonical-1330213122201030-0033211301103231-1310031230220323-1021210322203233-0123013212023301-2011320003110202-1103000031222100-2321330210213331) |
+| `cloudflare.protected_endpoints.metadata` | [cloudflare.protected_endpoints.metadata](data-sources--protected_application--reference--group-001.md#canonical-3221022120313012-1303120330313233-0020321102321130-0111022310321011-2323201323110120-1012031131222321-3200101033123013-2031130333101212) |
+| `cloudflare.protected_endpoints.metadata.description_spec` | [cloudflare.protected_endpoints.metadata.description_spec](data-sources--protected_application--reference--group-001.md#canonical-0232220100232332-2332111110331120-2101103203100001-3013213121133323-2000221001130302-2031231222203113-1030332010001200-2023231311000330) |
+| `cloudflare.protected_endpoints.metadata.name` | [cloudflare.protected_endpoints.metadata.name](data-sources--protected_application--reference--group-001.md#canonical-1322213010200031-0123000022122010-0321222011132203-3232100110301301-0323300111313021-2200100323133133-0113011023021310-1110013232013221) |
+| `cloudflare.protected_endpoints.mobile_client` | [cloudflare.protected_endpoints.mobile_client](data-sources--protected_application--reference--group-001.md#canonical-1010220333030321-3011112023023130-2000012003112221-3201230323313001-1023022010333321-1223132233320133-1302031320211301-0001321020130330) |
+| `cloudflare.protected_endpoints.mobile_client.block` | [cloudflare.protected_endpoints.mobile_client.block](data-sources--protected_application--reference--group-001.md#canonical-0011030321232033-3112330300003222-2203313000102322-0002121322210020-2212321201102030-3211133011132213-3300013021011003-2333212102321001) |
+| `cloudflare.protected_endpoints.mobile_client.block.body` | [cloudflare.protected_endpoints.mobile_client.block.body](data-sources--protected_application--reference--group-001.md#canonical-3002212002121322-0331311301302111-0012010022113031-2230210221011222-3003200120222332-1322010330021320-3332030300032112-0303010102310223) |
+| `cloudflare.protected_endpoints.mobile_client.block.content_type` | [cloudflare.protected_endpoints.mobile_client.block.content_type](data-sources--protected_application--reference--group-001.md#canonical-1132100231013330-3023221030031000-2100323111010232-1011033311333212-3323321023312112-2220201332223303-3232002233220031-3000023120031022) |
+| `cloudflare.protected_endpoints.mobile_client.block.status` | [cloudflare.protected_endpoints.mobile_client.block.status](data-sources--protected_application--reference--group-001.md#canonical-0330033333010320-3100002011320022-2130100230032300-1222332212012123-0033010303330201-3211233131301203-1000100310233232-1231111111020322) |
+| `cloudflare.protected_endpoints.mobile_client.continue` | [cloudflare.protected_endpoints.mobile_client.continue](data-sources--protected_application--reference--group-001.md#canonical-1023223321310210-3331200330112313-2012330003311121-3331213123320200-1133031020111031-3003121231301002-1313100030131010-0232210303022310) |
+| `cloudflare.protected_endpoints.mobile_client.continue.add_header` | [cloudflare.protected_endpoints.mobile_client.continue.add_header](data-sources--protected_application--reference--group-001.md#canonical-2233131220133101-3320211231301300-0012002002200121-1321030012023211-1311203032023033-3020032301233210-3302020022232133-3101023103230002) |
+| `cloudflare.protected_endpoints.mobile_client.continue.no_header` | [cloudflare.protected_endpoints.mobile_client.continue.no_header](data-sources--protected_application--reference--group-001.md#canonical-3123322100331231-2200302121210320-0222112133223112-3011323032221213-2011211113231233-3021111323231201-2120221131321112-3330002100121031) |
+| `cloudflare.protected_endpoints.path` | [cloudflare.protected_endpoints.path](data-sources--protected_application--reference--group-001.md#canonical-1000132322033112-3231322312102012-1222330212022121-0300021310033210-3013021100123112-1303103332231231-2133103032313212-0030112230320003) |
+| `cloudflare.protected_endpoints.path.caseinsensitive` | [cloudflare.protected_endpoints.path.caseinsensitive](data-sources--protected_application--reference--group-001.md#canonical-0312232213302331-2320312320032131-1120002000222233-0313233322213231-1031223322233202-3030333132113130-1200231023301011-3120122300231301) |
+| `cloudflare.protected_endpoints.path.path` | [cloudflare.protected_endpoints.path.path](data-sources--protected_application--reference--group-001.md#canonical-1330213122201030-0033211301103231-1310031230220323-1021210322203233-0123013212023301-2011320003110202-1103000031222100-2321330210213331) |
 | `cloudflare.protected_endpoints.query` | [cloudflare.protected_endpoints.query](data-sources--protected_application--reference--group-001.md#canonical-0001132201102300-1200112033001221-3000020233021113-0332220233202032-2000330103330031-0212020121031130-2010323102322323-3203012301101131) |
-| `cloudflare.protected_endpoints.web_client` | [cloudflare.protected_endpoints.web_client](data-sources--protected_application--reference--group-002.md#canonical-2123131313302132-3212102211121033-1132332332002121-0020011313131111-0212321310321313-1331132313301321-3123223312012210-2332101133222332) |
-| `cloudflare.protected_endpoints.web_client.block` | [cloudflare.protected_endpoints.web_client.block](data-sources--protected_application--reference--group-002.md#canonical-0110321102221221-3003230120031200-0222302001211022-3333202323222100-3222132032133102-0321021203223010-3022220331210000-2131230301320203) |
-| `cloudflare.protected_endpoints.web_client.block.body` | [cloudflare.protected_endpoints.web_client.block.body](data-sources--protected_application--reference--group-002.md#canonical-1111001213002301-3311013200120122-3213203220031012-1132032333122110-3122300211101211-3132202212330301-3003033020210300-1211313211232010) |
-| `cloudflare.protected_endpoints.web_client.block.content_type` | [cloudflare.protected_endpoints.web_client.block.content_type](data-sources--protected_application--reference--group-002.md#canonical-1013000030303220-3332220321011232-1110332012321313-2210203332231303-3003331022120111-0210101221301220-1232122000203220-2020111303011202) |
-| `cloudflare.protected_endpoints.web_client.block.status` | [cloudflare.protected_endpoints.web_client.block.status](data-sources--protected_application--reference--group-002.md#canonical-2323330210003111-0011030331120113-1011320311233122-2201123121222031-0131130120323303-0213131203122202-0132201300131112-0131232133220310) |
+| `cloudflare.protected_endpoints.web_client` | [cloudflare.protected_endpoints.web_client](data-sources--protected_application--reference--group-001.md#canonical-2123131313302132-3212102211121033-1132332332002121-0020011313131111-0212321310321313-1331132313301321-3123223312012210-2332101133222332) |
+| `cloudflare.protected_endpoints.web_client.block` | [cloudflare.protected_endpoints.web_client.block](data-sources--protected_application--reference--group-001.md#canonical-0110321102221221-3003230120031200-0222302001211022-3333202323222100-3222132032133102-0321021203223010-3022220331210000-2131230301320203) |
+| `cloudflare.protected_endpoints.web_client.block.body` | [cloudflare.protected_endpoints.web_client.block.body](data-sources--protected_application--reference--group-001.md#canonical-1111001213002301-3311013200120122-3213203220031012-1132032333122110-3122300211101211-3132202212330301-3003033020210300-1211313211232010) |
+| `cloudflare.protected_endpoints.web_client.block.content_type` | [cloudflare.protected_endpoints.web_client.block.content_type](data-sources--protected_application--reference--group-001.md#canonical-1013000030303220-3332220321011232-1110332012321313-2210203332231303-3003331022120111-0210101221301220-1232122000203220-2020111303011202) |
+| `cloudflare.protected_endpoints.web_client.block.status` | [cloudflare.protected_endpoints.web_client.block.status](data-sources--protected_application--reference--group-001.md#canonical-2323330210003111-0011030331120113-1011320311233122-2201123121222031-0131130120323303-0213131203122202-0132201300131112-0131232133220310) |
 | `cloudflare.protected_endpoints.web_client.continue` | [cloudflare.protected_endpoints.web_client.continue](data-sources--protected_application--reference--group-002.md#canonical-3033223111030212-1323010303013003-3200331221323221-1101033300312210-3302233103010013-2232211211310000-2001200132311213-1320131123112022) |
 | `cloudflare.protected_endpoints.web_client.continue.add_header` | [cloudflare.protected_endpoints.web_client.continue.add_header](data-sources--protected_application--reference--group-002.md#canonical-2302222211301220-3031310102131031-1103310221031332-1130212312222213-0333223112031333-0023310202113310-0223233013112121-0320132230303001) |
 | `cloudflare.protected_endpoints.web_client.continue.no_header` | [cloudflare.protected_endpoints.web_client.continue.no_header](data-sources--protected_application--reference--group-002.md#canonical-3222300131021023-1031102203233311-3100323311330011-0330113023203022-2323130203313302-0033233220130131-2002201000313131-3222223120023013) |
@@ -491,28 +475,28 @@ Each exact path has one authoritative reference destination. Collection element 
 | `cloudfront.js_insertion_rules.javascript_location` | [cloudfront.js_insertion_rules.javascript_location](data-sources--protected_application--reference--group-002.md#canonical-2213213031231212-0003203030110002-2220313131211120-2233100001023033-3012103100102332-0001230301020121-3000021330102332-2002210313023222) |
 | `cloudfront.js_insertion_rules.javascript_mode` | [cloudfront.js_insertion_rules.javascript_mode](data-sources--protected_application--reference--group-002.md#canonical-0000203020212301-2133120200110232-2100323301212223-0032330210113322-0013322013032122-3110110130013100-0011110111120223-3131221231321320) |
 | `cloudfront.js_insertion_rules.js_download_path` | [cloudfront.js_insertion_rules.js_download_path](data-sources--protected_application--reference--group-002.md#canonical-3211210313332010-2210332102000030-0010223111203102-2301100231103132-2201002031100021-1131200212211023-0301231111013133-1233023023232010) |
-| `cloudfront.js_insertion_rules.rules` | [cloudfront.js_insertion_rules.rules](data-sources--protected_application--reference--group-002.md#canonical-3112211323200012-1223322323223121-1221102013102200-2231133101331021-2300001032233333-0231120330103210-1212210332300220-1012311313022321) |
-| `cloudfront.js_insertion_rules.rules.any_domain` | [cloudfront.js_insertion_rules.rules.any_domain](data-sources--protected_application--reference--group-002.md#canonical-0222003222210323-3202111102203220-1102211320120213-0333111312123211-0013112101330113-2223033210103231-3112222122223112-2010012010101013) |
-| `cloudfront.js_insertion_rules.rules.domain` | [cloudfront.js_insertion_rules.rules.domain](data-sources--protected_application--reference--group-002.md#canonical-3331221212300133-1223211303033303-2010130322021122-0102122012131310-2011202003022123-0013311223221032-0102102233320230-2132212220311310) |
-| `cloudfront.js_insertion_rules.rules.domain.exact_value` | [cloudfront.js_insertion_rules.rules.domain.exact_value](data-sources--protected_application--reference--group-002.md#canonical-2123230330211300-0002023101232120-2012122123131320-0213333223012112-2331100330233130-0213213130033010-0122310001122012-0232300002112131) |
-| `cloudfront.js_insertion_rules.rules.domain.regex_value` | [cloudfront.js_insertion_rules.rules.domain.regex_value](data-sources--protected_application--reference--group-002.md#canonical-1311132312311103-1133212022210313-2102113332101133-1122331100203012-3131133212210323-0212122022220222-2303200310303020-3221003033000202) |
-| `cloudfront.js_insertion_rules.rules.domain.suffix_value` | [cloudfront.js_insertion_rules.rules.domain.suffix_value](data-sources--protected_application--reference--group-002.md#canonical-3213310122031123-3320313130031030-1133132220220232-1023201321003121-0311032300010220-2232031033203332-1212300320100230-2123332311302032) |
-| `cloudfront.js_insertion_rules.rules.exact_path` | [cloudfront.js_insertion_rules.rules.exact_path](data-sources--protected_application--reference--group-002.md#canonical-2330022230132211-3221002200113200-1100131123202310-0210100330031012-0221112021331332-2011101230213322-2121232033121311-0332111332222022) |
-| `cloudfront.js_insertion_rules.rules.glob` | [cloudfront.js_insertion_rules.rules.glob](data-sources--protected_application--reference--group-002.md#canonical-0213003102103301-0231133303321310-0010223000220100-0031033033231303-0310101301133333-0111300200213321-3331312121120012-3231012303221121) |
-| `cloudfront.js_insertion_rules.rules.metadata` | [cloudfront.js_insertion_rules.rules.metadata](data-sources--protected_application--reference--group-002.md#canonical-0022310302103031-0331231102030333-3120321222311312-0020131003331111-2212033323301313-1302223032031212-2331130022200020-1322331013311101) |
-| `cloudfront.js_insertion_rules.rules.metadata.description_spec` | [cloudfront.js_insertion_rules.rules.metadata.description_spec](data-sources--protected_application--reference--group-002.md#canonical-3001231312311121-1312231001320021-0003313103123212-0330312112110303-1231003321101131-3301230303111333-1231030120122132-2131032220323020) |
-| `cloudfront.js_insertion_rules.rules.metadata.name` | [cloudfront.js_insertion_rules.rules.metadata.name](data-sources--protected_application--reference--group-002.md#canonical-2123133012212133-2310202220311233-0213230023302321-3201300321300013-3210203312211110-3112113210112021-1303030212113023-2030110203023211) |
-| `cloudfront.js_insertion_rules.rules.prefix` | [cloudfront.js_insertion_rules.rules.prefix](data-sources--protected_application--reference--group-002.md#canonical-1102112322211030-1110013213130020-1203320202302331-0111311100132202-2011023302003030-2110102210033222-3022310112030302-0120230202210230) |
+| `cloudfront.js_insertion_rules.rules` | [cloudfront.js_insertion_rules.rules](data-sources--protected_application--reference--group-003.md#canonical-3112211323200012-1223322323223121-1221102013102200-2231133101331021-2300001032233333-0231120330103210-1212210332300220-1012311313022321) |
+| `cloudfront.js_insertion_rules.rules.any_domain` | [cloudfront.js_insertion_rules.rules.any_domain](data-sources--protected_application--reference--group-003.md#canonical-0222003222210323-3202111102203220-1102211320120213-0333111312123211-0013112101330113-2223033210103231-3112222122223112-2010012010101013) |
+| `cloudfront.js_insertion_rules.rules.domain` | [cloudfront.js_insertion_rules.rules.domain](data-sources--protected_application--reference--group-003.md#canonical-3331221212300133-1223211303033303-2010130322021122-0102122012131310-2011202003022123-0013311223221032-0102102233320230-2132212220311310) |
+| `cloudfront.js_insertion_rules.rules.domain.exact_value` | [cloudfront.js_insertion_rules.rules.domain.exact_value](data-sources--protected_application--reference--group-003.md#canonical-2123230330211300-0002023101232120-2012122123131320-0213333223012112-2331100330233130-0213213130033010-0122310001122012-0232300002112131) |
+| `cloudfront.js_insertion_rules.rules.domain.regex_value` | [cloudfront.js_insertion_rules.rules.domain.regex_value](data-sources--protected_application--reference--group-003.md#canonical-1311132312311103-1133212022210313-2102113332101133-1122331100203012-3131133212210323-0212122022220222-2303200310303020-3221003033000202) |
+| `cloudfront.js_insertion_rules.rules.domain.suffix_value` | [cloudfront.js_insertion_rules.rules.domain.suffix_value](data-sources--protected_application--reference--group-003.md#canonical-3213310122031123-3320313130031030-1133132220220232-1023201321003121-0311032300010220-2232031033203332-1212300320100230-2123332311302032) |
+| `cloudfront.js_insertion_rules.rules.exact_path` | [cloudfront.js_insertion_rules.rules.exact_path](data-sources--protected_application--reference--group-003.md#canonical-2330022230132211-3221002200113200-1100131123202310-0210100330031012-0221112021331332-2011101230213322-2121232033121311-0332111332222022) |
+| `cloudfront.js_insertion_rules.rules.glob` | [cloudfront.js_insertion_rules.rules.glob](data-sources--protected_application--reference--group-003.md#canonical-0213003102103301-0231133303321310-0010223000220100-0031033033231303-0310101301133333-0111300200213321-3331312121120012-3231012303221121) |
+| `cloudfront.js_insertion_rules.rules.metadata` | [cloudfront.js_insertion_rules.rules.metadata](data-sources--protected_application--reference--group-003.md#canonical-0022310302103031-0331231102030333-3120321222311312-0020131003331111-2212033323301313-1302223032031212-2331130022200020-1322331013311101) |
+| `cloudfront.js_insertion_rules.rules.metadata.description_spec` | [cloudfront.js_insertion_rules.rules.metadata.description_spec](data-sources--protected_application--reference--group-003.md#canonical-3001231312311121-1312231001320021-0003313103123212-0330312112110303-1231003321101131-3301230303111333-1231030120122132-2131032220323020) |
+| `cloudfront.js_insertion_rules.rules.metadata.name` | [cloudfront.js_insertion_rules.rules.metadata.name](data-sources--protected_application--reference--group-003.md#canonical-2123133012212133-2310202220311233-0213230023302321-3201300321300013-3210203312211110-3112113210112021-1303030212113023-2030110203023211) |
+| `cloudfront.js_insertion_rules.rules.prefix` | [cloudfront.js_insertion_rules.rules.prefix](data-sources--protected_application--reference--group-003.md#canonical-1102112322211030-1110013213130020-1203320202302331-0111311100132202-2011023302003030-2110102210033222-3022310112030302-0120230202210230) |
 | `cloudfront.loglevel` | [cloudfront.loglevel](data-sources--protected_application--reference--group-002.md#canonical-2201031311110222-3000013232133121-2021212222103210-3331001320232200-0322120223111212-0312110033300130-1232331330103030-3112102232233011) |
-| `cloudfront.manual_js_insert` | [cloudfront.manual_js_insert](data-sources--protected_application--reference--group-002.md#canonical-1231011133010223-3122230322022221-3021222003233331-2101311111113001-2313033033311320-2101020223111333-2213123133202022-0212231202212132) |
-| `cloudfront.manual_js_insert.javascript_mode` | [cloudfront.manual_js_insert.javascript_mode](data-sources--protected_application--reference--group-002.md#canonical-2031223130012320-1002023220033121-1123303221123200-2103321031032013-3223103101130120-3230211232313203-2030202220003312-2011020133131232) |
-| `cloudfront.manual_js_insert.js_download_path` | [cloudfront.manual_js_insert.js_download_path](data-sources--protected_application--reference--group-002.md#canonical-0313331030133212-1032111323032303-0100021032110220-3232111112031033-0131011203020002-0330132231012123-3230212022110120-0201303001002023) |
-| `cloudfront.mobile_sdk_config` | [cloudfront.mobile_sdk_config](data-sources--protected_application--reference--group-002.md#canonical-1312021210122012-0331300021020123-2230203331133203-1221133112213030-2301102122213221-0222131110123110-3321211320210302-3312002113320132) |
-| `cloudfront.mobile_sdk_config.mobile_identifier` | [cloudfront.mobile_sdk_config.mobile_identifier](data-sources--protected_application--reference--group-002.md#canonical-1330032323232100-1320130301232230-3123220222202301-2303203231131111-1230023201202201-3120001300002310-3121012232233113-1220110213011102) |
-| `cloudfront.mobile_sdk_config.mobile_identifier.headers` | [cloudfront.mobile_sdk_config.mobile_identifier.headers](data-sources--protected_application--reference--group-002.md#canonical-1322312110312033-2320011333131330-2123130100300003-0333021023212202-2333312330312103-3120323300202121-2023102131330130-2300112230302233) |
-| `cloudfront.mobile_sdk_config.mobile_identifier.headers.exact` | [cloudfront.mobile_sdk_config.mobile_identifier.headers.exact](data-sources--protected_application--reference--group-002.md#canonical-2322223030021221-0033131321320231-0331223011022122-3102122102020112-2120010302122123-1021200210122323-3032003103331012-0113323213102132) |
-| `cloudfront.mobile_sdk_config.mobile_identifier.headers.name` | [cloudfront.mobile_sdk_config.mobile_identifier.headers.name](data-sources--protected_application--reference--group-002.md#canonical-0102231110012330-0103310313211102-2013233022022133-0120310111110032-2330013120001022-3132122312130133-1210211300111203-3121103301110112) |
-| `cloudfront.mobile_sdk_config.mobile_identifier.headers.regex` | [cloudfront.mobile_sdk_config.mobile_identifier.headers.regex](data-sources--protected_application--reference--group-002.md#canonical-0332331133103302-3012133233310233-0332121101132122-1201001030222030-0012031130123333-2030011232113130-3131232201021223-3220310003032102) |
+| `cloudfront.manual_js_insert` | [cloudfront.manual_js_insert](data-sources--protected_application--reference--group-003.md#canonical-1231011133010223-3122230322022221-3021222003233331-2101311111113001-2313033033311320-2101020223111333-2213123133202022-0212231202212132) |
+| `cloudfront.manual_js_insert.javascript_mode` | [cloudfront.manual_js_insert.javascript_mode](data-sources--protected_application--reference--group-003.md#canonical-2031223130012320-1002023220033121-1123303221123200-2103321031032013-3223103101130120-3230211232313203-2030202220003312-2011020133131232) |
+| `cloudfront.manual_js_insert.js_download_path` | [cloudfront.manual_js_insert.js_download_path](data-sources--protected_application--reference--group-003.md#canonical-0313331030133212-1032111323032303-0100021032110220-3232111112031033-0131011203020002-0330132231012123-3230212022110120-0201303001002023) |
+| `cloudfront.mobile_sdk_config` | [cloudfront.mobile_sdk_config](data-sources--protected_application--reference--group-003.md#canonical-1312021210122012-0331300021020123-2230203331133203-1221133112213030-2301102122213221-0222131110123110-3321211320210302-3312002113320132) |
+| `cloudfront.mobile_sdk_config.mobile_identifier` | [cloudfront.mobile_sdk_config.mobile_identifier](data-sources--protected_application--reference--group-003.md#canonical-1330032323232100-1320130301232230-3123220222202301-2303203231131111-1230023201202201-3120001300002310-3121012232233113-1220110213011102) |
+| `cloudfront.mobile_sdk_config.mobile_identifier.headers` | [cloudfront.mobile_sdk_config.mobile_identifier.headers](data-sources--protected_application--reference--group-003.md#canonical-1322312110312033-2320011333131330-2123130100300003-0333021023212202-2333312330312103-3120323300202121-2023102131330130-2300112230302233) |
+| `cloudfront.mobile_sdk_config.mobile_identifier.headers.exact` | [cloudfront.mobile_sdk_config.mobile_identifier.headers.exact](data-sources--protected_application--reference--group-003.md#canonical-2322223030021221-0033131321320231-0331223011022122-3102122102020112-2120010302122123-1021200210122323-3032003103331012-0113323213102132) |
+| `cloudfront.mobile_sdk_config.mobile_identifier.headers.name` | [cloudfront.mobile_sdk_config.mobile_identifier.headers.name](data-sources--protected_application--reference--group-003.md#canonical-0102231110012330-0103310313211102-2013233022022133-0120310111110032-2330013120001022-3132122312130133-1210211300111203-3121103301110112) |
+| `cloudfront.mobile_sdk_config.mobile_identifier.headers.regex` | [cloudfront.mobile_sdk_config.mobile_identifier.headers.regex](data-sources--protected_application--reference--group-003.md#canonical-0332331133103302-3012133233310233-0332121101132122-1201001030222030-0012031130123333-2030011232113130-3131232201021223-3220310003032102) |
 | `cloudfront.protected_endpoints` | [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-003.md#canonical-0232213020212323-1020030122103132-2231022031131020-2201113331300303-0111301321330201-2122020311332330-3303032103301223-2001300220202110) |
 | `cloudfront.protected_endpoints.any_domain` | [cloudfront.protected_endpoints.any_domain](data-sources--protected_application--reference--group-003.md#canonical-0302122110010130-2031103103101000-0302002022210020-0022230202103223-3313033133303101-1313013020203010-1202213023111123-1323003011003211) |
 | `cloudfront.protected_endpoints.domain` | [cloudfront.protected_endpoints.domain](data-sources--protected_application--reference--group-003.md#canonical-2302231201023310-2313302100000222-3123132201202211-0313113312232311-3333220322013203-0011200020212100-0210213201332220-0202230123332103) |
@@ -549,33 +533,33 @@ Each exact path has one authoritative reference destination. Collection element 
 | `cloudfront.protected_endpoints.flow_label.profile_management.update` | [cloudfront.protected_endpoints.flow_label.profile_management.update](data-sources--protected_application--reference--group-003.md#canonical-2023002023120122-0321323102011210-0021310330010132-1321001130212333-1323111030222233-0232213310111123-0320323213331010-2113210223003102) |
 | `cloudfront.protected_endpoints.flow_label.profile_management.view` | [cloudfront.protected_endpoints.flow_label.profile_management.view](data-sources--protected_application--reference--group-003.md#canonical-0011211333313021-3300023230323311-1323231023201311-3101010312130033-1030231332211103-1212120320103111-1212033200232001-3003232213002103) |
 | `cloudfront.protected_endpoints.flow_label.search` | [cloudfront.protected_endpoints.flow_label.search](data-sources--protected_application--reference--group-003.md#canonical-2230122110213122-1110120131032001-3233210112103300-2013030213210220-2010002313212221-2311233132223310-2030032121230020-3001013202212023) |
-| `cloudfront.protected_endpoints.flow_label.search.flight_search` | [cloudfront.protected_endpoints.flow_label.search.flight_search](data-sources--protected_application--reference--group-003.md#canonical-3320032311010300-1112022210110230-0231102330123022-0020200011121122-1221023121303013-3010213213002222-2002123103100203-0033302323101213) |
-| `cloudfront.protected_endpoints.flow_label.search.product_search` | [cloudfront.protected_endpoints.flow_label.search.product_search](data-sources--protected_application--reference--group-003.md#canonical-2012312231223230-3221012223033223-1101331103003103-1022211110012232-1203233220331321-1131231202322112-3000232313303130-3223013313332001) |
-| `cloudfront.protected_endpoints.flow_label.search.reservation_search` | [cloudfront.protected_endpoints.flow_label.search.reservation_search](data-sources--protected_application--reference--group-003.md#canonical-3111021213123323-1331313023032322-3222322122210221-0320113013231302-3111323000211210-2230112110233120-0312030013331113-1100302232301312) |
-| `cloudfront.protected_endpoints.flow_label.search.room_search` | [cloudfront.protected_endpoints.flow_label.search.room_search](data-sources--protected_application--reference--group-003.md#canonical-2022111222122031-1023322310111013-3202131313221030-3212000313112132-0300000320332311-0201122112123303-2033113121213203-1313110212131303) |
-| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards](data-sources--protected_application--reference--group-003.md#canonical-1201220110210032-0222222220330220-2320333230100312-1221212001303310-1133121001233200-3233203133331003-3032131032201103-2101212313111010) |
-| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.gift_card_make_purchase_with_gift_card` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.gift_card_make_purchase_with_gift_card](data-sources--protected_application--reference--group-003.md#canonical-3102312231001223-2231331203211103-3123132322130202-3111223003101031-3020020131203211-2133002122112123-3003202320000332-3301121130133012) |
-| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.gift_card_validation` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.gift_card_validation](data-sources--protected_application--reference--group-003.md#canonical-2130201102102003-1312021230333312-0000121200230133-3301323131200211-0301101101220311-2300031213313001-3032330101012120-3110302222030300) |
-| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_add_to_cart` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_add_to_cart](data-sources--protected_application--reference--group-003.md#canonical-0103011120333033-0231032003232011-0233320210232300-1210032121223310-1210022233310113-2112130220202213-1122330302030201-1313100132301302) |
-| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_checkout` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_checkout](data-sources--protected_application--reference--group-003.md#canonical-0131112222223321-3220121211321201-2101011010012331-0113020213121030-1012320031200133-3110013002212021-3122030112102233-2001000032011221) |
-| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_choose_seat` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_choose_seat](data-sources--protected_application--reference--group-003.md#canonical-1030022113131102-2020321122310200-0313133330201222-3330011100012132-0023122000313033-0013220331301123-1033012302111222-0130210213330111) |
-| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_enter_drawing_submission` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_enter_drawing_submission](data-sources--protected_application--reference--group-003.md#canonical-0230101322032220-1313022012323120-1300112112012300-1212020303123320-2330031231033031-2223113013110210-1102221233301221-2330130130322332) |
-| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_make_payment` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_make_payment](data-sources--protected_application--reference--group-003.md#canonical-1212321202210332-1113220023331001-3323212222103212-2100231331302022-3001000310112001-0302012003333020-0110211232301122-1302220201002220) |
-| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_order` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_order](data-sources--protected_application--reference--group-003.md#canonical-0322202003100020-0213321032201120-2333001311001320-0120213020330012-1032030212001210-0001020012311012-1111321230300222-1103123002022320) |
-| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_price_inquiry` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_price_inquiry](data-sources--protected_application--reference--group-003.md#canonical-3132132203113113-2223113301110110-2120313233113330-0002031321133200-1101333131010320-3212311103011320-0222223330023220-1022331002233210) |
-| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_promo_code_validation` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_promo_code_validation](data-sources--protected_application--reference--group-003.md#canonical-1210312200102232-1233331312321120-0011131202100003-2122203303333111-2320003012003301-0003131010031022-0101213132300213-2310202321232302) |
-| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_purchase_gift_card` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_purchase_gift_card](data-sources--protected_application--reference--group-003.md#canonical-3022012322113332-2120133310310220-3023003111203110-2130202131230333-2002201112020122-0132013211033331-1310221213320301-2112023103201312) |
-| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_update_quantity` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_update_quantity](data-sources--protected_application--reference--group-003.md#canonical-0213020101000331-0113230001002102-0131200111013323-0230003223312211-2021310232121020-0022331330111110-1113110312202103-3003312220103331) |
+| `cloudfront.protected_endpoints.flow_label.search.flight_search` | [cloudfront.protected_endpoints.flow_label.search.flight_search](data-sources--protected_application--reference--group-004.md#canonical-3320032311010300-1112022210110230-0231102330123022-0020200011121122-1221023121303013-3010213213002222-2002123103100203-0033302323101213) |
+| `cloudfront.protected_endpoints.flow_label.search.product_search` | [cloudfront.protected_endpoints.flow_label.search.product_search](data-sources--protected_application--reference--group-004.md#canonical-2012312231223230-3221012223033223-1101331103003103-1022211110012232-1203233220331321-1131231202322112-3000232313303130-3223013313332001) |
+| `cloudfront.protected_endpoints.flow_label.search.reservation_search` | [cloudfront.protected_endpoints.flow_label.search.reservation_search](data-sources--protected_application--reference--group-004.md#canonical-3111021213123323-1331313023032322-3222322122210221-0320113013231302-3111323000211210-2230112110233120-0312030013331113-1100302232301312) |
+| `cloudfront.protected_endpoints.flow_label.search.room_search` | [cloudfront.protected_endpoints.flow_label.search.room_search](data-sources--protected_application--reference--group-004.md#canonical-2022111222122031-1023322310111013-3202131313221030-3212000313112132-0300000320332311-0201122112123303-2033113121213203-1313110212131303) |
+| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards](data-sources--protected_application--reference--group-004.md#canonical-1201220110210032-0222222220330220-2320333230100312-1221212001303310-1133121001233200-3233203133331003-3032131032201103-2101212313111010) |
+| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.gift_card_make_purchase_with_gift_card` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.gift_card_make_purchase_with_gift_card](data-sources--protected_application--reference--group-004.md#canonical-3102312231001223-2231331203211103-3123132322130202-3111223003101031-3020020131203211-2133002122112123-3003202320000332-3301121130133012) |
+| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.gift_card_validation` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.gift_card_validation](data-sources--protected_application--reference--group-004.md#canonical-2130201102102003-1312021230333312-0000121200230133-3301323131200211-0301101101220311-2300031213313001-3032330101012120-3110302222030300) |
+| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_add_to_cart` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_add_to_cart](data-sources--protected_application--reference--group-004.md#canonical-0103011120333033-0231032003232011-0233320210232300-1210032121223310-1210022233310113-2112130220202213-1122330302030201-1313100132301302) |
+| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_checkout` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_checkout](data-sources--protected_application--reference--group-004.md#canonical-0131112222223321-3220121211321201-2101011010012331-0113020213121030-1012320031200133-3110013002212021-3122030112102233-2001000032011221) |
+| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_choose_seat` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_choose_seat](data-sources--protected_application--reference--group-004.md#canonical-1030022113131102-2020321122310200-0313133330201222-3330011100012132-0023122000313033-0013220331301123-1033012302111222-0130210213330111) |
+| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_enter_drawing_submission` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_enter_drawing_submission](data-sources--protected_application--reference--group-004.md#canonical-0230101322032220-1313022012323120-1300112112012300-1212020303123320-2330031231033031-2223113013110210-1102221233301221-2330130130322332) |
+| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_make_payment` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_make_payment](data-sources--protected_application--reference--group-004.md#canonical-1212321202210332-1113220023331001-3323212222103212-2100231331302022-3001000310112001-0302012003333020-0110211232301122-1302220201002220) |
+| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_order` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_order](data-sources--protected_application--reference--group-004.md#canonical-0322202003100020-0213321032201120-2333001311001320-0120213020330012-1032030212001210-0001020012311012-1111321230300222-1103123002022320) |
+| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_price_inquiry` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_price_inquiry](data-sources--protected_application--reference--group-004.md#canonical-3132132203113113-2223113301110110-2120313233113330-0002031321133200-1101333131010320-3212311103011320-0222223330023220-1022331002233210) |
+| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_promo_code_validation` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_promo_code_validation](data-sources--protected_application--reference--group-004.md#canonical-1210312200102232-1233331312321120-0011131202100003-2122203303333111-2320003012003301-0003131010031022-0101213132300213-2310202321232302) |
+| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_purchase_gift_card` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_purchase_gift_card](data-sources--protected_application--reference--group-004.md#canonical-3022012322113332-2120133310310220-3023003111203110-2130202131230333-2002201112020122-0132013211033331-1310221213320301-2112023103201312) |
+| `cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_update_quantity` | [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_update_quantity](data-sources--protected_application--reference--group-004.md#canonical-0213020101000331-0113230001002102-0131200111013323-0230003223312211-2021310232121020-0022331330111110-1113110312202103-3003312220103331) |
 | `cloudfront.protected_endpoints.http_methods` | [cloudfront.protected_endpoints.http_methods](data-sources--protected_application--reference--group-003.md#canonical-3303203312203031-0120303221223312-0331030213320330-1330310122213111-0232213031112330-2102000122301330-1321101100210332-3000011322133232) |
-| `cloudfront.protected_endpoints.metadata` | [cloudfront.protected_endpoints.metadata](data-sources--protected_application--reference--group-003.md#canonical-1110001100020130-3103033011210222-3100333313123103-3322333123021233-0321332013212031-0101103202330130-1121233111030123-2330001011002322) |
-| `cloudfront.protected_endpoints.metadata.description_spec` | [cloudfront.protected_endpoints.metadata.description_spec](data-sources--protected_application--reference--group-003.md#canonical-0030231303213012-1312233012332211-0102320012120013-2133211022311301-3230233311032030-3013230220011202-3331000111332210-2210212233222322) |
-| `cloudfront.protected_endpoints.metadata.name` | [cloudfront.protected_endpoints.metadata.name](data-sources--protected_application--reference--group-003.md#canonical-3021313132000132-1121210301232100-1222221101003000-2132010321031130-1010321113321113-0321000121003011-3033120003001303-0321112013013222) |
-| `cloudfront.protected_endpoints.mobile_client` | [cloudfront.protected_endpoints.mobile_client](data-sources--protected_application--reference--group-003.md#canonical-0012112132311220-3113112100222332-2312111022211122-0100131000310023-1030012122303200-1201102321123003-3310000310201122-3222301102100232) |
-| `cloudfront.protected_endpoints.mobile_client.block` | [cloudfront.protected_endpoints.mobile_client.block](data-sources--protected_application--reference--group-003.md#canonical-0310113123330330-1013111210332022-1031311202011212-1101221020222013-0212301000102101-1232323021132002-1322000231302002-3033201233120033) |
-| `cloudfront.protected_endpoints.mobile_client.block.body` | [cloudfront.protected_endpoints.mobile_client.block.body](data-sources--protected_application--reference--group-003.md#canonical-0212111030330113-0001323233021023-2303223113021031-1232303222011333-3010202021012012-2302221210013300-1220212003103301-3113012212121301) |
-| `cloudfront.protected_endpoints.mobile_client.block.content_type` | [cloudfront.protected_endpoints.mobile_client.block.content_type](data-sources--protected_application--reference--group-003.md#canonical-2101332323131011-3010000130112303-0022230311012213-0321233100300020-0222002120102112-0020333212330212-2303200312030102-3311133323223123) |
-| `cloudfront.protected_endpoints.mobile_client.block.status` | [cloudfront.protected_endpoints.mobile_client.block.status](data-sources--protected_application--reference--group-003.md#canonical-3023210001121311-0321023300121333-2233320232333332-3321220333213110-0121032030033012-0333112010123201-0312001211101011-0003111332201032) |
-| `cloudfront.protected_endpoints.mobile_client.continue` | [cloudfront.protected_endpoints.mobile_client.continue](data-sources--protected_application--reference--group-003.md#canonical-2220132120301131-3031010223230013-0010201221201202-1013111230331312-1021013100210102-1023332233133023-3013210133133110-2023133121233213) |
+| `cloudfront.protected_endpoints.metadata` | [cloudfront.protected_endpoints.metadata](data-sources--protected_application--reference--group-004.md#canonical-1110001100020130-3103033011210222-3100333313123103-3322333123021233-0321332013212031-0101103202330130-1121233111030123-2330001011002322) |
+| `cloudfront.protected_endpoints.metadata.description_spec` | [cloudfront.protected_endpoints.metadata.description_spec](data-sources--protected_application--reference--group-004.md#canonical-0030231303213012-1312233012332211-0102320012120013-2133211022311301-3230233311032030-3013230220011202-3331000111332210-2210212233222322) |
+| `cloudfront.protected_endpoints.metadata.name` | [cloudfront.protected_endpoints.metadata.name](data-sources--protected_application--reference--group-004.md#canonical-3021313132000132-1121210301232100-1222221101003000-2132010321031130-1010321113321113-0321000121003011-3033120003001303-0321112013013222) |
+| `cloudfront.protected_endpoints.mobile_client` | [cloudfront.protected_endpoints.mobile_client](data-sources--protected_application--reference--group-004.md#canonical-0012112132311220-3113112100222332-2312111022211122-0100131000310023-1030012122303200-1201102321123003-3310000310201122-3222301102100232) |
+| `cloudfront.protected_endpoints.mobile_client.block` | [cloudfront.protected_endpoints.mobile_client.block](data-sources--protected_application--reference--group-004.md#canonical-0310113123330330-1013111210332022-1031311202011212-1101221020222013-0212301000102101-1232323021132002-1322000231302002-3033201233120033) |
+| `cloudfront.protected_endpoints.mobile_client.block.body` | [cloudfront.protected_endpoints.mobile_client.block.body](data-sources--protected_application--reference--group-004.md#canonical-0212111030330113-0001323233021023-2303223113021031-1232303222011333-3010202021012012-2302221210013300-1220212003103301-3113012212121301) |
+| `cloudfront.protected_endpoints.mobile_client.block.content_type` | [cloudfront.protected_endpoints.mobile_client.block.content_type](data-sources--protected_application--reference--group-004.md#canonical-2101332323131011-3010000130112303-0022230311012213-0321233100300020-0222002120102112-0020333212330212-2303200312030102-3311133323223123) |
+| `cloudfront.protected_endpoints.mobile_client.block.status` | [cloudfront.protected_endpoints.mobile_client.block.status](data-sources--protected_application--reference--group-004.md#canonical-3023210001121311-0321023300121333-2233320232333332-3321220333213110-0121032030033012-0333112010123201-0312001211101011-0003111332201032) |
+| `cloudfront.protected_endpoints.mobile_client.continue` | [cloudfront.protected_endpoints.mobile_client.continue](data-sources--protected_application--reference--group-004.md#canonical-2220132120301131-3031010223230013-0010201221201202-1013111230331312-1021013100210102-1023332233133023-3013210133133110-2023133121233213) |
 | `cloudfront.protected_endpoints.mobile_client.continue.add_header` | [cloudfront.protected_endpoints.mobile_client.continue.add_header](data-sources--protected_application--reference--group-004.md#canonical-2310323321213111-1230121301201001-0323102301200112-3111003003013101-3121303212033003-0230212230332011-0100213230022330-3222032313003221) |
 | `cloudfront.protected_endpoints.mobile_client.continue.no_header` | [cloudfront.protected_endpoints.mobile_client.continue.no_header](data-sources--protected_application--reference--group-004.md#canonical-3203232102103023-3003022312320232-0321030031012131-3323302230013213-2000330311023320-2133123321300331-2311012200112310-2200103210201102) |
 | `cloudfront.protected_endpoints.path` | [cloudfront.protected_endpoints.path](data-sources--protected_application--reference--group-003.md#canonical-2122012101213113-2221201200303102-2122011020233202-0221332133220331-0210231203321001-2123103300221131-3123322013331210-0213111111132332) |
@@ -631,28 +615,13 @@ Each exact path has one authoritative reference destination. Collection element 
 | `region` | [region](data-sources--protected_application--reference--group-001.md#canonical-0010102001012002-1323203111213100-2032220022322220-3320220112200213-3132313211121332-0031001312231200-1031032001313322-3333310111130122) |
 | `salesforce_commerce_connector` | [salesforce_commerce_connector](data-sources--protected_application--reference--group-004.md#canonical-2112311010211032-1110123211222023-1011322203103220-2110303202120102-0020230102200300-2312033213021200-0313232030302100-1031231203200131) |
 
-<a id="canonical-2331011110101100-1200301022022301-0131021310030333-2110222213002020-3100020210112311-0202211320022203-1201212303223212-1233112031130021"></a>
-
-## Next pages — Property reference / 300210112021 / 12
-
-- [adobe_commerce_connector](data-sources--protected_application--reference--group-001.md#canonical-2131122002322200-1211102013312210-0332313001322211-3203310002112222-1102230310021123-1302303130013203-0210310220203232-1201203310213203)
-- [big_ip_iapp](data-sources--protected_application--reference--group-001.md#canonical-3121210303101201-1231303202003123-1231320121022310-3001201012333211-2010131131103323-0230330313113000-3233023131132211-3332203002023000)
-- [Cloudflare](data-sources--protected_application--reference--group-001.md#canonical-2103030102303220-3032000233032113-1311312033011021-0203031102122023-0312101000122132-2100301000121311-2223211222233310-0201001111112331)
-- [CloudFront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
-- [custom_connector](data-sources--protected_application--reference--group-004.md#canonical-2131022120013230-3323322131002320-3112130302320203-0132230022331312-3202130201002000-0310132300310330-1103022101033312-1203333103123122)
-- [f5_big_ip](data-sources--protected_application--reference--group-004.md#canonical-2221321233201022-2312300032001020-0333110031033331-0133213100320220-0313313301321000-2131300212321000-1211302300200001-2300130230311301)
-- [salesforce_commerce_connector](data-sources--protected_application--reference--group-004.md#canonical-3300103021210020-1101231333023233-1202122312030020-1322030202123101-2122211031213030-0203233223330223-3331032100031322-3101033002131222)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
-
 <a id="canonical-2131122002322200-1211102013312210-0332313001322211-3203310002112222-1102230310021123-1302303130013203-0210310220203232-1201203310213203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3133222131233030-3033121010233213-3112030222220310-3122132321033331-1231132111020132-1332020331232021-1020001220032102-3211330302232301"></a>
-
-## adobe_commerce_connector — adobe_commerce_connector / 213311331222 / 2
+## `adobe_commerce_connector` properties
 
 Breadcrumbs:
 
@@ -667,7 +636,7 @@ Type: `["object", {}]`. Computed.
 \[OneOf: adobe\_commerce\_connector, big\_ip\_iapp, Cloudflare, CloudFront, custom\_connector,
 f5\_big\_ip, Salesforce\_commerce\_connector\] Configuration parameter for adobe commerce connector.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -696,18 +665,7 @@ OneOf alternatives in this subsection:
 
 Select alternatives according to the provider validators above.
 
-<a id="canonical-2321013031033132-1013211310032230-3230001001223330-2213221010130101-1012011331302202-0223232220023320-3211200103232100-0132223303332130"></a>
-
-## Direct properties — adobe_commerce_connector / 213311331222 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1200122010000233-2332000113301310-0231113310133333-0012300333200231-1123300321323003-3013001321013331-0012202132221102-0303112121133013"></a>
-
-## Next pages — adobe_commerce_connector / 213311331222 / 4
-
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
 <a id="canonical-3121210303101201-1231303202003123-1231320121022310-3001201012333211-2010131131103323-0230330313113000-3233023131132211-3332203002023000"></a>
 
@@ -715,9 +673,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1023032121221321-1313220320201002-2131122221333121-1331301123101231-2213230313232302-1100002012220133-2222202113030023-3103211013213232"></a>
-
-## big_ip_iapp — big_ip_iapp / 121231133313 / 2
+## `big_ip_iapp` properties
 
 Breadcrumbs:
 
@@ -731,7 +687,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -748,18 +704,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0300312300313122-3022303013302012-2313231220010111-0013021331211130-2001210030222210-3021031120203232-3131100333001133-3023203201321300"></a>
-
-## Direct properties — big_ip_iapp / 121231133313 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0001012230031203-1301012310123023-3303130232300101-3331102223010333-1332210323221132-0012031110032202-3202103211033100-2121322311211023"></a>
-
-## Next pages — big_ip_iapp / 121231133313 / 4
-
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
 <a id="canonical-2103030102303220-3032000233032113-1311312033011021-0203031102122023-0312101000122132-2100301000121311-2223211222233310-0201001111112331"></a>
 
@@ -767,9 +712,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2300331233201320-3020233122132301-1120003030211211-1112103020221011-1032001130030122-2001013333232210-1022013300212131-3212331202310113"></a>
-
-## Cloudflare — Cloudflare / 210023001213 / 2
+## `cloudflare` properties
 
 Breadcrumbs:
 
@@ -798,21 +741,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1303200300022220-1122300220332002-3331233012123203-0022302131003331-2111113220232030-1201012111222322-1310002131113010-3222101211030210"></a>
+<a id="canonical-2300331233201320-3020233122132301-1120003030211211-1112103020221011-1032001130030122-2001013333232210-1022013300212131-3212331202310113"></a>
 
-## Direct properties — Cloudflare / 210023001213 / 3
+### Direct properties for `cloudflare`
 
 <a id="canonical-2202200332333113-0321020131310023-2022311121012120-0012102313103032-3210000001332123-3331303330102300-1020222230221302-3113201132313323"></a>
 
-<a id="canonical-1103112012223223-2202030112230211-2120213210221030-0132222203311033-1302123210303231-0131002133230230-2300100201123323-1220003210031222"></a>
-
-## continue_mitigation_action_hdr property — Cloudflare / 210023001213 / 4
+#### `cloudflare.continue_mitigation_action_hdr` property
 
 Type: `"string"`. Computed.
-
-Case-insensitive HTTP header name for Continue Mitigation Action when add header selected.
-
-Upstream description:
 
 A case-insensitive HTTP header name for Continue Mitigation Action when add header selected.
 
@@ -860,9 +797,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2232322200300300-2012300233103122-1133113222312110-2132000310233200-3233220032223202-3322100303013000-3130332312330322-1002033213311112"></a>
 
-<a id="canonical-2221200303023030-0101111102010111-2110233301232302-2310312300033022-1103311033002323-3222020023122003-3332321002020300-3103103323013312"></a>
+<a id="canonical-1303200300022220-1122300220332002-3331233012123203-0022302131003331-2111113220232030-1201012111222322-1310002131113010-3222101211030210"></a>
 
-## loglevel property — Cloudflare / 210023001213 / 5
+#### `cloudflare.loglevel` property
 
 Type: `"string"`. Computed.
 
@@ -872,23 +809,6 @@ LOG\_UNDEFINED: Undefined - LOG\_ERROR: Error Log only errors - LOG\_WARNING: Wa
 requests - LOG\_INFO: Info Log all requests - LOG\_DEBUG: Debug Log debugging data. Possible values
 are \`LOG\_UNDEFINED\`, \`LOG\_ERROR\`, \`LOG\_WARNING\`, \`LOG\_INFO\`, \`LOG\_DEBUG\`. Defaults to
 \`LOG\_UNDEFINED\`.
-
-Upstream description:
-
-Select the level of logging desired. Levels are cumulative (e.g. Debug includes Error, Warning, and
-Informational)
-
-&#8203;- LOG\_UNDEFINED: Undefined
-
-&#8203;- LOG\_ERROR: Error
-
-Log only errors &#8203;- LOG\_WARNING: Warning
-
-Log malicious requests &#8203;- LOG\_INFO: Info
-
-Log all requests &#8203;- LOG\_DEBUG: Debug
-
-Log debugging data.
 
 Receipt-pinned upstream constraints:
 
@@ -919,9 +839,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1222221300223120-3113133302202013-1230032212131120-1032233100202033-2220002130020120-2310202303111132-3132023112133010-0303231322120302"></a>
 
-<a id="canonical-0300103102110321-1302323132123120-0322030110000220-3212100221020122-2323132322030220-2232211321012331-2331100201132033-3233120131132130"></a>
+<a id="canonical-1103112012223223-2202030112230211-2120213210221030-0132222203311033-1302123210303231-0131002133230230-2300100201123323-1220003210031222"></a>
 
-## timeout property — Cloudflare / 210023001213 / 6
+#### `cloudflare.timeout` property
 
 Type: `"number"`. Computed.
 
@@ -963,29 +883,13 @@ Receipt-pinned upstream constraints:
 
 - [trusted_clients](data-sources--protected_application--reference--group-002.md#canonical-1323233210131003-0221130101233310-2201231231321300-2031303032000332-3020310033013032-2022001001230003-0021202123302120-1001231012222220): complete subsection reference.
 
-<a id="canonical-0213220013021020-1332221130230023-3100311132330213-3202130101301332-2002201121122012-1300031201000013-0122231232111321-3113021011221211"></a>
-
-## Next pages — Cloudflare / 210023001213 / 7
-
-- [cloudflare.disable_js_insert](data-sources--protected_application--reference--group-001.md#canonical-0220000022211302-3130322210001221-1001020120122002-2120002012101120-3221002020301330-0013330113022100-0310201001112030-0113321321031101)
-- [cloudflare.disable_mobile_sdk](data-sources--protected_application--reference--group-001.md#canonical-1013222032123130-3112101311023032-3302221203000132-2303332110011200-0111211211013323-0212303321030311-3111312301203213-3113213232003102)
-- [cloudflare.js_insertion_rules](data-sources--protected_application--reference--group-001.md#canonical-1231311222220033-0111003303023300-1233020100031131-2212023302233222-3023233331031212-1332321201301030-1122123222031303-2312333321323312)
-- [cloudflare.manual_js_insert](data-sources--protected_application--reference--group-001.md#canonical-0113203221313211-3112313212212333-2320310302212230-2213100321323013-1030120213323013-0302103123230023-2123012113202120-3302231101113232)
-- [cloudflare.mobile_sdk_config](data-sources--protected_application--reference--group-001.md#canonical-1012330233031112-2222321301033031-3302233131022100-2332032300003202-2320003111223303-0031323032112130-2020330111011333-2103332111101231)
-- [cloudflare.protected_endpoints](data-sources--protected_application--reference--group-001.md#canonical-1030220202111001-1103110111301100-1322102231233131-0123103313030303-2233000102020131-3103322313321020-0122132330233112-1300111122001122)
-- [cloudflare.trusted_clients](data-sources--protected_application--reference--group-002.md#canonical-1323233210131003-0221130101233310-2201231231321300-2031303032000332-3020310033013032-2022001001230003-0021202123302120-1001231012222220)
-- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
-
 <a id="canonical-0220000022211302-3130322210001221-1001020120122002-2120002012101120-3221002020301330-0013330113022100-0310201001112030-0113321321031101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0221320202212202-0212200202022232-1310123100021033-0100032022210033-2232122102021111-0133303203231103-3200030133323323-0323311113030333"></a>
-
-## Cloudflare.disable_js_insert — disable_js_insert / 332110300230 / 2
+## `cloudflare.disable_js_insert` properties
 
 Breadcrumbs:
 
@@ -1000,7 +904,7 @@ Type: `["object", {}]`. Computed.
 
 Configuration parameter for disable js insert.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1017,18 +921,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1211310102033311-0300112122203313-0302200003000022-1111211133300202-1323102331133011-3200212323130022-0032200222131112-0030132201300020"></a>
-
-## Direct properties — disable_js_insert / 332110300230 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2032212203223121-1000310210330332-0233112202203322-1133302120330000-0111223331230303-0000212113101023-2322112212201101-1321111000303203"></a>
-
-## Next pages — disable_js_insert / 332110300230 / 4
-
-- [Cloudflare](data-sources--protected_application--reference--group-001.md#canonical-2103030102303220-3032000233032113-1311312033011021-0203031102122023-0312101000122132-2100301000121311-2223211222233310-0201001111112331)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
 <a id="canonical-1013222032123130-3112101311023032-3302221203000132-2303332110011200-0111211211013323-0212303321030311-3111312301203213-3113213232003102"></a>
 
@@ -1036,9 +929,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0000123201212300-3233301322330222-0030013133320232-1110031100022121-3220333030030003-3311132322112211-1001022002222300-2131311231220233"></a>
-
-## Cloudflare.disable_mobile_sdk — disable_mobile_sdk / 331301133110 / 2
+## `cloudflare.disable_mobile_sdk` properties
 
 Breadcrumbs:
 
@@ -1053,7 +944,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1070,18 +961,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0101330123300302-3230031300123320-2012202203333100-1333233333321130-0310031203221110-1211122211301101-0303003330223120-0322113111132323"></a>
-
-## Direct properties — disable_mobile_sdk / 331301133110 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3233333121313111-2312210120131320-3013110232202131-1010023120133020-3130201313023003-0121022123033320-2330232320310233-0212201321221211"></a>
-
-## Next pages — disable_mobile_sdk / 331301133110 / 4
-
-- [Cloudflare](data-sources--protected_application--reference--group-001.md#canonical-2103030102303220-3032000233032113-1311312033011021-0203031102122023-0312101000122132-2100301000121311-2223211222233310-0201001111112331)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
 <a id="canonical-1231311222220033-0111003303023300-1233020100031131-2212023302233222-3023233331031212-1332321201301030-1122123222031303-2312333321323312"></a>
 
@@ -1089,9 +969,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2112001120022030-2303112313200221-2203123102113332-0212101010030000-2013121331220011-0211031010133111-1223233332311032-3211313201321120"></a>
-
-## Cloudflare.js_insertion_rules — js_insertion_rules / 002012130011 / 2
+## `cloudflare.js_insertion_rules` properties
 
 Breadcrumbs:
 
@@ -1103,10 +981,6 @@ Breadcrumbs:
 <a id="canonical-3033130212321203-1220212110233133-3213232032233210-0002012100323023-0330312131223120-3101213120202031-3101313333232311-1033000221111203"></a>
 
 Type: `"single"`. Computed.
-
-Defines custom JavaScript insertion rules for Bot Defense Policy.
-
-Upstream description:
 
 This defines custom JavaScript insertion rules for Bot Defense Policy.
 
@@ -1123,17 +997,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0211332120321121-1113111013111330-1033222111003310-2131303133313132-1330131022233020-1022123033320021-3000331013120301-3231203331211232"></a>
+<a id="canonical-2112001120022030-2303112313200221-2203123102113332-0212101010030000-2013121331220011-0211031010133111-1223233332311032-3211313201321120"></a>
 
-## Direct properties — js_insertion_rules / 002012130011 / 3
+### Direct properties for `cloudflare.js_insertion_rules`
 
 - [exclude_list](data-sources--protected_application--reference--group-001.md#canonical-2001333113133333-0320013031030321-1112023330212213-0213333230230002-0311001020210222-2020121302003102-2223232311010133-3100201020232333): complete subsection reference.
 
 <a id="canonical-2302323021011231-2012230020020330-0201021233011121-2031003123321222-3232000033131230-3211201131330222-1230102002220012-0302312203113103"></a>
 
-<a id="canonical-3311022202110312-3222032201013002-2011120002001112-3022122123001021-3212101022120232-2220112302312332-2333333022030102-0302332313333131"></a>
+<a id="canonical-0211332120321121-1113111013111330-1033222111003310-2131303133313132-1330131022233020-1022123033320021-3000331013120301-3231203331211232"></a>
 
-## javascript_location property — js_insertion_rules / 002012130011 / 4
+#### `cloudflare.js_insertion_rules.javascript_location` property
 
 Type: `"string"`. Computed.
 
@@ -1142,15 +1016,6 @@ networks. - JAVA\_SCRIPT\_LOCATION\_UNDEFINED: JAVA\_SCRIPT\_LOCATION\_UNDEFINED
 JavaScript after &lt;HEAD&gt; tag Insert JavaScript after &lt;/title&gt; tag. Insert JavaScript
 before first tag. Possible values are \`JAVA\_SCRIPT\_LOCATION\_UNDEFINED\`, \`AFTER\_HEAD\`,
 \`AFTER\_TITLE\_END\`, \`BEFORE\_SCRIPT\`. Defaults to \`JAVA\_SCRIPT\_LOCATION\_UNDEFINED\`.
-
-Upstream description:
-
-All inside networks.
-
-&#8203;- JAVA\_SCRIPT\_LOCATION\_UNDEFINED: JAVA\_SCRIPT\_LOCATION\_UNDEFINED
-
-Undefined Insert JavaScript after &lt;HEAD&gt; tag Insert JavaScript after &lt;/title&gt; tag.
-Insert JavaScript before first tag.
 
 Receipt-pinned upstream constraints:
 
@@ -1174,21 +1039,14 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1010320122311211-3113322333100310-2321023213022310-2323120232320000-3200032020312012-2103321300322303-1313321123101320-2212200033332223"></a>
 
-<a id="canonical-2100132011312123-3031200132113200-1213220331230212-0211131320103221-3103103222111101-1003322013201302-0201230300132113-3222121010330220"></a>
+<a id="canonical-3311022202110312-3222032201013002-2011120002001112-3022122123001021-3212101022120232-2220112302312332-2333333022030102-0302332313333131"></a>
 
-## js_download_path property — js_insertion_rules / 002012130011 / 5
+#### `cloudflare.js_insertion_rules.js_download_path` property
 
 Type: `"string"`. Computed.
 
 Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any
 other website/application paths. If not specified, default to ‘/CommonJS’.
-
-Upstream description:
-
-Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any
-other website/application paths.
-
-If not specified, default to ‘/CommonJS’.
 
 Receipt-pinned upstream constraints:
 
@@ -1221,24 +1079,13 @@ Receipt-pinned upstream constraints:
 
 - [rules](data-sources--protected_application--reference--group-001.md#canonical-1100302020232020-1033003010233212-2232230131213103-3313031222210202-0112312323121002-0021221200113311-0221111033100321-0130232033320321): complete subsection reference.
 
-<a id="canonical-0233113311111300-2003110320130020-3031130021021012-1022010300102003-3013303022123333-0000301102022113-0100123211301001-2233213220330200"></a>
-
-## Next pages — js_insertion_rules / 002012130011 / 6
-
-- [cloudflare.js_insertion_rules.exclude_list](data-sources--protected_application--reference--group-001.md#canonical-2001333113133333-0320013031030321-1112023330212213-0213333230230002-0311001020210222-2020121302003102-2223232311010133-3100201020232333)
-- [cloudflare.js_insertion_rules.rules](data-sources--protected_application--reference--group-001.md#canonical-1100302020232020-1033003010233212-2232230131213103-3313031222210202-0112312323121002-0021221200113311-0221111033100321-0130232033320321)
-- [Cloudflare](data-sources--protected_application--reference--group-001.md#canonical-2103030102303220-3032000233032113-1311312033011021-0203031102122023-0312101000122132-2100301000121311-2223211222233310-0201001111112331)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
-
 <a id="canonical-2001333113133333-0320013031030321-1112023330212213-0213333230230002-0311001020210222-2020121302003102-2223232311010133-3100201020232333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2133313202032113-3111320301020333-0110123230301000-2131132123032210-0131311313102110-3023002202033310-3123001203300110-0120112213013122"></a>
-
-## Cloudflare.js_insertion_rules.exclude_list — exclude_list / 203311310000 / 2
+## `cloudflare.js_insertion_rules.exclude_list` properties
 
 Breadcrumbs:
 
@@ -1288,9 +1135,9 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0000231112102021-3010331112200203-0000231000313223-3323122222200233-2110102011120030-2030321201020320-0130220320120300-1333220033330211"></a>
+<a id="canonical-2133313202032113-3111320301020333-0110123230301000-2131132123032210-0131311313102110-3023002202033310-3123001203300110-0120112213013122"></a>
 
-## Direct properties — exclude_list / 203311310000 / 3
+### Direct properties for `cloudflare.js_insertion_rules.exclude_list`
 
 - [any_domain](data-sources--protected_application--reference--group-001.md#canonical-2222000011122321-2122001312332313-3011333231310313-1033300011033300-2323332213312111-3300033203221302-3020131231231212-2133210203120000): complete subsection reference.
 
@@ -1300,26 +1147,13 @@ Receipt-pinned upstream constraints:
 
 - [path](data-sources--protected_application--reference--group-001.md#canonical-2122312210233200-3133121131320021-0031122222221203-3020030122321302-3301003222112333-1103132130230311-3333332301020320-2103010310111110): complete subsection reference.
 
-<a id="canonical-0013320331213020-0211020310211011-2010103003131122-2031311200022031-3331211030200302-3201103021210120-0132331130131200-1020213101333323"></a>
-
-## Next pages — exclude_list / 203311310000 / 4
-
-- [cloudflare.js_insertion_rules.exclude_list.any_domain](data-sources--protected_application--reference--group-001.md#canonical-2222000011122321-2122001312332313-3011333231310313-1033300011033300-2323332213312111-3300033203221302-3020131231231212-2133210203120000)
-- [cloudflare.js_insertion_rules.exclude_list.domain](data-sources--protected_application--reference--group-001.md#canonical-2310220121300213-1200311010030000-1231323012323013-2012212030113333-2022213331130321-1030121200212223-0022302310233001-1233033223202321)
-- [cloudflare.js_insertion_rules.exclude_list.metadata](data-sources--protected_application--reference--group-001.md#canonical-2013111323113301-1132302111011323-3301321132131000-2303302211100322-2323311203333111-3323012100130013-2332110222001211-1110022020022023)
-- [cloudflare.js_insertion_rules.exclude_list.path](data-sources--protected_application--reference--group-001.md#canonical-2122312210233200-3133121131320021-0031122222221203-3020030122321302-3301003222112333-1103132130230311-3333332301020320-2103010310111110)
-- [cloudflare.js_insertion_rules](data-sources--protected_application--reference--group-001.md#canonical-1231311222220033-0111003303023300-1233020100031131-2212023302233222-3023233331031212-1332321201301030-1122123222031303-2312333321323312)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
-
 <a id="canonical-2222000011122321-2122001312332313-3011333231310313-1033300011033300-2323332213312111-3300033203221302-3020131231231212-2133210203120000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2213132023001303-0033233201212322-0302303032332131-2203033123330102-2313323130021101-3210022113101133-2213110002312100-1210102323032320"></a>
-
-## Cloudflare.js_insertion_rules.exclude_list.any_domain — any_domain / 110221322020 / 2
+## `cloudflare.js_insertion_rules.exclude_list.any_domain` properties
 
 Breadcrumbs:
 
@@ -1336,7 +1170,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1353,18 +1187,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0210113013012222-3302212033010321-2131132020000231-2312112001000231-2112323002023220-1121302303310103-0102133322320212-0221232222010100"></a>
-
-## Direct properties — any_domain / 110221322020 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0321312323303011-3023130113002111-1230112103330012-2221021200233221-0331220100301132-3303220001010310-3021331231112122-0001013332320203"></a>
-
-## Next pages — any_domain / 110221322020 / 4
-
-- [cloudflare.js_insertion_rules.exclude_list](data-sources--protected_application--reference--group-001.md#canonical-2001333113133333-0320013031030321-1112023330212213-0213333230230002-0311001020210222-2020121302003102-2223232311010133-3100201020232333)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
 <a id="canonical-2310220121300213-1200311010030000-1231323012323013-2012212030113333-2022213331130321-1030121200212223-0022302310233001-1233033223202321"></a>
 
@@ -1372,9 +1195,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3331113003033120-2310230331030212-2012133313301022-0131332031123112-0023233031330301-0233200031202022-2222120023220302-3000220120320032"></a>
-
-## Cloudflare.js_insertion_rules.exclude_list.domain — domain / 131320302123 / 2
+## `cloudflare.js_insertion_rules.exclude_list.domain` properties
 
 Breadcrumbs:
 
@@ -1391,7 +1212,7 @@ Type: `"single"`. Computed.
 
 Domain name for routing and identification.
 
-Upstream description:
+Additional upstream details:
 
 Domains names.
 
@@ -1409,21 +1230,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3300130010100103-1133220113030100-3023012113233123-2113201122203322-1113210220102320-0021210110223112-1102300030020311-0330332213320331"></a>
+<a id="canonical-3331113003033120-2310230331030212-2012133313301022-0131332031123112-0023233031330301-0233200031202022-2222120023220302-3000220120320032"></a>
 
-## Direct properties — domain / 131320302123 / 3
+### Direct properties for `cloudflare.js_insertion_rules.exclude_list.domain`
 
 <a id="canonical-2030111102032020-2022312100012201-0222120121330300-2203022031122303-2300030200320210-3120100112021211-0033110112020031-1233210112123021"></a>
 
-<a id="canonical-1233123023031131-0101113313221203-1231030103321201-1103020010233223-3211110101001233-2231001123111210-0120032101222203-3233000231023303"></a>
-
-## exact_value property — domain / 131320302123 / 4
+#### `cloudflare.js_insertion_rules.exclude_list.domain.exact_value` property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
-
-Upstream description:
 
 Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
@@ -1467,15 +1282,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2333203101223103-2220000202122133-0303103102111022-3232032232332033-1333222010221230-0030111110020102-0300023210002232-3003323000220121"></a>
 
-<a id="canonical-1321323103301203-1103300133210032-0130233102213133-2312211103330323-2111323223113333-0310202220102122-2213012031232132-1123230313111200"></a>
+<a id="canonical-3300130010100103-1133220113030100-3023012113233123-2113201122203322-1113210220102320-0021210110223112-1102300030020311-0330332213320331"></a>
 
-## regex_value property — domain / 131320302123 / 5
+#### `cloudflare.js_insertion_rules.exclude_list.domain.regex_value` property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
-
-Upstream description:
 
 Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
 
@@ -1518,16 +1329,16 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1310223000000223-3330001200311103-2201232222113322-2310102010222233-1301231303120110-0031232131301132-0332202231232322-2022333333133100"></a>
 
-<a id="canonical-3033101023032220-2131323032101211-3211213132132010-1220100103222230-2023031201011131-2031100023030331-1122321213201200-1203201231131201"></a>
+<a id="canonical-1233123023031131-0101113313221203-1231030103321201-1103020010233223-3211110101001233-2231001123111210-0120032101222203-3233000231023303"></a>
 
-## suffix_value property — domain / 131320302123 / 6
+#### `cloudflare.js_insertion_rules.exclude_list.domain.suffix_value` property
 
 Type: `"string"`. Computed.
 
 Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
-Upstream description:
+Additional upstream details:
 
 Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
@@ -1570,22 +1381,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1020031113200230-2210102203023333-3203220332112011-0203333111303132-0320020123210330-1031121130213303-3102112102121221-1222213312013031"></a>
-
-## Next pages — domain / 131320302123 / 7
-
-- [cloudflare.js_insertion_rules.exclude_list](data-sources--protected_application--reference--group-001.md#canonical-2001333113133333-0320013031030321-1112023330212213-0213333230230002-0311001020210222-2020121302003102-2223232311010133-3100201020232333)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
-
 <a id="canonical-2013111323113301-1132302111011323-3301321132131000-2303302211100322-2323311203333111-3323012100130013-2332110222001211-1110022020022023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1112303230110101-3001010112333303-2011030220323120-2303323323201221-0021210132331212-1333112313321003-0203001032232023-0320201220120002"></a>
-
-## Cloudflare.js_insertion_rules.exclude_list.metadata — metadata / 302133310210 / 2
+## `cloudflare.js_insertion_rules.exclude_list.metadata` properties
 
 Breadcrumbs:
 
@@ -1599,13 +1401,6 @@ Breadcrumbs:
 <a id="canonical-1003023133202221-0220011220231210-1202333023311312-1131321102311030-1222012101232001-1320302213022012-1001013200003301-3223231003113301"></a>
 
 Type: `"single"`. Computed.
-
-MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
-information is propagated to the metadata of a child object that gets created from the containing
-message during view processing. The information in this type can be specified by user during
-create..
-
-Upstream description:
 
 MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
 information is propagated to the metadata of a child object that gets created from the containing
@@ -1625,15 +1420,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1332103230001312-3231102003112110-2303303230203323-2133211003312002-1230220031002213-0230221221323310-2002020102302002-3212301012110330"></a>
+<a id="canonical-1112303230110101-3001010112333303-2011030220323120-2303323323201221-0021210132331212-1333112313321003-0203001032232023-0320201220120002"></a>
 
-## Direct properties — metadata / 302133310210 / 3
+### Direct properties for `cloudflare.js_insertion_rules.exclude_list.metadata`
 
 <a id="canonical-1311002112210132-1110231111100031-2102100001033010-0031132032210131-3101310332002033-0123220300033301-3312023033102020-1033233202120322"></a>
 
-<a id="canonical-0332221123032212-0322012311231103-2331132111022301-1022333323012322-1002023103333313-2031200112133020-3012300321132020-2223132032212220"></a>
-
-## description_spec property — metadata / 302133310210 / 4
+#### `cloudflare.js_insertion_rules.exclude_list.metadata.description_spec` property
 
 Type: `"string"`. Computed.
 
@@ -1641,15 +1434,11 @@ Description. Human readable description.
 
 <a id="canonical-3213110102122312-1201012132221011-0131110102232300-1203323321001033-1302103213233021-0302310301310311-3321213011133000-3212102000130220"></a>
 
-<a id="canonical-3211022023210013-2222132302102010-3102313032333311-2010131122201210-3331000213301221-2112102011001330-0300300201100311-1330233102211302"></a>
+<a id="canonical-1332103230001312-3231102003112110-2303303230203323-2133211003312002-1230220031002213-0230221221323310-2002020102302002-3212301012110330"></a>
 
-## name property — metadata / 302133310210 / 5
+#### `cloudflare.js_insertion_rules.exclude_list.metadata.name` property
 
 Type: `"string"`. Computed.
-
-Name of the message. The value of name has to follow DNS-1035 format.
-
-Upstream description:
 
 This is the name of the message. The value of name has to follow DNS-1035 format.
 
@@ -1702,22 +1491,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1002132122012033-2212302121132203-2003312200010133-0102201232130330-3222321232100101-2010013023201022-2000233011113302-3312023031203201"></a>
-
-## Next pages — metadata / 302133310210 / 6
-
-- [cloudflare.js_insertion_rules.exclude_list](data-sources--protected_application--reference--group-001.md#canonical-2001333113133333-0320013031030321-1112023330212213-0213333230230002-0311001020210222-2020121302003102-2223232311010133-3100201020232333)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
-
 <a id="canonical-2122312210233200-3133121131320021-0031122222221203-3020030122321302-3301003222112333-1103132130230311-3333332301020320-2103010310111110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3230210110201100-2322310003112313-3321330001102322-1333031122033302-2331111100220332-0312012233302232-3033332213212330-3112101231023022"></a>
-
-## Cloudflare.js_insertion_rules.exclude_list.path — path / 021230212123 / 2
+## `cloudflare.js_insertion_rules.exclude_list.path` properties
 
 Breadcrumbs:
 
@@ -1748,21 +1528,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1301202303120210-2102332320033313-3033010011202132-3312010103123120-0003113310332300-0333103032220331-3020113323302023-2132120220323122"></a>
+<a id="canonical-3230210110201100-2322310003112313-3321330001102322-1333031122033302-2331111100220332-0312012233302232-3033332213212330-3112101231023022"></a>
 
-## Direct properties — path / 021230212123 / 3
+### Direct properties for `cloudflare.js_insertion_rules.exclude_list.path`
 
 <a id="canonical-0100220122023033-0010223103130022-1232121011101121-0310033231333213-2003103110233112-0013200100203222-2303203312000032-0002231213203130"></a>
 
-<a id="canonical-0132233012320230-1322103200121200-0000220201201220-2131122032110101-2321133203211123-3023321300322112-0230022002031310-2211021100121011"></a>
-
-## path property — path / 021230212123 / 4
+#### `cloudflare.js_insertion_rules.exclude_list.path.path` property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[prefix regular expression\] Exact path value to match.
-
-Upstream description:
 
 Exclusive with \[prefix regular expression\] Exact path value to match.
 
@@ -1803,15 +1577,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0313102301032213-0120132111300300-1231100131033331-0002311212001111-2312322120013020-0211303203001222-1312220213300233-0100121223110021"></a>
 
-<a id="canonical-2303323232200302-2020132210102132-0301002320121012-2302311101321313-3102101223003102-0310300031000312-0201100330103221-2113113110023300"></a>
+<a id="canonical-1301202303120210-2102332320033313-3033010011202132-3312010103123120-0003113310332300-0333103032220331-3020113323302023-2132120220323122"></a>
 
-## prefix property — path / 021230212123 / 5
+#### `cloudflare.js_insertion_rules.exclude_list.path.prefix` property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
-
-Upstream description:
 
 Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
@@ -1850,19 +1620,14 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1300311323310003-0010113101101132-2303001312220100-3322000323231002-2223232231123001-0030032033301322-0023100302031303-2002331101232322"></a>
 
-<a id="canonical-0132111232131110-2231302131121333-3113302320222312-3330300301021313-2130212112200220-1001033322021112-2230330102022230-0101001031030323"></a>
+<a id="canonical-0132233012320230-1322103200121200-0000220201201220-2131122032110101-2321133203211123-3023321300322112-0230022002031310-2211021100121011"></a>
 
-## regular expression property — path / 021230212123 / 6
+#### `cloudflare.js_insertion_rules.exclude_list.path.regex` property
 
 Type: `"string"`. Computed.
 
 Exclusive with \[path prefix\] Regular expression of path match (e.g. The value .\* will match on
 all paths).
-
-Upstream description:
-
-Exclusive with \[path prefix\] Regular expression of path match (e.g. The value .\* will match on
-all paths)
 
 Receipt-pinned upstream constraints:
 
@@ -1905,22 +1670,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3200111221002031-3121221331102002-3312230122213330-1323301231022231-0023011321011002-2123102103130201-0222022010312201-0121000000033022"></a>
-
-## Next pages — path / 021230212123 / 7
-
-- [cloudflare.js_insertion_rules.exclude_list](data-sources--protected_application--reference--group-001.md#canonical-2001333113133333-0320013031030321-1112023330212213-0213333230230002-0311001020210222-2020121302003102-2223232311010133-3100201020232333)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
-
 <a id="canonical-1100302020232020-1033003010233212-2232230131213103-3313031222210202-0112312323121002-0021221200113311-0221111033100321-0130232033320321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1021222002222001-1203212211100230-2023013231122333-3113022212200211-3013033001010310-3110202331133120-2321003020113311-3022110233321130"></a>
-
-## Cloudflare.js_insertion_rules.rules — rules / 122210130100 / 2
+## `cloudflare.js_insertion_rules.rules` properties
 
 Breadcrumbs:
 
@@ -1976,9 +1732,9 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2312302102332132-0211221120123101-3331130112313113-1313211002233121-1231023102310211-3011313302100110-1123311103200220-0302031322300222"></a>
+<a id="canonical-1021222002222001-1203212211100230-2023013231122333-3113022212200211-3013033001010310-3110202331133120-2321003020113311-3022110233321130"></a>
 
-## Direct properties — rules / 122210130100 / 3
+### Direct properties for `cloudflare.js_insertion_rules.rules`
 
 - [any_domain](data-sources--protected_application--reference--group-001.md#canonical-3000120220231021-3203313003010010-0010001122320210-1310111102301303-1122213020332310-0211200230221100-0330003331001223-3131030012103330): complete subsection reference.
 
@@ -1986,15 +1742,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2223310001121233-2012221213002202-0302000021201111-2203023132232010-0020012331131033-3223211310222023-3330131320213022-2130121123332231"></a>
 
-<a id="canonical-2001313102333230-1223022101212000-1030301200222303-1331332023233121-0203100010010130-3033311003233303-3010100033213310-0003300222003333"></a>
+<a id="canonical-2312302102332132-0211221120123101-3331130112313113-1313211002233121-1231023102310211-3011313302100110-1123311103200220-0302031322300222"></a>
 
-## exact_path property — rules / 122210130100 / 4
+#### `cloudflare.js_insertion_rules.rules.exact_path` property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[glob prefix\] Exact path value to match.
-
-Upstream description:
 
 Exclusive with \[glob prefix\] Exact path value to match.
 
@@ -2033,20 +1785,14 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1013211320002131-3022210331330311-2210201011203032-0121021102331011-2021230332322103-0001021013230111-1212313310310232-0023111013301311"></a>
 
-<a id="canonical-3111311303001001-1023130033323031-0222321333232230-2132201333200221-2231131211101100-2331012233022022-1213223231310200-0322223300021333"></a>
+<a id="canonical-2001313102333230-1223022101212000-1030301200222303-1331332023233121-0203100010010130-3033311003233303-3010100033213310-0003300222003333"></a>
 
-## glob property — rules / 122210130100 / 5
+#### `cloudflare.js_insertion_rules.rules.glob` property
 
 Type: `"string"`. Computed.
 
 Exclusive with \[exact\_path prefix\] Accepts wildcards \* to match multiple characters or ? To
 match a single character.
-
-Upstream description:
-
-Exclusive with \[exact\_path prefix\]
-
-Accepts wildcards \* to match multiple characters or ? To match a single character.
 
 Receipt-pinned upstream constraints:
 
@@ -2094,15 +1840,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3123010210031302-3313331033313013-2122222112100033-2320213211122331-2001011003033020-2100102120133322-2232010232111002-2101202121013102"></a>
 
-<a id="canonical-3002111333002122-2330220012310010-0322303022030220-1323001110213112-3331331323212222-0030221332130320-2223303011323020-1012132211203201"></a>
+<a id="canonical-3111311303001001-1023130033323031-0222321333232230-2132201333200221-2231131211101100-2331012233022022-1213223231310200-0322223300021333"></a>
 
-## prefix property — rules / 122210130100 / 6
+#### `cloudflare.js_insertion_rules.rules.prefix` property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[exact\_path glob\] Path prefix to match (e.g. The value / will match on all paths)
-
-Upstream description:
 
 Exclusive with \[exact\_path glob\] Path prefix to match (e.g. The value / will match on all paths)
 
@@ -2139,25 +1881,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3201220020113303-3121002311131130-1033002322120303-2221302331120310-2312331101220300-2031011002002331-1133113000222023-0332010221020032"></a>
-
-## Next pages — rules / 122210130100 / 7
-
-- [cloudflare.js_insertion_rules.rules.any_domain](data-sources--protected_application--reference--group-001.md#canonical-3000120220231021-3203313003010010-0010001122320210-1310111102301303-1122213020332310-0211200230221100-0330003331001223-3131030012103330)
-- [cloudflare.js_insertion_rules.rules.domain](data-sources--protected_application--reference--group-001.md#canonical-1332112120332003-3233312030032232-0131121203222333-3312020123010303-2130233130103031-3020331232131002-3313123113210003-0010200131013010)
-- [cloudflare.js_insertion_rules.rules.metadata](data-sources--protected_application--reference--group-001.md#canonical-2231320222323321-1022223122333132-3002331131121100-3001201320322221-3100002320102333-2321322012102121-3331100012212121-3331123012120301)
-- [cloudflare.js_insertion_rules](data-sources--protected_application--reference--group-001.md#canonical-1231311222220033-0111003303023300-1233020100031131-2212023302233222-3023233331031212-1332321201301030-1122123222031303-2312333321323312)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
-
 <a id="canonical-3000120220231021-3203313003010010-0010001122320210-1310111102301303-1122213020332310-0211200230221100-0330003331001223-3131030012103330"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1011020023022221-3102133020323213-1003133020100223-3302032131030212-1202021232213022-2110122031202123-2110031232111230-1011133010010231"></a>
-
-## Cloudflare.js_insertion_rules.rules.any_domain — any_domain / 312012213113 / 2
+## `cloudflare.js_insertion_rules.rules.any_domain` properties
 
 Breadcrumbs:
 
@@ -2174,7 +1904,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -2191,18 +1921,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3332112300303210-0002323122101103-2330320310331323-3211112321332021-0133121332000122-3210323201230312-2322023102110011-3130312201313013"></a>
-
-## Direct properties — any_domain / 312012213113 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1032311022120320-1130123021232031-0302330030201221-2013030123232330-1122000303001221-3312203023133111-1310310310301003-3333212122321001"></a>
-
-## Next pages — any_domain / 312012213113 / 4
-
-- [cloudflare.js_insertion_rules.rules](data-sources--protected_application--reference--group-001.md#canonical-1100302020232020-1033003010233212-2232230131213103-3313031222210202-0112312323121002-0021221200113311-0221111033100321-0130232033320321)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
 <a id="canonical-1332112120332003-3233312030032232-0131121203222333-3312020123010303-2130233130103031-3020331232131002-3313123113210003-0010200131013010"></a>
 
@@ -2210,9 +1929,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3222332221223310-2102313222100221-1011220312101000-1111233100201022-3230103013331300-0010231210002303-2132101203213012-1202323300012130"></a>
-
-## Cloudflare.js_insertion_rules.rules.domain — domain / 102132333001 / 2
+## `cloudflare.js_insertion_rules.rules.domain` properties
 
 Breadcrumbs:
 
@@ -2229,7 +1946,7 @@ Type: `"single"`. Computed.
 
 Domain name for routing and identification.
 
-Upstream description:
+Additional upstream details:
 
 Domains names.
 
@@ -2247,21 +1964,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1211112102011201-2003000332101011-0203121202333321-3222312100001322-3021110300210210-2330001231303000-3312312001220331-0321131202201210"></a>
+<a id="canonical-3222332221223310-2102313222100221-1011220312101000-1111233100201022-3230103013331300-0010231210002303-2132101203213012-1202323300012130"></a>
 
-## Direct properties — domain / 102132333001 / 3
+### Direct properties for `cloudflare.js_insertion_rules.rules.domain`
 
 <a id="canonical-2020221223131012-2131033123232102-3230223232033302-3310321013100203-2302202221312310-0201333022110210-3332000012110130-3120201010300301"></a>
 
-<a id="canonical-1331310222232123-1130220231011330-0102332020112103-3320303113132311-1203000303320031-0323322211032322-2013300111103220-1120323122001013"></a>
-
-## exact_value property — domain / 102132333001 / 4
+#### `cloudflare.js_insertion_rules.rules.domain.exact_value` property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
-
-Upstream description:
 
 Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
@@ -2305,15 +2016,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2011002330003321-3031033001111333-2100301023331330-2322032121301120-0200013200112131-0313010230223102-0030032321202002-0220201120122100"></a>
 
-<a id="canonical-2003111202111330-0001110032120321-0223320302223211-1032212111311002-0021032110013011-3232212102303310-2110110201123222-1030100020010101"></a>
+<a id="canonical-1211112102011201-2003000332101011-0203121202333321-3222312100001322-3021110300210210-2330001231303000-3312312001220331-0321131202201210"></a>
 
-## regex_value property — domain / 102132333001 / 5
+#### `cloudflare.js_insertion_rules.rules.domain.regex_value` property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
-
-Upstream description:
 
 Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
 
@@ -2356,16 +2063,16 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2313212302023333-3322000231031333-3111003322131103-2332131131033110-0131120133213031-1210211102310200-2032002123013103-0332033102012001"></a>
 
-<a id="canonical-2230022311222212-3302313112201021-2033320100233220-2221322020331303-2113010312101113-2331331230033131-0131132332201022-3213001202111002"></a>
+<a id="canonical-1331310222232123-1130220231011330-0102332020112103-3320303113132311-1203000303320031-0323322211032322-2013300111103220-1120323122001013"></a>
 
-## suffix_value property — domain / 102132333001 / 6
+#### `cloudflare.js_insertion_rules.rules.domain.suffix_value` property
 
 Type: `"string"`. Computed.
 
 Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
-Upstream description:
+Additional upstream details:
 
 Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
@@ -2408,22 +2115,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3330133302002332-0212021100031032-3013110313022231-2231021321010021-2123323210332100-1321021210021303-1200231211312032-3022322311011000"></a>
-
-## Next pages — domain / 102132333001 / 7
-
-- [cloudflare.js_insertion_rules.rules](data-sources--protected_application--reference--group-001.md#canonical-1100302020232020-1033003010233212-2232230131213103-3313031222210202-0112312323121002-0021221200113311-0221111033100321-0130232033320321)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
-
 <a id="canonical-2231320222323321-1022223122333132-3002331131121100-3001201320322221-3100002320102333-2321322012102121-3331100012212121-3331123012120301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0322100231003032-2113123232301222-1231201330111302-2232020311211321-1311202332233102-2220231110112001-0312211310010330-0132320032203122"></a>
-
-## Cloudflare.js_insertion_rules.rules.metadata — metadata / 310131032203 / 2
+## `cloudflare.js_insertion_rules.rules.metadata` properties
 
 Breadcrumbs:
 
@@ -2437,13 +2135,6 @@ Breadcrumbs:
 <a id="canonical-1231322113013122-1221103321130330-1003223213221302-3002103232310111-3111232331311123-2120210121021210-3131212120100300-0201301320033120"></a>
 
 Type: `"single"`. Computed.
-
-MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
-information is propagated to the metadata of a child object that gets created from the containing
-message during view processing. The information in this type can be specified by user during
-create..
-
-Upstream description:
 
 MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
 information is propagated to the metadata of a child object that gets created from the containing
@@ -2463,15 +2154,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2102233100213103-1002231130102103-1031213303131200-3333303130213013-0003022111313211-0020302320303001-3013200103012003-3130211201203231"></a>
+<a id="canonical-0322100231003032-2113123232301222-1231201330111302-2232020311211321-1311202332233102-2220231110112001-0312211310010330-0132320032203122"></a>
 
-## Direct properties — metadata / 310131032203 / 3
+### Direct properties for `cloudflare.js_insertion_rules.rules.metadata`
 
 <a id="canonical-1232201330233211-0122102010311001-0111122021231333-1101133020302002-1303023230321223-1300030333210003-3120130023221113-3000200101131322"></a>
 
-<a id="canonical-1313330011201303-0033113102133010-3332210232330200-3011211133313320-2002312022303033-3200031032231322-0010321122010020-0303233122103201"></a>
-
-## description_spec property — metadata / 310131032203 / 4
+#### `cloudflare.js_insertion_rules.rules.metadata.description_spec` property
 
 Type: `"string"`. Computed.
 
@@ -2479,15 +2168,11 @@ Description. Human readable description.
 
 <a id="canonical-1230322312130000-3122000310211211-3312022332111110-0230031221330303-2321121221111031-2223121133303021-0132133313100103-3232121011131231"></a>
 
-<a id="canonical-3222002233303200-3111110201000113-3220303222012210-0303120312123120-3333222113101301-3113133321101022-0221203102223100-2131233303121233"></a>
+<a id="canonical-2102233100213103-1002231130102103-1031213303131200-3333303130213013-0003022111313211-0020302320303001-3013200103012003-3130211201203231"></a>
 
-## name property — metadata / 310131032203 / 5
+#### `cloudflare.js_insertion_rules.rules.metadata.name` property
 
 Type: `"string"`. Computed.
-
-Name of the message. The value of name has to follow DNS-1035 format.
-
-Upstream description:
 
 This is the name of the message. The value of name has to follow DNS-1035 format.
 
@@ -2540,22 +2225,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1032020131331002-3000302100012121-2101032203033321-3121230021231010-3022331310100303-3101120301023301-1022233233222013-3003113213313131"></a>
-
-## Next pages — metadata / 310131032203 / 6
-
-- [cloudflare.js_insertion_rules.rules](data-sources--protected_application--reference--group-001.md#canonical-1100302020232020-1033003010233212-2232230131213103-3313031222210202-0112312323121002-0021221200113311-0221111033100321-0130232033320321)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
-
 <a id="canonical-0113203221313211-3112313212212333-2320310302212230-2213100321323013-1030120213323013-0302103123230023-2123012113202120-3302231101113232"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2013110332323122-1213212212233330-2311310323303231-1301131321033031-1310303021013001-1303031220312023-2120232322101331-0110103102123203"></a>
-
-## Cloudflare.manual_js_insert — manual_js_insert / 220002111323 / 2
+## `cloudflare.manual_js_insert` properties
 
 Breadcrumbs:
 
@@ -2570,10 +2246,6 @@ Type: `"single"`. Computed.
 
 Insert JavaScript Manually. Insert JavaScript manually.
 
-Upstream description:
-
-Insert JavaScript manually.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2587,27 +2259,18 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2203303032030022-1113313121013230-1121302020010211-2313220312121203-3301111231310231-2321110231131231-0001232100330001-3210210202211031"></a>
+<a id="canonical-2013110332323122-1213212212233330-2311310323303231-1301131321033031-1310303021013001-1303031220312023-2120232322101331-0110103102123203"></a>
 
-## Direct properties — manual_js_insert / 220002111323 / 3
+### Direct properties for `cloudflare.manual_js_insert`
 
 <a id="canonical-3233311301103321-1310323121001010-2011230033213021-3010101003311232-1320122212032103-0212201332103000-1321002302222020-2223130123311331"></a>
 
-<a id="canonical-0012302133102300-2312110320030023-1300102132201110-2213002313112133-0233211011131202-1313110302032222-0112311033301033-3110301100000033"></a>
-
-## js_download_path property — manual_js_insert / 220002111323 / 4
+#### `cloudflare.manual_js_insert.js_download_path` property
 
 Type: `"string"`. Computed.
 
 Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any
 other website/application paths. If not specified, default to ‘/CommonJS’.
-
-Upstream description:
-
-Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any
-other website/application paths.
-
-If not specified, default to ‘/CommonJS’.
 
 Receipt-pinned upstream constraints:
 
@@ -2638,22 +2301,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3331321113110111-0210211231202030-2331311132230202-0131210331232323-0221130232300233-3031132122211202-2133023033311322-1011332100023113"></a>
-
-## Next pages — manual_js_insert / 220002111323 / 5
-
-- [Cloudflare](data-sources--protected_application--reference--group-001.md#canonical-2103030102303220-3032000233032113-1311312033011021-0203031102122023-0312101000122132-2100301000121311-2223211222233310-0201001111112331)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
-
 <a id="canonical-1012330233031112-2222321301033031-3302233131022100-2332032300003202-2320003111223303-0031323032112130-2020330111011333-2103332111101231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1201012000002321-0233102221113322-3003210113113133-0323320130032121-1332213213020110-0332103021322321-2211230231322132-0333230321032020"></a>
-
-## Cloudflare.mobile_sdk_config — mobile_sdk_config / 113113112320 / 2
+## `cloudflare.mobile_sdk_config` properties
 
 Breadcrumbs:
 
@@ -2668,10 +2322,6 @@ Type: `"single"`. Computed.
 
 Mobile SDK Configuration. Mobile SDK configuration.
 
-Upstream description:
-
-Mobile SDK configuration.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2685,19 +2335,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1010103301313311-0303030212003312-0330320133231213-3132022013010130-1001110001122203-1032223111321001-0312001230221222-0311030322233102"></a>
+<a id="canonical-1201012000002321-0233102221113322-3003210113113133-0323320130032121-1332213213020110-0332103021322321-2211230231322132-0333230321032020"></a>
 
-## Direct properties — mobile_sdk_config / 113113112320 / 3
+### Direct properties for `cloudflare.mobile_sdk_config`
 
 - [mobile_identifier](data-sources--protected_application--reference--group-001.md#canonical-2221122320202302-0022131332112213-3111230031112001-2033031013133132-2021023300122320-1310310323331002-3021330103100310-0102013130221221): complete subsection reference.
-
-<a id="canonical-2120212303303030-1030023233002003-1303210231230001-1122210112333020-2030011011021131-3321011013203330-0003222312003011-0010112120210121"></a>
-
-## Next pages — mobile_sdk_config / 113113112320 / 4
-
-- [cloudflare.mobile_sdk_config.mobile_identifier](data-sources--protected_application--reference--group-001.md#canonical-2221122320202302-0022131332112213-3111230031112001-2033031013133132-2021023300122320-1310310323331002-3021330103100310-0102013130221221)
-- [Cloudflare](data-sources--protected_application--reference--group-001.md#canonical-2103030102303220-3032000233032113-1311312033011021-0203031102122023-0312101000122132-2100301000121311-2223211222233310-0201001111112331)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
 <a id="canonical-2221122320202302-0022131332112213-3111230031112001-2033031013133132-2021023300122320-1310310323331002-3021330103100310-0102013130221221"></a>
 
@@ -2705,9 +2347,7 @@ Receipt-pinned upstream constraints:
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2101122111222031-1201221102133221-2132132032031233-0333103303111211-0103203013132112-0010300010030100-1120100233123333-0210313202131220"></a>
-
-## Cloudflare.mobile_sdk_config.mobile_identifier — mobile_identifier / 010233232313 / 2
+## `cloudflare.mobile_sdk_config.mobile_identifier` properties
 
 Breadcrumbs:
 
@@ -2723,10 +2363,6 @@ Type: `"single"`. Computed.
 
 Mobile Traffic Identifier. Mobile traffic identifier type.
 
-Upstream description:
-
-Mobile traffic identifier type.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2740,19 +2376,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2132332200203100-2220233112112111-2203101123033023-3123202322203330-3103001132301000-0123323021201032-3111031110010321-3002332101323002"></a>
+<a id="canonical-2101122111222031-1201221102133221-2132132032031233-0333103303111211-0103203013132112-0010300010030100-1120100233123333-0210313202131220"></a>
 
-## Direct properties — mobile_identifier / 010233232313 / 3
+### Direct properties for `cloudflare.mobile_sdk_config.mobile_identifier`
 
 - [headers](data-sources--protected_application--reference--group-001.md#canonical-3332133303310002-0322121020113212-3120112003121132-2222220121133133-3131120322130313-2030333212100110-2000002213022121-1220101202122220): complete subsection reference.
-
-<a id="canonical-0102313202120210-3320223023023203-3300003212213122-1332022321222321-1321213132110102-1013201120113331-1202130132300310-3211330301230030"></a>
-
-## Next pages — mobile_identifier / 010233232313 / 4
-
-- [cloudflare.mobile_sdk_config.mobile_identifier.headers](data-sources--protected_application--reference--group-001.md#canonical-3332133303310002-0322121020113212-3120112003121132-2222220121133133-3131120322130313-2030333212100110-2000002213022121-1220101202122220)
-- [cloudflare.mobile_sdk_config](data-sources--protected_application--reference--group-001.md#canonical-1012330233031112-2222321301033031-3302233131022100-2332032300003202-2320003111223303-0031323032112130-2020330111011333-2103332111101231)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
 <a id="canonical-3332133303310002-0322121020113212-3120112003121132-2222220121133133-3131120322130313-2030333212100110-2000002213022121-1220101202122220"></a>
 
@@ -2760,9 +2388,7 @@ Receipt-pinned upstream constraints:
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1312003010022010-2321103223201223-2223231111121223-2112301210223022-0312330311231131-1322313302221310-2002213013110100-3300131130121320"></a>
-
-## Cloudflare.mobile_sdk_config.mobile_identifier.headers — headers / 212111103330 / 2
+## `cloudflare.mobile_sdk_config.mobile_identifier.headers` properties
 
 Breadcrumbs:
 
@@ -2776,10 +2402,6 @@ Breadcrumbs:
 <a id="canonical-1203330130313101-3012123102323230-3133223322013232-2021310000333211-0203200233202033-0121312111332313-2012101200020001-0322203010013033"></a>
 
 Type: `"list"`. Computed.
-
-List of headers that can be used to identify mobile traffic.
-
-Upstream description:
 
 A list of headers that can be used to identify mobile traffic.
 
@@ -2816,21 +2438,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0112030110101033-0333323232133313-3200220310231133-2200230312233323-2013122201232032-1302221321002322-0200133322301003-3033323333120122"></a>
+<a id="canonical-1312003010022010-2321103223201223-2223231111121223-2112301210223022-0312330311231131-1322313302221310-2002213013110100-3300131130121320"></a>
 
-## Direct properties — headers / 212111103330 / 3
+### Direct properties for `cloudflare.mobile_sdk_config.mobile_identifier.headers`
 
 <a id="canonical-1000032003130210-3013031231031133-3131113020220301-1030103222011102-2212310300023130-0012013231211002-1210332310200012-1022103332320312"></a>
 
-<a id="canonical-1012322331120212-1023010131132221-2001033131212021-2332131000001113-1133321010101010-3301320312311002-3030200311213231-0112030200003103"></a>
-
-## exact property — headers / 212111103330 / 4
+#### `cloudflare.mobile_sdk_config.mobile_identifier.headers.exact` property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[regular expression\] Header value to match exactly.
-
-Upstream description:
 
 Exclusive with \[regular expression\] Header value to match exactly.
 
@@ -2872,17 +2488,13 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0220002132031232-0022233220202113-2201301310010020-1312311233022323-2032000222322101-2312020300103320-3202013233032211-1310023032100232"></a>
 
-<a id="canonical-2212213132302133-1020230122222011-1132212300121131-2020223203331222-3203023133003010-2101001210132011-0011123331013200-3123011222233300"></a>
+<a id="canonical-0112030110101033-0333323232133313-3200220310231133-2200230312233323-2013122201232032-1302221321002322-0200133322301003-3033323333120122"></a>
 
-## name property — headers / 212111103330 / 5
+#### `cloudflare.mobile_sdk_config.mobile_identifier.headers.name` property
 
 Type: `"string"`. Computed.
 
 Name. Name of the header.
-
-Upstream description:
-
-Name of the header.
 
 Receipt-pinned upstream constraints:
 
@@ -2942,15 +2554,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0201113000303101-2311121022222213-0311120101300232-2032110212213212-3032301022032312-2120212132000333-3111030302103321-1212232031122303"></a>
 
-<a id="canonical-2310121301010103-3021100223003200-1101333321320210-3320201332000021-1130113111303033-1221022121001023-2211323000301303-2332113032022313"></a>
+<a id="canonical-1012322331120212-1023010131132221-2001033131212021-2332131000001113-1133321010101010-3301320312311002-3030200311213231-0112030200003103"></a>
 
-## regular expression property — headers / 212111103330 / 6
+#### `cloudflare.mobile_sdk_config.mobile_identifier.headers.regex` property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[exact\] regular expression match of the header value in re2 format.
-
-Upstream description:
 
 Exclusive with \[exact\] regular expression match of the header value in re2 format.
 
@@ -2993,22 +2601,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3030022110330223-1303132131333023-0011002020301233-3233211330332131-3123311011210100-2232322322023011-3202231031233133-2330103002130313"></a>
-
-## Next pages — headers / 212111103330 / 7
-
-- [cloudflare.mobile_sdk_config.mobile_identifier](data-sources--protected_application--reference--group-001.md#canonical-2221122320202302-0022131332112213-3111230031112001-2033031013133132-2021023300122320-1310310323331002-3021330103100310-0102013130221221)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
-
 <a id="canonical-1030220202111001-1103110111301100-1322102231233131-0123103313030303-2233000102020131-3103322313321020-0122132330233112-1300111122001122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0232301233300330-2120210232213320-0310232023222103-0030013201203003-2023101033111333-2320212211022201-3112210320222132-0010333300102322"></a>
-
-## Cloudflare.protected_endpoints — protected_endpoints / 032211001110 / 2
+## `cloudflare.protected_endpoints` properties
 
 Breadcrumbs:
 
@@ -3022,10 +2621,6 @@ Breadcrumbs:
 Type: `"list"`. Computed.
 
 List of protected endpoints (max 128 items).
-
-Upstream description:
-
-List of protected endpoints (max 128 items)
 
 Receipt-pinned upstream constraints:
 
@@ -3067,9 +2662,9 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0212300121233330-0322000121020211-1000201312202123-3023012212322033-0322222331303231-2020033003100131-2331012212201120-1002200221121212"></a>
+<a id="canonical-0232301233300330-2120210232213320-0310232023222103-0030013201203003-2023101033111333-2320212211022201-3112210320222132-0010333300102322"></a>
 
-## Direct properties — protected_endpoints / 032211001110 / 3
+### Direct properties for `cloudflare.protected_endpoints`
 
 - [any_domain](data-sources--protected_application--reference--group-001.md#canonical-2000001131223120-0013112331203310-2110320202001101-0212131123213002-1012213233001130-3012220233001032-2030222303230110-2233132012021331): complete subsection reference.
 
@@ -3077,9 +2672,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1300001221100003-3322211312030311-2220311233330010-1200011012013221-0113230030113232-1222312033313101-3301232011033223-0011123313022120"></a>
 
-<a id="canonical-2232001132331020-3231320231101331-2110023112301322-0030302112131103-3303331310331021-2031013330210002-3210312301102110-1310303321311311"></a>
+<a id="canonical-0212300121233330-0322000121020211-1000201312202123-3023012212322033-0322222331303231-2020033003100131-2331012212201120-1002200221121212"></a>
 
-## http_methods property — protected_endpoints / 032211001110 / 4
+#### `cloudflare.protected_endpoints.http_methods` property
 
 Type: `["list", "string"]`. Computed.
 
@@ -3088,10 +2683,6 @@ METHOD\_ANY|METHOD\_GET|METHOD\_POST|METHOD\_PUT|METHOD\_PATCH|METHOD\_DELETE|ME
 HTTP Methods. List of HTTP methods. Possible values are \`METHOD\_ANY\`, \`METHOD\_GET\`,
 \`METHOD\_POST\`, \`METHOD\_PUT\`, \`METHOD\_PATCH\`, \`METHOD\_DELETE\`, \`METHOD\_GET\_DOCUMENT\`.
 Defaults to \`METHOD\_ANY\`.
-
-Upstream description:
-
-List of HTTP methods.
 
 Receipt-pinned upstream constraints:
 
@@ -3137,17 +2728,17 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [metadata](data-sources--protected_application--reference--group-002.md#canonical-2131322001210311-0202030113003201-2222112121200211-3230202002032221-0023301332002232-1133303113201130-0113011221002032-3030101301131033): complete subsection reference.
+- [metadata](data-sources--protected_application--reference--group-001.md#canonical-2131322001210311-0202030113003201-2222112121200211-3230202002032221-0023301332002232-1133303113201130-0113011221002032-3030101301131033): complete subsection reference.
 
-- [mobile_client](data-sources--protected_application--reference--group-002.md#canonical-2030023030101010-1310113333033102-1013023003332100-3233211203312330-0033001100311212-2030010200302302-1023220213200122-0223130313132223): complete subsection reference.
+- [mobile_client](data-sources--protected_application--reference--group-001.md#canonical-2030023030101010-1310113333033102-1013023003332100-3233211203312330-0033001100311212-2030010200302302-1023220213200122-0223130313132223): complete subsection reference.
 
-- [path](data-sources--protected_application--reference--group-002.md#canonical-3232201300123231-0223201311223113-1102002220010310-1220002021030023-0202033222102033-0032122023100220-2313102223310321-3310323301001221): complete subsection reference.
+- [path](data-sources--protected_application--reference--group-001.md#canonical-3232201300123231-0223201311223113-1102002220010310-1220002021030023-0202033222102033-0032122023100220-2313102223310321-3310323301001221): complete subsection reference.
 
 <a id="canonical-0001132201102300-1200112033001221-3000020233021113-0332220233202032-2000330103330031-0212020121031130-2010323102322323-3203012301101131"></a>
 
-<a id="canonical-0323110003121030-2223022113232022-0003033001231133-1301112012000000-3023120111013222-1301013001220200-3130211323313233-0123200233310223"></a>
+<a id="canonical-2232001132331020-3231320231101331-2110023112301322-0030302112131103-3303331310331021-2031013330210002-3210312301102110-1310303321311311"></a>
 
-## query property — protected_endpoints / 032211001110 / 5
+#### `cloudflare.protected_endpoints.query` property
 
 Type: `"string"`. Computed.
 
@@ -3190,23 +2781,9 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [web_client](data-sources--protected_application--reference--group-002.md#canonical-3230221231323110-2000013213332023-3011112223321020-1023203303123102-3000330332112310-3132023301231112-0121133032331033-1331200011200311): complete subsection reference.
+- [web_client](data-sources--protected_application--reference--group-001.md#canonical-3230221231323110-2000013213332023-3011112223321020-1023203303123102-3000330332112310-3132023301231112-0121133032331033-1331200011200311): complete subsection reference.
 
 - [web_mobile_client](data-sources--protected_application--reference--group-002.md#canonical-2200323013101112-0010032321332011-2012100323232032-2200330010131301-2312033323311132-1010333032003110-0321301301131112-0212220022020100): complete subsection reference.
-
-<a id="canonical-2011312111113303-1033131032003320-0320210111222122-1122301303232200-2102331222131123-2102133031223221-3232333332302211-2103221000022133"></a>
-
-## Next pages — protected_endpoints / 032211001110 / 6
-
-- [cloudflare.protected_endpoints.any_domain](data-sources--protected_application--reference--group-001.md#canonical-2000001131223120-0013112331203310-2110320202001101-0212131123213002-1012213233001130-3012220233001032-2030222303230110-2233132012021331)
-- [cloudflare.protected_endpoints.domain](data-sources--protected_application--reference--group-001.md#canonical-0033332310100122-0322200200230013-2030323113223301-0021302301302103-3020223102303100-2213213210232323-0212111121130312-2123020012012311)
-- [cloudflare.protected_endpoints.metadata](data-sources--protected_application--reference--group-002.md#canonical-2131322001210311-0202030113003201-2222112121200211-3230202002032221-0023301332002232-1133303113201130-0113011221002032-3030101301131033)
-- [cloudflare.protected_endpoints.mobile_client](data-sources--protected_application--reference--group-002.md#canonical-2030023030101010-1310113333033102-1013023003332100-3233211203312330-0033001100311212-2030010200302302-1023220213200122-0223130313132223)
-- [cloudflare.protected_endpoints.path](data-sources--protected_application--reference--group-002.md#canonical-3232201300123231-0223201311223113-1102002220010310-1220002021030023-0202033222102033-0032122023100220-2313102223310321-3310323301001221)
-- [cloudflare.protected_endpoints.web_client](data-sources--protected_application--reference--group-002.md#canonical-3230221231323110-2000013213332023-3011112223321020-1023203303123102-3000330332112310-3132023301231112-0121133032331033-1331200011200311)
-- [cloudflare.protected_endpoints.web_mobile_client](data-sources--protected_application--reference--group-002.md#canonical-2200323013101112-0010032321332011-2012100323232032-2200330010131301-2312033323311132-1010333032003110-0321301301131112-0212220022020100)
-- [Cloudflare](data-sources--protected_application--reference--group-001.md#canonical-2103030102303220-3032000233032113-1311312033011021-0203031102122023-0312101000122132-2100301000121311-2223211222233310-0201001111112331)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
 <a id="canonical-2000001131223120-0013112331203310-2110320202001101-0212131123213002-1012213233001130-3012220233001032-2030222303230110-2233132012021331"></a>
 
@@ -3214,9 +2791,7 @@ Receipt-pinned upstream constraints:
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2300232001320012-3323121321333122-1302120003302012-1221300221020013-3201020120313303-2010023111220112-1200100323120132-3231323121032122"></a>
-
-## Cloudflare.protected_endpoints.any_domain — any_domain / 312020110323 / 2
+## `cloudflare.protected_endpoints.any_domain` properties
 
 Breadcrumbs:
 
@@ -3232,7 +2807,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -3249,18 +2824,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3132103003103231-1010221112003113-1101203031233133-3230103330011333-3320021010302311-0032220023221202-3332101231132110-2202020332110011"></a>
-
-## Direct properties — any_domain / 312020110323 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1103202220103010-1103301003312123-0213213212130231-2020101302213021-0002111222222012-1230312313201311-0210001002132030-2233112331232120"></a>
-
-## Next pages — any_domain / 312020110323 / 4
-
-- [cloudflare.protected_endpoints](data-sources--protected_application--reference--group-001.md#canonical-1030220202111001-1103110111301100-1322102231233131-0123103313030303-2233000102020131-3103322313321020-0122132330233112-1300111122001122)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
 
 <a id="canonical-0033332310100122-0322200200230013-2030323113223301-0021302301302103-3020223102303100-2213213210232323-0212111121130312-2123020012012311"></a>
 
@@ -3268,9 +2832,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3212123100221220-3302202321011033-2133001011322230-3002213123202221-2303023112233123-2123100032203130-2123302230233020-3113333100320220"></a>
-
-## Cloudflare.protected_endpoints.domain — domain / 022120233313 / 2
+## `cloudflare.protected_endpoints.domain` properties
 
 Breadcrumbs:
 
@@ -3286,7 +2848,7 @@ Type: `"single"`. Computed.
 
 Domain name for routing and identification.
 
-Upstream description:
+Additional upstream details:
 
 Domains names.
 
@@ -3304,21 +2866,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3130112323301201-0300123032031321-3330320323213301-0301211232100202-0103100032002321-0332021312100220-2221133302223213-3002231131033123"></a>
+<a id="canonical-3212123100221220-3302202321011033-2133001011322230-3002213123202221-2303023112233123-2123100032203130-2123302230233020-3113333100320220"></a>
 
-## Direct properties — domain / 022120233313 / 3
+### Direct properties for `cloudflare.protected_endpoints.domain`
 
 <a id="canonical-2011011323331210-0032113323110030-1110332222020011-0330032201211310-2111111033103001-1232232303112120-3001200022311230-1200122110212132"></a>
 
-<a id="canonical-1012313300003331-2333111202322201-3101303110133230-2002102203033121-1102310003131332-3223100120122103-3030003121312200-2223302221131103"></a>
-
-## exact_value property — domain / 022120233313 / 4
+#### `cloudflare.protected_endpoints.domain.exact_value` property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
-
-Upstream description:
 
 Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
@@ -3362,15 +2918,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2112333002330001-0233013001223330-3013331113012032-2122322013312031-0321131021311032-0203123321233230-3310330231231202-3222300010312221"></a>
 
-<a id="canonical-0001312003321230-2202310222211122-1001012121332012-1001210323130231-2031121202332231-2011100032100132-0010322023211321-2230132100101003"></a>
+<a id="canonical-3130112323301201-0300123032031321-3330320323213301-0301211232100202-0103100032002321-0332021312100220-2221133302223213-3002231131033123"></a>
 
-## regex_value property — domain / 022120233313 / 5
+#### `cloudflare.protected_endpoints.domain.regex_value` property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
-
-Upstream description:
 
 Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
 
@@ -3413,16 +2965,16 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0033133302321322-3133320021003021-3012132123202123-0003100120300010-1110021121121323-0203033103013113-0232001221113231-0210103132120000"></a>
 
-<a id="canonical-3232102203223132-2010003233003212-3323001032200111-0332333230202123-3212131031011000-3010111120121013-3131131020223301-3213002023311102"></a>
+<a id="canonical-1012313300003331-2333111202322201-3101303110133230-2002102203033121-1102310003131332-3223100120122103-3030003121312200-2223302221131103"></a>
 
-## suffix_value property — domain / 022120233313 / 6
+#### `cloudflare.protected_endpoints.domain.suffix_value` property
 
 Type: `"string"`. Computed.
 
 Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
-Upstream description:
+Additional upstream details:
 
 Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
@@ -3461,6 +3013,936 @@ Receipt-pinned upstream constraints:
     "ves.io.schema.rules.string.hostname": "true",
     "ves.io.schema.rules.string.max_len": "256",
     "ves.io.schema.rules.string.min_len": "1"
+  }
+}
+```
+
+<a id="canonical-2131322001210311-0202030113003201-2222112121200211-3230202002032221-0023301332002232-1133303113201130-0113011221002032-3030101301131033"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `cloudflare.protected_endpoints.metadata` properties
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [Cloudflare](data-sources--protected_application--reference--group-001.md#canonical-2103030102303220-3032000233032113-1311312033011021-0203031102122023-0312101000122132-2100301000121311-2223211222233310-0201001111112331)
+- [cloudflare.protected_endpoints](data-sources--protected_application--reference--group-001.md#canonical-1030220202111001-1103110111301100-1322102231233131-0123103313030303-2233000102020131-3103322313321020-0122132330233112-1300111122001122)
+- Cloudflare.protected_endpoints.metadata
+
+<a id="canonical-3221022120313012-1303120330313233-0020321102321130-0111022310321011-2323201323110120-1012031131222321-3200101033123013-2031130333101212"></a>
+
+Type: `"single"`. Computed.
+
+MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
+information is propagated to the metadata of a child object that gets created from the containing
+message during view processing. The information in this type can be specified by user during create
+and replace APIs.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0201031313232311-3220121303010230-2211133102231031-0222312301021132-0332220331002203-2103122101232200-3100332121110222-3220123332121131"></a>
+
+### Direct properties for `cloudflare.protected_endpoints.metadata`
+
+<a id="canonical-0232220100232332-2332111110331120-2101103203100001-3013213121133323-2000221001130302-2031231222203113-1030332010001200-2023231311000330"></a>
+
+#### `cloudflare.protected_endpoints.metadata.description_spec` property
+
+Type: `"string"`. Computed.
+
+Description. Human readable description.
+
+<a id="canonical-1322213010200031-0123000022122010-0321222011132203-3232100110301301-0323300111313021-2200100323133133-0113011023021310-1110013232013221"></a>
+
+<a id="canonical-2131213011033203-0123302122021220-2323112230203002-3223332013222310-3110311201313121-1230311230212123-1113231110321221-2313310101223211"></a>
+
+#### `cloudflare.protected_endpoints.metadata.name` property
+
+Type: `"string"`. Computed.
+
+This is the name of the message. The value of name has to follow DNS-1035 format.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.min_len": "1",
+    "ves.io.schema.rules.string.ves_object_name": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.min_len": "1",
+    "ves.io.schema.rules.string.ves_object_name": "true"
+  }
+}
+```
+
+<a id="canonical-2030023030101010-1310113333033102-1013023003332100-3233211203312330-0033001100311212-2030010200302302-1023220213200122-0223130313132223"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `cloudflare.protected_endpoints.mobile_client` properties
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [Cloudflare](data-sources--protected_application--reference--group-001.md#canonical-2103030102303220-3032000233032113-1311312033011021-0203031102122023-0312101000122132-2100301000121311-2223211222233310-0201001111112331)
+- [cloudflare.protected_endpoints](data-sources--protected_application--reference--group-001.md#canonical-1030220202111001-1103110111301100-1322102231233131-0123103313030303-2233000102020131-3103322313321020-0122132330233112-1300111122001122)
+- Cloudflare.protected_endpoints.mobile_client
+
+<a id="canonical-1010220333030321-3011112023023130-2000012003112221-3201230323313001-1023022010333321-1223132233320133-1302031320211301-0001321020130330"></a>
+
+Type: `"single"`. Computed.
+
+Mobile Client. Mobile client configuration OPTIONS.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-mitigation": "[\"block\",\"continue\"]"
+}
+```
+
+<a id="canonical-3010232302020023-1130032301030330-0120211122323333-0132212331012001-0001201221323033-0231311312333330-1000302101132010-3332100211231312"></a>
+
+### Direct properties for `cloudflare.protected_endpoints.mobile_client`
+
+- [block](data-sources--protected_application--reference--group-001.md#canonical-2100321001121021-2011131032233122-1001321032021333-1333022302220221-1003031023303100-2010013313300132-0120002103202232-3312121202113200): complete subsection reference.
+
+- [continue](data-sources--protected_application--reference--group-001.md#canonical-0311320122200022-2213032123021112-1102223311223231-0210303203321020-0001233023123033-3002220212021321-3332311010210313-0313201122120000): complete subsection reference.
+
+<a id="canonical-2100321001121021-2011131032233122-1001321032021333-1333022302220221-1003031023303100-2010013313300132-0120002103202232-3312121202113200"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `cloudflare.protected_endpoints.mobile_client.block` properties
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [Cloudflare](data-sources--protected_application--reference--group-001.md#canonical-2103030102303220-3032000233032113-1311312033011021-0203031102122023-0312101000122132-2100301000121311-2223211222233310-0201001111112331)
+- [cloudflare.protected_endpoints](data-sources--protected_application--reference--group-001.md#canonical-1030220202111001-1103110111301100-1322102231233131-0123103313030303-2233000102020131-3103322313321020-0122132330233112-1300111122001122)
+- [cloudflare.protected_endpoints.mobile_client](data-sources--protected_application--reference--group-001.md#canonical-2030023030101010-1310113333033102-1013023003332100-3233211203312330-0033001100311212-2030010200302302-1023220213200122-0223130313132223)
+- Cloudflare.protected_endpoints.mobile_client.block
+
+<a id="canonical-0011030321232033-3112330300003222-2203313000102322-0002121322210020-2212321201102030-3211133011132213-3300013021011003-2333212102321001"></a>
+
+Type: `"single"`. Computed.
+
+Block Response for Mobile. Block Response.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2031233310003033-1023112103202020-1122233303300300-3123210102212211-1223002101333211-2032033103031021-3131012010030132-0233000002133232"></a>
+
+### Direct properties for `cloudflare.protected_endpoints.mobile_client.block`
+
+<a id="canonical-3002212002121322-0331311301302111-0012010022113031-2230210221011222-3003200120222332-1322010330021320-3332030300032112-0303010102310223"></a>
+
+#### `cloudflare.protected_endpoints.mobile_client.block.body` property
+
+Type: `"string"`. Computed.
+
+Body. Custom body message.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 4096,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 4096,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "4096"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "4096"
+  }
+}
+```
+
+<a id="canonical-1132100231013330-3023221030031000-2100323111010232-1011033311333212-3323321023312112-2220201332223303-3232002233220031-3000023120031022"></a>
+
+<a id="canonical-1101103033230331-0113311200132300-0200301323321231-1233302232203001-1111033221102200-0112123001233110-2021311222002132-1000103113313000"></a>
+
+#### `cloudflare.protected_endpoints.mobile_client.block.content_type` property
+
+Type: `"string"`. Computed.
+
+Content type to use in a block response.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 128,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "128"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "128"
+  }
+}
+```
+
+<a id="canonical-0330033333010320-3100002011320022-2130100230032300-1222332212012123-0033010303330201-3211233131301203-1000100310233232-1231111111020322"></a>
+
+<a id="canonical-0020321012132232-3203323031202200-1131231302133223-2031020232223022-3310122121020310-0100102031300223-1111223211022320-1222000003211013"></a>
+
+#### `cloudflare.protected_endpoints.mobile_client.block.status` property
+
+Type: `"string"`. Computed.
+
+\[Enum:
+EmptyStatusCode|Continue|OK|Created|Accepted|NonAuthoritativeInformation|NoContent|ResetContent|PartialContent|MultiStatus|AlreadyReported|IMUsed|MultipleChoices|MovedPermanently|Found|SeeOther|NotModified|UseProxy|TemporaryRedirect|PermanentRedirect|BadRequest|Unauthorized|PaymentRequired|Forbidden|NotFound|MethodNotAllowed|NotAcceptable|ProxyAuthenticationRequired|RequestTimeout|Conflict|Gone|LengthRequired|PreconditionFailed|PayloadTooLarge|URITooLong|UnsupportedMediaType|RangeNotSatisfiable|ExpectationFailed|MisdirectedRequest|UnprocessableEntity|Locked|FailedDependency|UpgradeRequired|PreconditionRequired|TooManyRequests|RequestHeaderFieldsTooLarge|InternalServerError|NotImplemented|BadGateway|ServiceUnavailable|GatewayTimeout|HTTPVersionNotSupported|VariantAlsoNegotiates|InsufficientStorage|LoopDetected|NotExtended|NetworkAuthenticationRequired\]
+HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status
+code OK status code Created status code Accepted status code Non Authoritative Information status
+code No Content status code Reset Content status code Partial Content status code Multi Status..
+Possible values are \`EmptyStatusCode\`, \`Continue\`, \`OK\`, \`Created\`, \`Accepted\`,
+\`NonAuthoritativeInformation\`, \`NoContent\`, \`ResetContent\`, \`PartialContent\`,
+\`MultiStatus\`, \`AlreadyReported\`, \`IMUsed\`, \`MultipleChoices\`, \`MovedPermanently\`,
+\`Found\`, \`SeeOther\`, \`NotModified\`, \`UseProxy\`, \`TemporaryRedirect\`,
+\`PermanentRedirect\`, \`BadRequest\`, \`Unauthorized\`, \`PaymentRequired\`, \`Forbidden\`,
+\`NotFound\`, \`MethodNotAllowed\`, \`NotAcceptable\`, \`ProxyAuthenticationRequired\`,
+\`RequestTimeout\`, \`Conflict\`, \`Gone\`, \`LengthRequired\`, \`PreconditionFailed\`,
+\`PayloadTooLarge\`, \`URITooLong\`, \`UnsupportedMediaType\`, \`RangeNotSatisfiable\`,
+\`ExpectationFailed\`, \`MisdirectedRequest\`, \`UnprocessableEntity\`, \`Locked\`,
+\`FailedDependency\`, \`UpgradeRequired\`, \`PreconditionRequired\`, \`TooManyRequests\`,
+\`RequestHeaderFieldsTooLarge\`, \`InternalServerError\`, \`NotImplemented\`, \`BadGateway\`,
+\`ServiceUnavailable\`, \`GatewayTimeout\`, \`HTTPVersionNotSupported\`, \`VariantAlsoNegotiates\`,
+\`InsufficientStorage\`, \`LoopDetected\`, \`NotExtended\`, \`NetworkAuthenticationRequired\`.
+Defaults to \`EmptyStatusCode\`.
+
+Additional upstream details:
+
+HTTP response status codes
+
+EmptyStatusCode response codes means it is not specified Continue status code OK status code Created
+status code Accepted status code Non Authoritative Information status code No Content status code
+Reset Content status code Partial Content status code Multi Status status code Already Reported
+status code Im Used status code Multiple Choices status code Moved Permanently status code Found
+status code See Other status code Not Modified status code Use Proxy status code Temporary Redirect
+status code Permanent Redirect status code Bad Request status code Unauthorized status code Payment
+Required status code Forbidden status code Not Found status code Method Not Allowed status code Not
+Acceptable status code Proxy Authentication Required status code Request Timeout status code
+Conflict status code Gone status code Length Required status code Precondition Failed status code
+Payload Too Large status code URI Too Long status code Unsupported Media Type status code Range Not
+Satisfiable status code Expectation Failed status code Misdirected Request status code Unprocessable
+Entity status code Locked status code Failed Dependency status code Upgrade Required status code
+Precondition Required status code Too Many Requests status code Request Header Fields Too Large
+status code Internal Server Error status code Not Implemented status code Bad Gateway status code
+Service Unavailable status code Gateway Timeout status code HTTP Version Not Supported status code
+Variant Also Negotiates status code Insufficient Storage status code Loop Detected status code Not
+Extended status code Network Authentication Required status code.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "EmptyStatusCode",
+  "enum": [
+    "EmptyStatusCode",
+    "Continue",
+    "OK",
+    "Created",
+    "Accepted",
+    "NonAuthoritativeInformation",
+    "NoContent",
+    "ResetContent",
+    "PartialContent",
+    "MultiStatus",
+    "AlreadyReported",
+    "IMUsed",
+    "MultipleChoices",
+    "MovedPermanently",
+    "Found",
+    "SeeOther",
+    "NotModified",
+    "UseProxy",
+    "TemporaryRedirect",
+    "PermanentRedirect",
+    "BadRequest",
+    "Unauthorized",
+    "PaymentRequired",
+    "Forbidden",
+    "NotFound",
+    "MethodNotAllowed",
+    "NotAcceptable",
+    "ProxyAuthenticationRequired",
+    "RequestTimeout",
+    "Conflict",
+    "Gone",
+    "LengthRequired",
+    "PreconditionFailed",
+    "PayloadTooLarge",
+    "URITooLong",
+    "UnsupportedMediaType",
+    "RangeNotSatisfiable",
+    "ExpectationFailed",
+    "MisdirectedRequest",
+    "UnprocessableEntity",
+    "Locked",
+    "FailedDependency",
+    "UpgradeRequired",
+    "PreconditionRequired",
+    "TooManyRequests",
+    "RequestHeaderFieldsTooLarge",
+    "InternalServerError",
+    "NotImplemented",
+    "BadGateway",
+    "ServiceUnavailable",
+    "GatewayTimeout",
+    "HTTPVersionNotSupported",
+    "VariantAlsoNegotiates",
+    "InsufficientStorage",
+    "LoopDetected",
+    "NotExtended",
+    "NetworkAuthenticationRequired"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0311320122200022-2213032123021112-1102223311223231-0210303203321020-0001233023123033-3002220212021321-3332311010210313-0313201122120000"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `cloudflare.protected_endpoints.mobile_client.continue` properties
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [Cloudflare](data-sources--protected_application--reference--group-001.md#canonical-2103030102303220-3032000233032113-1311312033011021-0203031102122023-0312101000122132-2100301000121311-2223211222233310-0201001111112331)
+- [cloudflare.protected_endpoints](data-sources--protected_application--reference--group-001.md#canonical-1030220202111001-1103110111301100-1322102231233131-0123103313030303-2233000102020131-3103322313321020-0122132330233112-1300111122001122)
+- [cloudflare.protected_endpoints.mobile_client](data-sources--protected_application--reference--group-001.md#canonical-2030023030101010-1310113333033102-1013023003332100-3233211203312330-0033001100311212-2030010200302302-1023220213200122-0223130313132223)
+- Cloudflare.protected_endpoints.mobile_client.continue
+
+<a id="canonical-1023223321310210-3331200330112313-2012330003311121-3331213123320200-1133031020111031-3003121231301002-1313100030131010-0232210303022310"></a>
+
+Type: `"single"`. Computed.
+
+Select Continue Bot Mitigation Action. Continue mitigation action.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-add_header_choice": "[\"add_header\",\"no_header\"]"
+}
+```
+
+<a id="canonical-3232020231311220-3031322002302202-1322302202021212-1001000322011203-2113032231122230-3300112303010210-0320011012211221-0131301101331302"></a>
+
+### Direct properties for `cloudflare.protected_endpoints.mobile_client.continue`
+
+- [add_header](data-sources--protected_application--reference--group-001.md#canonical-3220100012023330-1323031030130212-1131231231310221-1212102033201120-2211211323133110-1122230313222030-1212231011013130-3110110322201230): complete subsection reference.
+
+- [no_header](data-sources--protected_application--reference--group-001.md#canonical-1212133201112222-1300303201121101-0132232031112131-1310032212313312-0231332101100333-2012201200001023-0311333313212001-0120112013230311): complete subsection reference.
+
+<a id="canonical-3220100012023330-1323031030130212-1131231231310221-1212102033201120-2211211323133110-1122230313222030-1212231011013130-3110110322201230"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `cloudflare.protected_endpoints.mobile_client.continue.add_header` properties
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [Cloudflare](data-sources--protected_application--reference--group-001.md#canonical-2103030102303220-3032000233032113-1311312033011021-0203031102122023-0312101000122132-2100301000121311-2223211222233310-0201001111112331)
+- [cloudflare.protected_endpoints](data-sources--protected_application--reference--group-001.md#canonical-1030220202111001-1103110111301100-1322102231233131-0123103313030303-2233000102020131-3103322313321020-0122132330233112-1300111122001122)
+- [cloudflare.protected_endpoints.mobile_client](data-sources--protected_application--reference--group-001.md#canonical-2030023030101010-1310113333033102-1013023003332100-3233211203312330-0033001100311212-2030010200302302-1023220213200122-0223130313132223)
+- [cloudflare.protected_endpoints.mobile_client.continue](data-sources--protected_application--reference--group-001.md#canonical-0311320122200022-2213032123021112-1102223311223231-0210303203321020-0001233023123033-3002220212021321-3332311010210313-0313201122120000)
+- Cloudflare.protected_endpoints.mobile_client.continue.add_header
+
+<a id="canonical-2233131220133101-3320211231301300-0012002002200121-1321030012023211-1311203032023033-3020032301233210-3302020022232133-3101023103230002"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1212133201112222-1300303201121101-0132232031112131-1310032212313312-0231332101100333-2012201200001023-0311333313212001-0120112013230311"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `cloudflare.protected_endpoints.mobile_client.continue.no_header` properties
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [Cloudflare](data-sources--protected_application--reference--group-001.md#canonical-2103030102303220-3032000233032113-1311312033011021-0203031102122023-0312101000122132-2100301000121311-2223211222233310-0201001111112331)
+- [cloudflare.protected_endpoints](data-sources--protected_application--reference--group-001.md#canonical-1030220202111001-1103110111301100-1322102231233131-0123103313030303-2233000102020131-3103322313321020-0122132330233112-1300111122001122)
+- [cloudflare.protected_endpoints.mobile_client](data-sources--protected_application--reference--group-001.md#canonical-2030023030101010-1310113333033102-1013023003332100-3233211203312330-0033001100311212-2030010200302302-1023220213200122-0223130313132223)
+- [cloudflare.protected_endpoints.mobile_client.continue](data-sources--protected_application--reference--group-001.md#canonical-0311320122200022-2213032123021112-1102223311223231-0210303203321020-0001233023123033-3002220212021321-3332311010210313-0313201122120000)
+- Cloudflare.protected_endpoints.mobile_client.continue.no_header
+
+<a id="canonical-3123322100331231-2200302121210320-0222112133223112-3011323032221213-2011211113231233-3021111323231201-2120221131321112-3330002100121031"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3232201300123231-0223201311223113-1102002220010310-1220002021030023-0202033222102033-0032122023100220-2313102223310321-3310323301001221"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `cloudflare.protected_endpoints.path` properties
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [Cloudflare](data-sources--protected_application--reference--group-001.md#canonical-2103030102303220-3032000233032113-1311312033011021-0203031102122023-0312101000122132-2100301000121311-2223211222233310-0201001111112331)
+- [cloudflare.protected_endpoints](data-sources--protected_application--reference--group-001.md#canonical-1030220202111001-1103110111301100-1322102231233131-0123103313030303-2233000102020131-3103322313321020-0122132330233112-1300111122001122)
+- Cloudflare.protected_endpoints.path
+
+<a id="canonical-1000132322033112-3231322312102012-1222330212022121-0300021310033210-3013021100123112-1303103332231231-2133103032313212-0030112230320003"></a>
+
+Type: `"single"`. Computed.
+
+Path. URI Path
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1122322000110232-2013303323002211-0320010223111221-2013111132311312-0002201332232303-0203111223132102-1012120331022023-2003022011222112"></a>
+
+### Direct properties for `cloudflare.protected_endpoints.path`
+
+<a id="canonical-0312232213302331-2320312320032131-1120002000222233-0313233322213231-1031223322233202-3030333132113130-1200231023301011-3120122300231301"></a>
+
+#### `cloudflare.protected_endpoints.path.caseinsensitive` property
+
+Type: `"bool"`. Computed.
+
+Should path be searched case insensitive;.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1330213122201030-0033211301103231-1310031230220323-1021210322203233-0123013212023301-2011320003110202-1103000031222100-2321330210213331"></a>
+
+<a id="canonical-2102120013223213-2310311301002031-3033021002333103-0330031300310012-1033233223003023-1031100331110013-3012022021221023-2210013132121312"></a>
+
+#### `cloudflare.protected_endpoints.path.path` property
+
+Type: `"string"`. Computed.
+
+Path. URI Path
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 256,
+      "min": 1
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[\\\\\\\"$&'*+./0-9:?@A-Z_a-z~-]{1,999}$"
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "256",
+    "ves.io.schema.rules.string.min_bytes": "1",
+    "ves.io.schema.rules.string.pattern": "^[\\\\\\\"$&'*+./0-9:?@A-Z_a-z~-]{1,999}$"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "256",
+    "ves.io.schema.rules.string.min_bytes": "1",
+    "ves.io.schema.rules.string.pattern": "^[\\\\\\\"$&'*+./0-9:?@A-Z_a-z~-]{1,999}$"
+  }
+}
+```
+
+<a id="canonical-3230221231323110-2000013213332023-3011112223321020-1023203303123102-3000330332112310-3132023301231112-0121133032331033-1331200011200311"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `cloudflare.protected_endpoints.web_client` properties
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [Cloudflare](data-sources--protected_application--reference--group-001.md#canonical-2103030102303220-3032000233032113-1311312033011021-0203031102122023-0312101000122132-2100301000121311-2223211222233310-0201001111112331)
+- [cloudflare.protected_endpoints](data-sources--protected_application--reference--group-001.md#canonical-1030220202111001-1103110111301100-1322102231233131-0123103313030303-2233000102020131-3103322313321020-0122132330233112-1300111122001122)
+- Cloudflare.protected_endpoints.web_client
+
+<a id="canonical-2123131313302132-3212102211121033-1132332332002121-0020011313131111-0212321310321313-1331132313301321-3123223312012210-2332101133222332"></a>
+
+Type: `"single"`. Computed.
+
+Web Client. Web client configuration OPTIONS.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-mitigation": "[\"block\",\"continue\",\"redirect\"]"
+}
+```
+
+<a id="canonical-2011003211110332-1200223022021103-2112132012210323-3122111011322001-1232013102020130-0130221122031212-1123203320003211-1321322131210201"></a>
+
+### Direct properties for `cloudflare.protected_endpoints.web_client`
+
+- [block](data-sources--protected_application--reference--group-001.md#canonical-0203121101112122-2220230131122122-2331320031011302-3032112231121120-0020001200233102-1010301100012310-0310031222001003-0003010220332322): complete subsection reference.
+
+- [continue](data-sources--protected_application--reference--group-002.md#canonical-3213201312223210-0221131202003331-2220110303121033-2111303111202333-2100320222230322-3222130000321321-1320110111113203-0311212231331030): complete subsection reference.
+
+- [redirect](data-sources--protected_application--reference--group-002.md#canonical-0123313211310020-0123021022331131-2031002202001321-0330103123221201-0213010332000230-2332032020103022-1002323213011322-0223022223202313): complete subsection reference.
+
+<a id="canonical-0203121101112122-2220230131122122-2331320031011302-3032112231121120-0020001200233102-1010301100012310-0310031222001003-0003010220332322"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `cloudflare.protected_endpoints.web_client.block` properties
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+- [Property reference](data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [Cloudflare](data-sources--protected_application--reference--group-001.md#canonical-2103030102303220-3032000233032113-1311312033011021-0203031102122023-0312101000122132-2100301000121311-2223211222233310-0201001111112331)
+- [cloudflare.protected_endpoints](data-sources--protected_application--reference--group-001.md#canonical-1030220202111001-1103110111301100-1322102231233131-0123103313030303-2233000102020131-3103322313321020-0122132330233112-1300111122001122)
+- [cloudflare.protected_endpoints.web_client](data-sources--protected_application--reference--group-001.md#canonical-3230221231323110-2000013213332023-3011112223321020-1023203303123102-3000330332112310-3132023301231112-0121133032331033-1331200011200311)
+- Cloudflare.protected_endpoints.web_client.block
+
+<a id="canonical-0110321102221221-3003230120031200-0222302001211022-3333202323222100-3222132032133102-0321021203223010-3022220331210000-2131230301320203"></a>
+
+Type: `"single"`. Computed.
+
+Block Response. Block Response.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1220120222330301-1122222302020002-1010033303323033-2302012300301112-1220130022322331-0010012211011332-0202010031112210-2013103332131013"></a>
+
+### Direct properties for `cloudflare.protected_endpoints.web_client.block`
+
+<a id="canonical-1111001213002301-3311013200120122-3213203220031012-1132032333122110-3122300211101211-3132202212330301-3003033020210300-1211313211232010"></a>
+
+#### `cloudflare.protected_endpoints.web_client.block.body` property
+
+Type: `"string"`. Computed.
+
+Body. Custom body message.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 4096,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 4096,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "4096"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "4096"
+  }
+}
+```
+
+<a id="canonical-1013000030303220-3332220321011232-1110332012321313-2210203332231303-3003331022120111-0210101221301220-1232122000203220-2020111303011202"></a>
+
+<a id="canonical-0113221110032101-3212123320013100-2322002011102221-3003111120021203-1213022310031003-1213030101030333-2301321113212231-0233230021311022"></a>
+
+#### `cloudflare.protected_endpoints.web_client.block.content_type` property
+
+Type: `"string"`. Computed.
+
+Content type to use in a block response.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 128,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "128"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "128"
+  }
+}
+```
+
+<a id="canonical-2323330210003111-0011030331120113-1011320311233122-2201123121222031-0131130120323303-0213131203122202-0132201300131112-0131232133220310"></a>
+
+<a id="canonical-1023200110220220-3233321231121222-3130132201121311-2210010103123110-0031302201103001-3031031303103130-1020202301300010-3111123013223012"></a>
+
+#### `cloudflare.protected_endpoints.web_client.block.status` property
+
+Type: `"string"`. Computed.
+
+\[Enum:
+EmptyStatusCode|Continue|OK|Created|Accepted|NonAuthoritativeInformation|NoContent|ResetContent|PartialContent|MultiStatus|AlreadyReported|IMUsed|MultipleChoices|MovedPermanently|Found|SeeOther|NotModified|UseProxy|TemporaryRedirect|PermanentRedirect|BadRequest|Unauthorized|PaymentRequired|Forbidden|NotFound|MethodNotAllowed|NotAcceptable|ProxyAuthenticationRequired|RequestTimeout|Conflict|Gone|LengthRequired|PreconditionFailed|PayloadTooLarge|URITooLong|UnsupportedMediaType|RangeNotSatisfiable|ExpectationFailed|MisdirectedRequest|UnprocessableEntity|Locked|FailedDependency|UpgradeRequired|PreconditionRequired|TooManyRequests|RequestHeaderFieldsTooLarge|InternalServerError|NotImplemented|BadGateway|ServiceUnavailable|GatewayTimeout|HTTPVersionNotSupported|VariantAlsoNegotiates|InsufficientStorage|LoopDetected|NotExtended|NetworkAuthenticationRequired\]
+HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status
+code OK status code Created status code Accepted status code Non Authoritative Information status
+code No Content status code Reset Content status code Partial Content status code Multi Status..
+Possible values are \`EmptyStatusCode\`, \`Continue\`, \`OK\`, \`Created\`, \`Accepted\`,
+\`NonAuthoritativeInformation\`, \`NoContent\`, \`ResetContent\`, \`PartialContent\`,
+\`MultiStatus\`, \`AlreadyReported\`, \`IMUsed\`, \`MultipleChoices\`, \`MovedPermanently\`,
+\`Found\`, \`SeeOther\`, \`NotModified\`, \`UseProxy\`, \`TemporaryRedirect\`,
+\`PermanentRedirect\`, \`BadRequest\`, \`Unauthorized\`, \`PaymentRequired\`, \`Forbidden\`,
+\`NotFound\`, \`MethodNotAllowed\`, \`NotAcceptable\`, \`ProxyAuthenticationRequired\`,
+\`RequestTimeout\`, \`Conflict\`, \`Gone\`, \`LengthRequired\`, \`PreconditionFailed\`,
+\`PayloadTooLarge\`, \`URITooLong\`, \`UnsupportedMediaType\`, \`RangeNotSatisfiable\`,
+\`ExpectationFailed\`, \`MisdirectedRequest\`, \`UnprocessableEntity\`, \`Locked\`,
+\`FailedDependency\`, \`UpgradeRequired\`, \`PreconditionRequired\`, \`TooManyRequests\`,
+\`RequestHeaderFieldsTooLarge\`, \`InternalServerError\`, \`NotImplemented\`, \`BadGateway\`,
+\`ServiceUnavailable\`, \`GatewayTimeout\`, \`HTTPVersionNotSupported\`, \`VariantAlsoNegotiates\`,
+\`InsufficientStorage\`, \`LoopDetected\`, \`NotExtended\`, \`NetworkAuthenticationRequired\`.
+Defaults to \`EmptyStatusCode\`.
+
+Additional upstream details:
+
+HTTP response status codes
+
+EmptyStatusCode response codes means it is not specified Continue status code OK status code Created
+status code Accepted status code Non Authoritative Information status code No Content status code
+Reset Content status code Partial Content status code Multi Status status code Already Reported
+status code Im Used status code Multiple Choices status code Moved Permanently status code Found
+status code See Other status code Not Modified status code Use Proxy status code Temporary Redirect
+status code Permanent Redirect status code Bad Request status code Unauthorized status code Payment
+Required status code Forbidden status code Not Found status code Method Not Allowed status code Not
+Acceptable status code Proxy Authentication Required status code Request Timeout status code
+Conflict status code Gone status code Length Required status code Precondition Failed status code
+Payload Too Large status code URI Too Long status code Unsupported Media Type status code Range Not
+Satisfiable status code Expectation Failed status code Misdirected Request status code Unprocessable
+Entity status code Locked status code Failed Dependency status code Upgrade Required status code
+Precondition Required status code Too Many Requests status code Request Header Fields Too Large
+status code Internal Server Error status code Not Implemented status code Bad Gateway status code
+Service Unavailable status code Gateway Timeout status code HTTP Version Not Supported status code
+Variant Also Negotiates status code Insufficient Storage status code Loop Detected status code Not
+Extended status code Network Authentication Required status code.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "EmptyStatusCode",
+  "enum": [
+    "EmptyStatusCode",
+    "Continue",
+    "OK",
+    "Created",
+    "Accepted",
+    "NonAuthoritativeInformation",
+    "NoContent",
+    "ResetContent",
+    "PartialContent",
+    "MultiStatus",
+    "AlreadyReported",
+    "IMUsed",
+    "MultipleChoices",
+    "MovedPermanently",
+    "Found",
+    "SeeOther",
+    "NotModified",
+    "UseProxy",
+    "TemporaryRedirect",
+    "PermanentRedirect",
+    "BadRequest",
+    "Unauthorized",
+    "PaymentRequired",
+    "Forbidden",
+    "NotFound",
+    "MethodNotAllowed",
+    "NotAcceptable",
+    "ProxyAuthenticationRequired",
+    "RequestTimeout",
+    "Conflict",
+    "Gone",
+    "LengthRequired",
+    "PreconditionFailed",
+    "PayloadTooLarge",
+    "URITooLong",
+    "UnsupportedMediaType",
+    "RangeNotSatisfiable",
+    "ExpectationFailed",
+    "MisdirectedRequest",
+    "UnprocessableEntity",
+    "Locked",
+    "FailedDependency",
+    "UpgradeRequired",
+    "PreconditionRequired",
+    "TooManyRequests",
+    "RequestHeaderFieldsTooLarge",
+    "InternalServerError",
+    "NotImplemented",
+    "BadGateway",
+    "ServiceUnavailable",
+    "GatewayTimeout",
+    "HTTPVersionNotSupported",
+    "VariantAlsoNegotiates",
+    "InsufficientStorage",
+    "LoopDetected",
+    "NotExtended",
+    "NetworkAuthenticationRequired"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
   }
 }
 ```

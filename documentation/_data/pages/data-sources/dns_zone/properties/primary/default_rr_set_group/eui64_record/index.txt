@@ -2,7 +2,7 @@
 page_title: "primary.default_rr_set_group.eui64_record"
 subcategory: "DNS"
 description: "DNS EUI64 Record."
-xcsh_docs: {"aliases": ["primary default rr set group eui64 record"], "body_bytes": 4177, "body_sha256": "sha256:3df501108ed2110bc2549c81f6cfcf5c3d04fc74eabd6fc0dd45fea65bb60b2e", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:dns_zone:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:eui64_record", "parent_id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group", "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/eui64_record/index.md", "product": "distributed-cloud", "provider_name": "dns_zone", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1001031330110020-1133122011223212-1221020310212103-2121030102103310-1031332030211201-3010332112131120-0002121331230022-3122212233332113", "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["primary", "default_rr_set_group", "eui64_record"], "schema_version": 1, "sections": [{"aliases": ["primary default rr set group eui64 record name"], "anchor": "schema-primary--default_rr_set_group--eui64_record--name", "description": "EUI64 Record name, please provide only the specific subdomain or record name without the base domain.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:eui64_record", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "eui64_record", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["primary default rr set group eui64 record value"], "anchor": "schema-primary--default_rr_set_group--eui64_record--value", "description": "A valid EUI64 identifier, for example: 01-23-45-67-89-ab-cd-ef.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:eui64_record", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "eui64_record", "value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/eui64_record/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "DNS EUI64 Record.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["dns_zoneCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["primary default rr set group eui64 record"], "body_bytes": 3829, "body_sha256": "sha256:924e9812c9035f9891031b8cb4f69bf357dafb7f16d94fea4c7411145e679108", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:dns_zone:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:eui64_record", "parent_id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group", "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/eui64_record/index.md", "product": "distributed-cloud", "provider_name": "dns_zone", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1001031330110020-1133122011223212-1221020310212103-2121030102103310-1031332030211201-3010332112131120-0002121331230022-3122212233332113", "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["primary", "default_rr_set_group", "eui64_record"], "schema_version": 1, "sections": [{"aliases": ["primary default rr set group eui64 record name"], "anchor": "schema-primary--default_rr_set_group--eui64_record--name", "description": "EUI64 Record name, please provide only the specific subdomain or record name without the base domain.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:eui64_record", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "eui64_record", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["primary default rr set group eui64 record value"], "anchor": "schema-primary--default_rr_set_group--eui64_record--value", "description": "A valid EUI64 identifier, for example: 01-23-45-67-89-ab-cd-ef.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:eui64_record", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "eui64_record", "value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/eui64_record/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "DNS EUI64 Record.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["dns_zoneCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -25,7 +25,7 @@ Type: `"single"`. Computed.
 
 Configuration parameter for eui64 record.
 
-Upstream description:
+Additional upstream details:
 
 DNS EUI64 Record.
 
@@ -105,10 +105,6 @@ Type: `"string"`. Computed.
 
 EUI64 Identifier. A valid EUI64 identifier, for example: 01-23-45-67-89-ab-cd-ef.
 
-Upstream description:
-
-A valid EUI64 identifier, for example: 01-23-45-67-89-ab-cd-ef.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -148,8 +144,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [primary.default_rr_set_group](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/properties/primary/default_rr_set_group/)
-- [xcsh_dns_zone](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/)

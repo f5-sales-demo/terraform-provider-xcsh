@@ -2,7 +2,7 @@
 page_title: "re_acl.fast_acl_rules.action.policer_action.ref"
 subcategory: ""
 description: "A policer direct reference."
-xcsh_docs: {"aliases": ["re acl fast acl rules action policer action ref"], "body_bytes": 7198, "body_sha256": "sha256:2520ef4c06ddbb39f5381cd94e197406ab4c18427cf56b75cbdbf617313ca584", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:fast_acl:collection", "completeness": "complete", "id": "xcsh-docs:resources:fast_acl:properties:re_acl:fast_acl_rules:action:policer_action:ref", "parent_id": "xcsh-docs:resources:fast_acl:properties:re_acl:fast_acl_rules:action:policer_action", "path": "documentation/resources/fast_acl/properties/re_acl/fast_acl_rules/action/policer_action/ref/index.md", "product": "distributed-cloud", "provider_name": "fast_acl", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0021013201130213-0331013020032301-3020232110332313-0021011012033300-2213301233010011-3201312333110320-2002212023301301-0013210033103322", "registry_path": "docs/guides/resources--fast_acl--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["re_acl", "fast_acl_rules", "action", "policer_action", "ref"], "schema_version": 1, "sections": [{"aliases": ["re acl fast acl rules action policer action ref kind"], "anchor": "schema-re_acl--fast_acl_rules--action--policer_action--ref--kind", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")", "document_id": "xcsh-docs:resources:fast_acl:properties:re_acl:fast_acl_rules:action:policer_action:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["re_acl", "fast_acl_rules", "action", "policer_action", "ref", "kind"], "syntax": "attribute", "type": "string"}, {"aliases": ["re acl fast acl rules action policer action ref name"], "anchor": "schema-re_acl--fast_acl_rules--action--policer_action--ref--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:fast_acl:properties:re_acl:fast_acl_rules:action:policer_action:ref", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["re_acl", "fast_acl_rules", "action", "policer_action", "ref", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["re acl fast acl rules action policer action ref namespace"], "anchor": "schema-re_acl--fast_acl_rules--action--policer_action--ref--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:fast_acl:properties:re_acl:fast_acl_rules:action:policer_action:ref", "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["re_acl", "fast_acl_rules", "action", "policer_action", "ref", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["re acl fast acl rules action policer action ref tenant"], "anchor": "schema-re_acl--fast_acl_rules--action--policer_action--ref--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:fast_acl:properties:re_acl:fast_acl_rules:action:policer_action:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["re_acl", "fast_acl_rules", "action", "policer_action", "ref", "tenant"], "syntax": "attribute", "type": "string"}, {"aliases": ["re acl fast acl rules action policer action ref uid"], "anchor": "schema-re_acl--fast_acl_rules--action--policer_action--ref--uid", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.", "document_id": "xcsh-docs:resources:fast_acl:properties:re_acl:fast_acl_rules:action:policer_action:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["re_acl", "fast_acl_rules", "action", "policer_action", "ref", "uid"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fast_acl/properties/re_acl/fast_acl_rules/action/policer_action/ref/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A policer direct reference.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["fast_aclCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["re acl fast acl rules action policer action ref"], "body_bytes": 6165, "body_sha256": "sha256:d6e581320ef97f829aefcc46139e982b880d77a6b5bd79eb9bdbd94e1324c00e", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:fast_acl:collection", "completeness": "complete", "id": "xcsh-docs:resources:fast_acl:properties:re_acl:fast_acl_rules:action:policer_action:ref", "parent_id": "xcsh-docs:resources:fast_acl:properties:re_acl:fast_acl_rules:action:policer_action", "path": "documentation/resources/fast_acl/properties/re_acl/fast_acl_rules/action/policer_action/ref/index.md", "product": "distributed-cloud", "provider_name": "fast_acl", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0021013201130213-0331013020032301-3020232110332313-0021011012033300-2213301233010011-3201312333110320-2002212023301301-0013210033103322", "registry_path": "docs/guides/resources--fast_acl--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["re_acl", "fast_acl_rules", "action", "policer_action", "ref"], "schema_version": 1, "sections": [{"aliases": ["re acl fast acl rules action policer action ref kind"], "anchor": "schema-re_acl--fast_acl_rules--action--policer_action--ref--kind", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")", "document_id": "xcsh-docs:resources:fast_acl:properties:re_acl:fast_acl_rules:action:policer_action:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["re_acl", "fast_acl_rules", "action", "policer_action", "ref", "kind"], "syntax": "attribute", "type": "string"}, {"aliases": ["re acl fast acl rules action policer action ref name"], "anchor": "schema-re_acl--fast_acl_rules--action--policer_action--ref--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:fast_acl:properties:re_acl:fast_acl_rules:action:policer_action:ref", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["re_acl", "fast_acl_rules", "action", "policer_action", "ref", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["re acl fast acl rules action policer action ref namespace"], "anchor": "schema-re_acl--fast_acl_rules--action--policer_action--ref--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:fast_acl:properties:re_acl:fast_acl_rules:action:policer_action:ref", "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["re_acl", "fast_acl_rules", "action", "policer_action", "ref", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["re acl fast acl rules action policer action ref tenant"], "anchor": "schema-re_acl--fast_acl_rules--action--policer_action--ref--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:fast_acl:properties:re_acl:fast_acl_rules:action:policer_action:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["re_acl", "fast_acl_rules", "action", "policer_action", "ref", "tenant"], "syntax": "attribute", "type": "string"}, {"aliases": ["re acl fast acl rules action policer action ref uid"], "anchor": "schema-re_acl--fast_acl_rules--action--policer_action--ref--uid", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.", "document_id": "xcsh-docs:resources:fast_acl:properties:re_acl:fast_acl_rules:action:policer_action:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["re_acl", "fast_acl_rules", "action", "policer_action", "ref", "uid"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fast_acl/properties/re_acl/fast_acl_rules/action/policer_action/ref/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A policer direct reference.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["fast_aclCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -26,10 +26,6 @@ Breadcrumbs:
 Type: `"object"`. list nested block, Optional.
 
 Reference. A policer direct reference.
-
-Upstream description:
-
-A policer direct reference.
 
 Receipt-pinned upstream constraints:
 
@@ -81,10 +77,10 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
 referred object's kind (e.g. 'route').
 
-Upstream description:
+Additional upstream details:
 
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
-referred object's kind (e.g. "route")
+Virtual\_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g.
+"route")
 
 Receipt-pinned upstream constraints:
 
@@ -118,11 +114,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -151,11 +142,6 @@ Receipt-pinned upstream constraints:
 ### namespace property
 
 Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -217,11 +203,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -254,11 +235,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
 referred object's(e.g. Route's) uid.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
-referred object's(e.g. Route's) uid.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -281,8 +257,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [re_acl.fast_acl_rules.action.policer_action](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/fast_acl/properties/re_acl/fast_acl_rules/action/policer_action/)
-- [xcsh_fast_acl](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/fast_acl/)

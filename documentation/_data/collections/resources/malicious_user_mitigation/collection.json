@@ -121,8 +121,8 @@
   "pages": [
     {
       "aliases": ["malicious user mitigation"],
-      "body_bytes": 1765,
-      "body_sha256": "sha256:cfab3fbada45bec8b44737f54ef3fc456a6e585b2ed11c166f804a8ea779e1a3",
+      "body_bytes": 1778,
+      "body_sha256": "sha256:43625a136452ad0dcec783b2163cfe254c7367bdf7c8ded71970f516158970f5",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -167,8 +167,8 @@
     },
     {
       "aliases": ["malicious user mitigation"],
-      "body_bytes": 12457,
-      "body_sha256": "sha256:34fc5641924dc9dca00a5e312ed6ad6d233dc9251c6f7473e1cda73058822be2",
+      "body_bytes": 11904,
+      "body_sha256": "sha256:4966d1800e7f95a8eef5bb726ed54d1ec38854fb2dfc60dd450d1b79e881f160",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -346,8 +346,8 @@
     },
     {
       "aliases": ["mitigation type"],
-      "body_bytes": 2237,
-      "body_sha256": "sha256:b601d1897b0c9eb4848d957c9a163e89ef9a4a544092045ce705eed53d8902d8",
+      "body_bytes": 1562,
+      "body_sha256": "sha256:81db53208b9c648623dd6790148ce1fe96086482aaaf216348d7a4c114dd59f4",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules"],
@@ -410,8 +410,8 @@
     },
     {
       "aliases": ["mitigation type rules"],
-      "body_bytes": 2868,
-      "body_sha256": "sha256:cb8f0ad000784922c6739c5ac187b4bbc696e484f1deeb0ca5a29806c3e2952a",
+      "body_bytes": 2214,
+      "body_sha256": "sha256:ef8cbda6b6780acf507ab64f1a3447588e8b029f80e33dd7bb93f009c089c24b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -580,8 +580,8 @@
     },
     {
       "aliases": ["mitigation type rules mitigation action"],
-      "body_bytes": 3324,
-      "body_sha256": "sha256:b63de013bec0fa08271aff7e8c4653f20d7812bb21e9ef52f70ed9c7fc9159f6",
+      "body_bytes": 2345,
+      "body_sha256": "sha256:97540bf161958bfa006b61b39c85443671d01b678c97ae76d2ce58d6cc8d9c6e",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -716,8 +716,8 @@
     },
     {
       "aliases": ["mitigation type rules mitigation action block temporarily"],
-      "body_bytes": 1796,
-      "body_sha256": "sha256:17fdff0217d22dc92ec7072bff734bed67eb3f8c56e4dfc66a3a84ec65218022",
+      "body_bytes": 1447,
+      "body_sha256": "sha256:f32b00d5f2ad733e9da6f9ee32a41ce26ec0312ed3e22cb48f3295f7179be9e0",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -756,8 +756,8 @@
     },
     {
       "aliases": ["mitigation type rules mitigation action captcha challenge"],
-      "body_bytes": 1824,
-      "body_sha256": "sha256:c91cb422e8315ac2a35ee2b39d68860635f284fc89810f1889508ab42328b44a",
+      "body_bytes": 1475,
+      "body_sha256": "sha256:b3fc07e82cd541f1a7f718ba84bf1bb9655add380675b816d8dabfae53193a55",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -796,8 +796,8 @@
     },
     {
       "aliases": ["mitigation type rules mitigation action javascript challenge"],
-      "body_bytes": 1805,
-      "body_sha256": "sha256:e327fb16aa92e11ed2d5588bd08083314956af4e3dd7c2f2d6c149463c18f0fb",
+      "body_bytes": 1456,
+      "body_sha256": "sha256:b3f453a34687710bb1d4a536e9e4999e0684d4a09745988363119b6d82907cf1",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -836,8 +836,8 @@
     },
     {
       "aliases": ["mitigation type rules threat level"],
-      "body_bytes": 2974,
-      "body_sha256": "sha256:a70da855e1fdf902454fd2f620f10670fc238109b99b7689a438b8d3d44fe995",
+      "body_bytes": 2107,
+      "body_sha256": "sha256:4984cca7259ca8b6f2207891d033cbe41f7f4af057ca36d5b818b37ce99212fa",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -972,8 +972,8 @@
     },
     {
       "aliases": ["mitigation type rules threat level high"],
-      "body_bytes": 1727,
-      "body_sha256": "sha256:2ef6829d4190c630b3ddd6f8d17388f0964dba7796540314bba9d7b3f4a32c82",
+      "body_bytes": 1388,
+      "body_sha256": "sha256:e73a576a43adf23f75fa71b47fdb9b7b4b967e0f8a7e451039b8205920007b61",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1012,8 +1012,8 @@
     },
     {
       "aliases": ["mitigation type rules threat level low"],
-      "body_bytes": 1724,
-      "body_sha256": "sha256:9bca9bf8e0d47f459c04a920adf64dfa0678afa8e55f9ead007a2262a877a899",
+      "body_bytes": 1385,
+      "body_sha256": "sha256:48631d0488426cc0fe203e52005359ff7a6eac628b278b1ff0e9c24b023c7eed",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1052,8 +1052,8 @@
     },
     {
       "aliases": ["mitigation type rules threat level medium"],
-      "body_bytes": 1733,
-      "body_sha256": "sha256:0e710692e5e53077646b6c52661fb27ce8fa74651a6f1fbb78e9ddca2a96c939",
+      "body_bytes": 1394,
+      "body_sha256": "sha256:3b311bca725dfbe07b7f98e2c251d7dfc702f56688ae41e0beea965713c87c88",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1092,8 +1092,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2309,
-      "body_sha256": "sha256:80b3413f62189861790e427d27df5c0f3d38d5cdef149d37f82433524ffd9200",
+      "body_bytes": 2036,
+      "body_sha256": "sha256:d514451e3f7654f42838d7254732fb036e871070d496ac33657a2dd6c519138c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1224,8 +1224,8 @@
     },
     {
       "aliases": ["malicious user mitigation"],
-      "body_bytes": 3043,
-      "body_sha256": "sha256:5d3e30d72eea7ce9dda1f808c3ef26fe6627b82418c0dbc1b64b62b694893e26",
+      "body_bytes": 1699,
+      "body_sha256": "sha256:e0a0dd4a41f05c4fe85aaa8a0cb5ea0b4b206c797850037a04f12b2e14516ab3",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -1274,8 +1274,8 @@
     },
     {
       "aliases": ["all-attributes"],
-      "body_bytes": 1854,
-      "body_sha256": "sha256:805f59a4d828de05f1cca9b561a4541d7dc2873147d6d913a68c6d2a9dd26aab",
+      "body_bytes": 1593,
+      "body_sha256": "sha256:d87f3c80906d7eb038055a487e44158521dc95d91dcb9ef15cfc8fbe96e30029",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1321,8 +1321,8 @@
     },
     {
       "aliases": ["block"],
-      "body_bytes": 1439,
-      "body_sha256": "sha256:bf8d5fc8f584b139251b78423a7715ab11cd3ea3f1f3d3007fca11a93a225d03",
+      "body_bytes": 1178,
+      "body_sha256": "sha256:d769f68bb78f39548e70c611e248e24e79f70ec24b92d24b719c6dd134d58558",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1368,8 +1368,8 @@
     },
     {
       "aliases": ["captcha"],
-      "body_bytes": 1447,
-      "body_sha256": "sha256:0c40bce75efba69d51da1e293c53fba2266a36676ff0539684ab1f5ab93aa898",
+      "body_bytes": 1186,
+      "body_sha256": "sha256:c8f78920c40a3db6896a2d088f9356484f90d3cbe3521f2da33a8fb8b03e112c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1415,8 +1415,8 @@
     },
     {
       "aliases": ["js-challenge"],
-      "body_bytes": 1471,
-      "body_sha256": "sha256:919438865fb74546f3c751c9ea724bbc64c4ffe7ff5879e07d009e4409896079",
+      "body_bytes": 1210,
+      "body_sha256": "sha256:853c58d73bbd940df00bbe4557fd1e1dfc204475c48c33375b6db9f014d28cc7",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1462,8 +1462,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1443,
-      "body_sha256": "sha256:24b43c435a80ac69855a01672997f7be074c81dc017545bb83d0bf6a85a01f58",
+      "body_bytes": 1182,
+      "body_sha256": "sha256:d6800ad875cd45f9e08c97f446b763085423838dd90b253602d4331236d9eea0",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1509,8 +1509,8 @@
     },
     {
       "aliases": ["with-annotations"],
-      "body_bytes": 1706,
-      "body_sha256": "sha256:4a67c50c4d5c3c2b6ebce54db34c526148e2058a9a40d9801c08359ae8545982",
+      "body_bytes": 1445,
+      "body_sha256": "sha256:11f670f1513055e8b3208c12d916ae282451f7f7236e0e4f813b3db80e081050",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1556,8 +1556,8 @@
     },
     {
       "aliases": ["with-description"],
-      "body_bytes": 1690,
-      "body_sha256": "sha256:20151719ff26be4f26ae8872941ed23b5dea9b549fc499b7ba06636f83a87d62",
+      "body_bytes": 1429,
+      "body_sha256": "sha256:170886c41a51690eb44863916a1626b8bfcd95397bab0c2bc9c83db7f04df99b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1603,8 +1603,8 @@
     },
     {
       "aliases": ["with-labels"],
-      "body_bytes": 1681,
-      "body_sha256": "sha256:f8e1d668ade065486187fba5a8a6ce1eaddf6983a49acebbcd5422e04f77bf9d",
+      "body_bytes": 1420,
+      "body_sha256": "sha256:9c335809dfedfa8dd6a4331bfc80a0ed443bf9e33599c88b1bb2ad553dfa8b93",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1650,8 +1650,8 @@
     },
     {
       "aliases": ["with-mitigation-type"],
-      "body_bytes": 1901,
-      "body_sha256": "sha256:1631b473aaccc2e67e94b2e1327e20383541f0286fa18df62451215c877312cb",
+      "body_bytes": 1640,
+      "body_sha256": "sha256:03340713b15d3579321ccea1236509480e63caadef380dfe7b68245b03f4f989",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1697,8 +1697,8 @@
     },
     {
       "aliases": ["malicious user mitigation"],
-      "body_bytes": 545,
-      "body_sha256": "sha256:df31ac28d38229b7e82e0ded742888fd4b6999c07933314b31610f3287da3ee2",
+      "body_bytes": 400,
+      "body_sha256": "sha256:ca91adbf549042e9b9143bf22bc7aab8309b3af79c709541b0c22fa3b4d567d9",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1738,8 +1738,8 @@
     },
     {
       "aliases": ["malicious user mitigation"],
-      "body_bytes": 633,
-      "body_sha256": "sha256:ca4712b856da185ffbe97abf5ab2fa8826c41010eb54bd97df0883d0e615dc06",
+      "body_bytes": 488,
+      "body_sha256": "sha256:e57f7605d4a8c3f590cca1f20fa3801417950b48bb8e842feb9a95093e5c2e93",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],

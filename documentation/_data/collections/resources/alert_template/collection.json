@@ -91,8 +91,8 @@
   "pages": [
     {
       "aliases": ["alert template"],
-      "body_bytes": 1688,
-      "body_sha256": "sha256:a6412019ecd71ec6d2093764f71e02e764acc78826abd3153c3fc31a6090eab3",
+      "body_bytes": 1701,
+      "body_sha256": "sha256:e7f5db8e1f0091b2cd42afdb6dca2035b3921bd9f4a620dca033fe4cc15b17ba",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -137,8 +137,8 @@
     },
     {
       "aliases": ["alert template"],
-      "body_bytes": 13647,
-      "body_sha256": "sha256:01e00a36358f4bc9981f6f167e18f142e043b895f85e1ae513210c2124eea11e",
+      "body_bytes": 13066,
+      "body_sha256": "sha256:a11464eed837e904fff566cfeb1656ac37e105dd908d71d705aa9d473eea9ed9",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:alert_template:properties:timeouts"],
@@ -346,8 +346,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2243,
-      "body_sha256": "sha256:f9cf2483bf3c97bad1817ffabfaa16bb380bb20add48198e67a1f30f706648a9",
+      "body_bytes": 2003,
+      "body_sha256": "sha256:e31d5b7b04f58ff6f1e6aba68081ad07740c843b9483597ba1bc148a7cea431a",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -478,8 +478,8 @@
     },
     {
       "aliases": ["alert template"],
-      "body_bytes": 645,
-      "body_sha256": "sha256:9d4da6b56975ac73fb4dee4f919fff091432da7e0416c12efb2f0af7b438467d",
+      "body_bytes": 408,
+      "body_sha256": "sha256:728df10c1936717e151500d726140340eddccd123366af1ecfcf9235f63c8574",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:alert_template:example:resource"],
@@ -518,8 +518,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1376,
-      "body_sha256": "sha256:979b02b69708e539876fa3b62288a46de2aa762fd2f8fe00d1f67e85a1830f0d",
+      "body_bytes": 1148,
+      "body_sha256": "sha256:d4ca22d16b26470362f15b53e0f51608872341de05641c31026d5896b46c44c8",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -565,8 +565,8 @@
     },
     {
       "aliases": ["alert template"],
-      "body_bytes": 490,
-      "body_sha256": "sha256:57fc214ff4cefc25d7f0c8dfe858f946d528fbe02a7cb3d94851b4dc9ceec0f9",
+      "body_bytes": 367,
+      "body_sha256": "sha256:5663bcf0cf0f85905cba7134caf82aa4f137aee56b84ba6f49a0ab7f7472359d",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -606,8 +606,8 @@
     },
     {
       "aliases": ["alert template"],
-      "body_bytes": 578,
-      "body_sha256": "sha256:da206d3d9547c02f8b9866a9d55cc01fa71a7888e837aad787bf2139d5a0e7ac",
+      "body_bytes": 455,
+      "body_sha256": "sha256:fbe2f0e2dc42122d37677e5ba929f1d319f5942cf56763be2e1b5de44eb3b3f4",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],

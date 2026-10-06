@@ -2,7 +2,7 @@
 page_title: "active_forward_proxy_policies.forward_proxy_policies"
 subcategory: ""
 description: "Ordered List of Forward Proxy Policies active."
-xcsh_docs: {"aliases": ["active forward proxy policies forward proxy policies"], "body_bytes": 6612, "body_sha256": "sha256:13e6cf83cdd5bfb98489fecfc596b4c3fc4cd44a3621b439353f1ab472354fd5", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:proxy:collection", "completeness": "complete", "id": "xcsh-docs:resources:proxy:properties:active_forward_proxy_policies:forward_proxy_policies", "parent_id": "xcsh-docs:resources:proxy:properties:active_forward_proxy_policies", "path": "documentation/resources/proxy/properties/active_forward_proxy_policies/forward_proxy_policies/index.md", "product": "distributed-cloud", "provider_name": "proxy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1230113222323330-0220310102200332-1332230021002120-2103311313110211-0300001122200322-1223330220000033-3313100130133003-1331303003011122", "registry_path": "docs/guides/resources--proxy--reference--group-001.md", "relationships": [{"anchor": "schema-active_forward_proxy_policies--forward_proxy_policies--name", "enforcement": "provider-schema", "group": "active_forward_proxy_policies.forward_proxy_policies:RequiredListObjectAttributes:name", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:proxy:properties:active_forward_proxy_policies:forward_proxy_policies", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["active_forward_proxy_policies", "forward_proxy_policies"], "schema_version": 1, "sections": [{"aliases": ["active forward proxy policies forward proxy policies name"], "anchor": "schema-active_forward_proxy_policies--forward_proxy_policies--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:proxy:properties:active_forward_proxy_policies:forward_proxy_policies", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["active_forward_proxy_policies", "forward_proxy_policies", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["active forward proxy policies forward proxy policies namespace"], "anchor": "schema-active_forward_proxy_policies--forward_proxy_policies--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:proxy:properties:active_forward_proxy_policies:forward_proxy_policies", "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["active_forward_proxy_policies", "forward_proxy_policies", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["active forward proxy policies forward proxy policies tenant"], "anchor": "schema-active_forward_proxy_policies--forward_proxy_policies--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:proxy:properties:active_forward_proxy_policies:forward_proxy_policies", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["active_forward_proxy_policies", "forward_proxy_policies", "tenant"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/proxy/properties/active_forward_proxy_policies/forward_proxy_policies/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Ordered List of Forward Proxy Policies active.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["proxyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["active forward proxy policies forward proxy policies"], "body_bytes": 5855, "body_sha256": "sha256:46fbf427823bfa2d9eb5d3c9a0d9a2ddf08b5f4e8c59422ca556a51ed897b727", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:proxy:collection", "completeness": "complete", "id": "xcsh-docs:resources:proxy:properties:active_forward_proxy_policies:forward_proxy_policies", "parent_id": "xcsh-docs:resources:proxy:properties:active_forward_proxy_policies", "path": "documentation/resources/proxy/properties/active_forward_proxy_policies/forward_proxy_policies/index.md", "product": "distributed-cloud", "provider_name": "proxy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1230113222323330-0220310102200332-1332230021002120-2103311313110211-0300001122200322-1223330220000033-3313100130133003-1331303003011122", "registry_path": "docs/guides/resources--proxy--reference--group-001.md", "relationships": [{"anchor": "schema-active_forward_proxy_policies--forward_proxy_policies--name", "enforcement": "provider-schema", "group": "active_forward_proxy_policies.forward_proxy_policies:RequiredListObjectAttributes:name", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:proxy:properties:active_forward_proxy_policies:forward_proxy_policies", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["active_forward_proxy_policies", "forward_proxy_policies"], "schema_version": 1, "sections": [{"aliases": ["active forward proxy policies forward proxy policies name"], "anchor": "schema-active_forward_proxy_policies--forward_proxy_policies--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:proxy:properties:active_forward_proxy_policies:forward_proxy_policies", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["active_forward_proxy_policies", "forward_proxy_policies", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["active forward proxy policies forward proxy policies namespace"], "anchor": "schema-active_forward_proxy_policies--forward_proxy_policies--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:proxy:properties:active_forward_proxy_policies:forward_proxy_policies", "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["active_forward_proxy_policies", "forward_proxy_policies", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["active forward proxy policies forward proxy policies tenant"], "anchor": "schema-active_forward_proxy_policies--forward_proxy_policies--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:proxy:properties:active_forward_proxy_policies:forward_proxy_policies", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["active_forward_proxy_policies", "forward_proxy_policies", "tenant"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/proxy/properties/active_forward_proxy_policies/forward_proxy_policies/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Ordered List of Forward Proxy Policies active.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["proxyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -86,11 +86,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -145,11 +140,6 @@ Receipt-pinned upstream constraints:
 ### namespace property
 
 Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -219,11 +209,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -265,8 +250,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [active_forward_proxy_policies](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/proxy/properties/active_forward_proxy_policies/)
-- [xcsh_proxy](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/proxy/)

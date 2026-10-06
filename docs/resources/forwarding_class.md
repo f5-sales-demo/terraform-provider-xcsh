@@ -1,10 +1,10 @@
 ---
-page_title: "xcsh_forwarding_class landing"
+page_title: "xcsh_forwarding_class"
 subcategory: ""
-description: "Complete grouped canonical reference for xcsh_forwarding_class landing."
+description: "Complete grouped canonical reference for xcsh_forwarding_class."
 ---
 
-# xcsh_forwarding_class landing
+# xcsh_forwarding_class
 
 <a id="canonical-2311030223121110-0200300102200301-0213002201300200-1210221011312013-2203303003202231-0033212100202321-0010322230031303-1000220313130212"></a>
 
@@ -12,9 +12,7 @@ description: "Complete grouped canonical reference for xcsh_forwarding_class lan
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3013123331103333-1231201230223330-0321113230130220-1323311021011303-0303211131330320-2211212233003100-0300031101022233-2002130220122102"></a>
-
-## xcsh_forwarding_class — xcsh_forwarding_class / 233021033120 / 2
+## Overview
 
 Breadcrumbs:
 
@@ -23,15 +21,15 @@ Breadcrumbs:
 Manages a Forwarding Class resource in F5 Distributed Cloud for forwarding class is created by users
 in system namespace. configuration.
 
-<a id="canonical-0211012220210220-2201210122201010-2123232210120201-0333223032130201-3021220123312001-1032210130032201-2131022322300001-1023113023120301"></a>
+<a id="canonical-3013123331103333-1231201230223330-0321113230130220-1323311021011303-0303211131330320-2211212233003100-0300031101022233-2002130220122102"></a>
 
-## Prerequisites — xcsh_forwarding_class / 233021033120 / 3
+### Prerequisites for `xcsh_forwarding_class`
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-1220020231322321-1221102123023130-2300102111100012-1110133031033231-2332112323030201-1303213102302120-3223013311112033-2333120120321323"></a>
+<a id="canonical-0211012220210220-2201210122201010-2123232210120201-0333223032130201-3021220123312001-1032210130032201-2131022322300001-1023113023120301"></a>
 
-## Minimal configuration — xcsh_forwarding_class / 233021033120 / 4
+### Minimal configuration for `xcsh_forwarding_class`
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,15 +55,15 @@ resource "xcsh_forwarding_class" "example" {
 }
 ```
 
-<a id="canonical-0203303123012011-2122003120330102-1310022023000302-2002322110111211-2020203010212230-1312233201100001-3232110200010323-1010320323113003"></a>
+<a id="canonical-1220020231322321-1221102123023130-2300102111100012-1110133031033231-2332112323030201-1303213102302120-3223013311112033-2333120120321323"></a>
 
-## Root configuration — xcsh_forwarding_class / 233021033120 / 5
+### Root configuration for `xcsh_forwarding_class`
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-1001012123112102-2211131310210210-3123122103133021-1301020212131132-3310133002332321-1210032133111100-3003330131213312-0113132003303021"></a>
+<a id="canonical-0203303123012011-2122003120330102-1310022023000302-2002322110111211-2020203010212230-1312233201100001-3232110200010323-1010320323113003"></a>
 
-## Next pages — xcsh_forwarding_class / 233021033120 / 6
+### Explore this collection for `xcsh_forwarding_class`
 
 - [Property reference](../guides/resources--forwarding_class--reference--group-001.md#canonical-0102111112020232-1131131013230311-1223320113131321-1013330221212303-3022123312213323-3323312223011303-2202303002230110-1331212022130030)
 - [Examples](../guides/resources--forwarding_class--examples--group-001.md#canonical-1121111133103312-1312010112003212-2002312232032321-0022321033300030-1300301001320300-2220313031122222-2232333122231221-0111320013023222)

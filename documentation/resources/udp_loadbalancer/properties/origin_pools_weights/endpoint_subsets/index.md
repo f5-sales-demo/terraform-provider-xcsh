@@ -2,7 +2,7 @@
 page_title: "origin_pools_weights.endpoint_subsets"
 subcategory: ""
 description: "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul cluster, the label of"
-xcsh_docs: {"aliases": ["origin pools weights endpoint subsets"], "body_bytes": 2696, "body_sha256": "sha256:65b0b2dd694f53bbe0240cd88835ea36d909e82b7e0c011a6b3e7ccc94acab05", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights:endpoint_subsets", "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights", "path": "documentation/resources/udp_loadbalancer/properties/origin_pools_weights/endpoint_subsets/index.md", "product": "distributed-cloud", "provider_name": "udp_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2212331323003111-1030313120020032-3212012123121133-3300233100322002-3130033121132002-1011101220202303-0200122133211232-2021002122220331", "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["origin_pools_weights", "endpoint_subsets"], "schema_version": 1, "sections": [], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/origin_pools_weights/endpoint_subsets/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul cluster, the label of", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["udp_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["origin pools weights endpoint subsets"], "body_bytes": 2082, "body_sha256": "sha256:abd91b449ce12b5ebf7a8539bdb85ebad786e9ba4bc8e1b4ea7eaaeb4c71ef71", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights:endpoint_subsets", "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights", "path": "documentation/resources/udp_loadbalancer/properties/origin_pools_weights/endpoint_subsets/index.md", "product": "distributed-cloud", "provider_name": "udp_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2212331323003111-1030313120020032-3212012123121133-3300233100322002-3130033121132002-1011101220202303-0200122133211232-2021002122220331", "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["origin_pools_weights", "endpoint_subsets"], "schema_version": 1, "sections": [], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/origin_pools_weights/endpoint_subsets/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul cluster, the label of", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["udp_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -21,12 +21,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Upstream origin pool may be configured to divide its origin servers into subsets based on metadata
-attached to the origin servers. Routes may then specify the metadata that a endpoint must match in
-order to be selected by the load balancer For origin servers which are discovered in K8s or Consul..
-
-Upstream description:
 
 Upstream origin pool may be configured to divide its origin servers into subsets based on metadata
 attached to the origin servers. Routes may then specify the metadata that a endpoint must match in
@@ -76,11 +70,4 @@ Terraform syntax:
 endpoint_subsets {}
 ```
 
-## Direct properties
-
 This is an empty object or choice marker. It has no direct properties.
-
-## Next pages
-
-- [origin_pools_weights](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/udp_loadbalancer/properties/origin_pools_weights/)
-- [xcsh_udp_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/udp_loadbalancer/)

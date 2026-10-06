@@ -71,8 +71,8 @@
   "pages": [
     {
       "aliases": ["network policy set"],
-      "body_bytes": 1454,
-      "body_sha256": "sha256:ac3576f82044aabce9ce25dd691f46848704456af6dd66e82e87ad56c49dc895",
+      "body_bytes": 1382,
+      "body_sha256": "sha256:2729654667d1a6d6276e4ca24d517d051eb60d9db66da5c5d71b600775d924a0",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -103,7 +103,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy_set/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Network Policy Set resource in F5 Distributed Cloud for get network policy set in a given namespace. configuration. (read-only data source)",
+      "summary": "Reads an existing Network Policy Set in the requested namespace.",
       "tasks": ["configuration"],
       "title": "xcsh_network_policy_set",
       "unresolved_relationships": [],
@@ -115,8 +115,8 @@
     },
     {
       "aliases": ["network policy set"],
-      "body_bytes": 3432,
-      "body_sha256": "sha256:e8260d3ef180442eae032951adf40e65eb7e20e94c2bfe586b17de7256ce69e0",
+      "body_bytes": 3175,
+      "body_sha256": "sha256:b5c12dee48df6c6f46c16ec7199fdf7b13fb4ff7707ff318b21051905f540e2b",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:network_policy_set:properties:policies"],
@@ -254,8 +254,8 @@
     },
     {
       "aliases": ["policies"],
-      "body_bytes": 1940,
-      "body_sha256": "sha256:60164f1240470dafa2d0e60ea0475b922278c8e8832bd993fc2d7403483cd296",
+      "body_bytes": 1682,
+      "body_sha256": "sha256:49597bbb4ab34d6ccec12a5c603cd57d9dc7c061b80cca80f65e5f323ab04e3a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -365,8 +365,8 @@
     },
     {
       "aliases": ["network policy set"],
-      "body_bytes": 693,
-      "body_sha256": "sha256:b766687bca11c689606249aa1c227d21fbf1bf48848f555397040f004eb1285f",
+      "body_bytes": 432,
+      "body_sha256": "sha256:0edb39c6adc74dda481483dcb7d06d258221354bd3f5017fc6aebda1623f68f8",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:network_policy_set:example:data-source"],
@@ -405,8 +405,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1355,
-      "body_sha256": "sha256:9fbcddd5ebb3fe5422cc0d58a296a59c1b43c0b92c804e81718293e3c763202c",
+      "body_bytes": 1109,
+      "body_sha256": "sha256:4c3c1e17d6c9aecec889a5ba876f904f44593fd052cc28fe565098e5959396cf",
       "capabilities": [],
       "category": null,
       "child_ids": [],

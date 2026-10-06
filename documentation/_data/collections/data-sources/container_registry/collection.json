@@ -96,8 +96,8 @@
   "pages": [
     {
       "aliases": ["container registry"],
-      "body_bytes": 1446,
-      "body_sha256": "sha256:1a8b65d77dee7f4106be7aa9ca74c52217bb4ff622341cfcf697415d41c77a15",
+      "body_bytes": 1417,
+      "body_sha256": "sha256:65817e162de2297c27be95947eb8d4142d0f746bd593ddae1aa507898abcad31",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -128,7 +128,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/container_registry/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Container Registry resource in F5 Distributed Cloud for container image registry configuration.",
+      "summary": "Reads Container Registry information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_container_registry",
       "unresolved_relationships": [],
@@ -140,8 +140,8 @@
     },
     {
       "aliases": ["container registry"],
-      "body_bytes": 12944,
-      "body_sha256": "sha256:6097c5111452551ea9388d22a82642bdedbdfeac734c98836de73c3bf9805fa2",
+      "body_bytes": 12607,
+      "body_sha256": "sha256:dc8206baee72b23a1fd96239334a6b835719ed223e4827ee150181f542b056bc",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:container_registry:properties:password"],
@@ -321,8 +321,8 @@
     },
     {
       "aliases": ["password"],
-      "body_bytes": 1755,
-      "body_sha256": "sha256:5608e8b92a52f3240521e52684943916bd6e9f6504793e1208368880b0a364b6",
+      "body_bytes": 1171,
+      "body_sha256": "sha256:5321da3ef6990ed0da1443f1cc880dba4fc58babd214ab2930bc6412461f2bf7",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -393,8 +393,8 @@
     },
     {
       "aliases": ["password blindfold secret info"],
-      "body_bytes": 4213,
-      "body_sha256": "sha256:02b102c13db1486cae19712008b43e84da9e05c6a8de2249361315902aa4ec4f",
+      "body_bytes": 3587,
+      "body_sha256": "sha256:970fc198637342a3d601b50244325f8f443c5b4c0663e5ba341a0140669f0622",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -476,8 +476,8 @@
     },
     {
       "aliases": ["password clear secret info"],
-      "body_bytes": 3125,
-      "body_sha256": "sha256:fbe0c73f95675df21e29b83db739044eb0a1f85fdd4b412a67cf5d893edd6890",
+      "body_bytes": 2633,
+      "body_sha256": "sha256:1c87ec988332774ec9c954aa7e4a1c8d5df4cd10265ebccaeb3dc0823e873cf1",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -545,8 +545,8 @@
     },
     {
       "aliases": ["container registry"],
-      "body_bytes": 693,
-      "body_sha256": "sha256:630c75841dbff316679291a8f708616a2e9aee588ffc120e19f280c52f37a958",
+      "body_bytes": 432,
+      "body_sha256": "sha256:a09c05801c6119c7500e7729505ce371a887044b74b25bbdf96a2e0ad611c440",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:container_registry:example:data-source"],
@@ -585,8 +585,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1357,
-      "body_sha256": "sha256:11448be9a824a6efbb8cae696aba906d83f1dbd7989a0bacb1f23f7596729953",
+      "body_bytes": 1111,
+      "body_sha256": "sha256:5b060fb0cb3373be7ec7b58fc3b52c0befde87d173968a9a418f3ba3b24b25ac",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],

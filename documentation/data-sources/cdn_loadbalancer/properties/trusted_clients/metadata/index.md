@@ -2,7 +2,7 @@
 page_title: "trusted_clients.metadata"
 subcategory: "Load Balancing"
 description: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs."
-xcsh_docs: {"aliases": ["trusted clients metadata"], "body_bytes": 3537, "body_sha256": "sha256:f8d2dd3846d08927ed5c2be5cb424f3e4d57a2adfa56ac13249a87493f5f06f3", "capabilities": ["cdn"], "category": "cdn", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:cdn_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:metadata", "parent_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients", "path": "documentation/data-sources/cdn_loadbalancer/properties/trusted_clients/metadata/index.md", "product": "distributed-cloud", "provider_name": "cdn_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-3223231021000022-1323110230023303-2001333120313120-2313222332030222-3132312200330212-2013103300312311-0321130232003030-3331121232230020", "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-014.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["trusted_clients", "metadata"], "schema_version": 1, "sections": [{"aliases": ["trusted clients metadata description spec"], "anchor": "schema-trusted_clients--metadata--description_spec", "description": "Description. Human readable description.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:metadata", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "metadata", "description_spec"], "syntax": "attribute", "type": "string"}, {"aliases": ["trusted clients metadata name"], "anchor": "schema-trusted_clients--metadata--name", "description": "This is the name of the message. The value of name has to follow DNS-1035 format.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:metadata", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "metadata", "name"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_loadbalancer/properties/trusted_clients/metadata/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["cdn_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["trusted clients metadata"], "body_bytes": 2855, "body_sha256": "sha256:e4f2824f8066c00fb7ca191e4dbc4b6c8c3f5c19ad66ef024fcfedb03ba65e56", "capabilities": ["cdn"], "category": "cdn", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:cdn_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:metadata", "parent_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients", "path": "documentation/data-sources/cdn_loadbalancer/properties/trusted_clients/metadata/index.md", "product": "distributed-cloud", "provider_name": "cdn_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-3223231021000022-1323110230023303-2001333120313120-2313222332030222-3132312200330212-2013103300312311-0321130232003030-3331121232230020", "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-015.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["trusted_clients", "metadata"], "schema_version": 1, "sections": [{"aliases": ["trusted clients metadata description spec"], "anchor": "schema-trusted_clients--metadata--description_spec", "description": "Description. Human readable description.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:metadata", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "metadata", "description_spec"], "syntax": "attribute", "type": "string"}, {"aliases": ["trusted clients metadata name"], "anchor": "schema-trusted_clients--metadata--name", "description": "This is the name of the message. The value of name has to follow DNS-1035 format.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:metadata", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "metadata", "name"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_loadbalancer/properties/trusted_clients/metadata/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["cdn_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -21,13 +21,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"single"`. Computed.
-
-MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
-information is propagated to the metadata of a child object that gets created from the containing
-message during view processing. The information in this type can be specified by user during
-create..
-
-Upstream description:
 
 MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
 information is propagated to the metadata of a child object that gets created from the containing
@@ -62,10 +55,6 @@ Description. Human readable description.
 ### name property
 
 Type: `"string"`. Computed.
-
-Name of the message. The value of name has to follow DNS-1035 format.
-
-Upstream description:
 
 This is the name of the message. The value of name has to follow DNS-1035 format.
 
@@ -117,8 +106,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [trusted_clients](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/trusted_clients/)
-- [xcsh_cdn_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/)
