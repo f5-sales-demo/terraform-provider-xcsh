@@ -247,6 +247,7 @@ echo "::group::Generate complete provider documentation collections"
 constraints_output="$temporary_root/documentation-constraints.json"
 go run tools/export-doc-constraints.go >"$constraints_output"
 python3 tools/generate-doc-collections.py --schema "$schema_output" --constraints "$constraints_output"
+python3 tools/audit-doc-readability.py --strict
 XCSH_DOCS_SCHEMA="$schema_output" python3 -m unittest discover -s tests -p test_doc_collections.py
 python3 -m unittest discover -s tests -p test_doc_publication.py
 python3 -m unittest discover -s tests -p test_registry_projection.py
