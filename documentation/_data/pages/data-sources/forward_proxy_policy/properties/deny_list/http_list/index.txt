@@ -2,7 +2,7 @@
 page_title: "deny_list.http_list"
 subcategory: "Security"
 description: "URLs for HTTP connections."
-xcsh_docs: {"aliases": ["deny list http list"], "body_bytes": 8363, "body_sha256": "sha256:a66897825c18f1b2cbce90c1c0aea00e62ac990aa41a6438b2ba459dd30931c3", "capabilities": ["networking"], "category": "networking", "child_ids": ["xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list:any_path"], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list", "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list", "path": "documentation/data-sources/forward_proxy_policy/properties/deny_list/http_list/index.md", "product": "distributed-cloud", "provider_name": "forward_proxy_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-0303231023303013-2000101121012313-0330202210132020-1231300133103021-2013033113212023-1103013023330023-2023023313001213-2111003101313132", "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["deny_list", "http_list"], "schema_version": 1, "sections": [{"aliases": ["deny list http list any path"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list:any_path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "http_list", "any_path"], "syntax": "attribute", "type": "object"}, {"aliases": ["deny list http list exact value"], "anchor": "schema-deny_list--http_list--exact_value", "description": "Exclusive with Exact domain name.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "http_list", "exact_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["deny list http list path exact value"], "anchor": "schema-deny_list--http_list--path_exact_value", "description": "Exclusive with Exact Path to match.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "http_list", "path_exact_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["deny list http list path prefix value"], "anchor": "schema-deny_list--http_list--path_prefix_value", "description": "Exclusive with Prefix of Path e.g \"/abc/xyz\" will match \"/abc/xyz/.*\"", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "http_list", "path_prefix_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["deny list http list path regex value"], "anchor": "schema-deny_list--http_list--path_regex_value", "description": "Exclusive with Regular Expression value for the Path to match.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "http_list", "path_regex_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["deny list http list regex value"], "anchor": "schema-deny_list--http_list--regex_value", "description": "Exclusive with Regular Expression value for the domain name.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "http_list", "regex_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["deny list http list suffix value"], "anchor": "schema-deny_list--http_list--suffix_value", "description": "Exclusive with Suffix of domain names e.g \"xyz.com\" will match \"*.xyz.com\"", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "http_list", "suffix_value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/deny_list/http_list/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "URLs for HTTP connections.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["forward_proxy_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["deny list http list"], "body_bytes": 8363, "body_sha256": "sha256:7fb6cbdc3684157b7254305f6b0df203b7aa5ad468708200fb18faaf240ccc38", "capabilities": ["networking"], "category": "networking", "child_ids": ["xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list:any_path"], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list", "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list", "path": "documentation/data-sources/forward_proxy_policy/properties/deny_list/http_list/index.md", "product": "distributed-cloud", "provider_name": "forward_proxy_policy", "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f", "provider_type": "data-sources", "registry_anchor": "canonical-0303231023303013-2000101121012313-0330202210132020-1231300133103021-2013033113212023-1103013023330023-2023023313001213-2111003101313132", "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["deny_list", "http_list"], "schema_version": 1, "sections": [{"aliases": ["deny list http list any path"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list:any_path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "http_list", "any_path"], "syntax": "attribute", "type": "object"}, {"aliases": ["deny list http list exact value"], "anchor": "schema-deny_list--http_list--exact_value", "description": "Exclusive with Exact domain name.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "http_list", "exact_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["deny list http list path exact value"], "anchor": "schema-deny_list--http_list--path_exact_value", "description": "Exclusive with Exact Path to match.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "http_list", "path_exact_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["deny list http list path prefix value"], "anchor": "schema-deny_list--http_list--path_prefix_value", "description": "Exclusive with Prefix of Path e.g \"/abc/xyz\" will match \"/abc/xyz/.*\"", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "http_list", "path_prefix_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["deny list http list path regex value"], "anchor": "schema-deny_list--http_list--path_regex_value", "description": "Exclusive with Regular Expression value for the Path to match.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "http_list", "path_regex_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["deny list http list regex value"], "anchor": "schema-deny_list--http_list--regex_value", "description": "Exclusive with Regular Expression value for the domain name.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "http_list", "regex_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["deny list http list suffix value"], "anchor": "schema-deny_list--http_list--suffix_value", "description": "Exclusive with Suffix of domain names e.g \"xyz.com\" will match \"*.xyz.com\"", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "http_list", "suffix_value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/deny_list/http_list/index.txt", "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e", "summary": "URLs for HTTP connections.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.1", "schema_components": ["forward_proxy_policyCreateRequest"], "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -37,7 +37,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+      "validatedAt": "2026-10-06T12:36:10+00:00"
     },
     "uniqueItems": true
   },
@@ -85,7 +85,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+      "validatedAt": "2026-10-06T12:36:10+00:00"
     },
     "minLength": 1
   },
@@ -130,7 +130,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+      "validatedAt": "2026-10-06T12:36:10+00:00"
     },
     "minLength": 1
   },
@@ -181,7 +181,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+      "validatedAt": "2026-10-06T12:36:10+00:00"
     },
     "minLength": 1
   },
@@ -227,7 +227,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+      "validatedAt": "2026-10-06T12:36:10+00:00"
     },
     "minLength": 1
   },
@@ -272,7 +272,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+      "validatedAt": "2026-10-06T12:36:10+00:00"
     },
     "minLength": 1
   },
@@ -324,7 +324,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+      "validatedAt": "2026-10-06T12:36:10+00:00"
     },
     "minLength": 1
   },

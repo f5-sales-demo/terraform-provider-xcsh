@@ -116,7 +116,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+      "validatedAt": "2026-10-06T12:36:10+00:00"
     },
     "minLength": 0
   },
@@ -209,7 +209,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+      "validatedAt": "2026-10-06T12:36:10+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -268,7 +268,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+      "validatedAt": "2026-10-06T12:36:10+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -292,7 +292,7 @@ Receipt-pinned upstream constraints:
 
 #### `protected_domain` property
 
-Type: `"string"`. Computed.
+Type: `"string"`. Optional, Computed.
 
 For Client-Side Defense to work on the web pages where you injected the JS, you need to enter the
 root domain below. Example: if you are adding Client-Side Defense JS on checkout.example.com, you
@@ -311,7 +311,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+      "validatedAt": "2026-10-06T12:36:10+00:00"
     }
   },
   "x-f5xc-required-for": {

@@ -144,7 +144,7 @@
       "path": "documentation/data-sources/certificate/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3012321000133203-2232232100110030-1133220132311111-1220230030331111-1113103323102333-2233030332231013-0322121312100331-0121101033322010",
       "registry_path": "docs/data-sources/certificate.md",
@@ -154,21 +154,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certificate/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Reads Certificate information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_certificate",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["certificate"],
       "body_bytes": 13107,
-      "body_sha256": "sha256:413eff9957ecb02829230789465bb2184a2ccb85a5735a6ca8d2e1815155e5df",
+      "body_sha256": "sha256:e63bb2268c8a6e82db8890b9755ca314ebcdf3fe18dcef48825f267f38c55e3f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -191,7 +191,7 @@
       "path": "documentation/data-sources/certificate/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0231301231300033-0330331110133021-2220121332302031-1112310222301003-2132000233121232-0233011201000301-3230232011333001-1002232100313000",
       "registry_path": "docs/guides/data-sources--certificate--reference--group-001.md",
@@ -394,20 +394,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certificate/properties/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Property reference for xcsh_certificate.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["cert", "certificate", "certificate chain", "existing certificates", "tls certificates"],
       "body_bytes": 4256,
-      "body_sha256": "sha256:1a70c3c824170c52545e64d624c4074f89b1c9a22915934cdc483500dc1b9df9",
+      "body_sha256": "sha256:496b7535986c5f103213db51a16f378620b40cec85840f4f00cf45d07201cf94",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -424,7 +424,7 @@
       "path": "documentation/data-sources/certificate/properties/certificate_chain/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1201120301312222-1110032002030323-1311101123101112-2231320131101203-3033033031011131-0002122100230310-1313320132333010-2022233002033223",
       "registry_path": "docs/guides/data-sources--certificate--reference--group-001.md",
@@ -504,20 +504,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certificate/properties/certificate_chain/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "certificate_chain",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["custom hash algorithms"],
       "body_bytes": 2672,
-      "body_sha256": "sha256:bd9ddeedc31254c8598dfc4cf2dbeed9060998406c2d59e8b273d253716c75d7",
+      "body_sha256": "sha256:8e2d7fd160541239748e681f5f4d0f9006b7b21f74b964151052070ca28cd2ef",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -534,7 +534,7 @@
       "path": "documentation/data-sources/certificate/properties/custom_hash_algorithms/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0303233230122130-1303313303031100-0320311101201112-1233011200123032-3233130001310213-0200202130000212-3132121010121103-3203232021031312",
       "registry_path": "docs/guides/data-sources--certificate--reference--group-001.md",
@@ -561,14 +561,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certificate/properties/custom_hash_algorithms/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Specifies the hash algorithms to be used.",
       "tasks": ["configuration"],
       "title": "custom_hash_algorithms",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -591,7 +591,7 @@
       "path": "documentation/data-sources/certificate/properties/disable_ocsp_stapling/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1303300001332333-2133003111102030-1211002312221203-1032210221332122-0332301200132133-2220203300032233-2102213320133233-2200000202032210",
       "registry_path": "docs/guides/data-sources--certificate--reference--group-001.md",
@@ -601,14 +601,14 @@
       "schema_path": ["disable_ocsp_stapling"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certificate/properties/disable_ocsp_stapling/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "disable_ocsp_stapling",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -634,7 +634,7 @@
       "path": "documentation/data-sources/certificate/properties/private_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0303332301111032-1121312202010230-2010123001002110-1000200100332031-2022332113132133-1001003300221032-0013103033011303-1322002121022121",
       "registry_path": "docs/guides/data-sources--certificate--reference--group-001.md",
@@ -677,20 +677,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certificate/properties/private_key/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "private_key",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["private key blindfold secret info"],
       "body_bytes": 3580,
-      "body_sha256": "sha256:d4b498e5f5344149108068e8597e89e639df38c9c3da4df4960eae0a0c9446d3",
+      "body_sha256": "sha256:ea4b3330f00e4a9e1c204dba29139fedd5a3dcbf433eeb76ce88df7506dd6e35",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -707,7 +707,7 @@
       "path": "documentation/data-sources/certificate/properties/private_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3032322222111030-1210310322211001-1302023313202232-1030121331103231-2221020002031332-1233220131331130-2131130231331113-2303112033021323",
       "registry_path": "docs/guides/data-sources--certificate--reference--group-001.md",
@@ -766,20 +766,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certificate/properties/private_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "private_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["private key clear secret info"],
       "body_bytes": 2623,
-      "body_sha256": "sha256:18bb487f55da51c5e4960c60643540bb2640b08da0df11e01a3058199bdd9b8b",
+      "body_sha256": "sha256:66fb6e958a27ddc8cd7a459e347ed86cef7d0511e6e75deb408898b82f1124c1",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -796,7 +796,7 @@
       "path": "documentation/data-sources/certificate/properties/private_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0312212232033310-2233230322130022-1332030032003133-3132303102333130-1123121202123101-2130321121222323-3011222232331310-2213202123300230",
       "registry_path": "docs/guides/data-sources--certificate--reference--group-001.md",
@@ -839,14 +839,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certificate/properties/private_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "private_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -869,7 +869,7 @@
       "path": "documentation/data-sources/certificate/properties/use_system_defaults/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0322002230033322-0010111113303313-1123023032313223-1232100302003111-3313122222131302-2120130313311330-1112120102030010-1300311202323230",
       "registry_path": "docs/guides/data-sources--certificate--reference--group-001.md",
@@ -879,14 +879,14 @@
       "schema_path": ["use_system_defaults"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certificate/properties/use_system_defaults/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "use_system_defaults",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -909,7 +909,7 @@
       "path": "documentation/data-sources/certificate/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0332313110100301-2123222322221030-3221312133000120-2333200122131330-1111030233012332-3313211030323021-0130210110332303-0312311102101303",
       "registry_path": "docs/guides/data-sources--certificate--examples--group-001.md",
@@ -919,14 +919,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certificate/examples/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Examples for xcsh_certificate.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -956,7 +956,7 @@
       "path": "documentation/data-sources/certificate/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0230322312131310-1100223021111133-2013003200312120-3001030011211123-2210201231002213-3101333023233123-2120323312113233-3103212213321302",
       "registry_path": "docs/guides/data-sources--certificate--examples--group-001.md",
@@ -966,14 +966,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certificate/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Data source for xcsh_certificate.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     }
   ],

@@ -284,7 +284,7 @@
       "path": "documentation/resources/waf_exclusion_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "waf_exclusion_policy",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021",
       "registry_path": "docs/resources/waf_exclusion_policy.md",
@@ -294,21 +294,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/waf_exclusion_policy/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Manages WAF exclusion policy in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_waf_exclusion_policy",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["waf_exclusion_policyCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["waf exclusion policy"],
       "body_bytes": 18802,
-      "body_sha256": "sha256:e833c976de46d8caab389d40df6719c9e6166fda30601a84b25c743afaf7335b",
+      "body_sha256": "sha256:77422a8ec242c257706a5038c46db47e0a07cb26eb1f351f525f4953139f255b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -328,7 +328,7 @@
       "path": "documentation/resources/waf_exclusion_policy/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "waf_exclusion_policy",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3201012220022020-0302300332132202-1210300000101133-0132320021112000-0303020230312320-2033302130202231-1302212000313220-0123110313003311",
       "registry_path": "docs/guides/resources--waf_exclusion_policy--reference--group-001.md",
@@ -596,14 +596,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/waf_exclusion_policy/properties/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Property reference for xcsh_waf_exclusion_policy.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["waf_exclusion_policyCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -626,7 +626,7 @@
       "path": "documentation/resources/waf_exclusion_policy/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "waf_exclusion_policy",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3210220302330331-3113032111202011-3101313322200302-0303022000112330-3131010020211100-2031013130321333-1022303122302202-3121110220200132",
       "registry_path": "docs/guides/resources--waf_exclusion_policy--reference--group-001.md",
@@ -736,20 +736,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/waf_exclusion_policy/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "timeouts for xcsh_waf_exclusion_policy.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["waf_exclusion_policyCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["waf exclusion rules"],
       "body_bytes": 10472,
-      "body_sha256": "sha256:54014eb51dfad79e98ce368f1b8d3ba1a5bb9665383ebcf678bb17d2ffd2ba67",
+      "body_sha256": "sha256:523210c24114e6889094fc06ffc8f8bc0df6b766f1cbf8264578c3887dc635a5",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -772,7 +772,7 @@
       "path": "documentation/resources/waf_exclusion_policy/properties/waf_exclusion_rules/index.md",
       "product": "distributed-cloud",
       "provider_name": "waf_exclusion_policy",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0322320101202230-2231013321001031-0201113210112101-3002102211332203-0013201213213233-2211232131201233-1132103130123231-2100101032201012",
       "registry_path": "docs/guides/resources--waf_exclusion_policy--reference--group-001.md",
@@ -1081,14 +1081,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/waf_exclusion_policy/properties/waf_exclusion_rules/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "An ordered list of rules.",
       "tasks": ["configuration"],
       "title": "waf_exclusion_rules",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["waf_exclusion_policyCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1111,7 +1111,7 @@
       "path": "documentation/resources/waf_exclusion_policy/properties/waf_exclusion_rules/any_domain/index.md",
       "product": "distributed-cloud",
       "provider_name": "waf_exclusion_policy",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3330010210021233-0130201323101213-1021112103023031-1310312230022330-1310321103013102-2302123020203211-2321110302321031-3320223133122302",
       "registry_path": "docs/guides/resources--waf_exclusion_policy--reference--group-001.md",
@@ -1121,14 +1121,14 @@
       "schema_path": ["waf_exclusion_rules", "any_domain"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/waf_exclusion_policy/properties/waf_exclusion_rules/any_domain/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "waf_exclusion_rules.any_domain",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["waf_exclusion_policyCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1151,7 +1151,7 @@
       "path": "documentation/resources/waf_exclusion_policy/properties/waf_exclusion_rules/any_path/index.md",
       "product": "distributed-cloud",
       "provider_name": "waf_exclusion_policy",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0201023020120113-1323000123311302-1333100013102233-3012111200320221-0302222032330133-3020013302232311-2310331323321222-0300132323112330",
       "registry_path": "docs/guides/resources--waf_exclusion_policy--reference--group-001.md",
@@ -1161,14 +1161,14 @@
       "schema_path": ["waf_exclusion_rules", "any_path"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/waf_exclusion_policy/properties/waf_exclusion_rules/any_path/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "waf_exclusion_rules.any_path",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["waf_exclusion_policyCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1196,7 +1196,7 @@
       "path": "documentation/resources/waf_exclusion_policy/properties/waf_exclusion_rules/app_firewall_detection_control/index.md",
       "product": "distributed-cloud",
       "provider_name": "waf_exclusion_policy",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3033331200333021-0211200202303333-3133032223121003-1130303000300131-2233330202331212-1210230101113303-0211123033312221-0120132322022313",
       "registry_path": "docs/guides/resources--waf_exclusion_policy--reference--group-001.md",
@@ -1289,20 +1289,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/waf_exclusion_policy/properties/waf_exclusion_rules/app_firewall_detection_control/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Define the list of Signature IDs, Violations, Attack Types and Bot Names that should be excluded from triggering on the defined match criteria.",
       "tasks": ["configuration"],
       "title": "waf_exclusion_rules.app_firewall_detection_control",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["waf_exclusion_policyCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["waf exclusion rules app firewall detection control exclude attack type contexts"],
       "body_bytes": 11564,
-      "body_sha256": "sha256:bb21445bd3d11930f9728f4efb7575bc791760f9c83636f96603fe871e67831f",
+      "body_sha256": "sha256:6c83977db5e114056c536cd8852fd99d7d58ec5ca8976d6934467eac7e5838f9",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1319,7 +1319,7 @@
       "path": "documentation/resources/waf_exclusion_policy/properties/waf_exclusion_rules/app_firewall_detection_control/exclude_attack_type_contexts/index.md",
       "product": "distributed-cloud",
       "provider_name": "waf_exclusion_policy",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0032113131223101-2032333302300312-1121021132010023-3320132100212210-0132013223320201-2130301030020123-3032310333221123-1330112012131203",
       "registry_path": "docs/guides/resources--waf_exclusion_policy--reference--group-001.md",
@@ -1451,20 +1451,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/waf_exclusion_policy/properties/waf_exclusion_rules/app_firewall_detection_control/exclude_attack_type_contexts/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Exclude an entire attack type only in the named context. For migrated per-parameter exceptions, prefer this over signature-ID exclusions because one payload can trigger several signatures; unrelated parameters and attack types remain protected.",
       "tasks": ["configuration"],
       "title": "waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["waf_exclusion_policyCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["waf exclusion rules app firewall detection control exclude bot name contexts"],
       "body_bytes": 2851,
-      "body_sha256": "sha256:f37cc9dcdb253290298969a6026fb46c55efda1063260cad5d523b8320e6c558",
+      "body_sha256": "sha256:802ffff694554334d2d8b1aebf6fd9b24d2a50de887d2899235bebcb58683869",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1481,7 +1481,7 @@
       "path": "documentation/resources/waf_exclusion_policy/properties/waf_exclusion_rules/app_firewall_detection_control/exclude_bot_name_contexts/index.md",
       "product": "distributed-cloud",
       "provider_name": "waf_exclusion_policy",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2023312020310013-0223003320122301-3302023002030222-3221000023213303-1213233220000111-2003211211003301-0232203033320200-1310220320231132",
       "registry_path": "docs/guides/resources--waf_exclusion_policy--reference--group-001.md",
@@ -1522,20 +1522,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/waf_exclusion_policy/properties/waf_exclusion_rules/app_firewall_detection_control/exclude_bot_name_contexts/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Bot Names to be excluded for the defined match criteria.",
       "tasks": ["configuration"],
       "title": "waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["waf_exclusion_policyCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["waf exclusion rules app firewall detection control exclude signature contexts"],
       "body_bytes": 7718,
-      "body_sha256": "sha256:dc3558747ca0d3710574f037fee455a97e7ecd9ff314e7d686a77407accb8270",
+      "body_sha256": "sha256:d475627aedf692ade326f2add1eac53c8a219d5af6a646083fa38263128be09b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1552,7 +1552,7 @@
       "path": "documentation/resources/waf_exclusion_policy/properties/waf_exclusion_rules/app_firewall_detection_control/exclude_signature_contexts/index.md",
       "product": "distributed-cloud",
       "provider_name": "waf_exclusion_policy",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1230032303210112-2223112101330230-0001013102313322-0212121030010122-0332122123222130-2303132023312331-3300322011100022-2100120012211320",
       "registry_path": "docs/guides/resources--waf_exclusion_policy--reference--group-001.md",
@@ -1654,20 +1654,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/waf_exclusion_policy/properties/waf_exclusion_rules/app_firewall_detection_control/exclude_signature_contexts/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Signature IDs to be excluded for the defined match criteria.",
       "tasks": ["configuration"],
       "title": "waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["waf_exclusion_policyCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["waf exclusion rules app firewall detection control exclude violation contexts"],
       "body_bytes": 14803,
-      "body_sha256": "sha256:7ab3e5e9639a79d7d70f0c6cdb0f99b9c20e6b54753c139ca648f19ef4df3fd1",
+      "body_sha256": "sha256:9e1d7eebcf7d4a80e82325a447af1c09091c62492c921f5393ca629038e214b9",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1684,7 +1684,7 @@
       "path": "documentation/resources/waf_exclusion_policy/properties/waf_exclusion_rules/app_firewall_detection_control/exclude_violation_contexts/index.md",
       "product": "distributed-cloud",
       "provider_name": "waf_exclusion_policy",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1133011201100000-0311130202022202-0130130030303013-3102132212031332-0132022203132311-2111222113330230-2100120032000032-2013211131031130",
       "registry_path": "docs/guides/resources--waf_exclusion_policy--reference--group-001.md",
@@ -1823,20 +1823,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/waf_exclusion_policy/properties/waf_exclusion_rules/app_firewall_detection_control/exclude_violation_contexts/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Violations to be excluded for the defined match criteria.",
       "tasks": ["configuration"],
       "title": "waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["waf_exclusion_policyCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["waf exclusion rules metadata"],
       "body_bytes": 3513,
-      "body_sha256": "sha256:04012df626124b4aaa70c659856cca2de9500139fee450781c1793950fa391ac",
+      "body_sha256": "sha256:9c7e72c58df34550438128e5ab81c129f0bec1dadb24f004a36924a0e798d839",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1853,7 +1853,7 @@
       "path": "documentation/resources/waf_exclusion_policy/properties/waf_exclusion_rules/metadata/index.md",
       "product": "distributed-cloud",
       "provider_name": "waf_exclusion_policy",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2311323130333222-3113330103001312-3020301011221112-3103322023021012-1303023301123211-2131321231201031-2030103213222113-0302001231101103",
       "registry_path": "docs/guides/resources--waf_exclusion_policy--reference--group-001.md",
@@ -1905,14 +1905,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/waf_exclusion_policy/properties/waf_exclusion_rules/metadata/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "waf_exclusion_rules.metadata",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["waf_exclusion_policyCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1935,7 +1935,7 @@
       "path": "documentation/resources/waf_exclusion_policy/properties/waf_exclusion_rules/waf_skip_processing/index.md",
       "product": "distributed-cloud",
       "provider_name": "waf_exclusion_policy",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1211112303030110-1100130231023332-3201000020101201-3013232112230302-1210330310233010-0233333332101112-2213132333012113-2213220303222123",
       "registry_path": "docs/guides/resources--waf_exclusion_policy--reference--group-001.md",
@@ -1945,14 +1945,14 @@
       "schema_path": ["waf_exclusion_rules", "waf_skip_processing"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/waf_exclusion_policy/properties/waf_exclusion_rules/waf_skip_processing/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "waf_exclusion_rules.waf_skip_processing",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["waf_exclusion_policyCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1975,7 +1975,7 @@
       "path": "documentation/resources/waf_exclusion_policy/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "waf_exclusion_policy",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0110122321102222-3111203320123211-3222003212013303-2333230331313031-2003120230233113-3123231103322202-1020122311021101-3011330131323000",
       "registry_path": "docs/guides/resources--waf_exclusion_policy--examples--group-001.md",
@@ -1985,14 +1985,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/waf_exclusion_policy/examples/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Examples for xcsh_waf_exclusion_policy.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["waf_exclusion_policyCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2022,7 +2022,7 @@
       "path": "documentation/resources/waf_exclusion_policy/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "waf_exclusion_policy",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2230322233122230-1101312320013330-3203011100003232-1113232203023323-1012202020311211-1322303313201112-3213313330311311-2322010330201213",
       "registry_path": "docs/guides/resources--waf_exclusion_policy--examples--group-001.md",
@@ -2032,14 +2032,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/waf_exclusion_policy/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Resource for xcsh_waf_exclusion_policy.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["waf_exclusion_policyCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2063,7 +2063,7 @@
       "path": "documentation/resources/waf_exclusion_policy/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "waf_exclusion_policy",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3012022233000222-3231102202010320-1203311221201203-3303310332312323-2121112333030221-0311201302002230-0031000013221133-3132302210232322",
       "registry_path": "docs/guides/resources--waf_exclusion_policy--lifecycle--group-001.md",
@@ -2073,14 +2073,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/waf_exclusion_policy/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Import for xcsh_waf_exclusion_policy.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["waf_exclusion_policyCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2103,7 +2103,7 @@
       "path": "documentation/resources/waf_exclusion_policy/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "waf_exclusion_policy",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2020132113200123-3130311000012232-0300331331310301-1332232010012020-3013300331120223-3210132203031030-1121111221312203-2010101011133110",
       "registry_path": "docs/guides/resources--waf_exclusion_policy--lifecycle--group-001.md",
@@ -2113,14 +2113,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/waf_exclusion_policy/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Timeouts for xcsh_waf_exclusion_policy.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["waf_exclusion_policyCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     }
   ],

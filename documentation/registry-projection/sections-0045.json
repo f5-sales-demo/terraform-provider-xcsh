@@ -4,9 +4,9 @@
     {
       "canonical_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls:trusted_ca",
       "section_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls:trusted_ca:section:1",
-      "source_sha256": "sha256:e6c49f5f62bc18518a048be3c3a6483f4e2d02ef7da5ad2b0a4b4fa6404bb9ad",
+      "source_sha256": "sha256:54e635dc6e60b912405bb1c6176ad72071c3a939195e4ab18bf768d44a71e402",
       "source_bytes": 1301,
-      "canonical_source_sha256": "sha256:11c7edd0c1449c84a913e9b6bcb49df54451069c269af35e522d73667cb786b2",
+      "canonical_source_sha256": "sha256:66c59c6165fa3d50918b16d91250ab75351032c648586281adcf8ef1584911d6",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bigip_http_proxy/properties/proxy_config/https_auto_cert/use_mtls/trusted_ca/",
       "anchor": "canonical-1102301030110333-3323320001332222-2121302120030102-1232333323130021-2013002001313322-0121321130012230-0301121030022330-1112230123301133",
       "anchor_map": [
@@ -25,9 +25,9 @@
     {
       "canonical_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls:trusted_ca",
       "section_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls:trusted_ca:section:2",
-      "source_sha256": "sha256:8ba68dc0997e2976886fd40bfd8da4ea44c5f3ae1c8fa8a0f8a4de44a5036ff3",
+      "source_sha256": "sha256:68f0837d0f8b169157a90a90d98601a25ff7d892d91162cf6493ab43b5b12d83",
       "source_bytes": 1441,
-      "canonical_source_sha256": "sha256:11c7edd0c1449c84a913e9b6bcb49df54451069c269af35e522d73667cb786b2",
+      "canonical_source_sha256": "sha256:66c59c6165fa3d50918b16d91250ab75351032c648586281adcf8ef1584911d6",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bigip_http_proxy/properties/proxy_config/https_auto_cert/use_mtls/trusted_ca/",
       "anchor": "canonical-2322000100321232-2122100123003111-1133031031112023-1120202010020222-0021303201220302-2211303110030321-3113110213320311-1303011010021011",
       "anchor_map": [
@@ -42,9 +42,9 @@
     {
       "canonical_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls:trusted_ca",
       "section_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https_auto_cert:use_mtls:trusted_ca:section:3",
-      "source_sha256": "sha256:d891cdc5e711068a94856c7ce53c82031e7b75f35aaeead1307488036d4ba9f4",
+      "source_sha256": "sha256:7cef62c4c74991d0997fe4e0f303cadca7c8fc3902749072ab8892668831a2e2",
       "source_bytes": 862,
-      "canonical_source_sha256": "sha256:11c7edd0c1449c84a913e9b6bcb49df54451069c269af35e522d73667cb786b2",
+      "canonical_source_sha256": "sha256:66c59c6165fa3d50918b16d91250ab75351032c648586281adcf8ef1584911d6",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bigip_http_proxy/properties/proxy_config/https_auto_cert/use_mtls/trusted_ca/",
       "anchor": "canonical-2211101120230021-3011132133201112-2013201233022301-1221122012112313-1201022030010110-1213000302123121-3322010300332022-2320002321031200",
       "anchor_map": [],
@@ -3622,7 +3622,7 @@
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:reference:section:0",
       "source_sha256": "sha256:91e87ed04e44867df01d69fa0192ba4ca0498685a08a8eeb616bc56a0bddae02",
       "source_bytes": 299,
-      "canonical_source_sha256": "sha256:eb6606ce8adf2af6b2b3d0c7840b4f9cf8ac3aaad0f4e9ca0985546d82163dcb",
+      "canonical_source_sha256": "sha256:81db0ec62042f79246e7ca27e6dc5688bf0f599fa5e624d10e307ba0efa65426",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/",
       "anchor": "canonical-2132310132221331-3023323033302023-2020313301002322-3022221322122223-3020302132133032-3320001331003303-2321302323320112-2100121000233122",
       "anchor_map": [],
@@ -3634,7 +3634,7 @@
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:reference:section:1",
       "source_sha256": "sha256:69bd1d8d9aed714b372f0f5c29dfd514d281441e94db45a9ebed0ece493dc318",
       "source_bytes": 2070,
-      "canonical_source_sha256": "sha256:eb6606ce8adf2af6b2b3d0c7840b4f9cf8ac3aaad0f4e9ca0985546d82163dcb",
+      "canonical_source_sha256": "sha256:81db0ec62042f79246e7ca27e6dc5688bf0f599fa5e624d10e307ba0efa65426",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/",
       "anchor": "canonical-1323220130210013-2103101123033020-2131231222223201-2123122231231111-3003301012002302-0321302030031333-2202131311012132-3021221212032221",
       "anchor_map": [
@@ -3653,9 +3653,9 @@
     {
       "canonical_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:reference",
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:reference:section:2",
-      "source_sha256": "sha256:b2046f78f2c2217b96989fc457d54b172e11101a6d2463a190014c2a30dff3e5",
+      "source_sha256": "sha256:757f720194d2b1b930771099e6fcd67f060575b32d07978937a06a877388fb3a",
       "source_bytes": 996,
-      "canonical_source_sha256": "sha256:eb6606ce8adf2af6b2b3d0c7840b4f9cf8ac3aaad0f4e9ca0985546d82163dcb",
+      "canonical_source_sha256": "sha256:81db0ec62042f79246e7ca27e6dc5688bf0f599fa5e624d10e307ba0efa65426",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/",
       "anchor": "canonical-2312123301121212-3032313331333312-2021201112300200-1301212321112101-0023131332302221-0232303021100320-1010012101110221-3010032233031013",
       "anchor_map": [
@@ -3672,7 +3672,7 @@
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:reference:section:3",
       "source_sha256": "sha256:4d014d5e8fa95550028eb6b1340f39ca214633682a6de4564ed43c2747ea09dd",
       "source_bytes": 503,
-      "canonical_source_sha256": "sha256:eb6606ce8adf2af6b2b3d0c7840b4f9cf8ac3aaad0f4e9ca0985546d82163dcb",
+      "canonical_source_sha256": "sha256:81db0ec62042f79246e7ca27e6dc5688bf0f599fa5e624d10e307ba0efa65426",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/",
       "anchor": "canonical-2301200212133011-1302301031211310-2123211222011032-1100011212201133-2131100322010313-1212003031310113-0312032122011111-0212030210223233",
       "anchor_map": [
@@ -3689,7 +3689,7 @@
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:reference:section:4",
       "source_sha256": "sha256:33cc7a13e6890eccaab91442cb9e22a1948d2218dbdad32c1472ae170c849fa1",
       "source_bytes": 111,
-      "canonical_source_sha256": "sha256:eb6606ce8adf2af6b2b3d0c7840b4f9cf8ac3aaad0f4e9ca0985546d82163dcb",
+      "canonical_source_sha256": "sha256:81db0ec62042f79246e7ca27e6dc5688bf0f599fa5e624d10e307ba0efa65426",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/",
       "anchor": "canonical-3211310122102123-0211033111103303-3021231221012312-1330202110203131-2233330313212333-3331123201233023-1211213011102113-0222202302012003",
       "anchor_map": [
@@ -3706,7 +3706,7 @@
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:reference:section:5",
       "source_sha256": "sha256:e7243ddb1ddaeadd84cb9ffdcb21bac77e5ee18dbf7c62d71b6ad044a4f1344e",
       "source_bytes": 508,
-      "canonical_source_sha256": "sha256:eb6606ce8adf2af6b2b3d0c7840b4f9cf8ac3aaad0f4e9ca0985546d82163dcb",
+      "canonical_source_sha256": "sha256:81db0ec62042f79246e7ca27e6dc5688bf0f599fa5e624d10e307ba0efa65426",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/",
       "anchor": "canonical-3133233000312001-2221302220033101-2320310033202220-2011002223202333-2112101013232111-2121113231323010-2113210021320102-1203032013030203",
       "anchor_map": [
@@ -3721,9 +3721,9 @@
     {
       "canonical_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:reference",
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:reference:section:6",
-      "source_sha256": "sha256:da7069d11fadf526e70daef0661b99a116205007a465cbd2564c4455a9ca604e",
+      "source_sha256": "sha256:c52195b61bd5f5af56b578005adf923ff202ec9eeefa3d66836fbf49ed8c7c41",
       "source_bytes": 1539,
-      "canonical_source_sha256": "sha256:eb6606ce8adf2af6b2b3d0c7840b4f9cf8ac3aaad0f4e9ca0985546d82163dcb",
+      "canonical_source_sha256": "sha256:81db0ec62042f79246e7ca27e6dc5688bf0f599fa5e624d10e307ba0efa65426",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/",
       "anchor": "canonical-1323112012023123-2032222312330033-1203333013001220-0230110312322320-2020323321100301-1311010213233131-3303321333100121-1130101112333133",
       "anchor_map": [
@@ -3738,9 +3738,9 @@
     {
       "canonical_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:reference",
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:reference:section:7",
-      "source_sha256": "sha256:9be169a4a69f1d4fd241e318f122f16544c6f0473b4ca91ba2c7a5bf9b0add72",
+      "source_sha256": "sha256:5a70b6bee8bb816e9617a1ebee3060088a4ca3c12314496d18578eaa0a1a64f2",
       "source_bytes": 1277,
-      "canonical_source_sha256": "sha256:eb6606ce8adf2af6b2b3d0c7840b4f9cf8ac3aaad0f4e9ca0985546d82163dcb",
+      "canonical_source_sha256": "sha256:81db0ec62042f79246e7ca27e6dc5688bf0f599fa5e624d10e307ba0efa65426",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/",
       "anchor": "canonical-3023012120211300-0302103102101103-3132002221231120-2000031311213001-0213120123221132-2030302231131131-3001010010211302-3330002110101222",
       "anchor_map": [
@@ -3757,7 +3757,7 @@
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:reference:section:8",
       "source_sha256": "sha256:0ee1925e456c327c88e41f177625910d77d507aef6464cd611e6464f4798b5b8",
       "source_bytes": 417,
-      "canonical_source_sha256": "sha256:eb6606ce8adf2af6b2b3d0c7840b4f9cf8ac3aaad0f4e9ca0985546d82163dcb",
+      "canonical_source_sha256": "sha256:81db0ec62042f79246e7ca27e6dc5688bf0f599fa5e624d10e307ba0efa65426",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/",
       "anchor": "canonical-0201120132222223-2231301323322330-2211133000131130-2201000330010000-0030322033013031-0002131211311011-0221222313020221-2102211012231333",
       "anchor_map": [],
@@ -3769,7 +3769,7 @@
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:reference:section:9",
       "source_sha256": "sha256:9d6331a29f4f5999313e2f52b039b2455af08d71a07e2b4265979b5707ead591",
       "source_bytes": 6141,
-      "canonical_source_sha256": "sha256:eb6606ce8adf2af6b2b3d0c7840b4f9cf8ac3aaad0f4e9ca0985546d82163dcb",
+      "canonical_source_sha256": "sha256:81db0ec62042f79246e7ca27e6dc5688bf0f599fa5e624d10e307ba0efa65426",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/",
       "anchor": "canonical-0200303020320001-0030213111203213-3233300102023123-0020210101010311-3201030223313033-0023322211002010-3233301130013023-1322230121023120",
       "anchor_map": [],
@@ -3781,7 +3781,7 @@
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:cloud_hosted:section:0",
       "source_sha256": "sha256:8a057e6360ca846b8c5b7f30062ff1546e31e85a802eb62fd87d992a0baf73fb",
       "source_bytes": 1145,
-      "canonical_source_sha256": "sha256:fbb85cdfb80350010f7dd3668265e75ef36fc5860d528cdc9451934e89816193",
+      "canonical_source_sha256": "sha256:114f9800ad2049ed4b99acc4d3f43213e302a6c76387f36ba327c64b81c5692c",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/cloud_hosted/",
       "anchor": "canonical-1103310101020302-1303233332110101-0231320222231323-0233221013020013-0333122021130002-1312103123303001-3021222211302231-2313310212322103",
       "anchor_map": [
@@ -3798,7 +3798,7 @@
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:cloud_hosted:section:1",
       "source_sha256": "sha256:422a48a788799dab7185a51b23daed638ff164f12d35891107b27d2bdabdc830",
       "source_bytes": 250,
-      "canonical_source_sha256": "sha256:fbb85cdfb80350010f7dd3668265e75ef36fc5860d528cdc9451934e89816193",
+      "canonical_source_sha256": "sha256:114f9800ad2049ed4b99acc4d3f43213e302a6c76387f36ba327c64b81c5692c",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/cloud_hosted/",
       "anchor": "canonical-0132300202221321-0203023022132012-1323201021300103-1321123120320130-2120021232220213-0302302222103332-0232213020212312-1032233311300322",
       "anchor_map": [
@@ -3813,9 +3813,9 @@
     {
       "canonical_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:cloud_hosted",
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:cloud_hosted:section:2",
-      "source_sha256": "sha256:9245b9225174cec88aed98aee3ae7597e0fd01b40202c13887495a6d389fa964",
+      "source_sha256": "sha256:fd6f05310868cb6230a05485b89ab560a285ab9d6ce3a1204b4e242d8edcccf1",
       "source_bytes": 1054,
-      "canonical_source_sha256": "sha256:fbb85cdfb80350010f7dd3668265e75ef36fc5860d528cdc9451934e89816193",
+      "canonical_source_sha256": "sha256:114f9800ad2049ed4b99acc4d3f43213e302a6c76387f36ba327c64b81c5692c",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/cloud_hosted/",
       "anchor": "canonical-0220011211310313-2213201302212020-3130003132103102-3003033302121000-3212300221201220-0132020100113213-1233212131001320-3220010212221310",
       "anchor_map": [
@@ -3832,7 +3832,7 @@
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:cloud_hosted:section:3",
       "source_sha256": "sha256:28e6523a57c1665f7943142d790ba0d4d5da652e6d9591cddb0c5dc54c2dd5b6",
       "source_bytes": 507,
-      "canonical_source_sha256": "sha256:fbb85cdfb80350010f7dd3668265e75ef36fc5860d528cdc9451934e89816193",
+      "canonical_source_sha256": "sha256:114f9800ad2049ed4b99acc4d3f43213e302a6c76387f36ba327c64b81c5692c",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/cloud_hosted/",
       "anchor": "canonical-1123330100133010-2311311312013120-2300103013130303-2123120122311201-1022011032013213-3211230023010231-2111022110331123-2332212222233130",
       "anchor_map": [],
@@ -3842,9 +3842,9 @@
     {
       "canonical_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:cloud_hosted:egress",
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:cloud_hosted:egress:section:0",
-      "source_sha256": "sha256:bc43b1a0455165fde815c53022513cea830d6574d07b65f6faa54453c2da4a76",
+      "source_sha256": "sha256:92b87f7e4c46fc67dc255771f9b48a15295039a86cc5bd9975b2563dc32e23d1",
       "source_bytes": 1497,
-      "canonical_source_sha256": "sha256:7f5180239c07a75653c6b90073a309ff4a7ca3e7a6c9b0f4056ff3d2ee28954e",
+      "canonical_source_sha256": "sha256:1eb6a141895df7776f8e4cdfe01d69c5a26b84be7ea6196e371f48c2ed43642a",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/cloud_hosted/egress/",
       "anchor": "canonical-0023312311332123-0221102122213030-3200211213031023-1103111110301130-1132001223310022-0300322013110331-1221003022130001-1033003112233011",
       "anchor_map": [
@@ -3859,9 +3859,9 @@
     {
       "canonical_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:cloud_hosted:egress",
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:cloud_hosted:egress:section:1",
-      "source_sha256": "sha256:e323d3b3bb2e4d661b5bb69a5397bb6f0ee9ea54cf4e9efe58750b59ac9ec56e",
+      "source_sha256": "sha256:4314c90a7ae1d044bb3e0472161282c2c7e2d5f098754762016da06a86fc7c89",
       "source_bytes": 1098,
-      "canonical_source_sha256": "sha256:7f5180239c07a75653c6b90073a309ff4a7ca3e7a6c9b0f4056ff3d2ee28954e",
+      "canonical_source_sha256": "sha256:1eb6a141895df7776f8e4cdfe01d69c5a26b84be7ea6196e371f48c2ed43642a",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/cloud_hosted/egress/",
       "anchor": "canonical-2030323301102100-2110201320121003-1320310003330313-1312223322012221-2233303310102203-2011303203132223-0102332332021131-0222310001023302",
       "anchor_map": [
@@ -3882,7 +3882,7 @@
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:cloud_hosted:egress:section:2",
       "source_sha256": "sha256:31f1fb327075549f0dc2b9079a74a7a75ddd53a816e41b1936f90833ce2b5a8d",
       "source_bytes": 4190,
-      "canonical_source_sha256": "sha256:7f5180239c07a75653c6b90073a309ff4a7ca3e7a6c9b0f4056ff3d2ee28954e",
+      "canonical_source_sha256": "sha256:1eb6a141895df7776f8e4cdfe01d69c5a26b84be7ea6196e371f48c2ed43642a",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/cloud_hosted/egress/",
       "anchor": "canonical-2103033213332203-1322212013222100-1021312200130112-1022130201112301-0211113332023120-3012203112112031-3210002011221330-1011122110302223",
       "anchor_map": [],
@@ -3892,9 +3892,9 @@
     {
       "canonical_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress",
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress:section:0",
-      "source_sha256": "sha256:a66948a25de43ab77b45b5bf2498b1c2e19895b929bc0c38c6b753adcf97afe6",
+      "source_sha256": "sha256:82de8ce6d0c5634f09c8995df9b2795dcae1e5f70a6caefb1ccee7c0630ba1fa",
       "source_bytes": 1639,
-      "canonical_source_sha256": "sha256:23821806d2e20a5d9b6bc109e41f5a84c621ee745471fb225c9b78482d62bb9f",
+      "canonical_source_sha256": "sha256:ba4716ffd481677bc45125afda03c7df1cb1d98625b03c1dc75f9c1193e321b8",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/cloud_hosted/ingress/",
       "anchor": "canonical-3212133321032131-1102223321001133-3211232110000131-0020130030120300-0130101311022012-1203102203102102-1121123310203211-2001001103300201",
       "anchor_map": [
@@ -3909,9 +3909,9 @@
     {
       "canonical_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress",
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress:section:1",
-      "source_sha256": "sha256:0f7aef2a7ab3bf42b415f445c0265667948efe22b73f8b526d4afc990eed9b23",
+      "source_sha256": "sha256:c8ab430d34c09a80c75c057117b05506659f2c97ea403c6d5b6b4bf1731b69df",
       "source_bytes": 872,
-      "canonical_source_sha256": "sha256:23821806d2e20a5d9b6bc109e41f5a84c621ee745471fb225c9b78482d62bb9f",
+      "canonical_source_sha256": "sha256:ba4716ffd481677bc45125afda03c7df1cb1d98625b03c1dc75f9c1193e321b8",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/cloud_hosted/ingress/",
       "anchor": "canonical-3121102301012223-2032013120110300-2303221011230012-0111323221202121-3203001321120123-2210021221033011-0102222001300003-2123223212113220",
       "anchor_map": [
@@ -3930,9 +3930,9 @@
     {
       "canonical_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress",
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress:section:2",
-      "source_sha256": "sha256:47dd2480b84899ee75692bc8e175795b942b36fadf8ad3b4660f4e92e3997d2b",
+      "source_sha256": "sha256:36aff54b07cd2504f162cfc3e645b52c9da7ec72f7d4b1a135abced3a47a323f",
       "source_bytes": 940,
-      "canonical_source_sha256": "sha256:23821806d2e20a5d9b6bc109e41f5a84c621ee745471fb225c9b78482d62bb9f",
+      "canonical_source_sha256": "sha256:ba4716ffd481677bc45125afda03c7df1cb1d98625b03c1dc75f9c1193e321b8",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/cloud_hosted/ingress/",
       "anchor": "canonical-3301022210212121-3111120202101330-0131110230132000-1020010000230323-0110010010111120-0223331230020212-1032213023100321-3100310323211101",
       "anchor_map": [
@@ -3949,7 +3949,7 @@
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress:section:3",
       "source_sha256": "sha256:31f1fb327075549f0dc2b9079a74a7a75ddd53a816e41b1936f90833ce2b5a8d",
       "source_bytes": 4190,
-      "canonical_source_sha256": "sha256:23821806d2e20a5d9b6bc109e41f5a84c621ee745471fb225c9b78482d62bb9f",
+      "canonical_source_sha256": "sha256:ba4716ffd481677bc45125afda03c7df1cb1d98625b03c1dc75f9c1193e321b8",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/cloud_hosted/ingress/",
       "anchor": "canonical-3313131212333023-0100030023133213-2203211033022032-0322010021131312-3102132001131021-0223322131113203-2322233123313212-0121001131312223",
       "anchor_map": [],
@@ -3961,7 +3961,7 @@
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:section:0",
       "source_sha256": "sha256:c9c00d924e9183ce3413158aac4667cf9bcf3bcc5367b39727f63d1bbc56f652",
       "source_bytes": 690,
-      "canonical_source_sha256": "sha256:693c1461add59138b66f47f2f928703ba71c939527e263d78cc1a4aca67c8eb5",
+      "canonical_source_sha256": "sha256:7c8515bf4c747d51a9d0e06cff234ac9df28d4e8919675e6904e7845894ca6f1",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/data_center_hosted/",
       "anchor": "canonical-3020301332100300-3133221002233332-3131022122123002-3023220030220010-3123110321022223-3103033023022121-0002110311100232-1102230222113001",
       "anchor_map": [
@@ -3978,7 +3978,7 @@
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:section:1",
       "source_sha256": "sha256:ceb91595fdab1d65e2ee21979f92767b2a5803c748c3a07991692236c306e5ab",
       "source_bytes": 262,
-      "canonical_source_sha256": "sha256:693c1461add59138b66f47f2f928703ba71c939527e263d78cc1a4aca67c8eb5",
+      "canonical_source_sha256": "sha256:7c8515bf4c747d51a9d0e06cff234ac9df28d4e8919675e6904e7845894ca6f1",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/data_center_hosted/",
       "anchor": "canonical-3100201031320101-2201121012220030-3220103233112010-2222021333031100-2232000232311221-2132131210223023-2021222011121131-1112310113101220",
       "anchor_map": [
@@ -3993,9 +3993,9 @@
     {
       "canonical_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted",
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:section:2",
-      "source_sha256": "sha256:a6c414c32c77abdea7e17666bdc336c67eca3ba5ed63fffcf46ec34a4d7ebe4a",
+      "source_sha256": "sha256:c007fc88f4cf4691affd58b77c74cba38e41c7c8af63ee087ef889fbb0c5ab0a",
       "source_bytes": 1066,
-      "canonical_source_sha256": "sha256:693c1461add59138b66f47f2f928703ba71c939527e263d78cc1a4aca67c8eb5",
+      "canonical_source_sha256": "sha256:7c8515bf4c747d51a9d0e06cff234ac9df28d4e8919675e6904e7845894ca6f1",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/data_center_hosted/",
       "anchor": "canonical-2130002023301122-3220222031133200-2001230022302103-2103311300111132-1201113210001131-0123121010130221-2223232202230012-0203333023121321",
       "anchor_map": [
@@ -4012,7 +4012,7 @@
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:section:3",
       "source_sha256": "sha256:28e6523a57c1665f7943142d790ba0d4d5da652e6d9591cddb0c5dc54c2dd5b6",
       "source_bytes": 507,
-      "canonical_source_sha256": "sha256:693c1461add59138b66f47f2f928703ba71c939527e263d78cc1a4aca67c8eb5",
+      "canonical_source_sha256": "sha256:7c8515bf4c747d51a9d0e06cff234ac9df28d4e8919675e6904e7845894ca6f1",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/data_center_hosted/",
       "anchor": "canonical-3321300321100331-2331023203333230-1302010100333003-3113201211130110-2000112302300000-1000211332232021-0102323110312300-1232013012322021",
       "anchor_map": [],
@@ -4022,9 +4022,9 @@
     {
       "canonical_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:egress",
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:egress:section:0",
-      "source_sha256": "sha256:f05f4c85258b65d468259900237b0bee3af7273bc426b7260563a18cb19c0b86",
+      "source_sha256": "sha256:1ab0c2e8e9b31cfa08eee6e6c7a3f5ee1655203366b4e74353ca31e5409794f2",
       "source_bytes": 1521,
-      "canonical_source_sha256": "sha256:94d3893bd4af6712b62eeb198592ca8e36b82fd9e9c7fdc6d66916b659a4597b",
+      "canonical_source_sha256": "sha256:2810b2139940662c5783fbdf5ab03cb62d737cdd142a5f03f5a63634b540aa5b",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/data_center_hosted/egress/",
       "anchor": "canonical-2011223320333230-0030030221131322-1221130213210311-2320221332111331-1021012312031222-0210333023301103-1221331222011002-1020033031010000",
       "anchor_map": [
@@ -4039,9 +4039,9 @@
     {
       "canonical_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:egress",
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:egress:section:1",
-      "source_sha256": "sha256:dea6d91db011f87674359ae31d7a398ff047a36324b992f3aed2ed2ebc7a24a8",
+      "source_sha256": "sha256:4e157bc494beb4b70fc1a98c63da29793d31b20370eee39f219393d06cfc380b",
       "source_bytes": 1110,
-      "canonical_source_sha256": "sha256:94d3893bd4af6712b62eeb198592ca8e36b82fd9e9c7fdc6d66916b659a4597b",
+      "canonical_source_sha256": "sha256:2810b2139940662c5783fbdf5ab03cb62d737cdd142a5f03f5a63634b540aa5b",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/data_center_hosted/egress/",
       "anchor": "canonical-2221230221002222-1232331221112210-3313021123203003-0231133103000230-1221131302020011-3301022322312331-2100332212333211-2032123231030202",
       "anchor_map": [
@@ -4062,7 +4062,7 @@
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:egress:section:2",
       "source_sha256": "sha256:31f1fb327075549f0dc2b9079a74a7a75ddd53a816e41b1936f90833ce2b5a8d",
       "source_bytes": 4190,
-      "canonical_source_sha256": "sha256:94d3893bd4af6712b62eeb198592ca8e36b82fd9e9c7fdc6d66916b659a4597b",
+      "canonical_source_sha256": "sha256:2810b2139940662c5783fbdf5ab03cb62d737cdd142a5f03f5a63634b540aa5b",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/data_center_hosted/egress/",
       "anchor": "canonical-0303102212031002-3030120212001321-1331023332102330-2121201201010202-3221123320112212-1131102102121231-3100033311311113-2020220330102303",
       "anchor_map": [],
@@ -4072,9 +4072,9 @@
     {
       "canonical_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress",
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress:section:0",
-      "source_sha256": "sha256:7d6b4bc8f7213dd2d9b2d3eb26c146d115e1603f91b27a17662f910acae57912",
+      "source_sha256": "sha256:33538c155e4b6bec974f9c96b6bb3f62304c72f2e7eedbe34f6e68c8da8796ea",
       "source_bytes": 1663,
-      "canonical_source_sha256": "sha256:34958e3c60b0c38bc06c07cac36cfd68e6232e92005204c8b339844f2facf809",
+      "canonical_source_sha256": "sha256:2d7ddf28834eca63d2faa7943dde652630c2d539df378a38f896e905a19866b6",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/data_center_hosted/ingress/",
       "anchor": "canonical-2332132211113123-0320021203313232-3302130030312112-3002010012133101-1132123033332312-1022033303130002-2000100333021131-2121111210222313",
       "anchor_map": [
@@ -4089,9 +4089,9 @@
     {
       "canonical_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress",
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress:section:1",
-      "source_sha256": "sha256:3209cc986b39f2aa09a9d1635079755c28a732afb1775e932f4633c09a2382cc",
+      "source_sha256": "sha256:cfcfecb4d84c3e25030606f3b5270e4b664dced12682b44e4bd823f28bc9c068",
       "source_bytes": 884,
-      "canonical_source_sha256": "sha256:34958e3c60b0c38bc06c07cac36cfd68e6232e92005204c8b339844f2facf809",
+      "canonical_source_sha256": "sha256:2d7ddf28834eca63d2faa7943dde652630c2d539df378a38f896e905a19866b6",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/data_center_hosted/ingress/",
       "anchor": "canonical-2101310211100132-3302313011003203-0103310330003310-3210001003330101-1000122122333021-1003113303003120-0333031113022023-0201212301120320",
       "anchor_map": [
@@ -4110,9 +4110,9 @@
     {
       "canonical_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress",
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress:section:2",
-      "source_sha256": "sha256:4fa9e743058e62cbc9c5cc22d36df8dead3f64a7f49bb0cc0ff56665f744a273",
+      "source_sha256": "sha256:c3c53f10407b32f3c3e0499a1522247d3a31789f4c2fdcd425c9b353540abee2",
       "source_bytes": 946,
-      "canonical_source_sha256": "sha256:34958e3c60b0c38bc06c07cac36cfd68e6232e92005204c8b339844f2facf809",
+      "canonical_source_sha256": "sha256:2d7ddf28834eca63d2faa7943dde652630c2d539df378a38f896e905a19866b6",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/data_center_hosted/ingress/",
       "anchor": "canonical-2022010310211110-2320303031123110-2213131023320331-2000102113011100-3220101300200113-3002222110023010-0222012020222022-1102121112021133",
       "anchor_map": [
@@ -4129,7 +4129,7 @@
       "section_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress:section:3",
       "source_sha256": "sha256:31f1fb327075549f0dc2b9079a74a7a75ddd53a816e41b1936f90833ce2b5a8d",
       "source_bytes": 4190,
-      "canonical_source_sha256": "sha256:34958e3c60b0c38bc06c07cac36cfd68e6232e92005204c8b339844f2facf809",
+      "canonical_source_sha256": "sha256:2d7ddf28834eca63d2faa7943dde652630c2d539df378a38f896e905a19866b6",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_defense_app_infrastructure/properties/data_center_hosted/ingress/",
       "anchor": "canonical-0030213020020211-1211330301103303-2002103231311123-1300321322003323-1332021102203011-3001320220321313-1113332331323211-1230030123112330",
       "anchor_map": [],

@@ -109,7 +109,7 @@
       "path": "documentation/resources/dc_cluster_group/index.md",
       "product": "distributed-cloud",
       "provider_name": "dc_cluster_group",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0023121103022030-2302020033112202-0212333320231232-3001211200201011-0122330223232010-0110110123001022-0123201000313123-3333311302021321",
       "registry_path": "docs/resources/dc_cluster_group.md",
@@ -119,21 +119,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dc_cluster_group/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Manages DC Cluster group in given namespace in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_dc_cluster_group",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["dc_cluster_groupCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["dc cluster group"],
       "body_bytes": 10239,
-      "body_sha256": "sha256:4f6090aca129bc9f97cf9053d3524418269b1716aacfcc9f67c4e9c7fa305ffe",
+      "body_sha256": "sha256:b3fa04aa889d7329faf778872ee893056dd8c7cdf53de98b20d0e781c5c25c0e",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -153,7 +153,7 @@
       "path": "documentation/resources/dc_cluster_group/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "dc_cluster_group",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3020323102031131-2120211103310111-3012300022003323-3023301231000121-3002020033132213-0201300331100120-3122330131102121-1132110021113321",
       "registry_path": "docs/guides/resources--dc_cluster_group--reference--group-001.md",
@@ -334,14 +334,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dc_cluster_group/properties/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Property reference for xcsh_dc_cluster_group.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["dc_cluster_groupCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -364,7 +364,7 @@
       "path": "documentation/resources/dc_cluster_group/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "dc_cluster_group",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3221033032013000-0232031300011123-3111110021220110-0033221012301112-2021211302222132-1321222310321030-0000122132210321-3220310132212012",
       "registry_path": "docs/guides/resources--dc_cluster_group--reference--group-001.md",
@@ -474,14 +474,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dc_cluster_group/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "timeouts for xcsh_dc_cluster_group.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["dc_cluster_groupCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -507,7 +507,7 @@
       "path": "documentation/resources/dc_cluster_group/properties/type/index.md",
       "product": "distributed-cloud",
       "provider_name": "dc_cluster_group",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3110132011101032-2303210303323220-0123223130111211-2212123323110202-2013332020111101-3323132110301011-1202311001131331-3100003213112221",
       "registry_path": "docs/guides/resources--dc_cluster_group--reference--group-001.md",
@@ -567,14 +567,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dc_cluster_group/properties/type/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Details of DC Cluster Group Mesh Type.",
       "tasks": ["configuration"],
       "title": "type",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["dc_cluster_groupCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -597,7 +597,7 @@
       "path": "documentation/resources/dc_cluster_group/properties/type/control_and_data_plane_mesh/index.md",
       "product": "distributed-cloud",
       "provider_name": "dc_cluster_group",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0200311211231101-3231031202003133-3121110031113210-2023321233130123-3002332022110202-2110230332101211-0310100113102021-0122022132222311",
       "registry_path": "docs/guides/resources--dc_cluster_group--reference--group-001.md",
@@ -607,14 +607,14 @@
       "schema_path": ["type", "control_and_data_plane_mesh"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dc_cluster_group/properties/type/control_and_data_plane_mesh/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "type.control_and_data_plane_mesh",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["dc_cluster_groupCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -637,7 +637,7 @@
       "path": "documentation/resources/dc_cluster_group/properties/type/data_plane_mesh/index.md",
       "product": "distributed-cloud",
       "provider_name": "dc_cluster_group",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2320232132000312-1010113003001200-1311022122203122-2211313203022221-3112122033021320-3313203000022331-1320121233021221-3321202230320213",
       "registry_path": "docs/guides/resources--dc_cluster_group--reference--group-001.md",
@@ -647,14 +647,14 @@
       "schema_path": ["type", "data_plane_mesh"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dc_cluster_group/properties/type/data_plane_mesh/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "type.data_plane_mesh",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["dc_cluster_groupCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -677,7 +677,7 @@
       "path": "documentation/resources/dc_cluster_group/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "dc_cluster_group",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0233100212100021-2032000111023323-3302131321221223-2322320010130122-3012102222300303-3221330203030323-0100131121203311-0313030123131310",
       "registry_path": "docs/guides/resources--dc_cluster_group--examples--group-001.md",
@@ -687,14 +687,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dc_cluster_group/examples/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Examples for xcsh_dc_cluster_group.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["dc_cluster_groupCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -724,7 +724,7 @@
       "path": "documentation/resources/dc_cluster_group/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "dc_cluster_group",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0223321230310323-2220020220301011-0123200033210203-2212212210021211-1120230132131231-0101003332213021-3112103031101223-1031333233113323",
       "registry_path": "docs/guides/resources--dc_cluster_group--examples--group-001.md",
@@ -734,14 +734,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dc_cluster_group/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Resource for xcsh_dc_cluster_group.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["dc_cluster_groupCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -765,7 +765,7 @@
       "path": "documentation/resources/dc_cluster_group/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "dc_cluster_group",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2131330032300020-3133131032203122-3320100211332102-1330332333210120-1000313301123331-2101311322302003-0000213012303320-1001311221120210",
       "registry_path": "docs/guides/resources--dc_cluster_group--lifecycle--group-001.md",
@@ -775,14 +775,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dc_cluster_group/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Import for xcsh_dc_cluster_group.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["dc_cluster_groupCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -805,7 +805,7 @@
       "path": "documentation/resources/dc_cluster_group/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "dc_cluster_group",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3033320120302333-3022130021202001-1012120310300320-3210221111120203-2223113330311101-1313220202221020-0333222322322121-2202032130203131",
       "registry_path": "docs/guides/resources--dc_cluster_group--lifecycle--group-001.md",
@@ -815,14 +815,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dc_cluster_group/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Timeouts for xcsh_dc_cluster_group.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["dc_cluster_groupCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     }
   ],

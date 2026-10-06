@@ -656,7 +656,7 @@
       "path": "documentation/resources/cdn_cache_rule/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_cache_rule",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3200322102222221-2020010330311323-2101331321122233-0110000212110022-0103013000123233-1320233321200001-0102123303130130-3123130022002001",
       "registry_path": "docs/resources/cdn_cache_rule.md",
@@ -666,21 +666,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Manages a CDN Cache Rule resource in F5 Distributed Cloud for cdn loadbalancer specification. configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_cdn_cache_rule",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["cdn cache rule"],
       "body_bytes": 34469,
-      "body_sha256": "sha256:fdd3a24a96b7181d73455b95197d3c67dcfa0d76c60d83a062cde324b7f60e33",
+      "body_sha256": "sha256:4a9b1fc6f42d060b8918427f682ef7ea11cdcdda86e8c8c3fe5101f52bcf9f7b",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -700,7 +700,7 @@
       "path": "documentation/resources/cdn_cache_rule/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_cache_rule",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0031322322320201-1123033010333010-3012313122023131-0002330011303300-2213110212022132-1021300113022011-2021133032110332-0012323030102001",
       "registry_path": "docs/guides/resources--cdn_cache_rule--reference--group-001.md",
@@ -888,20 +888,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Property reference for xcsh_cdn_cache_rule.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["cache rules"],
       "body_bytes": 2713,
-      "body_sha256": "sha256:3ff1d76efd2a806e9437416733f493fa12d44465956f8ca1589ae4e1754e2a9a",
+      "body_sha256": "sha256:94c2ec1da77040115d6dd7163a5acfd194e061dbfb13f05983aab57a98e7706c",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -922,7 +922,7 @@
       "path": "documentation/resources/cdn_cache_rule/properties/cache_rules/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_cache_rule",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2100032033322312-2310230223310322-3031201111321100-0121200020133021-2121321023123233-1100132303013031-3310112213122032-1032301311001032",
       "registry_path": "docs/guides/resources--cdn_cache_rule--reference--group-001.md",
@@ -1064,14 +1064,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This defines a CDN Cache Rule.",
       "tasks": ["configuration"],
       "title": "cache_rules",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1094,7 +1094,7 @@
       "path": "documentation/resources/cdn_cache_rule/properties/cache_rules/cache_bypass/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_cache_rule",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2122013130232133-0111010230200202-2202321310010011-0203200021301121-0332132330000033-3332030221133201-0302003102311012-0110101110123212",
       "registry_path": "docs/guides/resources--cdn_cache_rule--reference--group-001.md",
@@ -1104,14 +1104,14 @@
       "schema_path": ["cache_rules", "cache_bypass"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/cache_bypass/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Configures matching CDN requests to bypass cache.",
       "tasks": ["configuration"],
       "title": "cache_rules.cache_bypass",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1137,7 +1137,7 @@
       "path": "documentation/resources/cdn_cache_rule/properties/cache_rules/eligible_for_cache/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_cache_rule",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3223232310102321-3003333113231003-0113233100223033-1002000121033202-2010331330331313-3230301030101011-2002313003222331-0320232110002100",
       "registry_path": "docs/guides/resources--cdn_cache_rule--reference--group-001.md",
@@ -1215,20 +1215,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/eligible_for_cache/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "List of OPTIONS for Cache Action.",
       "tasks": ["configuration"],
       "title": "cache_rules.eligible_for_cache",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["cache rules eligible for cache scheme proxy host request uri"],
       "body_bytes": 3254,
-      "body_sha256": "sha256:a0352e7be03c6e9834854cc81d4208e3842ed3639dfe46b2f53b3aae2079aa86",
+      "body_sha256": "sha256:f9a2d524e5fb5adb0791eaf6f36f4a560391f32d912acf4f71fba7bdd07eefd6",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -1245,7 +1245,7 @@
       "path": "documentation/resources/cdn_cache_rule/properties/cache_rules/eligible_for_cache/scheme_proxy_host_request_uri/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_cache_rule",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1323230121223200-0212212131033013-1021231333100002-1011020320033300-3131202303031112-3012110231231332-3222323310233031-2312123121103012",
       "registry_path": "docs/guides/resources--cdn_cache_rule--reference--group-001.md",
@@ -1318,20 +1318,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/eligible_for_cache/scheme_proxy_host_request_uri/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Cache TTL Enable Values.",
       "tasks": ["configuration"],
       "title": "cache_rules.eligible_for_cache.scheme_proxy_host_request_uri",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["cache rules eligible for cache scheme proxy host uri"],
       "body_bytes": 3206,
-      "body_sha256": "sha256:2bfa9174a4a663eb0d040352c2b9cb04a453ce9afc276d5d0b38a13266f508b9",
+      "body_sha256": "sha256:7c91a39292f6945fcfdf7d94e980484d6a3414297fb37d13522313a8339cd46a",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -1348,7 +1348,7 @@
       "path": "documentation/resources/cdn_cache_rule/properties/cache_rules/eligible_for_cache/scheme_proxy_host_uri/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_cache_rule",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3131020013020013-3111002330212120-3331323132023223-2111313013102020-2031102010222030-2121100131011321-3100111011102223-0101003333131212",
       "registry_path": "docs/guides/resources--cdn_cache_rule--reference--group-001.md",
@@ -1416,20 +1416,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/eligible_for_cache/scheme_proxy_host_uri/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Cache TTL Enable Values.",
       "tasks": ["configuration"],
       "title": "cache_rules.eligible_for_cache.scheme_proxy_host_uri",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["cache rules rule expression list"],
       "body_bytes": 3340,
-      "body_sha256": "sha256:eb0334e5d4ef585dea73c47d30613551db9cf65f034ec8a67b217a8fe353a25b",
+      "body_sha256": "sha256:c03fbd4098b3870659d80ab028f44ada2864573e5dd06b340d319c44eac29f13",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -1448,7 +1448,7 @@
       "path": "documentation/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_cache_rule",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3110102003302131-2302312133210100-3031102231130310-1111030113012121-2333122333330303-0312333103333000-2013121121313131-3232213102311232",
       "registry_path": "docs/guides/resources--cdn_cache_rule--reference--group-001.md",
@@ -1508,20 +1508,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Expressions are evaluated in the order in which they are specified. The evaluation stops when the first rule match occurs..",
       "tasks": ["configuration"],
       "title": "cache_rules.rule_expression_list",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression"],
       "body_bytes": 2836,
-      "body_sha256": "sha256:087c34f79c89fb4f18ccce724dd6a6fae0d75f450246dbb5a737f3f4749e3879",
+      "body_sha256": "sha256:a16067e2f1b9511cb30bf14836064cb5114ea97652d9f2801ed2296b9dc63101",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -1543,7 +1543,7 @@
       "path": "documentation/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_cache_rule",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3033332032033132-2030322222333310-3031222331013000-0212212120333312-0211133002303021-0110310230000322-3222230322223002-2321021232022211",
       "registry_path": "docs/guides/resources--cdn_cache_rule--reference--group-001.md",
@@ -1636,20 +1636,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "The Cache Rule Expression Terms that are ANDed.",
       "tasks": ["configuration"],
       "title": "cache_rules.rule_expression_list.cache_rule_expression",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression cache headers"],
       "body_bytes": 3544,
-      "body_sha256": "sha256:00020ddd0ed11504787ccbe04a7bcb9d734c1eee6c3af765ad0b25b2ecb209a2",
+      "body_sha256": "sha256:518b90abd6ad11a88e2ca59656bf1d0dc83bc52a09501c1c33b90dc3763170cd",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -1668,7 +1668,7 @@
       "path": "documentation/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/cache_headers/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_cache_rule",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0021201223133123-1200013121232330-0100330002102131-1323022222230023-3333012021332330-0333122303203033-2231113331132230-3201132323213220",
       "registry_path": "docs/guides/resources--cdn_cache_rule--reference--group-001.md",
@@ -2297,14 +2297,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/cache_headers/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Configure cache rule headers to match the criteria.",
       "tasks": ["configuration"],
       "title": "cache_rules.rule_expression_list.cache_rule_expression.cache_headers",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2327,7 +2327,7 @@
       "path": "documentation/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/cache_headers/operator/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_cache_rule",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1120031023302312-2211112032322312-2330311132102132-2232030231300231-0311110120003202-1201103113120222-2022011033212132-3133033010100013",
       "registry_path": "docs/guides/resources--cdn_cache_rule--reference--group-001.md",
@@ -3126,20 +3126,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/cache_headers/operator/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Operator",
       "tasks": ["configuration"],
       "title": "cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression cookie matcher"],
       "body_bytes": 4360,
-      "body_sha256": "sha256:6b12892d8055b819a622e65d915851be6b060346a09a52d8004bf20c7bab269f",
+      "body_sha256": "sha256:7cdbd880d5eaa60fde6754fe6aba6aeb9c8d5f2f184577bd268b4025805e6b47",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -3158,7 +3158,7 @@
       "path": "documentation/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/cookie_matcher/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_cache_rule",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3331222303100022-2032300023213202-1132013320331232-2010223021302210-1102122233013032-3012330131230311-1122330220010203-1210211121131131",
       "registry_path": "docs/guides/resources--cdn_cache_rule--reference--group-001.md",
@@ -3787,14 +3787,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/cookie_matcher/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "A list of predicates for all cookies that need to be matched. The criteria for matching each cookie is described in individual instances of CookieMatcherType. The actual cookie values are extracted from the request API as a list of strings for each cookie name. Note that all specified cookie matcher predicates must",
       "tasks": ["configuration"],
       "title": "cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3817,7 +3817,7 @@
       "path": "documentation/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/cookie_matcher/operator/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_cache_rule",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3333321221103022-3231020113311333-2030101230122210-3332210112231310-2103212202000031-2131010223103312-2031200301202131-3010100033112333",
       "registry_path": "docs/guides/resources--cdn_cache_rule--reference--group-001.md",
@@ -4618,14 +4618,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/cookie_matcher/operator/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Operator",
       "tasks": ["configuration"],
       "title": "cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4650,7 +4650,7 @@
       "path": "documentation/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/path_match/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_cache_rule",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1002100310130020-0310003113131311-2013020101322033-0120132133100322-0332310332020133-1111332232310300-0123303002223030-3330201313200213",
       "registry_path": "docs/guides/resources--cdn_cache_rule--reference--group-001.md",
@@ -5254,14 +5254,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/path_match/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
       "tasks": ["configuration"],
       "title": "cache_rules.rule_expression_list.cache_rule_expression.path_match",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5284,7 +5284,7 @@
       "path": "documentation/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/path_match/operator/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_cache_rule",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2302021031113222-2311330101313232-1203213322131312-2331013311010103-0132022321302301-0101133000133012-1021200111322103-1101023112023131",
       "registry_path": "docs/guides/resources--cdn_cache_rule--reference--group-001.md",
@@ -6079,20 +6079,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/path_match/operator/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Operator",
       "tasks": ["configuration"],
       "title": "cache_rules.rule_expression_list.cache_rule_expression.path_match.operator",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["cache rules rule expression list cache rule expression query parameters"],
       "body_bytes": 3669,
-      "body_sha256": "sha256:439891175bec997287617d775335b215fad2dd49fcf9506d0228cbc93a7e8890",
+      "body_sha256": "sha256:ee589486e69dcbe4cf4726f05d2fbd117b3e07390d1073c0d5d5a512386b3424",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -6111,7 +6111,7 @@
       "path": "documentation/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/query_parameters/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_cache_rule",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1132133310133103-1022330022230200-3201210301002123-0120022102320312-2100032230203203-1130330300300203-2022323102030133-0322103212202310",
       "registry_path": "docs/guides/resources--cdn_cache_rule--reference--group-001.md",
@@ -6746,14 +6746,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/query_parameters/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "List of (key, value) query parameters.",
       "tasks": ["configuration"],
       "title": "cache_rules.rule_expression_list.cache_rule_expression.query_parameters",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -6776,7 +6776,7 @@
       "path": "documentation/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/query_parameters/operator/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_cache_rule",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2021003103122331-3221301001303300-3201223101100000-3230313230112122-1331131233033231-3332331020311132-0333222112203022-3322111131020231",
       "registry_path": "docs/guides/resources--cdn_cache_rule--reference--group-001.md",
@@ -7579,14 +7579,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/query_parameters/operator/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Operator",
       "tasks": ["configuration"],
       "title": "cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -7609,7 +7609,7 @@
       "path": "documentation/resources/cdn_cache_rule/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_cache_rule",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1212033023211232-3031321101321003-2333222011200010-1230320100011230-0012013221003131-0331013111020303-1122320301310222-1203323113231230",
       "registry_path": "docs/guides/resources--cdn_cache_rule--reference--group-001.md",
@@ -7719,14 +7719,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "timeouts for xcsh_cdn_cache_rule.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -7749,7 +7749,7 @@
       "path": "documentation/resources/cdn_cache_rule/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_cache_rule",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0212331020322220-2311332101310031-2231102121022101-3011012031230323-2223331103003223-1202213101232312-0332331023100121-0133133331332211",
       "registry_path": "docs/guides/resources--cdn_cache_rule--examples--group-001.md",
@@ -7759,14 +7759,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/examples/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Examples for xcsh_cdn_cache_rule.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -7796,7 +7796,7 @@
       "path": "documentation/resources/cdn_cache_rule/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_cache_rule",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0212021203112122-1321202003113303-1102113122112103-1201233203003222-2123203031122302-0022223302321100-3001231230330001-1311112111231021",
       "registry_path": "docs/guides/resources--cdn_cache_rule--examples--group-001.md",
@@ -7806,14 +7806,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Resource for xcsh_cdn_cache_rule.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -7837,7 +7837,7 @@
       "path": "documentation/resources/cdn_cache_rule/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_cache_rule",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3131031201322010-3112121021233003-3011312020032020-3322133212201312-3002312013333321-3320100231003133-1131332122111201-1131313312031213",
       "registry_path": "docs/guides/resources--cdn_cache_rule--lifecycle--group-001.md",
@@ -7847,14 +7847,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Import for xcsh_cdn_cache_rule.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -7877,7 +7877,7 @@
       "path": "documentation/resources/cdn_cache_rule/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_cache_rule",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0000133011301231-1131323113203102-3312113213123203-0002300021303323-2121223020020010-0110203322300031-2321302120332221-2321030310122322",
       "registry_path": "docs/guides/resources--cdn_cache_rule--lifecycle--group-001.md",
@@ -7887,14 +7887,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Timeouts for xcsh_cdn_cache_rule.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["cdn_cache_ruleCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     }
   ],

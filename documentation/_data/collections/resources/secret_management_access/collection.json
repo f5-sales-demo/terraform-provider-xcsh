@@ -927,7 +927,7 @@
       "path": "documentation/resources/secret_management_access/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020",
       "registry_path": "docs/resources/secret_management_access.md",
@@ -937,21 +937,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Manages secret_management_access creates a new object in storage backend for metadata.namespace in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_secret_management_access",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["secret management access"],
       "body_bytes": 51317,
-      "body_sha256": "sha256:5b039faf0bca928d32c4f7240d6abb349420ca4bcbe9c6f23f978bf82a46e24c",
+      "body_sha256": "sha256:cc4a5d1edf2120999de33ae3c5b4b29d088a5674e0cff9fd0d405ec9ca07b0b4",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -972,7 +972,7 @@
       "path": "documentation/resources/secret_management_access/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -1233,20 +1233,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Property reference for xcsh_secret_management_access.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["access info"],
       "body_bytes": 3810,
-      "body_sha256": "sha256:ae4bc7060f204381d75f83dda0d10eaf40cad60136d1d4d242cfdb2fe567fe82",
+      "body_sha256": "sha256:3c87855accf33d628831933cc2f6bad119b1e2d8f3c11b1ee272b7db5bf862e0",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -1267,7 +1267,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -1571,14 +1571,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "HostAccessInfoType contains the information about how to connect to the remote host.",
       "tasks": ["configuration"],
       "title": "access_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1605,7 +1605,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/rest_auth_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3321002110312321-0002233221222232-3131302003120121-0000203100321120-2023210130021313-1320010001231210-3123312000311000-0100310020022310",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -1713,20 +1713,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/rest_auth_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Authentication parameters for REST based hosts.",
       "tasks": ["configuration"],
       "title": "access_info.rest_auth_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["access info rest auth info basic auth"],
       "body_bytes": 2158,
-      "body_sha256": "sha256:66a422b756d25157f022a0a21ced1e20444473820d18194076a91372e80ab94b",
+      "body_sha256": "sha256:913dbbeaf415e263d7f09873bb4442e473d1e42687bb043df8ac1c559f749e96",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -1745,7 +1745,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/rest_auth_info/basic_auth/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0001321320301202-3033201003201202-1122100122332311-3102310022031223-2101011312301203-2132121222012011-2302303000311101-2212332023131210",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -1805,14 +1805,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/rest_auth_info/basic_auth/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "AuthnTypeBasicAuth is used for using basic_auth mode of HTTP authentication.",
       "tasks": ["configuration"],
       "title": "access_info.rest_auth_info.basic_auth",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1838,7 +1838,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/rest_auth_info/basic_auth/password/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0012333222302123-0233222222311132-0111101201331212-0120100200313103-1301033001003000-2130213023301310-2000322120231021-1233022223101201",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -1916,20 +1916,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/rest_auth_info/basic_auth/password/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "access_info.rest_auth_info.basic_auth.password",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["access info rest auth info basic auth password blindfold secret info"],
       "body_bytes": 4836,
-      "body_sha256": "sha256:6f4363fcf3000d1c0993b19dc7b89b5b5ba4371091e6b4ded3472ec1f83e31bc",
+      "body_sha256": "sha256:41d13300810be2e79a8af2ca71d0f0fa68b1d10299a7711f472dca6944234d4f",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -1946,7 +1946,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/rest_auth_info/basic_auth/password/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3011021101113222-3312312130121303-1133301213100323-2103020132331121-2230232020211023-1120201011222232-3323322211330022-0013302203332233",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -2035,20 +2035,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/rest_auth_info/basic_auth/password/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "access_info.rest_auth_info.basic_auth.password.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["access info rest auth info basic auth password clear secret info"],
       "body_bytes": 3832,
-      "body_sha256": "sha256:e080191e426143078892eb122d826550403d1bf03b57f74b5ba8fa968b149c57",
+      "body_sha256": "sha256:80467d3dad33dac39037ec267f1b9f31d5c55d621122c15b6b1a23cb2cbbf27f",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -2065,7 +2065,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/rest_auth_info/basic_auth/password/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0120133001312011-0211303012020131-0230100102301300-2131203232221300-0202303221121231-1133201102323311-3211100222313112-3222201012122211",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -2124,14 +2124,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/rest_auth_info/basic_auth/password/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "access_info.rest_auth_info.basic_auth.password.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2156,7 +2156,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/rest_auth_info/headers_auth/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0232120201223023-3331321121223301-2021133113113131-1112013011310213-1331121210022012-2210021030021232-3110112203003031-3103213201023312",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -2183,14 +2183,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/rest_auth_info/headers_auth/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "AuthnTypeHeaders is used for setting headers for authentication.",
       "tasks": ["configuration"],
       "title": "access_info.rest_auth_info.headers_auth",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2213,7 +2213,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/rest_auth_info/headers_auth/headers/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3212121233222013-2011230321321201-3032220201230031-0022100302330010-3012203130103033-1333302302323022-2212321011111022-1121223120111032",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -2223,14 +2223,14 @@
       "schema_path": ["access_info", "rest_auth_info", "headers_auth", "headers"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/rest_auth_info/headers_auth/headers/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "The set of authentication headers to pass in HTTP request.",
       "tasks": ["configuration"],
       "title": "access_info.rest_auth_info.headers_auth.headers",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2255,7 +2255,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/rest_auth_info/query_params_auth/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1032023300203021-1102132320110003-2303022031202333-1031100030012103-2230031103203233-0222012031222211-1112333310230121-1030332213021130",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -2282,14 +2282,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/rest_auth_info/query_params_auth/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "AuthnTypeQueryParams is used for setting query_params for authentication.",
       "tasks": ["configuration"],
       "title": "access_info.rest_auth_info.query_params_auth",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2312,7 +2312,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/rest_auth_info/query_params_auth/query_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0100012211300003-2112213212002200-3011230321002302-3102330211003103-3020130020003113-0002322113122222-2012010123233122-3122021032200000",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -2322,20 +2322,20 @@
       "schema_path": ["access_info", "rest_auth_info", "query_params_auth", "query_params"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/rest_auth_info/query_params_auth/query_params/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "The set of authentication parameters to be passed as query parameters.",
       "tasks": ["configuration"],
       "title": "access_info.rest_auth_info.query_params_auth.query_params",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["access info tls config"],
       "body_bytes": 5431,
-      "body_sha256": "sha256:e648ea9529961e24288b230f5370ac3a2a70fe793676d82ff40c34241cfef8ed",
+      "body_sha256": "sha256:dd19b77d7ab33972cf19abddcf6800a59926d8156c53de24201040b0f54fda15",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -2359,7 +2359,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -2668,20 +2668,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "TLS configuration for upstream connections.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["access info tls config cert params"],
       "body_bytes": 8463,
-      "body_sha256": "sha256:f3ff04c67c3c0b556a1dd7595b930189ad852a56396ecd9fc88156b5e2270e70",
+      "body_sha256": "sha256:a53de72339f9817326edd110fe970f6d03749f48be0324bcc45b7dda3b94dd9f",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -2703,7 +2703,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/cert_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3001022000002111-2201112233212000-1212201103100233-0102310102221331-3301113302111301-1331121113113033-3311230113102221-0211120333012220",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -2924,14 +2924,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/cert_params/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Certificate Parameters for authentication, TLS ciphers, and trust store.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config.cert_params",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2943,7 +2943,7 @@
         "tls certificates"
       ],
       "body_bytes": 6063,
-      "body_sha256": "sha256:c9d86cbeb212acff185e3c31cb2f7b3ebb8ead794b2a88c48f3c4c36fa505e11",
+      "body_sha256": "sha256:8301399fab3615ff7ef2fe1c7e2c22d3c20af6100df8571205167338c217524d",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -2960,7 +2960,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/cert_params/certificates/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3312332300331200-3331110220030031-3103112121301103-3231130233013113-2300320033021120-2331321033322311-1310230202031310-1211311013311133",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -3086,14 +3086,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/cert_params/certificates/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Client TLS Certificate required for mTLS authentication.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config.cert_params.certificates",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3116,7 +3116,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/cert_params/skip_server_verification/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1313321312000033-2021120221110111-2033102221321322-3102122033202332-0020102011311023-2121323111211113-2130230310300021-2303130330222000",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -3126,20 +3126,20 @@
       "schema_path": ["access_info", "tls_config", "cert_params", "skip_server_verification"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/cert_params/skip_server_verification/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config.cert_params.skip_server_verification",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["access info tls config cert params tls validation params"],
       "body_bytes": 4222,
-      "body_sha256": "sha256:fa93da9cfb7f53df8a1460bd4fa81d818de55f45f3fd4e718b2688e233d8fd4e",
+      "body_sha256": "sha256:2f6565f0fb9ea02bdb9aa44f1e0b1e6903350f7152e3c719b9a8bbe561cb2dbd",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -3158,7 +3158,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/cert_params/tls_validation_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0121031320112211-1123210202002222-2222232302211030-2030211033120231-2211100103310122-1110011313303011-1233131133202213-2132123300322200",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -3262,14 +3262,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/cert_params/tls_validation_params/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config.cert_params.tls_validation_params",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3294,7 +3294,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/cert_params/tls_validation_params/trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2031030213320222-0001001333133110-0130332232123201-0022203002221000-2200312220313122-0103013012013030-1313302100301021-0233110310001321",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -3328,20 +3328,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/cert_params/tls_validation_params/trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Reference to Root CA Certificate.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config.cert_params.tls_validation_params.trusted_ca",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["access info tls config cert params tls validation params trusted ca trusted ca list"],
       "body_bytes": 6896,
-      "body_sha256": "sha256:555c56be0278dc1918f841ab52212be92b188125e3333089252974a778936553",
+      "body_sha256": "sha256:65bb6a3a4260a1a388721d195e1f58c31a4b1da12d5e89234ab9e4b0adcb50b2",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -3358,7 +3358,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/cert_params/tls_validation_params/trusted_ca/trusted_ca_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0000201332213311-3121221102222010-0103203222233220-0100211322230202-1323101011130130-3332133011313213-2311332022302303-1030013212013210",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -3566,14 +3566,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/cert_params/tls_validation_params/trusted_ca/trusted_ca_list/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Reference to Root CA Certificate.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3596,7 +3596,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/cert_params/volterra_trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1001231221331313-1123332311100232-3211331021222023-3301333132002033-3030012122213310-0002033321033003-1032303110210330-1311012313121221",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -3606,20 +3606,20 @@
       "schema_path": ["access_info", "tls_config", "cert_params", "volterra_trusted_ca"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/cert_params/volterra_trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config.cert_params.volterra_trusted_ca",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["access info tls config common params"],
       "body_bytes": 7467,
-      "body_sha256": "sha256:218c1f74579df7e8db73eb319b53ac5ea4918170ef03e9ade4a0cb4ecf1b3448",
+      "body_sha256": "sha256:dd33f551bfddbe6ef64d80c614ddd3c0550792c9b2caa94639ab029db3c43855",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -3639,7 +3639,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/common_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1232221100110203-0220321230020230-1210031211101202-2031231201030330-2300232010223312-0303013330022332-3201103220201031-2300322122300120",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -3828,14 +3828,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/common_params/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Information of different aspects for TLS authentication related to ciphers, certificates and trust store.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config.common_params",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3847,7 +3847,7 @@
         "tls certificates"
       ],
       "body_bytes": 4463,
-      "body_sha256": "sha256:fbde2fa84e326711783f98cc3fc0ba1585026be783b679ee49f7689960e55347",
+      "body_sha256": "sha256:40739fec5a3cf1e24be1204a32a996876f711202faa34d5b7cfb72b3a7cbaf0d",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -3869,7 +3869,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1222230031301121-1003331022322112-1022200023222230-2333120003231030-1231230303022001-3322203111003121-3233121011323013-3222132303102310",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -4065,20 +4065,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Set of TLS certificates.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config.common_params.tls_certificates",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["access info tls config common params tls certificates custom hash algorithms"],
       "body_bytes": 3364,
-      "body_sha256": "sha256:1509b02320b72d1a0730212c0dc7a7abda80f4983e758fff0cd37c359d0c1f33",
+      "body_sha256": "sha256:da6a75ff06c8b3cd979464d896032100e9eaa04ff1feeedc8c54e8acd9a4f110",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -4095,7 +4095,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/custom_hash_algorithms/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3301221000322222-2131032022032001-1130313102121210-0212320000200311-3212130010211212-0201222321110103-3032233202010110-0202312311302310",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -4138,14 +4138,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/custom_hash_algorithms/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Specifies the hash algorithms to be used.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4168,7 +4168,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/disable_ocsp_stapling/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2211332301212202-1301301300121313-2020332002112321-1322131313332303-1330313211101031-2003001133030200-3020023130320212-2021131203311132",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -4178,14 +4178,14 @@
       "schema_path": ["access_info", "tls_config", "common_params", "tls_certificates", "disable_ocsp_stapling"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/disable_ocsp_stapling/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config.common_params.tls_certificates.disable_ocsp_stapling",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4211,7 +4211,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/private_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0110131301331210-2120332120000100-1103102001211330-2021221032121020-3023120212030003-3220133113122221-0223131211030221-2032123211103013",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -4303,20 +4303,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/private_key/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config.common_params.tls_certificates.private_key",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["access info tls config common params tls certificates private key blindfold secret info"],
       "body_bytes": 5178,
-      "body_sha256": "sha256:94e15a37602c1af0b3a88ce37f713c2dd873c8147f3f36980a777b88a581af0e",
+      "body_sha256": "sha256:02fd43c3d3142989de178fbb6a9af47eeb8249e0cad41d550063d5a52f3fede8",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -4333,7 +4333,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/private_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2201223011031202-1010320301323300-1000331023033023-0010002100233022-0330303001112313-0300233031021302-3230032311211320-1310110303211210",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -4438,20 +4438,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/private_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["access info tls config common params tls certificates private key clear secret info"],
       "body_bytes": 4154,
-      "body_sha256": "sha256:fda0f185abf2219f81409a23afafd98a538acf86ec451965f95b5099b2631b2b",
+      "body_sha256": "sha256:893e2d6147f581786d2a60c0118c50e764271f569dd21c24402052dbfebc513c",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -4468,7 +4468,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/private_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0210121300232321-1232330133221120-3112033031212012-0330022221100232-3222002131110210-0120012231011033-1111231111033012-3131112332221331",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -4545,14 +4545,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/private_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4575,7 +4575,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/use_system_defaults/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2332223321023312-3102202320201102-0332313223330202-2100123323203012-3203223010331211-3010330231101330-0131122113322112-1131300013123231",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -4585,20 +4585,20 @@
       "schema_path": ["access_info", "tls_config", "common_params", "tls_certificates", "use_system_defaults"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/use_system_defaults/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config.common_params.tls_certificates.use_system_defaults",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["access info tls config common params validation params"],
       "body_bytes": 4210,
-      "body_sha256": "sha256:bfb2c522d6b2851a8dd155593a76e9789a4b8d433f60ec19051c1b578488145d",
+      "body_sha256": "sha256:9d0d76067a546531d406befc024e96fc325485b4c699e80f1f33bddd8200b537",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -4617,7 +4617,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/common_params/validation_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2100022310310102-3100211033132010-1321133210103322-2003231000020013-3103032023120112-1312223311122122-3312332033122001-2113122001130333",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -4721,14 +4721,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/common_params/validation_params/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config.common_params.validation_params",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4753,7 +4753,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/common_params/validation_params/trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2012030223111220-2011103221001102-2202201031113033-0122332101313003-3001030230231002-3023220101210130-1302111130311130-1122123311010131",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -4787,20 +4787,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/common_params/validation_params/trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Reference to Root CA Certificate.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config.common_params.validation_params.trusted_ca",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["access info tls config common params validation params trusted ca trusted ca list"],
       "body_bytes": 6878,
-      "body_sha256": "sha256:2939dd529397d24c7f09c11df8d1577f4c5795799b07c3b78250f6b66ee701f6",
+      "body_sha256": "sha256:2971d0ffd1a868a40666f708824a1bbc0677795427676353fceca01486aff594",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -4817,7 +4817,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/common_params/validation_params/trusted_ca/trusted_ca_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2202031322113221-3211313331130022-3130001311110031-2301322321312010-1121321113302001-3203102121220333-1102031122233132-2002112033013013",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -5025,14 +5025,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/common_params/validation_params/trusted_ca/trusted_ca_list/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Reference to Root CA Certificate.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5055,7 +5055,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/default_session_key_caching/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1010002310111333-3331111312010000-2130000001223131-0121101203110301-1123333102202232-1230231311001011-2331030210020320-2212211003301212",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -5065,14 +5065,14 @@
       "schema_path": ["access_info", "tls_config", "default_session_key_caching"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/default_session_key_caching/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config.default_session_key_caching",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5095,7 +5095,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/disable_session_key_caching/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2203002320210003-3112320211113020-1231121133010311-1233120131013313-3001311220012032-3222010112020103-2122300120312001-3113010110113312",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -5105,14 +5105,14 @@
       "schema_path": ["access_info", "tls_config", "disable_session_key_caching"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/disable_session_key_caching/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config.disable_session_key_caching",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5135,7 +5135,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/disable_sni/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0332120001232113-3013023320312311-2102123303203030-3020002001020103-3033121211320030-0303331223210211-1231303302332132-2220202112120212",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -5145,14 +5145,14 @@
       "schema_path": ["access_info", "tls_config", "disable_sni"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/disable_sni/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config.disable_sni",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5175,7 +5175,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/tls_config/use_host_header_as_sni/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0131132312113121-0002111223100322-1223133230330302-0112001130111232-1022232200200232-2011331323211022-3003013122220221-0332220231132233",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -5185,14 +5185,14 @@
       "schema_path": ["access_info", "tls_config", "use_host_header_as_sni"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/tls_config/use_host_header_as_sni/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "access_info.tls_config.use_host_header_as_sni",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5218,7 +5218,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/vault_auth_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2300210120332323-0231220231322210-3032002112232110-2333033211233200-1011201213321300-0120301210302002-0332332302303131-3032233113000312",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -5295,20 +5295,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/vault_auth_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Authentication parameters for Hashicorp Vault hosts.",
       "tasks": ["configuration"],
       "title": "access_info.vault_auth_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["access info vault auth info app role auth"],
       "body_bytes": 2002,
-      "body_sha256": "sha256:d4ddca75f5acbaccf7569982c2c652fa398dd3cb9d374bb2f6f6fd55f55e5cb6",
+      "body_sha256": "sha256:e975743d9354d2cf49801c76a6e92abec8cf06d3480a06601247359aa7342be5",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -5327,7 +5327,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/vault_auth_info/app_role_auth/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0030032121233032-3133222130022033-3020230323331202-3211220030111033-0100123113222122-2331103233022011-2000121002233003-1333030132032231",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -5387,14 +5387,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/vault_auth_info/app_role_auth/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "AppRoleAuthInfoType contains parameters for AppRole authentication in Hashicorp Vault.",
       "tasks": ["configuration"],
       "title": "access_info.vault_auth_info.app_role_auth",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5420,7 +5420,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/vault_auth_info/app_role_auth/secret_id/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2203120011331101-1223102021222200-1333211322323230-0010033101100020-3021211120222202-0131123113232120-0100231113111333-1100312311212212",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -5498,20 +5498,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/vault_auth_info/app_role_auth/secret_id/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "access_info.vault_auth_info.app_role_auth.secret_id",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["access info vault auth info app role auth secret id blindfold secret info"],
       "body_bytes": 4881,
-      "body_sha256": "sha256:3933031f2d59ca1d2d760071a53870d3caf75e26dcfc4793aab9d1505637f76c",
+      "body_sha256": "sha256:b141e05d13277b7d8eb905761cc71bd057ca2c8291559b0cd09e80a9219201e2",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -5528,7 +5528,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/vault_auth_info/app_role_auth/secret_id/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3012010103022103-1301031111030033-0131301023133013-2222101322130031-0021132212010002-2130120220003330-3211313021232130-0212322222032110",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -5617,20 +5617,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/vault_auth_info/app_role_auth/secret_id/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["access info vault auth info app role auth secret id clear secret info"],
       "body_bytes": 3872,
-      "body_sha256": "sha256:2dd8e12b8db247ae161b1058050f22c0387d0ba10c301f9406532536ce40f1cd",
+      "body_sha256": "sha256:9626e805fe1d273fdf4382db1459b18be5739a4f660af208de388d0698598595",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -5647,7 +5647,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/vault_auth_info/app_role_auth/secret_id/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3023232012112220-3212003100011112-3123113221200100-2001113211323300-3020202111031102-2113323101211001-1001102012123201-2023200103311103",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -5706,14 +5706,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/vault_auth_info/app_role_auth/secret_id/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -5739,7 +5739,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/vault_auth_info/token/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3231030210203130-0323032211032312-1020202213120211-2121013313233310-1031103301332032-2331132032211122-0023130320122100-1020130002320101",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -5817,20 +5817,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/vault_auth_info/token/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "access_info.vault_auth_info.token",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["access info vault auth info token blindfold secret info"],
       "body_bytes": 4560,
-      "body_sha256": "sha256:5a7770e3f0ab9383d0a54c4283b317d7ba5907019f4f16e0b1bc2b02708bbc0e",
+      "body_sha256": "sha256:9f8828920137c3b2547762ecac8d2effd11800593a79bf88c48cc2a407e8af5c",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -5847,7 +5847,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/vault_auth_info/token/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1330202021013113-0123112101203221-0120320201210310-2123011023010102-0232003120331012-1312001130023320-0202333333312223-2121312331322302",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -5915,20 +5915,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/vault_auth_info/token/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "access_info.vault_auth_info.token.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["access info vault auth info token clear secret info"],
       "body_bytes": 3570,
-      "body_sha256": "sha256:2dc76adb44713cb7e1032685e0eea43f40de2ed857461aaf3f961846ae069253",
+      "body_sha256": "sha256:613104f058f6c793737802f33dfc8f064cb6ec3bba3946b60b6cb9ec2376b6d6",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -5945,7 +5945,7 @@
       "path": "documentation/resources/secret_management_access/properties/access_info/vault_auth_info/token/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3210112033122010-3232103302121223-2302001220301323-1133110303131220-2132231312122310-1122023212301000-1311131103323010-2103010122021231",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -5997,14 +5997,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/access_info/vault_auth_info/token/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "access_info.vault_auth_info.token.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -6027,7 +6027,7 @@
       "path": "documentation/resources/secret_management_access/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3323013113011220-0112002023230221-0022123301231112-0311033122021321-0012233310113333-1120230302310030-3302113003112103-0010202130123300",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -6137,14 +6137,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "timeouts for xcsh_secret_management_access.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -6171,7 +6171,7 @@
       "path": "documentation/resources/secret_management_access/properties/where/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3010002013310032-1213220213323213-2123321300111132-1013020133110321-1213123032001233-2000133123322201-2232220303213303-3030000000122211",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -6338,14 +6338,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/where/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules * Direct reference to virtual_network object * Site local network when referring to site object * All site local networks for sites",
       "tasks": ["configuration"],
       "title": "where",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -6372,7 +6372,7 @@
       "path": "documentation/resources/secret_management_access/properties/where/site/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3033131013101111-0223012002311321-1033203233321312-1220103012131012-1122021131131000-0210211310301120-1113032001320320-1013332231323303",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
@@ -6496,14 +6496,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/where/site/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This specifies a direct reference to a site configuration object.",
       "tasks": ["configuration"],
       "title": "where.site",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -6526,7 +6526,7 @@
       "path": "documentation/resources/secret_management_access/properties/where/site/disable_internet_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3322021123121120-1331101321210003-0101221331112313-0323133121220331-1012102110102230-1011002102022021-0102001122103112-1312103231303100",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-002.md",
@@ -6536,14 +6536,14 @@
       "schema_path": ["where", "site", "disable_internet_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/where/site/disable_internet_vip/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "where.site.disable_internet_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -6566,7 +6566,7 @@
       "path": "documentation/resources/secret_management_access/properties/where/site/enable_internet_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0130032100011033-3031212022022130-0002133032312211-2121030011321011-0030122120011302-3022110113130203-3000010223121222-0222122322010021",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-002.md",
@@ -6576,20 +6576,20 @@
       "schema_path": ["where", "site", "enable_internet_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/where/site/enable_internet_vip/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "where.site.enable_internet_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["where site ref"],
       "body_bytes": 5779,
-      "body_sha256": "sha256:abe46584f64700f612fbc9c1f8ba5499ba21d5fe8ab6383ccbe4393b9b5f2ce0",
+      "body_sha256": "sha256:c50b312bf67319144b9b1b8ed76357f2d6bedd9318c938fb8e3d218c5944c22b",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -6606,7 +6606,7 @@
       "path": "documentation/resources/secret_management_access/properties/where/site/ref/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3101010002232021-1301001301301102-3131230311301333-1321121222232223-0003103223133301-2102121221031002-3120131021322003-0103202321200321",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-002.md",
@@ -6732,14 +6732,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/where/site/ref/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "A site direct reference.",
       "tasks": ["configuration"],
       "title": "where.site.ref",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -6762,7 +6762,7 @@
       "path": "documentation/resources/secret_management_access/properties/where/virtual_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0212110313230212-3131103112200033-1001110002003112-0031121031212232-1013030302211120-1133033323213111-3210023102011233-2002113101203130",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-002.md",
@@ -6798,20 +6798,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/where/virtual_network/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This specifies a direct reference to a network configuration object.",
       "tasks": ["configuration"],
       "title": "where.virtual_network",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["where virtual network ref"],
       "body_bytes": 5889,
-      "body_sha256": "sha256:b8c0a2893f6686fe0d2873b7da00343977358684622a4347352d128a6a2d4d3c",
+      "body_sha256": "sha256:272d1a3e9c14ddc1bf067da6f3e38b6981c5983fc828e9c2691808959ef396f7",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -6828,7 +6828,7 @@
       "path": "documentation/resources/secret_management_access/properties/where/virtual_network/ref/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1322320232230321-2221100023313112-0322010332122300-2132310232223001-1323302332210030-1120322130000210-3212301112310200-2022220030200321",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-002.md",
@@ -6954,14 +6954,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/where/virtual_network/ref/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "A virtual network direct reference.",
       "tasks": ["configuration"],
       "title": "where.virtual_network.ref",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -6988,7 +6988,7 @@
       "path": "documentation/resources/secret_management_access/properties/where/virtual_site/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2303221010330132-3011100131031200-3210022223102300-3330131232033111-0133010103230122-1210333210023233-1332211003232113-3332131131021330",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-002.md",
@@ -7112,14 +7112,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/where/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "A reference to virtual_site object.",
       "tasks": ["configuration"],
       "title": "where.virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -7142,7 +7142,7 @@
       "path": "documentation/resources/secret_management_access/properties/where/virtual_site/disable_internet_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0110211131220030-1312222133333101-0231011323021020-1001032102223230-1331202030220222-2330200030002031-3000333212222131-1023123210231002",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-002.md",
@@ -7152,14 +7152,14 @@
       "schema_path": ["where", "virtual_site", "disable_internet_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/where/virtual_site/disable_internet_vip/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "where.virtual_site.disable_internet_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -7182,7 +7182,7 @@
       "path": "documentation/resources/secret_management_access/properties/where/virtual_site/enable_internet_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1020013133130332-3230320032032223-0023121331121033-0330301002031212-3133331122203202-0331110223220330-1012212320031023-2221032000223332",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-002.md",
@@ -7192,20 +7192,20 @@
       "schema_path": ["where", "virtual_site", "enable_internet_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/where/virtual_site/enable_internet_vip/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "where.virtual_site.enable_internet_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["where virtual site ref"],
       "body_bytes": 5860,
-      "body_sha256": "sha256:c6c25c5e790606bce71615a196ba7d9bd46e48fc9f23104b04781c7b48b6ae3c",
+      "body_sha256": "sha256:5d09b40359c16c19aeccf5d1e691c16d26266a2916c6f9afe27c2bb82e6b9250",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -7222,7 +7222,7 @@
       "path": "documentation/resources/secret_management_access/properties/where/virtual_site/ref/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2001101332220321-1321321021000023-3212321210003212-0322300332331012-3031230013223203-2112332321101033-2321331212311021-0110031110321300",
       "registry_path": "docs/guides/resources--secret_management_access--reference--group-002.md",
@@ -7348,14 +7348,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/properties/where/virtual_site/ref/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "A virtual_site direct reference.",
       "tasks": ["configuration"],
       "title": "where.virtual_site.ref",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -7378,7 +7378,7 @@
       "path": "documentation/resources/secret_management_access/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2111202301110310-0313132001022331-3123020103123130-2301210312131331-1013011323103223-2100201310303012-1333233323020312-3022111021121303",
       "registry_path": "docs/guides/resources--secret_management_access--examples--group-001.md",
@@ -7388,14 +7388,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/examples/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Examples for xcsh_secret_management_access.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -7425,7 +7425,7 @@
       "path": "documentation/resources/secret_management_access/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0303230202110201-0203211233311100-3302130311223000-2223101332121131-3312313012232330-1131211023302311-0201003013011023-2331121003023322",
       "registry_path": "docs/guides/resources--secret_management_access--examples--group-001.md",
@@ -7435,14 +7435,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Resource for xcsh_secret_management_access.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -7466,7 +7466,7 @@
       "path": "documentation/resources/secret_management_access/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1311023322202000-3031202311101120-0012032203312013-3302002203322322-0331232113331102-1310131321133112-2030200011222103-3101131100333230",
       "registry_path": "docs/guides/resources--secret_management_access--lifecycle--group-001.md",
@@ -7476,14 +7476,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Import for xcsh_secret_management_access.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -7506,7 +7506,7 @@
       "path": "documentation/resources/secret_management_access/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_management_access",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3020232303212322-0302201011002102-3303322122303013-3130001212102213-0013233023020113-3002213100321102-0320001201233103-3213233111103320",
       "registry_path": "docs/guides/resources--secret_management_access--lifecycle--group-001.md",
@@ -7516,14 +7516,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_management_access/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Timeouts for xcsh_secret_management_access.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["secret_management_accessCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     }
   ],

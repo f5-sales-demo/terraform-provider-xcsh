@@ -376,7 +376,7 @@
       "path": "documentation/data-sources/network_connector/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3100100033113131-1013100333112132-1220212103012023-0211023132210233-2323121020123322-2323213203113121-1203301130023023-3202032133312301",
       "registry_path": "docs/data-sources/network_connector.md",
@@ -394,21 +394,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Reads a Network Connector created in the system namespace.",
       "tasks": ["configuration"],
       "title": "xcsh_network_connector",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["network connector"],
       "body_bytes": 23242,
-      "body_sha256": "sha256:f9040eadbdb8c9bd9828047300cdb3b0a3e03df049bcbe1587cfd5a84c991e7c",
+      "body_sha256": "sha256:71debc719389e8d4ab899b8f2e12d7701d4f7f3c2ba5b7da267c31e1a7abc5f5",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -431,7 +431,7 @@
       "path": "documentation/data-sources/network_connector/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3000122203132213-2030301322323023-1302132111133302-0302223201130030-0303221223333310-2021321132132200-3100201000113230-1311223311010320",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -618,14 +618,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Property reference for xcsh_network_connector.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -648,7 +648,7 @@
       "path": "documentation/data-sources/network_connector/properties/disable_forward_proxy/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3211303131123112-2030112332333102-0020201002021110-3311100303310310-3330212213323011-0113203133331032-2211011223233020-3122112200133110",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -658,20 +658,20 @@
       "schema_path": ["disable_forward_proxy"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/disable_forward_proxy/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "disable_forward_proxy",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["duration", "enable forward proxy"],
       "body_bytes": 5962,
-      "body_sha256": "sha256:a6c4aff7782827ff506d195b0105f97cd7af489510e5ff9ea9292d74395fd2c8",
+      "body_sha256": "sha256:ca04d8e38fd52dc7d0bda834f6defd21f9947c7b0d4e30bdb6d8cfdd352654c8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -691,7 +691,7 @@
       "path": "documentation/data-sources/network_connector/properties/enable_forward_proxy/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2213111031121031-3003322303011211-0020021331302310-0213312231333222-0202212313032220-0002012131031003-0322101122200102-1301210120231201",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -798,14 +798,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Fine tune forward proxy behavior Few configurations allowed are White listed ports and IP prefixes: Forward proxy does application protocol detection and server name(SNI) detection by peeking into the traffic on the incoming downstream connection. Few protocols doesn't have client sending the first data. In such",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -828,7 +828,7 @@
       "path": "documentation/data-sources/network_connector/properties/enable_forward_proxy/no_interception/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3000231310101202-3310310330211003-2113332123130331-0221332323310000-3210020032202311-2131020032333131-0021231310033003-0333123303010313",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -838,20 +838,20 @@
       "schema_path": ["enable_forward_proxy", "no_interception"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/no_interception/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.no_interception",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["enable forward proxy tls intercept"],
       "body_bytes": 3236,
-      "body_sha256": "sha256:1d6a966b2e2ab24687911974e28d2ce5f96cb2d5805efb40800242e23aea75cd",
+      "body_sha256": "sha256:c3a0549304dd76714451c75901d1227ff69b99b0151503615efca649ae5ab198",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -874,7 +874,7 @@
       "path": "documentation/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0332312230322331-2212330302231332-0303003223311003-2133233120210113-3111113131100030-0003220131100301-3333012301333000-0230313231123320",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -981,20 +981,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Configuration to enable TLS interception.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["enable forward proxy tls intercept custom certificate"],
       "body_bytes": 3700,
-      "body_sha256": "sha256:0f3d46bb42a2fa08a607024b6a39e184a6c8eecd6b9e699c64e4bd5ab1a4739b",
+      "body_sha256": "sha256:7548189c5c60d743a98b391b755f266c6de3432b3cd4f9eb0dcce962c3fa141c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1016,7 +1016,7 @@
       "path": "documentation/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0102033312210312-0312233113133221-2322122112201330-2220002332303101-0131133020002232-2301230012022220-1332000132313000-0032310333232013",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -1129,20 +1129,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Handle to fetch certificate and key.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.custom_certificate",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["enable forward proxy tls intercept custom certificate custom hash algorithms"],
       "body_bytes": 2717,
-      "body_sha256": "sha256:34870fdfa868034187e0ef51808671644a913b6ce4eea405bda89952d70a7b51",
+      "body_sha256": "sha256:556629e2ff27da796dbb30fd0b579cf60cc43ca0dda8f5bb27799a8888465a26",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1159,7 +1159,7 @@
       "path": "documentation/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/custom_hash_algorithms/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1311323231302230-0120232122032300-0031011001000101-2011200202030222-3023310022330000-0331332311301121-1012003330123301-1100232320103030",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -1192,14 +1192,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/custom_hash_algorithms/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Specifies the hash algorithms to be used.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.custom_certificate.custom_hash_algorithms",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1222,7 +1222,7 @@
       "path": "documentation/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/disable_ocsp_stapling/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2232332020203321-0102231002222112-0311033310132020-2312223212301013-1120333001312213-1110233223232202-2033333322031301-2322313121003011",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -1232,14 +1232,14 @@
       "schema_path": ["enable_forward_proxy", "tls_intercept", "custom_certificate", "disable_ocsp_stapling"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/disable_ocsp_stapling/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.custom_certificate.disable_ocsp_stapling",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1265,7 +1265,7 @@
       "path": "documentation/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/private_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0210121113331122-2223233132220213-3020031300302212-0323332120211011-0111011220000200-2021220120312010-2000112133312310-1130021333331212",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -1320,20 +1320,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/private_key/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.custom_certificate.private_key",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["enable forward proxy tls intercept custom certificate private key blindfold secret info"],
       "body_bytes": 4523,
-      "body_sha256": "sha256:bdfff78701cc557ae267f16423c141dd3ea77b4f3ef7f0c0c7275888ebc569c7",
+      "body_sha256": "sha256:26f66ab2bc30680445a224548e11be71a7997d18b4bc5e4acbf1648330f3e602",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1350,7 +1350,7 @@
       "path": "documentation/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/private_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2133022320023030-2322113202310120-3131332113100102-1012300113322212-0012202012230102-0330201232013311-0003103032002331-1320010121021111",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -1442,20 +1442,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/private_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.custom_certificate.private_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["enable forward proxy tls intercept custom certificate private key clear secret info"],
       "body_bytes": 3509,
-      "body_sha256": "sha256:b36e274067c655c181b7007644b255951dc4ee93cb65ad8707d0480d8684c9cd",
+      "body_sha256": "sha256:4853a3080e0ff6efcd9714a3e60e8aa58907dd042617e1df6c20752cf6cfba3b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1472,7 +1472,7 @@
       "path": "documentation/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/private_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0022332323220021-1310123112330231-2030211032213032-0310001321301001-3013333001330123-2302021222303220-3010321103022110-0221013221301233",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -1537,14 +1537,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/private_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.custom_certificate.private_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1567,7 +1567,7 @@
       "path": "documentation/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/use_system_defaults/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2301020203110021-0321121233103112-0122032033030130-2232122200231303-0010202330332113-2113301320032330-2303213113131233-0101131102013200",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -1577,14 +1577,14 @@
       "schema_path": ["enable_forward_proxy", "tls_intercept", "custom_certificate", "use_system_defaults"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/use_system_defaults/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.custom_certificate.use_system_defaults",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1607,7 +1607,7 @@
       "path": "documentation/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/enable_for_all_domains/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0102120221011332-0310301021113020-0023031202030023-1120130231210232-3032111321330132-3132221203012311-1223123222111321-1013321130231130",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -1617,14 +1617,14 @@
       "schema_path": ["enable_forward_proxy", "tls_intercept", "enable_for_all_domains"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/enable_for_all_domains/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.enable_for_all_domains",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1649,7 +1649,7 @@
       "path": "documentation/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0322223230112333-2221330301302322-3001221023121130-1302003012133113-3010000301221221-3130111103223130-0012102030021023-1032331220111311",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -1676,20 +1676,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Policy to enable or disable TLS interception.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.policy",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["enable forward proxy tls intercept policy interception rules"],
       "body_bytes": 2820,
-      "body_sha256": "sha256:81e74719f8de9aa48731b2a01e5cedea4526dcc2792b711aa7c0184a088df124",
+      "body_sha256": "sha256:1b46aea8f0f1e9e08d4ff8b5e0eea307e5168d7a740568a1b9f0d07f0cecebab",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1710,7 +1710,7 @@
       "path": "documentation/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/interception_rules/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3100030312323221-1220233133200221-2233203233210222-0120210102323100-1212122100312022-0112333012323333-3122220022013032-2132331300021210",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -1781,14 +1781,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/interception_rules/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "List of ordered rules to enable or disable for TLS interception.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.policy.interception_rules",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1811,7 +1811,7 @@
       "path": "documentation/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/interception_rules/disable_interception/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2321300102212233-0110333122113132-0302331231230122-2201002223030001-2023130133022210-0020033112333112-3220301210333133-2120120012232322",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -1821,20 +1821,20 @@
       "schema_path": ["enable_forward_proxy", "tls_intercept", "policy", "interception_rules", "disable_interception"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/interception_rules/disable_interception/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.policy.interception_rules.disable_interception",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["enable forward proxy tls intercept policy interception rules domain match"],
       "body_bytes": 5226,
-      "body_sha256": "sha256:90a4fe45e7012e64d191cc157a3d3e1d06996ad347fa178add089fe9674c4f76",
+      "body_sha256": "sha256:4f1bd15dd0a9f9e932c1b1e25b43b58d7b45ba65f9165e66f09a0dee147e6618",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1851,7 +1851,7 @@
       "path": "documentation/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/interception_rules/domain_match/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0122123032022002-1030232023330031-3103332213321003-2210031130223021-2021011311010330-0200232031130133-0112212001003313-1021222130030312",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -1931,14 +1931,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/interception_rules/domain_match/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Domains names.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.policy.interception_rules.domain_match",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1961,7 +1961,7 @@
       "path": "documentation/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/interception_rules/enable_interception/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1111311222013033-3332213202233312-3201121030110021-1011223103030023-1332121202012010-0010220033222103-2112203133031120-2313313213231121",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -1971,14 +1971,14 @@
       "schema_path": ["enable_forward_proxy", "tls_intercept", "policy", "interception_rules", "enable_interception"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/interception_rules/enable_interception/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.policy.interception_rules.enable_interception",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2001,7 +2001,7 @@
       "path": "documentation/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/volterra_certificate/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1223100201030011-2223111320311011-1300313332133110-0030313212133302-2132032200331233-3231201303132113-2113111100133111-0030231310102320",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -2011,14 +2011,14 @@
       "schema_path": ["enable_forward_proxy", "tls_intercept", "volterra_certificate"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/volterra_certificate/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.volterra_certificate",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2041,7 +2041,7 @@
       "path": "documentation/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/volterra_trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1022113031132322-3033322111012101-3212222000220311-3200220222111210-2313231122022122-3311031010210333-2313331133233332-1333113123033020",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -2051,14 +2051,14 @@
       "schema_path": ["enable_forward_proxy", "tls_intercept", "volterra_trusted_ca"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/volterra_trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.volterra_trusted_ca",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2081,7 +2081,7 @@
       "path": "documentation/data-sources/network_connector/properties/sli_to_global_dr/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3202003000033330-0132321012323121-2201002113322223-1301301113020232-1303210303223002-1110011130333032-0202031330113122-0100012123123232",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -2108,20 +2108,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/sli_to_global_dr/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Global network reference for direct connection.",
       "tasks": ["configuration"],
       "title": "sli_to_global_dr",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["sli to global dr global vn"],
       "body_bytes": 4460,
-      "body_sha256": "sha256:3130279893f81ab7cf67434f2d8976c09621561531943b13bdf224816466baf4",
+      "body_sha256": "sha256:85d598eae75a09ee8ce5d7c7f9948e5cfa3636e6ffdcafe471d4d74844d61435",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2138,7 +2138,7 @@
       "path": "documentation/data-sources/network_connector/properties/sli_to_global_dr/global_vn/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1322133331113313-1123132102111123-0002220312323210-1113130110303320-1112010000230122-2210120102323131-3123222011303013-1302122210303030",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -2218,14 +2218,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/sli_to_global_dr/global_vn/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "sli_to_global_dr.global_vn",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2251,7 +2251,7 @@
       "path": "documentation/data-sources/network_connector/properties/sli_to_slo_snat/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0121123320323123-3213322110002213-2100333022000003-2120210113312111-1331133121020232-0212331020331110-1031122203113102-0201102222130031",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -2294,14 +2294,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/sli_to_slo_snat/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "X-example: \"\" description.",
       "tasks": ["configuration"],
       "title": "sli_to_slo_snat",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2324,7 +2324,7 @@
       "path": "documentation/data-sources/network_connector/properties/sli_to_slo_snat/default_gw_snat/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1202301102133331-2101121130331302-2122022022313011-1321020211212223-2213110323123020-3230121211232230-3101020201230111-2323200111013111",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -2334,14 +2334,14 @@
       "schema_path": ["sli_to_slo_snat", "default_gw_snat"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/sli_to_slo_snat/default_gw_snat/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "sli_to_slo_snat.default_gw_snat",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2364,7 +2364,7 @@
       "path": "documentation/data-sources/network_connector/properties/sli_to_slo_snat/interface_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1312333102103110-1010220011111103-2303223101122210-0323031121230032-2201021022220321-1223031313222003-2331021210121212-3123322001001003",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -2374,14 +2374,14 @@
       "schema_path": ["sli_to_slo_snat", "interface_ip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/sli_to_slo_snat/interface_ip/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "sli_to_slo_snat.interface_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2404,7 +2404,7 @@
       "path": "documentation/data-sources/network_connector/properties/slo_to_global_dr/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3202010033321000-2321111032303003-3110021002030311-2331130332311233-1122123100201221-1020301003032212-3023213002320313-1232123203201023",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -2431,20 +2431,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/slo_to_global_dr/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Global network reference for direct connection.",
       "tasks": ["configuration"],
       "title": "slo_to_global_dr",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["slo to global dr global vn"],
       "body_bytes": 4460,
-      "body_sha256": "sha256:3b36461f61007c1d481beda5ba10b3a289b983ab496655e80490426201cb16e4",
+      "body_sha256": "sha256:029849cdb3f38bbf410ea4a4749d09c3bbbcbdd27256d7668a82d2454a79a9d3",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2461,7 +2461,7 @@
       "path": "documentation/data-sources/network_connector/properties/slo_to_global_dr/global_vn/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3031000230020233-0320112012122210-0100113210120232-2103130120301030-1301200022022323-2210332302230212-1013313312330300-1322333210212302",
       "registry_path": "docs/guides/data-sources--network_connector--reference--group-001.md",
@@ -2541,14 +2541,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/slo_to_global_dr/global_vn/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "slo_to_global_dr.global_vn",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2571,7 +2571,7 @@
       "path": "documentation/data-sources/network_connector/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3111123311200233-3221113313323111-1030301032222222-2233132330113212-2012130321031310-0022330033310111-0021302301033202-2220033120232122",
       "registry_path": "docs/guides/data-sources--network_connector--examples--group-001.md",
@@ -2581,14 +2581,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/examples/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Examples for xcsh_network_connector.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2618,7 +2618,7 @@
       "path": "documentation/data-sources/network_connector/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_connector",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0023000011301211-0311132300203303-1010013212013123-0311323010132310-3232010101200001-0331121220320220-2333103333313230-0012312220023213",
       "registry_path": "docs/guides/data-sources--network_connector--examples--group-001.md",
@@ -2628,14 +2628,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Data source for xcsh_network_connector.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     }
   ],

@@ -695,7 +695,7 @@
       "path": "documentation/data-sources/cluster/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0232210231030021-1231211333330303-2032130210102220-2102012032113202-2202232210201313-2210112130121033-3133211302133121-1202210031003013",
       "registry_path": "docs/data-sources/cluster.md",
@@ -705,21 +705,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Reads Cluster information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_cluster",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["cluster"],
       "body_bytes": 48615,
-      "body_sha256": "sha256:a4e23f1f459f60f8270c43dc8e06886b5b7248333b902119069c0283f172f2bb",
+      "body_sha256": "sha256:03ab8dad51c264b44cb3cbbaac2ed7ffd9c3fbcc0a8de2e86c9ca90cb9e48ef4",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -753,7 +753,7 @@
       "path": "documentation/data-sources/cluster/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2020311230233013-2301231333200031-0000133110133310-2200103231211020-2210231033130123-0133012030321013-2220221320010211-0023211323121200",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-001.md",
@@ -1228,14 +1228,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Property reference for xcsh_cluster.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1258,7 +1258,7 @@
       "path": "documentation/data-sources/cluster/properties/auto_http_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0121220033001011-3230302333131331-1120220130301100-2331202102323301-3103232211000023-1201210120201312-0202301131223322-2021003222112331",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-001.md",
@@ -1268,20 +1268,20 @@
       "schema_path": ["auto_http_config"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/auto_http_config/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "auto_http_config",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["circuit breaker"],
       "body_bytes": 5961,
-      "body_sha256": "sha256:2c8166cdaaa5220e18f85b72d216a83026534e0d92863effe86dffd08542fa79",
+      "body_sha256": "sha256:91f4c5ddb1e6b3ba13c687912fcd2bc639ba5839cb3f58f26e41c1a857907c5a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1298,7 +1298,7 @@
       "path": "documentation/data-sources/cluster/properties/circuit_breaker/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1030311322100312-0021313011330010-0011030103232220-1333113213133000-0223021121231313-2213032200211113-1231102101131311-3333002013010212",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-001.md",
@@ -1389,14 +1389,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/circuit_breaker/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "CircuitBreaker provides a mechanism for watching failures in upstream connections or requests and if the failures reach a certain threshold, automatically fail subsequent requests which allows to apply back pressure on downstream quickly.",
       "tasks": ["configuration"],
       "title": "circuit_breaker",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1419,7 +1419,7 @@
       "path": "documentation/data-sources/cluster/properties/default_subset/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3211100033212002-3323310310011303-3231020001323310-3133321001312311-3031123102313023-3321012012100132-3231002312200331-1303113213312131",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-001.md",
@@ -1429,14 +1429,14 @@
       "schema_path": ["default_subset"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/default_subset/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "List of key-value pairs that define default subset. This subset can be referred in fallback_policy which gets used when route specifies no metadata or no subset matching the metadata exists.",
       "tasks": ["configuration"],
       "title": "default_subset",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1459,7 +1459,7 @@
       "path": "documentation/data-sources/cluster/properties/disable_proxy_protocol/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3032021323222023-2113331010130133-1220333211120201-1312220223131131-1322033303023321-2223300130100302-1001220312222332-1013112312332131",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-001.md",
@@ -1469,20 +1469,20 @@
       "schema_path": ["disable_proxy_protocol"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/disable_proxy_protocol/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "disable_proxy_protocol",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["endpoint subsets"],
       "body_bytes": 4363,
-      "body_sha256": "sha256:79d646b259884a02fb83b157068dda6743305182220307501bf544bb391edb8e",
+      "body_sha256": "sha256:d042c4d8e79f05f7a1d24e0500ce2a456d738c17f099c5ccd23f504dd491dd6a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1499,7 +1499,7 @@
       "path": "documentation/data-sources/cluster/properties/endpoint_subsets/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0020130102112320-3222131012320000-2113321330033001-3012022222130010-1230112302230233-2303032003222232-1323001031233101-2003001000131130",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-001.md",
@@ -1526,20 +1526,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/endpoint_subsets/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer. Endpoint_subsets is list of subsets for this cluster. Each entry in this list has definition for a",
       "tasks": ["configuration"],
       "title": "endpoint_subsets",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["endpoints"],
       "body_bytes": 5104,
-      "body_sha256": "sha256:8cbc318d1186a101198e6eebc4c2e4b0412d23025e8308c22799f98354fb5e23",
+      "body_sha256": "sha256:b81e17ae088482639d48a7e8e997d840fe68b732203294b022dbcd29e0ef6b50",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1556,7 +1556,7 @@
       "path": "documentation/data-sources/cluster/properties/endpoints/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0112011310121212-0110003113310222-2323213222023033-0321211112303230-2213202000122321-0101220230120010-3221102303012330-2320002330220311",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-001.md",
@@ -1682,20 +1682,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/endpoints/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "List of references to all endpoint objects that belong to this cluster.",
       "tasks": ["configuration"],
       "title": "endpoints",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["health checks"],
       "body_bytes": 5085,
-      "body_sha256": "sha256:7b2e248ecc3001fc71cd30c5225a2e17952e6dd74e2029598153a6f4cb18ee06",
+      "body_sha256": "sha256:6da620c9ba5c99dd918ceb7421907c3f0856ee3a486de86f723f48ee7aed972f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1712,7 +1712,7 @@
       "path": "documentation/data-sources/cluster/properties/health_checks/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3202012113122110-1021232210312333-3113020021130130-2321033332112012-3321322013313120-0300123320333310-2313332022323122-1222103012303003",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-001.md",
@@ -1838,14 +1838,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/health_checks/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "List of references to healthcheck object for this cluster.",
       "tasks": ["configuration"],
       "title": "health_checks",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1868,7 +1868,7 @@
       "path": "documentation/data-sources/cluster/properties/http1_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0231221033120032-3310232112322110-2213311020222113-3231330231233122-0300031022330003-2221030311303103-1122002330303331-2301311312200121",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-001.md",
@@ -1895,14 +1895,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/http1_config/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "HTTP/1.1 Protocol OPTIONS for upstream connections.",
       "tasks": ["configuration"],
       "title": "http1_config",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1929,7 +1929,7 @@
       "path": "documentation/data-sources/cluster/properties/http1_config/header_transformation/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3103220002212220-2001001020021333-2102231310103133-3113331311111230-2233331030303323-3220232131032231-0100202330320033-1323222313111111",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-001.md",
@@ -1988,14 +1988,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/http1_config/header_transformation/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
       "tasks": ["configuration"],
       "title": "http1_config.header_transformation",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2018,7 +2018,7 @@
       "path": "documentation/data-sources/cluster/properties/http1_config/header_transformation/default_header_transformation/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1313010310302303-2230233210303311-3011101232232302-2023231131031120-0311122323121222-3100322120113000-2331132302133002-3002131100123103",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-001.md",
@@ -2028,14 +2028,14 @@
       "schema_path": ["http1_config", "header_transformation", "default_header_transformation"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/http1_config/header_transformation/default_header_transformation/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Use the platform's current default HTTP header transformation behavior.",
       "tasks": ["configuration"],
       "title": "http1_config.header_transformation.default_header_transformation",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2058,7 +2058,7 @@
       "path": "documentation/data-sources/cluster/properties/http1_config/header_transformation/preserve_case_header_transformation/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2220332303313031-2300211031211212-0100222113233010-3103023033001331-1003023010131121-2211302313102021-2203321122132233-0100101113232013",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-001.md",
@@ -2068,14 +2068,14 @@
       "schema_path": ["http1_config", "header_transformation", "preserve_case_header_transformation"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/http1_config/header_transformation/preserve_case_header_transformation/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Preserve HTTP header-name case when upstream case must remain unchanged.",
       "tasks": ["configuration"],
       "title": "http1_config.header_transformation.preserve_case_header_transformation",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2098,7 +2098,7 @@
       "path": "documentation/data-sources/cluster/properties/http1_config/header_transformation/proper_case_header_transformation/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1321200301101333-2303303311023112-0032322022321203-3203023031100131-3323113321103020-1323033023121220-0313232223222133-0020120233332202",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-001.md",
@@ -2108,14 +2108,14 @@
       "schema_path": ["http1_config", "header_transformation", "proper_case_header_transformation"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/http1_config/header_transformation/proper_case_header_transformation/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Transform HTTP header names to proper case when explicit transformation is required.",
       "tasks": ["configuration"],
       "title": "http1_config.header_transformation.proper_case_header_transformation",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2138,7 +2138,7 @@
       "path": "documentation/data-sources/cluster/properties/http2_options/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1030010231200022-3322131033122210-1230033020312003-0111313202211202-3322302012332230-1211221323031332-1123230123011022-3232203321032103",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-001.md",
@@ -2165,14 +2165,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/http2_options/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Http2 Protocol OPTIONS for upstream connections.",
       "tasks": ["configuration"],
       "title": "http2_options",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2195,7 +2195,7 @@
       "path": "documentation/data-sources/cluster/properties/no_panic_threshold/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2211301230101320-2002021313220200-3310210323032101-1213102313203211-1100223020000320-0300213121222230-0133300202032003-3232212303130223",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-001.md",
@@ -2205,14 +2205,14 @@
       "schema_path": ["no_panic_threshold"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/no_panic_threshold/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "no_panic_threshold",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2235,7 +2235,7 @@
       "path": "documentation/data-sources/cluster/properties/no_request_limit_per_connection/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2203320230000303-2221322103212223-2212111131011213-2232212212033022-3230300202221320-0033222323113312-2003021313202221-1223013113002011",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-001.md",
@@ -2245,20 +2245,20 @@
       "schema_path": ["no_request_limit_per_connection"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/no_request_limit_per_connection/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "no_request_limit_per_connection",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["outlier detection"],
       "body_bytes": 7135,
-      "body_sha256": "sha256:16117de586739c6e4ff98b4c9bc9e3fdcef22153f85df95e7da62a0a1f2a2639",
+      "body_sha256": "sha256:c4efde2a64467cb157bc2d7446affe5906ba77288f4749817fa1a3fb2789eae0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2275,7 +2275,7 @@
       "path": "documentation/data-sources/cluster/properties/outlier_detection/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1221013233311223-2121003102312233-2021333310030322-3330222031201202-0121032031312212-3000221001110310-2311002311301120-3232021321201122",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-001.md",
@@ -2366,14 +2366,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/outlier_detection/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checking. Algorithm 1. A endpoint is determined to be an",
       "tasks": ["configuration"],
       "title": "outlier_detection",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2396,7 +2396,7 @@
       "path": "documentation/data-sources/cluster/properties/proxy_protocol_v1/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1100331322301132-0320031111010231-0332200212032200-2303202012003200-2313311022333003-1302100231200002-3223231030010220-2132022302330022",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-001.md",
@@ -2406,14 +2406,14 @@
       "schema_path": ["proxy_protocol_v1"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/proxy_protocol_v1/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_protocol_v1",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2436,7 +2436,7 @@
       "path": "documentation/data-sources/cluster/properties/proxy_protocol_v2/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1023012213100031-0232220222310012-3133010122101011-2312120323230312-0310300102000210-2021021123302201-1321110221121130-1220101111021111",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-001.md",
@@ -2446,20 +2446,20 @@
       "schema_path": ["proxy_protocol_v2"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/proxy_protocol_v2/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_protocol_v2",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls parameters"],
       "body_bytes": 3899,
-      "body_sha256": "sha256:c75417c8b95ef2bc3c24891ea192a34118d5687fe3b0ccdeda55ead1d6953ccb",
+      "body_sha256": "sha256:644b8fd902ea5c202116f9466441a375ec3f265b138232a50e0e07e152d419d4",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -2483,7 +2483,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3000331110120102-1313102013232321-0131210230113302-0010210120302330-0120211233030302-1220001101121231-0213222102031020-1101021100303031",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-001.md",
@@ -2622,20 +2622,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "TLS configuration for upstream connections.",
       "tasks": ["configuration"],
       "title": "tls_parameters",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls parameters cert params"],
       "body_bytes": 6564,
-      "body_sha256": "sha256:e7a09ea1be7aa0ee49ec1441fc0bfd59ccf374d7c7876992d05e68a15384daa4",
+      "body_sha256": "sha256:491a217de10ccd590d409aa3072ccfd95c2a0e1db9e5bf9ac278fbd3694b42bd",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -2657,7 +2657,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/cert_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1302321232321230-3200120210232323-3303020302200300-0001013030021031-3331321221003122-2201331232132222-3133133322200212-0023331301020002",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-001.md",
@@ -2786,14 +2786,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/cert_params/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Certificate Parameters for authentication, TLS ciphers, and trust store.",
       "tasks": ["configuration"],
       "title": "tls_parameters.cert_params",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2805,7 +2805,7 @@
         "tls parameters cert params certificates"
       ],
       "body_bytes": 5371,
-      "body_sha256": "sha256:c18f22139fc27aa3ce78b7feb03e58fc2db8abae795ff26431988fb36e30747d",
+      "body_sha256": "sha256:34f4babb23f4c71e1f1cd241873346dfe5291f9c25035a78eaf6c29310b56595",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -2822,7 +2822,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/cert_params/certificates/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3200233330322300-0222311312232113-3213320003030123-1322013221032212-2322301321223233-0222313020122231-3003230032101323-3022130211123332",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -2948,14 +2948,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/cert_params/certificates/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Client TLS Certificate required for mTLS authentication.",
       "tasks": ["configuration"],
       "title": "tls_parameters.cert_params.certificates",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -2978,7 +2978,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/cert_params/skip_server_verification/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2203313332122113-1223012210100202-0131312102322332-3013232002313323-3211011121201321-1332231132202223-2312120011100112-0311122122233210",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -2988,20 +2988,20 @@
       "schema_path": ["tls_parameters", "cert_params", "skip_server_verification"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/cert_params/skip_server_verification/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.cert_params.skip_server_verification",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls parameters cert params tls validation params"],
       "body_bytes": 3416,
-      "body_sha256": "sha256:f780f29577d3cb8982fe384d2cbab4530cdb1710adb6b573429891ef3c1a1c15",
+      "body_sha256": "sha256:0552969c1f4696081ab9ba0f77dd8f573791986302cc6e516f822c0da8168f4f",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -3020,7 +3020,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/cert_params/tls_validation_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0311330302130000-1103112110213333-2011012322122311-2233023231023333-0223121323131323-0321101110002022-2023211210232300-0200112202213030",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -3095,14 +3095,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/cert_params/tls_validation_params/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
       "tasks": ["configuration"],
       "title": "tls_parameters.cert_params.tls_validation_params",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3127,7 +3127,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/cert_params/tls_validation_params/trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2032231233123332-0323221312003131-3320301013001022-0321230320311212-2213110311020101-3201312031112203-1033313033111330-2312131313120033",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -3154,20 +3154,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/cert_params/tls_validation_params/trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Reference to Root CA Certificate.",
       "tasks": ["configuration"],
       "title": "tls_parameters.cert_params.tls_validation_params.trusted_ca",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls parameters cert params tls validation params trusted ca trusted ca list"],
       "body_bytes": 6141,
-      "body_sha256": "sha256:9f8154ced9afec9aaebffea8ac20a0d54658215445b235d19c27cdef936ec131",
+      "body_sha256": "sha256:bd139222999fbcfaebc96b7135d7d12f13b8b8dfb9bca45950536dcbf7bfa170",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -3184,7 +3184,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/cert_params/tls_validation_params/trusted_ca/trusted_ca_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3031133302223002-3232203332213322-1212222330212302-0331110233002201-2313332331312332-3132212112232230-3010122111112223-0221120002233013",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -3345,14 +3345,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/cert_params/tls_validation_params/trusted_ca/trusted_ca_list/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Reference to Root CA Certificate.",
       "tasks": ["configuration"],
       "title": "tls_parameters.cert_params.tls_validation_params.trusted_ca.trusted_ca_list",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3375,7 +3375,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/cert_params/volterra_trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3021330033200220-1330310122233123-3231102223321030-3023222322301122-1122321031021203-2321223232312101-1111010311110033-3031011212332212",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -3385,20 +3385,20 @@
       "schema_path": ["tls_parameters", "cert_params", "volterra_trusted_ca"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/cert_params/volterra_trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.cert_params.volterra_trusted_ca",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls parameters common params"],
       "body_bytes": 6081,
-      "body_sha256": "sha256:aff6b851151060eda1ab150c4f4c811f6844c7aa21e40c2f2712081ff3f99abf",
+      "body_sha256": "sha256:77859c7019b173707de0130940c66163c8f1faf5cd516c1f7f36d8f20ad8d884",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -3418,7 +3418,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/common_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2020301003100311-1020232013200323-1320133212303201-3201233100312213-2211323232011020-0212102222130302-3231321120323312-1213210113111313",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -3515,14 +3515,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/common_params/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Information of different aspects for TLS authentication related to ciphers, certificates and trust store.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3534,7 +3534,7 @@
         "tls parameters common params tls certificates"
       ],
       "body_bytes": 3321,
-      "body_sha256": "sha256:b47dd415161e18b13128d6ae2ac6203410a8f509fd95e84abbffa1c88d74fd6e",
+      "body_sha256": "sha256:2abc2a3812b104226f7f90f0a13d086575da0edb826daf09dd1e2b6e5c78203c",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -3556,7 +3556,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/common_params/tls_certificates/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2322321211020111-2323120130310233-0122031120101221-3000012023333102-2330032330010331-3200222000200001-3020003201231013-1001330012223303",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -3669,20 +3669,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/common_params/tls_certificates/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Set of TLS certificates.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls parameters common params tls certificates custom hash algorithms"],
       "body_bytes": 2593,
-      "body_sha256": "sha256:1671b132ac703f5aecb957ca635d84809ce8574313151d0f7e47f470318e6f79",
+      "body_sha256": "sha256:175101d9b93d9165299e53ec269afacfb94e6370c7948e0562f7c996f9194cd6",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -3699,7 +3699,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/common_params/tls_certificates/custom_hash_algorithms/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3211220231023030-0211211010003022-2032221100030203-1100230020220002-1301212132013212-0310232100030232-3122001203330322-2033323332203220",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -3732,14 +3732,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/common_params/tls_certificates/custom_hash_algorithms/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Specifies the hash algorithms to be used.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.custom_hash_algorithms",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3762,7 +3762,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/common_params/tls_certificates/disable_ocsp_stapling/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0333022001133111-1013013311312210-0021031102333020-0002303122221100-2221233021011100-1213212022120331-0101230132331312-2123112121220223",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -3772,14 +3772,14 @@
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "disable_ocsp_stapling"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/common_params/tls_certificates/disable_ocsp_stapling/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.disable_ocsp_stapling",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3805,7 +3805,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3332021020211332-3123012023131012-2101111123031023-1031202112323121-2230300020231100-0213301131133110-2112212023220111-3001032021203232",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -3854,20 +3854,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.private_key",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls parameters common params tls certificates private key blindfold secret info"],
       "body_bytes": 4357,
-      "body_sha256": "sha256:938a692e57027cefcef7c8433433ce04a3372ff38650cc4f5341d8ee1fbe5d6b",
+      "body_sha256": "sha256:74ba5c946bd355ac47fd18a79af31840f370d9e3c8cbe13e08c0c3ac7819217a",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -3884,7 +3884,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1021322332311313-3220121300303322-3113202021110223-2110032102110021-3032233210110213-0301130133011032-3121133111211033-0333022022130101",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -3966,20 +3966,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls parameters common params tls certificates private key clear secret info"],
       "body_bytes": 3351,
-      "body_sha256": "sha256:99a2eaa68353e810ab8a86b617e89e4021a9e025708573957db00d7f6ab3ffe7",
+      "body_sha256": "sha256:125a3279d18059309c6f70e65c609cad7b5160b8d4d25a87c903ed9eb996ea15",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -3996,7 +3996,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3233013132112032-0102123333110330-0131101210123131-3022030213033012-0032000130322210-1322000001311310-1102231301030203-0302130200232102",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -4053,14 +4053,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.private_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4083,7 +4083,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/common_params/tls_certificates/use_system_defaults/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1203310001013021-3231300320223222-0211200123111301-1231202010331201-1232233003300232-1233203300231030-3310210002133233-2331301221313323",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -4093,20 +4093,20 @@
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "use_system_defaults"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/common_params/tls_certificates/use_system_defaults/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.use_system_defaults",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls parameters common params validation params"],
       "body_bytes": 3408,
-      "body_sha256": "sha256:300c59452c10e629fca25275cf7b0893b1cd87f319c87ff6c298d38132b51b24",
+      "body_sha256": "sha256:4e0e7875a3f1d62a56c014095c58404fcdfd498e1b26dde2b757047caa817542",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -4125,7 +4125,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/common_params/validation_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0200022102031013-2222112231032311-1120133023100231-3231311323232033-1210120332312132-3201303000300002-2210000030022320-3323232202330311",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -4200,14 +4200,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/common_params/validation_params/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.validation_params",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4232,7 +4232,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/common_params/validation_params/trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2131030032102121-2232130121132133-2222233320102200-3020321232333101-3320331002022311-0230030310122103-1122032113030020-1201030230302231",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -4259,20 +4259,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/common_params/validation_params/trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Reference to Root CA Certificate.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.validation_params.trusted_ca",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["tls parameters common params validation params trusted ca trusted ca list"],
       "body_bytes": 6123,
-      "body_sha256": "sha256:719a9fec91f3d2dda8c0a36e20a5dc9196be78cef76a1ece7ad73b7a0cd5c531",
+      "body_sha256": "sha256:c1e456edaf575a2c1c8b49d6cbd6dc8f83fe5240f5cb619e4a1c30b5b4034ba0",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -4289,7 +4289,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/common_params/validation_params/trusted_ca/trusted_ca_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1302023231010103-1211132201113330-2120003000221312-1102232100121322-1332322200210011-0312002010201213-0022230120021133-3103112121230330",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -4450,14 +4450,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/common_params/validation_params/trusted_ca/trusted_ca_list/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Reference to Root CA Certificate.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4480,7 +4480,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/default_session_key_caching/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0030303201213312-2002233020110002-0103213003202313-0231023111222112-0213131221031201-1302110222212321-3200100310301122-3232332322003330",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -4490,14 +4490,14 @@
       "schema_path": ["tls_parameters", "default_session_key_caching"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/default_session_key_caching/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.default_session_key_caching",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4520,7 +4520,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/disable_session_key_caching/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3131003313100023-2011121223333200-0211332321102113-3302131121032312-1301111301003330-3020313203010010-1213131322111210-1232103311201020",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -4530,14 +4530,14 @@
       "schema_path": ["tls_parameters", "disable_session_key_caching"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/disable_session_key_caching/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.disable_session_key_caching",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4560,7 +4560,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/disable_sni/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1130130133200210-1010212021311333-2111122320031101-0333233313010021-0323213330130012-2122211020012332-0212311203233110-0313123311210301",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -4570,14 +4570,14 @@
       "schema_path": ["tls_parameters", "disable_sni"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/disable_sni/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.disable_sni",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4600,7 +4600,7 @@
       "path": "documentation/data-sources/cluster/properties/tls_parameters/use_host_header_as_sni/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2223202311322031-0130323103302030-3212303312011321-1130013200232211-2120320001110303-0210223212222320-3120323210123323-3231021123203130",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -4610,14 +4610,14 @@
       "schema_path": ["tls_parameters", "use_host_header_as_sni"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/tls_parameters/use_host_header_as_sni/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.use_host_header_as_sni",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4643,7 +4643,7 @@
       "path": "documentation/data-sources/cluster/properties/upstream_conn_pool_reuse_type/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0313001211201301-0220311332132120-1031132020332300-1331101230303030-2110211232132032-3032132311122313-0201333030230221-2110023012110012",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -4686,14 +4686,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/upstream_conn_pool_reuse_type/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Select upstream connection pool reuse state for every downstream connection. This configuration choice is for HTTP(S) LB only.",
       "tasks": ["configuration"],
       "title": "upstream_conn_pool_reuse_type",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4716,7 +4716,7 @@
       "path": "documentation/data-sources/cluster/properties/upstream_conn_pool_reuse_type/disable_conn_pool_reuse/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3100330022133011-1311223112002301-0000310020011311-0302201301230001-1211102111320303-2021102023222112-2021130211020312-3233303110123010",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -4726,14 +4726,14 @@
       "schema_path": ["upstream_conn_pool_reuse_type", "disable_conn_pool_reuse"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/upstream_conn_pool_reuse_type/disable_conn_pool_reuse/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "upstream_conn_pool_reuse_type.disable_conn_pool_reuse",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4756,7 +4756,7 @@
       "path": "documentation/data-sources/cluster/properties/upstream_conn_pool_reuse_type/enable_conn_pool_reuse/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1201023120022202-1133133111310330-1211223333003113-2200301021101033-1131032220121222-1330020213203012-2321322033220003-1021132220223303",
       "registry_path": "docs/guides/data-sources--cluster--reference--group-002.md",
@@ -4766,14 +4766,14 @@
       "schema_path": ["upstream_conn_pool_reuse_type", "enable_conn_pool_reuse"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/upstream_conn_pool_reuse_type/enable_conn_pool_reuse/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "upstream_conn_pool_reuse_type.enable_conn_pool_reuse",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4796,7 +4796,7 @@
       "path": "documentation/data-sources/cluster/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0231101023131313-2212022212310233-2202223132101223-3112213331100203-2232030313130130-1330212111330303-3120212202100033-2101033112202301",
       "registry_path": "docs/guides/data-sources--cluster--examples--group-001.md",
@@ -4806,14 +4806,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/examples/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Examples for xcsh_cluster.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -4843,7 +4843,7 @@
       "path": "documentation/data-sources/cluster/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3113213201302132-3020232133203000-1212202212233003-0033333300300310-1110111323132220-1001202322033223-0120321221121102-2221021311131021",
       "registry_path": "docs/guides/data-sources--cluster--examples--group-001.md",
@@ -4853,14 +4853,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Data source for xcsh_cluster.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     }
   ],

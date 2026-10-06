@@ -694,7 +694,7 @@
       "path": "documentation/data-sources/registration/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0213101222032121-3202213230020032-1300311133322023-3102010212010010-0302023033222033-2230311223131211-1221110133201103-1300301230303301",
       "registry_path": "docs/data-sources/registration.md",
@@ -704,21 +704,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Reads a VPM registration record from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_registration",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["registration"],
       "body_bytes": 34434,
-      "body_sha256": "sha256:5589a21da10ad2944c811e44540727abceee0a7bf0388fbf0fd395105f86d10f",
+      "body_sha256": "sha256:9fa0d8bd3155382265c8ab28ec23c021c4adcad66181362fbda627c0e048abe8",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -738,7 +738,7 @@
       "path": "documentation/data-sources/registration/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1101112222230233-3310100112220233-0122221010111210-1032100101220210-0000320131100022-3121310301031310-1210101132122023-1010212333103012",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -893,20 +893,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Property reference for xcsh_registration.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["infra"],
       "body_bytes": 8284,
-      "body_sha256": "sha256:23a39056e6e306d406b9e8ed6c4ff0eeaa67cc0d95375da5ad69e3adbd6d5fb0",
+      "body_sha256": "sha256:98f5a842ef7588e28a7ded8d733899d2f2a52c034e4f1fea11ac5d580bf79beb",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -930,7 +930,7 @@
       "path": "documentation/data-sources/registration/properties/infra/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1322220013303031-1121222131032033-0300200330111020-1211223110101013-1222330213123202-2313102202302131-0222130030200021-1110122111021101",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -1197,20 +1197,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "InfraMetadata stores information about instance infrastructure.",
       "tasks": ["configuration"],
       "title": "infra",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["infra bond config"],
       "body_bytes": 4277,
-      "body_sha256": "sha256:450c485b253f7554cb0886881bab8bd074bccbb4c8fdc992e6a40948da138e43",
+      "body_sha256": "sha256:c6c6bd77d365bd815a7604626839f2399ef4213351e13433a07af30caee4ee22",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1227,7 +1227,7 @@
       "path": "documentation/data-sources/registration/properties/infra/bond_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2210100300012100-2211112222210322-1103231110102010-2110123130310323-3310311300212203-3120001033022233-3100221203232103-1203021310230010",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -1286,14 +1286,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/bond_config/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Bond device configuration for VPM registration.",
       "tasks": ["configuration"],
       "title": "infra.bond_config",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -1316,7 +1316,7 @@
       "path": "documentation/data-sources/registration/properties/infra/hugepages/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2120031103113301-3131220333132032-3213120323123113-0301303301112301-1202231231220101-2130323303003113-0133003202112021-0123331322323300",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -1375,20 +1375,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/hugepages/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Hugepage settings for CE on K8s SMV2 site.",
       "tasks": ["configuration"],
       "title": "infra.hugepages",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["infra hw info"],
       "body_bytes": 3410,
-      "body_sha256": "sha256:c233a136556a415600b506745049f12862e13a491b6819dfbd7c7f867ebc9103",
+      "body_sha256": "sha256:276eca431aa9f2bc5164949c59fa814313c2de8a5722ac47f402a09691886f63",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -1418,7 +1418,7 @@
       "path": "documentation/data-sources/registration/properties/infra/hw_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0003310021103010-3122202131113301-0331323321110213-2312121331103122-3103202101303101-2323130030130123-2303303203021203-1033300032103110",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -1637,20 +1637,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/hw_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "OsInfo holds information about host OS and HW.",
       "tasks": ["configuration"],
       "title": "infra.hw_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["infra hw info bios"],
       "body_bytes": 2817,
-      "body_sha256": "sha256:79dc4ff2253b9f5378cb7567ed9db8ce298275f5396e6a9ec910841edc39e940",
+      "body_sha256": "sha256:3deecbd4d4c75c76c2244a3e2a898da0dc2325ccae8d33ef9115819bcc06aa4f",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1667,7 +1667,7 @@
       "path": "documentation/data-sources/registration/properties/infra/hw_info/bios/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0000102130023132-1202301130022012-2132301332302323-0303131002201310-1123230100220122-2331312121301322-0003310221202221-2033231331300212",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -1726,20 +1726,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/hw_info/bios/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "BIOS information.",
       "tasks": ["configuration"],
       "title": "infra.hw_info.bios",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["infra hw info board"],
       "body_bytes": 4333,
-      "body_sha256": "sha256:563ed30acee38a2d7456f997ca248f92d119aa212729d5c8f973df0533ab2c7a",
+      "body_sha256": "sha256:ac9c78aeda14a5ad14163f2f44fc27450492bab9e44ce86161c14f0dabf7f8e2",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1756,7 +1756,7 @@
       "path": "documentation/data-sources/registration/properties/infra/hw_info/board/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0300033332101323-2231303002032101-2312221131233033-2200021113223020-2310013023012212-3020301112132030-3130303021312113-2013200313132132",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -1847,20 +1847,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/hw_info/board/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Board information.",
       "tasks": ["configuration"],
       "title": "infra.hw_info.board",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["infra hw info chassis"],
       "body_bytes": 3533,
-      "body_sha256": "sha256:21d026c7911f404d3f10f43df0fae67ee3b84d6a862537f234f34f4268fbc1ba",
+      "body_sha256": "sha256:b0cb6fd3cde1e7f90969484b35a2c12fd996e557136cab6204055a8b6d11dec7",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1877,7 +1877,7 @@
       "path": "documentation/data-sources/registration/properties/infra/hw_info/chassis/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1001312020030130-3132122321112032-3230333320202221-2132323210011311-1223030323003231-0002333330132110-3102121021030212-0321100020112332",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -1968,20 +1968,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/hw_info/chassis/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Chassis information.",
       "tasks": ["configuration"],
       "title": "infra.hw_info.chassis",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["infra hw info cpu"],
       "body_bytes": 3501,
-      "body_sha256": "sha256:4b4e663debf93d70b81a41922cd9202ec838a1bdde647f71cd9a455958e9149a",
+      "body_sha256": "sha256:4bbc1f7da6d360261955c7a68d83d6d2f50f30eb999170a0ae782fea6b3de6f3",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1998,7 +1998,7 @@
       "path": "documentation/data-sources/registration/properties/infra/hw_info/cpu/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2310202130323300-2033301303131032-0201000311132033-1222111330021332-0312020321111232-1013202023021311-2030212020012223-3133012100322023",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -2121,20 +2121,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/hw_info/cpu/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "CPU information.",
       "tasks": ["configuration"],
       "title": "infra.hw_info.cpu",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["infra hw info gpu"],
       "body_bytes": 2195,
-      "body_sha256": "sha256:6e253b2211b4dadebdf82beaa1109345450554fd8323c283b3193c9ad6e38c30",
+      "body_sha256": "sha256:9d1850a7b1084984439a6e00d2dc00df2de7e39ff628e9834385647c0bb98d67",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:registration:properties:infra:hw_info:gpu:gpu_device"],
@@ -2151,7 +2151,7 @@
       "path": "documentation/data-sources/registration/properties/infra/hw_info/gpu/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0120231302203333-1211031200013033-3000023223131131-3003131202220332-1101110002222320-2020023130030103-2213213010201021-2211113320220310",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -2210,20 +2210,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/hw_info/gpu/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "GPU information on server.",
       "tasks": ["configuration"],
       "title": "infra.hw_info.gpu",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["infra hw info gpu gpu device"],
       "body_bytes": 2728,
-      "body_sha256": "sha256:f86b6dbc7f9d0c384f9be82cd5b6d0b9ba5e54fcc9268863c423ed5db17c4e5b",
+      "body_sha256": "sha256:279d019410f1b1d7599dfeeef77d400b90c5d84d20c59f9234de174c72458320",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2240,7 +2240,7 @@
       "path": "documentation/data-sources/registration/properties/infra/hw_info/gpu/gpu_device/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2020012123012313-0100232310221002-3123303132303113-0201101333322121-3312232230123200-2303102232331222-3013233030002123-1203331312133012",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -2299,20 +2299,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/hw_info/gpu/gpu_device/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "List of GPU devices in server.",
       "tasks": ["configuration"],
       "title": "infra.hw_info.gpu.gpu_device",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["infra hw info kernel"],
       "body_bytes": 2554,
-      "body_sha256": "sha256:5e2b419529f7bf0417a7ad2bfb8b322920bd0130670a18d32f278ff0b2addcb0",
+      "body_sha256": "sha256:cf2cb8a92586c567ad2d16652be12e8f36f243dae51d28e46a25781fd8758d27",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2329,7 +2329,7 @@
       "path": "documentation/data-sources/registration/properties/infra/hw_info/kernel/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3221100101322111-0322230203320111-2222313030300303-2111330331331222-3133232133112212-1023103301201132-2202120013320222-3133222303011322",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -2388,20 +2388,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/hw_info/kernel/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Kernel information.",
       "tasks": ["configuration"],
       "title": "infra.hw_info.kernel",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["infra hw info memory"],
       "body_bytes": 2064,
-      "body_sha256": "sha256:ba8782a338ef222ebece55e2c63c70e4a1059b7856d8116f6dc3a13223c1d200",
+      "body_sha256": "sha256:d22368b552b54bb278aa4fcb6587f16deef512df5c185ad93af31d4efe01a6c7",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2418,7 +2418,7 @@
       "path": "documentation/data-sources/registration/properties/infra/hw_info/memory/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0323000330332202-1230030330120123-2310033331331110-1303220032211210-0112023331101110-1201312233212003-3113001221310000-0022032120333011",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -2477,20 +2477,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/hw_info/memory/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Memory information.",
       "tasks": ["configuration"],
       "title": "infra.hw_info.memory",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["infra hw info network"],
       "body_bytes": 6703,
-      "body_sha256": "sha256:7ee06be0daf4d812ed70d9a1711ba5990be1c254dae057e029d343843f43eb72",
+      "body_sha256": "sha256:20bfeed01d54afb23f1f6e762149794eff7ca5cd0dbbce87cf343c039905e9ee",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2507,7 +2507,7 @@
       "path": "documentation/data-sources/registration/properties/infra/hw_info/network/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2002003011233221-2101002023203311-0113332333132302-0203012031033203-1302212230320112-2233130100003303-0003203001333131-1022321123001211",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -2646,20 +2646,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/hw_info/network/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "List of network devices in server.",
       "tasks": ["configuration"],
       "title": "infra.hw_info.network",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["infra hw info os"],
       "body_bytes": 4192,
-      "body_sha256": "sha256:958e5a6a80b0f9ac6c19db621e48d27f563888229ebeaf66727132bd2fe4b11e",
+      "body_sha256": "sha256:fb8635a119362ca961ea71a55765dd28cf9b7ca553735046ce1523dac2b22a82",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2676,7 +2676,7 @@
       "path": "documentation/data-sources/registration/properties/infra/hw_info/os/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2023302323122322-3003210101112121-2100312221020002-2332203332311233-0010331003002231-0120201232012120-2332013030003023-0101232230013331",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -2767,20 +2767,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/hw_info/os/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Details of Operating System.",
       "tasks": ["configuration"],
       "title": "infra.hw_info.os",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["infra hw info product"],
       "body_bytes": 3948,
-      "body_sha256": "sha256:963e2d1ce46354293bf03fd9ecb63c92c08413c402777cb5ca3b5bba58f35938",
+      "body_sha256": "sha256:60e4cebc6def20f0f20e6bb350a809c0087fd6bcd495a69e70b4e6d2f20a7b60",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2797,7 +2797,7 @@
       "path": "documentation/data-sources/registration/properties/infra/hw_info/product/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1130310222113311-3300132232301211-2013110222110020-2030303131202120-3223322133310021-0322013302100103-2312221203132313-3000332022101223",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -2872,20 +2872,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/hw_info/product/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Product information.",
       "tasks": ["configuration"],
       "title": "infra.hw_info.product",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["infra hw info storage"],
       "body_bytes": 4546,
-      "body_sha256": "sha256:d697c04b1579c32d0351ffd7c50d6e18f8fd38458c7786383818e605cae28ce7",
+      "body_sha256": "sha256:a5a93f0e3e0f9d583f93586dab79f74a78cf51dbb392a39fd7b1139d626ae696",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2902,7 +2902,7 @@
       "path": "documentation/data-sources/registration/properties/infra/hw_info/storage/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3123013201111023-2110203003311322-1023313313031222-1302230023123001-3122301203113321-1220031100211023-0012313202001122-3313013022312331",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -3009,20 +3009,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/hw_info/storage/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "List of storage devices in server.",
       "tasks": ["configuration"],
       "title": "infra.hw_info.storage",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["infra hw info usb"],
       "body_bytes": 10818,
-      "body_sha256": "sha256:78f10bd3ee0b9af483fd4cb45601335372ef9d46e148af487d4401242d47fb5e",
+      "body_sha256": "sha256:d104f6b139bd11fb98299abe0b1cead0bed5b86fac918e5bb8cd4b8139c20d14",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -3039,7 +3039,7 @@
       "path": "documentation/data-sources/registration/properties/infra/hw_info/usb/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1110023331232012-0110323002300313-0131123232121130-0310333130302000-0321212033001212-2330232222300223-2313213031323201-0101213101122321",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -3354,14 +3354,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/hw_info/usb/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "List of USB devices in server.",
       "tasks": ["configuration"],
       "title": "infra.hw_info.usb",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3384,7 +3384,7 @@
       "path": "documentation/data-sources/registration/properties/infra/interfaces/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1212321321230203-1333031332333111-2013211110013002-2012312130010010-3132000213031022-1302312311201033-1112302223303330-1312233300011331",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -3394,20 +3394,20 @@
       "schema_path": ["infra", "interfaces"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/interfaces/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Machine interfaces present during registration time.",
       "tasks": ["configuration"],
       "title": "infra.interfaces",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["infra internet proxy"],
       "body_bytes": 3885,
-      "body_sha256": "sha256:cc864da76b9f522df0c26707905bf61c684a2232ade256ad15ae7a45835406e3",
+      "body_sha256": "sha256:c9f15962b4baa7c406178819d7633d26c71833addf26b4ecb358be1ad48e49d7",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -3424,7 +3424,7 @@
       "path": "documentation/data-sources/registration/properties/infra/internet_proxy/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2022113132332131-3301201322311101-1303311110321310-3103112022020203-2132031321200102-2100333112033011-0222212203001113-2210131301030123",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -3499,20 +3499,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/internet_proxy/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Proxy describes OPTIONS for HTTP or HTTPS proxy configurations.",
       "tasks": ["configuration"],
       "title": "infra.internet_proxy",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["infra sw info"],
       "body_bytes": 1327,
-      "body_sha256": "sha256:288c77ece775b352853e16bdfd7c16d833c45f583782b36d82fd92a31270ee81",
+      "body_sha256": "sha256:fb01d9a8df384e66156c05b6d9fccb5264b1524c4cf64e2320001dac4c1734e7",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -3529,7 +3529,7 @@
       "path": "documentation/data-sources/registration/properties/infra/sw_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1231311000020020-2022312100213123-2023300303302201-1200001213120331-1211131030203221-1032233033010103-3210023002233002-0031113231233303",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -3556,20 +3556,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/sw_info/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "SWInfo holds information about sw version.",
       "tasks": ["configuration"],
       "title": "infra.sw_info",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
       "aliases": ["passport"],
       "body_bytes": 7680,
-      "body_sha256": "sha256:fbab84d13c86ee28297cefb19b909304bf388efebb45adf656ee4d070f78df04",
+      "body_sha256": "sha256:dab71ff389b203e4374fdc5e641c13da1c342ad8651be55575b090faaf63b75f",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -3589,7 +3589,7 @@
       "path": "documentation/data-sources/registration/properties/passport/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0223232121310231-1203011310020223-0003303003232021-2210303010321002-0213203010232110-3211330322101103-3313301302301300-0202203223232211",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -3760,14 +3760,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/passport/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Passport stores information about identification and node configuration provided by CE during registration. It can be manually updated by user during approval.",
       "tasks": ["configuration"],
       "title": "passport",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3790,7 +3790,7 @@
       "path": "documentation/data-sources/registration/properties/passport/default_os_version/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1301131031220001-1012233231111102-2312012311030032-2002033211200231-0300000321112312-1122110320103311-3312031211020310-2321133310203310",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -3800,14 +3800,14 @@
       "schema_path": ["passport", "default_os_version"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/passport/default_os_version/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "passport.default_os_version",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3830,7 +3830,7 @@
       "path": "documentation/data-sources/registration/properties/passport/default_sw_version/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3011233211021332-2030122230313110-1111212010123012-3330230001122300-1230222203303102-2131210311002031-3310322202301312-2331212212131331",
       "registry_path": "docs/guides/data-sources--registration--reference--group-001.md",
@@ -3840,14 +3840,14 @@
       "schema_path": ["passport", "default_sw_version"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/passport/default_sw_version/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "passport.default_sw_version",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3870,7 +3870,7 @@
       "path": "documentation/data-sources/registration/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0300203131021300-1230011003310011-0211010322121322-1122310000121231-2202100310321000-2020031132033031-3220322213011231-2031002333213313",
       "registry_path": "docs/guides/data-sources--registration--examples--group-001.md",
@@ -3880,14 +3880,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/examples/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Examples for xcsh_registration.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     },
     {
@@ -3917,7 +3917,7 @@
       "path": "documentation/data-sources/registration/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration",
-      "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
+      "provider_schema_digest": "sha256:057968f86e4ef0ae0087dd4d6097131e285b60998d97655ee1a02c00315f6b0f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3002131203233232-1020331232213323-2011131113233312-3303311323331302-3133132013002211-2233013223212112-0310212021011031-1101133030233022",
       "registry_path": "docs/guides/data-sources--registration--examples--group-001.md",
@@ -3927,14 +3927,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
+      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
       "summary": "Data source for xcsh_registration.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.0",
+        "release_tag": "v12.0.1",
         "schema_components": ["registrationCreateRequest"],
-        "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"
+        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
       }
     }
   ],
