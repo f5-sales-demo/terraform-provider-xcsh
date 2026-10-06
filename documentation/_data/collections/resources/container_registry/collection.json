@@ -126,8 +126,8 @@
   "pages": [
     {
       "aliases": ["container registry"],
-      "body_bytes": 1775,
-      "body_sha256": "sha256:fa0cdb312e2ff2cb00ec137c680fe3d0009466bb9374c3efc7d9608c68559e11",
+      "body_bytes": 1788,
+      "body_sha256": "sha256:70f219898ea203491d0d313a40ee58d23e1bdf87291f90d3dcfe6a47e1118278",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -172,8 +172,8 @@
     },
     {
       "aliases": ["container registry"],
-      "body_bytes": 15368,
-      "body_sha256": "sha256:b7a28ec8f2b6a5970c852a8401608ae863a806567c1450672eccf1bd3480d46c",
+      "body_bytes": 14742,
+      "body_sha256": "sha256:fc86bcedd8aab7027773df059ad4894020686c9bb0766fe0bca6511764fcd8db",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -401,8 +401,8 @@
     },
     {
       "aliases": ["password"],
-      "body_bytes": 2036,
-      "body_sha256": "sha256:5f11e8b5ac415f6d3663ffbf3bc287e009d3b3ad126b8d400b735940f6947b61",
+      "body_bytes": 1464,
+      "body_sha256": "sha256:ce0c393518ca1785857dcaa86c333928a0821a055b284dd980c5bdb6abc2a386",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -508,8 +508,8 @@
     },
     {
       "aliases": ["password blindfold secret info"],
-      "body_bytes": 4620,
-      "body_sha256": "sha256:00a1d504409dbee8edd14cc4fd936eff095c2b2a62a101485cc86fe5a782b9f3",
+      "body_bytes": 4000,
+      "body_sha256": "sha256:57bd8c91f8b81e8df6db3caa80636ec171e9bedddcaf0b03a91825f88f76e76a",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -600,8 +600,8 @@
     },
     {
       "aliases": ["password clear secret info"],
-      "body_bytes": 3523,
-      "body_sha256": "sha256:2e7279296f5300effd7b4e7e6a197feea0e2836757f5c42360ee328b53c20f9a",
+      "body_bytes": 3037,
+      "body_sha256": "sha256:7fab60d11ae2bc007283da7bb0d37febea40f14be67876a40c4ea703e97df38f",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -678,8 +678,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2267,
-      "body_sha256": "sha256:1365b2ae3c3fda6a79147c278d9789fc90c0d987f550b226f4c7b2dd7f44ea51",
+      "body_bytes": 2015,
+      "body_sha256": "sha256:6003cec9e2c4de6c8ce5822c8fb620e42cd6d2af741da6bb3d04fe6ebd65d403",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -810,8 +810,8 @@
     },
     {
       "aliases": ["container registry"],
-      "body_bytes": 669,
-      "body_sha256": "sha256:30f79db11777fe47e5449fd48b61ce4d658698c523b81b09b19a571ef8138285",
+      "body_bytes": 420,
+      "body_sha256": "sha256:c66060bfb86190777cad30e3fce28b6b7afa2046d52e40dcbe62f39e4f3ade6e",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:resources:container_registry:example:resource"],
@@ -850,8 +850,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1409,
-      "body_sha256": "sha256:ef042c989c9b631759b4ce169bdda8071415063d55ac71012747575edbf3df6b",
+      "body_bytes": 1169,
+      "body_sha256": "sha256:ec405a789aae297c6c62b5ed3abb2bc48563900a17e4d921e1007fb42e7e3c75",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -897,8 +897,8 @@
     },
     {
       "aliases": ["container registry"],
-      "body_bytes": 510,
-      "body_sha256": "sha256:71def2828c7bf282f1fffca28fb2877aa9fd36d48f9cc9cfafe24c684c2987c3",
+      "body_bytes": 379,
+      "body_sha256": "sha256:89fbb9ccc311835d3ea55ffae504413bb067dd833b92c2419686e410f6b0c9fe",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -938,8 +938,8 @@
     },
     {
       "aliases": ["container registry"],
-      "body_bytes": 598,
-      "body_sha256": "sha256:15020d28258841bb64516476b539e962dc7d3872cd1b9a57a8d9c7aedf7b782c",
+      "body_bytes": 467,
+      "body_sha256": "sha256:a3280a637dbdcae3335f440fca8c2c7973f1d5b2beec00b6c4fbbc4f8042353f",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],

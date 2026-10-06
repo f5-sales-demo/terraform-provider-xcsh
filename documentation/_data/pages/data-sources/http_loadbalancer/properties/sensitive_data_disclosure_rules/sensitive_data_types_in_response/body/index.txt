@@ -2,7 +2,7 @@
 page_title: "sensitive_data_disclosure_rules.sensitive_data_types_in_response.body"
 subcategory: "Load Balancing"
 description: "OPTIONS for HTTP Body Masking."
-xcsh_docs: {"aliases": ["sensitive data disclosure rules sensitive data types in response body"], "body_bytes": 3812, "body_sha256": "sha256:079954b796fde2e3b261c6393e730f52e2368156f40293972e15f70bd8d5fd77", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:http_loadbalancer:properties:sensitive_data_disclosure_rules:sensitive_data_types_in_response:body", "parent_id": "xcsh-docs:data-sources:http_loadbalancer:properties:sensitive_data_disclosure_rules:sensitive_data_types_in_response", "path": "documentation/data-sources/http_loadbalancer/properties/sensitive_data_disclosure_rules/sensitive_data_types_in_response/body/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-3010010003013121-2203101333021322-3221113010222013-2201013301203101-1302201201223013-2332231003202311-1033201232210021-0101111031000100", "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-026.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["sensitive_data_disclosure_rules", "sensitive_data_types_in_response", "body"], "schema_version": 1, "sections": [{"aliases": ["sensitive data disclosure rules sensitive data types in response body fields"], "anchor": "schema-sensitive_data_disclosure_rules--sensitive_data_types_in_response--body--fields", "description": "List of JSON Path field values. Use square brackets with an underscore to indicate array elements (e.g., person.emails). To reference JSON keys that contain spaces, enclose the entire path in double quotes. For example: \"person.first name\".", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:sensitive_data_disclosure_rules:sensitive_data_types_in_response:body", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["sensitive_data_disclosure_rules", "sensitive_data_types_in_response", "body", "fields"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/http_loadbalancer/properties/sensitive_data_disclosure_rules/sensitive_data_types_in_response/body/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "OPTIONS for HTTP Body Masking.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["sensitive data disclosure rules sensitive data types in response body"], "body_bytes": 3147, "body_sha256": "sha256:e740ce63d967846ba58e13f575576b15a0ffbd8f1f6fc083d1e5656776997246", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:http_loadbalancer:properties:sensitive_data_disclosure_rules:sensitive_data_types_in_response:body", "parent_id": "xcsh-docs:data-sources:http_loadbalancer:properties:sensitive_data_disclosure_rules:sensitive_data_types_in_response", "path": "documentation/data-sources/http_loadbalancer/properties/sensitive_data_disclosure_rules/sensitive_data_types_in_response/body/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-3010010003013121-2203101333021322-3221113010222013-2201013301203101-1302201201223013-2332231003202311-1033201232210021-0101111031000100", "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-026.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["sensitive_data_disclosure_rules", "sensitive_data_types_in_response", "body"], "schema_version": 1, "sections": [{"aliases": ["sensitive data disclosure rules sensitive data types in response body fields"], "anchor": "schema-sensitive_data_disclosure_rules--sensitive_data_types_in_response--body--fields", "description": "List of JSON Path field values. Use square brackets with an underscore to indicate array elements (e.g., person.emails). To reference JSON keys that contain spaces, enclose the entire path in double quotes. For example: \"person.first name\".", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:sensitive_data_disclosure_rules:sensitive_data_types_in_response:body", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["sensitive_data_disclosure_rules", "sensitive_data_types_in_response", "body", "fields"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/http_loadbalancer/properties/sensitive_data_disclosure_rules/sensitive_data_types_in_response/body/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "OPTIONS for HTTP Body Masking.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -25,10 +25,6 @@ Type: `"single"`. Computed.
 
 Body Section Masking OPTIONS. OPTIONS for HTTP Body Masking.
 
-Upstream description:
-
-OPTIONS for HTTP Body Masking.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -49,12 +45,6 @@ Receipt-pinned upstream constraints:
 ### fields property
 
 Type: `["list", "string"]`. Computed.
-
-List of JSON Path field values. Use square brackets with an underscore \[\_\] to indicate array
-elements (e.g., person.emails\[\_\]). To reference JSON keys that contain spaces, enclose the entire
-path in double quotes.
-
-Upstream description:
 
 List of JSON Path field values. Use square brackets with an underscore \[\_\] to indicate array
 elements (e.g., person.emails\[\_\]). To reference JSON keys that contain spaces, enclose the entire
@@ -107,8 +97,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [sensitive_data_disclosure_rules.sensitive_data_types_in_response](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/sensitive_data_disclosure_rules/sensitive_data_types_in_response/)
-- [xcsh_http_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/)

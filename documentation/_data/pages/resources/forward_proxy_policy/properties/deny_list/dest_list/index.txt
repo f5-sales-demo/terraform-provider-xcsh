@@ -2,7 +2,7 @@
 page_title: "deny_list.dest_list"
 subcategory: "Security"
 description: "L4 destinations for non-HTTP and non-TLS connections and TLS connections without SNI."
-xcsh_docs: {"aliases": ["deny list dest list"], "body_bytes": 5952, "body_sha256": "sha256:fcb64203b8db2420e17b2d026d10d1c9976a8785ce63a968604aeb162f3735c3", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:forward_proxy_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:dest_list", "parent_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list", "path": "documentation/resources/forward_proxy_policy/properties/deny_list/dest_list/index.md", "product": "distributed-cloud", "provider_name": "forward_proxy_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2021023221213120-2220230112212201-0313100222120123-1100030123122122-1000300112300300-1031311201022221-0220222331203131-2221231130321032", "registry_path": "docs/guides/resources--forward_proxy_policy--reference--group-001.md", "relationships": [{"anchor": "schema-deny_list--dest_list--port_ranges", "enforcement": "provider-schema", "group": "deny_list.dest_list:RequiredListObjectAttributes:port_ranges", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:dest_list", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["deny_list", "dest_list"], "schema_version": 1, "sections": [{"aliases": ["deny list dest list ipv6 prefixes"], "anchor": "schema-deny_list--dest_list--ipv6_prefixes", "description": "Destination IPv6 prefixes.", "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:dest_list", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "dest_list", "ipv6_prefixes"], "syntax": "attribute", "type": "list"}, {"aliases": ["deny list dest list port ranges"], "anchor": "schema-deny_list--dest_list--port_ranges", "description": "A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by \"-\".", "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:dest_list", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "dest_list", "port_ranges"], "syntax": "attribute", "type": "string"}, {"aliases": ["deny list dest list prefixes"], "anchor": "schema-deny_list--dest_list--prefixes", "description": "Destination IPv4 prefixes.", "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:dest_list", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "dest_list", "prefixes"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/deny_list/dest_list/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "L4 destinations for non-HTTP and non-TLS connections and TLS connections without SNI.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["forward_proxy_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["deny list dest list"], "body_bytes": 5598, "body_sha256": "sha256:d7349c48ad5994e311661c60dd8abab1c313298b16283223455ffbc3bbc45e91", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:forward_proxy_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:dest_list", "parent_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list", "path": "documentation/resources/forward_proxy_policy/properties/deny_list/dest_list/index.md", "product": "distributed-cloud", "provider_name": "forward_proxy_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2021023221213120-2220230112212201-0313100222120123-1100030123122122-1000300112300300-1031311201022221-0220222331203131-2221231130321032", "registry_path": "docs/guides/resources--forward_proxy_policy--reference--group-001.md", "relationships": [{"anchor": "schema-deny_list--dest_list--port_ranges", "enforcement": "provider-schema", "group": "deny_list.dest_list:RequiredListObjectAttributes:port_ranges", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:dest_list", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["deny_list", "dest_list"], "schema_version": 1, "sections": [{"aliases": ["deny list dest list ipv6 prefixes"], "anchor": "schema-deny_list--dest_list--ipv6_prefixes", "description": "Destination IPv6 prefixes.", "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:dest_list", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "dest_list", "ipv6_prefixes"], "syntax": "attribute", "type": "list"}, {"aliases": ["deny list dest list port ranges"], "anchor": "schema-deny_list--dest_list--port_ranges", "description": "A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by \"-\".", "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:dest_list", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "dest_list", "port_ranges"], "syntax": "attribute", "type": "string"}, {"aliases": ["deny list dest list prefixes"], "anchor": "schema-deny_list--dest_list--prefixes", "description": "Destination IPv4 prefixes.", "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:dest_list", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "dest_list", "prefixes"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/deny_list/dest_list/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "L4 destinations for non-HTTP and non-TLS connections and TLS connections without SNI.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["forward_proxy_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -82,10 +82,6 @@ Type: `["list", "string"]`. Optional.
 
 IPv6 Prefixes. Destination IPv6 prefixes.
 
-Upstream description:
-
-Destination IPv6 prefixes.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -139,7 +135,7 @@ Type: `"string"`. Optional.
 String containing a comma separated list of port ranges. Each port range consists of a single port
 or two ports separated by '-'.
 
-Upstream description:
+Additional upstream details:
 
 A string containing a comma separated list of port ranges. Each port range consists of a single port
 or two ports separated by "-".
@@ -199,10 +195,6 @@ Type: `["list", "string"]`. Optional.
 
 IPv4 Prefixes. Destination IPv4 prefixes.
 
-Upstream description:
-
-Destination IPv4 prefixes.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -246,8 +238,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [deny_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/forward_proxy_policy/properties/deny_list/)
-- [xcsh_forward_proxy_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/forward_proxy_policy/)

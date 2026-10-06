@@ -2,7 +2,7 @@
 page_title: "routes.route_destination.mirror_policy.cluster"
 subcategory: ""
 description: "Specifies the cluster to which the requests will be mirrored. The cluster object referred here must be present."
-xcsh_docs: {"aliases": ["routes route destination mirror policy cluster"], "body_bytes": 7258, "body_sha256": "sha256:7ff866a66d4e10b04150304fc45b82c4e63fb07cd148e7b36450d17a790520ac", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:route:collection", "completeness": "complete", "id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:cluster", "parent_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy", "path": "documentation/resources/route/properties/routes/route_destination/mirror_policy/cluster/index.md", "product": "distributed-cloud", "provider_name": "route", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1220211122332310-1233121021033213-1300133022222333-3300333321020331-1131130320311031-3333131332101303-1223130101222032-3301112330021022", "registry_path": "docs/guides/resources--route--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["routes", "route_destination", "mirror_policy", "cluster"], "schema_version": 1, "sections": [{"aliases": ["routes route destination mirror policy cluster kind"], "anchor": "schema-routes--route_destination--mirror_policy--cluster--kind", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")", "document_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:cluster", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "route_destination", "mirror_policy", "cluster", "kind"], "syntax": "attribute", "type": "string"}, {"aliases": ["routes route destination mirror policy cluster name"], "anchor": "schema-routes--route_destination--mirror_policy--cluster--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:cluster", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "route_destination", "mirror_policy", "cluster", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["routes route destination mirror policy cluster namespace"], "anchor": "schema-routes--route_destination--mirror_policy--cluster--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:cluster", "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "route_destination", "mirror_policy", "cluster", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["routes route destination mirror policy cluster tenant"], "anchor": "schema-routes--route_destination--mirror_policy--cluster--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:cluster", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "route_destination", "mirror_policy", "cluster", "tenant"], "syntax": "attribute", "type": "string"}, {"aliases": ["routes route destination mirror policy cluster uid"], "anchor": "schema-routes--route_destination--mirror_policy--cluster--uid", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.", "document_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:cluster", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "route_destination", "mirror_policy", "cluster", "uid"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/route/properties/routes/route_destination/mirror_policy/cluster/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Specifies the cluster to which the requests will be mirrored. The cluster object referred here must be present.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["routeCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["routes route destination mirror policy cluster"], "body_bytes": 6160, "body_sha256": "sha256:baa1d391bdf92e5d9578cdaffc967ead3bd6de5346b2b5dc68895ece0ae4d64b", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:route:collection", "completeness": "complete", "id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:cluster", "parent_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy", "path": "documentation/resources/route/properties/routes/route_destination/mirror_policy/cluster/index.md", "product": "distributed-cloud", "provider_name": "route", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1220211122332310-1233121021033213-1300133022222333-3300333321020331-1131130320311031-3333131332101303-1223130101222032-3301112330021022", "registry_path": "docs/guides/resources--route--reference--group-003.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["routes", "route_destination", "mirror_policy", "cluster"], "schema_version": 1, "sections": [{"aliases": ["routes route destination mirror policy cluster kind"], "anchor": "schema-routes--route_destination--mirror_policy--cluster--kind", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")", "document_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:cluster", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "route_destination", "mirror_policy", "cluster", "kind"], "syntax": "attribute", "type": "string"}, {"aliases": ["routes route destination mirror policy cluster name"], "anchor": "schema-routes--route_destination--mirror_policy--cluster--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:cluster", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "route_destination", "mirror_policy", "cluster", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["routes route destination mirror policy cluster namespace"], "anchor": "schema-routes--route_destination--mirror_policy--cluster--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:cluster", "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "route_destination", "mirror_policy", "cluster", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["routes route destination mirror policy cluster tenant"], "anchor": "schema-routes--route_destination--mirror_policy--cluster--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:cluster", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "route_destination", "mirror_policy", "cluster", "tenant"], "syntax": "attribute", "type": "string"}, {"aliases": ["routes route destination mirror policy cluster uid"], "anchor": "schema-routes--route_destination--mirror_policy--cluster--uid", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.", "document_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:cluster", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "route_destination", "mirror_policy", "cluster", "uid"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/route/properties/routes/route_destination/mirror_policy/cluster/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Specifies the cluster to which the requests will be mirrored. The cluster object referred here must be present.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["routeCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,11 +23,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"object"`. list nested block, Optional.
-
-Specifies the cluster to which the requests will be mirrored. The cluster object referred here must
-be present.
-
-Upstream description:
 
 Specifies the cluster to which the requests will be mirrored. The cluster object referred here must
 be present.
@@ -84,10 +79,10 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
 referred object's kind (e.g. 'route').
 
-Upstream description:
+Additional upstream details:
 
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
-referred object's kind (e.g. "route")
+Virtual\_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g.
+"route")
 
 Receipt-pinned upstream constraints:
 
@@ -121,11 +116,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -154,11 +144,6 @@ Receipt-pinned upstream constraints:
 ### namespace property
 
 Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -220,11 +205,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -257,11 +237,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
 referred object's(e.g. Route's) uid.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
-referred object's(e.g. Route's) uid.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -284,8 +259,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [routes.route_destination.mirror_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/mirror_policy/)
-- [xcsh_route](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/)

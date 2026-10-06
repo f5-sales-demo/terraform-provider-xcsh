@@ -21,8 +21,8 @@
   "pages": [
     {
       "aliases": ["site signatures update"],
-      "body_bytes": 1297,
-      "body_sha256": "sha256:f4fdb777161ac92730baa5d5240e4c58b39e7313c9b6f967e87a6295238719b7",
+      "body_bytes": 1320,
+      "body_sha256": "sha256:c659a07656f08d4a7eeec331f218c7ef90edca5700e5cd3df6608bf08515dceb",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -54,7 +54,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/site_signatures_update/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource creation operation.",
+      "summary": "Requests an update of site signatures.",
       "tasks": ["configuration"],
       "title": "xcsh_site_signatures_update",
       "unresolved_relationships": [],
@@ -66,8 +66,8 @@
     },
     {
       "aliases": ["site signatures update"],
-      "body_bytes": 1258,
-      "body_sha256": "sha256:fa57919059f176866da0ae44b5f07b33f9eef977a57c35fd6b4d04b24fbf3f1c",
+      "body_bytes": 1121,
+      "body_sha256": "sha256:9c105a480af8c19d415cca776bd99bf3def7dfe693d3e7f440985c631d8290c5",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -135,8 +135,8 @@
     },
     {
       "aliases": ["site signatures update"],
-      "body_bytes": 677,
-      "body_sha256": "sha256:94a53acd9573b3a2bc4e5b9fc358d2d8095418ded7948469f19912c92414d030",
+      "body_bytes": 424,
+      "body_sha256": "sha256:f16ff0784ea8432753bbf92da38405e39ba527f7d96cfd290b263d99504898a9",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:actions:site_signatures_update:example:action"],
@@ -175,8 +175,8 @@
     },
     {
       "aliases": ["action"],
-      "body_bytes": 1196,
-      "body_sha256": "sha256:bd26bcf1be0726e4c30759e6f70caf70228a97804c08792a663cb12b27c1965d",
+      "body_bytes": 948,
+      "body_sha256": "sha256:ec398cfda531dac103e493dc27581c04b551d4e5881cfe9fc2109ac1d31d1aa1",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -222,8 +222,8 @@
     },
     {
       "aliases": ["site signatures update"],
-      "body_bytes": 638,
-      "body_sha256": "sha256:6270a99ecd765665708a27124f5b02764498ae18da2cfce94da378d0009218eb",
+      "body_bytes": 501,
+      "body_sha256": "sha256:db32a3f2c53b565a9f412b3d483dc10b9f25d0ecc9ea8a687c99f79e3ea2e2bb",
       "capabilities": [],
       "category": null,
       "child_ids": [],

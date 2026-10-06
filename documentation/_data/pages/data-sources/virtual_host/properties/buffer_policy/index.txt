@@ -2,7 +2,7 @@
 page_title: "buffer_policy"
 subcategory: ""
 description: "Some upstream applications are not capable of handling streamed data. This config enables buffering the entire request before sending to upstream application. We can specify the maximum buffer size and buffer interval with this config. Buffering can be enabled and disabled at VirtualHost and Route levels Route level"
-xcsh_docs: {"aliases": ["buffer policy"], "body_bytes": 3212, "body_sha256": "sha256:ab6d623c0b771657c3947eae2dbd30af03246d6b080b0bd1389f49a7af4601b5", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:virtual_host:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:virtual_host:properties:buffer_policy", "parent_id": "xcsh-docs:data-sources:virtual_host:reference", "path": "documentation/data-sources/virtual_host/properties/buffer_policy/index.md", "product": "distributed-cloud", "provider_name": "virtual_host", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1213301223231000-1113301202120100-0322200112212300-3233130103220223-3123033012131112-0321102133021131-3201032002203320-3120102012111033", "registry_path": "docs/guides/data-sources--virtual_host--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["buffer_policy"], "schema_version": 1, "sections": [{"aliases": ["buffer policy disabled"], "anchor": "schema-buffer_policy--disabled", "description": "Disable buffering for a particular route. This is useful when virtual-host has buffering, but we need to disable it on a specific route. The value of this field is ignored for virtual-host.", "document_id": "xcsh-docs:data-sources:virtual_host:properties:buffer_policy", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["buffer_policy", "disabled"], "syntax": "attribute", "type": "bool"}, {"aliases": ["buffer policy max request bytes"], "anchor": "schema-buffer_policy--max_request_bytes", "description": "The maximum request size that the filter will buffer before the connection manager will stop buffering and return a RequestEntityTooLarge (413) response.", "document_id": "xcsh-docs:data-sources:virtual_host:properties:buffer_policy", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["buffer_policy", "max_request_bytes"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/virtual_host/properties/buffer_policy/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Some upstream applications are not capable of handling streamed data. This config enables buffering the entire request before sending to upstream application. We can specify the maximum buffer size and buffer interval with this config. Buffering can be enabled and disabled at VirtualHost and Route levels Route level", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["virtual_hostCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["buffer policy"], "body_bytes": 2320, "body_sha256": "sha256:38ac966e365efff000f1714ae748ab765c4cab3f201be50b0f51f08baf713380", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:virtual_host:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:virtual_host:properties:buffer_policy", "parent_id": "xcsh-docs:data-sources:virtual_host:reference", "path": "documentation/data-sources/virtual_host/properties/buffer_policy/index.md", "product": "distributed-cloud", "provider_name": "virtual_host", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1213301223231000-1113301202120100-0322200112212300-3233130103220223-3123033012131112-0321102133021131-3201032002203320-3120102012111033", "registry_path": "docs/guides/data-sources--virtual_host--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["buffer_policy"], "schema_version": 1, "sections": [{"aliases": ["buffer policy disabled"], "anchor": "schema-buffer_policy--disabled", "description": "Disable buffering for a particular route. This is useful when virtual-host has buffering, but we need to disable it on a specific route. The value of this field is ignored for virtual-host.", "document_id": "xcsh-docs:data-sources:virtual_host:properties:buffer_policy", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["buffer_policy", "disabled"], "syntax": "attribute", "type": "bool"}, {"aliases": ["buffer policy max request bytes"], "anchor": "schema-buffer_policy--max_request_bytes", "description": "The maximum request size that the filter will buffer before the connection manager will stop buffering and return a RequestEntityTooLarge (413) response.", "document_id": "xcsh-docs:data-sources:virtual_host:properties:buffer_policy", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["buffer_policy", "max_request_bytes"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/virtual_host/properties/buffer_policy/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Some upstream applications are not capable of handling streamed data. This config enables buffering the entire request before sending to upstream application. We can specify the maximum buffer size and buffer interval with this config. Buffering can be enabled and disabled at VirtualHost and Route levels Route level", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["virtual_hostCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -20,12 +20,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"single"`. Computed.
-
-Some upstream applications are not capable of handling streamed data. This config enables buffering
-the entire request before sending to upstream application. We can specify the maximum buffer size
-and buffer interval with this config.
-
-Upstream description:
 
 Some upstream applications are not capable of handling streamed data. This config enables buffering
 the entire request before sending to upstream application. We can specify the maximum buffer size
@@ -58,11 +52,6 @@ Type: `"bool"`. Computed.
 Disable buffering for a particular route. This is useful when virtual-host has buffering, but we
 need to disable it on a specific route. The value of this field is ignored for virtual-host.
 
-Upstream description:
-
-Disable buffering for a particular route. This is useful when virtual-host has buffering, but we
-need to disable it on a specific route. The value of this field is ignored for virtual-host.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -81,11 +70,6 @@ Receipt-pinned upstream constraints:
 ### max_request_bytes property
 
 Type: `"number"`. Computed.
-
-The maximum request size that the filter will buffer before the connection manager will stop
-buffering and return a RequestEntityTooLarge (413) response.
-
-Upstream description:
 
 The maximum request size that the filter will buffer before the connection manager will stop
 buffering and return a RequestEntityTooLarge (413) response.
@@ -119,8 +103,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/virtual_host/properties/)
-- [xcsh_virtual_host](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/virtual_host/)

@@ -111,8 +111,8 @@
   "pages": [
     {
       "aliases": ["bot network policy"],
-      "body_bytes": 1433,
-      "body_sha256": "sha256:9125d14d799f045440b59255ce067b935bcad243ae4e0702b984f9fda4a12e55",
+      "body_bytes": 1381,
+      "body_sha256": "sha256:0eed3e473e0992d5a22b6c9945d43bc5ab0a7a56fa5c9b4747f39d2013a92e30",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -143,7 +143,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_network_policy/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Bot Network Policy resource in F5 Distributed Cloud for get bot network policy. configuration. (read-only data source)",
+      "summary": "Reads Bot Network Policy information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_bot_network_policy",
       "unresolved_relationships": [],
@@ -155,8 +155,8 @@
     },
     {
       "aliases": ["bot network policy"],
-      "body_bytes": 6928,
-      "body_sha256": "sha256:3167f6ff4fdbc05307882996dd27ee1d63e50b7c437a6d81e1d824e4bc59257a",
+      "body_bytes": 6643,
+      "body_sha256": "sha256:3802a2663ed24196082d4edc6902559f3bde2e87f8e82e8c0c7dd1fed5353da8",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content"],
@@ -308,8 +308,8 @@
     },
     {
       "aliases": ["network policy content"],
-      "body_bytes": 1582,
-      "body_sha256": "sha256:43c125635370b7b3b245e6268fffa2d440866236c3ecb7f6cb53a27aee51641b",
+      "body_bytes": 938,
+      "body_sha256": "sha256:ba34e5d2246a58b290b9d196af07cc2118ce7363f941eb93fbc5a9780caee203",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -380,8 +380,8 @@
     },
     {
       "aliases": ["network policy content manual routing list"],
-      "body_bytes": 1433,
-      "body_sha256": "sha256:b98a317202f75ca36ae586cf1ae610e52e6468c3adcffd1c8f7194b303f5691e",
+      "body_bytes": 927,
+      "body_sha256": "sha256:666fe7acdb147570b7374a201cc97572ea2cb4b103c02f2f8f5e9becca7df3c6",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -437,8 +437,8 @@
     },
     {
       "aliases": ["network policy content manual routing list manual routing"],
-      "body_bytes": 3666,
-      "body_sha256": "sha256:e1c2000b9caa5058707b956c0bf7830d1d4a770eaf36d670df7995e95e9c2b1b",
+      "body_bytes": 2377,
+      "body_sha256": "sha256:0df7f4b4ebe3bde4397124e1dfc3122e5110852ec5c6681bd8066911e46fd3ea",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -581,8 +581,8 @@
     },
     {
       "aliases": ["network policy content manual routing list manual routing http"],
-      "body_bytes": 1575,
-      "body_sha256": "sha256:fb0d7c4de26d803e72f6d037221d07bf93a3ecea391a096ef502940fef3f06c1",
+      "body_bytes": 1198,
+      "body_sha256": "sha256:b75f370692654fdd60b7123378452dcb91131d893191375993bbf428fad3f73e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -621,8 +621,8 @@
     },
     {
       "aliases": ["network policy content manual routing list manual routing https"],
-      "body_bytes": 1577,
-      "body_sha256": "sha256:56865c9bd274c15f79d58f2bd2ff62041379a952b2396a8180b0a56e3bc19775",
+      "body_bytes": 1200,
+      "body_sha256": "sha256:e1af94ec37a8d023f7dffce29bb3707a9621d5326395e13c398dcd6767188879",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -661,8 +661,8 @@
     },
     {
       "aliases": ["network policy content manual routing list manual routing protocol http"],
-      "body_bytes": 1617,
-      "body_sha256": "sha256:a9f1c1669840f6f3fd1bd346795f9a2a203712e642283ed49ba140a88d59cafa",
+      "body_bytes": 1240,
+      "body_sha256": "sha256:bf1db49db2f8a89b7741cd6d8862c8ac6b8374f7f518431c24d696ebc904321e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -701,8 +701,8 @@
     },
     {
       "aliases": ["network policy content manual routing list manual routing protocol https"],
-      "body_bytes": 1620,
-      "body_sha256": "sha256:7a24bed02c5aac78e45f4ed129fb3e5a792a26a7530ba90db67dc5f5e9ab2a37",
+      "body_bytes": 1243,
+      "body_sha256": "sha256:ad6cad53bb49b01b5a27bf241b4107182f8141fc053e7fb966245d2fa929070c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -741,8 +741,8 @@
     },
     {
       "aliases": ["network policy content upstream routing list"],
-      "body_bytes": 1448,
-      "body_sha256": "sha256:f5cc1feb83c32be4a793c389ec3b6db57b1db89bf173bdd7ee9b255b58c3d5e3",
+      "body_bytes": 934,
+      "body_sha256": "sha256:e47693f5e06134ddc07eb880fa82508834734f203c15516a50eef3d97d0b13f0",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -798,8 +798,8 @@
     },
     {
       "aliases": ["network policy content upstream routing list upstream routing"],
-      "body_bytes": 1458,
-      "body_sha256": "sha256:36c41a6e12e7f137d3beb77848bb5d3dbf6af868e0f52dc7dfdef80da7bcb0c5",
+      "body_bytes": 1129,
+      "body_sha256": "sha256:4808ff04ca5cf0779c27ef944458eb2d0e9f20d906cd52b165ee687daf6f57a7",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -853,8 +853,8 @@
     },
     {
       "aliases": ["bot network policy"],
-      "body_bytes": 693,
-      "body_sha256": "sha256:606ca4e60b22ada248daad6e7217448b37c420f73e0d4492b3008566479dc961",
+      "body_bytes": 432,
+      "body_sha256": "sha256:eb698a18eff29d61fd30faca90f53df0a4fbf1fe3a372823f4f78eec4f321fe8",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_network_policy:example:data-source"],
@@ -893,8 +893,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1355,
-      "body_sha256": "sha256:7d31a6d2f950b354abfad7a442c3e872a69c5605181ce82ce62219f41d956e1c",
+      "body_bytes": 1109,
+      "body_sha256": "sha256:ebbea8b661fafbd82da29be625ac04027765be44c8a3f4e1a1335852f9309506",
       "capabilities": [],
       "category": null,
       "child_ids": [],

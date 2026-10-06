@@ -341,8 +341,8 @@
   "pages": [
     {
       "aliases": ["k8s pod security policy"],
-      "body_bytes": 1764,
-      "body_sha256": "sha256:a1d4fc7e6db9e2bcece932bff1af0d990fc3c09333f23137db8c5718e0e5f901",
+      "body_bytes": 1777,
+      "body_sha256": "sha256:7efa2b4a655c21fbe15d4dfee756d7c3e47f37cd2e721a0b74a0dc47de4de026",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -387,8 +387,8 @@
     },
     {
       "aliases": ["k8s pod security policy"],
-      "body_bytes": 23519,
-      "body_sha256": "sha256:0ff7999a591a93f63a483c568b8f4d4aefcb0bd8fe78a98f097251ec59f10800",
+      "body_bytes": 22901,
+      "body_sha256": "sha256:7b443648a1a00ffcc641f3e2b6a69c8b71da8cb59377a79ad3c24474df0eab6f",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -684,8 +684,8 @@
     },
     {
       "aliases": ["psp spec"],
-      "body_bytes": 19487,
-      "body_sha256": "sha256:1ee02b4c09191c848cce41e2208686aa112bf6df5adb0a6d92ebc2de45deadac",
+      "body_bytes": 16386,
+      "body_sha256": "sha256:2cf6e690b1054044a99f202d8df6f61c7f3e53eb0f8260c901476d70c2e61cf3",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -1362,8 +1362,8 @@
     },
     {
       "aliases": ["psp spec allowed capabilities"],
-      "body_bytes": 2707,
-      "body_sha256": "sha256:efe219c76b876ab385fb30c082fbf1d07291f7e99f83006bc138e4a633b569f3",
+      "body_bytes": 2441,
+      "body_sha256": "sha256:78f9b883d2744efb42ea45fda3229aa8d7d74863408186d36410cddbf7068c68",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -1426,8 +1426,8 @@
     },
     {
       "aliases": ["psp spec allowed host paths"],
-      "body_bytes": 3599,
-      "body_sha256": "sha256:e89492e5f328a296dcfec40d244ae40ad49e8b2ea7e10c4f930c33796f98fefe",
+      "body_bytes": 3266,
+      "body_sha256": "sha256:80dff8704b8f0a675b59be18f6a19ba805eed813b9172ecaab673d5e5d553ad5",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -1504,8 +1504,8 @@
     },
     {
       "aliases": ["psp spec default capabilities"],
-      "body_bytes": 2707,
-      "body_sha256": "sha256:94933bf2ced3a2bf43c54cf0cd18cbc3ebf6e8b7f44af417d78d561562cdf8b8",
+      "body_bytes": 2441,
+      "body_sha256": "sha256:4255d8369a49dac751bddd7bdc028f8ac4d2e52b85ed7308cd67d016c0a70cbf",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -1568,8 +1568,8 @@
     },
     {
       "aliases": ["psp spec drop capabilities"],
-      "body_bytes": 2695,
-      "body_sha256": "sha256:777a0d34c3dd6dbe858b6b7129c144f0976ecc4b702eea56424f78a962286c14",
+      "body_bytes": 2429,
+      "body_sha256": "sha256:4697654d473835e6ba114dd2d68063f2806712c2c0a4dc8c81676b3b77e64c3a",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -1632,8 +1632,8 @@
     },
     {
       "aliases": ["psp spec fs group strategy options"],
-      "body_bytes": 2976,
-      "body_sha256": "sha256:7ac1db8013fef588980a1e21ef828907bf2b016fc9868eafe2653e9bed2e090a",
+      "body_bytes": 2520,
+      "body_sha256": "sha256:a3058689d72a5d1ccebe22828ebafcc230dcb489b50aec94863c83e2df7788d2",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -1729,8 +1729,8 @@
     },
     {
       "aliases": ["psp spec fs group strategy options id ranges"],
-      "body_bytes": 4506,
-      "body_sha256": "sha256:ccf3c62773f139757d7e97166d85bfc99fc88b4e873e6f23095c9e3439f28a7b",
+      "body_bytes": 4017,
+      "body_sha256": "sha256:88fe3bdd6745c66c5f7bdeeaee42813a2215b8c8ad172d07c4e367cbc96917d2",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -1815,8 +1815,8 @@
     },
     {
       "aliases": ["psp spec no allowed capabilities"],
-      "body_bytes": 1354,
-      "body_sha256": "sha256:f196418a1742ce261cf1da7fa4d18bfafe331583823fa9ba5bdcad44de82403c",
+      "body_bytes": 1073,
+      "body_sha256": "sha256:6e792de27adf299006fb9266a21804043fa1dccfe2b83babc2dd6791470b91bf",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -1855,8 +1855,8 @@
     },
     {
       "aliases": ["psp spec no default capabilities"],
-      "body_bytes": 1354,
-      "body_sha256": "sha256:3a7fa0067466be5e82407bcabcefe8278ff4f9bb73ce0837724f0e4fc750ba10",
+      "body_bytes": 1073,
+      "body_sha256": "sha256:19ceb149e0f83c65e79ac2ba5acb300b8bfc7d3188429a10c1e5fa6bceafe47d",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -1895,8 +1895,8 @@
     },
     {
       "aliases": ["psp spec no drop capabilities"],
-      "body_bytes": 1342,
-      "body_sha256": "sha256:bf468397f41caabd5be80acf0891069bdffe0c379cb113442f791965c206cb00",
+      "body_bytes": 1061,
+      "body_sha256": "sha256:1179131fdd164de6582fc11bbf48819904383b45714ca76c12799750b44ee588",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -1935,8 +1935,8 @@
     },
     {
       "aliases": ["psp spec no fs groups"],
-      "body_bytes": 1287,
-      "body_sha256": "sha256:a22d5cb6392a132a91f2baecd79549bc68c847b630a73cf1e368d8493a5817ac",
+      "body_bytes": 1006,
+      "body_sha256": "sha256:56cdc086fcd8be3ce82a3d2b59ea58b7765f7a8316f761937ede061794fa9c98",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -1975,8 +1975,8 @@
     },
     {
       "aliases": ["psp spec no run as group"],
-      "body_bytes": 1322,
-      "body_sha256": "sha256:287871a0a9b5392bbd23539acb7756349347c5768baa2bfec6c12e63d5a692ff",
+      "body_bytes": 1041,
+      "body_sha256": "sha256:813a70f93d3a9d39b6cff56b3f03531bf3bd0aab5e7fa9c58d4742e290250c95",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2015,8 +2015,8 @@
     },
     {
       "aliases": ["psp spec no run as user"],
-      "body_bytes": 1318,
-      "body_sha256": "sha256:7bba4aa31337f0143d7331a8a95f7d279c148ca2351ef668059080ba0fa0cb5a",
+      "body_bytes": 1037,
+      "body_sha256": "sha256:a62b4bbd28bdf6395876ec47476cfb56c060ef1d4060fce3adcfe9fe9254c0e8",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2055,8 +2055,8 @@
     },
     {
       "aliases": ["psp spec no runtime class"],
-      "body_bytes": 1339,
-      "body_sha256": "sha256:ef5b93be05d4c029db0c96f78e4803b41c924c00da0d2eefdae21877db0f8b9e",
+      "body_bytes": 1058,
+      "body_sha256": "sha256:17db2a2ef12d1332b38a08a4f3bd3cd6ccf902437a2c050b16214c0b97715a55",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2095,8 +2095,8 @@
     },
     {
       "aliases": ["psp spec no se linux options"],
-      "body_bytes": 1351,
-      "body_sha256": "sha256:c157a289ad0992285ba0162849bbd7787c56de033065a8d5e79e42420c421bd4",
+      "body_bytes": 1070,
+      "body_sha256": "sha256:438ac5104d754469d7f4dbdca9777d573360aeecc25ff4db35e0af4a989705bd",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2135,8 +2135,8 @@
     },
     {
       "aliases": ["psp spec no supplemental groups"],
-      "body_bytes": 1317,
-      "body_sha256": "sha256:e437fc726dbaad3359fa15e5f8df2113f9db1493b44ca90c7f0ae4d8ef674210",
+      "body_bytes": 1036,
+      "body_sha256": "sha256:cad10d4ffb5f27870236a17c9c3e8532ae683e05ed8030928dc7d108c9300dcd",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2175,8 +2175,8 @@
     },
     {
       "aliases": ["psp spec run as group"],
-      "body_bytes": 2872,
-      "body_sha256": "sha256:57879a68e67e05090bdcbc41b392e5156c00e966ee44f55be7ebf111ebc813cc",
+      "body_bytes": 2442,
+      "body_sha256": "sha256:421c05c7de09f536f8cb39bd4deb04a4794b129f34e0ad7d32d8ca4cb978d706",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_group:id_ranges"],
@@ -2270,8 +2270,8 @@
     },
     {
       "aliases": ["psp spec run as group id ranges"],
-      "body_bytes": 4402,
-      "body_sha256": "sha256:5f036b8717aed110b02ed64dd3b6af17f8c51fddd266ccd5e335d558726a3504",
+      "body_bytes": 3939,
+      "body_sha256": "sha256:a90306734fadac1bd72e3256f66fdcb8d920dab8352bd3e4741e910608f15bb0",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2356,8 +2356,8 @@
     },
     {
       "aliases": ["psp spec run as user"],
-      "body_bytes": 2864,
-      "body_sha256": "sha256:e1132429cd2624333908f6a5a1fbd02aa7516c3720462898518355de2895b48a",
+      "body_bytes": 2436,
+      "body_sha256": "sha256:d70934ad9d3e80beb753a1eaf336d6113523cc497c5b19a4666e648b7ecd8916",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_user:id_ranges"],
@@ -2451,8 +2451,8 @@
     },
     {
       "aliases": ["psp spec run as user id ranges"],
-      "body_bytes": 4394,
-      "body_sha256": "sha256:bb898014e19816706831396ea998af15e1c6074b4e529c09a65b4bd2116394f4",
+      "body_bytes": 3933,
+      "body_sha256": "sha256:f7f652b7532dff332e252656c49e29ba270ec0b19adabcbc8e8833b772971715",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2537,8 +2537,8 @@
     },
     {
       "aliases": ["psp spec supplemental groups"],
-      "body_bytes": 2933,
-      "body_sha256": "sha256:3ab60831877bb601d93a5b4f1908d73a87bf42f2a78c3cc0164214e6627bc1f6",
+      "body_bytes": 2437,
+      "body_sha256": "sha256:42585a29e63da74c07ef562f89e3618ff5195c165f0c64aded6662e655b7276d",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges"],
@@ -2632,8 +2632,8 @@
     },
     {
       "aliases": ["psp spec supplemental groups id ranges"],
-      "body_bytes": 4458,
-      "body_sha256": "sha256:3ce23c4025400deb66e7aeee9ffa006a8cb8c2c071e8fb1570162f43a92caec1",
+      "body_bytes": 3981,
+      "body_sha256": "sha256:b51cd7646f7594f4cb82ea2cbb6fc2683064ff82123cb7a3f9c87b9e778afe41",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2718,8 +2718,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2297,
-      "body_sha256": "sha256:b56d4e76de2aa69f7edc52c3172e6cded6954091b6d541c898f99d642dcf51a7",
+      "body_bytes": 2030,
+      "body_sha256": "sha256:8e42198817db317ce4e8dc5abdc420fc9386e8684cdb729824234b50e2ba8ff1",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2850,8 +2850,8 @@
     },
     {
       "aliases": ["k8s pod security policy"],
-      "body_bytes": 699,
-      "body_sha256": "sha256:e7db3686d2ef5e5d4af4e8029a60bccd0e0165cb3d9c0e5e34fe0bc06feb31a4",
+      "body_bytes": 435,
+      "body_sha256": "sha256:fe4e6c2073650d9bb3b0f4baec40404fe7c2843e50e48727f92b6b5c6fd07bc0",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:resources:k8s_pod_security_policy:example:resource"],
@@ -2890,8 +2890,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1429,
-      "body_sha256": "sha256:b4466c551c0f5400131fee9683965efe0369d072450f58bc769bdb6883e90a74",
+      "body_bytes": 1174,
+      "body_sha256": "sha256:e33ac33af6d2c958f600d18d5aee53c69777d0fcb7ca8bbcfbbf40d0f6261c43",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2937,8 +2937,8 @@
     },
     {
       "aliases": ["k8s pod security policy"],
-      "body_bytes": 535,
-      "body_sha256": "sha256:d7f4336d5ef82b6979fc53df7f32cb425cde60c68e133a6605df47862a45d835",
+      "body_bytes": 394,
+      "body_sha256": "sha256:3634a1362bd5925e3b6601a4e7135bb97f1344b80ec6b7e3b52547d5b36a6f93",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2978,8 +2978,8 @@
     },
     {
       "aliases": ["k8s pod security policy"],
-      "body_bytes": 623,
-      "body_sha256": "sha256:e359b5fcf09b3bb87c268d9fb660f11fadaf7a68b898f9576fa4f3ee10b7fef7",
+      "body_bytes": 482,
+      "body_sha256": "sha256:9530a5bc63444663a4f2ef89f880f087ab11fe26ab45a1621eb5343646985bb6",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],

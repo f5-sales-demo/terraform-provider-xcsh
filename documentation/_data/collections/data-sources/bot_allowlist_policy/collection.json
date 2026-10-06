@@ -106,8 +106,8 @@
   "pages": [
     {
       "aliases": ["bot allowlist policy"],
-      "body_bytes": 1457,
-      "body_sha256": "sha256:374025568fe9ea94ea0c5fba718560020c1503588d504a2b123a7e6fdaaeb19c",
+      "body_bytes": 1403,
+      "body_sha256": "sha256:77ffee8dfe6b348c414fdf980a4266f01284d93384b2c19af89db8bedeb2d463",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -138,7 +138,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_allowlist_policy/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Bot Allowlist Policy resource in F5 Distributed Cloud for get bot allowlist policy. configuration. (read-only data source)",
+      "summary": "Reads Bot Allowlist Policy information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_bot_allowlist_policy",
       "unresolved_relationships": [],
@@ -150,8 +150,8 @@
     },
     {
       "aliases": ["bot allowlist policy"],
-      "body_bytes": 6502,
-      "body_sha256": "sha256:1f07d46aef4cb7ea32c86a6d4b000c756494220878b32165b669fafe7b9ae701",
+      "body_bytes": 6207,
+      "body_sha256": "sha256:5260dac7b982db56fd05dae0ac63a71d87e1587ab2cb6af8d012cb9e8fe6a3d0",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_allowlist_policy:properties:allowlist_policy_content"],
@@ -303,8 +303,8 @@
     },
     {
       "aliases": ["allowlist policy content"],
-      "body_bytes": 1566,
-      "body_sha256": "sha256:4443ace51d23c5ca6e3181f28e6e18663e75b000eb8384d1a182927ebc7616e9",
+      "body_bytes": 924,
+      "body_sha256": "sha256:f6d094f2e6dc0d4905299d5d9be51bfa3fb7b7853bb73a087c1a1e601084c12b",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -375,8 +375,8 @@
     },
     {
       "aliases": ["allowlist policy content ip allowlist"],
-      "body_bytes": 1845,
-      "body_sha256": "sha256:15bdb5bcd366ce5b8dd041328af335a268d7e5f0dcea827ffa3f3ccb75ab5c4a",
+      "body_bytes": 1130,
+      "body_sha256": "sha256:810fb9dbf34e63202ae4965fc0e5c6c77e2dca4a8aa17ed8e582b5461a92c87e",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -447,8 +447,8 @@
     },
     {
       "aliases": ["allowlist policy content ip allowlist ip detail"],
-      "body_bytes": 1590,
-      "body_sha256": "sha256:2a0c3959c5e867ca41f333633941f2e38f314d5e6ef36fc842892aea57e38856",
+      "body_bytes": 1269,
+      "body_sha256": "sha256:2fb8eff9ffdb1dc93e9baeb3e7b245b82eeabc5b574bfa1cce1c134b74220677",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -516,8 +516,8 @@
     },
     {
       "aliases": ["allowlist policy content ip allowlist ip prefix detail"],
-      "body_bytes": 1632,
-      "body_sha256": "sha256:f0ca455bf5a515dbfb383b404432a884bb72e5818fe190bdb7e890fbc2526725",
+      "body_bytes": 1311,
+      "body_sha256": "sha256:312f340a1c4232d0c225d76f6399c067fd35384dabcffd34fee4f3658b8e34df",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -585,8 +585,8 @@
     },
     {
       "aliases": ["allowlist policy content ip range allowlist"],
-      "body_bytes": 1525,
-      "body_sha256": "sha256:9708fb63b4b0ca4f56dbaeab2fb0021e7ba3686895368c535f9cf4145d9a54dc",
+      "body_bytes": 1230,
+      "body_sha256": "sha256:57d122c434dd8ad999cac9799f523f7591ed7985122e12c500a5d3f81649bd56",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -668,8 +668,8 @@
     },
     {
       "aliases": ["bot allowlist policy"],
-      "body_bytes": 705,
-      "body_sha256": "sha256:8097253f9db3dcbc7b1f4071fa665200db154d97bd1c704b6de0b91b81350bfb",
+      "body_bytes": 438,
+      "body_sha256": "sha256:0f38bcf1ed44827e5c30ffc3f80811ec8c4bdbbf07c18eed3d14fbf90b656fd6",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_allowlist_policy:example:data-source"],
@@ -708,8 +708,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1381,
-      "body_sha256": "sha256:2625e2b78502007c37828fefd39fe822519317508dd49980b41cd0d59b952c74",
+      "body_bytes": 1129,
+      "body_sha256": "sha256:b83af0f1c6fc6db42f343269d58287b1724974b0ee2084c3ec0748be3ad4bf44",
       "capabilities": [],
       "category": null,
       "child_ids": [],

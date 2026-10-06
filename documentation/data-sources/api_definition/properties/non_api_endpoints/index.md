@@ -2,7 +2,7 @@
 page_title: "non_api_endpoints"
 subcategory: "API Management"
 description: "List of Non-API Endpoints."
-xcsh_docs: {"aliases": ["non api endpoints"], "body_bytes": 4007, "body_sha256": "sha256:71b640df777c42789af002dc8bdb5cdaaaf2a48e2d55f866d8cefb042c0c773e", "capabilities": ["api-management"], "category": "api-management", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:api_definition:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:api_definition:properties:non_api_endpoints", "parent_id": "xcsh-docs:data-sources:api_definition:reference", "path": "documentation/data-sources/api_definition/properties/non_api_endpoints/index.md", "product": "distributed-cloud", "provider_name": "api_definition", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-3023113020212033-0022101202103220-3000133332010231-2311201321011310-0101302320201220-2121200211211033-3311211213101113-3323033212322200", "registry_path": "docs/guides/data-sources--api_definition--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["non_api_endpoints"], "schema_version": 1, "sections": [{"aliases": ["non api endpoints method"], "anchor": "schema-non_api_endpoints--method", "description": "Specifies the HTTP method used to access a resource. Any HTTP Method.", "document_id": "xcsh-docs:data-sources:api_definition:properties:non_api_endpoints", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["non_api_endpoints", "method"], "syntax": "attribute", "type": "string"}, {"aliases": ["non api endpoints path"], "anchor": "schema-non_api_endpoints--path", "description": "An endpoint path, as specified in OpenAPI, including parameters. The path should comply with RFC 3986 and may have parameters according to OpenAPI specification.", "document_id": "xcsh-docs:data-sources:api_definition:properties:non_api_endpoints", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["non_api_endpoints", "path"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_definition/properties/non_api_endpoints/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of Non-API Endpoints.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["api_definitionCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["non api endpoints"], "body_bytes": 3432, "body_sha256": "sha256:df7a46a4d892304efbb055199e2164ccde1789558dbfcadbc294cfc9bf8f712b", "capabilities": ["api-management"], "category": "api-management", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:api_definition:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:api_definition:properties:non_api_endpoints", "parent_id": "xcsh-docs:data-sources:api_definition:reference", "path": "documentation/data-sources/api_definition/properties/non_api_endpoints/index.md", "product": "distributed-cloud", "provider_name": "api_definition", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-3023113020212033-0022101202103220-3000133332010231-2311201321011310-0101302320201220-2121200211211033-3311211213101113-3323033212322200", "registry_path": "docs/guides/data-sources--api_definition--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["non_api_endpoints"], "schema_version": 1, "sections": [{"aliases": ["non api endpoints method"], "anchor": "schema-non_api_endpoints--method", "description": "Specifies the HTTP method used to access a resource. Any HTTP Method.", "document_id": "xcsh-docs:data-sources:api_definition:properties:non_api_endpoints", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["non_api_endpoints", "method"], "syntax": "attribute", "type": "string"}, {"aliases": ["non api endpoints path"], "anchor": "schema-non_api_endpoints--path", "description": "An endpoint path, as specified in OpenAPI, including parameters. The path should comply with RFC 3986 and may have parameters according to OpenAPI specification.", "document_id": "xcsh-docs:data-sources:api_definition:properties:non_api_endpoints", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["non_api_endpoints", "path"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_definition/properties/non_api_endpoints/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of Non-API Endpoints.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["api_definitionCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,10 +23,6 @@ Type: `"list"`. Computed.
 
 API Discovery Exclusion List. List of Non-API Endpoints. Defaults to \`\[\]\`. Server applies
 default when omitted.
-
-Upstream description:
-
-List of Non-API Endpoints.
 
 Receipt-pinned upstream constraints:
 
@@ -75,12 +71,6 @@ used to access a resource. Any HTTP Method. Possible values are \`ANY\`, \`GET\`
 \`POST\`, \`PUT\`, \`DELETE\`, \`CONNECT\`, \`OPTIONS\`, \`TRACE\`, \`PATCH\`, \`COPY\`. Defaults to
 \`ANY\`.
 
-Upstream description:
-
-Specifies the HTTP method used to access a resource.
-
-Any HTTP Method.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -113,11 +103,6 @@ Receipt-pinned upstream constraints:
 ### path property
 
 Type: `"string"`. Computed.
-
-Endpoint path, as specified in OpenAPI, including parameters. The path should comply with RFC 3986
-and may have parameters according to OpenAPI specification.
-
-Upstream description:
 
 An endpoint path, as specified in OpenAPI, including parameters. The path should comply with RFC
 3986 and may have parameters according to OpenAPI specification.
@@ -165,8 +150,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/api_definition/properties/)
-- [xcsh_api_definition](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/api_definition/)

@@ -91,8 +91,8 @@
   "pages": [
     {
       "aliases": ["ike phase2 profile"],
-      "body_bytes": 1419,
-      "body_sha256": "sha256:99956ef809e03b1bd48552584b4e91501c21de1db3d1c588247d458579d267fd",
+      "body_bytes": 1381,
+      "body_sha256": "sha256:4889d639e0b283d5e24cb21618cc6ca85f5ffc5d93ff6c25a65a34dae9a3b0a2",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -123,7 +123,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike_phase2_profile/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a IKE Phase2 Profile resource in F5 Distributed Cloud for ike phase2 profile specification. configuration.",
+      "summary": "Reads IKE Phase2 Profile information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_ike_phase2_profile",
       "unresolved_relationships": [],
@@ -135,8 +135,8 @@
     },
     {
       "aliases": ["ike phase2 profile"],
-      "body_bytes": 12839,
-      "body_sha256": "sha256:02e973c11e9c2b25b9e6965b26f41f7ad05045c192ebb15336eb73ef905e2669",
+      "body_bytes": 11817,
+      "body_sha256": "sha256:dea679afa1009a6f2bebcbd4821c279b9a8992172221575d9f039cb203c2b7dc",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -364,8 +364,8 @@
     },
     {
       "aliases": ["dh group set"],
-      "body_bytes": 2694,
-      "body_sha256": "sha256:852576a1c17d803fd373c0b4ac7a86012b2028d7ae1fd1e38868831b91628d71",
+      "body_bytes": 2162,
+      "body_sha256": "sha256:a82814a077f1ed36858c18d8150df78fecd5d35bf7925b3fc326955eeedeb318",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -419,8 +419,8 @@
     },
     {
       "aliases": ["disable pfs"],
-      "body_bytes": 1092,
-      "body_sha256": "sha256:7a22f5c1f36e8808b8d90f2ad5f460efa74163c1a35535ac38efc29b91d7f38e",
+      "body_bytes": 819,
+      "body_sha256": "sha256:5c61c135c40280bd591cf9e4c12e762c08a1fd1be03e37a1f476a958cd5e5d85",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -459,8 +459,8 @@
     },
     {
       "aliases": ["ike keylifetime hours"],
-      "body_bytes": 2616,
-      "body_sha256": "sha256:3683a9ea5bbb63c3d2b3cf2b211f55b1c35df929785cf083990e8842509e832d",
+      "body_bytes": 2304,
+      "body_sha256": "sha256:38ce707e2b12a00d5161770ba568c3960197669c63968b4e35d5df922c7b9170",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -514,8 +514,8 @@
     },
     {
       "aliases": ["ike keylifetime minutes"],
-      "body_bytes": 1943,
-      "body_sha256": "sha256:36bb21f11b502bbb3ab417a2fd8c09cfcfefc0b86c4d076734280b3b657a95e6",
+      "body_bytes": 1631,
+      "body_sha256": "sha256:7af9b49f461eff4c3786a3a22de300b48c75456e36011ea875fbbf27db538027",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -569,8 +569,8 @@
     },
     {
       "aliases": ["use default keylifetime"],
-      "body_bytes": 1128,
-      "body_sha256": "sha256:d1eedd0032f88f0295999a5407ae9410b1c1c6822cb6a70c2a6d03358200e9ac",
+      "body_bytes": 855,
+      "body_sha256": "sha256:8a308b83abba313983b7acdb01158b0dc671e4a4ae375a26e66eedd15f81b59b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -609,8 +609,8 @@
     },
     {
       "aliases": ["ike phase2 profile"],
-      "body_bytes": 693,
-      "body_sha256": "sha256:906d3b98d2982e365d0925bf97a10d2236d2192e6e42c640882b36e95c848656",
+      "body_bytes": 432,
+      "body_sha256": "sha256:6f29c78de886db24ba3892ca07744ec8841573e540b17087568df23257f5a07e",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:ike_phase2_profile:example:data-source"],
@@ -649,8 +649,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1355,
-      "body_sha256": "sha256:b301a29712966af1ca7020f9618346c1639d172e407de26229635a290c06e578",
+      "body_bytes": 1109,
+      "body_sha256": "sha256:6de00abd36ca1ad4db1a3e2dba85f0f7db762ccfbc92ede74c1543b2694914ce",
       "capabilities": [],
       "category": null,
       "child_ids": [],

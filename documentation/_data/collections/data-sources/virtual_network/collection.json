@@ -126,8 +126,8 @@
   "pages": [
     {
       "aliases": ["virtual network"],
-      "body_bytes": 1460,
-      "body_sha256": "sha256:6e4706308280e5061db6ee2ff34416bc0d500e2286e0be837d91786c32187e43",
+      "body_bytes": 1466,
+      "body_sha256": "sha256:084d467f14225d453d8deaf62d6c2271d0af94d133f217fca48015d47e9ec202",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -166,7 +166,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/virtual_network/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages virtual network in given namespace in F5 Distributed Cloud.",
+      "summary": "Reads Virtual Network information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_virtual_network",
       "unresolved_relationships": [],
@@ -178,8 +178,8 @@
     },
     {
       "aliases": ["virtual network"],
-      "body_bytes": 12722,
-      "body_sha256": "sha256:3c9bb4dd2d7ff8acfb6877e6e89a5c61667b1d8a76ead30401eb46f295c92527",
+      "body_bytes": 12073,
+      "body_sha256": "sha256:6b50ece1e13a7bd88b6d603c2ae35eebb7b3c9188ab958776057e055f53b1fd2",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -364,8 +364,8 @@
     },
     {
       "aliases": ["global network"],
-      "body_bytes": 1786,
-      "body_sha256": "sha256:943d1d3249766609977239f76eddf4031ab7a0f34b1d2e66077e4174a89b9af0",
+      "body_bytes": 1406,
+      "body_sha256": "sha256:79dae7591b44375c942c0ec33edb254baa73dd762a2c7606de4985844ab6a488",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -404,8 +404,8 @@
     },
     {
       "aliases": ["site local inside network"],
-      "body_bytes": 1048,
-      "body_sha256": "sha256:8962c254462507ac7b0d0d6d5989ff1fa1b031d675c4863fd0fc7d8f606fcd2f",
+      "body_bytes": 777,
+      "body_sha256": "sha256:e927e50276e8aaeeb7f22519e21d47298a06676b492c01dae7a2055e05f4bf09",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -444,8 +444,8 @@
     },
     {
       "aliases": ["site local network"],
-      "body_bytes": 1048,
-      "body_sha256": "sha256:116219037e60644dd994ba5fc053ef384aa3c536219656aa4d63716c0c77be96",
+      "body_bytes": 777,
+      "body_sha256": "sha256:6f91e1ca287aadcbab56951c0b99783a52bab95ddd56ae946e87de05b153b90f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -484,8 +484,8 @@
     },
     {
       "aliases": ["static routes"],
-      "body_bytes": 6063,
-      "body_sha256": "sha256:3dad0ee904eba057d180b985dea3072cdeebf6baa4f6fd1f75f145f96023865e",
+      "body_bytes": 5232,
+      "body_sha256": "sha256:efb564efdaf98c0950dec1db3e2f932d96f3ecd8b5be5f99c5df6721eed7c2dc",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -598,8 +598,8 @@
     },
     {
       "aliases": ["static routes default gateway"],
-      "body_bytes": 1253,
-      "body_sha256": "sha256:a7f2468d6b2abf5cea08354cccdda98df04a02b3ccd446299820ee3ad8b4a1db",
+      "body_bytes": 980,
+      "body_sha256": "sha256:85fa07f4102c5f4710be532e3f60a5be6ec2a94d16b65a545864a614da1879e3",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -638,8 +638,8 @@
     },
     {
       "aliases": ["static routes node interface"],
-      "body_bytes": 1468,
-      "body_sha256": "sha256:7bb57cf635b04abd74b6c9aa31301946b5ad303c52a9422ec5ca95dd1934693e",
+      "body_bytes": 1040,
+      "body_sha256": "sha256:f5b05260b2ac9e04d42a590dcbb978352a7aa649d6e2fdca8405864b9a924052",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:virtual_network:properties:static_routes:node_interface:list"],
@@ -693,8 +693,8 @@
     },
     {
       "aliases": ["static routes node interface list"],
-      "body_bytes": 2764,
-      "body_sha256": "sha256:8ce7b97e68778ccd648db1e6dd1529072f3cfdfebcdedf6e396466bdbd2a6fa8",
+      "body_bytes": 2238,
+      "body_sha256": "sha256:8aea20b8a1c439a2a036f32078c3a9939209f933d78c99064dce8786d02b7282",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:virtual_network:properties:static_routes:node_interface:list:interface"],
@@ -762,8 +762,8 @@
     },
     {
       "aliases": ["static routes node interface list interface"],
-      "body_bytes": 6744,
-      "body_sha256": "sha256:fee33412db00528f36b1adf2d0c0c944d481346128c56e8c80e412071a4865c8",
+      "body_bytes": 5698,
+      "body_sha256": "sha256:dfffccb3efd425ea1f9136f57eb23a3d8655da9761a8706c0a300cfbd5676a1c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -873,8 +873,8 @@
     },
     {
       "aliases": ["virtual network"],
-      "body_bytes": 675,
-      "body_sha256": "sha256:d1abfde372cf8eb79439534d2a041ffdaa227c39fcc6c55ebbb6439232c1570e",
+      "body_bytes": 423,
+      "body_sha256": "sha256:fc6f01a79d49b4f5a3a1e713bbff7a0e025b957a8ca6af614c403dc5d4637055",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:virtual_network:example:data-source"],
@@ -913,8 +913,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1317,
-      "body_sha256": "sha256:bb32c579fb8f40655fa7c04766e27660e467bcca645f42dff59848c5c35e5a79",
+      "body_bytes": 1080,
+      "body_sha256": "sha256:d8b6737b74cf8351d4e3cfe0b3b64b2b0dc7599ac2e3379cc219d7e4f3ff33f7",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],

@@ -66,8 +66,8 @@
   "pages": [
     {
       "aliases": ["bot peer top good bots"],
-      "body_bytes": 1284,
-      "body_sha256": "sha256:1bd9d1a2bd80ce85fd0a1118bd99109caf95c13e4bd695272bab9a7c66b81bec",
+      "body_bytes": 1297,
+      "body_sha256": "sha256:b7c091163e5289bc1b97718f6b2d63179bb3e42e2ebdf72d93fd7f1c308cfa52",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -110,8 +110,8 @@
     },
     {
       "aliases": ["bot peer top good bots"],
-      "body_bytes": 4035,
-      "body_sha256": "sha256:86f62fbd6b5c0da70a5868fa94c58b81e59b465ee5d1c6df4b2012f828097659",
+      "body_bytes": 3768,
+      "body_sha256": "sha256:75220c4240b1950e9cd77c8db1aa064d96227dba1fea10b6ddd7c63e8434f883",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_peer_top_good_bots:properties:details"],
@@ -235,8 +235,8 @@
     },
     {
       "aliases": ["details"],
-      "body_bytes": 1731,
-      "body_sha256": "sha256:132138824771d7ba0a192cf12bb00bac562ed5e4a83c041b1c749a442af54b6d",
+      "body_bytes": 1461,
+      "body_sha256": "sha256:55f9bbf580916cbf8dd19a6e486b0f9e434cb7dd88e7a4416b650dd025baf94a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -346,8 +346,8 @@
     },
     {
       "aliases": ["bot peer top good bots"],
-      "body_bytes": 717,
-      "body_sha256": "sha256:3c3529ed670589efe71ac77af36bd3b666c8095448ec026a2b89b95a895f5366",
+      "body_bytes": 444,
+      "body_sha256": "sha256:3f8b0030146f26d7f6b7ee51334e011e75424dbb0016911497c6bf62ebb0c230",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_peer_top_good_bots:example:data-source"],
@@ -386,8 +386,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1314,
-      "body_sha256": "sha256:222557e4014689ec357494e5de347c944a50f87105ecd6914ab40f0beb31379a",
+      "body_bytes": 1056,
+      "body_sha256": "sha256:4c526f2072ceeb6c097436660c38b18801dee56ba0e9a459169957f2c9d4f126",
       "capabilities": [],
       "category": null,
       "child_ids": [],

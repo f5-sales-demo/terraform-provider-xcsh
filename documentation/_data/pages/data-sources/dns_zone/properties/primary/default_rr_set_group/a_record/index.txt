@@ -2,7 +2,7 @@
 page_title: "primary.default_rr_set_group.a_record"
 subcategory: "DNS"
 description: "A Records"
-xcsh_docs: {"aliases": ["primary default rr set group a record"], "body_bytes": 4278, "body_sha256": "sha256:7c19d4a2218fac853781d32d26549f6471b1a7cda37758b485dfa60a6e6fa357", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:dns_zone:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:a_record", "parent_id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group", "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/a_record/index.md", "product": "distributed-cloud", "provider_name": "dns_zone", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2312200030111200-1212321102221122-1303233301122023-2113100103230120-3230111301023210-1321113113303300-0311102130231112-3322113202113010", "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["primary", "default_rr_set_group", "a_record"], "schema_version": 1, "sections": [{"aliases": ["primary default rr set group a record name"], "anchor": "schema-primary--default_rr_set_group--a_record--name", "description": "A Record name, please provide only the specific subdomain or record name without the base domain.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:a_record", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "a_record", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["primary default rr set group a record values"], "anchor": "schema-primary--default_rr_set_group--a_record--values", "description": "A valid IPv4 address, for example: 192.0.2.242.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:a_record", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "a_record", "values"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/a_record/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A Records", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["dns_zoneCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["primary default rr set group a record"], "body_bytes": 3785, "body_sha256": "sha256:2ff0ec804455800b1d32ab85b9f2d592145bc9a6e4ccd31f50cc7fb2374ac40b", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:dns_zone:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:a_record", "parent_id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group", "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/a_record/index.md", "product": "distributed-cloud", "provider_name": "dns_zone", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2312200030111200-1212321102221122-1303233301122023-2113100103230120-3230111301023210-1321113113303300-0311102130231112-3322113202113010", "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["primary", "default_rr_set_group", "a_record"], "schema_version": 1, "sections": [{"aliases": ["primary default rr set group a record name"], "anchor": "schema-primary--default_rr_set_group--a_record--name", "description": "A Record name, please provide only the specific subdomain or record name without the base domain.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:a_record", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "a_record", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["primary default rr set group a record values"], "anchor": "schema-primary--default_rr_set_group--a_record--values", "description": "A valid IPv4 address, for example: 192.0.2.242.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:a_record", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "a_record", "values"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/a_record/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A Records", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["dns_zoneCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -25,10 +25,6 @@ Type: `"single"`. Computed.
 
 DNSAResourceRecord. A Records
 
-Upstream description:
-
-A Records
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -49,10 +45,6 @@ Receipt-pinned upstream constraints:
 ### name property
 
 Type: `"string"`. Computed.
-
-Record name, please provide only the specific subdomain or record name without the base domain.
-
-Upstream description:
 
 A Record name, please provide only the specific subdomain or record name without the base domain.
 
@@ -108,10 +100,6 @@ Type: `["list", "string"]`. Computed.
 
 IPv4 Addresses. A valid IPv4 address, for example: 192.0.2.242.
 
-Upstream description:
-
-A valid IPv4 address, for example: 192.0.2.242.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -153,8 +141,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [primary.default_rr_set_group](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/properties/primary/default_rr_set_group/)
-- [xcsh_dns_zone](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/)

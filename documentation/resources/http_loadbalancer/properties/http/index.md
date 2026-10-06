@@ -2,7 +2,7 @@
 page_title: "http"
 subcategory: "Load Balancing"
 description: "Choice for selecting HTTP proxy."
-xcsh_docs: {"aliases": ["http"], "body_bytes": 4814, "body_sha256": "sha256:2fd22a01c3d592c03310871241e896ad508f784bebc5987fbba0c2c19d42e43b", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:http_loadbalancer:properties:http", "parent_id": "xcsh-docs:resources:http_loadbalancer:reference", "path": "documentation/resources/http_loadbalancer/properties/http/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3201330110311330-2123203220332301-2010310002232302-2200333212132031-2112023132010213-3001201001222010-0222333320131100-0013020102021323", "registry_path": "docs/guides/resources--http_loadbalancer--reference--group-018.md", "relationships": [{"anchor": "schema-http--port", "enforcement": "provider-schema", "group": "http:ConflictingObjectAttributes:port,port_ranges", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:http_loadbalancer:properties:http", "type": "conflicts"}, {"anchor": "schema-http--port_ranges", "enforcement": "provider-schema", "group": "http:ConflictingObjectAttributes:port,port_ranges", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:http_loadbalancer:properties:http", "type": "conflicts"}, {"anchor": "section", "enforcement": "provider-choice", "group": "loadbalancer_type", "source": "receipt-pinned-immutable-oneof", "target_id": "xcsh-docs:resources:http_loadbalancer:properties:https", "type": "choice"}, {"anchor": "section", "enforcement": "provider-choice", "group": "loadbalancer_type", "source": "receipt-pinned-immutable-oneof", "target_id": "xcsh-docs:resources:http_loadbalancer:properties:https_auto_cert", "type": "choice"}], "retrieval_version": 1, "role": "properties", "schema_path": ["http"], "schema_version": 1, "sections": [{"aliases": ["http dns volterra managed"], "anchor": "schema-http--dns_volterra_managed", "description": "DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite, the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME record should be created in your DNS provider's portal.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:http", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["http", "dns_volterra_managed"], "syntax": "attribute", "type": "bool"}, {"aliases": ["http port"], "anchor": "schema-http--port", "description": "Exclusive with HTTP port to Listen.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:http", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["http", "port"], "syntax": "attribute", "type": "number"}, {"aliases": ["http port ranges"], "anchor": "schema-http--port_ranges", "description": "Exclusive with A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by \"-\".", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:http", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["http", "port_ranges"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/http_loadbalancer/properties/http/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Choice for selecting HTTP proxy.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["http"], "body_bytes": 4078, "body_sha256": "sha256:c85d5781bc5e7b69fcd5d9934640cbc355cc09b90e002422077d2b8145a8acc4", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:http_loadbalancer:properties:http", "parent_id": "xcsh-docs:resources:http_loadbalancer:reference", "path": "documentation/resources/http_loadbalancer/properties/http/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3201330110311330-2123203220332301-2010310002232302-2200333212132031-2112023132010213-3001201001222010-0222333320131100-0013020102021323", "registry_path": "docs/guides/resources--http_loadbalancer--reference--group-018.md", "relationships": [{"anchor": "schema-http--port", "enforcement": "provider-schema", "group": "http:ConflictingObjectAttributes:port,port_ranges", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:http_loadbalancer:properties:http", "type": "conflicts"}, {"anchor": "schema-http--port_ranges", "enforcement": "provider-schema", "group": "http:ConflictingObjectAttributes:port,port_ranges", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:http_loadbalancer:properties:http", "type": "conflicts"}, {"anchor": "section", "enforcement": "provider-choice", "group": "loadbalancer_type", "source": "receipt-pinned-immutable-oneof", "target_id": "xcsh-docs:resources:http_loadbalancer:properties:https", "type": "choice"}, {"anchor": "section", "enforcement": "provider-choice", "group": "loadbalancer_type", "source": "receipt-pinned-immutable-oneof", "target_id": "xcsh-docs:resources:http_loadbalancer:properties:https_auto_cert", "type": "choice"}], "retrieval_version": 1, "role": "properties", "schema_path": ["http"], "schema_version": 1, "sections": [{"aliases": ["http dns volterra managed"], "anchor": "schema-http--dns_volterra_managed", "description": "DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite, the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME record should be created in your DNS provider's portal.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:http", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["http", "dns_volterra_managed"], "syntax": "attribute", "type": "bool"}, {"aliases": ["http port"], "anchor": "schema-http--port", "description": "Exclusive with HTTP port to Listen.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:http", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["http", "port"], "syntax": "attribute", "type": "number"}, {"aliases": ["http port ranges"], "anchor": "schema-http--port_ranges", "description": "Exclusive with A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by \"-\".", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:http", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["http", "port_ranges"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/http_loadbalancer/properties/http/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Choice for selecting HTTP proxy.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,10 +23,6 @@ Type: `"object"`. single nested block, Optional.
 
 HTTP Choice. Choice for selecting HTTP proxy. Changing this type selection requires recreation and
 may interrupt service. Supported settings within the same selected type remain updatable.
-
-Upstream description:
-
-Choice for selecting HTTP proxy.
 
 Provider validators and defaults (from schema source):
 
@@ -69,12 +65,6 @@ DNS records for domains will be managed automatically by F5 Distributed Cloud. A
 the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME
 record should be created in your DNS provider's portal.
 
-Upstream description:
-
-DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite,
-the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME
-record should be created in your DNS provider's portal.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -93,10 +83,6 @@ Receipt-pinned upstream constraints:
 ### port property
 
 Type: `"number"`. Optional.
-
-Exclusive with \[port\_ranges\] HTTP port to Listen.
-
-Upstream description:
 
 Exclusive with \[port\_ranges\] HTTP port to Listen.
 
@@ -149,10 +135,9 @@ Type: `"string"`. Optional.
 Exclusive with \[port\] A string containing a comma separated list of port ranges. Each port range
 consists of a single port or two ports separated by '-'.
 
-Upstream description:
+Additional upstream details:
 
-Exclusive with \[port\] A string containing a comma separated list of port ranges. Each port range
-consists of a single port or two ports separated by "-".
+Each port range consists of a single port or two ports separated by "-".
 
 Provider validators and defaults (from schema source):
 
@@ -200,8 +185,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/http_loadbalancer/properties/)
-- [xcsh_http_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/http_loadbalancer/)

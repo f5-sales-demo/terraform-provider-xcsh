@@ -161,8 +161,8 @@
   "pages": [
     {
       "aliases": ["nginx service discovery"],
-      "body_bytes": 1834,
-      "body_sha256": "sha256:e3630cd52ab19b28035ad5c49786d003ea423c32e99845aaf233add3d0012eff",
+      "body_bytes": 1847,
+      "body_sha256": "sha256:c5235fbcbd4bb586153a176a051b84285b68492bc6d13ee81847c12cf31e3aa1",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -207,8 +207,8 @@
     },
     {
       "aliases": ["nginx service discovery"],
-      "body_bytes": 15521,
-      "body_sha256": "sha256:b01d169600649173c01e71e0e7b650b5d9eefb0548f9d99780805658bfecb05e",
+      "body_bytes": 14825,
+      "body_sha256": "sha256:9cb80c7374d0fde0bae655a7368d40867d9624f3311c06a35ae2c35548ada43e",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -409,8 +409,8 @@
     },
     {
       "aliases": ["discovery target"],
-      "body_bytes": 2075,
-      "body_sha256": "sha256:e6e5a92614083e20050f3db1183e30b72f6a3dd6d30ad03fa8115e58b8e80373",
+      "body_bytes": 1460,
+      "body_sha256": "sha256:1154bed94a94921b1bd861a55c35d22ff93a0119f1fb8e552a52803f650ce4cc",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -516,8 +516,8 @@
     },
     {
       "aliases": ["discovery target config sync group"],
-      "body_bytes": 1916,
-      "body_sha256": "sha256:8d04c56584c680a983992142ced11d6e209421fee45aa800539f42420a694b9c",
+      "body_bytes": 1428,
+      "body_sha256": "sha256:c78f7e49a474ea0267e47507cab318c5cfda7839ea7fe4c6fc10c23b83791912",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -582,8 +582,8 @@
     },
     {
       "aliases": ["discovery target config sync group config sync group"],
-      "body_bytes": 7157,
-      "body_sha256": "sha256:ea2ad0e0f3912cfe10fb9227c4c4d0b1a88f527d646412d620ee88e15b89d338",
+      "body_bytes": 6097,
+      "body_sha256": "sha256:ecded26b254107d7b6911907b53f9f091b4ff9898841aa4f5023d12bfb7d91cc",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -693,8 +693,8 @@
     },
     {
       "aliases": ["discovery target nginx instance"],
-      "body_bytes": 1887,
-      "body_sha256": "sha256:7a48044d5639166bd653b408380a23e7c08f37004c737c387fc6ea6a4953be27",
+      "body_bytes": 1353,
+      "body_sha256": "sha256:a53d8cb6fe1afa6ba7f3cf85431e1512e0f7db88382de1664b3e34f80123d45e",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -759,8 +759,8 @@
     },
     {
       "aliases": ["discovery target nginx instance nginx instance"],
-      "body_bytes": 7098,
-      "body_sha256": "sha256:fd17e945a99270e6b35883fbe52f3d07f7cc8535c1468be327acc65cbb29d496",
+      "body_bytes": 6045,
+      "body_sha256": "sha256:b6c25a9bc683b332a6e6e9722fc12820923c279a2d14ab23fd6b7b58fa78e977",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -870,8 +870,8 @@
     },
     {
       "aliases": ["server block filters"],
-      "body_bytes": 4700,
-      "body_sha256": "sha256:47c0500aa786112abfe2e0c5f9e412516c2794b9fe6461c6071c45df0a1d8adc",
+      "body_bytes": 4164,
+      "body_sha256": "sha256:5a054acf10018c13ea2f467b6bf409ae98f8a5db272cef62138fa0c73262193a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -939,8 +939,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2297,
-      "body_sha256": "sha256:798ab71672232805fbefc4a7d900073732baa6b64305eaea9048054ab89d6367",
+      "body_bytes": 2030,
+      "body_sha256": "sha256:461e53c87c32a346bed0cf349523358c8e7d095c858504dbe56f512c6af0e07e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1071,8 +1071,8 @@
     },
     {
       "aliases": ["nginx service discovery"],
-      "body_bytes": 699,
-      "body_sha256": "sha256:247be3542a82ee280d569be5402fbc1f91c87305b5fe4abcd2cbab5c38fd4e8e",
+      "body_bytes": 435,
+      "body_sha256": "sha256:b95ae01b09d5549337f66099cb111281f3cc85a07a1e69349463d82fe1d4a80f",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:nginx_service_discovery:example:resource"],
@@ -1111,8 +1111,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1459,
-      "body_sha256": "sha256:12099de8ca5b7e2bb1e8889325420747e503fe14d94bc8806d07289063d7c5dd",
+      "body_bytes": 1204,
+      "body_sha256": "sha256:148dc793c6a51575e56c73aa7e7220dc21eb8e38e95ea6b6a8778e646d2f8167",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1158,8 +1158,8 @@
     },
     {
       "aliases": ["nginx service discovery"],
-      "body_bytes": 535,
-      "body_sha256": "sha256:945d60f513fc90652c33bee45045d7e97b3280ec9c35aa1e0d9b52ba7397e18c",
+      "body_bytes": 394,
+      "body_sha256": "sha256:1683a4f3b4fc4e6ce0e3458e9acc4a6c3db56b44fdfaf6600a9a971296d51bfb",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1199,8 +1199,8 @@
     },
     {
       "aliases": ["nginx service discovery"],
-      "body_bytes": 623,
-      "body_sha256": "sha256:d08c76dc543f44acf4d31a05075db642c7179481ae28b3ec674bceeef62f0236",
+      "body_bytes": 482,
+      "body_sha256": "sha256:e9d96aac434bc79378f991d980cd1a4cc3d78dacc89bc3f380628c440566848e",
       "capabilities": [],
       "category": null,
       "child_ids": [],

@@ -1130,8 +1130,8 @@
   "pages": [
     {
       "aliases": ["backend servers", "origin pool", "origin servers", "upstream servers"],
-      "body_bytes": 1723,
-      "body_sha256": "sha256:24e0f3f8dc65401e7a63d0b886cdf4146c559373d8e12c3cf74a6232aeb8dede",
+      "body_bytes": 1737,
+      "body_sha256": "sha256:ebb4f2d5b3ff2bc1cf169326c6e74522768c62ec79cbe63a7be8d730bb99bac2",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -1172,7 +1172,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/origin_pool/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Origin Pool resource in F5 Distributed Cloud for defining backend server pools for load balancer targets.",
+      "summary": "Manages an Origin Pool resource in F5 Distributed Cloud for defining backend server pools for load balancer targets.",
       "tasks": ["configuration"],
       "title": "xcsh_origin_pool",
       "unresolved_relationships": [],
@@ -1184,8 +1184,8 @@
     },
     {
       "aliases": ["backend servers", "origin pool", "origin servers", "upstream servers"],
-      "body_bytes": 72542,
-      "body_sha256": "sha256:71f56fa8192bd8fd29551c67862e3e1410fa99a8c040a6b57fc36d38cb786d19",
+      "body_bytes": 70844,
+      "body_sha256": "sha256:bfb61403747ef0e1560a29c23760905220ff84e2051fec796daf95c9d61fc308",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -2695,8 +2695,8 @@
     },
     {
       "aliases": ["advanced options"],
-      "body_bytes": 14675,
-      "body_sha256": "sha256:c1dbe1bbdd3f4984864c9bce66fcff1c7bf4db885fa5204eb9c5aa6787c63ffa",
+      "body_bytes": 10738,
+      "body_sha256": "sha256:29f03924d2f7cc0b3ca6cdb3a316ba69256aca1acea8e599027bf6c19f8f97a0",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -3345,8 +3345,8 @@
     },
     {
       "aliases": ["advanced options auto http config"],
-      "body_bytes": 1336,
-      "body_sha256": "sha256:9c5c87e066a825148e706463d28121e038193b74473b1a4ee6890f9cffc806e5",
+      "body_bytes": 1075,
+      "body_sha256": "sha256:af00f85cb5573eee048435e152f913ced25f3e417bc64ca5295668252b820a7f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3385,8 +3385,8 @@
     },
     {
       "aliases": ["advanced options circuit breaker"],
-      "body_bytes": 8875,
-      "body_sha256": "sha256:09e1be9b390bb68ad53502ee1deb3a798e63fb1eae975b32572e3c75e66acfc9",
+      "body_bytes": 7025,
+      "body_sha256": "sha256:4182d8f9e7e643a9d5f7cc220ec93e031f1ac3f1e0a90b8817a9e7d192aa11e8",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3496,8 +3496,8 @@
     },
     {
       "aliases": ["advanced options default circuit breaker"],
-      "body_bytes": 1390,
-      "body_sha256": "sha256:b89166b0844e07cb59aea1a342afba286f4ca8300e3163286976ac95daa50ac2",
+      "body_bytes": 1129,
+      "body_sha256": "sha256:f76fa3df828f2eb75910909373e617edcae0e0e3d07935b0ddae9c8527ef0938",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3536,8 +3536,8 @@
     },
     {
       "aliases": ["advanced options disable circuit breaker", "disable circuit breaker", "no circuit breaker"],
-      "body_bytes": 1318,
-      "body_sha256": "sha256:534532a91f4e859fcc766d2311b197a692679eb847ad4d7f13bde889bcb37a31",
+      "body_bytes": 1057,
+      "body_sha256": "sha256:6c277763b9f0078f78127f55b1ffd0cdb888dc8569dbc42688030d2a778ddb6e",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3580,8 +3580,8 @@
         "disable lb source ip persistence",
         "disable source ip persistence"
       ],
-      "body_bytes": 1278,
-      "body_sha256": "sha256:df3bdaf71f37db581f82c42b49b69ae004b93ccbc8f081682ea76404ef34b40d",
+      "body_bytes": 1017,
+      "body_sha256": "sha256:a984671657f575f33bb58741c1f30e27fd153b540999cef14076ce57c4e9c922",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3620,8 +3620,8 @@
     },
     {
       "aliases": ["advanced options disable outlier detection", "disable outlier detection"],
-      "body_bytes": 1398,
-      "body_sha256": "sha256:04287217c4a11b02e8674c5e398dcdd595f765cde2dc6508fef1899d416c790d",
+      "body_bytes": 1137,
+      "body_sha256": "sha256:c0ddfc2e6e53fcae3f2cbce0bb9baf41c41b8c3b26c78989c6d104ae16bfcad3",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3660,8 +3660,8 @@
     },
     {
       "aliases": ["advanced options disable proxy protocol", "disable proxy protocol", "no proxy protocol"],
-      "body_bytes": 1314,
-      "body_sha256": "sha256:28dc52c157d521077ee9464bd54757dc68d2f1097033b82a434e19c9682be0d0",
+      "body_bytes": 1053,
+      "body_sha256": "sha256:023bf4b3d292ed7552b437ec13ee70b79444fe5b708b35bc0acb91ebdcb50f13",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3700,8 +3700,8 @@
     },
     {
       "aliases": ["advanced options disable subsets"],
-      "body_bytes": 1358,
-      "body_sha256": "sha256:c1a9e34d9bee0243bef0b346df1a8ff0118a50ac918c0384b7b45dfbb42238b8",
+      "body_bytes": 1097,
+      "body_sha256": "sha256:375db08b0e0f482d7716ec8620fd7adb173b6893fb28e40ee78153fdbd7072b2",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3740,8 +3740,8 @@
     },
     {
       "aliases": ["advanced options enable lb source ip persistence"],
-      "body_bytes": 1275,
-      "body_sha256": "sha256:0a1c5600b9247d5e876707870956bb93ddc0c18089b43757d6026dba81d8b30d",
+      "body_bytes": 1014,
+      "body_sha256": "sha256:14d15ac2ee4ebbfeb88a1ebfdf42151168476c6fa8eacfe4f0ad9bb4d59a2cc6",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3780,8 +3780,8 @@
     },
     {
       "aliases": ["advanced options enable subsets"],
-      "body_bytes": 3191,
-      "body_sha256": "sha256:11841b58f71f3e68cb236ac0297db458d3169cab5a1b233ea355fa055847e8a2",
+      "body_bytes": 2193,
+      "body_sha256": "sha256:14c200f3352acee8e5e795f95aa0ea800e88bdc15b81fcaa8ba5009c20dd0295",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -3948,8 +3948,8 @@
     },
     {
       "aliases": ["advanced options enable subsets any endpoint"],
-      "body_bytes": 1470,
-      "body_sha256": "sha256:048176ad3014be9b718eaafd5b1ff1d65cb4ec3830f487b9cdc58644bbc2abcf",
+      "body_bytes": 1179,
+      "body_sha256": "sha256:ba9450248854a00587bd55bd35b76d241204af4f0f99d18547d2dbf76318c78b",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3988,8 +3988,8 @@
     },
     {
       "aliases": ["advanced options enable subsets default subset"],
-      "body_bytes": 1882,
-      "body_sha256": "sha256:05d798b909bd06656d7364ca0bb5791a58db3f504e770b01d53f4e74ec3bdbd0",
+      "body_bytes": 1394,
+      "body_sha256": "sha256:2abda9430571b6bcf0017aefb260892cbb5f8315178c7442e6f4047d235ada3a",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -4045,8 +4045,8 @@
     },
     {
       "aliases": ["advanced options enable subsets default subset default subset"],
-      "body_bytes": 2354,
-      "body_sha256": "sha256:184f56e4e5118a12ac9215179fd7af90e6ded3cf59f89d5690c707c2fdb869ba",
+      "body_bytes": 1858,
+      "body_sha256": "sha256:f89c391fb033a0d8527ded22cfb30f2a11f0e70e8731a7d4df5d6a3ca6324246",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4085,8 +4085,8 @@
     },
     {
       "aliases": ["advanced options enable subsets endpoint subsets"],
-      "body_bytes": 3394,
-      "body_sha256": "sha256:3f0f3a27654c03b58039e5bda72f46aae1fb2faf2a679b0493fbb52a49e86599",
+      "body_bytes": 3118,
+      "body_sha256": "sha256:5fd44134e87ccc2e41bc80efe02aa30266c22ae1548abcc3e9d0ce9677a70b32",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4149,8 +4149,8 @@
     },
     {
       "aliases": ["advanced options enable subsets fail request"],
-      "body_bytes": 1493,
-      "body_sha256": "sha256:1b4ea8d338951ca25350ee8550787a7920239d67b840505c1912f73e02d870e5",
+      "body_bytes": 1202,
+      "body_sha256": "sha256:9490c67526929304354414761f8b2fc6a731031a77afa86de38ef31d379c83c5",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4189,8 +4189,8 @@
     },
     {
       "aliases": ["advanced options http1 config"],
-      "body_bytes": 1591,
-      "body_sha256": "sha256:152fdb1a7a5b7685fffdcc3bd13c8f1c1cf56b3292000369e6abb81fa9e9a8b5",
+      "body_bytes": 1146,
+      "body_sha256": "sha256:36113d4abe1b9b2108470d116809fe4fabc138a4d1ec845435c9cd08a8d2186d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:origin_pool:properties:advanced_options:http1_config:header_transformation"],
@@ -4293,8 +4293,8 @@
     },
     {
       "aliases": ["advanced options http1 config header transformation"],
-      "body_bytes": 3599,
-      "body_sha256": "sha256:2496f9b21afe3e96136787622a741ecac6cbb0897395b65bde984e21746aaead",
+      "body_bytes": 2530,
+      "body_sha256": "sha256:6c120c7b32973a877aa9bdf0647cd8a7d71706e2b6d71d90a15a97ab4090d736",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -4439,8 +4439,8 @@
     },
     {
       "aliases": ["advanced options http1 config header transformation default header transformation"],
-      "body_bytes": 1767,
-      "body_sha256": "sha256:3b67152bcd29824daadc081352d5d64d59803967354d644bb6622b1ac391dc82",
+      "body_bytes": 1429,
+      "body_sha256": "sha256:98b8d2dcc1f213e90cd5769e63d5dabaf1a38ce5021fb2c06e20e31616dd57c2",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4479,8 +4479,8 @@
     },
     {
       "aliases": ["advanced options http1 config header transformation preserve case header transformation"],
-      "body_bytes": 1786,
-      "body_sha256": "sha256:a5c90581d55e25a89f4fc43e45f586e26f03ae55471f1339bd9264d9765bd663",
+      "body_bytes": 1448,
+      "body_sha256": "sha256:2e14e65f4aafcbf6d63ee9c0d312dd48676f26a570b129267911d78150f4446d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4524,8 +4524,8 @@
     },
     {
       "aliases": ["advanced options http1 config header transformation proper case header transformation"],
-      "body_bytes": 1792,
-      "body_sha256": "sha256:f35b2192c521acf66e4ce11d0a6e7298383ba1d5b44d9775082516485f24dc2f",
+      "body_bytes": 1454,
+      "body_sha256": "sha256:785d194e72e7080311fde2830ef7a47a6ebb04868d4416000722017235cb4068",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4564,8 +4564,8 @@
     },
     {
       "aliases": ["advanced options http2 options"],
-      "body_bytes": 1533,
-      "body_sha256": "sha256:e9e7118bdaf9aaeee54bc65be5c2997cb4ac11576b1252cea7a512504669f13f",
+      "body_bytes": 1287,
+      "body_sha256": "sha256:7cd2f032114cd7629d2fa94159b4029353e038b3220c41b3774547ec8c15d3bf",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4619,8 +4619,8 @@
     },
     {
       "aliases": ["advanced options no panic threshold"],
-      "body_bytes": 1370,
-      "body_sha256": "sha256:44dc4364d4d488cdd94eab86b513e9541fc23ed4248ff4c1fb43395158048cd6",
+      "body_bytes": 1109,
+      "body_sha256": "sha256:fc14ed2720a8d9fbb7201e39175597aa37ffed42eda081652a7dab8c82fc9d48",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4664,8 +4664,8 @@
         "no request limit",
         "no request limit per connection"
       ],
-      "body_bytes": 1422,
-      "body_sha256": "sha256:b0230fd3edafa766cb701c2ff6f30ef5c2bcecb3762dc5bff751599647c5b418",
+      "body_bytes": 1161,
+      "body_sha256": "sha256:ed5ba473c2ab29ba668465f8ed0b57653f6e5d99e9f8c02a88c423d856385708",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4685,7 +4685,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1330213333313110-3100031301022021-2123130200313332-3201013222020131-2223030121213030-2220120203131331-1221101000313013-1112103003000113",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4704,8 +4704,8 @@
     },
     {
       "aliases": ["advanced options outlier detection"],
-      "body_bytes": 9745,
-      "body_sha256": "sha256:d536bf599c825bfa58c9dbde82ac7a8443b8b8c39630b9b29402e474f68dfad0",
+      "body_bytes": 8183,
+      "body_sha256": "sha256:1e0f59c1884c7cc515e8a43da50241e8c989631b6229869bc9fcb97179c38888",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4725,7 +4725,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3000232203110021-1031230213122011-1123333023221112-2112132033221221-0233111301322212-1122212030103130-0001131010111133-3133220123103122",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4815,8 +4815,8 @@
     },
     {
       "aliases": ["advanced options proxy protocol v1"],
-      "body_bytes": 1294,
-      "body_sha256": "sha256:4f25ff4d2d03190e3a43a65d412156c38b9e24385f5d15a37360d0fef5a51557",
+      "body_bytes": 1033,
+      "body_sha256": "sha256:7b0763669805b518924831f4cdceaf57d83de6df06c86fc9158831b3abc805a4",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4836,7 +4836,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2231302013311332-2302020300210101-3013021032120300-1322020323111001-1021312211133123-0001210223111212-2210221303330123-2132302330031012",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4855,8 +4855,8 @@
     },
     {
       "aliases": ["advanced options proxy protocol v2"],
-      "body_bytes": 1294,
-      "body_sha256": "sha256:4736f664aff28e8dbbd269cce5f9489126029ce254ffebda45b5c168686aa64d",
+      "body_bytes": 1033,
+      "body_sha256": "sha256:2a977f344a115c5d81126f3e2682412c7c2ee8a99b00379a8558128d68fac3a0",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4876,7 +4876,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0320031013302220-3332100213221311-2123202301102332-2010033001202221-1032332013201311-3211112203311011-3001213113311213-2320133302110011",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4895,8 +4895,8 @@
     },
     {
       "aliases": ["automatic port"],
-      "body_bytes": 1592,
-      "body_sha256": "sha256:e403acf2d7a9fffed452ffb0729d50b0d02b666fe8ba45a5957136877354a9c7",
+      "body_bytes": 1346,
+      "body_sha256": "sha256:7c1210c8330e42435e4db2847b9b6bfc035fa745610d14b3a2db716032976b26",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4916,7 +4916,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1112022203223032-3323221233013132-1121203303031132-1021300130303111-2312333020233311-1132310003313023-1330012320112102-3213232312123011",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4935,8 +4935,8 @@
     },
     {
       "aliases": ["healthcheck"],
-      "body_bytes": 6123,
-      "body_sha256": "sha256:2280a8a5a47390afc83f1e068ffefafaf6a6688199cf0e337b6817bddc6f87e8",
+      "body_bytes": 5317,
+      "body_sha256": "sha256:861416112547fe1708c786826fec033d709053e0457a9710986b86524c7b375f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4956,7 +4956,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0220303133013032-2302323323212323-0311200001213123-3021130113330311-2212330212003003-3231310310300112-2222012213121021-0030322010120013",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-healthcheck--name",
@@ -5027,8 +5027,8 @@
     },
     {
       "aliases": ["lb port"],
-      "body_bytes": 1058,
-      "body_sha256": "sha256:282f64945654a9af015f95671690031a7d2f0178813e172c03f919de676e3574",
+      "body_bytes": 812,
+      "body_sha256": "sha256:8e592b89df2ebcf1e56da243947516b9687d753eef30d6339a42053eb9b33bae",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5048,7 +5048,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0020300233212120-1303102312023111-0212101131203331-1302022110112113-0033130113202023-0130301212232010-1022111220323023-0020230101001100",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5067,8 +5067,8 @@
     },
     {
       "aliases": ["no tls"],
-      "body_bytes": 1517,
-      "body_sha256": "sha256:e40998e9b4a1e84bac296dd1080ec573400a570563c24b77ebf2cd7c556d4759",
+      "body_bytes": 1271,
+      "body_sha256": "sha256:65ebb31330c697f97321eb099a31ca956f135a8c0c64292b5d427008a75365ec",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5088,7 +5088,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3232201211033121-2320120332221003-2102323230100223-1300312333300223-3332330230003310-0213003320030302-3013211011131001-3021000212231031",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5107,8 +5107,8 @@
     },
     {
       "aliases": ["backend servers", "origin servers", "upstream servers"],
-      "body_bytes": 9353,
-      "body_sha256": "sha256:7547e0bc9147b69d8b798f589e388f54a398ded87085db3a7d4624382f7c141b",
+      "body_bytes": 7533,
+      "body_sha256": "sha256:d88dfda2b9b05f31deddf50e58a51c4c2318589ef8c3eb9b20023d4d053bd896",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [
@@ -5139,7 +5139,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3213210211103302-0113102102311332-3301020313122313-2300311021121330-3110303331323010-3002302023032312-3331303322001030-2133000010210120",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -6241,8 +6241,8 @@
     },
     {
       "aliases": ["origin servers cbip service"],
-      "body_bytes": 2213,
-      "body_sha256": "sha256:e97e570cb7d0dae75143962f95f6fc2d12a9edc6fd9b4bcb1f22b481aa43c6b0",
+      "body_bytes": 1880,
+      "body_sha256": "sha256:08833283d4fed3ed69790430e9b9c7abffa6c568df82965319430dfa4b228a3b",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -6305,8 +6305,8 @@
     },
     {
       "aliases": ["origin servers consul service"],
-      "body_bytes": 3959,
-      "body_sha256": "sha256:7fb2cab2c6c0a72418c5d1c28011dc45a9a7c5e30d0d634c15158e1f22b48f03",
+      "body_bytes": 2847,
+      "body_sha256": "sha256:e71432e90dfbbf2c558ecd044badc172c60a363e0f353a4f136275671af66ff6",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [
@@ -6480,8 +6480,8 @@
     },
     {
       "aliases": ["origin servers consul service inside network"],
-      "body_bytes": 1485,
-      "body_sha256": "sha256:338a02b73c56ddcc3659e40c1b526424dc19cdde4201f20ef8267106d7f9688a",
+      "body_bytes": 1198,
+      "body_sha256": "sha256:4c6669495226d27173e8d2f6cda6555cf346cf3350b3131d43d78cd11dcf88d8",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -6520,8 +6520,8 @@
     },
     {
       "aliases": ["origin servers consul service outside network"],
-      "body_bytes": 1489,
-      "body_sha256": "sha256:8521c0dec49dd881187d2e577995f3ca44fddf869e43eaa2343f0df4aa1b28a8",
+      "body_bytes": 1202,
+      "body_sha256": "sha256:c338300cd9d1cb45512907f36c6f2b71645c9610f0532c377830959f4b405b17",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -6560,8 +6560,8 @@
     },
     {
       "aliases": ["origin servers consul service site locator"],
-      "body_bytes": 2497,
-      "body_sha256": "sha256:d070c81499e3ef91d855ee1d3152e70155e01cbccdd646a32f142cc4daf4574a",
+      "body_bytes": 1741,
+      "body_sha256": "sha256:a9c5ba7a00d4a764e77a5f0fa514ae0d767531cd7d0141d769d1469d53d4c220",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [
@@ -6667,8 +6667,8 @@
     },
     {
       "aliases": ["origin servers consul service site locator site"],
-      "body_bytes": 6527,
-      "body_sha256": "sha256:a5e3001037f1fc78bb7e128731a6aa485feebc09990d59ce0404cb5a5f04dd73",
+      "body_bytes": 5556,
+      "body_sha256": "sha256:c4794b719659fc496e8d95f65974ccd0c19f0513857467feb76c8cdd631bf02e",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -6759,8 +6759,8 @@
     },
     {
       "aliases": ["origin servers consul service site locator virtual site"],
-      "body_bytes": 6575,
-      "body_sha256": "sha256:0e74d31f559c7c44111ee3eb940e667210cc124cf0353da112235300e10600b1",
+      "body_bytes": 5604,
+      "body_sha256": "sha256:4f0c3409fab5ab14fb11910fd9d0427e0706395f6676e108a18824fbc0f3567a",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -6851,8 +6851,8 @@
     },
     {
       "aliases": ["origin servers consul service snat pool"],
-      "body_bytes": 2442,
-      "body_sha256": "sha256:c858f9c1879a90ea8836f32bd05f8504b1cc9bffb4747b8d8716f86c90a37b3a",
+      "body_bytes": 1725,
+      "body_sha256": "sha256:fb4c6970c3d81b28e235ebe4ac71b232d0f06fad6d6922e3418d1c0efd24df60",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [
@@ -6940,8 +6940,8 @@
     },
     {
       "aliases": ["origin servers consul service snat pool no snat pool"],
-      "body_bytes": 1692,
-      "body_sha256": "sha256:07d5d1c5fc00727bd32a17dfb827c6ee0524f174606342f4f2341b8e81c34f0c",
+      "body_bytes": 1385,
+      "body_sha256": "sha256:9fca8a45ea7c17342fe8644158bb38e01a0174bad6a7d6a88a2e82d19f0a9939",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -6980,8 +6980,8 @@
     },
     {
       "aliases": ["origin servers consul service snat pool snat pool"],
-      "body_bytes": 2822,
-      "body_sha256": "sha256:0cff67d480a1040bfc425e0c788e5b2a136a7d62fa37025a1d23ad36e7d3c26b",
+      "body_bytes": 2530,
+      "body_sha256": "sha256:18fcca238048d6bc30d2c65513a39ab4900c08146eefd20acbf59b37afae25db",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -7035,8 +7035,8 @@
     },
     {
       "aliases": ["origin servers custom endpoint object"],
-      "body_bytes": 1588,
-      "body_sha256": "sha256:18adbc32683aa09f73982d82e40e9356d9aa13f894622742763662b92af584a3",
+      "body_bytes": 1157,
+      "body_sha256": "sha256:aac06064ddd5cae91fca7ddafd01edc3b06dec994c155330ec9104cd03def55d",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:origin_pool:properties:origin_servers:custom_endpoint_object:endpoint"],
@@ -7099,8 +7099,8 @@
     },
     {
       "aliases": ["origin servers custom endpoint object endpoint"],
-      "body_bytes": 6348,
-      "body_sha256": "sha256:64bd61d3259681dbb8ad894bde1f7f69fc915c89da32ab67a401e37cee7678bc",
+      "body_bytes": 5387,
+      "body_sha256": "sha256:48625a0391bb809ede03b90a65be854249869bc85127b5432ff4fc7587ec01e5",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -7191,8 +7191,8 @@
     },
     {
       "aliases": ["origin servers k8s service"],
-      "body_bytes": 5732,
-      "body_sha256": "sha256:20532858b3ceaa68f1088e62f955e8d404f32b32bf86b1a154ba03e0ca00264c",
+      "body_bytes": 4402,
+      "body_sha256": "sha256:38bf46998a1d9b660ce1893458e69064b62b34730ae1e5971cccd7b0c745e2ed",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [
@@ -7419,8 +7419,8 @@
     },
     {
       "aliases": ["origin servers k8s service inside network"],
-      "body_bytes": 1467,
-      "body_sha256": "sha256:e5a8e6d81d2fe23a44ae11c5a552ff69f784eb4895b3e0eb5101e7906aca7379",
+      "body_bytes": 1186,
+      "body_sha256": "sha256:30ecb2512337830ded78a4fcb7be637e9340bf74a91e4482c32bc628027b4893",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -7459,8 +7459,8 @@
     },
     {
       "aliases": ["origin servers k8s service outside network"],
-      "body_bytes": 1471,
-      "body_sha256": "sha256:cea7505a66e05cd2823f6bc16fb1f047c4e0e344ab6e2f630670c34b9032f338",
+      "body_bytes": 1190,
+      "body_sha256": "sha256:68fb5a1c0bebbd1f6830a2671f7dc0099adf3ab58666e615a0f55187923ae769",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -7499,8 +7499,8 @@
     },
     {
       "aliases": ["origin servers k8s service site locator"],
-      "body_bytes": 2461,
-      "body_sha256": "sha256:85c85f054e1d05398d5292955153cfe4c3f4c2074d25a8aa674bf2dc832d2307",
+      "body_bytes": 1723,
+      "body_sha256": "sha256:cbee68786b26e2fa71e23039678cfdada9badb6144aeb68219429e0b88255246",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [
@@ -7523,7 +7523,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3332302001200033-1220112003110233-0022130323331023-3131130131013222-1033121010101012-2023030012220332-1102301113320022-2113123012211320",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -7606,8 +7606,8 @@
     },
     {
       "aliases": ["origin servers k8s service site locator site"],
-      "body_bytes": 6494,
-      "body_sha256": "sha256:1b7330eea2d2dbc0f60b3facc84bbd649c32c0e85ba0a16e2bb494943da82635",
+      "body_bytes": 5529,
+      "body_sha256": "sha256:e8b338d8ca234a3dc3a96949264eee38534826518f9fcf15bfc2391c83b4a488",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -7627,7 +7627,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3100133211320001-3312100030232320-3031301010230301-3330030203200230-0033031210223320-2010200033333010-3223011122110301-3320211111203031",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-origin_servers--k8s_service--site_locator--site--name",
@@ -7698,8 +7698,8 @@
     },
     {
       "aliases": ["origin servers k8s service site locator virtual site"],
-      "body_bytes": 6542,
-      "body_sha256": "sha256:c26aee83dcdb4bad612ae4fd7d1b82898d810aefed94d452464963af0a46a54e",
+      "body_bytes": 5577,
+      "body_sha256": "sha256:29434c6988d1fea649bccda9a5554701c3556b9814dd55756d33fc9088498e70",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -7719,7 +7719,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0022302012110203-2130330132230330-3101130123013031-2332313300310132-0313113133213110-3100010223101033-2233301002233221-1303300221201021",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-origin_servers--k8s_service--site_locator--virtual_site--name",
@@ -7790,8 +7790,8 @@
     },
     {
       "aliases": ["origin servers k8s service snat pool"],
-      "body_bytes": 2406,
-      "body_sha256": "sha256:5dbc023906674e96af3e7318a4bed16fa723bb323b837f3093629959b0169c44",
+      "body_bytes": 1707,
+      "body_sha256": "sha256:4cf285e8b36ee5ac9b732127cdafa8404b109caa2e68188c14c9d87932f48672",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [
@@ -7814,7 +7814,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2201230313322101-1312003232333023-0103301123101322-2112130013322233-1332230303023002-1110333220300031-2210012332300023-3202121221332102",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -7879,8 +7879,8 @@
     },
     {
       "aliases": ["origin servers k8s service snat pool no snat pool"],
-      "body_bytes": 1668,
-      "body_sha256": "sha256:00105fff7c60cc8ec04808bf14da4e00365015326cd786a8bd669d4ee94f000d",
+      "body_bytes": 1367,
+      "body_sha256": "sha256:37aa32a055e3a72a7467f23ca629e654c019051b2e5d2a438674dcb2564c4cc6",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -7900,7 +7900,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3120030123300002-3302220202331111-2130210203032133-1210003121120212-1331220113313303-3023331330303323-2302302121321021-1131001030133123",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -7919,8 +7919,8 @@
     },
     {
       "aliases": ["origin servers k8s service snat pool snat pool"],
-      "body_bytes": 2795,
-      "body_sha256": "sha256:8540f1ce8de58461f1f26d71f644e31bc8366206faae9c5bf3e7a9a0bb53aef4",
+      "body_bytes": 2509,
+      "body_sha256": "sha256:3162269505189bd8862c60231605ee67039dafa2168f4998253895ad785b202e",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -7940,7 +7940,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0203100021110200-1222213130002321-1303223321201100-1222003111122102-3031102313132102-2212033122301233-3100012230012301-3221313203112130",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -7974,8 +7974,8 @@
     },
     {
       "aliases": ["origin servers k8s service vk8s networks"],
-      "body_bytes": 1463,
-      "body_sha256": "sha256:a59359fe19c829dd587724d24779caee1deab4f7e91cc4ddf914b8d2736297d8",
+      "body_bytes": 1182,
+      "body_sha256": "sha256:964d6b13e076c86927baeb302d532ed3ba3f98a3cde6ce2f4e4753753efde475",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -7995,7 +7995,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2010112100222333-2130310003111231-1311320001103301-0331012012231200-3121203332212212-1103022100102313-2310201311120330-2120010221201230",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -8014,8 +8014,8 @@
     },
     {
       "aliases": ["origin servers private ip"],
-      "body_bytes": 4433,
-      "body_sha256": "sha256:605c832adb5024657b8b525a99604140845c84540556696e150db8ec50262fc3",
+      "body_bytes": 3266,
+      "body_sha256": "sha256:f3d9c15cdea36cf61125233402776f393a5227426436714704d15a92a5691275",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [
@@ -8041,7 +8041,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0230123122031010-0231002312323012-1310211030230020-2100002130223132-3313222333000000-0212233130001122-3202122200300023-1011131120231003",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -8237,8 +8237,8 @@
     },
     {
       "aliases": ["origin servers private ip inside network"],
-      "body_bytes": 1461,
-      "body_sha256": "sha256:4f75eae860a4288aa4da2237cc642511b2c252e7c577c48d28914f3e975e824f",
+      "body_bytes": 1182,
+      "body_sha256": "sha256:b5d9b3b3d76e93298534c4617ac2e57442a0e2e9842b9587ca4c37af1acc985f",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -8258,7 +8258,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2333033312003333-2020012201210130-2333321300102023-2223301201133333-1131320133122101-3322011331100320-1203013102230121-3220223120201200",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -8277,8 +8277,8 @@
     },
     {
       "aliases": ["origin servers private ip outside network"],
-      "body_bytes": 1465,
-      "body_sha256": "sha256:12d03e76812a27be489962fe18eab0c4d06c6246dfb5147f69f85ff995d52a36",
+      "body_bytes": 1186,
+      "body_sha256": "sha256:b5c8a273ffc4a48e1f13ffa474df3aa211c5e985b98b687e762c732780ee2827",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -8298,7 +8298,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2332312302210220-3001332333131122-1100220121131321-2233230013312312-2320320220221301-1130102233012220-2120000130122303-2120113222003130",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -8317,8 +8317,8 @@
     },
     {
       "aliases": ["origin servers private ip segment"],
-      "body_bytes": 6234,
-      "body_sha256": "sha256:69d913c99f6865df6c78845fb1d14da1689fe14efe72a0f2196d280771fe308f",
+      "body_bytes": 5297,
+      "body_sha256": "sha256:508061a703d2f2f733d8cd28cfec6c7fab31e0c9b0801aa331cd7b0b294688bc",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -8338,7 +8338,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3330110221310112-1110312123133100-2123130300111320-2011312003131331-2323030230133212-2300303013130222-3200300203112331-0000030201112330",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-origin_servers--private_ip--segment--name",
@@ -8409,8 +8409,8 @@
     },
     {
       "aliases": ["origin servers private ip site locator"],
-      "body_bytes": 2449,
-      "body_sha256": "sha256:5aa7a1c5fcc03567ea411e94f31ec10b97c03b782c3a2227295b11ac949259a8",
+      "body_bytes": 1717,
+      "body_sha256": "sha256:7171dd65c5e896ad6aeeadbdfe319d4de17c06f33c616953d1db8e13931f2173",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [
@@ -8433,7 +8433,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1000032120021203-1313202131313321-2332131231320103-1101202113310332-1231010321113221-0311211102202130-1302223110320022-1103003330102200",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -8516,8 +8516,8 @@
     },
     {
       "aliases": ["origin servers private ip site locator site"],
-      "body_bytes": 6483,
-      "body_sha256": "sha256:2dd80261a8ddbbeecf102d8a565b5eb8798dae4249de01b24a453405053c3981",
+      "body_bytes": 5520,
+      "body_sha256": "sha256:7dfe5514651077f324a4c47c09f88acee8292b25482b05dd6f348db51286898f",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -8537,7 +8537,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0033003220302032-1233233113310201-1221132212023222-0023132332022003-3233200113230112-0210031031003020-1120331220022312-1302013132002100",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-origin_servers--private_ip--site_locator--site--name",
@@ -8608,8 +8608,8 @@
     },
     {
       "aliases": ["origin servers private ip site locator virtual site"],
-      "body_bytes": 6531,
-      "body_sha256": "sha256:b0e6cab5a5f158e75274c87c75ab41014d38aeb65b121cc877906dcf031c1204",
+      "body_bytes": 5568,
+      "body_sha256": "sha256:aeced4f678e71297afd648b5c06cfe67aa4fbe7d22207f3c60bfa51f28aa19b7",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -8629,7 +8629,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2333130022331103-1112130211201220-0203022112321012-1323001330210201-2223232033131220-1223103200121120-2323132201200131-1232331312223321",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-origin_servers--private_ip--site_locator--virtual_site--name",
@@ -8700,8 +8700,8 @@
     },
     {
       "aliases": ["origin servers private ip snat pool"],
-      "body_bytes": 2394,
-      "body_sha256": "sha256:70334df0138288f90c0e801fa63fc68ff461bfcd2d723eda08afce2c997d6875",
+      "body_bytes": 1701,
+      "body_sha256": "sha256:8330ac99f60def4000b094fec3da7682bdcaa76270a54eaf683bd3a22ee4ea6b",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [
@@ -8724,7 +8724,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2203322130130331-0013113233122110-1033001232011010-2112001333020221-3201120301003311-0110310200231311-3321002311100001-1022132122001012",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -8789,8 +8789,8 @@
     },
     {
       "aliases": ["origin servers private ip snat pool no snat pool"],
-      "body_bytes": 1660,
-      "body_sha256": "sha256:843ecdb2ebd22e49b778cdf58f86ca55375eb027b0a6f932a568dcd9351fab9e",
+      "body_bytes": 1361,
+      "body_sha256": "sha256:9387b6320e55a739d2613dceb598214bbde75e0c6435788f0bb608fc6396d707",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -8810,7 +8810,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2223123321310311-0022101202202202-2313330102010022-2220011122020023-1030013111210103-1122131100131311-1000123233211222-1311201133113313",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -8829,8 +8829,8 @@
     },
     {
       "aliases": ["origin servers private ip snat pool snat pool"],
-      "body_bytes": 2786,
-      "body_sha256": "sha256:31d2eed68c529407a8eb1757769adaf37c2b2458ba4c9e9b2a761af7f658c600",
+      "body_bytes": 2502,
+      "body_sha256": "sha256:3d11d67f2353fe521cf506941c81557aa90b09932c6571900140f424c55b6837",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -8850,7 +8850,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0223213203101123-1313311203312233-1030000202323301-1000222111110203-0212020020331110-0120321020133203-1022120113221100-3331221220332032",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -8884,8 +8884,8 @@
     },
     {
       "aliases": ["origin servers private name"],
-      "body_bytes": 6162,
-      "body_sha256": "sha256:c2cbe90e471ded6545207a062827fcdc4098cbcbdc830c5cf0fd656f5be09f9c",
+      "body_bytes": 4869,
+      "body_sha256": "sha256:df717231779d732e486668cf399f4c061e4926847249d65845d1ffb78c6b2e47",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [
@@ -8911,7 +8911,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1133022131320232-3123302201233302-1212311001131130-2012010123333133-0102031133330232-1000330202203203-2203003330013202-1120202100000323",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -9129,8 +9129,8 @@
     },
     {
       "aliases": ["origin servers private name inside network"],
-      "body_bytes": 1473,
-      "body_sha256": "sha256:2b045e0d8c61a0ca99a6a3fe38095b40f78119f3ab243593a8857fb451338df5",
+      "body_bytes": 1190,
+      "body_sha256": "sha256:3fb585837b517a937bc1259496adaf32cd751782683d72c902ab78b66238e0c2",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9150,7 +9150,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2203123102332202-2332013300310111-3022033222313002-2213133113121032-1122013013203332-2023020212333100-3023233133301122-0311232310323331",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9169,8 +9169,8 @@
     },
     {
       "aliases": ["origin servers private name outside network"],
-      "body_bytes": 1477,
-      "body_sha256": "sha256:8e88fe5b7a5a430db69d59e565b7ce12e2c5c280095d01c89441783d060c5007",
+      "body_bytes": 1194,
+      "body_sha256": "sha256:c22bd20b1c187fef261dd018283279bd929d08acdf04c10bf21fb2027136b01e",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9190,7 +9190,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3120201313033031-2111011302310031-3230023222102013-3032031102130021-1212010010233033-0030201131221331-0112102022203121-1231311201021120",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9209,8 +9209,8 @@
     },
     {
       "aliases": ["origin servers private name segment"],
-      "body_bytes": 6252,
-      "body_sha256": "sha256:001a432b1cf0feae0a2bf5f776462b1f5bdb1a884a6de2381a8e590ba0523e5f",
+      "body_bytes": 5311,
+      "body_sha256": "sha256:b993fe10968358a82e63306fcebb17b9e8ce4862d34684e4f9366bc2dc0c9bc2",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9230,7 +9230,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1200322213030001-3020120330301111-1323013131020133-1113202333233202-1000222302203230-1223201032001001-3323222331313231-1020213223310111",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-origin_servers--private_name--segment--name",
@@ -9301,8 +9301,8 @@
     },
     {
       "aliases": ["origin servers private name site locator"],
-      "body_bytes": 2473,
-      "body_sha256": "sha256:009f3d541716b100beaccb5edc595cb31549f56733d8918e09f0f54360044bda",
+      "body_bytes": 1729,
+      "body_sha256": "sha256:178602371d2d718ff0665275210afff12b921ef4b93f9ea4a991ac89b66f9a73",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [
@@ -9325,7 +9325,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0212303223003130-1332322112033213-1131000022003312-2202112033132223-0122030223312100-3230301312001113-2030313001123011-1232322003133222",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -9408,8 +9408,8 @@
     },
     {
       "aliases": ["origin servers private name site locator site"],
-      "body_bytes": 6505,
-      "body_sha256": "sha256:80675deaddeadced88aa295e1d20332acc798018d42ed5fc5e103137563e09a0",
+      "body_bytes": 5538,
+      "body_sha256": "sha256:a76e5e12f741a8692e77b371391ff6954f7c7405acd43657f9f92b5391332495",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9429,7 +9429,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3202010311011020-1202031221320113-3122030101221230-2200102322211100-2123330202232233-3001123100320133-3112032000130220-0233002310102130",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-origin_servers--private_name--site_locator--site--name",
@@ -9500,8 +9500,8 @@
     },
     {
       "aliases": ["origin servers private name site locator virtual site"],
-      "body_bytes": 6553,
-      "body_sha256": "sha256:cc604efb3eb1d6089f35013453700d98941779bac646a3c3888e5a864dd42ed7",
+      "body_bytes": 5586,
+      "body_sha256": "sha256:f7f5077edb315cb4e59cb78ffe8396accd516ed45832b72da26de589947a22a6",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9521,7 +9521,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0310120101132210-0322321121303212-2123011032321233-0312231230321133-2231302322012302-2001330223222303-0223221321130131-3023110131010102",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-origin_servers--private_name--site_locator--virtual_site--name",
@@ -9592,8 +9592,8 @@
     },
     {
       "aliases": ["origin servers private name snat pool"],
-      "body_bytes": 2418,
-      "body_sha256": "sha256:2cc185cdd33242b31b3afc7acb0005b09647152695b334fe0ce8e2b97e9fd731",
+      "body_bytes": 1713,
+      "body_sha256": "sha256:b3aa81635631428d64f836bb071371a2ddeebe696b49f7ac9a1f9501765f5d1c",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [
@@ -9616,7 +9616,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0321112302111110-2332032022123300-3223231331023321-2023012232200220-1111231331321130-2333013103212300-2310131332030223-2112023131320203",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -9681,8 +9681,8 @@
     },
     {
       "aliases": ["origin servers private name snat pool no snat pool"],
-      "body_bytes": 1676,
-      "body_sha256": "sha256:063906e911774dd19df7c2bdac1013f521cc8b69b5e2ab88cb784d6e4d0bc3bf",
+      "body_bytes": 1373,
+      "body_sha256": "sha256:3e011fd4ffd1d90eedab2aeadc8f733bb887167955091aa6eebbef29107a4370",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9702,7 +9702,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3130023221023210-3020131101000132-2331203133232103-1230023310301102-2223220110200130-0220200112120302-3310132133311233-3200112023312112",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9721,8 +9721,8 @@
     },
     {
       "aliases": ["origin servers private name snat pool snat pool"],
-      "body_bytes": 2804,
-      "body_sha256": "sha256:d7e752e9d7064002e25aa08e2fbaab2679c423c51da9f026be2762af61a64ffa",
+      "body_bytes": 2516,
+      "body_sha256": "sha256:0397d53030b69155af97cc52fb532c82328df4e4cf30a6bfa1f1a0b82dcba5ec",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9742,7 +9742,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2221131331021133-1131233031222100-2123110022013001-1003330121330001-2001002310023110-1111101220230032-3332220113200220-3133303312002021",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9776,8 +9776,8 @@
     },
     {
       "aliases": ["origin servers public ip"],
-      "body_bytes": 2226,
-      "body_sha256": "sha256:52564bad8a5fd7d6157830c0d4a04fe9ac300e4fe12092c2d427f7c27ef8a1db",
+      "body_bytes": 1919,
+      "body_sha256": "sha256:f72518c169a4d2e580b38a5d0fab77311cd07fdcce05dbd41b313425ea8f700d",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9797,7 +9797,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2012202102220023-2022233311031000-2131130202320231-1200001300020311-2032322312323113-2110322301123032-3132132030003331-0200031213133012",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9831,8 +9831,8 @@
     },
     {
       "aliases": ["origin servers public name"],
-      "body_bytes": 4212,
-      "body_sha256": "sha256:8f2efd1d7c11021bad07770914844ff8b3ed29987ec8055ca25e5120e5bbccd7",
+      "body_bytes": 3798,
+      "body_sha256": "sha256:52d4af2c5ebe95db087214f27b85956b268504d97b86e604e620ff17aff94e7a",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9852,7 +9852,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0101123032132221-2211032101001201-1000311221111203-2133111213011322-0333020102301313-3100023301322230-0212222321323322-2203130310321323",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-origin_servers--public_name--dns_name",
@@ -9909,8 +9909,8 @@
     },
     {
       "aliases": ["origin servers vn private ip"],
-      "body_bytes": 2608,
-      "body_sha256": "sha256:3a72c4e86fb0feeb9930202407e6e9c7a043269358902d332f06ecb8587b3099",
+      "body_bytes": 2123,
+      "body_sha256": "sha256:743aebe659bdc6204e3d54c61f66e7ce64b2d7bae798d4e171ee1cd278131f53",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:origin_pool:properties:origin_servers:vn_private_ip:virtual_network"],
@@ -9930,7 +9930,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2130122232222011-2300321030110011-1031031023222200-1001031200312013-2120002123011312-1310133101323000-3001103213310123-2023322321313313",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9987,8 +9987,8 @@
     },
     {
       "aliases": ["origin servers vn private ip virtual network"],
-      "body_bytes": 6309,
-      "body_sha256": "sha256:86b850fd7e51ab08a1acfb3e52b27d3586209e27fe69396ebc733e02bfe93f0e",
+      "body_bytes": 5366,
+      "body_sha256": "sha256:a2ad5387cb9872769b6421b3d34321045b83bee5013bf270e23d777711e6270a",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -10008,7 +10008,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3122100030131322-0113010211030321-3203333130200133-1111310203002032-0020302020200012-0010322030112332-3310313213332211-3231002332012330",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-origin_servers--vn_private_ip--virtual_network--name",
@@ -10079,8 +10079,8 @@
     },
     {
       "aliases": ["origin servers vn private name"],
-      "body_bytes": 3168,
-      "body_sha256": "sha256:c250852194f5f07470aa0bfe0abf2700826badda7458293e7990ae4fc6ba679c",
+      "body_bytes": 2704,
+      "body_sha256": "sha256:2e02d7f66374a3b6673cc7e2b78b0b49cfac16d8e0a976b0b73e45c5ac20e42b",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:origin_pool:properties:origin_servers:vn_private_name:private_network"],
@@ -10100,7 +10100,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1013210030120200-0300013133323110-0211222301220003-2111231123223232-2130003221211000-0010213100230320-3322112211323121-2102120111321112",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-origin_servers--vn_private_name--dns_name",
@@ -10166,8 +10166,8 @@
     },
     {
       "aliases": ["origin servers vn private name private network"],
-      "body_bytes": 6327,
-      "body_sha256": "sha256:9c0e53f81efe0d0db1c4d7d6baf13f7343c8ffe380e40afed8c6ab3df30d544e",
+      "body_bytes": 5380,
+      "body_sha256": "sha256:36506e5c87d98fef71a711203f3c1000438826203799246f4ebedc31679168bc",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
@@ -10187,7 +10187,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3313202330121310-0332121101021311-0020212111023330-2010022013100332-0131010011102330-1300031011320320-3223132122001110-3220213212120000",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-origin_servers--vn_private_name--private_network--name",
@@ -10258,8 +10258,8 @@
     },
     {
       "aliases": ["same as endpoint port"],
-      "body_bytes": 1173,
-      "body_sha256": "sha256:eec0419bc5a39bcbad5e6fd0a071dab14a0e504789f237f36d09ce1b6c2a3959",
+      "body_bytes": 927,
+      "body_sha256": "sha256:a766129d757d4e163f12bdc4a207049cba3871fb7eb5a69cc80a8207b8e1c19b",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -10279,7 +10279,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3110220132232202-3223311123032232-3333333030113010-2133200310011011-3010332223210221-3113000210333321-1221001103212033-0210001201112033",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -10298,8 +10298,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2225,
-      "body_sha256": "sha256:e170bdabc14b1bc6c487f1d92eaa4b73505c014929b9dce879c1de219fc6ce15",
+      "body_bytes": 1994,
+      "body_sha256": "sha256:2dc0bd5fe94a667980dd6407e4b4e9f147d48b6e7761d274b7f1a5fee092efea",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -10319,7 +10319,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1322321330320022-2021311033121221-0210313231232031-3331330210233122-2333300130103032-3230223313322102-2023330330022001-1110122123303032",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -10430,8 +10430,8 @@
     },
     {
       "aliases": ["upstream conn pool reuse type"],
-      "body_bytes": 2272,
-      "body_sha256": "sha256:946b6c07721d47d19c80dc35af0d3c5773fb618095185129f5e52b43bda9c144",
+      "body_bytes": 1637,
+      "body_sha256": "sha256:9bbbcb5769787ae6e731ce2a4f371d4ae53bba13595d1a5d1d2cd580b54a9e90",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -10519,8 +10519,8 @@
     },
     {
       "aliases": ["upstream conn pool reuse type disable conn pool reuse"],
-      "body_bytes": 1396,
-      "body_sha256": "sha256:3219a2a482af6f4655b40e7e264a91167dffa58d7a8c27f8f69111afa043758d",
+      "body_bytes": 1109,
+      "body_sha256": "sha256:35fd8612ab1f8c31e9241b0a932f363dbdf2a1718a20c42c6d7437755d9254c4",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -10559,8 +10559,8 @@
     },
     {
       "aliases": ["upstream conn pool reuse type enable conn pool reuse"],
-      "body_bytes": 1392,
-      "body_sha256": "sha256:ff884624aeba86a3a496bd930baf1e7745b3ffad3f415b2fa65cb6a97ccd9b58",
+      "body_bytes": 1105,
+      "body_sha256": "sha256:9c088b01d01da03b60708dd5fc116a0cb164c93536fc3fb2d7b8aa07e47d46bd",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -10599,8 +10599,8 @@
     },
     {
       "aliases": ["use tls"],
-      "body_bytes": 8524,
-      "body_sha256": "sha256:0801c1ad9d0dd7693b8a100477e80cfc7c789af79ba6e5f50a3a7cad56994242",
+      "body_bytes": 6370,
+      "body_sha256": "sha256:33bd9867f0491d340d4b42e35a5bd5f3fe3da6f822dcb70aea7b44fe25017151",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -11159,8 +11159,8 @@
     },
     {
       "aliases": ["use tls default session key caching"],
-      "body_bytes": 1352,
-      "body_sha256": "sha256:5c1b7705402d1f3156e6dc0e88dfd7fed435eac6daa9f0d00240e4037cd80ff2",
+      "body_bytes": 1109,
+      "body_sha256": "sha256:3e69a17eea6633e467e62d274ec3f8874bc77f4c5b9a5ea84357e961f92bf99d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -11199,8 +11199,8 @@
     },
     {
       "aliases": ["use tls disable session key caching"],
-      "body_bytes": 1280,
-      "body_sha256": "sha256:92cf572142a389d1717685c725e1765b04d5271ad25fc7c170137f112052d08b",
+      "body_bytes": 1037,
+      "body_sha256": "sha256:ce5e43fb24199148849e7fde6719d13f5c39c002f739a865a5d04e6a83f80538",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -11239,8 +11239,8 @@
     },
     {
       "aliases": ["use tls disable sni"],
-      "body_bytes": 1216,
-      "body_sha256": "sha256:941ca4de9c4879d4d9c9de47887df260765a6729d63021df7806bdebe8d741bf",
+      "body_bytes": 973,
+      "body_sha256": "sha256:5e20df12a17164aecf57e2d66c657663610dabb0dc82cf2a625ac00fb6e3788a",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -11279,8 +11279,8 @@
     },
     {
       "aliases": ["use tls no mtls"],
-      "body_bytes": 1255,
-      "body_sha256": "sha256:cc2e5c6df571f1550c8707af96685facefb65373362f330673f7f255750d4fb3",
+      "body_bytes": 1012,
+      "body_sha256": "sha256:3d76f0b0949a4c7f7945635cf02c5ef0380016e5913d0dc8f45f72ac2be500c6",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -11319,8 +11319,8 @@
     },
     {
       "aliases": ["use tls skip server verification"],
-      "body_bytes": 1233,
-      "body_sha256": "sha256:9ef4b705ae9cf68d8acefe2c3903c59d8bf47b7d2a10d523554709c3623ebb54",
+      "body_bytes": 990,
+      "body_sha256": "sha256:e8da2e7fde7bcc651cd99b22844a893446d1da5ac1cd3210b393c71be46b2503",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -11359,8 +11359,8 @@
     },
     {
       "aliases": ["use tls tls config"],
-      "body_bytes": 3661,
-      "body_sha256": "sha256:a93ca7fe018f4b9cbab3c7e4e6e77af5e7f0d823502ced9394242679d2958e7d",
+      "body_bytes": 2686,
+      "body_sha256": "sha256:d26083388081fcc7d4d5d6aa35874a89a6e2711b481ca0fa108233e7fc59a0a2",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -11567,8 +11567,8 @@
     },
     {
       "aliases": ["use tls tls config custom security"],
-      "body_bytes": 6156,
-      "body_sha256": "sha256:6863634069d49b08ab97a675291e9354bf6f47f16aa35e746b5a788ff0fd6285",
+      "body_bytes": 5534,
+      "body_sha256": "sha256:9b0231a0c6f3fcbf195999580fb9c61e7d2ee704f4a0f316f7e939f952b3c3d2",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -11659,8 +11659,8 @@
     },
     {
       "aliases": ["use tls tls config default security"],
-      "body_bytes": 1386,
-      "body_sha256": "sha256:c1c7302446b82696c868d0f3a91b41b58bfee3295b04311e4597584c56c773a3",
+      "body_bytes": 1121,
+      "body_sha256": "sha256:3aaad023064ede735d0643af35f2df3ae588903e8dadca50425f44bf8f73fcfa",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -11699,8 +11699,8 @@
     },
     {
       "aliases": ["use tls tls config low security"],
-      "body_bytes": 1374,
-      "body_sha256": "sha256:2833697377f64c33814e0104002bd023b425fb1c7a3b01f487208ddee6f215f4",
+      "body_bytes": 1109,
+      "body_sha256": "sha256:efaba655179114f049241398586d6ca8b6253c6b6cb209602403a2148349749e",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -11739,8 +11739,8 @@
     },
     {
       "aliases": ["use tls tls config medium security"],
-      "body_bytes": 1383,
-      "body_sha256": "sha256:925eafddd5bad9cc82ed96a3168f7d56841ad519721df3bcaa3c4f6d45642db9",
+      "body_bytes": 1118,
+      "body_sha256": "sha256:be6f5e331db3a587822f5a136332ed7085ba83b7634513343dc1e0dde492919d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -11779,8 +11779,8 @@
     },
     {
       "aliases": ["use tls use host header as sni"],
-      "body_bytes": 1300,
-      "body_sha256": "sha256:55536855dfe6601fd6eeab2f4b20dafdfe1174c7cbb085fd4e8f4a0a36d04711",
+      "body_bytes": 1057,
+      "body_sha256": "sha256:60eaae4ef3023dcf8329ef9935935f810eeafa08f8ff4d7ef46a747f5cebca5e",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -11819,8 +11819,8 @@
     },
     {
       "aliases": ["use tls use mtls"],
-      "body_bytes": 1661,
-      "body_sha256": "sha256:17d178ac6efec940c9b3555f50cf1cdd89d6b8ea4b9aa5fe5303f4e18d5f58c7",
+      "body_bytes": 1221,
+      "body_sha256": "sha256:fc53697ce075b381a9b3eb2b4c8bc459e1550212d7c6d0a5b15498f879d0c548",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates"],
@@ -11952,8 +11952,8 @@
         "tls certificates",
         "use tls use mtls tls certificates"
       ],
-      "body_bytes": 5834,
-      "body_sha256": "sha256:80041cba1b671a0f8fb2c0f3e2dc502c7c0b9fdba71ba813b86280e4dcc69e95",
+      "body_bytes": 4618,
+      "body_sha256": "sha256:98c10c6d9a36d9b938dc84e33f51f1733d9a7394c55fc9d43dbe2f7b5283da71",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -12171,8 +12171,8 @@
     },
     {
       "aliases": ["use tls use mtls tls certificates custom hash algorithms"],
-      "body_bytes": 3271,
-      "body_sha256": "sha256:7c64f5c81b2890617ca31a30c40dbcfcd39d0058e9b4f02a8a1844073db5b565",
+      "body_bytes": 2923,
+      "body_sha256": "sha256:f6b23bca15c9e22d27ebb3d2aa226769956c8f18875a9eaaccf5411fa2dbd938",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -12235,8 +12235,8 @@
     },
     {
       "aliases": ["use tls use mtls tls certificates disable ocsp stapling"],
-      "body_bytes": 1652,
-      "body_sha256": "sha256:8187dc605e6a4c9e5c6a1418869d8d4cd84054e9da29e18f699c0f7706b3fa33",
+      "body_bytes": 1357,
+      "body_sha256": "sha256:d9c1519e1c6bf210ca1cfd353739707598fe8073a2880bca68d18d3b73cb5470",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -12275,8 +12275,8 @@
     },
     {
       "aliases": ["use tls use mtls tls certificates private key"],
-      "body_bytes": 2717,
-      "body_sha256": "sha256:5ffb9ea904913eac81421fa7ffd1c48c266ba8343170505f00cd86873f23e8db",
+      "body_bytes": 1983,
+      "body_sha256": "sha256:2c1dcaceab80c28f42489d26310618b7a6b993299be2e596e68944b27616a42e",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -12382,8 +12382,8 @@
     },
     {
       "aliases": ["use tls use mtls tls certificates private key blindfold secret info"],
-      "body_bytes": 5316,
-      "body_sha256": "sha256:ef33de4903743244e270186b8ad65fe5f145c22087d27fbf55f7dec6fc94cb17",
+      "body_bytes": 4643,
+      "body_sha256": "sha256:d493c726f3cdf1d9b740dd35a9c8e17c237c6845c794d8ac071d45ed6e6a8ca8",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -12495,8 +12495,8 @@
     },
     {
       "aliases": ["use tls use mtls tls certificates private key clear secret info"],
-      "body_bytes": 4179,
-      "body_sha256": "sha256:86b31044f47d216ff7f39d57b7267264e5256fec4f4c87506c62a2256b6c01e1",
+      "body_bytes": 3640,
+      "body_sha256": "sha256:04d93f393c66dc46ec121b79ba23fade5315b5ee4a99f36c097be58286c0ce2f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -12580,8 +12580,8 @@
     },
     {
       "aliases": ["use tls use mtls tls certificates use system defaults"],
-      "body_bytes": 1644,
-      "body_sha256": "sha256:51dcf1960ec83207c7c3a70483fa8b025d4188174bedaef5a705fc4afe2295a1",
+      "body_bytes": 1349,
+      "body_sha256": "sha256:10cacc43037b4ba1e07b03a16685d6094a2cce7ab3f016a2f2f5a496862560fa",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -12620,8 +12620,8 @@
     },
     {
       "aliases": ["use tls use mtls obj"],
-      "body_bytes": 5974,
-      "body_sha256": "sha256:eeb905a821658d4310cd2aacb6cee3fb32f2851c6811502825dafbd66c4908d7",
+      "body_bytes": 5073,
+      "body_sha256": "sha256:81d28a4bc2e92ba6435b027bd547a078c2677795b188b94afe7b7fb1244f7346",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -12712,8 +12712,8 @@
     },
     {
       "aliases": ["use tls use server verification"],
-      "body_bytes": 3369,
-      "body_sha256": "sha256:53b1ac8d1d44bdac2bd616f117d6c9a0f9b380f643ab2ac0c1b5cdcb43064175",
+      "body_bytes": 2807,
+      "body_sha256": "sha256:69f108d3a476bb372ee16f09dd535a3f46a9c9790853c6d38ee5f923b93b27bd",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:origin_pool:properties:use_tls:use_server_verification:trusted_ca"],
@@ -12807,8 +12807,8 @@
     },
     {
       "aliases": ["use tls use server verification trusted ca"],
-      "body_bytes": 6292,
-      "body_sha256": "sha256:924bb7cb28a2b6042fbfcc5278e9289ee2c58ea25333a9041df9af4f7484f78d",
+      "body_bytes": 5343,
+      "body_sha256": "sha256:387f86b2b01c01e31af8536f91e14913fe1cd9aed163541ab9a021581e731246",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -12899,8 +12899,8 @@
     },
     {
       "aliases": ["use tls volterra trusted ca"],
-      "body_bytes": 1320,
-      "body_sha256": "sha256:a5d77b15df21d5e2e754d8004fe235a7f7cf3f33bd3185fb65918343069c5e3c",
+      "body_bytes": 1077,
+      "body_sha256": "sha256:a2bc0c83cf7691e5258a7debd48526fb61d4561c3ee35542511ac2c53f31bf57",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -12939,8 +12939,8 @@
     },
     {
       "aliases": ["backend servers", "origin pool", "origin servers", "upstream servers"],
-      "body_bytes": 2169,
-      "body_sha256": "sha256:ed5929a2ba04ab3ebb9ca05dbe45afe71264178dd69870b70a81a90d5280f6e0",
+      "body_bytes": 1239,
+      "body_sha256": "sha256:094e8b5e0d0d8983ee0a6e5e79a061f76f401cb7451379c236327c6d5692a530",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -12987,8 +12987,8 @@
     },
     {
       "aliases": ["labels-update"],
-      "body_bytes": 1407,
-      "body_sha256": "sha256:146b9690171a90df750ef8105abb6004833da9332972d22a7a030534a9dbc988",
+      "body_bytes": 1188,
+      "body_sha256": "sha256:0362df6166d05f9f0c5c3864c7c768d851ed4278faa64f54f4cf1acef85cba68",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -13034,8 +13034,8 @@
     },
     {
       "aliases": ["multiple-origins"],
-      "body_bytes": 1464,
-      "body_sha256": "sha256:81734acc3ac79aaaa091b6e5cc21e48cc638adfe998a22898c6d3b01a65425e2",
+      "body_bytes": 1245,
+      "body_sha256": "sha256:0627b4f95b33dec77e33c911a6ed43ac1396baf1a1faf4aa03b7b7cf009d6334",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -13081,8 +13081,8 @@
     },
     {
       "aliases": ["nested-labels"],
-      "body_bytes": 1409,
-      "body_sha256": "sha256:48fe204f3b975061add86e3fc59c4b8545b081a2e921af40b404d7bbbf65940b",
+      "body_bytes": 1190,
+      "body_sha256": "sha256:d4055d26c43dd0585bd94cff85cf6813cc1fb31e00ecc2c5d0971309b9badb92",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -13128,8 +13128,8 @@
     },
     {
       "aliases": ["port"],
-      "body_bytes": 1320,
-      "body_sha256": "sha256:df4b7deaddd841870418f6c830ac2484ca87d9150bb90c600e88b8197c2633ef",
+      "body_bytes": 1101,
+      "body_sha256": "sha256:287b6f7c9deceba03ecc85699e455880773b89625ff47e77128fbec1636961d8",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -13175,8 +13175,8 @@
     },
     {
       "aliases": ["public-ip"],
-      "body_bytes": 1330,
-      "body_sha256": "sha256:53dd42f69b81443920b4508b481244522443d560c2d4e031aa42d175d51db845",
+      "body_bytes": 1111,
+      "body_sha256": "sha256:fd1756f27d1f682317336f5fdd3628b1acecf608ef5d98a94c3c7915c4a1d235",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -13222,8 +13222,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1281,
-      "body_sha256": "sha256:ab279b0c67baa7122a80da3c312fac612f5e2258ee174e3fb75aba9895ca31ab",
+      "body_bytes": 1062,
+      "body_sha256": "sha256:093f0705177045ed1d3561943773952b3a11bee73f51408b0fe8d06635c8e239",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -13269,8 +13269,8 @@
     },
     {
       "aliases": ["with-labels"],
-      "body_bytes": 1458,
-      "body_sha256": "sha256:aec1d6857dcee1463584ad9e1dd1d2433c2149dc70702fdda236c0e634a30bb9",
+      "body_bytes": 1239,
+      "body_sha256": "sha256:d2a58fbf3be367dc436b8ce1a4ee5e60121efa6adcf34e2cfe861f5218f7d866",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -13316,8 +13316,8 @@
     },
     {
       "aliases": ["backend servers", "origin pool", "origin servers", "upstream servers"],
-      "body_bytes": 475,
-      "body_sha256": "sha256:0d24689a5a162de9afe5bc8deaf2be852ca8e5ad8f91b8002e57f5b7be6ce15c",
+      "body_bytes": 358,
+      "body_sha256": "sha256:37b33be55e1d4b74ca6a571b6aa3edb41fd52be0cef98b1c2f98b76e635a9894",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -13357,8 +13357,8 @@
     },
     {
       "aliases": ["backend servers", "origin pool", "origin servers", "upstream servers"],
-      "body_bytes": 563,
-      "body_sha256": "sha256:bd2f9c06c87787f81ff4d2d5d2834cefae5c929da9145556fdc665adcc529747",
+      "body_bytes": 446,
+      "body_sha256": "sha256:7d25ec82e8381154de546e5b6e42e6d13e458b021ca000fe61ec378f3479b2ef",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],

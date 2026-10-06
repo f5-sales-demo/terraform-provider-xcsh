@@ -2,7 +2,7 @@
 page_title: "ddos_mitigation_rules.ddos_client_source.tls_fingerprint_matcher"
 subcategory: "Load Balancing"
 description: "A TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positive match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied and the input"
-xcsh_docs: {"aliases": ["ddos mitigation rules ddos client source tls fingerprint matcher", "succeeded", "success", "successful"], "body_bytes": 6875, "body_sha256": "sha256:d9e098894a256c971c55a44cc561b3e1db9cca2cd825fedaadee8c65c5e0ee02", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:http_loadbalancer:properties:ddos_mitigation_rules:ddos_client_source:tls_fingerprint_matcher", "parent_id": "xcsh-docs:resources:http_loadbalancer:properties:ddos_mitigation_rules:ddos_client_source", "path": "documentation/resources/http_loadbalancer/properties/ddos_mitigation_rules/ddos_client_source/tls_fingerprint_matcher/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0031133313011232-1222230120123210-0233333120231321-3133333023031031-2020213302230211-1112301011201130-2033120322011123-0220211013233023", "registry_path": "docs/guides/resources--http_loadbalancer--reference--group-015.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["ddos_mitigation_rules", "ddos_client_source", "tls_fingerprint_matcher"], "schema_version": 1, "sections": [{"aliases": ["ddos mitigation rules ddos client source tls fingerprint matcher classes"], "anchor": "schema-ddos_mitigation_rules--ddos_client_source--tls_fingerprint_matcher--classes", "description": "A list of known classes of TLS fingerprints to match the input TLS JA3 fingerprint against.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:ddos_mitigation_rules:ddos_client_source:tls_fingerprint_matcher", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["ddos_mitigation_rules", "ddos_client_source", "tls_fingerprint_matcher", "classes"], "syntax": "attribute", "type": "list"}, {"aliases": ["ddos mitigation rules ddos client source tls fingerprint matcher exact values"], "anchor": "schema-ddos_mitigation_rules--ddos_client_source--tls_fingerprint_matcher--exact_values", "description": "A list of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint against.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:ddos_mitigation_rules:ddos_client_source:tls_fingerprint_matcher", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["ddos_mitigation_rules", "ddos_client_source", "tls_fingerprint_matcher", "exact_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["ddos mitigation rules ddos client source tls fingerprint matcher excluded values"], "anchor": "schema-ddos_mitigation_rules--ddos_client_source--tls_fingerprint_matcher--excluded_values", "description": "A list of TLS JA3 fingerprints to be excluded when matching the input TLS JA3 fingerprint. This can be used to skip known false positives when using one or more known TLS fingerprint classes in the enclosing matcher.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:ddos_mitigation_rules:ddos_client_source:tls_fingerprint_matcher", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["ddos_mitigation_rules", "ddos_client_source", "tls_fingerprint_matcher", "excluded_values"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/http_loadbalancer/properties/ddos_mitigation_rules/ddos_client_source/tls_fingerprint_matcher/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positive match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied and the input", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["ddos mitigation rules ddos client source tls fingerprint matcher", "succeeded", "success", "successful"], "body_bytes": 5902, "body_sha256": "sha256:4faa53e63c7b389710a56558dad6b2af07cfba8eb5d3c571f1b3af6b99ee4b21", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:http_loadbalancer:properties:ddos_mitigation_rules:ddos_client_source:tls_fingerprint_matcher", "parent_id": "xcsh-docs:resources:http_loadbalancer:properties:ddos_mitigation_rules:ddos_client_source", "path": "documentation/resources/http_loadbalancer/properties/ddos_mitigation_rules/ddos_client_source/tls_fingerprint_matcher/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0031133313011232-1222230120123210-0233333120231321-3133333023031031-2020213302230211-1112301011201130-2033120322011123-0220211013233023", "registry_path": "docs/guides/resources--http_loadbalancer--reference--group-014.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["ddos_mitigation_rules", "ddos_client_source", "tls_fingerprint_matcher"], "schema_version": 1, "sections": [{"aliases": ["ddos mitigation rules ddos client source tls fingerprint matcher classes"], "anchor": "schema-ddos_mitigation_rules--ddos_client_source--tls_fingerprint_matcher--classes", "description": "A list of known classes of TLS fingerprints to match the input TLS JA3 fingerprint against.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:ddos_mitigation_rules:ddos_client_source:tls_fingerprint_matcher", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["ddos_mitigation_rules", "ddos_client_source", "tls_fingerprint_matcher", "classes"], "syntax": "attribute", "type": "list"}, {"aliases": ["ddos mitigation rules ddos client source tls fingerprint matcher exact values"], "anchor": "schema-ddos_mitigation_rules--ddos_client_source--tls_fingerprint_matcher--exact_values", "description": "A list of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint against.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:ddos_mitigation_rules:ddos_client_source:tls_fingerprint_matcher", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["ddos_mitigation_rules", "ddos_client_source", "tls_fingerprint_matcher", "exact_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["ddos mitigation rules ddos client source tls fingerprint matcher excluded values"], "anchor": "schema-ddos_mitigation_rules--ddos_client_source--tls_fingerprint_matcher--excluded_values", "description": "A list of TLS JA3 fingerprints to be excluded when matching the input TLS JA3 fingerprint. This can be used to skip known false positives when using one or more known TLS fingerprint classes in the enclosing matcher.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:ddos_mitigation_rules:ddos_client_source:tls_fingerprint_matcher", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["ddos_mitigation_rules", "ddos_client_source", "tls_fingerprint_matcher", "excluded_values"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/http_loadbalancer/properties/ddos_mitigation_rules/ddos_client_source/tls_fingerprint_matcher/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positive match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied and the input", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -22,13 +22,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of
-supported positive match criteria includes a list of known classes of TLS fingerprints and a list of
-exact values. The match is considered successful if either of these positive criteria are
-satisfied..
-
-Upstream description:
 
 A TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of
 supported positive match criteria includes a list of known classes of TLS fingerprints and a list of
@@ -71,7 +64,7 @@ values are \`TLS\_FINGERPRINT\_NONE\`, \`ANY\_MALICIOUS\_FINGERPRINT\`, \`ADWARE
 \`DRIDEX\`, \`GOOTKIT\`, \`GOZI\`, \`JBIFROST\`, \`QUAKBOT\`, \`RANSOMWARE\`, \`TROLDESH\`,
 \`TOFSEE\`, \`TORRENTLOCKER\`, \`TRICKBOT\`. Defaults to \`TLS\_FINGERPRINT\_NONE\`.
 
-Upstream description:
+Additional upstream details:
 
 A list of known classes of TLS fingerprints to match the input TLS JA3 fingerprint against.
 
@@ -122,10 +115,6 @@ Receipt-pinned upstream constraints:
 ### exact_values property
 
 Type: `["list", "string"]`. Optional.
-
-List of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint against.
-
-Upstream description:
 
 A list of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint against.
 
@@ -179,12 +168,6 @@ Receipt-pinned upstream constraints:
 
 Type: `["list", "string"]`. Optional.
 
-List of TLS JA3 fingerprints to be excluded when matching the input TLS JA3 fingerprint. This can be
-used to skip known false positives when using one or more known TLS fingerprint classes in the
-enclosing matcher.
-
-Upstream description:
-
 A list of TLS JA3 fingerprints to be excluded when matching the input TLS JA3 fingerprint. This can
 be used to skip known false positives when using one or more known TLS fingerprint classes in the
 enclosing matcher.
@@ -232,8 +215,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [ddos_mitigation_rules.ddos_client_source](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/http_loadbalancer/properties/ddos_mitigation_rules/ddos_client_source/)
-- [xcsh_http_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/http_loadbalancer/)

@@ -101,8 +101,8 @@
   "pages": [
     {
       "aliases": ["virtual k8s"],
-      "body_bytes": 1482,
-      "body_sha256": "sha256:f720bfe066b9d74462d52596398d9f370fae99626d8c248c47342849cd64c467",
+      "body_bytes": 1422,
+      "body_sha256": "sha256:c711d85837735c36e9c81d8053487ec38427c2efcdf34934f5a1d46961bca448",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:virtual_k8s:reference", "xcsh-docs:data-sources:virtual_k8s:examples"],
@@ -138,7 +138,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/virtual_k8s/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages virtual_k8s will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.",
+      "summary": "Reads an existing virtual Kubernetes configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_virtual_k8s",
       "unresolved_relationships": [],
@@ -150,8 +150,8 @@
     },
     {
       "aliases": ["virtual k8s"],
-      "body_bytes": 10618,
-      "body_sha256": "sha256:d3b5d50936ba8bc401ed2deac964a2417401e5550e6f4d27bfe847d893a03c1b",
+      "body_bytes": 10045,
+      "body_sha256": "sha256:e539a38d259d4149bbcf8435b23cdaa869619f5e27a2da4beb46c8f14489d78e",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -336,8 +336,8 @@
     },
     {
       "aliases": ["default flavor ref"],
-      "body_bytes": 5171,
-      "body_sha256": "sha256:e1e4cca76534be3d65768bc754d0d42975d01c36156a7e218d19e7568804b239",
+      "body_bytes": 4261,
+      "body_sha256": "sha256:7a832e909ae8a2d618ba048f0f92865b6975f11c0cf85f6bcbb7e168aee8c174",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -419,8 +419,8 @@
     },
     {
       "aliases": ["disabled"],
-      "body_bytes": 1406,
-      "body_sha256": "sha256:28d5022f3367eceda4de917f535e780699642af2e04a290d4c75e2c76ed7cfaf",
+      "body_bytes": 1154,
+      "body_sha256": "sha256:69017925f719cdf722598ccc063fec24077ead843a2e9e88fc6d336d5dbee65e",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -459,8 +459,8 @@
     },
     {
       "aliases": ["isolated"],
-      "body_bytes": 1022,
-      "body_sha256": "sha256:e55349f94dbb8ebef9c513690d15a8e4efdc3e87edd7ca986beeb22be03b9b77",
+      "body_bytes": 770,
+      "body_sha256": "sha256:6c236aeea31848a512206119a57538ea3f18aa909fdb549aa142b3667ffcf04a",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -499,8 +499,8 @@
     },
     {
       "aliases": ["vsite refs"],
-      "body_bytes": 6462,
-      "body_sha256": "sha256:65b59740b52f7ab96d43cd2eeb5594d70e51acdcfd27bc529488ee551e1c71a8",
+      "body_bytes": 5225,
+      "body_sha256": "sha256:325f015f52083e0c9620930183b0f8d1c5b8a9481519e998936b3de19d833b08",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -610,8 +610,8 @@
     },
     {
       "aliases": ["virtual k8s"],
-      "body_bytes": 651,
-      "body_sha256": "sha256:ad604f56fb8ebaaec1e2b13ba713f2fd3a638ead292d8d25967c3e7321264c26",
+      "body_bytes": 411,
+      "body_sha256": "sha256:156cdb67e5b06e538efafd731c711f9b4a5e808e0b404057a35ffbcde3c50524",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:virtual_k8s:example:data-source"],
@@ -650,8 +650,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1266,
-      "body_sha256": "sha256:f236149f09d90c3f00b7de744d37091ff6da4711109d284dfb9970cc41da970a",
+      "body_bytes": 1041,
+      "body_sha256": "sha256:ec8743b8c9beb7af4806d7f9496643ea4b4c20c57c0980241c4376ee6642a18a",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],

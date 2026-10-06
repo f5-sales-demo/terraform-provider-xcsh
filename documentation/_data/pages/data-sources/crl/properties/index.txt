@@ -2,7 +2,7 @@
 page_title: "Property reference"
 subcategory: ""
 description: "Property reference for xcsh_crl."
-xcsh_docs: {"aliases": ["crl"], "body_bytes": 12213, "body_sha256": "sha256:36dd4f5032e8dbefc9b4435ee9122e4b88f4c8d2dc4ae4070ca95da2ac6735b1", "capabilities": ["security"], "category": "security", "child_ids": ["xcsh-docs:data-sources:crl:properties:http_access"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:crl:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:crl:reference", "parent_id": "xcsh-docs:data-sources:crl:fundamentals", "path": "documentation/data-sources/crl/properties/index.md", "product": "distributed-cloud", "provider_name": "crl", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-3002300001121302-2031123030132100-2121300311223202-1012300002331221-2202200233021133-2322302101223023-1223032000220320-2322010130131013", "registry_path": "docs/guides/data-sources--crl--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "reference", "schema_path": [], "schema_version": 1, "sections": [{"aliases": ["annotations"], "anchor": "schema-annotations", "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.", "document_id": "xcsh-docs:data-sources:crl:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["annotations"], "syntax": "attribute", "type": "map"}, {"aliases": ["description"], "anchor": "schema-description", "description": "Human readable description for the object.", "document_id": "xcsh-docs:data-sources:crl:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["description"], "syntax": "attribute", "type": "string"}, {"aliases": ["http access"], "anchor": "section", "description": "Configuration parameter for http access.", "document_id": "xcsh-docs:data-sources:crl:properties:http_access", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["http_access"], "syntax": "attribute", "type": "object"}, {"aliases": ["id"], "anchor": "schema-id", "description": "Unique identifier for the resource.", "document_id": "xcsh-docs:data-sources:crl:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["id"], "syntax": "attribute", "type": "string"}, {"aliases": ["labels"], "anchor": "schema-labels", "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.", "document_id": "xcsh-docs:data-sources:crl:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["labels"], "syntax": "attribute", "type": "map"}, {"aliases": ["name"], "anchor": "schema-name", "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.", "document_id": "xcsh-docs:data-sources:crl:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["name"], "syntax": "attribute", "type": "string"}, {"aliases": ["namespace"], "anchor": "schema-namespace", "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"", "document_id": "xcsh-docs:data-sources:crl:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["refresh interval"], "anchor": "schema-refresh_interval", "description": "CRL refresh interval, in hours.", "document_id": "xcsh-docs:data-sources:crl:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["refresh_interval"], "syntax": "attribute", "type": "number"}, {"aliases": ["server address"], "anchor": "schema-server_address", "description": "CRL server address or hostname.", "document_id": "xcsh-docs:data-sources:crl:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["server_address"], "syntax": "attribute", "type": "string"}, {"aliases": ["server port"], "anchor": "schema-server_port", "description": "Set CRL Server port number.", "document_id": "xcsh-docs:data-sources:crl:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["server_port"], "syntax": "attribute", "type": "number"}, {"aliases": ["duration", "timeout"], "anchor": "schema-timeout", "description": "CRL download wait time, in seconds.", "document_id": "xcsh-docs:data-sources:crl:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["timeout"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/crl/properties/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Property reference for xcsh_crl.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["crlCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["crl"], "body_bytes": 11806, "body_sha256": "sha256:b1d37131b427c6976b01ac57a6a56dd9b36351930d5e623ea6f0275c4ed7d60b", "capabilities": ["security"], "category": "security", "child_ids": ["xcsh-docs:data-sources:crl:properties:http_access"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:crl:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:crl:reference", "parent_id": "xcsh-docs:data-sources:crl:fundamentals", "path": "documentation/data-sources/crl/properties/index.md", "product": "distributed-cloud", "provider_name": "crl", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-3002300001121302-2031123030132100-2121300311223202-1012300002331221-2202200233021133-2322302101223023-1223032000220320-2322010130131013", "registry_path": "docs/guides/data-sources--crl--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "reference", "schema_path": [], "schema_version": 1, "sections": [{"aliases": ["annotations"], "anchor": "schema-annotations", "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.", "document_id": "xcsh-docs:data-sources:crl:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["annotations"], "syntax": "attribute", "type": "map"}, {"aliases": ["description"], "anchor": "schema-description", "description": "Human readable description for the object.", "document_id": "xcsh-docs:data-sources:crl:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["description"], "syntax": "attribute", "type": "string"}, {"aliases": ["http access"], "anchor": "section", "description": "Configuration parameter for http access.", "document_id": "xcsh-docs:data-sources:crl:properties:http_access", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["http_access"], "syntax": "attribute", "type": "object"}, {"aliases": ["id"], "anchor": "schema-id", "description": "Unique identifier for the resource.", "document_id": "xcsh-docs:data-sources:crl:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["id"], "syntax": "attribute", "type": "string"}, {"aliases": ["labels"], "anchor": "schema-labels", "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.", "document_id": "xcsh-docs:data-sources:crl:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["labels"], "syntax": "attribute", "type": "map"}, {"aliases": ["name"], "anchor": "schema-name", "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.", "document_id": "xcsh-docs:data-sources:crl:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["name"], "syntax": "attribute", "type": "string"}, {"aliases": ["namespace"], "anchor": "schema-namespace", "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"", "document_id": "xcsh-docs:data-sources:crl:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["refresh interval"], "anchor": "schema-refresh_interval", "description": "CRL refresh interval, in hours.", "document_id": "xcsh-docs:data-sources:crl:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["refresh_interval"], "syntax": "attribute", "type": "number"}, {"aliases": ["server address"], "anchor": "schema-server_address", "description": "CRL server address or hostname.", "document_id": "xcsh-docs:data-sources:crl:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["server_address"], "syntax": "attribute", "type": "string"}, {"aliases": ["server port"], "anchor": "schema-server_port", "description": "Set CRL Server port number.", "document_id": "xcsh-docs:data-sources:crl:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["server_port"], "syntax": "attribute", "type": "number"}, {"aliases": ["duration", "timeout"], "anchor": "schema-timeout", "description": "CRL download wait time, in seconds.", "document_id": "xcsh-docs:data-sources:crl:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["timeout"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/crl/properties/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Property reference for xcsh_crl.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["crlCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -26,7 +26,7 @@ Type: `["map", "string"]`. Computed.
 
 Annotations applied to this resource.
 
-Upstream description:
+Additional upstream details:
 
 Annotations is an unstructured key value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
@@ -86,7 +86,7 @@ Type: `"string"`. Computed.
 
 Description of the CRL.
 
-Upstream description:
+Additional upstream details:
 
 Human readable description for the object.
 
@@ -146,7 +146,7 @@ Type: `["map", "string"]`. Computed.
 
 Labels applied to this resource.
 
-Upstream description:
+Additional upstream details:
 
 Map of string keys and values that can be used to organize and categorize (scope and select) objects
 as chosen by the user. Values specified here will be used by selector expression.
@@ -172,7 +172,7 @@ Type: `"string"`. Required.
 
 Name of the CRL.
 
-Upstream description:
+Additional upstream details:
 
 This is the name of configuration object. It has to be unique within the namespace. It can only be
 specified during create API and cannot be changed during replace API. The value of name has to
@@ -230,7 +230,7 @@ Type: `"string"`. Required.
 
 Namespace where the CRL exists.
 
-Upstream description:
+Additional upstream details:
 
 This defines the workspace within which each the configuration object is to be created. Must be a
 DNS\_LABEL format. For a namespace object itself, namespace value will be ""
@@ -281,10 +281,6 @@ Type: `"number"`. Computed.
 
 CRL Refresh interval. CRL refresh interval, in hours.
 
-Upstream description:
-
-CRL refresh interval, in hours.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -325,10 +321,6 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Computed.
 
 CRL Server address. CRL server address or hostname.
-
-Upstream description:
-
-CRL server address or hostname.
 
 Receipt-pinned upstream constraints:
 
@@ -373,10 +365,6 @@ Type: `"number"`. Computed.
 
 CRL Server Port. Set CRL Server port number.
 
-Upstream description:
-
-Set CRL Server port number.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -417,10 +405,6 @@ Receipt-pinned upstream constraints:
 Type: `"number"`. Computed.
 
 CRL download timeout. CRL download wait time, in seconds.
-
-Upstream description:
-
-CRL download wait time, in seconds.
 
 Receipt-pinned upstream constraints:
 
@@ -474,8 +458,3 @@ Each exact path has one authoritative reference destination. Collection element 
 | `server_address` | [server_address](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/crl/properties/#schema-server_address) |
 | `server_port` | [server_port](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/crl/properties/#schema-server_port) |
 | `timeout` | [timeout](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/crl/properties/#schema-timeout) |
-
-## Next pages
-
-- [http_access](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/crl/properties/http_access/)
-- [xcsh_crl](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/crl/)

@@ -2,7 +2,7 @@
 page_title: "data_guard_rules.path"
 subcategory: "Load Balancing"
 description: "Path match of the URI can be either be, Prefix match or exact match or regular expression match."
-xcsh_docs: {"aliases": ["data guard rules path"], "body_bytes": 4556, "body_sha256": "sha256:6526f91c3d3a915e4d092b76f90f3ebad6ba2dbbfa394972a0b18b96ed567e58", "capabilities": ["cdn"], "category": "cdn", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:cdn_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:data_guard_rules:path", "parent_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:data_guard_rules", "path": "documentation/data-sources/cdn_loadbalancer/properties/data_guard_rules/path/index.md", "product": "distributed-cloud", "provider_name": "cdn_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-0300121020333212-3003033232111130-3313010331132123-0012103220020020-2213032013310100-3021232333000320-2222331003032323-1233120322311302", "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-009.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["data_guard_rules", "path"], "schema_version": 1, "sections": [{"aliases": ["data guard rules path path"], "anchor": "schema-data_guard_rules--path--path", "description": "Exclusive with Exact path value to match.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:data_guard_rules:path", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["data_guard_rules", "path", "path"], "syntax": "attribute", "type": "string"}, {"aliases": ["data guard rules path prefix"], "anchor": "schema-data_guard_rules--path--prefix", "description": "Exclusive with Path prefix to match (e.g. The value / will match on all paths)", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:data_guard_rules:path", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["data_guard_rules", "path", "prefix"], "syntax": "attribute", "type": "string"}, {"aliases": ["data guard rules path regex"], "anchor": "schema-data_guard_rules--path--regex", "description": "Exclusive with Regular expression of path match (e.g. The value .* will match on all paths)", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:data_guard_rules:path", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["data_guard_rules", "path", "regex"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_loadbalancer/properties/data_guard_rules/path/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Path match of the URI can be either be, Prefix match or exact match or regular expression match.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["cdn_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["data guard rules path"], "body_bytes": 3955, "body_sha256": "sha256:fe6b6026790311a1bb2714064b8e758631ef9cc0a060c84afe49618a5fa69ccf", "capabilities": ["cdn"], "category": "cdn", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:cdn_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:data_guard_rules:path", "parent_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:data_guard_rules", "path": "documentation/data-sources/cdn_loadbalancer/properties/data_guard_rules/path/index.md", "product": "distributed-cloud", "provider_name": "cdn_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-0300121020333212-3003033232111130-3313010331132123-0012103220020020-2213032013310100-3021232333000320-2222331003032323-1233120322311302", "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-010.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["data_guard_rules", "path"], "schema_version": 1, "sections": [{"aliases": ["data guard rules path path"], "anchor": "schema-data_guard_rules--path--path", "description": "Exclusive with Exact path value to match.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:data_guard_rules:path", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["data_guard_rules", "path", "path"], "syntax": "attribute", "type": "string"}, {"aliases": ["data guard rules path prefix"], "anchor": "schema-data_guard_rules--path--prefix", "description": "Exclusive with Path prefix to match (e.g. The value / will match on all paths)", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:data_guard_rules:path", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["data_guard_rules", "path", "prefix"], "syntax": "attribute", "type": "string"}, {"aliases": ["data guard rules path regex"], "anchor": "schema-data_guard_rules--path--regex", "description": "Exclusive with Regular expression of path match (e.g. The value .* will match on all paths)", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:data_guard_rules:path", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["data_guard_rules", "path", "regex"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_loadbalancer/properties/data_guard_rules/path/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Path match of the URI can be either be, Prefix match or exact match or regular expression match.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["cdn_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -45,10 +45,6 @@ Receipt-pinned upstream constraints:
 ### path property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[prefix regex\] Exact path value to match.
-
-Upstream description:
 
 Exclusive with \[prefix regex\] Exact path value to match.
 
@@ -95,10 +91,6 @@ Type: `"string"`. Computed.
 
 Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
 
-Upstream description:
-
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -141,11 +133,6 @@ Type: `"string"`. Computed.
 Exclusive with \[path prefix\] Regular expression of path match (e.g. The value .\* will match on
 all paths).
 
-Upstream description:
-
-Exclusive with \[path prefix\] Regular expression of path match (e.g. The value .\* will match on
-all paths)
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -186,8 +173,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [data_guard_rules](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/data_guard_rules/)
-- [xcsh_cdn_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/)

@@ -2,7 +2,7 @@
 page_title: "asn_matcher.asn_sets"
 subcategory: ""
 description: "A list of references to bgp_asn_set objects."
-xcsh_docs: {"aliases": ["asn matcher asn sets"], "body_bytes": 6338, "body_sha256": "sha256:fce7d9e0e622adecfe60d5a5bbd1da805ca84403549e786a00777b2756bac89b", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher:asn_sets", "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher", "path": "documentation/data-sources/service_policy_rule/properties/asn_matcher/asn_sets/index.md", "product": "distributed-cloud", "provider_name": "service_policy_rule", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-3031222031221220-3103310132120011-3130222223310230-0202233201012300-0332220113201103-2031023123323212-1133222013221131-3300120301112032", "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["asn_matcher", "asn_sets"], "schema_version": 1, "sections": [{"aliases": ["asn matcher asn sets kind"], "anchor": "schema-asn_matcher--asn_sets--kind", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")", "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher:asn_sets", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["asn_matcher", "asn_sets", "kind"], "syntax": "attribute", "type": "string"}, {"aliases": ["asn matcher asn sets name"], "anchor": "schema-asn_matcher--asn_sets--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher:asn_sets", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["asn_matcher", "asn_sets", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["asn matcher asn sets namespace"], "anchor": "schema-asn_matcher--asn_sets--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher:asn_sets", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["asn_matcher", "asn_sets", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["asn matcher asn sets tenant"], "anchor": "schema-asn_matcher--asn_sets--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher:asn_sets", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["asn_matcher", "asn_sets", "tenant"], "syntax": "attribute", "type": "string"}, {"aliases": ["asn matcher asn sets uid"], "anchor": "schema-asn_matcher--asn_sets--uid", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.", "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher:asn_sets", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["asn_matcher", "asn_sets", "uid"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/asn_matcher/asn_sets/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A list of references to bgp_asn_set objects.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["service_policy_ruleCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["asn matcher asn sets"], "body_bytes": 5313, "body_sha256": "sha256:b68b1b2cd35cfb6a7c78853d5fb26c2f49bf93715d89431cc3635e6614349da0", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher:asn_sets", "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher", "path": "documentation/data-sources/service_policy_rule/properties/asn_matcher/asn_sets/index.md", "product": "distributed-cloud", "provider_name": "service_policy_rule", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-3031222031221220-3103310132120011-3130222223310230-0202233201012300-0332220113201103-2031023123323212-1133222013221131-3300120301112032", "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["asn_matcher", "asn_sets"], "schema_version": 1, "sections": [{"aliases": ["asn matcher asn sets kind"], "anchor": "schema-asn_matcher--asn_sets--kind", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")", "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher:asn_sets", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["asn_matcher", "asn_sets", "kind"], "syntax": "attribute", "type": "string"}, {"aliases": ["asn matcher asn sets name"], "anchor": "schema-asn_matcher--asn_sets--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher:asn_sets", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["asn_matcher", "asn_sets", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["asn matcher asn sets namespace"], "anchor": "schema-asn_matcher--asn_sets--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher:asn_sets", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["asn_matcher", "asn_sets", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["asn matcher asn sets tenant"], "anchor": "schema-asn_matcher--asn_sets--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher:asn_sets", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["asn_matcher", "asn_sets", "tenant"], "syntax": "attribute", "type": "string"}, {"aliases": ["asn matcher asn sets uid"], "anchor": "schema-asn_matcher--asn_sets--uid", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.", "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher:asn_sets", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["asn_matcher", "asn_sets", "uid"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/asn_matcher/asn_sets/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A list of references to bgp_asn_set objects.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["service_policy_ruleCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -21,10 +21,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"list"`. Computed.
-
-List of references to bgp\_asn\_set objects.
-
-Upstream description:
 
 A list of references to bgp\_asn\_set objects.
 
@@ -72,10 +68,10 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
 referred object's kind (e.g. 'route').
 
-Upstream description:
+Additional upstream details:
 
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
-referred object's kind (e.g. "route")
+Virtual\_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g.
+"route")
 
 Receipt-pinned upstream constraints:
 
@@ -109,11 +105,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -142,11 +133,6 @@ Receipt-pinned upstream constraints:
 ### namespace property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -198,11 +184,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -235,11 +216,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
 referred object's(e.g. Route's) uid.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
-referred object's(e.g. Route's) uid.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -262,8 +238,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [asn_matcher](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/asn_matcher/)
-- [xcsh_service_policy_rule](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/)

@@ -91,8 +91,8 @@
   "pages": [
     {
       "aliases": ["protocol inspection"],
-      "body_bytes": 1449,
-      "body_sha256": "sha256:b0667b3e699f4ca0102dcb72a96f4ace8f1d086db7c185553c584f52e616038f",
+      "body_bytes": 1399,
+      "body_sha256": "sha256:cd5269d86b91aa7289a19ad91e5a07ff3e4f7ca17c2ac94279403be1968c88e9",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -123,7 +123,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protocol_inspection/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages Protocol Inspection Specification in a given namespace. If one already exists it will give an error in F5 Distributed Cloud.",
+      "summary": "Reads an existing Protocol Inspection configuration in its namespace.",
       "tasks": ["configuration"],
       "title": "xcsh_protocol_inspection",
       "unresolved_relationships": [],
@@ -135,8 +135,8 @@
     },
     {
       "aliases": ["protocol inspection"],
-      "body_bytes": 11832,
-      "body_sha256": "sha256:8a6c438edb70353c6b4c2720fef55530883965018b819a9167cf649e938667a0",
+      "body_bytes": 11203,
+      "body_sha256": "sha256:cd1e7348756008e4f08eae131a592d0b9b5dfb86ed30e9f7f3aa9002ef16ebea",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -305,8 +305,8 @@
     },
     {
       "aliases": ["enable disable compliance checks"],
-      "body_bytes": 1983,
-      "body_sha256": "sha256:2bed90acfe9f5bd9ffaaa3fb75f4b1364c06e140488a8f0ef0913e00bdf110fc",
+      "body_bytes": 1276,
+      "body_sha256": "sha256:492aab7410d5cf7f6fbf5f84241be2ddcecdb117d3914a35c328d616f55cb59a",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -377,8 +377,8 @@
     },
     {
       "aliases": ["enable disable compliance checks disable compliance checks"],
-      "body_bytes": 1425,
-      "body_sha256": "sha256:237fbbb5c52b6ed3cdaa3486c6b859233b729edf5dee0c35d9bd3b0bc8ced3ca",
+      "body_bytes": 1102,
+      "body_sha256": "sha256:751eac8b54200b1bb51cdc73fe873b555242fd024f7bdc4eeeb95cf252029f3a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -417,8 +417,8 @@
     },
     {
       "aliases": ["enable disable compliance checks enable compliance checks"],
-      "body_bytes": 5636,
-      "body_sha256": "sha256:9b8aa99611d587dd3496321a30f213ac43fcb0e9ed3d968741788e3360be6963",
+      "body_bytes": 4655,
+      "body_sha256": "sha256:a92f023dc065a6dd61de304f6020ebd31f8194f087ba076bf119b704f7fce526",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -500,8 +500,8 @@
     },
     {
       "aliases": ["enable disable signatures"],
-      "body_bytes": 1911,
-      "body_sha256": "sha256:f6a76dcc65fc20122274f9672c1b0fd60d55e6375f057682b55ac1e6305b6f7a",
+      "body_bytes": 1271,
+      "body_sha256": "sha256:c5a0bb7a6fbcbd82af67de33911a77e26a4a51e424bcf24d5135592f7c689ff2",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -572,8 +572,8 @@
     },
     {
       "aliases": ["enable disable signatures disable signature"],
-      "body_bytes": 1359,
-      "body_sha256": "sha256:81943522ee173cef529d91fb8443664f7af0dc617e8a27d094a745fe8c714a59",
+      "body_bytes": 1050,
+      "body_sha256": "sha256:49cfcf4db696fa94d710ef1afbe2486ad5d727cc31fd3a80b24a9cebde89d1fd",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -612,8 +612,8 @@
     },
     {
       "aliases": ["enable disable signatures enable signature"],
-      "body_bytes": 1356,
-      "body_sha256": "sha256:5bab3109a48621fd704f6d4a546a692964a37eec47ec90f542e91a42ef4eb1ae",
+      "body_bytes": 1047,
+      "body_sha256": "sha256:484c390fdb89d209f6a8c4e5a83cdd16bd9c0ffbd5672026a68a98fd356b87f7",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -652,8 +652,8 @@
     },
     {
       "aliases": ["protocol inspection"],
-      "body_bytes": 699,
-      "body_sha256": "sha256:8eb606dcbc2c95146122b18e3423e367e11f8b89ba6f07e896f175eebc6b8192",
+      "body_bytes": 435,
+      "body_sha256": "sha256:b43e87bb0cf71f51fbc78dcddbca1fe0d4c3305dd64d46a13a2144a6ee0f6d74",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:protocol_inspection:example:data-source"],
@@ -692,8 +692,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1370,
-      "body_sha256": "sha256:73ed7b020f376d8347f4099a9b9da1ca1e7ecd1976f9db1f401635af361f72fe",
+      "body_bytes": 1121,
+      "body_sha256": "sha256:4fface66b4abadcbef2f85ab997952118e97ee86739a809dde17f5ff3c8b6d55",
       "capabilities": [],
       "category": null,
       "child_ids": [],

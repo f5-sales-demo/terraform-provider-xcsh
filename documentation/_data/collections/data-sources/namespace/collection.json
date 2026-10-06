@@ -41,8 +41,8 @@
   "pages": [
     {
       "aliases": ["namespace"],
-      "body_bytes": 1328,
-      "body_sha256": "sha256:01df534abac66809301a63e384c1b486ad2f2416e2c50f7c671b20d833f7ae77",
+      "body_bytes": 1303,
+      "body_sha256": "sha256:91a30341b2487f3a57cc785515ede7b66407680f617ebd5bcd07fd3c30aa2c58",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": ["xcsh-docs:data-sources:namespace:reference", "xcsh-docs:data-sources:namespace:examples"],
@@ -70,7 +70,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/namespace/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages new namespace. Name of the object is name of the name space in F5 Distributed Cloud.",
+      "summary": "Reads Namespace information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_namespace",
       "unresolved_relationships": [],
@@ -82,8 +82,8 @@
     },
     {
       "aliases": ["namespace"],
-      "body_bytes": 7411,
-      "body_sha256": "sha256:3afb1db38153ef8e93f7d61bf3dc526c4f31452360e05661e52829706941eaa1",
+      "body_bytes": 7330,
+      "body_sha256": "sha256:05a5d5a753eb77f89f06563f9b1403a25fa2432f2269a62b365123d75ea12459",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
@@ -207,8 +207,8 @@
     },
     {
       "aliases": ["namespace"],
-      "body_bytes": 639,
-      "body_sha256": "sha256:571ead12b7980766ae5908b4fb514d03420da253009570b9bc10c95ccfd8706b",
+      "body_bytes": 405,
+      "body_sha256": "sha256:6a52e23c16b7723584ebe26ec533ea6928380bc85a263205a91630938cbac230",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": ["xcsh-docs:data-sources:namespace:example:data-source"],
@@ -247,8 +247,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1272,
-      "body_sha256": "sha256:ba6033e33fd28842e1107b9130285156200e0a5769015175bd645f1f725de030",
+      "body_bytes": 1053,
+      "body_sha256": "sha256:b3ba0584185bf54121119cd54b5080f90db84ee00d2238eba04318b6ef893a76",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],

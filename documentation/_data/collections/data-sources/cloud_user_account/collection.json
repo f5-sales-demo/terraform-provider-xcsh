@@ -141,8 +141,8 @@
   "pages": [
     {
       "aliases": ["cloud user account"],
-      "body_bytes": 1434,
-      "body_sha256": "sha256:1e7c14d95e734a34228d512eed593bc5abe06c77a2301b1f5ae1d77587b9b021",
+      "body_bytes": 1381,
+      "body_sha256": "sha256:bd851f1ce525fcfe5ceecffdc9ef0d6c46673b31cce9c33f037a5959a88d19f9",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -173,7 +173,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_user_account/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Cloud User Account resource in F5 Distributed Cloud for cloud user account object create specifications. configuration.",
+      "summary": "Reads Cloud User Account information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_cloud_user_account",
       "unresolved_relationships": [],
@@ -185,8 +185,8 @@
     },
     {
       "aliases": ["cloud user account"],
-      "body_bytes": 13619,
-      "body_sha256": "sha256:4f0ecff274b7d6da617b358ad5b553f2e3a6435ee059dda360cc6f0a66f85903",
+      "body_bytes": 13389,
+      "body_sha256": "sha256:2005601d53945343e3db9b55c324b781b07f53375c054323c73dcec1327df3fc",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": ["xcsh-docs:data-sources:cloud_user_account:properties:aws_provider"],
@@ -324,8 +324,8 @@
     },
     {
       "aliases": ["aws provider"],
-      "body_bytes": 2688,
-      "body_sha256": "sha256:a2b73defeb895afb8c69ccdad4e0db1b554300fcb23a42ea672e7366afb8faf2",
+      "body_bytes": 2064,
+      "body_sha256": "sha256:649bbc424f97abf340e427bf1b0f40b2f14b536ed520b7dba55411c28c19e860",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -410,8 +410,8 @@
     },
     {
       "aliases": ["aws provider aws assume role"],
-      "body_bytes": 8072,
-      "body_sha256": "sha256:19bdde4d315ac9914ca509aa27e4ed441e508335448bffda9186dc915f2e1be4",
+      "body_bytes": 7061,
+      "body_sha256": "sha256:9d18783207f86b5436186119d4b0bc9de90c249e99d9ea12f3dd045467841838",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -552,8 +552,8 @@
     },
     {
       "aliases": ["aws provider aws assume role external id is optional"],
-      "body_bytes": 1519,
-      "body_sha256": "sha256:b68f8619ae60c093e11bcdd5ef91fcb7c62a647a14628da6761efbc3a0df51a2",
+      "body_bytes": 1207,
+      "body_sha256": "sha256:1d394cf3240aca8d08304359704b31b748d3739d3511232b0db20c7f322634a3",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -592,8 +592,8 @@
     },
     {
       "aliases": ["aws provider aws assume role external id is tenant id"],
-      "body_bytes": 1487,
-      "body_sha256": "sha256:d114af4ea88e42087224a788fcde27c7b2f7398b663dc14cf6483a2aa45f91e6",
+      "body_bytes": 1175,
+      "body_sha256": "sha256:0f3bb810cc87ffa980ea6175ab4812875934b1c780af8ea69b0dc87dbacf39ca",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -632,8 +632,8 @@
     },
     {
       "aliases": ["aws provider aws secret key"],
-      "body_bytes": 2430,
-      "body_sha256": "sha256:180da10834026c6abcee523bfca8dd0a505337540319dd0533c6fb7c4a9a9287",
+      "body_bytes": 1922,
+      "body_sha256": "sha256:d0d4dcc1bb7012f5dd994627fa68cec1232edb0da69a2f0c6c7bf35936669bba",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": ["xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key"],
@@ -701,8 +701,8 @@
     },
     {
       "aliases": ["aws provider aws secret key secret key"],
-      "body_bytes": 2324,
-      "body_sha256": "sha256:6d79d9e3ad36797abdd75b46934d0d6c24e6ce2aaa6e0f6886ea9eb7d7514c30",
+      "body_bytes": 1583,
+      "body_sha256": "sha256:b6cad398a69c8063058be64e7dd3979ff5d1e8bec95e3a0c4aff02ac1e19b2a7",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -773,8 +773,8 @@
     },
     {
       "aliases": ["aws provider aws secret key secret key blindfold secret info"],
-      "body_bytes": 4781,
-      "body_sha256": "sha256:3f3046e399122b841df9832c1bd2ef3f297a3d070193c355cb9e67f764d33291",
+      "body_bytes": 4095,
+      "body_sha256": "sha256:e157b7adbd79807871ce6ba6d2319b77035e266838094a408afb1a113a85824b",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -862,8 +862,8 @@
     },
     {
       "aliases": ["aws provider aws secret key secret key clear secret info"],
-      "body_bytes": 3661,
-      "body_sha256": "sha256:0b05fc74dd42de6b6cdc48e9b617bdb7ceba4bda2322d0a1386125f3ab4aa8e9",
+      "body_bytes": 3109,
+      "body_sha256": "sha256:4dc4422df0bebaa21683ffe04d9f67abb721ad15158d3800bf5b18e155cfba1a",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -931,8 +931,8 @@
     },
     {
       "aliases": ["cloud user account"],
-      "body_bytes": 693,
-      "body_sha256": "sha256:4896f7d59758551bd8a0f8a171e89094a802c39bbb17b22be58206ce25881fe4",
+      "body_bytes": 432,
+      "body_sha256": "sha256:2889f95e0fcafb104d99e04f6e7231b9a6d5d276d7d2acb4260236d184b2624b",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": ["xcsh-docs:data-sources:cloud_user_account:example:data-source"],
@@ -971,8 +971,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1355,
-      "body_sha256": "sha256:f8b6ad0728b36527031e32de64eee76d0f62445f7cee4768d3305de228bb7eed",
+      "body_bytes": 1109,
+      "body_sha256": "sha256:6e900393a3371734ddbf8731ebf8182e1d1e936d2f9a6988bc72f6a02287cae5",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],

@@ -2,7 +2,7 @@
 page_title: "cloudflare.protected_endpoints.web_mobile_client.block_web"
 subcategory: ""
 description: "Block Response."
-xcsh_docs: {"aliases": ["cloudflare protected endpoints web mobile client block web"], "body_bytes": 10766, "body_sha256": "sha256:ebf348b5fb32d3cd7b18c61262a55ba70c23eee2f8b9a7e26186eb3f161a8662", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:protected_application:collection", "completeness": "complete", "id": "xcsh-docs:resources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_web", "parent_id": "xcsh-docs:resources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client", "path": "documentation/resources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/block_web/index.md", "product": "distributed-cloud", "provider_name": "protected_application", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0300020103002300-3330212321220103-3000022131130233-3202203013212133-1031103010321203-0023213133313221-2131121330233012-2232323300132001", "registry_path": "docs/guides/resources--protected_application--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["cloudflare", "protected_endpoints", "web_mobile_client", "block_web"], "schema_version": 1, "sections": [{"aliases": ["cloudflare protected endpoints web mobile client block web body"], "anchor": "schema-cloudflare--protected_endpoints--web_mobile_client--block_web--body", "description": "Custom body message.", "document_id": "xcsh-docs:resources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_web", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudflare", "protected_endpoints", "web_mobile_client", "block_web", "body"], "syntax": "attribute", "type": "string"}, {"aliases": ["cloudflare protected endpoints web mobile client block web content type"], "anchor": "schema-cloudflare--protected_endpoints--web_mobile_client--block_web--content_type", "description": "Content type to use in a block response.", "document_id": "xcsh-docs:resources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_web", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudflare", "protected_endpoints", "web_mobile_client", "block_web", "content_type"], "syntax": "attribute", "type": "string"}, {"aliases": ["cloudflare protected endpoints web mobile client block web status", "duration"], "anchor": "schema-cloudflare--protected_endpoints--web_mobile_client--block_web--status", "description": "HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status code OK status code Created status code Accepted status code Non Authoritative Information status code No Content status code Reset Content status code Partial Content status code Multi Status status code Already", "document_id": "xcsh-docs:resources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_web", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudflare", "protected_endpoints", "web_mobile_client", "block_web", "status"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/block_web/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Block Response.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["protected_applicationCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["cloudflare protected endpoints web mobile client block web"], "body_bytes": 10348, "body_sha256": "sha256:eb70bc3d6577bed4c909d9eb8a70fa27eb2c37a020769f58bb82386e949a3276", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:protected_application:collection", "completeness": "complete", "id": "xcsh-docs:resources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_web", "parent_id": "xcsh-docs:resources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client", "path": "documentation/resources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/block_web/index.md", "product": "distributed-cloud", "provider_name": "protected_application", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0300020103002300-3330212321220103-3000022131130233-3202203013212133-1031103010321203-0023213133313221-2131121330233012-2232323300132001", "registry_path": "docs/guides/resources--protected_application--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["cloudflare", "protected_endpoints", "web_mobile_client", "block_web"], "schema_version": 1, "sections": [{"aliases": ["cloudflare protected endpoints web mobile client block web body"], "anchor": "schema-cloudflare--protected_endpoints--web_mobile_client--block_web--body", "description": "Custom body message.", "document_id": "xcsh-docs:resources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_web", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudflare", "protected_endpoints", "web_mobile_client", "block_web", "body"], "syntax": "attribute", "type": "string"}, {"aliases": ["cloudflare protected endpoints web mobile client block web content type"], "anchor": "schema-cloudflare--protected_endpoints--web_mobile_client--block_web--content_type", "description": "Content type to use in a block response.", "document_id": "xcsh-docs:resources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_web", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudflare", "protected_endpoints", "web_mobile_client", "block_web", "content_type"], "syntax": "attribute", "type": "string"}, {"aliases": ["cloudflare protected endpoints web mobile client block web status", "duration"], "anchor": "schema-cloudflare--protected_endpoints--web_mobile_client--block_web--status", "description": "HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status code OK status code Created status code Accepted status code Non Authoritative Information status code No Content status code Reset Content status code Partial Content status code Multi Status status code Already", "document_id": "xcsh-docs:resources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_web", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudflare", "protected_endpoints", "web_mobile_client", "block_web", "status"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/block_web/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Block Response.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["protected_applicationCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -25,10 +25,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Block Response. Block Response.
-
-Upstream description:
-
-Block Response.
 
 Receipt-pinned upstream constraints:
 
@@ -60,10 +56,6 @@ block_web {
 Type: `"string"`. Optional.
 
 Body. Custom body message.
-
-Upstream description:
-
-Custom body message.
 
 Provider validators and defaults (from schema source):
 
@@ -177,7 +169,7 @@ Possible values are \`EmptyStatusCode\`, \`Continue\`, \`OK\`, \`Created\`, \`Ac
 \`InsufficientStorage\`, \`LoopDetected\`, \`NotExtended\`, \`NetworkAuthenticationRequired\`.
 Defaults to \`EmptyStatusCode\`.
 
-Upstream description:
+Additional upstream details:
 
 HTTP response status codes
 
@@ -335,8 +327,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [cloudflare.protected_endpoints.web_mobile_client](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/)
-- [xcsh_protected_application](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/protected_application/)

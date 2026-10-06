@@ -216,8 +216,8 @@
   "pages": [
     {
       "aliases": ["fast acl rule"],
-      "body_bytes": 1635,
-      "body_sha256": "sha256:14918ccd5f4194c6e4b5114c2c5df55a8d95b5ed630f3404f3ad386f5e10b98d",
+      "body_bytes": 1648,
+      "body_sha256": "sha256:7d74836c09299381cee47570c4b45dbb03bb75d0fba69de5df7a1bbef0d52d4d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -262,8 +262,8 @@
     },
     {
       "aliases": ["fast acl rule"],
-      "body_bytes": 16309,
-      "body_sha256": "sha256:aac1dafc9bb7efa394f67f3cb1b06c8c8604307ce7c1d5f83c34cf1e3bf7004a",
+      "body_bytes": 15479,
+      "body_sha256": "sha256:91157a9d1ebff0b2a04e1d96e0b045a8b4f15b7eb35f79a5b63f28bfff0cc00d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -575,8 +575,8 @@
     },
     {
       "aliases": ["action"],
-      "body_bytes": 3178,
-      "body_sha256": "sha256:77b8d9e68941da07efab006af8ff7565abd023077365a3da7f33d45089b9a384",
+      "body_bytes": 2344,
+      "body_sha256": "sha256:1433374bdebe8ac801fa268b59745c468fbe60f671e9fb70b693a021167e8f02",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -710,8 +710,8 @@
     },
     {
       "aliases": ["action policer action"],
-      "body_bytes": 1508,
-      "body_sha256": "sha256:3c05d664a0cc37ad52f1af5d0f4ab580ac1db403f71bb6cb9863f35378021830",
+      "body_bytes": 1074,
+      "body_sha256": "sha256:6f2fd0382b892b0850295664e7ad678a7a2ea8424f94e7d04257714dba0b22ee",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:resources:fast_acl_rule:properties:action:policer_action:ref"],
@@ -765,8 +765,8 @@
     },
     {
       "aliases": ["action policer action ref"],
-      "body_bytes": 6700,
-      "body_sha256": "sha256:f9c5dfd8d088b85dfefacab49f5e80a3fec4780cd6b79babea15cdacfde07a3f",
+      "body_bytes": 5696,
+      "body_sha256": "sha256:91c9679cabe2faf63213ca3b41dc7e6b77c0f5b593c5a4523748f8b6368a9fa9",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -876,8 +876,8 @@
     },
     {
       "aliases": ["action protocol policer action"],
-      "body_bytes": 1571,
-      "body_sha256": "sha256:e972c99877713a28d84eebde752cbf53ce92ee612c408da7cae71ca3294283dc",
+      "body_bytes": 1119,
+      "body_sha256": "sha256:e1740c92620448f03c80caff160e7dfc52d26a2fbb6109dc53f9da937b3a6ee0",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:resources:fast_acl_rule:properties:action:protocol_policer_action:ref"],
@@ -931,8 +931,8 @@
     },
     {
       "aliases": ["action protocol policer action ref"],
-      "body_bytes": 6836,
-      "body_sha256": "sha256:4712db58b1f785f72016929c6b2ae9c76b563ea63cca7a59976443e8b0fbf72e",
+      "body_bytes": 5804,
+      "body_sha256": "sha256:f6b19baae0751c19e064c500f96a2d90b24fd829809639a626eaad534a4a2bfc",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1042,8 +1042,8 @@
     },
     {
       "aliases": ["ip prefix set"],
-      "body_bytes": 1773,
-      "body_sha256": "sha256:a8ab37e50c1a42c4add8f53d279d17eae85f9b06270aab55e52c7e9d420eff1b",
+      "body_bytes": 1410,
+      "body_sha256": "sha256:10aadd9f6cc09538623ada2995a691d2f58f5029f1712f2fceddbd6a185e1b24",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:resources:fast_acl_rule:properties:ip_prefix_set:ref"],
@@ -1097,8 +1097,8 @@
     },
     {
       "aliases": ["ip prefix set ref"],
-      "body_bytes": 6525,
-      "body_sha256": "sha256:3219edb379627918eb631f3b45d2b8ee46e063593e79b2b5395b2271929ed0f2",
+      "body_bytes": 5518,
+      "body_sha256": "sha256:24b8e89bd14cafbbcd85a8f23c36cd501102bd9090402ea950388d1b02df0317",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1208,8 +1208,8 @@
     },
     {
       "aliases": ["port"],
-      "body_bytes": 3494,
-      "body_sha256": "sha256:0f230bf26f8f406357e76b38835c7c0ffd21829d9ee4e0e3efa24314dfa7e81e",
+      "body_bytes": 2895,
+      "body_sha256": "sha256:d6e780306c36c28959020885e2c21da22e86d88b766cfc966d7ed6ae2d34f92f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -1343,8 +1343,8 @@
     },
     {
       "aliases": ["port all"],
-      "body_bytes": 1166,
-      "body_sha256": "sha256:1020d30ce3c0c0d559e3ed60fd168e1a9ea9832b201a9c0463d9858bee16a1bc",
+      "body_bytes": 923,
+      "body_sha256": "sha256:6eca52ad7ea858e9d41c997276fbb7a0634b0aceebf602263f4754d2b850d9c3",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1383,8 +1383,8 @@
     },
     {
       "aliases": ["port dns"],
-      "body_bytes": 1166,
-      "body_sha256": "sha256:63f1f37d503d1cfaab976de481dac398e4a8057c7eba2599cc1fe59097827781",
+      "body_bytes": 923,
+      "body_sha256": "sha256:f9b70c6e8fc089e521c8c548d0243b655d8c93600a34d708fce5fcaa4e5d90ec",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1423,8 +1423,8 @@
     },
     {
       "aliases": ["prefix"],
-      "body_bytes": 2335,
-      "body_sha256": "sha256:66c521ad421c708e8a869afbdf211b36b9fd19800e82f4a052e7e3ac7de1c2d2",
+      "body_bytes": 1938,
+      "body_sha256": "sha256:ad0b773330a7fa36a915d56f18845a6b1634dc0485b720bd0bc9ecffdc8de3ae",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1478,8 +1478,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2237,
-      "body_sha256": "sha256:5ce8234481fa44dbf570474e48c9bb141a6c75dda170ced73db1241345b9e1fa",
+      "body_bytes": 2000,
+      "body_sha256": "sha256:857562732d22311752306693f335c6310b2f27992a1b704f59b097eccb41f4cc",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1610,8 +1610,8 @@
     },
     {
       "aliases": ["fast acl rule"],
-      "body_bytes": 639,
-      "body_sha256": "sha256:1efc4feff94c1a3e7dfaa417e7710f62432a0f76e2801d91d53dbccfb1232095",
+      "body_bytes": 405,
+      "body_sha256": "sha256:5ec46de504273c109f6c4d02230de7b0a779d67483770dc971b8ef0b85fb8ff4",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:resources:fast_acl_rule:example:resource"],
@@ -1650,8 +1650,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1307,
-      "body_sha256": "sha256:226899a97cec9f90ae2b21a965c22dfb9d0da34c01294c9cdfb6d013873a6959",
+      "body_bytes": 1082,
+      "body_sha256": "sha256:6a608498fb81b45df41062fb05c713e4254395e05762922e18a2955fbefb4bde",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1697,8 +1697,8 @@
     },
     {
       "aliases": ["fast acl rule"],
-      "body_bytes": 485,
-      "body_sha256": "sha256:7819991a522ee9f021fcd78814bc044e4c3f48ca9e912207b1851c7a8cd2e54e",
+      "body_bytes": 364,
+      "body_sha256": "sha256:90811d0e490ae5cf7b233a7ffb3abd09de976053abb115372026cf9301cdbde0",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1738,8 +1738,8 @@
     },
     {
       "aliases": ["fast acl rule"],
-      "body_bytes": 573,
-      "body_sha256": "sha256:52d3c3634569a0f75fec8adb6d56cf2c8edee755c778a1b5cd29f151ed8c6bc9",
+      "body_bytes": 452,
+      "body_sha256": "sha256:9d4bfa6dc02fdb36e82a018126151c424b40464901fb8f207cc6a8e55c27dda6",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],

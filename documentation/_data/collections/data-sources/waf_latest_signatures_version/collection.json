@@ -16,8 +16,8 @@
   "pages": [
     {
       "aliases": ["waf latest signatures version"],
-      "body_bytes": 1293,
-      "body_sha256": "sha256:35513843912a5b5b847c6a187222277e3d18d9cbdadf8c45b1db2c7b5f6d0130",
+      "body_bytes": 1351,
+      "body_sha256": "sha256:6a8fdb4da2825dfd6fef362d6aed9ae5e6ba7f96cabecbb497666499e67bc615",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -48,7 +48,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_latest_signatures_version/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource retrieval operation.",
+      "summary": "Reads latest WAF signatures version information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_waf_latest_signatures_version",
       "unresolved_relationships": [],
@@ -60,8 +60,8 @@
     },
     {
       "aliases": ["waf latest signatures version"],
-      "body_bytes": 969,
-      "body_sha256": "sha256:c1a439c27314acbf018e8fa1fb22325f75a67e6cd8c258c57d4639a3fd00532d",
+      "body_bytes": 813,
+      "body_sha256": "sha256:50a6a5cbf6cf9a9af39dd633117fed043b955f53837fa8f934c95a67cd066ff4",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -115,8 +115,8 @@
     },
     {
       "aliases": ["waf latest signatures version"],
-      "body_bytes": 759,
-      "body_sha256": "sha256:0e2378e875a4c5d4dd3ecaaf6fba407c5e693cc2d406b0b5fc51bca40feded0e",
+      "body_bytes": 465,
+      "body_sha256": "sha256:04ce5a20b247ee35ab46548cc2a95c98ae2997cdf870b95464a0705a5e0442e9",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:waf_latest_signatures_version:example:data-source"],
@@ -155,8 +155,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1362,
-      "body_sha256": "sha256:1deb6a8f0ea30c15bd94fc4d6d99a497994a049e19f7575b767aeb559bddce71",
+      "body_bytes": 1083,
+      "body_sha256": "sha256:110f9509bf8e2a9520b0dffddfa321501112f96f0ca7eef4584875835158ba63",
       "capabilities": [],
       "category": null,
       "child_ids": [],

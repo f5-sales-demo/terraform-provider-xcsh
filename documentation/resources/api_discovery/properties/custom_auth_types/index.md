@@ -2,7 +2,7 @@
 page_title: "custom_auth_types"
 subcategory: ""
 description: "Select your custom authentication types to be detected in the API discovery."
-xcsh_docs: {"aliases": ["custom auth types"], "body_bytes": 4103, "body_sha256": "sha256:d554eb9238b733ac96c5c1fe54977430306af5fe9663deedb0c12f4b47178a6c", "capabilities": ["api-management"], "category": "api-management", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:api_discovery:collection", "completeness": "complete", "id": "xcsh-docs:resources:api_discovery:properties:custom_auth_types", "parent_id": "xcsh-docs:resources:api_discovery:reference", "path": "documentation/resources/api_discovery/properties/custom_auth_types/index.md", "product": "distributed-cloud", "provider_name": "api_discovery", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2212121133030123-3313103211030133-1332101312033102-0023310100201330-1131130101331031-0031112010301020-0220030121333230-3300021031132021", "registry_path": "docs/guides/resources--api_discovery--reference--group-001.md", "relationships": [{"anchor": "schema-custom_auth_types--parameter_name", "enforcement": "provider-schema", "group": "custom_auth_types:RequiredListObjectAttributes:parameter_name", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:api_discovery:properties:custom_auth_types", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["custom_auth_types"], "schema_version": 1, "sections": [{"aliases": ["custom auth types parameter name"], "anchor": "schema-custom_auth_types--parameter_name", "description": "The authentication parameter name.", "document_id": "xcsh-docs:resources:api_discovery:properties:custom_auth_types", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["custom_auth_types", "parameter_name"], "syntax": "attribute", "type": "string"}, {"aliases": ["custom auth types parameter type"], "anchor": "schema-custom_auth_types--parameter_type", "description": "Enumeration for authentication parameter types.", "document_id": "xcsh-docs:resources:api_discovery:properties:custom_auth_types", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["custom_auth_types", "parameter_type"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/properties/custom_auth_types/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Select your custom authentication types to be detected in the API discovery.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["api_discoveryCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["custom auth types"], "body_bytes": 3634, "body_sha256": "sha256:298712debe0aa5d3d1fcb20e7a52c7bc172397306d52e2f5bfcd7d1163fb33e9", "capabilities": ["api-management"], "category": "api-management", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:api_discovery:collection", "completeness": "complete", "id": "xcsh-docs:resources:api_discovery:properties:custom_auth_types", "parent_id": "xcsh-docs:resources:api_discovery:reference", "path": "documentation/resources/api_discovery/properties/custom_auth_types/index.md", "product": "distributed-cloud", "provider_name": "api_discovery", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2212121133030123-3313103211030133-1332101312033102-0023310100201330-1131130101331031-0031112010301020-0220030121333230-3300021031132021", "registry_path": "docs/guides/resources--api_discovery--reference--group-001.md", "relationships": [{"anchor": "schema-custom_auth_types--parameter_name", "enforcement": "provider-schema", "group": "custom_auth_types:RequiredListObjectAttributes:parameter_name", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:api_discovery:properties:custom_auth_types", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["custom_auth_types"], "schema_version": 1, "sections": [{"aliases": ["custom auth types parameter name"], "anchor": "schema-custom_auth_types--parameter_name", "description": "The authentication parameter name.", "document_id": "xcsh-docs:resources:api_discovery:properties:custom_auth_types", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["custom_auth_types", "parameter_name"], "syntax": "attribute", "type": "string"}, {"aliases": ["custom auth types parameter type"], "anchor": "schema-custom_auth_types--parameter_type", "description": "Enumeration for authentication parameter types.", "document_id": "xcsh-docs:resources:api_discovery:properties:custom_auth_types", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["custom_auth_types", "parameter_type"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/properties/custom_auth_types/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Select your custom authentication types to be detected in the API discovery.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["api_discoveryCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,10 +23,6 @@ Type: `"object"`. list nested block, Optional.
 
 Select your custom authentication types to be detected in the API discovery. Defaults to \`\[\]\`.
 Server applies default when omitted.
-
-Upstream description:
-
-Select your custom authentication types to be detected in the API discovery.
 
 Provider validators and defaults (from schema source):
 
@@ -82,10 +78,6 @@ custom_auth_types {
 Type: `"string"`. Optional.
 
 Parameter Name. The authentication parameter name.
-
-Upstream description:
-
-The authentication parameter name.
 
 Provider validators and defaults (from schema source):
 
@@ -145,10 +137,6 @@ Type: `"string"`. Optional.
 \[Enum: QUERY\_PARAMETER|HEADER|COOKIE\] Enumeration for authentication parameter types. Possible
 values are \`QUERY\_PARAMETER\`, \`HEADER\`, \`COOKIE\`. Defaults to \`QUERY\_PARAMETER\`.
 
-Upstream description:
-
-Enumeration for authentication parameter types.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -177,8 +165,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/api_discovery/properties/)
-- [xcsh_api_discovery](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/api_discovery/)

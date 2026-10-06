@@ -706,8 +706,8 @@
   "pages": [
     {
       "aliases": ["registration"],
-      "body_bytes": 1688,
-      "body_sha256": "sha256:01e81f16a967ecbb423208cc93e59b11e62487313b5b44c39b2f1ce1f87ccefa",
+      "body_bytes": 1701,
+      "body_sha256": "sha256:21df5118b15e515815dcc12e5ca0d53dda5a891f5dfd72467632e8d35e49b834",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -752,8 +752,8 @@
     },
     {
       "aliases": ["registration"],
-      "body_bytes": 36344,
-      "body_sha256": "sha256:8c2fd4d622330d60deb14ee522fa81e0d60d6318659b874dec89bc5f3fb2e611",
+      "body_bytes": 35749,
+      "body_sha256": "sha256:27e751b27594dc88f628ac538a3907b2da8a823dde01d913dbcee8ee6a565123",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -1033,8 +1033,8 @@
     },
     {
       "aliases": ["infra"],
-      "body_bytes": 11159,
-      "body_sha256": "sha256:57bcb435e1c04fc3fbf66ca3472d8e152e5ab7c3432c8876cd6be82704629a25",
+      "body_bytes": 9614,
+      "body_sha256": "sha256:b0542971b67b6ee7430b248c2f15343bcb14e1a5157ad65898b468f36b6ec531",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -1339,8 +1339,8 @@
     },
     {
       "aliases": ["infra bond config"],
-      "body_bytes": 5572,
-      "body_sha256": "sha256:b18d9449466e0686839b388afa248afc6da854b203da00840ce23fa278593f08",
+      "body_bytes": 5016,
+      "body_sha256": "sha256:5156730c7a606719ea226b8952c310e147ead0c2bcde0194a2da89d09dfceebb",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1439,8 +1439,8 @@
     },
     {
       "aliases": ["infra hugepages"],
-      "body_bytes": 2243,
-      "body_sha256": "sha256:12e8e53fe879dfde347d37ddaee4ffed647348c1ab898821ace90692b2aa4705",
+      "body_bytes": 1846,
+      "body_sha256": "sha256:8ce12d04ebcb6030227c6fe3007b65d3d3837175dee26690e5c707950b422055",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1522,8 +1522,8 @@
     },
     {
       "aliases": ["infra hw info"],
-      "body_bytes": 5469,
-      "body_sha256": "sha256:c5453785b523ab3d91f6d49a9db237e6edd8d7aae0911b6b22c66bc624e94079",
+      "body_bytes": 3610,
+      "body_sha256": "sha256:d8ec36e821ac2a47a7b358d1da985f298b0f30d007133893b54cc49aa8c688e3",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -1758,8 +1758,8 @@
     },
     {
       "aliases": ["infra hw info bios"],
-      "body_bytes": 3430,
-      "body_sha256": "sha256:f0469d78fdbca0790f7281eecb767b9cfce4b72bddff4854120f36e450238eb2",
+      "body_bytes": 3145,
+      "body_sha256": "sha256:faac7b7403cee6773f43dce4b935175e6e7657f2d83f7c31428a545a5718d0c0",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1841,8 +1841,8 @@
     },
     {
       "aliases": ["infra hw info board"],
-      "body_bytes": 4954,
-      "body_sha256": "sha256:bb8fbd6c4e5d5bb2461f1cc3933cd986ec09abecaeede752e94063962eeac19e",
+      "body_bytes": 4668,
+      "body_sha256": "sha256:6f31f63f6a752aa6d71b2731baeb36d69c0447184aed54c3254b63bbad967789",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1952,8 +1952,8 @@
     },
     {
       "aliases": ["infra hw info chassis"],
-      "body_bytes": 3925,
-      "body_sha256": "sha256:c3c3ccb7eaecd2aaf1333ea2b2214c382635f14908890861de7f2530cf50540d",
+      "body_bytes": 3637,
+      "body_sha256": "sha256:66da1045fccfda85b1b16991928f3836405bb4d19ad8b53b3ec44fdcc16e076a",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2063,8 +2063,8 @@
     },
     {
       "aliases": ["infra hw info cpu"],
-      "body_bytes": 4209,
-      "body_sha256": "sha256:7e988a496c7aef17a01861bc6996f044bf03f71da392e6d5c516953197451eed",
+      "body_bytes": 3601,
+      "body_sha256": "sha256:a892db5197bf42f28b99aed9f72192d0f7045c9922bdfe0c0b9bff92d3fb3bd4",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2202,8 +2202,8 @@
     },
     {
       "aliases": ["infra hw info gpu"],
-      "body_bytes": 2826,
-      "body_sha256": "sha256:ad11474114bb3f51c6d12cd5c22ec038a70f208c0f949bf1f254f5d721e756b6",
+      "body_bytes": 2292,
+      "body_sha256": "sha256:991e388e29b35ce395fe46e781d85138727b3caf84254e3290d6cdcdad8441b5",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:registration:properties:infra:hw_info:gpu:gpu_device"],
@@ -2285,8 +2285,8 @@
     },
     {
       "aliases": ["infra hw info gpu gpu device"],
-      "body_bytes": 3250,
-      "body_sha256": "sha256:e5b03919bf0734daaa40d400308c658f7c3def89f5ea5eabff7552f61747759e",
+      "body_bytes": 2832,
+      "body_sha256": "sha256:5f6aec663a39d90ce48b9243403d590af3ad80624fb64ff219ea17fea314d364",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2368,8 +2368,8 @@
     },
     {
       "aliases": ["infra hw info kernel"],
-      "body_bytes": 3069,
-      "body_sha256": "sha256:ce635a60d288a3ba23523922a61ddecfcf8b45288096f5a27758293db4e29951",
+      "body_bytes": 2657,
+      "body_sha256": "sha256:b8a392864f787491f1cf6cd7c5e757bdea1df94d8d7d659e887e7c3108e6ca5c",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2451,8 +2451,8 @@
     },
     {
       "aliases": ["infra hw info memory"],
-      "body_bytes": 2591,
-      "body_sha256": "sha256:bf7329833fd5bc279bb430f252ff41c556afbaeda41857f8648dccba09ce7004",
+      "body_bytes": 2167,
+      "body_sha256": "sha256:7c6d90457337fd37155295fe04810ce3df041bc9fef5ef73b9649fd025840bed",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2534,8 +2534,8 @@
     },
     {
       "aliases": ["infra hw info network"],
-      "body_bytes": 8790,
-      "body_sha256": "sha256:96f77f8f585809d87998bd1d6b06d13648f1b99677fee617ead97f8c6696a92f",
+      "body_bytes": 7826,
+      "body_sha256": "sha256:f51d9bcb48322756030efd757a3dfe0df59e7c847ee370ba73398a9cb687cc1e",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2687,8 +2687,8 @@
     },
     {
       "aliases": ["infra hw info os"],
-      "body_bytes": 5020,
-      "body_sha256": "sha256:982038f65be7126387b555009c9b8dd80c416769d9c84d070824d01c16cf8e7b",
+      "body_bytes": 4524,
+      "body_sha256": "sha256:5265f66ba614d1e106c0b9d10eae483e5ffa75e29679f541852e7066e14d9173",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2798,8 +2798,8 @@
     },
     {
       "aliases": ["infra hw info product"],
-      "body_bytes": 4796,
-      "body_sha256": "sha256:5b1c6906833a8c7f996395e69c6a978e6f953e753a6ea3b1055d33521baff577",
+      "body_bytes": 4285,
+      "body_sha256": "sha256:70f3b20a20f451406be9dd2c02db3d4c8c4cd6e8b04c5f864967091a9cd64b2f",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -2895,8 +2895,8 @@
     },
     {
       "aliases": ["infra hw info storage"],
-      "body_bytes": 5448,
-      "body_sha256": "sha256:ceb2af4a7fc70b92963ba4607442852c938a1418883320d8079715d0cbfa70b0",
+      "body_bytes": 4883,
+      "body_sha256": "sha256:d9111ef6e07dd31e94e49ea167078b09363c31edd6f32c42f03fbaf9a17ec543",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -3020,8 +3020,8 @@
     },
     {
       "aliases": ["infra hw info usb"],
-      "body_bytes": 12256,
-      "body_sha256": "sha256:2be2dcebb41c479eb2421161f7ea17f4ee4ecaa6b70197864f4ca98d275b69f0",
+      "body_bytes": 11249,
+      "body_sha256": "sha256:68172937417fe008d6520fa474d25c42fe33e892e5c2b0d4dd9b5b5a0c7e9dec",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -3327,8 +3327,8 @@
     },
     {
       "aliases": ["infra interfaces"],
-      "body_bytes": 1317,
-      "body_sha256": "sha256:2c40e66688897bf6b3ec6feab708c321340f49a4551ba622668ef81cc4abadfd",
+      "body_bytes": 1068,
+      "body_sha256": "sha256:d3f6c4f9cbc8ff0e1df518cb80c49cdbae8f026f3895b0b2f6495489e5ccb0bc",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -3367,8 +3367,8 @@
     },
     {
       "aliases": ["infra internet proxy"],
-      "body_bytes": 4676,
-      "body_sha256": "sha256:df28b3b4a84281c512803d504d23e958c0b14e41af26af9e230a3570da2bd22d",
+      "body_bytes": 3999,
+      "body_sha256": "sha256:d40daec935fdc3a163301572a0328f96e72eb614917172e0adf223b4a28bf822",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -3464,8 +3464,8 @@
     },
     {
       "aliases": ["infra sw info"],
-      "body_bytes": 1709,
-      "body_sha256": "sha256:4a6122e025f2dec24fbf9995f336a6cb05fd19f9012976245701f12e9874cd02",
+      "body_bytes": 1434,
+      "body_sha256": "sha256:6704b34805dc497a0ddf57cb35b45ca971bdad476447daf14e0265cdedaaf8c9",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -3519,8 +3519,8 @@
     },
     {
       "aliases": ["passport"],
-      "body_bytes": 10207,
-      "body_sha256": "sha256:d06d026436ffe7b576985b3e177e0ebc1aa062cd96b48b1bf776043555c25dab",
+      "body_bytes": 8593,
+      "body_sha256": "sha256:86a30353e85453664c869d31402a0dd14a06ba59161617dbc4ad24983854f06a",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -3768,8 +3768,8 @@
     },
     {
       "aliases": ["passport default os version"],
-      "body_bytes": 1228,
-      "body_sha256": "sha256:65f15e9b7d1d882c3effb78e9a6447ea738251a94e9e8f643e4e079f8c74c623",
+      "body_bytes": 980,
+      "body_sha256": "sha256:5059eed106b8b6e8ba3c7d61ef81a79d1cda4e2d284394a11da7f0644d842ec6",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -3808,8 +3808,8 @@
     },
     {
       "aliases": ["passport default sw version"],
-      "body_bytes": 1228,
-      "body_sha256": "sha256:6395c67d59209284ce63b5be51db3a98aee8b4223dde3e4f561e7386dea1dff1",
+      "body_bytes": 980,
+      "body_sha256": "sha256:deed38a46b73284b36b79fd0cf4654cf9dc4b1add4f21ae87f92a6d23f9245eb",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -3848,8 +3848,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2231,
-      "body_sha256": "sha256:385eb94980ff6d562769fdf3cc2857f8fee1d9effb014d9690aecdd3375d3a57",
+      "body_bytes": 1997,
+      "body_sha256": "sha256:2a6bacda7c822a760fd144ac8d4fd64972f93329c2f734ab9f90798cc545d56d",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -3980,8 +3980,8 @@
     },
     {
       "aliases": ["registration"],
-      "body_bytes": 633,
-      "body_sha256": "sha256:d2dcf8e7237c74c6bf45d90b2954b343338e0bdbbe6ace31a5b7f5ac7082fc29",
+      "body_bytes": 402,
+      "body_sha256": "sha256:e01eb4d466df195dc0b14e2ce5cb566d4f2b37a181c498d8cdac31a4ca875fef",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:registration:example:resource"],
@@ -4020,8 +4020,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1331,
-      "body_sha256": "sha256:32aca4be090ac846a96f5e44a783875944a1c0500fdcbf5996be5da0fb0581ea",
+      "body_bytes": 1109,
+      "body_sha256": "sha256:2b835e300c3680c8dc38fdd583e87dc66a8776e8134a9aa1c234487c6f87ef2e",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -4067,8 +4067,8 @@
     },
     {
       "aliases": ["registration"],
-      "body_bytes": 480,
-      "body_sha256": "sha256:74eadafded273e49c6e7e3d6d79ec24e2703111c26d178d671d4bc7359a9ee8c",
+      "body_bytes": 361,
+      "body_sha256": "sha256:ac17a4149edaab17abfa64d0a9ae0f9bf822df198852dbcf50e41c8c667c8fbd",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -4108,8 +4108,8 @@
     },
     {
       "aliases": ["registration"],
-      "body_bytes": 568,
-      "body_sha256": "sha256:56a3dcffccf76d5b3d30fb80d6bf47178d040f2752dd56ee5fbe51f6b0ca8d7e",
+      "body_bytes": 449,
+      "body_sha256": "sha256:5ff9c20ae54fe1d86e1da7715ac59788c0f9baf5772fff387027516113870994",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],

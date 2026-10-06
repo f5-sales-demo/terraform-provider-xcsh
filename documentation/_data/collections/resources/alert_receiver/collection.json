@@ -558,8 +558,8 @@
   "pages": [
     {
       "aliases": ["alert receiver"],
-      "body_bytes": 1521,
-      "body_sha256": "sha256:7f90d635089ee86157f90a919bb27958c79d7d10ae446de41353743388963cb6",
+      "body_bytes": 1534,
+      "body_sha256": "sha256:7bf0cfaf84622141a4ae0dddcd3ce8868bcd304344fafb47a1abaa78a7418df9",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -604,8 +604,8 @@
     },
     {
       "aliases": ["alert receiver"],
-      "body_bytes": 34720,
-      "body_sha256": "sha256:b52789078308ba2c20e872f0151517882a1d52786c9498b12c34006a73468f2a",
+      "body_bytes": 33667,
+      "body_sha256": "sha256:51c2a0e017c160ac0a32d5a60ae59681c32ec2f75e689ea118fd8776139c696b",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -876,8 +876,8 @@
     },
     {
       "aliases": ["email"],
-      "body_bytes": 3005,
-      "body_sha256": "sha256:2e1e4baf6da8872887a3451c7ac89df5634cdfc6d037cd80ade6b0d10f8f9ec6",
+      "body_bytes": 2719,
+      "body_sha256": "sha256:a70e5f42e75da5d1f5ed359aeb2b4b3f5206edd383431b7e8f0fdd4769e18bda",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -931,8 +931,8 @@
     },
     {
       "aliases": ["opsgenie"],
-      "body_bytes": 2695,
-      "body_sha256": "sha256:af4f1c1da2717d57e6fc9d5071c961f6d613573e6a725ab8e49be309707903cc",
+      "body_bytes": 2270,
+      "body_sha256": "sha256:25555070ccb6713704ae170f3b764e030b18fbedaa6de430dab9b25fbdec7bfc",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:alert_receiver:properties:opsgenie:api_key"],
@@ -1026,8 +1026,8 @@
     },
     {
       "aliases": ["opsgenie api key"],
-      "body_bytes": 2174,
-      "body_sha256": "sha256:cd685f44ef9a729af2ea5e0304ab6450bf6b537450c9beb010d64f0e7181467f",
+      "body_bytes": 1591,
+      "body_sha256": "sha256:df0666f684cd8eaa6f9fe09943c678dea98aca0d9e0b4dadc078921811a00628",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -1133,8 +1133,8 @@
     },
     {
       "aliases": ["opsgenie api key blindfold secret info"],
-      "body_bytes": 4783,
-      "body_sha256": "sha256:502673e87788289957ebe87f600b77d9c64550609f0d955551611e623df16ca5",
+      "body_bytes": 4159,
+      "body_sha256": "sha256:96b52b1133922c0c0ed2353ebaa50f514605a800aa434c051f608c211833cae6",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -1225,8 +1225,8 @@
     },
     {
       "aliases": ["opsgenie api key clear secret info"],
-      "body_bytes": 3677,
-      "body_sha256": "sha256:e26868722c0f1b5b8fdc196ab56117cffe0f0eebf0bbf24352d6f35c762db777",
+      "body_bytes": 3187,
+      "body_sha256": "sha256:5cfbebce94a306de4467384bde154cf996f3a53d0bb2e051738c58e111255fa3",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -1303,8 +1303,8 @@
     },
     {
       "aliases": ["pagerduty"],
-      "body_bytes": 2726,
-      "body_sha256": "sha256:0ae3be75acf0da6abd654f5efe168820ade4a123124f5d28bae324ae71394bd6",
+      "body_bytes": 2291,
+      "body_sha256": "sha256:b487254bea1aeee738316e86a415c13bc6269d56fa905981ca92e7527b9f01d7",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:alert_receiver:properties:pagerduty:routing_key"],
@@ -1398,8 +1398,8 @@
     },
     {
       "aliases": ["pagerduty routing key"],
-      "body_bytes": 2222,
-      "body_sha256": "sha256:e6046e9471dc8aea6b21ec12f0d56f3f0be5933572dc3b969eff87b2593ab735",
+      "body_bytes": 1617,
+      "body_sha256": "sha256:9d6fecdf2b4f17c67c0d7b6f0422f3e446d30b914dd9abbe15c941b06cc45948",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -1505,8 +1505,8 @@
     },
     {
       "aliases": ["pagerduty routing key blindfold secret info"],
-      "body_bytes": 4830,
-      "body_sha256": "sha256:85a88628c39426dc70d81bc1c05deab56d74a99d776efdd39f1c13bfc7c71f28",
+      "body_bytes": 4196,
+      "body_sha256": "sha256:74647f978fc54249ae4b636209e2a08cb1d7575dd5548dc9c239fa3156c112d0",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -1597,8 +1597,8 @@
     },
     {
       "aliases": ["pagerduty routing key clear secret info"],
-      "body_bytes": 3719,
-      "body_sha256": "sha256:1f5f991262d69682e09a4560517bd7d8dca1034b3761269427ec102a73f20976",
+      "body_bytes": 3219,
+      "body_sha256": "sha256:6d8e390c82df2ebff9ee919c5360895e35b762a84d63b8894122524384a733f2",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -1675,8 +1675,8 @@
     },
     {
       "aliases": ["slack"],
-      "body_bytes": 2460,
-      "body_sha256": "sha256:b9f9142aee419ed36cfa376f41dab6fabcb5d5c0bc491e67e82f2920e9095030",
+      "body_bytes": 2102,
+      "body_sha256": "sha256:3120922d9155f59bd83feaea1b89d74d08c30de33e3510c5c106b5b873baf1c2",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:alert_receiver:properties:slack:url"],
@@ -1770,8 +1770,8 @@
     },
     {
       "aliases": ["slack url"],
-      "body_bytes": 2102,
-      "body_sha256": "sha256:3e5a8c21d1cbdfb08758602a6327a617161dabeb445a224ce81a94f6783885bb",
+      "body_bytes": 1553,
+      "body_sha256": "sha256:660b27301e3400832ad5a8f79a07299f057f1e26b9a3a12c9a9ed0ddd8a2a3db",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -1877,8 +1877,8 @@
     },
     {
       "aliases": ["slack url blindfold secret info"],
-      "body_bytes": 4714,
-      "body_sha256": "sha256:684a301b4e39f068b76939c34caa7f83a93ba110992961015ecc2e0c7294ec39",
+      "body_bytes": 4104,
+      "body_sha256": "sha256:2b32487392bbee5c74635e72569f480bf4a2defcb82d2c9b5df2214c3995ef80",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -1969,8 +1969,8 @@
     },
     {
       "aliases": ["slack url clear secret info"],
-      "body_bytes": 3615,
-      "body_sha256": "sha256:528fce89ff5a1d0f16d0985f003691d200701a050e6d7202ea91018c2b54204d",
+      "body_bytes": 3139,
+      "body_sha256": "sha256:b30d02a513eb1992cfb3daf1e817921d750ecd530f031f8bde6abdd876355503",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -2047,8 +2047,8 @@
     },
     {
       "aliases": ["sms"],
-      "body_bytes": 1904,
-      "body_sha256": "sha256:aad8313d77a2600ae3bd7539aa14f31c5963abd40c24d590fed4c05ed2d829f1",
+      "body_bytes": 1530,
+      "body_sha256": "sha256:5b38efc9a1f0bd3cd91bff57ae7d7d0bb228c3487d3ed07bc9ec40243cb9f79f",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -2102,8 +2102,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2243,
-      "body_sha256": "sha256:a4d0facee640c8278e52df9f50a81f60adfa1f064c595662272ffd628fb4f147",
+      "body_bytes": 2003,
+      "body_sha256": "sha256:36324305811248d3c97b048a07aa93a478780699dfe45e44d7c9a47f0f2feee8",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -2234,8 +2234,8 @@
     },
     {
       "aliases": ["webhook"],
-      "body_bytes": 1584,
-      "body_sha256": "sha256:35a45da4b0ffc7c23cf9da371636c020b8e2a711f0c613d8d9d1384f859666b9",
+      "body_bytes": 1084,
+      "body_sha256": "sha256:d8132fa19b524724f8a3d2d91b1f55d487d9590774a562b7b2207d3477ebeada",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -2436,8 +2436,8 @@
     },
     {
       "aliases": ["webhook http config"],
-      "body_bytes": 4782,
-      "body_sha256": "sha256:52c555b072745048e34be3cb0609f191db1b8d5d695c32a05317a3927488c7b8",
+      "body_bytes": 3463,
+      "body_sha256": "sha256:0cb1554d8ed8079d5f2abeb70936cbe327834ff3eeb7b3d61633fe01ed4b37a2",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -2751,8 +2751,8 @@
     },
     {
       "aliases": ["webhook http config auth token"],
-      "body_bytes": 1735,
-      "body_sha256": "sha256:a9d8288574992b74044c1e269cd77f443aa7a48504820793af2d6a596464316c",
+      "body_bytes": 1245,
+      "body_sha256": "sha256:d1b553c8c540b105bb08cb3a11eb328ab883036c37bb7b2d57c112af7f793906",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:alert_receiver:properties:webhook:http_config:auth_token:token"],
@@ -2823,8 +2823,8 @@
     },
     {
       "aliases": ["webhook http config auth token token"],
-      "body_bytes": 2672,
-      "body_sha256": "sha256:0e5ec4b42a78d76e0ff1b4d7bf334ed5ccecba99417fa154af1e96ae398d3863",
+      "body_bytes": 1965,
+      "body_sha256": "sha256:5b4ff90cc08bf09c438e8f9bca107bb1bdcacc6f30c783b13238761a8e7df79d",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -2930,8 +2930,8 @@
     },
     {
       "aliases": ["webhook http config auth token token blindfold secret info"],
-      "body_bytes": 5265,
-      "body_sha256": "sha256:dd49af787c8dd1f48e157a041592d34ca8f00387edd7800b4a873bb31654fd89",
+      "body_bytes": 4601,
+      "body_sha256": "sha256:edf0899a9adb5bed14b7bbae13410e130d177dcc0a858ad17809353fff636014",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -3029,8 +3029,8 @@
     },
     {
       "aliases": ["webhook http config auth token token clear secret info"],
-      "body_bytes": 4137,
-      "body_sha256": "sha256:8bf353fafa4599ddfa114ba6cc40312e219d4eb967bf6456490efa19f2d53953",
+      "body_bytes": 3607,
+      "body_sha256": "sha256:a54df1998ead261ddc80ebc433942306b5e5aba7e59eaa7ae9060fb3b49e7708",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -3107,8 +3107,8 @@
     },
     {
       "aliases": ["webhook http config basic auth"],
-      "body_bytes": 2925,
-      "body_sha256": "sha256:6fbb34b9995ed33982aae40832e946ec88f988f71736f120266b269c4dcc3d9c",
+      "body_bytes": 2435,
+      "body_sha256": "sha256:66163cb52f0c71ed7a9814b3930e16ace0e1fde6a300dd64e2a3881686720c37",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:alert_receiver:properties:webhook:http_config:basic_auth:password"],
@@ -3202,8 +3202,8 @@
     },
     {
       "aliases": ["webhook http config basic auth password"],
-      "body_bytes": 2699,
-      "body_sha256": "sha256:139498def713c844ff93c9caa279c244a3ca1d24baaf162a2f2319013c84fe23",
+      "body_bytes": 1980,
+      "body_sha256": "sha256:32416d9a6816b6ea33073676f84ab647a01c8e3470e7f9ce75376bd62a59c90a",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -3309,8 +3309,8 @@
     },
     {
       "aliases": ["webhook http config basic auth password blindfold secret info"],
-      "body_bytes": 5292,
-      "body_sha256": "sha256:3590ee4231baa5774f2475758d7c25c9cb3e180b7a7b81c29e2564da9b55fe57",
+      "body_bytes": 4622,
+      "body_sha256": "sha256:991bc923674c80cf49e2509f0bf781bac169de06f2884a93bf1bb3d3c9581c6d",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -3415,8 +3415,8 @@
     },
     {
       "aliases": ["webhook http config basic auth password clear secret info"],
-      "body_bytes": 4161,
-      "body_sha256": "sha256:b38a10f506864de1b832403dcba2d2255b86f66a26c1f85bb53c68482423c027",
+      "body_bytes": 3625,
+      "body_sha256": "sha256:2eb74611ce1933bf1a9b3611db505696e38b304daeca0aff7fe292cfe9c12be6",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -3493,8 +3493,8 @@
     },
     {
       "aliases": ["webhook http config client cert obj"],
-      "body_bytes": 1812,
-      "body_sha256": "sha256:52c53ec4ba5e81155ea60e4e8128cb873fae50c79ce4085aa4ff918bade970e9",
+      "body_bytes": 1295,
+      "body_sha256": "sha256:20cd5d8e9a87e60541b690fcd5ae1507564640f635bd6cb1998a22bdd4105b1f",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:alert_receiver:properties:webhook:http_config:client_cert_obj:use_tls_obj"],
@@ -3548,8 +3548,8 @@
     },
     {
       "aliases": ["webhook http config client cert obj use tls obj"],
-      "body_bytes": 7104,
-      "body_sha256": "sha256:f59c95bc338560d376351e85df60a10741d626056bd1a6afa7b834ab22839a3e",
+      "body_bytes": 6057,
+      "body_sha256": "sha256:3cdb05129b8e4052af184808c7d4d4afd6291af1381495e11dc7fa125b7be922",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -3659,8 +3659,8 @@
     },
     {
       "aliases": ["webhook http config no authorization"],
-      "body_bytes": 1443,
-      "body_sha256": "sha256:dc0828ecd3084eac26a72870c8ba2f7d51e545f4f748f411fe569f074af3bda0",
+      "body_bytes": 1167,
+      "body_sha256": "sha256:78a27521e204a8ec648cf867c5304a28d7c7cceff76188467994036692a918d3",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -3699,8 +3699,8 @@
     },
     {
       "aliases": ["webhook http config no tls"],
-      "body_bytes": 1386,
-      "body_sha256": "sha256:1c433f464e6cbd1cff04f1028389d2cd8dc156268872d8a811de70158b59b94c",
+      "body_bytes": 1110,
+      "body_sha256": "sha256:5aac85276009ff2dc00bde253437f1b3ca033078f0f4f5cc242f05db0dd35da0",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -3739,8 +3739,8 @@
     },
     {
       "aliases": ["webhook http config use tls"],
-      "body_bytes": 6102,
-      "body_sha256": "sha256:e58c903d30c558ca153c87d6fd206d471dae01656669dd07a513fe1fe5fcdf1e",
+      "body_bytes": 4917,
+      "body_sha256": "sha256:c90a7dd04af6a334122de27b715abb6c31f1d9cdb75902cc0f1b05a9c3016723",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -3901,8 +3901,8 @@
     },
     {
       "aliases": ["webhook http config use tls disable sni"],
-      "body_bytes": 1609,
-      "body_sha256": "sha256:d37bf9eafbda28189852942389b8c841f4cb75329e07d203ef0b24a289936fb3",
+      "body_bytes": 1317,
+      "body_sha256": "sha256:3ea3aec668354fbffdeaa335aad8bb87a2c441af9009ae644fa411d00be9f8ea",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -3941,8 +3941,8 @@
     },
     {
       "aliases": ["webhook http config use tls use server verification"],
-      "body_bytes": 2053,
-      "body_sha256": "sha256:934949c72013c8c374c2d6f78584d4cd403e38c73bbd62803cac74ad4dc5830d",
+      "body_bytes": 1557,
+      "body_sha256": "sha256:45530e973bef962ca17708abfb767182dcb3bda762bb26bbec33fd7675f4a0e8",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -3998,8 +3998,8 @@
     },
     {
       "aliases": ["webhook http config use tls use server verification ca cert obj"],
-      "body_bytes": 2336,
-      "body_sha256": "sha256:cb44ad83faf6d4769e90abb76eacf7e389ef9d663fa1176eec5c7e5bff5d269c",
+      "body_bytes": 1770,
+      "body_sha256": "sha256:4691c3221d65442b3fec29e11c2de05b1ec7a1d75b85be1e98a62fc2fc172719",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -4055,8 +4055,8 @@
     },
     {
       "aliases": ["webhook http config use tls use server verification ca cert obj trusted ca"],
-      "body_bytes": 7770,
-      "body_sha256": "sha256:a23bbbd695af8748de91e4ab79483f3b64dcde33f1f3628ecea5cdb3306ce7f7",
+      "body_bytes": 6667,
+      "body_sha256": "sha256:abccd7654dcca9b5dacb52af49768b0ce158dd95687b8a066e81bba21578367c",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -4206,8 +4206,8 @@
     },
     {
       "aliases": ["webhook http config use tls volterra trusted ca"],
-      "body_bytes": 1641,
-      "body_sha256": "sha256:474f33649771f9b3de1dcb314b0c3d1f5977b5228fa972944bb9028065922e23",
+      "body_bytes": 1349,
+      "body_sha256": "sha256:ae141b844a809d7879929a4a9bf0cbf74465b41b61be4a952bc23562d5ac1fbd",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -4246,8 +4246,8 @@
     },
     {
       "aliases": ["webhook url"],
-      "body_bytes": 2126,
-      "body_sha256": "sha256:b24c69f1b1060810510132ce4779a64502091628536d9a0fe280ec12d7d21a21",
+      "body_bytes": 1565,
+      "body_sha256": "sha256:6eb4cccad0262494dd126e0eec18ea835ffc675b32d60695a275e3ba61a6075e",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -4353,8 +4353,8 @@
     },
     {
       "aliases": ["webhook url blindfold secret info"],
-      "body_bytes": 4736,
-      "body_sha256": "sha256:c88c651bfe6c5627b0b1a09fb59e8a80415c6e86577c87f61d6ce81e5f1eacf4",
+      "body_bytes": 4122,
+      "body_sha256": "sha256:fbc3f946f71fd15027e080136e94a3b5f2c1184ad9fa22b1c57cdb323aed5034",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -4445,8 +4445,8 @@
     },
     {
       "aliases": ["webhook url clear secret info"],
-      "body_bytes": 3635,
-      "body_sha256": "sha256:38c3a388cf14a2620139eb68b703646dbc7df99313234c14b0f37ed378331807",
+      "body_bytes": 3155,
+      "body_sha256": "sha256:1e67e84480fab9a1ee910c4dc719b170c6030be322621b1ae7e81547c436e362",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -4523,8 +4523,8 @@
     },
     {
       "aliases": ["alert receiver"],
-      "body_bytes": 645,
-      "body_sha256": "sha256:ef848dbb307614b2f21698c4d315e83e989a66fdd01784bcc562c15fe54266e6",
+      "body_bytes": 408,
+      "body_sha256": "sha256:b000151753d7236b9f5f4f6b274e3cccad89f22a255857dd02419acf126b5ab7",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:alert_receiver:example:resource"],
@@ -4563,8 +4563,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1257,
-      "body_sha256": "sha256:ee45c0c7c8f6ac5bef156b955650632964d7e2a27765bb0293d8b50af327205e",
+      "body_bytes": 1029,
+      "body_sha256": "sha256:7bc71bd24b03d72d1b8fb5f50581b1fdd1c504a3cb26587c0e7c5fd5127cf211",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -4610,8 +4610,8 @@
     },
     {
       "aliases": ["alert receiver"],
-      "body_bytes": 490,
-      "body_sha256": "sha256:b14437a7b3c6c63c13f65c6f58643b75fc2f485d929fb4b67d7006e8e83cb039",
+      "body_bytes": 367,
+      "body_sha256": "sha256:59954014a1cf5f6a6df994a70e69fcfc776e7104b3c5b9c39f7461cce37c6bee",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -4651,8 +4651,8 @@
     },
     {
       "aliases": ["alert receiver"],
-      "body_bytes": 578,
-      "body_sha256": "sha256:03e9b31e8a3e42499c622c515f35722ff45014f9787b0f2ad71620e4f1e5e1bc",
+      "body_bytes": 455,
+      "body_sha256": "sha256:830bbd4dcbf88e95393d8cc9319e36e26215774331a32d5aad3df364cf336c46",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],

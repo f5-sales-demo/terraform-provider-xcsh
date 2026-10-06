@@ -51,8 +51,8 @@
   "pages": [
     {
       "aliases": ["public ip binding"],
-      "body_bytes": 1690,
-      "body_sha256": "sha256:4891a3f4105add408169a28ba7a109046ecafbf3409adb3f33538af08fbd9d85",
+      "body_bytes": 1703,
+      "body_sha256": "sha256:87e5dc2b1fb751edb20c173aab7965307a4ef4ed904d2183a01396182451748f",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -95,8 +95,8 @@
     },
     {
       "aliases": ["public ip binding"],
-      "body_bytes": 2991,
-      "body_sha256": "sha256:ca59e75c7e66e7eab02624a3a556356f9599d97206eda5daaf926b5eb581273a",
+      "body_bytes": 2862,
+      "body_sha256": "sha256:ee652b3c0eceafa21eed11df2ebf7b0f11b13576736e1a10bee78c5947abf648",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -248,8 +248,8 @@
     },
     {
       "aliases": ["public ip binding"],
-      "body_bytes": 663,
-      "body_sha256": "sha256:f0e21ccc9740ff081308462c72109305f2f8bf87f9defc57180e01d3f6cb4d77",
+      "body_bytes": 417,
+      "body_sha256": "sha256:fdf7328437f4804adef000df156d0aeda738c71c0c338ded346c3c1bb1f5d752",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:public_ip_binding:example:resource"],
@@ -288,8 +288,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1435,
-      "body_sha256": "sha256:a6fdb6bfa9da48fe6bf2b9652c5eeeaf4439cc868c61c5c8a21d7d94aa83b6a2",
+      "body_bytes": 1198,
+      "body_sha256": "sha256:734a0705142d048eaa32d6d18253e93589cff698cc6c20bab93b76b50053e6d8",
       "capabilities": [],
       "category": null,
       "child_ids": [],

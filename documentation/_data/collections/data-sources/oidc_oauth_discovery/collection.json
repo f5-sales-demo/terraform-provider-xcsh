@@ -86,8 +86,8 @@
   "pages": [
     {
       "aliases": ["oidc oauth discovery"],
-      "body_bytes": 1258,
-      "body_sha256": "sha256:2c12f9c01e6830c54b73692d547f8eda177f2cf87b195b850d66d033cf1a6e4e",
+      "body_bytes": 1308,
+      "body_sha256": "sha256:07882a7f01b1ebf46b26f3debedc2250d00190c52f39049030784ad40618ecbb",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -118,7 +118,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/oidc_oauth_discovery/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource creation operation.",
+      "summary": "Reads OIDC/OAuth discovery information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_oidc_oauth_discovery",
       "unresolved_relationships": [],
@@ -130,8 +130,8 @@
     },
     {
       "aliases": ["oidc oauth discovery"],
-      "body_bytes": 5235,
-      "body_sha256": "sha256:862f032c2089995750ee02040080a5b97a0f23920a5f0a5405105125dea74925",
+      "body_bytes": 4819,
+      "body_sha256": "sha256:87e15457a04231d2f9d83f86c5f2df33cf3bd9ec56e17868a7d9391a9b97db6c",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -300,8 +300,8 @@
     },
     {
       "aliases": ["auto jwt config name"],
-      "body_bytes": 2048,
-      "body_sha256": "sha256:32eb9646a21576f837b7bcc0729ce5c7f0479f6a497c3c22a81b3a971721328a",
+      "body_bytes": 1784,
+      "body_sha256": "sha256:95898820e5fe01076f77081a8707fb79491a082866ab3d2c1b9eb1a79f0c8408",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -383,8 +383,8 @@
     },
     {
       "aliases": ["trusted ca"],
-      "body_bytes": 2008,
-      "body_sha256": "sha256:55039565aa3019739d3541672193758955f7f6f05d154a1c33bb4a33e6a6b79b",
+      "body_bytes": 1744,
+      "body_sha256": "sha256:375f5d70412f562c190668269613873a4086c2381e58dac2e4d4ca914adbf257",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -466,8 +466,8 @@
     },
     {
       "aliases": ["oidc oauth discovery"],
-      "body_bytes": 705,
-      "body_sha256": "sha256:dfd47c105d0cac5a356ce780b9153f155f7714fd09e4fe09845f9f9a364e530d",
+      "body_bytes": 438,
+      "body_sha256": "sha256:98040bf7cb4f0373d0e10a6b25757b15f9bdb181f8d2fb544fb01173aa54f994",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": ["xcsh-docs:data-sources:oidc_oauth_discovery:example:data-source"],
@@ -506,8 +506,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1294,
-      "body_sha256": "sha256:ca70428cb96249e71846fe2bd6221d2d0668cf4a07c7f6def48308fb8837dfd2",
+      "body_bytes": 1042,
+      "body_sha256": "sha256:243e9639af8ec310fc2b9f242b4c9d0417f9612e2bab61d1731ff3d41b1a2426",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],

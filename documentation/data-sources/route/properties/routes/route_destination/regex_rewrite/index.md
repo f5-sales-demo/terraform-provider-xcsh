@@ -2,7 +2,7 @@
 page_title: "routes.route_destination.regex_rewrite"
 subcategory: ""
 description: "RegexMatchRewrite describes how to match a string and then produce a new string using a regular expression and a substitution string."
-xcsh_docs: {"aliases": ["routes route destination regex rewrite"], "body_bytes": 3560, "body_sha256": "sha256:a6020a4a84931b471f51516558cf42c7c080c3c1a7b1137d6b6a5bb1deca9e1c", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:route:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:route:properties:routes:route_destination:regex_rewrite", "parent_id": "xcsh-docs:data-sources:route:properties:routes:route_destination", "path": "documentation/data-sources/route/properties/routes/route_destination/regex_rewrite/index.md", "product": "distributed-cloud", "provider_name": "route", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1320330021331332-2111003023320303-0233313332222330-1002220332210022-0332130010123020-0021220321311000-2110022123211121-0220012110133301", "registry_path": "docs/guides/data-sources--route--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["routes", "route_destination", "regex_rewrite"], "schema_version": 1, "sections": [{"aliases": ["routes route destination regex rewrite pattern"], "anchor": "schema-routes--route_destination--regex_rewrite--pattern", "description": "The regular expression used to find portions of a string that should be replaced.", "document_id": "xcsh-docs:data-sources:route:properties:routes:route_destination:regex_rewrite", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "route_destination", "regex_rewrite", "pattern"], "syntax": "attribute", "type": "string"}, {"aliases": ["routes route destination regex rewrite substitution"], "anchor": "schema-routes--route_destination--regex_rewrite--substitution", "description": "The string that should be substituted into matching portions of the subject string during a substitution operation to produce a new string.", "document_id": "xcsh-docs:data-sources:route:properties:routes:route_destination:regex_rewrite", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "route_destination", "regex_rewrite", "substitution"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/regex_rewrite/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "RegexMatchRewrite describes how to match a string and then produce a new string using a regular expression and a substitution string.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["routeCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["routes route destination regex rewrite"], "body_bytes": 2988, "body_sha256": "sha256:d22d53437885bccb54cc9f532763683b0932460d618c685fa0d95bdbecdde918", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:route:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:route:properties:routes:route_destination:regex_rewrite", "parent_id": "xcsh-docs:data-sources:route:properties:routes:route_destination", "path": "documentation/data-sources/route/properties/routes/route_destination/regex_rewrite/index.md", "product": "distributed-cloud", "provider_name": "route", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1320330021331332-2111003023320303-0233313332222330-1002220332210022-0332130010123020-0021220321311000-2110022123211121-0220012110133301", "registry_path": "docs/guides/data-sources--route--reference--group-003.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["routes", "route_destination", "regex_rewrite"], "schema_version": 1, "sections": [{"aliases": ["routes route destination regex rewrite pattern"], "anchor": "schema-routes--route_destination--regex_rewrite--pattern", "description": "The regular expression used to find portions of a string that should be replaced.", "document_id": "xcsh-docs:data-sources:route:properties:routes:route_destination:regex_rewrite", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "route_destination", "regex_rewrite", "pattern"], "syntax": "attribute", "type": "string"}, {"aliases": ["routes route destination regex rewrite substitution"], "anchor": "schema-routes--route_destination--regex_rewrite--substitution", "description": "The string that should be substituted into matching portions of the subject string during a substitution operation to produce a new string.", "document_id": "xcsh-docs:data-sources:route:properties:routes:route_destination:regex_rewrite", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "route_destination", "regex_rewrite", "substitution"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/regex_rewrite/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "RegexMatchRewrite describes how to match a string and then produce a new string using a regular expression and a substitution string.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["routeCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -22,11 +22,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"single"`. Computed.
-
-RegexMatchRewrite describes how to match a string and then produce a new string using a regular
-expression and a substitution string.
-
-Upstream description:
 
 RegexMatchRewrite describes how to match a string and then produce a new string using a regular
 expression and a substitution string.
@@ -100,11 +95,6 @@ Type: `"string"`. Computed.
 The string that should be substituted into matching portions of the subject string during a
 substitution operation to produce a new string.
 
-Upstream description:
-
-The string that should be substituted into matching portions of the subject string during a
-substitution operation to produce a new string.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -135,8 +125,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [routes.route_destination](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/route/properties/routes/route_destination/)
-- [xcsh_route](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/route/)

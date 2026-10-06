@@ -41,8 +41,8 @@
   "pages": [
     {
       "aliases": ["network bot defense"],
-      "body_bytes": 1528,
-      "body_sha256": "sha256:ab4d115a6af0a189abae46b696a8c9064b7be612ea2ae9bdc7de7119e1a1db0f",
+      "body_bytes": 1541,
+      "body_sha256": "sha256:b57a836038125bf818a6704bae3d6c4e6a0d95d093445237e3e6fe1d64a5fd22",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -85,8 +85,8 @@
     },
     {
       "aliases": ["network bot defense"],
-      "body_bytes": 2631,
-      "body_sha256": "sha256:9e58d24b640f2f457e8843b8365d344c9807c4f86a7845f49c8b4067dbd39774",
+      "body_bytes": 2495,
+      "body_sha256": "sha256:9f67f67635d9011224d5ca511154f0f397748db5f841e29f9306fe734ffa71cd",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -210,8 +210,8 @@
     },
     {
       "aliases": ["network bot defense"],
-      "body_bytes": 699,
-      "body_sha256": "sha256:8478239cd0617027ff3c021b56ad8b6e1fb42e3bec61820923db779206741256",
+      "body_bytes": 435,
+      "body_sha256": "sha256:325eaf3b564560d550407f8ae62c3a6819097d3897ee33821f3ff053516dbc32",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:network_bot_defense:example:data-source"],
@@ -250,8 +250,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1381,
-      "body_sha256": "sha256:da86f81a376541aa4a8007bbd89479d93e19f4bf6c32095641fb9ccafbe149cb",
+      "body_bytes": 1132,
+      "body_sha256": "sha256:606ed24b16220dac08aee3255bc841632fd389e1e3d6241180b30a899fc44e8c",
       "capabilities": [],
       "category": null,
       "child_ids": [],

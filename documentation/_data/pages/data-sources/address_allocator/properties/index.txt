@@ -2,7 +2,7 @@
 page_title: "Property reference"
 subcategory: ""
 description: "Property reference for xcsh_address_allocator."
-xcsh_docs: {"aliases": ["address allocator"], "body_bytes": 11155, "body_sha256": "sha256:f2c0f84427edcec81a3d2d588d6d4662ff0a57bcf37a27a78fc1c116e181f511", "capabilities": ["networking"], "category": "networking", "child_ids": ["xcsh-docs:data-sources:address_allocator:properties:address_allocation_scheme"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:address_allocator:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:address_allocator:reference", "parent_id": "xcsh-docs:data-sources:address_allocator:fundamentals", "path": "documentation/data-sources/address_allocator/properties/index.md", "product": "distributed-cloud", "provider_name": "address_allocator", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-0012311232330222-1032233333322133-2322023003332231-0123033020123120-0101033200130133-1131010113203203-2210031202200112-2212010003230021", "registry_path": "docs/guides/data-sources--address_allocator--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "reference", "schema_path": [], "schema_version": 1, "sections": [{"aliases": ["address allocation scheme"], "anchor": "section", "description": "Decides the scheme to be used to allocate addresses from the configured address pool.", "document_id": "xcsh-docs:data-sources:address_allocator:properties:address_allocation_scheme", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["address_allocation_scheme"], "syntax": "attribute", "type": "object"}, {"aliases": ["address pool"], "anchor": "schema-address_pool", "description": "Address pool from which the allocator carves out subnets or addresses to its clients.", "document_id": "xcsh-docs:data-sources:address_allocator:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["address_pool"], "syntax": "attribute", "type": "list"}, {"aliases": ["annotations"], "anchor": "schema-annotations", "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.", "document_id": "xcsh-docs:data-sources:address_allocator:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["annotations"], "syntax": "attribute", "type": "map"}, {"aliases": ["description"], "anchor": "schema-description", "description": "Human readable description for the object.", "document_id": "xcsh-docs:data-sources:address_allocator:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["description"], "syntax": "attribute", "type": "string"}, {"aliases": ["id"], "anchor": "schema-id", "description": "Unique identifier for the resource.", "document_id": "xcsh-docs:data-sources:address_allocator:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["id"], "syntax": "attribute", "type": "string"}, {"aliases": ["labels"], "anchor": "schema-labels", "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.", "document_id": "xcsh-docs:data-sources:address_allocator:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["labels"], "syntax": "attribute", "type": "map"}, {"aliases": ["mode"], "anchor": "schema-mode", "description": "Mode of the address allocator Address allocator is for VERs within the local cluster or site Allocation is per site and then per node.", "document_id": "xcsh-docs:data-sources:address_allocator:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["mode"], "syntax": "attribute", "type": "string"}, {"aliases": ["name"], "anchor": "schema-name", "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.", "document_id": "xcsh-docs:data-sources:address_allocator:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["name"], "syntax": "attribute", "type": "string"}, {"aliases": ["namespace"], "anchor": "schema-namespace", "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"", "document_id": "xcsh-docs:data-sources:address_allocator:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["namespace"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/address_allocator/properties/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Property reference for xcsh_address_allocator.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["address_allocatorCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["address allocator"], "body_bytes": 10742, "body_sha256": "sha256:d1d696b06bc7517fd6538c556b3c1a211f194a4b0452125cf60f9174678ef681", "capabilities": ["networking"], "category": "networking", "child_ids": ["xcsh-docs:data-sources:address_allocator:properties:address_allocation_scheme"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:address_allocator:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:address_allocator:reference", "parent_id": "xcsh-docs:data-sources:address_allocator:fundamentals", "path": "documentation/data-sources/address_allocator/properties/index.md", "product": "distributed-cloud", "provider_name": "address_allocator", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-0012311232330222-1032233333322133-2322023003332231-0123033020123120-0101033200130133-1131010113203203-2210031202200112-2212010003230021", "registry_path": "docs/guides/data-sources--address_allocator--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "reference", "schema_path": [], "schema_version": 1, "sections": [{"aliases": ["address allocation scheme"], "anchor": "section", "description": "Decides the scheme to be used to allocate addresses from the configured address pool.", "document_id": "xcsh-docs:data-sources:address_allocator:properties:address_allocation_scheme", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["address_allocation_scheme"], "syntax": "attribute", "type": "object"}, {"aliases": ["address pool"], "anchor": "schema-address_pool", "description": "Address pool from which the allocator carves out subnets or addresses to its clients.", "document_id": "xcsh-docs:data-sources:address_allocator:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["address_pool"], "syntax": "attribute", "type": "list"}, {"aliases": ["annotations"], "anchor": "schema-annotations", "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.", "document_id": "xcsh-docs:data-sources:address_allocator:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["annotations"], "syntax": "attribute", "type": "map"}, {"aliases": ["description"], "anchor": "schema-description", "description": "Human readable description for the object.", "document_id": "xcsh-docs:data-sources:address_allocator:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["description"], "syntax": "attribute", "type": "string"}, {"aliases": ["id"], "anchor": "schema-id", "description": "Unique identifier for the resource.", "document_id": "xcsh-docs:data-sources:address_allocator:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["id"], "syntax": "attribute", "type": "string"}, {"aliases": ["labels"], "anchor": "schema-labels", "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.", "document_id": "xcsh-docs:data-sources:address_allocator:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["labels"], "syntax": "attribute", "type": "map"}, {"aliases": ["mode"], "anchor": "schema-mode", "description": "Mode of the address allocator Address allocator is for VERs within the local cluster or site Allocation is per site and then per node.", "document_id": "xcsh-docs:data-sources:address_allocator:reference", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["mode"], "syntax": "attribute", "type": "string"}, {"aliases": ["name"], "anchor": "schema-name", "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.", "document_id": "xcsh-docs:data-sources:address_allocator:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["name"], "syntax": "attribute", "type": "string"}, {"aliases": ["namespace"], "anchor": "schema-namespace", "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"", "document_id": "xcsh-docs:data-sources:address_allocator:reference", "flags": ["required"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["namespace"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/address_allocator/properties/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Property reference for xcsh_address_allocator.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["address_allocatorCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -75,7 +75,7 @@ Type: `["map", "string"]`. Computed.
 
 Annotations applied to this resource.
 
-Upstream description:
+Additional upstream details:
 
 Annotations is an unstructured key value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
@@ -135,7 +135,7 @@ Type: `"string"`. Computed.
 
 Description of the AddressAllocator.
 
-Upstream description:
+Additional upstream details:
 
 Human readable description for the object.
 
@@ -193,7 +193,7 @@ Type: `["map", "string"]`. Computed.
 
 Labels applied to this resource.
 
-Upstream description:
+Additional upstream details:
 
 Map of string keys and values that can be used to organize and categorize (scope and select) objects
 as chosen by the user. Values specified here will be used by selector expression.
@@ -221,13 +221,6 @@ Type: `"string"`. Computed.
 within the local cluster or site Allocation is per site and then per node. Possible values are
 \`LOCAL\`, \`GLOBAL\_PER\_SITE\_NODE\`. Defaults to \`LOCAL\`.
 
-Upstream description:
-
-Mode of the address allocator
-
-Address allocator is for VERs within the local cluster or site Allocation is per site and then per
-node.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -254,7 +247,7 @@ Type: `"string"`. Required.
 
 Name of the AddressAllocator.
 
-Upstream description:
+Additional upstream details:
 
 This is the name of configuration object. It has to be unique within the namespace. It can only be
 specified during create API and cannot be changed during replace API. The value of name has to
@@ -312,7 +305,7 @@ Type: `"string"`. Required.
 
 Namespace where the AddressAllocator exists.
 
-Upstream description:
+Additional upstream details:
 
 This defines the workspace within which each the configuration object is to be created. Must be a
 DNS\_LABEL format. For a namespace object itself, namespace value will be ""
@@ -373,8 +366,3 @@ Each exact path has one authoritative reference destination. Collection element 
 | `mode` | [mode](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/address_allocator/properties/#schema-mode) |
 | `name` | [name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/address_allocator/properties/#schema-name) |
 | `namespace` | [namespace](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/address_allocator/properties/#schema-namespace) |
-
-## Next pages
-
-- [address_allocation_scheme](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/address_allocator/properties/address_allocation_scheme/)
-- [xcsh_address_allocator](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/address_allocator/)

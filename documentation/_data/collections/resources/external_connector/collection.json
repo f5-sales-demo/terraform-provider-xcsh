@@ -421,8 +421,8 @@
   "pages": [
     {
       "aliases": ["external connector"],
-      "body_bytes": 1687,
-      "body_sha256": "sha256:958fd961b28237f9aa9445b2086e193e9408284bd0cfef5906be80e110185c9e",
+      "body_bytes": 1701,
+      "body_sha256": "sha256:5899bd72cb0908d2d93a490b429514ad3ba753dc6d1ea584612ac5674b18d691",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -455,7 +455,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a External Connector resource in F5 Distributed Cloud for external_connector configuration specification. configuration.",
+      "summary": "Manages an External Connector resource in F5 Distributed Cloud for external_connector configuration specification. configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_external_connector",
       "unresolved_relationships": [],
@@ -467,8 +467,8 @@
     },
     {
       "aliases": ["external connector"],
-      "body_bytes": 28352,
-      "body_sha256": "sha256:f7fc2f7c5f9e7b630036aa9b870d2c02746023b6dff0310a5a5b83507119dd41",
+      "body_bytes": 27599,
+      "body_sha256": "sha256:18f499e83df960bcf27ad779fe1571f57ed799d2e4eca28eff482b95fd01d920",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -676,8 +676,8 @@
     },
     {
       "aliases": ["ce site reference"],
-      "body_bytes": 5895,
-      "body_sha256": "sha256:d6362f73d9b95ce01de7381d2d00168c1254b31597eeebd3c7ef2aa7adf7e9b4",
+      "body_bytes": 4970,
+      "body_sha256": "sha256:999eca9532669b1700db61f7e16353540f1274905ea2cc4eb46ac57b90878fdd",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -768,8 +768,8 @@
     },
     {
       "aliases": ["gre"],
-      "body_bytes": 1753,
-      "body_sha256": "sha256:10713072ae6615e1c75ebde18e70e8c441c14ab5531e5c1149ef14ba9269d4ef",
+      "body_bytes": 1301,
+      "body_sha256": "sha256:d735cb975c0aa2b284df23be3b508389b9a73562cdf46abbb408e5e0f7bab7c6",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:external_connector:properties:gre:gre_parameters"],
@@ -888,8 +888,8 @@
     },
     {
       "aliases": ["gre gre parameters"],
-      "body_bytes": 4504,
-      "body_sha256": "sha256:cb8e40bb8316c9305289bbe9374c0ced8a5d9837b3e254699736cc2112d3cdd6",
+      "body_bytes": 3403,
+      "body_sha256": "sha256:d9e7a61d641f1a58c7aac0d052748fb34b9fc634ac437e7b2158991cfd65afcf",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1126,8 +1126,8 @@
     },
     {
       "aliases": ["gre gre parameters peer ip address"],
-      "body_bytes": 2394,
-      "body_sha256": "sha256:e731780db4dedad6294ee9af2f502ef8bec0db82cf91b509ad6db032dd259a45",
+      "body_bytes": 2061,
+      "body_sha256": "sha256:0b1c622843c28658a84b46f8b9edea2a65c2971769dbf51c75a7fa1143af25d0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1181,8 +1181,8 @@
     },
     {
       "aliases": ["gre gre parameters segment"],
-      "body_bytes": 1881,
-      "body_sha256": "sha256:e94d3c50f76ad7507e9e235b77ac35d58f4a388c8f9f1612dd1474a06607f770",
+      "body_bytes": 1391,
+      "body_sha256": "sha256:22f0f523129e4e9a5da0a8cf1989dd9339c069c79973909d3f977535258f689c",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:external_connector:properties:gre:gre_parameters:segment:refs"],
@@ -1245,8 +1245,8 @@
     },
     {
       "aliases": ["gre gre parameters segment refs"],
-      "body_bytes": 7044,
-      "body_sha256": "sha256:4e93125ef96daa257d952bc740214d0a3d29ffd26ca20253c10d3dcf4c5d080b",
+      "body_bytes": 6014,
+      "body_sha256": "sha256:cec853ffd25e35c15467ff5955fbc0b4e448e806446cd557a43ea7394bd5a467",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1356,8 +1356,8 @@
     },
     {
       "aliases": ["gre gre parameters site local inside network"],
-      "body_bytes": 1461,
-      "body_sha256": "sha256:eb9dc0aa5aa5ae8e524aa6784c4c0949fbbf5453b5fd2ae6522b47e526fb7960",
+      "body_bytes": 1175,
+      "body_sha256": "sha256:904472eb9fd2b5f419b1bfd02701ac71fce7d394a7afb92ae9186f608fb35300",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1396,8 +1396,8 @@
     },
     {
       "aliases": ["gre gre parameters site local network"],
-      "body_bytes": 1440,
-      "body_sha256": "sha256:d299b1a4ed6bc308bd5793e89f5233c6edfacf66e2a67193ab7ab821dc267ef9",
+      "body_bytes": 1154,
+      "body_sha256": "sha256:4de64b548546b7e2b4f319f51c11b95f1f82c0f562bf77c7bcbf8c026f4b031e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1436,8 +1436,8 @@
     },
     {
       "aliases": ["gre gre parameters tunnel eps"],
-      "body_bytes": 5902,
-      "body_sha256": "sha256:9616382cc2b097759c22bb2ae8285185b05e2f9e08576d4645c6e8e7fd3e7122",
+      "body_bytes": 5507,
+      "body_sha256": "sha256:3865c06a39756ef134de1950ce5e4f36756deb8d99dd08e5b958966ac8560c7e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1566,8 +1566,8 @@
     },
     {
       "aliases": ["ipsec"],
-      "body_bytes": 1754,
-      "body_sha256": "sha256:cd4bef3d94998a297a916c47446873e2913e321cc2c68dc1248c6458829a267f",
+      "body_bytes": 1134,
+      "body_sha256": "sha256:379dc1d5d9d6cdc855ba6bb6e041df0c4e02ad0978e3a50a4287dd52fc7ee52f",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1792,8 +1792,8 @@
     },
     {
       "aliases": ["ipsec ike parameters"],
-      "body_bytes": 6114,
-      "body_sha256": "sha256:ecd7f5547684d0f13d90502c279b22b3e19e90047d9a7e830cc90f515f12418b",
+      "body_bytes": 4133,
+      "body_sha256": "sha256:126c7a9b70ec443d9a803b40c528e8046343fc6c02d4727e11f246710818c0c4",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2140,8 +2140,8 @@
     },
     {
       "aliases": ["ipsec ike parameters dpd disabled"],
-      "body_bytes": 1438,
-      "body_sha256": "sha256:7d0f7b711a1c90c689e4f9b04d28ba08ae52776c8a9052b89cd0e11d11556a61",
+      "body_bytes": 1148,
+      "body_sha256": "sha256:fcfa1b1f82ee42553a6ef4941313d62410a1b68dbbd1bc546a27f2f7d76ce1b5",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2180,8 +2180,8 @@
     },
     {
       "aliases": ["ipsec ike parameters dpd keep alive timer"],
-      "body_bytes": 2612,
-      "body_sha256": "sha256:fae6fa404c3f8a9a9a868da9df42125b6b416e981c0dd551a808f654a8c92d33",
+      "body_bytes": 2286,
+      "body_sha256": "sha256:21df3ba365baa3c1f5647821e80aa68b660a0efd2c88c0a3069fd3630bbf890b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2244,8 +2244,8 @@
     },
     {
       "aliases": ["ipsec ike parameters ike phase1 profile"],
-      "body_bytes": 6293,
-      "body_sha256": "sha256:ae424e9aa5de8b6c422dcc16982f71752f6e9290749b6d815d35253ac6a8931e",
+      "body_bytes": 5345,
+      "body_sha256": "sha256:ca491687180a23b9d36ab1c7f9adea0daf0f240cbd6c5df0dc3b31e00d9219ee",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2336,8 +2336,8 @@
     },
     {
       "aliases": ["ipsec ike parameters ike phase2 profile"],
-      "body_bytes": 6293,
-      "body_sha256": "sha256:7c6ca1a03b45a61e38550b23a2aff2aa54e798c87c99d8506259f07a4b6145e5",
+      "body_bytes": 5345,
+      "body_sha256": "sha256:5b10f80f6b7f6dba992821d3c5a5d02f386d23085ee1e08de59e8de5db5be310",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2428,8 +2428,8 @@
     },
     {
       "aliases": ["ipsec ike parameters initiator"],
-      "body_bytes": 1429,
-      "body_sha256": "sha256:20e9faa577310c203c9d6561b157863ed25d4dc5ae86d291e8589f615cb0b5c8",
+      "body_bytes": 1139,
+      "body_sha256": "sha256:008a4c92304dcb2fd10fb5b2878ddd1018f3926667598882788ab855f5b794fc",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2468,8 +2468,8 @@
     },
     {
       "aliases": ["ipsec ike parameters responder"],
-      "body_bytes": 1429,
-      "body_sha256": "sha256:4d2e6f691b7b1bded639f1003db6e1ed0e2a17e994edc08d7d0fd0452312307f",
+      "body_bytes": 1139,
+      "body_sha256": "sha256:0652bdcf08934e836cdfc6134fbd90f7d3a8ea6be55145a789e5bc8700132205",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2508,8 +2508,8 @@
     },
     {
       "aliases": ["ipsec ike parameters rm ip address"],
-      "body_bytes": 2849,
-      "body_sha256": "sha256:f36440e85c48ba809df8bab31629a3cd9db8f27608f86cf63f7a8f6d0270c7c2",
+      "body_bytes": 2016,
+      "body_sha256": "sha256:9df892cab10dbc7395db08ef0bccdd700be442cb5cc9ce45b409c45c8cc3492b",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2644,8 +2644,8 @@
     },
     {
       "aliases": ["ipsec ike parameters rm ip address dual stack"],
-      "body_bytes": 2398,
-      "body_sha256": "sha256:0cdfe1809b0c8b0a5209ef143be12b7623cd1fe07b80f8b810c16114179f0fca",
+      "body_bytes": 1687,
+      "body_sha256": "sha256:117bb9bfe126bb487ce7fcc71c67498adf8f18c2d6ad08e395b54b4f0ed4939d",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2716,8 +2716,8 @@
     },
     {
       "aliases": ["ipsec ike parameters rm ip address dual stack ipv4"],
-      "body_bytes": 2868,
-      "body_sha256": "sha256:853bf85947004412cc39bd7836506cdfa3675b7ce3fb262222dccf134ec40801",
+      "body_bytes": 2550,
+      "body_sha256": "sha256:1ce827f5cfd09cc6f0247d64f4a5c34adceeaec14e93dbe5c8447a966debe974",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2771,8 +2771,8 @@
     },
     {
       "aliases": ["ipsec ike parameters rm ip address dual stack ipv6"],
-      "body_bytes": 3378,
-      "body_sha256": "sha256:095ee865b81fe7ff7bcb8016ea8d67abf8fae312af45c7b58926b7f2b0fed586",
+      "body_bytes": 2687,
+      "body_sha256": "sha256:ee663a904e7b4c166e3b896932346fde773dbd71dfaa0653e5133655c8defce2",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2826,8 +2826,8 @@
     },
     {
       "aliases": ["ipsec ike parameters rm ip address ipv4"],
-      "body_bytes": 2618,
-      "body_sha256": "sha256:94440b5771b664557a2522468d7056d168ad80b22b24061a2608e7cbeaa75ac4",
+      "body_bytes": 2322,
+      "body_sha256": "sha256:c1ec6b64ad76e4650b5cf1d6293952604a38f4e07da1feb96e4fb5063581a70c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2881,8 +2881,8 @@
     },
     {
       "aliases": ["ipsec ike parameters rm ip address ipv6"],
-      "body_bytes": 3128,
-      "body_sha256": "sha256:0d0a6b0b44f0edd439ec96ff1e156bf190b9dd5c1bdf149ac1cad1aa2c32ba73",
+      "body_bytes": 2459,
+      "body_sha256": "sha256:6611aca283624287006ce03d479a36fbfa6d767ac770294fd0e5708bda7019f0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2936,8 +2936,8 @@
     },
     {
       "aliases": ["ipsec ike parameters use default local ike id"],
-      "body_bytes": 1487,
-      "body_sha256": "sha256:4550c143665d1b194eb6b8ae47cf569b4e098255d13df7b48b9de4f5a4894250",
+      "body_bytes": 1197,
+      "body_sha256": "sha256:02405ce17f0210b5dc1d355fefa74cc9d8ab1ecb1625abc5b28302d1df2dface",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2976,8 +2976,8 @@
     },
     {
       "aliases": ["ipsec ike parameters use default remote ike id"],
-      "body_bytes": 1477,
-      "body_sha256": "sha256:13b4266022d5c7847f63ab847ffcaf1337f1b03f49069dfb08f21c3d0febf81d",
+      "body_bytes": 1187,
+      "body_sha256": "sha256:6b479cf7e28162e801c063d81bd454cabf83b6cf261e08cbf35c5e09d90b0612",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3016,8 +3016,8 @@
     },
     {
       "aliases": ["ipsec ipsec tunnel parameters"],
-      "body_bytes": 5769,
-      "body_sha256": "sha256:bc6f8517a7e3f46f70e5382b0fe73acc32f6fdf559ec648f0875d84bd38eab29",
+      "body_bytes": 4554,
+      "body_sha256": "sha256:e2eba974b3d342fda9f0c0fc5c6133e399be6aaa42eeb93eea9812c1c008d1a2",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -3276,8 +3276,8 @@
     },
     {
       "aliases": ["ipsec ipsec tunnel parameters peer ip address"],
-      "body_bytes": 2475,
-      "body_sha256": "sha256:2ae7ab2974a22cd5bf2a1ab8c3454e4e24343f0f8b60c68e8b23dc1dce1d2a6e",
+      "body_bytes": 2120,
+      "body_sha256": "sha256:264ad89e0949cb3424ad64bd2cc5e98661d7d1568e22ce2da8e6df357ec512c8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3331,8 +3331,8 @@
     },
     {
       "aliases": ["ipsec ipsec tunnel parameters segment"],
-      "body_bytes": 1984,
-      "body_sha256": "sha256:6420b3f72f84fc7972ee6fdc1efe8248d0073b857ac6c66a1e9072d931a4250e",
+      "body_bytes": 1450,
+      "body_sha256": "sha256:48973ff48b981d2181181d256b9067c23eb69496c60ab6a2a97beb24036d3864",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:external_connector:properties:ipsec:ipsec_tunnel_parameters:segment:refs"],
@@ -3395,8 +3395,8 @@
     },
     {
       "aliases": ["ipsec ipsec tunnel parameters segment refs"],
-      "body_bytes": 7191,
-      "body_sha256": "sha256:138964ce4b06069190a758e9154c6ead97481062f96d6aa6bcd1ad5def3fe466",
+      "body_bytes": 6139,
+      "body_sha256": "sha256:cd9c2c8666c6882a4f96fb27fed20af633ebd96e8edd973dfecfabc05d581e1b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3506,8 +3506,8 @@
     },
     {
       "aliases": ["ipsec ipsec tunnel parameters site local inside network"],
-      "body_bytes": 1531,
-      "body_sha256": "sha256:fa06a0f0ca9fcf2b192af2602b41f21d9ecc5923f30532a3aedc01eee4a60fb8",
+      "body_bytes": 1223,
+      "body_sha256": "sha256:704d0ea4cfc1aedd7aa3ff2eab6cce888bad4d390d2831097f01b0dac46d9897",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3546,8 +3546,8 @@
     },
     {
       "aliases": ["ipsec ipsec tunnel parameters site local network"],
-      "body_bytes": 1510,
-      "body_sha256": "sha256:2345e3766d99a8a6e7b6c68959a84f719a55cd822b57f1890b7c4706cbf02f0b",
+      "body_bytes": 1202,
+      "body_sha256": "sha256:d5af23c9c0beab246870d74907c84b5f696be510cb151f82937a9bc95850be24",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3586,8 +3586,8 @@
     },
     {
       "aliases": ["ipsec ipsec tunnel parameters tunnel eps"],
-      "body_bytes": 6012,
-      "body_sha256": "sha256:3a90f0661cd5b7e5aaf10ad313f058432bd7b68536dce659171b7cfeab0b07ab",
+      "body_bytes": 5595,
+      "body_sha256": "sha256:08188ebc6ec4d7071e9927983aed6436f90d98bc0923c16c4321985ec17409dd",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3716,8 +3716,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2267,
-      "body_sha256": "sha256:ec11e0fa924db504e9996b5ddbb06de37352071b29a1db75e8a84253da4fb7a2",
+      "body_bytes": 2015,
+      "body_sha256": "sha256:ac75a776835dba3b488dfbadaedd27bc794b1d95617df6b2f999f0e30e6776f5",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3848,8 +3848,8 @@
     },
     {
       "aliases": ["external connector"],
-      "body_bytes": 669,
-      "body_sha256": "sha256:d76232f0ac4be62aba79813c3e27ef407fbdc186aeef45aaa306e37ac85f3763",
+      "body_bytes": 420,
+      "body_sha256": "sha256:e3de6c2681aee62d813b1ef65a053ce969d9ce72c908856db5ed319ed6b9f70b",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:external_connector:example:resource"],
@@ -3888,8 +3888,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1356,
-      "body_sha256": "sha256:b38c3f2c3a3e3210076c1f81a36784d2f6122ab7df154174e63c482a159e1c66",
+      "body_bytes": 1116,
+      "body_sha256": "sha256:7a36fba1d36e2080b51041861b7e246785f7ff221e9e9f2fc68b190a54fc651e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3935,8 +3935,8 @@
     },
     {
       "aliases": ["external connector"],
-      "body_bytes": 510,
-      "body_sha256": "sha256:717a8d8ac69ec273fff0800d426babbfc67f8360bab03ab318ca91cb41a7d975",
+      "body_bytes": 379,
+      "body_sha256": "sha256:a303b1fd641b0938de25b5bb3a782e6614baf1045219f8be4c9e9416f5e16bdd",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3976,8 +3976,8 @@
     },
     {
       "aliases": ["external connector"],
-      "body_bytes": 598,
-      "body_sha256": "sha256:dff5c793ba5373ef2286148b4ad5b3dd3f28c6bcb6350a05b07f6ae022813734",
+      "body_bytes": 467,
+      "body_sha256": "sha256:0be9d1152e2203d7e131aadd9d1306cd2e5586864659c475e8f2a78d53dd2269",
       "capabilities": [],
       "category": null,
       "child_ids": [],

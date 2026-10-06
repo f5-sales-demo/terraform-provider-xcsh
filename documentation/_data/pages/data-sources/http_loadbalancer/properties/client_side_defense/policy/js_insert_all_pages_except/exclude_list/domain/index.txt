@@ -2,7 +2,7 @@
 page_title: "client_side_defense.policy.js_insert_all_pages_except.exclude_list.domain"
 subcategory: "Load Balancing"
 description: "Domains names."
-xcsh_docs: {"aliases": ["client side defense policy js insert all pages except exclude list domain"], "body_bytes": 5807, "body_sha256": "sha256:727f72ccc685e0f8ce714a974737b04cd559d3c2209e774d8f85e134462ff635", "capabilities": ["load-balancing", "security.client-side-defense"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:http_loadbalancer:properties:client_side_defense:policy:js_insert_all_pages_except:exclude_list:domain", "parent_id": "xcsh-docs:data-sources:http_loadbalancer:properties:client_side_defense:policy:js_insert_all_pages_except:exclude_list", "path": "documentation/data-sources/http_loadbalancer/properties/client_side_defense/policy/js_insert_all_pages_except/exclude_list/domain/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2002131310221020-0011333113302213-2322031101031300-3332123032212102-2233113023233330-0210223010320233-2223020133210110-0223021030200011", "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-014.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["client_side_defense", "policy", "js_insert_all_pages_except", "exclude_list", "domain"], "schema_version": 1, "sections": [{"aliases": ["client side defense policy js insert all pages except exclude list domain exact value"], "anchor": "schema-client_side_defense--policy--js_insert_all_pages_except--exclude_list--domain--exact_value", "description": "Exclusive with Exact domain name.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:client_side_defense:policy:js_insert_all_pages_except:exclude_list:domain", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["client_side_defense", "policy", "js_insert_all_pages_except", "exclude_list", "domain", "exact_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["client side defense policy js insert all pages except exclude list domain regex value"], "anchor": "schema-client_side_defense--policy--js_insert_all_pages_except--exclude_list--domain--regex_value", "description": "Exclusive with Regular Expression value for the domain name.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:client_side_defense:policy:js_insert_all_pages_except:exclude_list:domain", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["client_side_defense", "policy", "js_insert_all_pages_except", "exclude_list", "domain", "regex_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["client side defense policy js insert all pages except exclude list domain suffix value"], "anchor": "schema-client_side_defense--policy--js_insert_all_pages_except--exclude_list--domain--suffix_value", "description": "Exclusive with Suffix of domain name e.g \"xyz.com\" will match \"*.xyz.com\" and \"xyz.com\"", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:client_side_defense:policy:js_insert_all_pages_except:exclude_list:domain", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["client_side_defense", "policy", "js_insert_all_pages_except", "exclude_list", "domain", "suffix_value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/http_loadbalancer/properties/client_side_defense/policy/js_insert_all_pages_except/exclude_list/domain/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Domains names.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["client side defense policy js insert all pages except exclude list domain"], "body_bytes": 5246, "body_sha256": "sha256:23b238ed51abd36d71b206985feee8532d59ff7ab4e898b8c4998a666d9466ab", "capabilities": ["load-balancing", "security.client-side-defense"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:http_loadbalancer:properties:client_side_defense:policy:js_insert_all_pages_except:exclude_list:domain", "parent_id": "xcsh-docs:data-sources:http_loadbalancer:properties:client_side_defense:policy:js_insert_all_pages_except:exclude_list", "path": "documentation/data-sources/http_loadbalancer/properties/client_side_defense/policy/js_insert_all_pages_except/exclude_list/domain/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2002131310221020-0011333113302213-2322031101031300-3332123032212102-2233113023233330-0210223010320233-2223020133210110-0223021030200011", "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-014.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["client_side_defense", "policy", "js_insert_all_pages_except", "exclude_list", "domain"], "schema_version": 1, "sections": [{"aliases": ["client side defense policy js insert all pages except exclude list domain exact value"], "anchor": "schema-client_side_defense--policy--js_insert_all_pages_except--exclude_list--domain--exact_value", "description": "Exclusive with Exact domain name.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:client_side_defense:policy:js_insert_all_pages_except:exclude_list:domain", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["client_side_defense", "policy", "js_insert_all_pages_except", "exclude_list", "domain", "exact_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["client side defense policy js insert all pages except exclude list domain regex value"], "anchor": "schema-client_side_defense--policy--js_insert_all_pages_except--exclude_list--domain--regex_value", "description": "Exclusive with Regular Expression value for the domain name.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:client_side_defense:policy:js_insert_all_pages_except:exclude_list:domain", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["client_side_defense", "policy", "js_insert_all_pages_except", "exclude_list", "domain", "regex_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["client side defense policy js insert all pages except exclude list domain suffix value"], "anchor": "schema-client_side_defense--policy--js_insert_all_pages_except--exclude_list--domain--suffix_value", "description": "Exclusive with Suffix of domain name e.g \"xyz.com\" will match \"*.xyz.com\" and \"xyz.com\"", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:client_side_defense:policy:js_insert_all_pages_except:exclude_list:domain", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["client_side_defense", "policy", "js_insert_all_pages_except", "exclude_list", "domain", "suffix_value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/http_loadbalancer/properties/client_side_defense/policy/js_insert_all_pages_except/exclude_list/domain/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Domains names.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -27,7 +27,7 @@ Type: `"single"`. Computed.
 
 Domain name for routing and identification.
 
-Upstream description:
+Additional upstream details:
 
 Domains names.
 
@@ -52,10 +52,6 @@ Receipt-pinned upstream constraints:
 ### exact_value property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
-
-Upstream description:
 
 Exclusive with \[regex\_value suffix\_value\] Exact domain name.
 
@@ -105,10 +101,6 @@ Type: `"string"`. Computed.
 
 Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
 
-Upstream description:
-
-Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -155,7 +147,7 @@ Type: `"string"`. Computed.
 Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
-Upstream description:
+Additional upstream details:
 
 Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
@@ -197,8 +189,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [client_side_defense.policy.js_insert_all_pages_except.exclude_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/client_side_defense/policy/js_insert_all_pages_except/exclude_list/)
-- [xcsh_http_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/)

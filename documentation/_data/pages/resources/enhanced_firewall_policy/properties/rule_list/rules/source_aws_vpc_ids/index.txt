@@ -2,7 +2,7 @@
 page_title: "rule_list.rules.source_aws_vpc_ids"
 subcategory: ""
 description: "List of VPC Identifiers in AWS."
-xcsh_docs: {"aliases": ["rule list rules source aws vpc ids"], "body_bytes": 3155, "body_sha256": "sha256:94edb2019d79b78676489ded0d7bd9908eedf60f078792da2046e3f1c7744143", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:enhanced_firewall_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:source_aws_vpc_ids", "parent_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules", "path": "documentation/resources/enhanced_firewall_policy/properties/rule_list/rules/source_aws_vpc_ids/index.md", "product": "distributed-cloud", "provider_name": "enhanced_firewall_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0320000103011022-2102323210130022-1320113322021020-1100200102121211-3113320000301032-3222121021012200-2212111133210211-3011201122110221", "registry_path": "docs/guides/resources--enhanced_firewall_policy--reference--group-001.md", "relationships": [{"anchor": "schema-rule_list--rules--source_aws_vpc_ids--vpc_id", "enforcement": "provider-schema", "group": "rule_list.rules.source_aws_vpc_ids:RequiredObjectAttributes:vpc_id", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:source_aws_vpc_ids", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["rule_list", "rules", "source_aws_vpc_ids"], "schema_version": 1, "sections": [{"aliases": ["rule list rules source aws vpc ids vpc id"], "anchor": "schema-rule_list--rules--source_aws_vpc_ids--vpc_id", "description": "List of VPC Identifiers in AWS.", "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:source_aws_vpc_ids", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rule_list", "rules", "source_aws_vpc_ids", "vpc_id"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/source_aws_vpc_ids/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of VPC Identifiers in AWS.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["enhanced_firewall_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["rule list rules source aws vpc ids"], "body_bytes": 2823, "body_sha256": "sha256:21a5b4f502445325fda19b2c00d8684748c1ab8f6a60a956d0f25f419f5c9dd4", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:enhanced_firewall_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:source_aws_vpc_ids", "parent_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules", "path": "documentation/resources/enhanced_firewall_policy/properties/rule_list/rules/source_aws_vpc_ids/index.md", "product": "distributed-cloud", "provider_name": "enhanced_firewall_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0320000103011022-2102323210130022-1320113322021020-1100200102121211-3113320000301032-3222121021012200-2212111133210211-3011201122110221", "registry_path": "docs/guides/resources--enhanced_firewall_policy--reference--group-001.md", "relationships": [{"anchor": "schema-rule_list--rules--source_aws_vpc_ids--vpc_id", "enforcement": "provider-schema", "group": "rule_list.rules.source_aws_vpc_ids:RequiredObjectAttributes:vpc_id", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:source_aws_vpc_ids", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["rule_list", "rules", "source_aws_vpc_ids"], "schema_version": 1, "sections": [{"aliases": ["rule list rules source aws vpc ids vpc id"], "anchor": "schema-rule_list--rules--source_aws_vpc_ids--vpc_id", "description": "List of VPC Identifiers in AWS.", "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:source_aws_vpc_ids", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rule_list", "rules", "source_aws_vpc_ids", "vpc_id"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/source_aws_vpc_ids/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of VPC Identifiers in AWS.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["enhanced_firewall_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -25,7 +25,7 @@ Type: `"object"`. single nested block, Optional.
 
 Configuration parameter for source aws vpc ids.
 
-Upstream description:
+Additional upstream details:
 
 List of VPC Identifiers in AWS.
 
@@ -65,10 +65,6 @@ source_aws_vpc_ids {
 Type: `["list", "string"]`. Optional.
 
 AWS VPC List. List of VPC Identifiers in AWS.
-
-Upstream description:
-
-List of VPC Identifiers in AWS.
 
 Provider validators and defaults (from schema source):
 
@@ -117,8 +113,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [rule_list.rules](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/enhanced_firewall_policy/properties/rule_list/rules/)
-- [xcsh_enhanced_firewall_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/enhanced_firewall_policy/)

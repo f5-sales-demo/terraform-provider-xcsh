@@ -2,7 +2,7 @@
 page_title: "api_inventory_inclusion_list"
 subcategory: "API Management"
 description: "List of API Endpoints included in the API Inventory. Typically, discovered API endpoints are added to the API Inventory using this list."
-xcsh_docs: {"aliases": ["api inventory inclusion list"], "body_bytes": 4915, "body_sha256": "sha256:1e62908e416d12d123683c366171d63b8aba2212bf144d590b31d341bf35fe00", "capabilities": ["api-management"], "category": "api-management", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:api_definition:collection", "completeness": "complete", "id": "xcsh-docs:resources:api_definition:properties:api_inventory_inclusion_list", "parent_id": "xcsh-docs:resources:api_definition:reference", "path": "documentation/resources/api_definition/properties/api_inventory_inclusion_list/index.md", "product": "distributed-cloud", "provider_name": "api_definition", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0323203300310302-0203231011212201-3122301133231102-1200330320231103-3013021220022111-2110033120132001-0322200121032302-1301222111101101", "registry_path": "docs/guides/resources--api_definition--reference--group-001.md", "relationships": [{"anchor": "schema-api_inventory_inclusion_list--path", "enforcement": "provider-schema", "group": "api_inventory_inclusion_list:RequiredListObjectAttributes:path", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:api_definition:properties:api_inventory_inclusion_list", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["api_inventory_inclusion_list"], "schema_version": 1, "sections": [{"aliases": ["api inventory inclusion list method"], "anchor": "schema-api_inventory_inclusion_list--method", "description": "Specifies the HTTP method used to access a resource. Any HTTP Method.", "document_id": "xcsh-docs:resources:api_definition:properties:api_inventory_inclusion_list", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["api_inventory_inclusion_list", "method"], "syntax": "attribute", "type": "string"}, {"aliases": ["api inventory inclusion list path"], "anchor": "schema-api_inventory_inclusion_list--path", "description": "An endpoint path, as specified in OpenAPI, including parameters. The path should comply with RFC 3986 and may have parameters according to OpenAPI specification.", "document_id": "xcsh-docs:resources:api_definition:properties:api_inventory_inclusion_list", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["api_inventory_inclusion_list", "path"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/properties/api_inventory_inclusion_list/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of API Endpoints included in the API Inventory. Typically, discovered API endpoints are added to the API Inventory using this list.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["api_definitionCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["api inventory inclusion list"], "body_bytes": 4236, "body_sha256": "sha256:10f3a7a8e52b90695f9d9ebfbb1d900b2908ad6d542d28fdad7987030b31f132", "capabilities": ["api-management"], "category": "api-management", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:api_definition:collection", "completeness": "complete", "id": "xcsh-docs:resources:api_definition:properties:api_inventory_inclusion_list", "parent_id": "xcsh-docs:resources:api_definition:reference", "path": "documentation/resources/api_definition/properties/api_inventory_inclusion_list/index.md", "product": "distributed-cloud", "provider_name": "api_definition", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0323203300310302-0203231011212201-3122301133231102-1200330320231103-3013021220022111-2110033120132001-0322200121032302-1301222111101101", "registry_path": "docs/guides/resources--api_definition--reference--group-001.md", "relationships": [{"anchor": "schema-api_inventory_inclusion_list--path", "enforcement": "provider-schema", "group": "api_inventory_inclusion_list:RequiredListObjectAttributes:path", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:api_definition:properties:api_inventory_inclusion_list", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["api_inventory_inclusion_list"], "schema_version": 1, "sections": [{"aliases": ["api inventory inclusion list method"], "anchor": "schema-api_inventory_inclusion_list--method", "description": "Specifies the HTTP method used to access a resource. Any HTTP Method.", "document_id": "xcsh-docs:resources:api_definition:properties:api_inventory_inclusion_list", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["api_inventory_inclusion_list", "method"], "syntax": "attribute", "type": "string"}, {"aliases": ["api inventory inclusion list path"], "anchor": "schema-api_inventory_inclusion_list--path", "description": "An endpoint path, as specified in OpenAPI, including parameters. The path should comply with RFC 3986 and may have parameters according to OpenAPI specification.", "document_id": "xcsh-docs:resources:api_definition:properties:api_inventory_inclusion_list", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["api_inventory_inclusion_list", "path"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/properties/api_inventory_inclusion_list/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of API Endpoints included in the API Inventory. Typically, discovered API endpoints are added to the API Inventory using this list.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["api_definitionCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,11 +23,6 @@ Type: `"object"`. list nested block, Optional.
 
 List of API Endpoints included in the API Inventory. Typically, discovered API endpoints are added
 to the API Inventory using this list. Defaults to \`\[\]\`. Server applies default when omitted.
-
-Upstream description:
-
-List of API Endpoints included in the API Inventory. Typically, discovered API endpoints are added
-to the API Inventory using this list.
 
 Provider validators and defaults (from schema source):
 
@@ -90,12 +85,6 @@ used to access a resource. Any HTTP Method. Possible values are \`ANY\`, \`GET\`
 \`POST\`, \`PUT\`, \`DELETE\`, \`CONNECT\`, \`OPTIONS\`, \`TRACE\`, \`PATCH\`, \`COPY\`. Defaults to
 \`ANY\`.
 
-Upstream description:
-
-Specifies the HTTP method used to access a resource.
-
-Any HTTP Method.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -146,11 +135,6 @@ Receipt-pinned upstream constraints:
 ### path property
 
 Type: `"string"`. Optional.
-
-Endpoint path, as specified in OpenAPI, including parameters. The path should comply with RFC 3986
-and may have parameters according to OpenAPI specification.
-
-Upstream description:
 
 An endpoint path, as specified in OpenAPI, including parameters. The path should comply with RFC
 3986 and may have parameters according to OpenAPI specification.
@@ -206,8 +190,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/api_definition/properties/)
-- [xcsh_api_definition](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/api_definition/)

@@ -12,32 +12,30 @@ description: "Complete grouped canonical reference for xcsh_application_profiles
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2312003133231201-0130313320222022-2110132132333001-1123030002031103-2213102232301110-3200132030123120-1020231012020232-3110333223201210"></a>
-
-## Property reference — Property reference / 311123302321 / 2
+## Property reference
 
 Breadcrumbs:
 
 - [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 - Property reference
 
-<a id="canonical-1003010121301333-3023020211033211-0120301001220113-3330301133332012-3213003103222231-2313133031023033-2212020000000002-2012021201220011"></a>
+<a id="canonical-2312003133231201-0130313320222022-2110132132333001-1123030002031103-2213102232301110-3200132030123120-1020231012020232-3110333223201210"></a>
 
-## Direct properties — Property reference / 311123302321 / 3
+### Direct properties for `xcsh_application_profiles`
 
 - [advanced_tcp_profile](data-sources--application_profiles--reference--group-001.md#canonical-3021122313210131-2313033223133231-0330112103210330-1123322311012132-1112331223212022-3311220221212131-2333232332331221-1001103023222323): complete subsection reference.
 
 <a id="canonical-1111033000233032-2010110330112021-3020021200333133-0122202223103122-3322232222132030-1223321130112120-3201010111311332-0333222100102331"></a>
 
-<a id="canonical-0022101013120133-3223320002210223-3330300133300230-2002121130330033-1223013220131213-2322213033121033-2121230133201203-0331110111132302"></a>
+<a id="canonical-1003010121301333-3023020211033211-0120301001220113-3330301133332012-3213003103222231-2313133031023033-2212020000000002-2012021201220011"></a>
 
-## annotations property — Property reference / 311123302321 / 4
+#### `annotations` property
 
 Type: `["map", "string"]`. Computed.
 
 Annotations applied to this resource.
 
-Upstream description:
+Additional upstream details:
 
 Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
@@ -93,15 +91,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1000130003032211-2302200201022221-3322022302310031-2222001113012331-2312200112003203-1023132331330033-0130030333121112-1321213211010320"></a>
 
-<a id="canonical-0230021023011233-1021031122301030-2121322030322122-3321012000221120-0330022303323131-3301002330112111-2322213320310112-1002220302223012"></a>
+<a id="canonical-0022101013120133-3223320002210223-3330300133300230-2002121130330033-1223013220131213-2322213033121033-2121230133201203-0331110111132302"></a>
 
-## description property — Property reference / 311123302321 / 5
+#### `description` property
 
 Type: `"string"`. Computed.
 
 Description of the ApplicationProfiles.
 
-Upstream description:
+Additional upstream details:
 
 Human readable description for the object.
 
@@ -145,9 +143,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3102322000133300-0032022312310313-3313102210210131-3110312201300220-0302303023020232-2330302020202110-3132221223210232-1123103203010211"></a>
 
-<a id="canonical-2020100213101333-1330310113011332-3121120230102013-2012022320000111-0112003232220123-3122230302123213-1103013320032013-0003110120210113"></a>
+<a id="canonical-0230021023011233-1021031122301030-2121322030322122-3321012000221120-0330022303323131-3301002330112111-2322213320310112-1002220302223012"></a>
 
-## ID property — Property reference / 311123302321 / 6
+#### `id` property
 
 Type: `"string"`. Computed.
 
@@ -157,15 +155,15 @@ Unique identifier for the resource.
 
 <a id="canonical-3203311222131321-3130221030332011-1011012120203121-1312033211210200-1213203211001011-2302333012332123-3113002313013033-2302311021022221"></a>
 
-<a id="canonical-3320020032032030-2312230033130220-2033113323002212-1132230012112113-1312131311323001-1101001233110213-3123313200331232-3222031123100323"></a>
+<a id="canonical-2020100213101333-1330310113011332-3121120230102013-2012022320000111-0112003232220123-3122230302123213-1103013320032013-0003110120210113"></a>
 
-## labels property — Property reference / 311123302321 / 7
+#### `labels` property
 
 Type: `["map", "string"]`. Computed.
 
 Labels applied to this resource.
 
-Upstream description:
+Additional upstream details:
 
 Map of string keys and values that can be used to organize and categorize (scope and select) objects
 as chosen by the user. Values specified here will be used by selector expression.
@@ -185,15 +183,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3222211203100022-2033032210200233-0011013010121130-3131301033231301-3211103000312102-1021132201210103-1001110312133310-1021213022003302"></a>
 
-<a id="canonical-2223023030023213-1122120223332112-0231131132220011-1102211122003122-3222003031000022-2332122121032013-2212302011320033-1102112231312120"></a>
+<a id="canonical-3320020032032030-2312230033130220-2033113323002212-1132230012112113-1312131311323001-1101001233110213-3123313200331232-3222031123100323"></a>
 
-## name property — Property reference / 311123302321 / 8
+#### `name` property
 
 Type: `"string"`. Required.
 
 Name of the ApplicationProfiles.
 
-Upstream description:
+Additional upstream details:
 
 This is the name of configuration object. It has to be unique within the namespace. It can only be
 specified during create API and cannot be changed during replace API. The value of name has to
@@ -245,15 +243,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1100123023333110-2313212212121013-1321230011322301-1213233121030200-2221231210331123-2013123312301333-1301230100320202-3312111233120031"></a>
 
-<a id="canonical-3231131223003100-2330121320111330-3002232131211030-0300010212311313-2023303200310331-2230032321132132-1101033223033332-3232300131233231"></a>
+<a id="canonical-2223023030023213-1122120223332112-0231131132220011-1102211122003122-3222003031000022-2332122121032013-2212302011320033-1102112231312120"></a>
 
-## namespace property — Property reference / 311123302321 / 9
+#### `namespace` property
 
 Type: `"string"`. Required.
 
 Namespace where the ApplicationProfiles exists.
 
-Upstream description:
+Additional upstream details:
 
 This defines the workspace within which each the configuration object is to be created. Must be a
 DNS\_LABEL format. For a namespace object itself, namespace value will be ""
@@ -298,9 +296,9 @@ Receipt-pinned upstream constraints:
 
 - [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130): complete subsection reference.
 
-<a id="canonical-1333032222121112-2331301200030031-2010103232002123-0302101332320001-0020110023021313-2133332012333132-0303213303312012-3300101310202330"></a>
+<a id="canonical-3231131223003100-2330121320111330-3002232131211030-0300010212311313-2023303200310331-2230032321132132-1101033223033332-3232300131233231"></a>
 
-## All schema paths — Property reference / 311123302321 / 10
+### All schema paths for `xcsh_application_profiles`
 
 Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
@@ -336,31 +334,31 @@ Each exact path has one authoritative reference destination. Collection element 
 | `virtual_server.address_translation.address_translation_enable` | [virtual_server.address_translation.address_translation_enable](data-sources--application_profiles--reference--group-001.md#canonical-2310003010031330-1103021321220101-2110200112013000-1010330212232203-1110223010001323-1323203330230203-2321210132033320-3330122102130101) |
 | `virtual_server.auto_last_hop` | [virtual_server.auto_last_hop](data-sources--application_profiles--reference--group-001.md#canonical-2103132212111120-2202120331300033-1000221003232103-0010001000132330-3301310123322201-1332000011200121-2121211201322111-1000123012312330) |
 | `virtual_server.auto_last_hop.auto_last_hop_default` | [virtual_server.auto_last_hop.auto_last_hop_default](data-sources--application_profiles--reference--group-001.md#canonical-0033033102121111-1003132132313300-3313002022121131-3131133122300133-3012033310320320-2313312211100312-1112302200233220-0100001011011301) |
-| `virtual_server.auto_last_hop.auto_last_hop_disable` | [virtual_server.auto_last_hop.auto_last_hop_disable](data-sources--application_profiles--reference--group-002.md#canonical-3310122322320331-1011030232231333-3303321213223210-2323130100230010-3212012213201132-0113312033230321-3322202001332131-2311100302011303) |
-| `virtual_server.auto_last_hop.auto_last_hop_enable` | [virtual_server.auto_last_hop.auto_last_hop_enable](data-sources--application_profiles--reference--group-002.md#canonical-2002020012330323-0233012113113230-1000323110103211-1133012112003332-2112110100330132-3021310202232111-1110121030233113-0000021223223323) |
-| `virtual_server.clone_pool_client` | [virtual_server.clone_pool_client](data-sources--application_profiles--reference--group-002.md#canonical-1133020132233211-2310110101220011-0012011332002321-1013213132313033-2101320220311103-3111012322101121-0030230000333132-3232002121221313) |
-| `virtual_server.clone_pool_client.kind` | [virtual_server.clone_pool_client.kind](data-sources--application_profiles--reference--group-002.md#canonical-3213032121001202-0030120300231013-1122132212012331-0213111222032330-0231101222112200-0021300203313331-2021101022032200-3003233111333003) |
-| `virtual_server.clone_pool_client.name` | [virtual_server.clone_pool_client.name](data-sources--application_profiles--reference--group-002.md#canonical-1321303301323112-3232331030023023-3022333311103010-3213223013313322-0301310112122133-0213021320332213-1321011203112101-3020013230120201) |
-| `virtual_server.clone_pool_client.namespace` | [virtual_server.clone_pool_client.namespace](data-sources--application_profiles--reference--group-002.md#canonical-2211231222223111-2013313312230333-2230101323231222-3310030032031122-1311333213212023-3001220311021101-2201003010330230-3331023313321232) |
-| `virtual_server.clone_pool_client.tenant` | [virtual_server.clone_pool_client.tenant](data-sources--application_profiles--reference--group-002.md#canonical-2010332203320110-3211023123321223-2220230012123321-3220030210210222-1120021002013323-3013300001130013-1222022213222021-1102013303321332) |
-| `virtual_server.clone_pool_client.uid` | [virtual_server.clone_pool_client.uid](data-sources--application_profiles--reference--group-002.md#canonical-1233111210320002-1132132001131321-3331021232002313-3213030003001313-0100233223131310-0101033102133302-1212313112300010-3321322311312100) |
-| `virtual_server.clone_pool_server` | [virtual_server.clone_pool_server](data-sources--application_profiles--reference--group-002.md#canonical-0221313111003203-0222221132312111-2113212313313121-3203223020221012-0120231221323112-2032123110022222-2323131330111332-3112223023201220) |
-| `virtual_server.clone_pool_server.kind` | [virtual_server.clone_pool_server.kind](data-sources--application_profiles--reference--group-002.md#canonical-1233112111102023-0311022121101203-1103103012100323-3002011000102131-2303210030131133-0232113013121110-0210132133322212-3222003200112331) |
-| `virtual_server.clone_pool_server.name` | [virtual_server.clone_pool_server.name](data-sources--application_profiles--reference--group-002.md#canonical-2303031121211220-1001230213300030-1230003332311032-2020100332231213-2002002231020011-1210302022002120-3131131320031001-0031001203220231) |
-| `virtual_server.clone_pool_server.namespace` | [virtual_server.clone_pool_server.namespace](data-sources--application_profiles--reference--group-002.md#canonical-2101320312013231-0223313033130100-2303200330132312-1032011011320301-3201333231101301-0303122123311321-0010020112230332-3320033113030101) |
-| `virtual_server.clone_pool_server.tenant` | [virtual_server.clone_pool_server.tenant](data-sources--application_profiles--reference--group-002.md#canonical-0032333022002101-1013203220103012-2001022001111112-1223202313132122-0230230300111130-2222232131103130-3002310012201213-0113010322130101) |
-| `virtual_server.clone_pool_server.uid` | [virtual_server.clone_pool_server.uid](data-sources--application_profiles--reference--group-002.md#canonical-1213233212200103-0311132031101102-1310100010321021-2230013220132230-1202213133313003-3222020310320312-3333231200201320-3203202321303212) |
+| `virtual_server.auto_last_hop.auto_last_hop_disable` | [virtual_server.auto_last_hop.auto_last_hop_disable](data-sources--application_profiles--reference--group-001.md#canonical-3310122322320331-1011030232231333-3303321213223210-2323130100230010-3212012213201132-0113312033230321-3322202001332131-2311100302011303) |
+| `virtual_server.auto_last_hop.auto_last_hop_enable` | [virtual_server.auto_last_hop.auto_last_hop_enable](data-sources--application_profiles--reference--group-001.md#canonical-2002020012330323-0233012113113230-1000323110103211-1133012112003332-2112110100330132-3021310202232111-1110121030233113-0000021223223323) |
+| `virtual_server.clone_pool_client` | [virtual_server.clone_pool_client](data-sources--application_profiles--reference--group-001.md#canonical-1133020132233211-2310110101220011-0012011332002321-1013213132313033-2101320220311103-3111012322101121-0030230000333132-3232002121221313) |
+| `virtual_server.clone_pool_client.kind` | [virtual_server.clone_pool_client.kind](data-sources--application_profiles--reference--group-001.md#canonical-3213032121001202-0030120300231013-1122132212012331-0213111222032330-0231101222112200-0021300203313331-2021101022032200-3003233111333003) |
+| `virtual_server.clone_pool_client.name` | [virtual_server.clone_pool_client.name](data-sources--application_profiles--reference--group-001.md#canonical-1321303301323112-3232331030023023-3022333311103010-3213223013313322-0301310112122133-0213021320332213-1321011203112101-3020013230120201) |
+| `virtual_server.clone_pool_client.namespace` | [virtual_server.clone_pool_client.namespace](data-sources--application_profiles--reference--group-001.md#canonical-2211231222223111-2013313312230333-2230101323231222-3310030032031122-1311333213212023-3001220311021101-2201003010330230-3331023313321232) |
+| `virtual_server.clone_pool_client.tenant` | [virtual_server.clone_pool_client.tenant](data-sources--application_profiles--reference--group-001.md#canonical-2010332203320110-3211023123321223-2220230012123321-3220030210210222-1120021002013323-3013300001130013-1222022213222021-1102013303321332) |
+| `virtual_server.clone_pool_client.uid` | [virtual_server.clone_pool_client.uid](data-sources--application_profiles--reference--group-001.md#canonical-1233111210320002-1132132001131321-3331021232002313-3213030003001313-0100233223131310-0101033102133302-1212313112300010-3321322311312100) |
+| `virtual_server.clone_pool_server` | [virtual_server.clone_pool_server](data-sources--application_profiles--reference--group-001.md#canonical-0221313111003203-0222221132312111-2113212313313121-3203223020221012-0120231221323112-2032123110022222-2323131330111332-3112223023201220) |
+| `virtual_server.clone_pool_server.kind` | [virtual_server.clone_pool_server.kind](data-sources--application_profiles--reference--group-001.md#canonical-1233112111102023-0311022121101203-1103103012100323-3002011000102131-2303210030131133-0232113013121110-0210132133322212-3222003200112331) |
+| `virtual_server.clone_pool_server.name` | [virtual_server.clone_pool_server.name](data-sources--application_profiles--reference--group-001.md#canonical-2303031121211220-1001230213300030-1230003332311032-2020100332231213-2002002231020011-1210302022002120-3131131320031001-0031001203220231) |
+| `virtual_server.clone_pool_server.namespace` | [virtual_server.clone_pool_server.namespace](data-sources--application_profiles--reference--group-001.md#canonical-2101320312013231-0223313033130100-2303200330132312-1032011011320301-3201333231101301-0303122123311321-0010020112230332-3320033113030101) |
+| `virtual_server.clone_pool_server.tenant` | [virtual_server.clone_pool_server.tenant](data-sources--application_profiles--reference--group-001.md#canonical-0032333022002101-1013203220103012-2001022001111112-1223202313132122-0230230300111130-2222232131103130-3002310012201213-0113010322130101) |
+| `virtual_server.clone_pool_server.uid` | [virtual_server.clone_pool_server.uid](data-sources--application_profiles--reference--group-001.md#canonical-1213233212200103-0311132031101102-1310100010321021-2230013220132230-1202213133313003-3222020310320312-3333231200201320-3203202321303212) |
 | `virtual_server.connection_limit` | [virtual_server.connection_limit](data-sources--application_profiles--reference--group-001.md#canonical-3003311010303322-2010201320203020-2022302001310330-3022301301000020-1332202330032100-3120230332203201-3101010322033203-1000331103200032) |
 | `virtual_server.connection_rate_limit` | [virtual_server.connection_rate_limit](data-sources--application_profiles--reference--group-001.md#canonical-3012230232332103-2322330122210131-1311320333112003-1131223222023210-0013122003222112-0201211222130320-1003001021101031-3103322232233031) |
-| `virtual_server.connection_rate_limit_mode` | [virtual_server.connection_rate_limit_mode](data-sources--application_profiles--reference--group-002.md#canonical-3131301032310212-2101213001120020-1230322302233022-3233223330230310-3120121330213030-1101103200302113-0112333012303230-0113213203012130) |
-| `virtual_server.connection_rate_limit_mode.per_destination_address` | [virtual_server.connection_rate_limit_mode.per_destination_address](data-sources--application_profiles--reference--group-002.md#canonical-3232212303310231-3321200231301300-3113023011023311-3313110003322033-3033323201110311-1020200001001221-2000001212031120-1222302330103002) |
-| `virtual_server.connection_rate_limit_mode.per_destination_address.destination_mask` | [virtual_server.connection_rate_limit_mode.per_destination_address.destination_mask](data-sources--application_profiles--reference--group-002.md#canonical-1001012133322200-0221033223121133-2331121003312111-2331010112133332-2213231123033330-2303322333300222-3202213011302123-2332321302033223) |
-| `virtual_server.connection_rate_limit_mode.per_source_address` | [virtual_server.connection_rate_limit_mode.per_source_address](data-sources--application_profiles--reference--group-002.md#canonical-0222220332310221-3031030011221323-1011011023211200-3200123213223121-3232010100021321-1301303022330301-2133102203321113-1013302001231120) |
-| `virtual_server.connection_rate_limit_mode.per_source_address.source_mask` | [virtual_server.connection_rate_limit_mode.per_source_address.source_mask](data-sources--application_profiles--reference--group-002.md#canonical-3231311131311102-0231202211132103-2303012002111113-2330022230301011-0030001031300231-1310220303210001-3022302002212130-3121310330023200) |
-| `virtual_server.connection_rate_limit_mode.per_source_destination_address` | [virtual_server.connection_rate_limit_mode.per_source_destination_address](data-sources--application_profiles--reference--group-002.md#canonical-1031201331123121-2000310300021002-3311103012020003-0212333312222020-0230130220020202-2233323312133112-0233212223003233-1102110103323223) |
-| `virtual_server.connection_rate_limit_mode.per_source_destination_address.destination_mask` | [virtual_server.connection_rate_limit_mode.per_source_destination_address.destination_mask](data-sources--application_profiles--reference--group-002.md#canonical-2012310123231112-1103313101030133-1301112222002121-2033330023011110-1022331020330012-3231001300131133-3032133330112032-1212002012211230) |
-| `virtual_server.connection_rate_limit_mode.per_source_destination_address.source_mask` | [virtual_server.connection_rate_limit_mode.per_source_destination_address.source_mask](data-sources--application_profiles--reference--group-002.md#canonical-2032010011100310-3330311012133302-2122031000123320-0321121311231120-3121120001110123-0103102332131030-1120003131321032-3300220100223020) |
-| `virtual_server.connection_rate_limit_mode.per_virtual_server` | [virtual_server.connection_rate_limit_mode.per_virtual_server](data-sources--application_profiles--reference--group-002.md#canonical-1331330110210211-0333212231000230-0110321023330032-0102230332332312-3201232310221002-2210232211210120-2112233221213103-0120230211021302) |
+| `virtual_server.connection_rate_limit_mode` | [virtual_server.connection_rate_limit_mode](data-sources--application_profiles--reference--group-001.md#canonical-3131301032310212-2101213001120020-1230322302233022-3233223330230310-3120121330213030-1101103200302113-0112333012303230-0113213203012130) |
+| `virtual_server.connection_rate_limit_mode.per_destination_address` | [virtual_server.connection_rate_limit_mode.per_destination_address](data-sources--application_profiles--reference--group-001.md#canonical-3232212303310231-3321200231301300-3113023011023311-3313110003322033-3033323201110311-1020200001001221-2000001212031120-1222302330103002) |
+| `virtual_server.connection_rate_limit_mode.per_destination_address.destination_mask` | [virtual_server.connection_rate_limit_mode.per_destination_address.destination_mask](data-sources--application_profiles--reference--group-001.md#canonical-1001012133322200-0221033223121133-2331121003312111-2331010112133332-2213231123033330-2303322333300222-3202213011302123-2332321302033223) |
+| `virtual_server.connection_rate_limit_mode.per_source_address` | [virtual_server.connection_rate_limit_mode.per_source_address](data-sources--application_profiles--reference--group-001.md#canonical-0222220332310221-3031030011221323-1011011023211200-3200123213223121-3232010100021321-1301303022330301-2133102203321113-1013302001231120) |
+| `virtual_server.connection_rate_limit_mode.per_source_address.source_mask` | [virtual_server.connection_rate_limit_mode.per_source_address.source_mask](data-sources--application_profiles--reference--group-001.md#canonical-3231311131311102-0231202211132103-2303012002111113-2330022230301011-0030001031300231-1310220303210001-3022302002212130-3121310330023200) |
+| `virtual_server.connection_rate_limit_mode.per_source_destination_address` | [virtual_server.connection_rate_limit_mode.per_source_destination_address](data-sources--application_profiles--reference--group-001.md#canonical-1031201331123121-2000310300021002-3311103012020003-0212333312222020-0230130220020202-2233323312133112-0233212223003233-1102110103323223) |
+| `virtual_server.connection_rate_limit_mode.per_source_destination_address.destination_mask` | [virtual_server.connection_rate_limit_mode.per_source_destination_address.destination_mask](data-sources--application_profiles--reference--group-001.md#canonical-2012310123231112-1103313101030133-1301112222002121-2033330023011110-1022331020330012-3231001300131133-3032133330112032-1212002012211230) |
+| `virtual_server.connection_rate_limit_mode.per_source_destination_address.source_mask` | [virtual_server.connection_rate_limit_mode.per_source_destination_address.source_mask](data-sources--application_profiles--reference--group-001.md#canonical-2032010011100310-3330311012133302-2122031000123320-0321121311231120-3121120001110123-0103102332131030-1120003131321032-3300220100223020) |
+| `virtual_server.connection_rate_limit_mode.per_virtual_server` | [virtual_server.connection_rate_limit_mode.per_virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-1331330110210211-0333212231000230-0110321023330032-0102230332332312-3201232310221002-2210232211210120-2112233221213103-0120230211021302) |
 | `virtual_server.connection_rate_limit_mode.per_virtual_server_destination_address` | [virtual_server.connection_rate_limit_mode.per_virtual_server_destination_address](data-sources--application_profiles--reference--group-002.md#canonical-3220030303033011-3012301301201201-0101030020012131-1020011223121000-3211332310323201-1001300032010220-0220233121023231-1222131010302332) |
 | `virtual_server.connection_rate_limit_mode.per_virtual_server_destination_address.destination_mask` | [virtual_server.connection_rate_limit_mode.per_virtual_server_destination_address.destination_mask](data-sources--application_profiles--reference--group-002.md#canonical-2010001302211202-1100010010013311-1233103233003303-1033120112232121-1103132203003312-3312101021011210-3301301231332313-2120331213111232) |
 | `virtual_server.connection_rate_limit_mode.per_virtual_server_source_address` | [virtual_server.connection_rate_limit_mode.per_virtual_server_source_address](data-sources--application_profiles--reference--group-002.md#canonical-2200310022132310-0022320033303201-1221121303212313-0023032311121021-0132213113023313-0203322021121123-0310121123003232-2203111130300323) |
@@ -484,42 +482,42 @@ Each exact path has one authoritative reference destination. Collection element 
 | `virtual_server.http3.http_client_profile.namespace` | [virtual_server.http3.http_client_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-1320213213032310-0031223033202201-2030311113223331-0212230001330133-3033003332220010-0003300001302120-0023021022000313-3233122021020312) |
 | `virtual_server.http3.http_client_profile.tenant` | [virtual_server.http3.http_client_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-2212113133011312-2110111302222332-2120213221033022-2031203211000323-1023113003030331-0322300321332121-0021000232113332-3021232022231002) |
 | `virtual_server.http3.http_client_profile.uid` | [virtual_server.http3.http_client_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-1232303301322000-1231030012103001-1131120020012023-0030100113120313-2230303110102000-2020220231300302-0103300133302130-1211122220000310) |
-| `virtual_server.http3.http_server_profile` | [virtual_server.http3.http_server_profile](data-sources--application_profiles--reference--group-002.md#canonical-3221312202023033-1102223012313300-3203010330011230-1210002202322011-2313030323231301-2222112330223212-1201303211311211-3123213113100210) |
-| `virtual_server.http3.http_server_profile.kind` | [virtual_server.http3.http_server_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-0101013121221132-1202201020020332-2202330300302233-3313203200201322-1002310330030222-1012311322121200-2132232133011113-1033300123331332) |
-| `virtual_server.http3.http_server_profile.name` | [virtual_server.http3.http_server_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-0013313312210120-3130313333213333-1333213021111233-3213323103121202-1301102233021123-3303133120310333-2032312231023020-1323111311320313) |
-| `virtual_server.http3.http_server_profile.namespace` | [virtual_server.http3.http_server_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-2213223111233123-1123303202020100-1120121101130001-1010113022330302-2310102333101101-2123223003313132-3012031111320013-3220300102203001) |
-| `virtual_server.http3.http_server_profile.tenant` | [virtual_server.http3.http_server_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-2030211003122121-2230233120231211-0113032010002221-3021110031232003-0100121021033311-0230121020212022-3132123120320200-0321222313213122) |
-| `virtual_server.http3.http_server_profile.uid` | [virtual_server.http3.http_server_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-1133202011021202-3203233311231300-0221232013231200-0120132201231022-2302233003031303-0000233300032303-2221030002333213-0101322032333203) |
-| `virtual_server.http3.quic_profile` | [virtual_server.http3.quic_profile](data-sources--application_profiles--reference--group-002.md#canonical-2311003220220232-3230111332311321-3322012111002332-1020121133211300-1233032213310202-3311330100212020-3100011331330303-2020320213010313) |
-| `virtual_server.http3.quic_profile.kind` | [virtual_server.http3.quic_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-1203331001223123-1121330223313120-1033122102032331-3330213310013021-1112032331012131-1111030133002003-0330213110200010-3231112320003111) |
-| `virtual_server.http3.quic_profile.name` | [virtual_server.http3.quic_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-0111021202211021-3110031212030122-0003313012020102-1322022003100203-1313300131210223-1103332102031111-3000123132230023-1031100120212321) |
-| `virtual_server.http3.quic_profile.namespace` | [virtual_server.http3.quic_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-2320111311120023-2023011231032330-2013033301023013-2020001013232033-2131302110331312-3220312130013031-0130011102002220-1203222002102111) |
-| `virtual_server.http3.quic_profile.tenant` | [virtual_server.http3.quic_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-2132213323131023-1321220100310030-3313323012000221-1102232221332033-1232011223323110-0310111030032100-0121223023131133-3210001113331001) |
-| `virtual_server.http3.quic_profile.uid` | [virtual_server.http3.quic_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-2023200220330321-1303111011233222-1230003323303202-1102333003332033-2022212213331330-2302133320032220-2332200210130310-2003123300223210) |
-| `virtual_server.http3.server_ssl_profile` | [virtual_server.http3.server_ssl_profile](data-sources--application_profiles--reference--group-002.md#canonical-2202321321031233-2131133023103213-1033011033022203-2110233230020231-0003201231231231-1123321331123200-3032133011212211-3033330020221003) |
-| `virtual_server.http3.server_ssl_profile.kind` | [virtual_server.http3.server_ssl_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-0012302313310131-1103200323031103-0120323210001020-1301132123213310-2210330331101200-1130030112120121-2031233323002311-1121011332311312) |
-| `virtual_server.http3.server_ssl_profile.name` | [virtual_server.http3.server_ssl_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-1032032130033032-0001002123020200-2320330323322011-2101111011000112-0212031120113311-1121131012021232-0202202313011301-2202300323013101) |
-| `virtual_server.http3.server_ssl_profile.namespace` | [virtual_server.http3.server_ssl_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-2220313001030323-0113120120312012-0312303200101103-1033001000112200-1022312000013333-0232101221333330-3110131333312022-0032212001100100) |
-| `virtual_server.http3.server_ssl_profile.tenant` | [virtual_server.http3.server_ssl_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-0121333110001302-3011222323013000-2320123123203122-2232230320201010-1233200001213303-2210332201313033-1233201001131230-3031332103113033) |
-| `virtual_server.http3.server_ssl_profile.uid` | [virtual_server.http3.server_ssl_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-3321212230302200-3033132130011312-0223201231333020-2211031231201202-2212202010312300-3121032210113012-0232102002202013-1301020232030002) |
-| `virtual_server.http3.tcp_server_profile` | [virtual_server.http3.tcp_server_profile](data-sources--application_profiles--reference--group-002.md#canonical-2111211220132202-1113012320222200-1013130022202123-3033202211130113-0002201233323031-3303210132013210-2321202231101210-0233111122201231) |
-| `virtual_server.http3.tcp_server_profile.kind` | [virtual_server.http3.tcp_server_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-2333132203103120-3312032123020120-0320323131013211-2323021212220322-3220223202233133-1210201130022213-3010220310120233-3132313323203001) |
-| `virtual_server.http3.tcp_server_profile.name` | [virtual_server.http3.tcp_server_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-2321221311323011-2003030111232032-3233130311301302-0210122112230333-3133320213120232-2030132302320031-1223012120022102-1111300111011123) |
-| `virtual_server.http3.tcp_server_profile.namespace` | [virtual_server.http3.tcp_server_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-2112112320211220-1031113122132000-0213222102131010-2010111132203013-0313310023333332-1033011133002230-3003220320003310-0302312203222222) |
-| `virtual_server.http3.tcp_server_profile.tenant` | [virtual_server.http3.tcp_server_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-2321221222112321-3200021332030111-3123111333232112-0303003031221302-1002332202323233-3321232232331230-3311221121312121-2301231300000023) |
-| `virtual_server.http3.tcp_server_profile.uid` | [virtual_server.http3.tcp_server_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-3331011033001003-1230331200212230-1022023101120323-1303102002021121-0131323333023332-0313223021002301-0123303202321220-0103011111120322) |
-| `virtual_server.http3.udp_client_profile` | [virtual_server.http3.udp_client_profile](data-sources--application_profiles--reference--group-002.md#canonical-3110111131023211-0330232112200211-3112303113213121-0121113033113231-3120200331110202-2211221310223221-2122023033133323-3120120311021221) |
-| `virtual_server.http3.udp_client_profile.kind` | [virtual_server.http3.udp_client_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-2203200122311100-1333100112021001-3012100102130012-0020003230301123-0232310230310103-3330000102320121-0122232132322310-3003121302130021) |
-| `virtual_server.http3.udp_client_profile.name` | [virtual_server.http3.udp_client_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-2113002232231032-2002133030000231-1203233301211311-3333013303123110-2020111212300030-3303230223011012-2313110012013321-2201113110023200) |
-| `virtual_server.http3.udp_client_profile.namespace` | [virtual_server.http3.udp_client_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-2203103302203021-2303332233323320-2303101123233113-3000030102020003-3000100100131132-3022010120133112-3000033120011332-3231211002132301) |
-| `virtual_server.http3.udp_client_profile.tenant` | [virtual_server.http3.udp_client_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-0200301032120213-3100013023102132-0132212020103313-0222322033333302-1233011110233112-1030311003100221-1110230100220110-0131110212023231) |
-| `virtual_server.http3.udp_client_profile.uid` | [virtual_server.http3.udp_client_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-3133021312220110-2030102332311103-2020010201220102-1333302111113001-1133310131021113-2120300102023310-2000011100002313-1211201232232031) |
-| `virtual_server.http3.udp_server_profile` | [virtual_server.http3.udp_server_profile](data-sources--application_profiles--reference--group-002.md#canonical-0003321320221213-2220121121131132-0000313303113012-3330123230300312-3310311321000131-2222322030230303-3311223213331001-2212313203101203) |
-| `virtual_server.http3.udp_server_profile.kind` | [virtual_server.http3.udp_server_profile.kind](data-sources--application_profiles--reference--group-002.md#canonical-0132022331223331-3013330311300132-0133002321200022-1323113301002103-0033112113333331-2300010221011213-1222202212213110-0320112301010203) |
-| `virtual_server.http3.udp_server_profile.name` | [virtual_server.http3.udp_server_profile.name](data-sources--application_profiles--reference--group-002.md#canonical-2121223101103300-1232331220320023-1310212030013311-1321000112232033-3200020302331210-1132030023212313-1223033320233300-2221003102023221) |
-| `virtual_server.http3.udp_server_profile.namespace` | [virtual_server.http3.udp_server_profile.namespace](data-sources--application_profiles--reference--group-002.md#canonical-3113011111203131-0000010322121200-2030300203201222-1221011232220100-3111121130312010-0122222132121130-1213013310112133-0021002211022202) |
-| `virtual_server.http3.udp_server_profile.tenant` | [virtual_server.http3.udp_server_profile.tenant](data-sources--application_profiles--reference--group-002.md#canonical-2113201101102202-0111211201203112-2332130131123121-2032111133310112-0220201320123330-0013220230131001-2030312000222333-0210110323330131) |
-| `virtual_server.http3.udp_server_profile.uid` | [virtual_server.http3.udp_server_profile.uid](data-sources--application_profiles--reference--group-002.md#canonical-1231221011321021-3213212321120213-1011312332333333-3221100201313303-1320021001111033-3202003320012100-3112310302203103-1231022310231323) |
+| `virtual_server.http3.http_server_profile` | [virtual_server.http3.http_server_profile](data-sources--application_profiles--reference--group-003.md#canonical-3221312202023033-1102223012313300-3203010330011230-1210002202322011-2313030323231301-2222112330223212-1201303211311211-3123213113100210) |
+| `virtual_server.http3.http_server_profile.kind` | [virtual_server.http3.http_server_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-0101013121221132-1202201020020332-2202330300302233-3313203200201322-1002310330030222-1012311322121200-2132232133011113-1033300123331332) |
+| `virtual_server.http3.http_server_profile.name` | [virtual_server.http3.http_server_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-0013313312210120-3130313333213333-1333213021111233-3213323103121202-1301102233021123-3303133120310333-2032312231023020-1323111311320313) |
+| `virtual_server.http3.http_server_profile.namespace` | [virtual_server.http3.http_server_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-2213223111233123-1123303202020100-1120121101130001-1010113022330302-2310102333101101-2123223003313132-3012031111320013-3220300102203001) |
+| `virtual_server.http3.http_server_profile.tenant` | [virtual_server.http3.http_server_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-2030211003122121-2230233120231211-0113032010002221-3021110031232003-0100121021033311-0230121020212022-3132123120320200-0321222313213122) |
+| `virtual_server.http3.http_server_profile.uid` | [virtual_server.http3.http_server_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-1133202011021202-3203233311231300-0221232013231200-0120132201231022-2302233003031303-0000233300032303-2221030002333213-0101322032333203) |
+| `virtual_server.http3.quic_profile` | [virtual_server.http3.quic_profile](data-sources--application_profiles--reference--group-003.md#canonical-2311003220220232-3230111332311321-3322012111002332-1020121133211300-1233032213310202-3311330100212020-3100011331330303-2020320213010313) |
+| `virtual_server.http3.quic_profile.kind` | [virtual_server.http3.quic_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-1203331001223123-1121330223313120-1033122102032331-3330213310013021-1112032331012131-1111030133002003-0330213110200010-3231112320003111) |
+| `virtual_server.http3.quic_profile.name` | [virtual_server.http3.quic_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-0111021202211021-3110031212030122-0003313012020102-1322022003100203-1313300131210223-1103332102031111-3000123132230023-1031100120212321) |
+| `virtual_server.http3.quic_profile.namespace` | [virtual_server.http3.quic_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-2320111311120023-2023011231032330-2013033301023013-2020001013232033-2131302110331312-3220312130013031-0130011102002220-1203222002102111) |
+| `virtual_server.http3.quic_profile.tenant` | [virtual_server.http3.quic_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-2132213323131023-1321220100310030-3313323012000221-1102232221332033-1232011223323110-0310111030032100-0121223023131133-3210001113331001) |
+| `virtual_server.http3.quic_profile.uid` | [virtual_server.http3.quic_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-2023200220330321-1303111011233222-1230003323303202-1102333003332033-2022212213331330-2302133320032220-2332200210130310-2003123300223210) |
+| `virtual_server.http3.server_ssl_profile` | [virtual_server.http3.server_ssl_profile](data-sources--application_profiles--reference--group-003.md#canonical-2202321321031233-2131133023103213-1033011033022203-2110233230020231-0003201231231231-1123321331123200-3032133011212211-3033330020221003) |
+| `virtual_server.http3.server_ssl_profile.kind` | [virtual_server.http3.server_ssl_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-0012302313310131-1103200323031103-0120323210001020-1301132123213310-2210330331101200-1130030112120121-2031233323002311-1121011332311312) |
+| `virtual_server.http3.server_ssl_profile.name` | [virtual_server.http3.server_ssl_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-1032032130033032-0001002123020200-2320330323322011-2101111011000112-0212031120113311-1121131012021232-0202202313011301-2202300323013101) |
+| `virtual_server.http3.server_ssl_profile.namespace` | [virtual_server.http3.server_ssl_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-2220313001030323-0113120120312012-0312303200101103-1033001000112200-1022312000013333-0232101221333330-3110131333312022-0032212001100100) |
+| `virtual_server.http3.server_ssl_profile.tenant` | [virtual_server.http3.server_ssl_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-0121333110001302-3011222323013000-2320123123203122-2232230320201010-1233200001213303-2210332201313033-1233201001131230-3031332103113033) |
+| `virtual_server.http3.server_ssl_profile.uid` | [virtual_server.http3.server_ssl_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-3321212230302200-3033132130011312-0223201231333020-2211031231201202-2212202010312300-3121032210113012-0232102002202013-1301020232030002) |
+| `virtual_server.http3.tcp_server_profile` | [virtual_server.http3.tcp_server_profile](data-sources--application_profiles--reference--group-003.md#canonical-2111211220132202-1113012320222200-1013130022202123-3033202211130113-0002201233323031-3303210132013210-2321202231101210-0233111122201231) |
+| `virtual_server.http3.tcp_server_profile.kind` | [virtual_server.http3.tcp_server_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-2333132203103120-3312032123020120-0320323131013211-2323021212220322-3220223202233133-1210201130022213-3010220310120233-3132313323203001) |
+| `virtual_server.http3.tcp_server_profile.name` | [virtual_server.http3.tcp_server_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-2321221311323011-2003030111232032-3233130311301302-0210122112230333-3133320213120232-2030132302320031-1223012120022102-1111300111011123) |
+| `virtual_server.http3.tcp_server_profile.namespace` | [virtual_server.http3.tcp_server_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-2112112320211220-1031113122132000-0213222102131010-2010111132203013-0313310023333332-1033011133002230-3003220320003310-0302312203222222) |
+| `virtual_server.http3.tcp_server_profile.tenant` | [virtual_server.http3.tcp_server_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-2321221222112321-3200021332030111-3123111333232112-0303003031221302-1002332202323233-3321232232331230-3311221121312121-2301231300000023) |
+| `virtual_server.http3.tcp_server_profile.uid` | [virtual_server.http3.tcp_server_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-3331011033001003-1230331200212230-1022023101120323-1303102002021121-0131323333023332-0313223021002301-0123303202321220-0103011111120322) |
+| `virtual_server.http3.udp_client_profile` | [virtual_server.http3.udp_client_profile](data-sources--application_profiles--reference--group-003.md#canonical-3110111131023211-0330232112200211-3112303113213121-0121113033113231-3120200331110202-2211221310223221-2122023033133323-3120120311021221) |
+| `virtual_server.http3.udp_client_profile.kind` | [virtual_server.http3.udp_client_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-2203200122311100-1333100112021001-3012100102130012-0020003230301123-0232310230310103-3330000102320121-0122232132322310-3003121302130021) |
+| `virtual_server.http3.udp_client_profile.name` | [virtual_server.http3.udp_client_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-2113002232231032-2002133030000231-1203233301211311-3333013303123110-2020111212300030-3303230223011012-2313110012013321-2201113110023200) |
+| `virtual_server.http3.udp_client_profile.namespace` | [virtual_server.http3.udp_client_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-2203103302203021-2303332233323320-2303101123233113-3000030102020003-3000100100131132-3022010120133112-3000033120011332-3231211002132301) |
+| `virtual_server.http3.udp_client_profile.tenant` | [virtual_server.http3.udp_client_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-0200301032120213-3100013023102132-0132212020103313-0222322033333302-1233011110233112-1030311003100221-1110230100220110-0131110212023231) |
+| `virtual_server.http3.udp_client_profile.uid` | [virtual_server.http3.udp_client_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-3133021312220110-2030102332311103-2020010201220102-1333302111113001-1133310131021113-2120300102023310-2000011100002313-1211201232232031) |
+| `virtual_server.http3.udp_server_profile` | [virtual_server.http3.udp_server_profile](data-sources--application_profiles--reference--group-003.md#canonical-0003321320221213-2220121121131132-0000313303113012-3330123230300312-3310311321000131-2222322030230303-3311223213331001-2212313203101203) |
+| `virtual_server.http3.udp_server_profile.kind` | [virtual_server.http3.udp_server_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-0132022331223331-3013330311300132-0133002321200022-1323113301002103-0033112113333331-2300010221011213-1222202212213110-0320112301010203) |
+| `virtual_server.http3.udp_server_profile.name` | [virtual_server.http3.udp_server_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-2121223101103300-1232331220320023-1310212030013311-1321000112232033-3200020302331210-1132030023212313-1223033320233300-2221003102023221) |
+| `virtual_server.http3.udp_server_profile.namespace` | [virtual_server.http3.udp_server_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-3113011111203131-0000010322121200-2030300203201222-1221011232220100-3111121130312010-0122222132121130-1213013310112133-0021002211022202) |
+| `virtual_server.http3.udp_server_profile.tenant` | [virtual_server.http3.udp_server_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-2113201101102202-0111211201203112-2332130131123121-2032111133310112-0220201320123330-0013220230131001-2030312000222333-0210110323330131) |
+| `virtual_server.http3.udp_server_profile.uid` | [virtual_server.http3.udp_server_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-1231221011321021-3213212321120213-1011312332333333-3221100201313303-1320021001111033-3202003320012100-3112310302203103-1231022310231323) |
 | `virtual_server.https` | [virtual_server.https](data-sources--application_profiles--reference--group-003.md#canonical-3110112100311110-2102131302131202-3130311013113200-3302111333312320-0231310322001110-1202132200130320-3130103300220103-2113202112113123) |
 | `virtual_server.https.client_ssl_profile` | [virtual_server.https.client_ssl_profile](data-sources--application_profiles--reference--group-003.md#canonical-1132322120022333-0312030202333221-3321011032223110-3301111312201221-1130120122132222-1002223013031310-0302311312132232-2230003122102313) |
 | `virtual_server.https.client_ssl_profile.kind` | [virtual_server.https.client_ssl_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-1110121312130230-2001103131200203-1002102313133131-3303021103132200-0130032231211223-1300220112302302-1310022311212221-1003213311001200) |
@@ -604,97 +602,87 @@ Each exact path has one authoritative reference destination. Collection element 
 | `virtual_server.last_hop_pool.tenant` | [virtual_server.last_hop_pool.tenant](data-sources--application_profiles--reference--group-003.md#canonical-0322032110112232-1120333001010313-2222111031233223-3300212301332020-0232023133213333-0010200330202303-0022102030021102-3312021210321200) |
 | `virtual_server.last_hop_pool.uid` | [virtual_server.last_hop_pool.uid](data-sources--application_profiles--reference--group-003.md#canonical-0222231132230310-3110230303320121-1133232113122013-1301213010002020-3310012202021002-1233230323311331-2202231211123133-2030012323232211) |
 | `virtual_server.nat64` | [virtual_server.nat64](data-sources--application_profiles--reference--group-003.md#canonical-3112222212333220-2111210012320301-1230013102331102-1113102012213010-1223310022222321-0001023002031323-0231201223233030-0321201011113133) |
-| `virtual_server.nat64.nat64_disable` | [virtual_server.nat64.nat64_disable](data-sources--application_profiles--reference--group-003.md#canonical-3330021000232332-3112120221301132-1202112021311233-1002102220223223-1323103112322321-3020330031020301-1010001112301333-3210122112321303) |
-| `virtual_server.nat64.nat64_enable` | [virtual_server.nat64.nat64_enable](data-sources--application_profiles--reference--group-003.md#canonical-2323330300333113-0111210302021122-3222102210220312-3120003231033321-1223002012201122-2212212232011330-0022023201212313-2213003331011323) |
-| `virtual_server.port_translation` | [virtual_server.port_translation](data-sources--application_profiles--reference--group-003.md#canonical-0230012221221331-3021110120120210-2301323100032210-0112002110033330-3020100332131003-3320320221322132-3320012303020331-0002233212311013) |
-| `virtual_server.port_translation.port_translation_disable` | [virtual_server.port_translation.port_translation_disable](data-sources--application_profiles--reference--group-003.md#canonical-1223333011230223-3003313223102211-3213332123113011-2011113321311333-1131201300001232-3222010100131121-3323120023222032-1210311122222011) |
-| `virtual_server.port_translation.port_translation_enable` | [virtual_server.port_translation.port_translation_enable](data-sources--application_profiles--reference--group-003.md#canonical-1123021020332223-3003002223232331-2000213010302201-0232230211330103-1311212121233320-2022302310202033-1333022301001012-0122310131120012) |
-| `virtual_server.request_logging_profile` | [virtual_server.request_logging_profile](data-sources--application_profiles--reference--group-003.md#canonical-1031110300301322-3011012111331131-3320322013310021-1331332303130013-0333231103331122-3012333020301221-1133212222013310-2220232130012002) |
-| `virtual_server.request_logging_profile.kind` | [virtual_server.request_logging_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-3111011233010123-1322230210312302-3110220021311312-0123010212232222-1221021223020311-2233320201303112-3213221001323133-2222331001120331) |
-| `virtual_server.request_logging_profile.name` | [virtual_server.request_logging_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-0032131021213201-0032210012001322-1022033201203132-0221223233220321-1230311221001013-3311132303202130-1002223322112110-0211321030200212) |
-| `virtual_server.request_logging_profile.namespace` | [virtual_server.request_logging_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-2333231231202222-3000120200101013-2333122312302300-1010300001320031-1312000333330232-3020130310023312-2300030113133222-1332021211122210) |
-| `virtual_server.request_logging_profile.tenant` | [virtual_server.request_logging_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-2321321001100300-2222002201310132-0312100012233022-1110131130102021-1202103112220223-1310120111103121-1312203321021203-0323333131013303) |
-| `virtual_server.request_logging_profile.uid` | [virtual_server.request_logging_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-1211021330212112-0113010233101110-3213130122212220-3122221003303033-3220003021232020-0230220003222200-0120231211301201-3100113311233200) |
-| `virtual_server.source_port` | [virtual_server.source_port](data-sources--application_profiles--reference--group-003.md#canonical-2231031203231101-1320022022331310-2302331331320012-0013323110030013-0322230203211311-0231131003221110-2123031233033330-3020101331100032) |
-| `virtual_server.source_port.source_port_change` | [virtual_server.source_port.source_port_change](data-sources--application_profiles--reference--group-003.md#canonical-1033230100021110-1232321310030300-0013311113121012-3131323201213223-3131121020222213-2123022303233030-0200332113031001-0112011010112101) |
-| `virtual_server.source_port.source_port_preserve` | [virtual_server.source_port.source_port_preserve](data-sources--application_profiles--reference--group-003.md#canonical-3122210132111330-3213033313322121-2230323132323233-0202202102221001-2303103302013330-1203220001233003-0133322023132333-3231231023120323) |
-| `virtual_server.source_port.source_port_preserve_strict` | [virtual_server.source_port.source_port_preserve_strict](data-sources--application_profiles--reference--group-003.md#canonical-2103231131103021-2223110201303233-3123113133113121-2130101121221022-2030110102132300-0102210010213033-2201112112020000-0330100113133120) |
-| `virtual_server.statistics_profile` | [virtual_server.statistics_profile](data-sources--application_profiles--reference--group-003.md#canonical-2030120322312202-1311203300012321-0321320031013201-3233002122323031-2033010022232303-2110113120103221-1303322002232120-0232013212222013) |
-| `virtual_server.statistics_profile.kind` | [virtual_server.statistics_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-2302010102032211-2101220322000120-1122102130000030-0331230231012103-2033003332311120-1211011002101230-2122113311020032-3233202230133301) |
-| `virtual_server.statistics_profile.name` | [virtual_server.statistics_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-1210213022223212-3133101111210020-3322303133122300-0123123013113330-2003233011230003-3122232322221131-1113313133211010-2201303221233131) |
-| `virtual_server.statistics_profile.namespace` | [virtual_server.statistics_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-3233300113322310-1133113133232223-1230022323013133-1211132212130013-2113321221200310-3121033032102200-0220012013130010-0221021211333210) |
-| `virtual_server.statistics_profile.tenant` | [virtual_server.statistics_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-3200032003300132-3303302103202001-2000030303131112-3100100220110121-3330100231021011-2333200103022023-0302221203020032-2031313331032301) |
-| `virtual_server.statistics_profile.uid` | [virtual_server.statistics_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-3101021230321013-1312011302130111-3030332132013102-0111212322122021-3203222232012013-1112302322213300-3330331220232323-2233030123302330) |
-| `virtual_server.tcp` | [virtual_server.tcp](data-sources--application_profiles--reference--group-003.md#canonical-3332310323031233-0313321330000232-3300010012123032-3321003311001223-1002000031011012-1221013001120331-2103101021011301-1010110123323100) |
-| `virtual_server.tcp.client_ssl_profile` | [virtual_server.tcp.client_ssl_profile](data-sources--application_profiles--reference--group-003.md#canonical-1223323031103032-1333301010223312-0323313113233102-2211030313223003-2112002133300232-3131120003201031-3300020231132200-2200333311102021) |
-| `virtual_server.tcp.client_ssl_profile.kind` | [virtual_server.tcp.client_ssl_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-1220010130112121-3220233320100101-3013123332101221-3221133232033011-0022001132301033-2210111002022001-1312132313210102-3332110020230311) |
-| `virtual_server.tcp.client_ssl_profile.name` | [virtual_server.tcp.client_ssl_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-1201232331100312-2231133323321300-1101222002301001-0300120320023002-3312310012202030-2312332002222021-2213223111232022-1122310001101202) |
-| `virtual_server.tcp.client_ssl_profile.namespace` | [virtual_server.tcp.client_ssl_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-0122021320113200-3302220020122013-3130330102311221-3032220300022223-2333010320122220-2033103132200010-0323310333210302-2213121032322330) |
-| `virtual_server.tcp.client_ssl_profile.tenant` | [virtual_server.tcp.client_ssl_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-1012013322002021-2211211113222003-2032221301132030-3223122332033031-3311002131012113-1300301110330220-1032312100101300-0001322103310122) |
-| `virtual_server.tcp.client_ssl_profile.uid` | [virtual_server.tcp.client_ssl_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-2121012201112312-0002001312031121-3201331313001310-2031032313001331-2023333220313133-2013320223201000-2101002012103321-0323010233232122) |
-| `virtual_server.tcp.ocsp_profile` | [virtual_server.tcp.ocsp_profile](data-sources--application_profiles--reference--group-003.md#canonical-3222113202322322-0331222010032111-0231200332330131-1120010211000200-1320103023320021-3020032311122013-3012321300232301-1212233311202030) |
-| `virtual_server.tcp.ocsp_profile.kind` | [virtual_server.tcp.ocsp_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-2133103031213311-1023200220030223-0300213312300320-3033203323222030-3003022112303203-3322032133130302-0203212000000210-3210320201220332) |
-| `virtual_server.tcp.ocsp_profile.name` | [virtual_server.tcp.ocsp_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-1303302102302030-0100000232300311-2210102233131213-3023320231311100-0230322133121211-0012123230110220-1211021233111031-3332133132300322) |
-| `virtual_server.tcp.ocsp_profile.namespace` | [virtual_server.tcp.ocsp_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-3130230020320011-3103103201100321-1203031032010003-0133021210001121-0021231011103331-3233220302011033-3212223022020031-2202112331033011) |
-| `virtual_server.tcp.ocsp_profile.tenant` | [virtual_server.tcp.ocsp_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-0322021303013323-0202320023211102-3100101303010000-2210122222101322-2322233231000131-2303121110023200-1220332322133203-1222233023231233) |
-| `virtual_server.tcp.ocsp_profile.uid` | [virtual_server.tcp.ocsp_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-3233130311023002-2222211223202010-1211231210210222-1320312111330103-3231201020300111-3033322213122232-0100232132220223-1321323302211202) |
-| `virtual_server.tcp.server_ssl_profile` | [virtual_server.tcp.server_ssl_profile](data-sources--application_profiles--reference--group-003.md#canonical-1301210030113010-3001031000022023-1203202300132011-2320223221023320-0201113030211233-1113112203320131-0321103311130200-2313302302001132) |
-| `virtual_server.tcp.server_ssl_profile.kind` | [virtual_server.tcp.server_ssl_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-3123220302001003-0221110312110212-3010023023031232-0100021213122233-0231101221102032-3010020223123303-3201231220101332-3233230022333100) |
-| `virtual_server.tcp.server_ssl_profile.name` | [virtual_server.tcp.server_ssl_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-3220023021330010-1022331102300302-1130310302211113-2203331201322310-0233211102323232-1103213012203022-2011230332230113-0132221121220122) |
-| `virtual_server.tcp.server_ssl_profile.namespace` | [virtual_server.tcp.server_ssl_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-3111223102012123-0203023033221220-0332303002133231-2031010210000102-1020011001012231-1102000000113011-3002330230133202-1213201203331323) |
-| `virtual_server.tcp.server_ssl_profile.tenant` | [virtual_server.tcp.server_ssl_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-2022110203301233-2233230031101202-1300223210332300-3321000123200220-1131320332213333-2202311133113200-2133233021110212-0032013030303331) |
-| `virtual_server.tcp.server_ssl_profile.uid` | [virtual_server.tcp.server_ssl_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-0103200032003121-2303201330033021-0032320131330211-3131000310203303-3233202112120102-1231321133321301-3102221230101311-1003122022310022) |
-| `virtual_server.tcp.tcp_client_profile` | [virtual_server.tcp.tcp_client_profile](data-sources--application_profiles--reference--group-003.md#canonical-0233130021010220-1121023203223312-3032230023001021-2100113110302023-2010233012010211-1320211021101331-2021110312323310-1030121232022110) |
-| `virtual_server.tcp.tcp_client_profile.kind` | [virtual_server.tcp.tcp_client_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-3032220312231213-2300232121210230-2212123331131322-1031321232021130-3023223320313113-2021331121331212-1331312010331211-2032022210121023) |
-| `virtual_server.tcp.tcp_client_profile.name` | [virtual_server.tcp.tcp_client_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-0303213032221112-1100121300200200-1320222322310231-3123002211221131-1230311310232123-3131301212131303-1102221213030213-2031300131331031) |
-| `virtual_server.tcp.tcp_client_profile.namespace` | [virtual_server.tcp.tcp_client_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-2001200320213233-1120030103320132-1032112022111031-3211100010100330-2302333212033031-2133231220001010-2233111313032112-3212032333310201) |
-| `virtual_server.tcp.tcp_client_profile.tenant` | [virtual_server.tcp.tcp_client_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-1212100302003313-0331210323332030-1201303123012230-0030221332203201-3001113132301312-3101032331100222-3233223310013113-1110332333101122) |
-| `virtual_server.tcp.tcp_client_profile.uid` | [virtual_server.tcp.tcp_client_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-0233221223033011-1212023121031111-0321033132333302-0003331011310333-1113023121012311-1020210031000302-1221023202000030-0220012210312210) |
-| `virtual_server.tcp.tcp_server_profile` | [virtual_server.tcp.tcp_server_profile](data-sources--application_profiles--reference--group-003.md#canonical-2223101012002002-0211221222230013-2203113222222221-2000010023113232-0022101110310031-3312130211212133-3101130033321322-2112213130333221) |
-| `virtual_server.tcp.tcp_server_profile.kind` | [virtual_server.tcp.tcp_server_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-2331002323321112-1113033321031011-1321232120031023-1023222002103233-2021021130003312-0301112010210103-0120110110023201-2002121230011020) |
-| `virtual_server.tcp.tcp_server_profile.name` | [virtual_server.tcp.tcp_server_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-2003031013322331-0100100330122133-0303211313113032-2110233133231212-3012313200011313-2031020020322202-1020332111121023-1223121200213100) |
-| `virtual_server.tcp.tcp_server_profile.namespace` | [virtual_server.tcp.tcp_server_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-3322220201010210-0203220112133211-1120123201023000-0231313101033100-1332111013202002-0310230131120331-2321312000120302-2102230102110023) |
-| `virtual_server.tcp.tcp_server_profile.tenant` | [virtual_server.tcp.tcp_server_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-0321123000011210-2010112330021131-1331101313300303-2310210120100000-1323223202001223-1130031103303331-1222032231310200-2101120201110231) |
-| `virtual_server.tcp.tcp_server_profile.uid` | [virtual_server.tcp.tcp_server_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-3112202321320130-0302202312113323-0330303200001100-3323010223012021-2212010221311202-3223032212230232-1231023121312230-0110130011003100) |
-| `virtual_server.udp` | [virtual_server.udp](data-sources--application_profiles--reference--group-003.md#canonical-3230102230310120-1010023200321221-3133023233101012-0120203133222230-3233210233210103-1332031102321121-2231002312110123-2021321301012232) |
-| `virtual_server.udp.client_ssl_profile` | [virtual_server.udp.client_ssl_profile](data-sources--application_profiles--reference--group-003.md#canonical-2223111031211133-0101333002323221-1330302200031101-2132112223123222-2201122023213030-1020321313300011-1010133331202031-3230300310130112) |
-| `virtual_server.udp.client_ssl_profile.kind` | [virtual_server.udp.client_ssl_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-0322301012103310-2211210202321302-2220100202033221-3123231121221030-2222333013100200-2223332112112210-1131021123131111-3231210003232133) |
-| `virtual_server.udp.client_ssl_profile.name` | [virtual_server.udp.client_ssl_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-0132103230323301-2310210101023022-3221100322330230-2020223323320212-0212212311121321-0113221020133331-2303003101010200-2122303332230211) |
-| `virtual_server.udp.client_ssl_profile.namespace` | [virtual_server.udp.client_ssl_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-1210103233123230-0011200330100300-3122332312110310-0233010331020013-1122002212112101-1212203332320202-1321202211323003-1102301221013010) |
-| `virtual_server.udp.client_ssl_profile.tenant` | [virtual_server.udp.client_ssl_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-0211311122032003-3222130111113002-3101000323101010-2021113023000331-2111000102130221-2111120203222011-1100013033011023-0203132122212300) |
-| `virtual_server.udp.client_ssl_profile.uid` | [virtual_server.udp.client_ssl_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-2211100301020302-2320012111132033-1201303120022021-1220213100122220-2012021300310132-0233030333313032-2011213112313003-0231302123123110) |
-| `virtual_server.udp.server_ssl_profile` | [virtual_server.udp.server_ssl_profile](data-sources--application_profiles--reference--group-003.md#canonical-0101033012301333-2330013230023300-1030200021120003-3111233103113030-1102102100332031-2131121031322222-2213131312112330-2301020232113100) |
-| `virtual_server.udp.server_ssl_profile.kind` | [virtual_server.udp.server_ssl_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-2332323020202202-2301010013113311-3201203231333312-0131221313130303-2301001121121100-0303113122120330-0132303133110002-2020321130031112) |
-| `virtual_server.udp.server_ssl_profile.name` | [virtual_server.udp.server_ssl_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-2221303121101223-0133032033012012-3313000223203101-3331221001133121-2010132220010230-0231313311333303-1323002202323311-1301012013102131) |
-| `virtual_server.udp.server_ssl_profile.namespace` | [virtual_server.udp.server_ssl_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-1100203111120031-2120323223132010-2301303001222002-3012020030133313-1213312200202111-0210120101322223-2301011312021011-2000111012011011) |
-| `virtual_server.udp.server_ssl_profile.tenant` | [virtual_server.udp.server_ssl_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-1223122120321102-2000203333123003-1322122023312212-3000031011123100-3212313310230210-2312232300021021-2013231031020232-1302021022310010) |
-| `virtual_server.udp.server_ssl_profile.uid` | [virtual_server.udp.server_ssl_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-2231130232100022-3123001103220031-2033212310210310-2000023222321131-0000302302133013-2212322120103331-0210122331000112-0102011101103103) |
-| `virtual_server.udp.udp_client_profile` | [virtual_server.udp.udp_client_profile](data-sources--application_profiles--reference--group-003.md#canonical-1022022013310211-3131023311012011-0332223013233330-0310123313002302-3003030100013303-1331103101100223-0002131121201323-2223000021033100) |
-| `virtual_server.udp.udp_client_profile.kind` | [virtual_server.udp.udp_client_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-3331321213300032-2002032122201223-3132221303332332-3112013011102232-2303100021103021-1210120010303210-3203033000020233-0323212333002033) |
-| `virtual_server.udp.udp_client_profile.name` | [virtual_server.udp.udp_client_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-1320223331022233-0211201230233120-0223002213100200-3210120200222330-2133220001131202-2031210132300313-2232233032130111-3320131033220202) |
-| `virtual_server.udp.udp_client_profile.namespace` | [virtual_server.udp.udp_client_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-2303121332220020-2200102003102322-3210233320133012-3021031022032321-2130102310302211-3320012122133032-1213132002202031-3321312330233131) |
-| `virtual_server.udp.udp_client_profile.tenant` | [virtual_server.udp.udp_client_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-1111313003330213-2112303201023030-0332303020331322-0221001122220130-3311311030311033-3231130330213022-3301032100122122-3323200303203223) |
-| `virtual_server.udp.udp_client_profile.uid` | [virtual_server.udp.udp_client_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-3123323202130100-3132220203121313-3210312130122012-1311201213301201-2212033102311122-2000111122023232-1101032320213121-3232013020101233) |
-| `virtual_server.udp.udp_server_profile` | [virtual_server.udp.udp_server_profile](data-sources--application_profiles--reference--group-003.md#canonical-1232210232213322-3200033101023210-1022100231121012-3311323303321202-0130032002133020-2301003122033333-3021010230323203-3032301322031133) |
-| `virtual_server.udp.udp_server_profile.kind` | [virtual_server.udp.udp_server_profile.kind](data-sources--application_profiles--reference--group-003.md#canonical-0301232220333320-0212023310223321-2233100220312112-2300331223010303-2011223202200333-1133121101223323-2123120033132120-0231132012112322) |
-| `virtual_server.udp.udp_server_profile.name` | [virtual_server.udp.udp_server_profile.name](data-sources--application_profiles--reference--group-003.md#canonical-1301113121300332-2011130120100301-2332131131321130-2110210213232321-3331311222230133-2321020223101121-1033201330333101-3311123323211313) |
-| `virtual_server.udp.udp_server_profile.namespace` | [virtual_server.udp.udp_server_profile.namespace](data-sources--application_profiles--reference--group-003.md#canonical-1100321230312010-3023132212020002-3332131310320113-0331330002112322-1132021322313012-1211330321022323-0202220332323020-1300313033013323) |
-| `virtual_server.udp.udp_server_profile.tenant` | [virtual_server.udp.udp_server_profile.tenant](data-sources--application_profiles--reference--group-003.md#canonical-0020233331120310-1320122000011301-1300121301323333-1233233113202320-3223012111320202-0231232222032033-2103203000222311-1012123333332121) |
-| `virtual_server.udp.udp_server_profile.uid` | [virtual_server.udp.udp_server_profile.uid](data-sources--application_profiles--reference--group-003.md#canonical-3302132310200220-1112211012111031-0123230123211311-2131012311210121-3310321130120201-2201123213011210-1123332101010032-1222202211310232) |
-| `virtual_server.virtual_server_state` | [virtual_server.virtual_server_state](data-sources--application_profiles--reference--group-003.md#canonical-2021230121300320-1123230031330120-2201000331133031-3132210011103321-1233130023200123-0213223330301201-0132022232032021-1202010313232100) |
-| `virtual_server.virtual_server_state.state_disabled` | [virtual_server.virtual_server_state.state_disabled](data-sources--application_profiles--reference--group-003.md#canonical-2333230033233103-1022032110001213-1211312103321332-2213010220333300-1321201012201122-0222101313111331-2101220020032332-2311032233010201) |
+| `virtual_server.nat64.nat64_disable` | [virtual_server.nat64.nat64_disable](data-sources--application_profiles--reference--group-004.md#canonical-3330021000232332-3112120221301132-1202112021311233-1002102220223223-1323103112322321-3020330031020301-1010001112301333-3210122112321303) |
+| `virtual_server.nat64.nat64_enable` | [virtual_server.nat64.nat64_enable](data-sources--application_profiles--reference--group-004.md#canonical-2323330300333113-0111210302021122-3222102210220312-3120003231033321-1223002012201122-2212212232011330-0022023201212313-2213003331011323) |
+| `virtual_server.port_translation` | [virtual_server.port_translation](data-sources--application_profiles--reference--group-004.md#canonical-0230012221221331-3021110120120210-2301323100032210-0112002110033330-3020100332131003-3320320221322132-3320012303020331-0002233212311013) |
+| `virtual_server.port_translation.port_translation_disable` | [virtual_server.port_translation.port_translation_disable](data-sources--application_profiles--reference--group-004.md#canonical-1223333011230223-3003313223102211-3213332123113011-2011113321311333-1131201300001232-3222010100131121-3323120023222032-1210311122222011) |
+| `virtual_server.port_translation.port_translation_enable` | [virtual_server.port_translation.port_translation_enable](data-sources--application_profiles--reference--group-004.md#canonical-1123021020332223-3003002223232331-2000213010302201-0232230211330103-1311212121233320-2022302310202033-1333022301001012-0122310131120012) |
+| `virtual_server.request_logging_profile` | [virtual_server.request_logging_profile](data-sources--application_profiles--reference--group-004.md#canonical-1031110300301322-3011012111331131-3320322013310021-1331332303130013-0333231103331122-3012333020301221-1133212222013310-2220232130012002) |
+| `virtual_server.request_logging_profile.kind` | [virtual_server.request_logging_profile.kind](data-sources--application_profiles--reference--group-004.md#canonical-3111011233010123-1322230210312302-3110220021311312-0123010212232222-1221021223020311-2233320201303112-3213221001323133-2222331001120331) |
+| `virtual_server.request_logging_profile.name` | [virtual_server.request_logging_profile.name](data-sources--application_profiles--reference--group-004.md#canonical-0032131021213201-0032210012001322-1022033201203132-0221223233220321-1230311221001013-3311132303202130-1002223322112110-0211321030200212) |
+| `virtual_server.request_logging_profile.namespace` | [virtual_server.request_logging_profile.namespace](data-sources--application_profiles--reference--group-004.md#canonical-2333231231202222-3000120200101013-2333122312302300-1010300001320031-1312000333330232-3020130310023312-2300030113133222-1332021211122210) |
+| `virtual_server.request_logging_profile.tenant` | [virtual_server.request_logging_profile.tenant](data-sources--application_profiles--reference--group-004.md#canonical-2321321001100300-2222002201310132-0312100012233022-1110131130102021-1202103112220223-1310120111103121-1312203321021203-0323333131013303) |
+| `virtual_server.request_logging_profile.uid` | [virtual_server.request_logging_profile.uid](data-sources--application_profiles--reference--group-004.md#canonical-1211021330212112-0113010233101110-3213130122212220-3122221003303033-3220003021232020-0230220003222200-0120231211301201-3100113311233200) |
+| `virtual_server.source_port` | [virtual_server.source_port](data-sources--application_profiles--reference--group-004.md#canonical-2231031203231101-1320022022331310-2302331331320012-0013323110030013-0322230203211311-0231131003221110-2123031233033330-3020101331100032) |
+| `virtual_server.source_port.source_port_change` | [virtual_server.source_port.source_port_change](data-sources--application_profiles--reference--group-004.md#canonical-1033230100021110-1232321310030300-0013311113121012-3131323201213223-3131121020222213-2123022303233030-0200332113031001-0112011010112101) |
+| `virtual_server.source_port.source_port_preserve` | [virtual_server.source_port.source_port_preserve](data-sources--application_profiles--reference--group-004.md#canonical-3122210132111330-3213033313322121-2230323132323233-0202202102221001-2303103302013330-1203220001233003-0133322023132333-3231231023120323) |
+| `virtual_server.source_port.source_port_preserve_strict` | [virtual_server.source_port.source_port_preserve_strict](data-sources--application_profiles--reference--group-004.md#canonical-2103231131103021-2223110201303233-3123113133113121-2130101121221022-2030110102132300-0102210010213033-2201112112020000-0330100113133120) |
+| `virtual_server.statistics_profile` | [virtual_server.statistics_profile](data-sources--application_profiles--reference--group-004.md#canonical-2030120322312202-1311203300012321-0321320031013201-3233002122323031-2033010022232303-2110113120103221-1303322002232120-0232013212222013) |
+| `virtual_server.statistics_profile.kind` | [virtual_server.statistics_profile.kind](data-sources--application_profiles--reference--group-004.md#canonical-2302010102032211-2101220322000120-1122102130000030-0331230231012103-2033003332311120-1211011002101230-2122113311020032-3233202230133301) |
+| `virtual_server.statistics_profile.name` | [virtual_server.statistics_profile.name](data-sources--application_profiles--reference--group-004.md#canonical-1210213022223212-3133101111210020-3322303133122300-0123123013113330-2003233011230003-3122232322221131-1113313133211010-2201303221233131) |
+| `virtual_server.statistics_profile.namespace` | [virtual_server.statistics_profile.namespace](data-sources--application_profiles--reference--group-004.md#canonical-3233300113322310-1133113133232223-1230022323013133-1211132212130013-2113321221200310-3121033032102200-0220012013130010-0221021211333210) |
+| `virtual_server.statistics_profile.tenant` | [virtual_server.statistics_profile.tenant](data-sources--application_profiles--reference--group-004.md#canonical-3200032003300132-3303302103202001-2000030303131112-3100100220110121-3330100231021011-2333200103022023-0302221203020032-2031313331032301) |
+| `virtual_server.statistics_profile.uid` | [virtual_server.statistics_profile.uid](data-sources--application_profiles--reference--group-004.md#canonical-3101021230321013-1312011302130111-3030332132013102-0111212322122021-3203222232012013-1112302322213300-3330331220232323-2233030123302330) |
+| `virtual_server.tcp` | [virtual_server.tcp](data-sources--application_profiles--reference--group-004.md#canonical-3332310323031233-0313321330000232-3300010012123032-3321003311001223-1002000031011012-1221013001120331-2103101021011301-1010110123323100) |
+| `virtual_server.tcp.client_ssl_profile` | [virtual_server.tcp.client_ssl_profile](data-sources--application_profiles--reference--group-004.md#canonical-1223323031103032-1333301010223312-0323313113233102-2211030313223003-2112002133300232-3131120003201031-3300020231132200-2200333311102021) |
+| `virtual_server.tcp.client_ssl_profile.kind` | [virtual_server.tcp.client_ssl_profile.kind](data-sources--application_profiles--reference--group-004.md#canonical-1220010130112121-3220233320100101-3013123332101221-3221133232033011-0022001132301033-2210111002022001-1312132313210102-3332110020230311) |
+| `virtual_server.tcp.client_ssl_profile.name` | [virtual_server.tcp.client_ssl_profile.name](data-sources--application_profiles--reference--group-004.md#canonical-1201232331100312-2231133323321300-1101222002301001-0300120320023002-3312310012202030-2312332002222021-2213223111232022-1122310001101202) |
+| `virtual_server.tcp.client_ssl_profile.namespace` | [virtual_server.tcp.client_ssl_profile.namespace](data-sources--application_profiles--reference--group-004.md#canonical-0122021320113200-3302220020122013-3130330102311221-3032220300022223-2333010320122220-2033103132200010-0323310333210302-2213121032322330) |
+| `virtual_server.tcp.client_ssl_profile.tenant` | [virtual_server.tcp.client_ssl_profile.tenant](data-sources--application_profiles--reference--group-004.md#canonical-1012013322002021-2211211113222003-2032221301132030-3223122332033031-3311002131012113-1300301110330220-1032312100101300-0001322103310122) |
+| `virtual_server.tcp.client_ssl_profile.uid` | [virtual_server.tcp.client_ssl_profile.uid](data-sources--application_profiles--reference--group-004.md#canonical-2121012201112312-0002001312031121-3201331313001310-2031032313001331-2023333220313133-2013320223201000-2101002012103321-0323010233232122) |
+| `virtual_server.tcp.ocsp_profile` | [virtual_server.tcp.ocsp_profile](data-sources--application_profiles--reference--group-004.md#canonical-3222113202322322-0331222010032111-0231200332330131-1120010211000200-1320103023320021-3020032311122013-3012321300232301-1212233311202030) |
+| `virtual_server.tcp.ocsp_profile.kind` | [virtual_server.tcp.ocsp_profile.kind](data-sources--application_profiles--reference--group-004.md#canonical-2133103031213311-1023200220030223-0300213312300320-3033203323222030-3003022112303203-3322032133130302-0203212000000210-3210320201220332) |
+| `virtual_server.tcp.ocsp_profile.name` | [virtual_server.tcp.ocsp_profile.name](data-sources--application_profiles--reference--group-004.md#canonical-1303302102302030-0100000232300311-2210102233131213-3023320231311100-0230322133121211-0012123230110220-1211021233111031-3332133132300322) |
+| `virtual_server.tcp.ocsp_profile.namespace` | [virtual_server.tcp.ocsp_profile.namespace](data-sources--application_profiles--reference--group-004.md#canonical-3130230020320011-3103103201100321-1203031032010003-0133021210001121-0021231011103331-3233220302011033-3212223022020031-2202112331033011) |
+| `virtual_server.tcp.ocsp_profile.tenant` | [virtual_server.tcp.ocsp_profile.tenant](data-sources--application_profiles--reference--group-004.md#canonical-0322021303013323-0202320023211102-3100101303010000-2210122222101322-2322233231000131-2303121110023200-1220332322133203-1222233023231233) |
+| `virtual_server.tcp.ocsp_profile.uid` | [virtual_server.tcp.ocsp_profile.uid](data-sources--application_profiles--reference--group-004.md#canonical-3233130311023002-2222211223202010-1211231210210222-1320312111330103-3231201020300111-3033322213122232-0100232132220223-1321323302211202) |
+| `virtual_server.tcp.server_ssl_profile` | [virtual_server.tcp.server_ssl_profile](data-sources--application_profiles--reference--group-004.md#canonical-1301210030113010-3001031000022023-1203202300132011-2320223221023320-0201113030211233-1113112203320131-0321103311130200-2313302302001132) |
+| `virtual_server.tcp.server_ssl_profile.kind` | [virtual_server.tcp.server_ssl_profile.kind](data-sources--application_profiles--reference--group-004.md#canonical-3123220302001003-0221110312110212-3010023023031232-0100021213122233-0231101221102032-3010020223123303-3201231220101332-3233230022333100) |
+| `virtual_server.tcp.server_ssl_profile.name` | [virtual_server.tcp.server_ssl_profile.name](data-sources--application_profiles--reference--group-004.md#canonical-3220023021330010-1022331102300302-1130310302211113-2203331201322310-0233211102323232-1103213012203022-2011230332230113-0132221121220122) |
+| `virtual_server.tcp.server_ssl_profile.namespace` | [virtual_server.tcp.server_ssl_profile.namespace](data-sources--application_profiles--reference--group-004.md#canonical-3111223102012123-0203023033221220-0332303002133231-2031010210000102-1020011001012231-1102000000113011-3002330230133202-1213201203331323) |
+| `virtual_server.tcp.server_ssl_profile.tenant` | [virtual_server.tcp.server_ssl_profile.tenant](data-sources--application_profiles--reference--group-004.md#canonical-2022110203301233-2233230031101202-1300223210332300-3321000123200220-1131320332213333-2202311133113200-2133233021110212-0032013030303331) |
+| `virtual_server.tcp.server_ssl_profile.uid` | [virtual_server.tcp.server_ssl_profile.uid](data-sources--application_profiles--reference--group-004.md#canonical-0103200032003121-2303201330033021-0032320131330211-3131000310203303-3233202112120102-1231321133321301-3102221230101311-1003122022310022) |
+| `virtual_server.tcp.tcp_client_profile` | [virtual_server.tcp.tcp_client_profile](data-sources--application_profiles--reference--group-004.md#canonical-0233130021010220-1121023203223312-3032230023001021-2100113110302023-2010233012010211-1320211021101331-2021110312323310-1030121232022110) |
+| `virtual_server.tcp.tcp_client_profile.kind` | [virtual_server.tcp.tcp_client_profile.kind](data-sources--application_profiles--reference--group-004.md#canonical-3032220312231213-2300232121210230-2212123331131322-1031321232021130-3023223320313113-2021331121331212-1331312010331211-2032022210121023) |
+| `virtual_server.tcp.tcp_client_profile.name` | [virtual_server.tcp.tcp_client_profile.name](data-sources--application_profiles--reference--group-004.md#canonical-0303213032221112-1100121300200200-1320222322310231-3123002211221131-1230311310232123-3131301212131303-1102221213030213-2031300131331031) |
+| `virtual_server.tcp.tcp_client_profile.namespace` | [virtual_server.tcp.tcp_client_profile.namespace](data-sources--application_profiles--reference--group-004.md#canonical-2001200320213233-1120030103320132-1032112022111031-3211100010100330-2302333212033031-2133231220001010-2233111313032112-3212032333310201) |
+| `virtual_server.tcp.tcp_client_profile.tenant` | [virtual_server.tcp.tcp_client_profile.tenant](data-sources--application_profiles--reference--group-004.md#canonical-1212100302003313-0331210323332030-1201303123012230-0030221332203201-3001113132301312-3101032331100222-3233223310013113-1110332333101122) |
+| `virtual_server.tcp.tcp_client_profile.uid` | [virtual_server.tcp.tcp_client_profile.uid](data-sources--application_profiles--reference--group-004.md#canonical-0233221223033011-1212023121031111-0321033132333302-0003331011310333-1113023121012311-1020210031000302-1221023202000030-0220012210312210) |
+| `virtual_server.tcp.tcp_server_profile` | [virtual_server.tcp.tcp_server_profile](data-sources--application_profiles--reference--group-004.md#canonical-2223101012002002-0211221222230013-2203113222222221-2000010023113232-0022101110310031-3312130211212133-3101130033321322-2112213130333221) |
+| `virtual_server.tcp.tcp_server_profile.kind` | [virtual_server.tcp.tcp_server_profile.kind](data-sources--application_profiles--reference--group-004.md#canonical-2331002323321112-1113033321031011-1321232120031023-1023222002103233-2021021130003312-0301112010210103-0120110110023201-2002121230011020) |
+| `virtual_server.tcp.tcp_server_profile.name` | [virtual_server.tcp.tcp_server_profile.name](data-sources--application_profiles--reference--group-004.md#canonical-2003031013322331-0100100330122133-0303211313113032-2110233133231212-3012313200011313-2031020020322202-1020332111121023-1223121200213100) |
+| `virtual_server.tcp.tcp_server_profile.namespace` | [virtual_server.tcp.tcp_server_profile.namespace](data-sources--application_profiles--reference--group-004.md#canonical-3322220201010210-0203220112133211-1120123201023000-0231313101033100-1332111013202002-0310230131120331-2321312000120302-2102230102110023) |
+| `virtual_server.tcp.tcp_server_profile.tenant` | [virtual_server.tcp.tcp_server_profile.tenant](data-sources--application_profiles--reference--group-004.md#canonical-0321123000011210-2010112330021131-1331101313300303-2310210120100000-1323223202001223-1130031103303331-1222032231310200-2101120201110231) |
+| `virtual_server.tcp.tcp_server_profile.uid` | [virtual_server.tcp.tcp_server_profile.uid](data-sources--application_profiles--reference--group-004.md#canonical-3112202321320130-0302202312113323-0330303200001100-3323010223012021-2212010221311202-3223032212230232-1231023121312230-0110130011003100) |
+| `virtual_server.udp` | [virtual_server.udp](data-sources--application_profiles--reference--group-004.md#canonical-3230102230310120-1010023200321221-3133023233101012-0120203133222230-3233210233210103-1332031102321121-2231002312110123-2021321301012232) |
+| `virtual_server.udp.client_ssl_profile` | [virtual_server.udp.client_ssl_profile](data-sources--application_profiles--reference--group-004.md#canonical-2223111031211133-0101333002323221-1330302200031101-2132112223123222-2201122023213030-1020321313300011-1010133331202031-3230300310130112) |
+| `virtual_server.udp.client_ssl_profile.kind` | [virtual_server.udp.client_ssl_profile.kind](data-sources--application_profiles--reference--group-004.md#canonical-0322301012103310-2211210202321302-2220100202033221-3123231121221030-2222333013100200-2223332112112210-1131021123131111-3231210003232133) |
+| `virtual_server.udp.client_ssl_profile.name` | [virtual_server.udp.client_ssl_profile.name](data-sources--application_profiles--reference--group-004.md#canonical-0132103230323301-2310210101023022-3221100322330230-2020223323320212-0212212311121321-0113221020133331-2303003101010200-2122303332230211) |
+| `virtual_server.udp.client_ssl_profile.namespace` | [virtual_server.udp.client_ssl_profile.namespace](data-sources--application_profiles--reference--group-004.md#canonical-1210103233123230-0011200330100300-3122332312110310-0233010331020013-1122002212112101-1212203332320202-1321202211323003-1102301221013010) |
+| `virtual_server.udp.client_ssl_profile.tenant` | [virtual_server.udp.client_ssl_profile.tenant](data-sources--application_profiles--reference--group-004.md#canonical-0211311122032003-3222130111113002-3101000323101010-2021113023000331-2111000102130221-2111120203222011-1100013033011023-0203132122212300) |
+| `virtual_server.udp.client_ssl_profile.uid` | [virtual_server.udp.client_ssl_profile.uid](data-sources--application_profiles--reference--group-004.md#canonical-2211100301020302-2320012111132033-1201303120022021-1220213100122220-2012021300310132-0233030333313032-2011213112313003-0231302123123110) |
+| `virtual_server.udp.server_ssl_profile` | [virtual_server.udp.server_ssl_profile](data-sources--application_profiles--reference--group-004.md#canonical-0101033012301333-2330013230023300-1030200021120003-3111233103113030-1102102100332031-2131121031322222-2213131312112330-2301020232113100) |
+| `virtual_server.udp.server_ssl_profile.kind` | [virtual_server.udp.server_ssl_profile.kind](data-sources--application_profiles--reference--group-004.md#canonical-2332323020202202-2301010013113311-3201203231333312-0131221313130303-2301001121121100-0303113122120330-0132303133110002-2020321130031112) |
+| `virtual_server.udp.server_ssl_profile.name` | [virtual_server.udp.server_ssl_profile.name](data-sources--application_profiles--reference--group-004.md#canonical-2221303121101223-0133032033012012-3313000223203101-3331221001133121-2010132220010230-0231313311333303-1323002202323311-1301012013102131) |
+| `virtual_server.udp.server_ssl_profile.namespace` | [virtual_server.udp.server_ssl_profile.namespace](data-sources--application_profiles--reference--group-004.md#canonical-1100203111120031-2120323223132010-2301303001222002-3012020030133313-1213312200202111-0210120101322223-2301011312021011-2000111012011011) |
+| `virtual_server.udp.server_ssl_profile.tenant` | [virtual_server.udp.server_ssl_profile.tenant](data-sources--application_profiles--reference--group-004.md#canonical-1223122120321102-2000203333123003-1322122023312212-3000031011123100-3212313310230210-2312232300021021-2013231031020232-1302021022310010) |
+| `virtual_server.udp.server_ssl_profile.uid` | [virtual_server.udp.server_ssl_profile.uid](data-sources--application_profiles--reference--group-004.md#canonical-2231130232100022-3123001103220031-2033212310210310-2000023222321131-0000302302133013-2212322120103331-0210122331000112-0102011101103103) |
+| `virtual_server.udp.udp_client_profile` | [virtual_server.udp.udp_client_profile](data-sources--application_profiles--reference--group-004.md#canonical-1022022013310211-3131023311012011-0332223013233330-0310123313002302-3003030100013303-1331103101100223-0002131121201323-2223000021033100) |
+| `virtual_server.udp.udp_client_profile.kind` | [virtual_server.udp.udp_client_profile.kind](data-sources--application_profiles--reference--group-004.md#canonical-3331321213300032-2002032122201223-3132221303332332-3112013011102232-2303100021103021-1210120010303210-3203033000020233-0323212333002033) |
+| `virtual_server.udp.udp_client_profile.name` | [virtual_server.udp.udp_client_profile.name](data-sources--application_profiles--reference--group-004.md#canonical-1320223331022233-0211201230233120-0223002213100200-3210120200222330-2133220001131202-2031210132300313-2232233032130111-3320131033220202) |
+| `virtual_server.udp.udp_client_profile.namespace` | [virtual_server.udp.udp_client_profile.namespace](data-sources--application_profiles--reference--group-004.md#canonical-2303121332220020-2200102003102322-3210233320133012-3021031022032321-2130102310302211-3320012122133032-1213132002202031-3321312330233131) |
+| `virtual_server.udp.udp_client_profile.tenant` | [virtual_server.udp.udp_client_profile.tenant](data-sources--application_profiles--reference--group-004.md#canonical-1111313003330213-2112303201023030-0332303020331322-0221001122220130-3311311030311033-3231130330213022-3301032100122122-3323200303203223) |
+| `virtual_server.udp.udp_client_profile.uid` | [virtual_server.udp.udp_client_profile.uid](data-sources--application_profiles--reference--group-004.md#canonical-3123323202130100-3132220203121313-3210312130122012-1311201213301201-2212033102311122-2000111122023232-1101032320213121-3232013020101233) |
+| `virtual_server.udp.udp_server_profile` | [virtual_server.udp.udp_server_profile](data-sources--application_profiles--reference--group-004.md#canonical-1232210232213322-3200033101023210-1022100231121012-3311323303321202-0130032002133020-2301003122033333-3021010230323203-3032301322031133) |
+| `virtual_server.udp.udp_server_profile.kind` | [virtual_server.udp.udp_server_profile.kind](data-sources--application_profiles--reference--group-004.md#canonical-0301232220333320-0212023310223321-2233100220312112-2300331223010303-2011223202200333-1133121101223323-2123120033132120-0231132012112322) |
+| `virtual_server.udp.udp_server_profile.name` | [virtual_server.udp.udp_server_profile.name](data-sources--application_profiles--reference--group-004.md#canonical-1301113121300332-2011130120100301-2332131131321130-2110210213232321-3331311222230133-2321020223101121-1033201330333101-3311123323211313) |
+| `virtual_server.udp.udp_server_profile.namespace` | [virtual_server.udp.udp_server_profile.namespace](data-sources--application_profiles--reference--group-004.md#canonical-1100321230312010-3023132212020002-3332131310320113-0331330002112322-1132021322313012-1211330321022323-0202220332323020-1300313033013323) |
+| `virtual_server.udp.udp_server_profile.tenant` | [virtual_server.udp.udp_server_profile.tenant](data-sources--application_profiles--reference--group-004.md#canonical-0020233331120310-1320122000011301-1300121301323333-1233233113202320-3223012111320202-0231232222032033-2103203000222311-1012123333332121) |
+| `virtual_server.udp.udp_server_profile.uid` | [virtual_server.udp.udp_server_profile.uid](data-sources--application_profiles--reference--group-004.md#canonical-3302132310200220-1112211012111031-0123230123211311-2131012311210121-3310321130120201-2201123213011210-1123332101010032-1222202211310232) |
+| `virtual_server.virtual_server_state` | [virtual_server.virtual_server_state](data-sources--application_profiles--reference--group-004.md#canonical-2021230121300320-1123230031330120-2201000331133031-3132210011103321-1233130023200123-0213223330301201-0132022232032021-1202010313232100) |
+| `virtual_server.virtual_server_state.state_disabled` | [virtual_server.virtual_server_state.state_disabled](data-sources--application_profiles--reference--group-004.md#canonical-2333230033233103-1022032110001213-1211312103321332-2213010220333300-1321201012201122-0222101313111331-2101220020032332-2311032233010201) |
 | `virtual_server.virtual_server_state.state_enabled` | [virtual_server.virtual_server_state.state_enabled](data-sources--application_profiles--reference--group-004.md#canonical-2113010333112121-3313300103110012-2033000201111131-3131131322212022-2332033122133012-0222030133022310-0331101012023000-1102133031030230) |
 | `virtual_server.vs_score` | [virtual_server.vs_score](data-sources--application_profiles--reference--group-001.md#canonical-1101221003132231-2302003212102002-0031303203022332-0130313122313322-3003301331000021-3023001002002021-3020022133323122-1130301100301033) |
-
-<a id="canonical-2023211032003210-3120012202332323-2312011233032030-2100310001131010-3320102333321032-3100333123331020-3031112311101112-0121111002221233"></a>
-
-## Next pages — Property reference / 311123302321 / 11
-
-- [advanced_tcp_profile](data-sources--application_profiles--reference--group-001.md#canonical-3021122313210131-2313033223133231-0330112103210330-1123322311012132-1112331223212022-3311220221212131-2333232332331221-1001103023222323)
-- [ddos_profile](data-sources--application_profiles--reference--group-001.md#canonical-0221310331001010-1231120233222200-3103210111100320-0121030023132112-2012102312231220-0311210333123322-0133000211232001-0223320121031332)
-- [irules](data-sources--application_profiles--reference--group-001.md#canonical-2300032011023220-0003113120202231-2113023300123123-0013230121220321-0310120231310032-0012232113223333-2122301113222011-3212010010132123)
-- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
 <a id="canonical-3021122313210131-2313033223133231-0330112103210330-1123322311012132-1112331223212022-3311220221212131-2333232332331221-1001103023222323"></a>
 
@@ -702,9 +690,7 @@ Each exact path has one authoritative reference destination. Collection element 
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2320021133323221-3220320103031102-3230223112201333-2110000202012013-1022202023302330-1312323030211230-3011321321331303-2132200120130030"></a>
-
-## advanced_tcp_profile — advanced_tcp_profile / 113311101010 / 2
+## `advanced_tcp_profile` properties
 
 Breadcrumbs:
 
@@ -718,7 +704,7 @@ Type: `"single"`. Computed.
 
 Configuration parameter for advanced tcp profile.
 
-Upstream description:
+Additional upstream details:
 
 BIG-IP Advanced TCP Profile.
 
@@ -736,22 +722,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2133210310313033-0312301323323203-0301030111031013-2030211310312031-0011323010322301-2223130232203201-1022333110122201-3302220302132023"></a>
+<a id="canonical-2320021133323221-3220320103031102-3230223112201333-2110000202012013-1022202023302330-1312323030211230-3011321321331303-2132200120130030"></a>
 
-## Direct properties — advanced_tcp_profile / 113311101010 / 3
+### Direct properties for `advanced_tcp_profile`
 
 - [disable_tcp_advanced_profile](data-sources--application_profiles--reference--group-001.md#canonical-1211312203022020-2210333120001231-2112233012131222-0322020312302212-3111201120012100-1103233322330232-2213012011113132-1113110021011321): complete subsection reference.
 
 - [enable_tcp_advanced_profile](data-sources--application_profiles--reference--group-001.md#canonical-1201031020131211-1201301212331330-0323300030103000-2132033101012301-0212000023330022-2330220031030100-2102032303300011-1103132223321011): complete subsection reference.
-
-<a id="canonical-0300211102033330-1213022121131000-2301230120010211-3002032030131202-0312011113303323-3103321111102303-0010110113031331-1000233120030303"></a>
-
-## Next pages — advanced_tcp_profile / 113311101010 / 4
-
-- [advanced_tcp_profile.disable_tcp_advanced_profile](data-sources--application_profiles--reference--group-001.md#canonical-1211312203022020-2210333120001231-2112233012131222-0322020312302212-3111201120012100-1103233322330232-2213012011113132-1113110021011321)
-- [advanced_tcp_profile.enable_tcp_advanced_profile](data-sources--application_profiles--reference--group-001.md#canonical-1201031020131211-1201301212331330-0323300030103000-2132033101012301-0212000023330022-2330220031030100-2102032303300011-1103132223321011)
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
 <a id="canonical-1211312203022020-2210333120001231-2112233012131222-0322020312302212-3111201120012100-1103233322330232-2213012011113132-1113110021011321"></a>
 
@@ -759,9 +736,7 @@ Receipt-pinned upstream constraints:
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2001211133133321-3323221323120331-2032220230211112-3313001003312031-0110013012232220-2110032212121030-1232023101311222-0021023212202113"></a>
-
-## advanced_tcp_profile.disable_tcp_advanced_profile — disable_tcp_advanced_profile / 330311322022 / 2
+## `advanced_tcp_profile.disable_tcp_advanced_profile` properties
 
 Breadcrumbs:
 
@@ -776,7 +751,7 @@ Type: `["object", {}]`. Computed.
 
 Configuration parameter for disable tcp advanced profile.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -793,18 +768,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0321011212221103-3110132232201313-3100032111322212-3321103322102330-0332230002302303-3121323121312111-1120331012302203-0101332220232331"></a>
-
-## Direct properties — disable_tcp_advanced_profile / 330311322022 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1300101000033113-3021323111223232-3033211011223130-1331111100230230-2031221332310130-2011010001312300-1231122322313133-0003222211132200"></a>
-
-## Next pages — disable_tcp_advanced_profile / 330311322022 / 4
-
-- [advanced_tcp_profile](data-sources--application_profiles--reference--group-001.md#canonical-3021122313210131-2313033223133231-0330112103210330-1123322311012132-1112331223212022-3311220221212131-2333232332331221-1001103023222323)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
 <a id="canonical-1201031020131211-1201301212331330-0323300030103000-2132033101012301-0212000023330022-2330220031030100-2102032303300011-1103132223321011"></a>
 
@@ -812,9 +776,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3313312233001003-3302321210031003-1231010312200330-2223200030330023-3012312101213311-3232311303010000-0330102120231223-2013210321230311"></a>
-
-## advanced_tcp_profile.enable_tcp_advanced_profile — enable_tcp_advanced_profile / 321013010223 / 2
+## `advanced_tcp_profile.enable_tcp_advanced_profile` properties
 
 Breadcrumbs:
 
@@ -829,7 +791,7 @@ Type: `["object", {}]`. Computed.
 
 Configuration parameter for enable tcp advanced profile.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -846,18 +808,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2231221320103203-2120200303122011-3220112312020310-2201200212102300-0321320302233113-2003123003030110-0130131010031101-2030232032110012"></a>
-
-## Direct properties — enable_tcp_advanced_profile / 321013010223 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1122112101311033-1112123300233010-1130323212202201-3221323011002300-1221112120010111-3303002120331323-2121222232301010-0030131222021101"></a>
-
-## Next pages — enable_tcp_advanced_profile / 321013010223 / 4
-
-- [advanced_tcp_profile](data-sources--application_profiles--reference--group-001.md#canonical-3021122313210131-2313033223133231-0330112103210330-1123322311012132-1112331223212022-3311220221212131-2333232332331221-1001103023222323)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
 <a id="canonical-0221310331001010-1231120233222200-3103210111100320-0121030023132112-2012102312231220-0311210333123322-0133000211232001-0223320121031332"></a>
 
@@ -865,9 +816,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3021332012331213-3011220113013120-0121303122232302-0321013320002302-1012213120133113-1113232123002200-3202322120200310-2202303000113310"></a>
-
-## ddos_profile — ddos_profile / 232313132122 / 2
+## `ddos_profile` properties
 
 Breadcrumbs:
 
@@ -881,7 +830,7 @@ Type: `"single"`. Computed.
 
 Configuration parameter for ddos profile.
 
-Upstream description:
+Additional upstream details:
 
 BIG-IP DDoS Protection Rules.
 
@@ -899,22 +848,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0211310303230320-1123020020132002-1301113332102103-1301023030033122-0323123212110100-3212212032012132-1200002132333323-2220233221212022"></a>
+<a id="canonical-3021332012331213-3011220113013120-0121303122232302-0321013320002302-1012213120133113-1113232123002200-3202322120200310-2202303000113310"></a>
 
-## Direct properties — ddos_profile / 232313132122 / 3
+### Direct properties for `ddos_profile`
 
 - [disable_ddos_mitigation](data-sources--application_profiles--reference--group-001.md#canonical-1301103321130332-0102030120011123-3330123021113132-1122232120300233-3312032313302030-1021322231120222-2330133133011321-2013122333211030): complete subsection reference.
 
 - [enable_ddos_mitigation](data-sources--application_profiles--reference--group-001.md#canonical-2130333211101101-3312313133130030-3010302112310122-3220212303100023-3000212102001201-1123123122113223-2312033101232100-0303313303021010): complete subsection reference.
-
-<a id="canonical-3221310220303200-1101312310220201-3001032300201213-1111201311321110-2230131130332222-3133320132010223-0001112023303001-3332111223213000"></a>
-
-## Next pages — ddos_profile / 232313132122 / 4
-
-- [ddos_profile.disable_ddos_mitigation](data-sources--application_profiles--reference--group-001.md#canonical-1301103321130332-0102030120011123-3330123021113132-1122232120300233-3312032313302030-1021322231120222-2330133133011321-2013122333211030)
-- [ddos_profile.enable_ddos_mitigation](data-sources--application_profiles--reference--group-001.md#canonical-2130333211101101-3312313133130030-3010302112310122-3220212303100023-3000212102001201-1123123122113223-2312033101232100-0303313303021010)
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
 <a id="canonical-1301103321130332-0102030120011123-3330123021113132-1122232120300233-3312032313302030-1021322231120222-2330133133011321-2013122333211030"></a>
 
@@ -922,9 +862,7 @@ Receipt-pinned upstream constraints:
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2033212223031020-1313330332132320-1220313310232010-3300220220333202-3210122131023311-3121010031222203-0011302302103110-2132301000101220"></a>
-
-## ddos_profile.disable_ddos_mitigation — disable_ddos_mitigation / 000121122211 / 2
+## `ddos_profile.disable_ddos_mitigation` properties
 
 Breadcrumbs:
 
@@ -939,7 +877,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -956,18 +894,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3202320110030223-0022303002301123-1322213101131021-1230013231022122-1000211032210231-1210110110001320-1020111101212101-1221202010023210"></a>
-
-## Direct properties — disable_ddos_mitigation / 000121122211 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0200201222111121-2110021312200303-1310113103330102-3132330103303033-0230111030201330-2133033112231323-1012321213010333-2331231202203130"></a>
-
-## Next pages — disable_ddos_mitigation / 000121122211 / 4
-
-- [ddos_profile](data-sources--application_profiles--reference--group-001.md#canonical-0221310331001010-1231120233222200-3103210111100320-0121030023132112-2012102312231220-0311210333123322-0133000211232001-0223320121031332)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
 <a id="canonical-2130333211101101-3312313133130030-3010302112310122-3220212303100023-3000212102001201-1123123122113223-2312033101232100-0303313303021010"></a>
 
@@ -975,9 +902,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3212020010002201-1302202203120200-3103330302301212-3313222212001230-3303211032032202-0033101121031330-2223312301220331-0010011000331213"></a>
-
-## ddos_profile.enable_ddos_mitigation — enable_ddos_mitigation / 211122103002 / 2
+## `ddos_profile.enable_ddos_mitigation` properties
 
 Breadcrumbs:
 
@@ -992,7 +917,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1009,18 +934,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1233130012302103-1112031201231320-2313011002122333-0023212202203013-0113013110200320-1211331321131332-3221203312022213-2201212110222123"></a>
-
-## Direct properties — enable_ddos_mitigation / 211122103002 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2303323323220112-1022212102003303-3311222010313022-0110233310110002-1013220200332130-0332221113313222-1003210113100120-2312110022010210"></a>
-
-## Next pages — enable_ddos_mitigation / 211122103002 / 4
-
-- [ddos_profile](data-sources--application_profiles--reference--group-001.md#canonical-0221310331001010-1231120233222200-3103210111100320-0121030023132112-2012102312231220-0311210333123322-0133000211232001-0223320121031332)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
 <a id="canonical-2300032011023220-0003113120202231-2113023300123123-0013230121220321-0310120231310032-0012232113223333-2122301113222011-3212010010132123"></a>
 
@@ -1028,9 +942,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1231011023311003-1032310310133330-3202101122130303-0033133203202032-2121120031120112-1011231021221131-0112332013200102-0313020220002023"></a>
-
-## irules — irules / 022302330311 / 2
+## `irules` properties
 
 Breadcrumbs:
 
@@ -1078,25 +990,23 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3001321323331210-1202113101213111-0031303222103202-1320232123122202-0201330133021310-3120230302320110-0032202212000031-0131313102320222"></a>
+<a id="canonical-1231011023311003-1032310310133330-3202101122130303-0033133203202032-2121120031120112-1011231021221131-0112332013200102-0313020220002023"></a>
 
-## Direct properties — irules / 022302330311 / 3
+### Direct properties for `irules`
 
 <a id="canonical-2231003121311202-0213213112332303-0030001011123023-0202323320301000-2222332313302223-0110031013300313-1003021123332320-3110011302033013"></a>
 
-<a id="canonical-0203020202120232-1212200310113230-0333333131310210-0111320003120033-0211101321102302-3320002100202002-0201102103031133-3311220001321131"></a>
-
-## kind property — irules / 022302330311 / 4
+#### `irules.kind` property
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
 referred object's kind (e.g. 'route').
 
-Upstream description:
+Additional upstream details:
 
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
-referred object's kind (e.g. "route")
+Virtual\_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g.
+"route")
 
 Receipt-pinned upstream constraints:
 
@@ -1123,16 +1033,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3032133331010100-0130211001111000-3013131111201000-0203101213010032-0101102112312322-3000330001202100-0310312321112210-1231230202312022"></a>
 
-<a id="canonical-3012110002303131-1102103330223002-3120010322231020-3112232212031032-1213302303312303-1000030103203300-3023223313333213-1203210133231123"></a>
+<a id="canonical-3001321323331210-1202113101213111-0031303222103202-1320232123122202-0201330133021310-3120230302320110-0032202212000031-0131313102320222"></a>
 
-## name property — irules / 022302330311 / 5
+#### `irules.name` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
@@ -1162,16 +1067,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3011031323202031-2003130132103122-1022010132132101-1332333031231233-2113023203202320-2330031200031011-0302100133331233-3332022003111310"></a>
 
-<a id="canonical-1130230021030000-1300203210213321-2202011021210201-3223122023333201-0222122212123022-3311012313101102-2223202333233130-0032030233221030"></a>
+<a id="canonical-0203020202120232-1212200310113230-0333333131310210-0111320003120033-0211101321102302-3320002100202002-0201102103031133-3311220001321131"></a>
 
-## namespace property — irules / 022302330311 / 6
+#### `irules.namespace` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -1216,16 +1116,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0113113302233222-0203333101022230-3110022201223300-3111200220033013-3232002213031321-3112221330302101-2221032120231323-3122010002331010"></a>
 
-<a id="canonical-1201310001230201-3101120010333003-3133303013220030-0230303103012302-1102003110333313-1321233303220010-2321131322201102-1330322001033313"></a>
+<a id="canonical-3012110002303131-1102103330223002-3120010322231020-3112232212031032-1213302303312303-1000030103203300-3023223313333213-1203210133231123"></a>
 
-## tenant property — irules / 022302330311 / 7
+#### `irules.tenant` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
@@ -1255,16 +1150,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2203323300131223-1213221320020123-1022210120132113-3130023331202232-0231320232213032-0323103100113100-0123100233211303-0002003310201103"></a>
 
-<a id="canonical-1310211203303332-2203322101233003-1300320030303031-1113000012130312-3313211130333233-3001311232302130-3313020230211230-3121203032300330"></a>
+<a id="canonical-1130230021030000-1300203210213321-2202011021210201-3223122023333201-0222122212123022-3311012313101102-2223202333233130-0032030233221030"></a>
 
-## uid property — irules / 022302330311 / 8
+#### `irules.uid` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
-referred object's(e.g. Route's) uid.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
 referred object's(e.g. Route's) uid.
@@ -1292,22 +1182,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3321302213302200-2121132123202002-1033121233330102-2321330103213033-1021332233022313-0212310121200011-1033231231231232-2333213021022013"></a>
-
-## Next pages — irules / 022302330311 / 9
-
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
-
 <a id="canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2233203101303021-1323103100331112-2301120020222203-2301220131222301-3102131111200112-0103220022112003-0331030213321130-2332130212130312"></a>
-
-## virtual_server — virtual_server / 302211022203 / 2
+## `virtual_server` properties
 
 Breadcrumbs:
 
@@ -1335,9 +1216,9 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1113303311310022-1212123231202002-2310312113001232-3000333132312132-3033000303302030-2000212031120321-0121222201103000-3202100202101322"></a>
+<a id="canonical-2233203101303021-1323103100331112-2301120020222203-2301220131222301-3102131111200112-0103220022112003-0331030213321130-2332130212130312"></a>
 
-## Direct properties — virtual_server / 302211022203 / 3
+### Direct properties for `virtual_server`
 
 - [access_profile](data-sources--application_profiles--reference--group-001.md#canonical-0330111230021223-2331322222210021-0000010131012030-0313133000321011-2023010031313221-0130003120311221-1211320111201111-0220033231131332): complete subsection reference.
 
@@ -1345,22 +1226,17 @@ Receipt-pinned upstream constraints:
 
 - [auto_last_hop](data-sources--application_profiles--reference--group-001.md#canonical-1213231221312103-2101111203001231-0201213300231211-0313012112021033-1012200101220121-2101220302131103-3212333133311002-3200300331321033): complete subsection reference.
 
-- [clone_pool_client](data-sources--application_profiles--reference--group-002.md#canonical-1131130303011232-1131010213131200-0320213310313203-0333203302302103-2233202003023320-3210231020011110-2312132120031031-1033111000202213): complete subsection reference.
+- [clone_pool_client](data-sources--application_profiles--reference--group-001.md#canonical-1131130303011232-1131010213131200-0320213310313203-0333203302302103-2233202003023320-3210231020011110-2312132120031031-1033111000202213): complete subsection reference.
 
-- [clone_pool_server](data-sources--application_profiles--reference--group-002.md#canonical-2032302013033112-3013031031321102-0211223022023110-2100203132130112-2020020003012330-2030002012033001-3131021200201022-3303102003112033): complete subsection reference.
+- [clone_pool_server](data-sources--application_profiles--reference--group-001.md#canonical-2032302013033112-3013031031321102-0211223022023110-2100203132130112-2020020003012330-2030002012033001-3131021200201022-3303102003112033): complete subsection reference.
 
 <a id="canonical-3003311010303322-2010201320203020-2022302001310330-3022301301000020-1332202330032100-3120230332203201-3101010322033203-1000331103200032"></a>
 
-<a id="canonical-1223020121130300-2302001132133323-1001113001300103-1112302010330111-1212110130201202-1123323231310130-2210323103002112-3011321200231001"></a>
+<a id="canonical-1113303311310022-1212123231202002-2310312113001232-3000333132312132-3033000303302030-2000212031120321-0121222201103000-3202100202101322"></a>
 
-## connection_limit property — virtual_server / 302211022203 / 4
+#### `virtual_server.connection_limit` property
 
 Type: `"number"`. Computed.
-
-Specifies the maximum number of concurrent connections allowed for the virtual server. Setting this
-to 0 turns off connection limits. The.
-
-Upstream description:
 
 Specifies the maximum number of concurrent connections allowed for the virtual server. Setting this
 to 0 turns off connection limits. The default is 0.
@@ -1400,17 +1276,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3012230232332103-2322330122210131-1311320333112003-1131223222023210-0013122003222112-0201211222130320-1003001021101031-3103322232233031"></a>
 
-<a id="canonical-3120221113303202-2321023222213202-1123000120103100-1121002000231233-3213303321000313-2010112023323120-0330230322113013-0012003011300001"></a>
+<a id="canonical-1223020121130300-2302001132133323-1001113001300103-1112302010330111-1212110130201202-1123323231310130-2210323103002112-3011321200231001"></a>
 
-## connection_rate_limit property — virtual_server / 302211022203 / 5
+#### `virtual_server.connection_rate_limit` property
 
 Type: `"number"`. Computed.
-
-Specifies the maximum number of connections-per-second allowed for a virtual server. When the number
-of connections-per-second reaches the limit for a given virtual server, the system drops (UDP) or
-resets (TCP) additional connection requests. This helps detect Denial of Service attacks, where..
-
-Upstream description:
 
 Specifies the maximum number of connections-per-second allowed for a virtual server. When the number
 of connections-per-second reaches the limit for a given virtual server, the system drops (UDP) or
@@ -1451,7 +1321,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [connection_rate_limit_mode](data-sources--application_profiles--reference--group-002.md#canonical-0033330122013310-3003120310012330-3211000223223221-0223111311312230-0022202003132033-0321011121003210-1210122112102020-2213303203301133): complete subsection reference.
+- [connection_rate_limit_mode](data-sources--application_profiles--reference--group-001.md#canonical-0033330122013310-3003120310012330-3211000223223221-0223111311312230-0022202003132033-0321011121003210-1210122112102020-2213303203301133): complete subsection reference.
 
 - [default_persistence_profile](data-sources--application_profiles--reference--group-002.md#canonical-0003121231013131-0212113030120031-0011021022033310-1103303313001332-1210322112031030-2212031333233022-0102311320322312-2320101203011201): complete subsection reference.
 
@@ -1473,25 +1343,25 @@ Receipt-pinned upstream constraints:
 
 - [nat64](data-sources--application_profiles--reference--group-003.md#canonical-3320001111230010-0321322131120330-1030210203213223-1310133111230310-1101021300130220-2333001002233033-0302123321201121-2333013113030122): complete subsection reference.
 
-- [port_translation](data-sources--application_profiles--reference--group-003.md#canonical-1033032133123230-2203033131231333-2313120131311332-1121301201221211-1321320320100030-3030133220301332-1312323030311221-3002302202301220): complete subsection reference.
+- [port_translation](data-sources--application_profiles--reference--group-004.md#canonical-1033032133123230-2203033131231333-2313120131311332-1121301201221211-1321320320100030-3030133220301332-1312323030311221-3002302202301220): complete subsection reference.
 
-- [request_logging_profile](data-sources--application_profiles--reference--group-003.md#canonical-3232320301212213-2201233011223222-1121012211011023-1212323111231033-1300332330213333-1302020033323222-1223102122223230-1103311321323132): complete subsection reference.
+- [request_logging_profile](data-sources--application_profiles--reference--group-004.md#canonical-3232320301212213-2201233011223222-1121012211011023-1212323111231033-1300332330213333-1302020033323222-1223102122223230-1103311321323132): complete subsection reference.
 
-- [source_port](data-sources--application_profiles--reference--group-003.md#canonical-1000133010120020-1221212220013310-3203232303131320-2201230212112001-3230003001002030-0010312331212203-2010213211021213-0221332122203203): complete subsection reference.
+- [source_port](data-sources--application_profiles--reference--group-004.md#canonical-1000133010120020-1221212220013310-3203232303131320-2201230212112001-3230003001002030-0010312331212203-2010213211021213-0221332122203203): complete subsection reference.
 
-- [statistics_profile](data-sources--application_profiles--reference--group-003.md#canonical-0230033123202003-3221010301120301-1321302111033133-3300013133310233-0333313030302000-0200200313230110-2223320101301232-1322122301001122): complete subsection reference.
+- [statistics_profile](data-sources--application_profiles--reference--group-004.md#canonical-0230033123202003-3221010301120301-1321302111033133-3300013133310233-0333313030302000-0200200313230110-2223320101301232-1322122301001122): complete subsection reference.
 
-- [tcp](data-sources--application_profiles--reference--group-003.md#canonical-1332122030012230-3112023330232023-3120100021202202-2130120302110303-1003010002323020-0300001302111033-2112323013011103-3321010030001101): complete subsection reference.
+- [tcp](data-sources--application_profiles--reference--group-004.md#canonical-1332122030012230-3112023330232023-3120100021202202-2130120302110303-1003010002323020-0300001302111033-2112323013011103-3321010030001101): complete subsection reference.
 
-- [udp](data-sources--application_profiles--reference--group-003.md#canonical-3111012112013331-0210230112200321-2133130123230231-2102200122231133-2202101332332032-3132132213230031-3232202101331130-1313232102312102): complete subsection reference.
+- [udp](data-sources--application_profiles--reference--group-004.md#canonical-3111012112013331-0210230112200321-2133130123230231-2102200122231133-2202101332332032-3132132213230031-3232202101331130-1313232102312102): complete subsection reference.
 
-- [virtual_server_state](data-sources--application_profiles--reference--group-003.md#canonical-0300001203202301-3231100101123312-2010220203023303-2030320120111312-3201010231210333-1312201331313222-1321111320032321-3200132220130130): complete subsection reference.
+- [virtual_server_state](data-sources--application_profiles--reference--group-004.md#canonical-0300001203202301-3231100101123312-2010220203023303-2030320120111312-3201010231210333-1312201331313222-1321111320032321-3200132220130130): complete subsection reference.
 
 <a id="canonical-1101221003132231-2302003212102002-0031303203022332-0130313122313322-3003301331000021-3023001002002021-3020022133323122-1130301100301033"></a>
 
-<a id="canonical-3202221312000310-3132200131111312-0320322102320213-2311321003113320-0112330220212201-3101331102100031-2302222230131321-1330321132330331"></a>
+<a id="canonical-3120221113303202-2321023222213202-1123000120103100-1121002000231233-3213303321000313-2010112023323120-0330230322113013-0012003011300001"></a>
 
-## vs_score property — virtual_server / 302211022203 / 6
+#### `virtual_server.vs_score` property
 
 Type: `"number"`. Computed.
 
@@ -1499,11 +1369,9 @@ Specifies the virtual server score in percent. Global Traffic Manager (GTM) can 
 to load balance traffic in a proportional manner. The , meaning that no additional metric is applied
 for the virtual server.
 
-Upstream description:
+Additional upstream details:
 
-Specifies the virtual server score in percent. Global Traffic Manager (GTM) can rely on this value
-to load balance traffic in a proportional manner. The default is 0, meaning that no additional
-metric is applied for the virtual server.
+The default is 0, meaning that no additional metric is applied for the virtual server.
 
 Receipt-pinned upstream constraints:
 
@@ -1538,45 +1406,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3011233131001031-3301212011113200-3103130323201021-1010122221210100-2300023331121020-0312011031111332-3030010313013311-2032113210110103"></a>
-
-## Next pages — virtual_server / 302211022203 / 7
-
-- [virtual_server.access_profile](data-sources--application_profiles--reference--group-001.md#canonical-0330111230021223-2331322222210021-0000010131012030-0313133000321011-2023010031313221-0130003120311221-1211320111201111-0220033231131332)
-- [virtual_server.address_translation](data-sources--application_profiles--reference--group-001.md#canonical-1331202223132031-0030211010012330-0023312023321130-1130322230022331-1311131323321212-0122132311013200-3032201032200000-2221121310313101)
-- [virtual_server.auto_last_hop](data-sources--application_profiles--reference--group-001.md#canonical-1213231221312103-2101111203001231-0201213300231211-0313012112021033-1012200101220121-2101220302131103-3212333133311002-3200300331321033)
-- [virtual_server.clone_pool_client](data-sources--application_profiles--reference--group-002.md#canonical-1131130303011232-1131010213131200-0320213310313203-0333203302302103-2233202003023320-3210231020011110-2312132120031031-1033111000202213)
-- [virtual_server.clone_pool_server](data-sources--application_profiles--reference--group-002.md#canonical-2032302013033112-3013031031321102-0211223022023110-2100203132130112-2020020003012330-2030002012033001-3131021200201022-3303102003112033)
-- [virtual_server.connection_rate_limit_mode](data-sources--application_profiles--reference--group-002.md#canonical-0033330122013310-3003120310012330-3211000223223221-0223111311312230-0022202003132033-0321011121003210-1210122112102020-2213303203301133)
-- [virtual_server.default_persistence_profile](data-sources--application_profiles--reference--group-002.md#canonical-0003121231013131-0212113030120031-0011021022033310-1103303313001332-1210322112031030-2212031333233022-0102311320322312-2320101203011201)
-- [virtual_server.default_pool](data-sources--application_profiles--reference--group-002.md#canonical-0333332101230033-1320131322211033-1021010222233010-0332010100110010-2322112110200221-2223211110003312-2100223212033220-1202302003303231)
-- [virtual_server.fallback_persistence_profile](data-sources--application_profiles--reference--group-002.md#canonical-3313233021210032-2130033220330002-1330201211103120-1320001012332020-3303101002000220-0110120200003300-2322012100222132-0123332102020230)
-- [virtual_server.fix_profile](data-sources--application_profiles--reference--group-002.md#canonical-3332013220003223-0301321210023212-0103101231222131-1313130322011033-3331230212003132-3203221202003221-3220112221012033-3121020033101103)
-- [virtual_server.http](data-sources--application_profiles--reference--group-002.md#canonical-0102203023322313-2333211312212213-0011231012003031-3320001333231133-2303121120302112-1333102100320323-1322213333033302-0021001000133031)
-- [virtual_server.http3](data-sources--application_profiles--reference--group-002.md#canonical-2233213302301031-1011021100023220-0023001210122232-0332111101220031-0312121002130112-0330200230012032-0313003311311113-0322012000031213)
-- [virtual_server.https](data-sources--application_profiles--reference--group-003.md#canonical-0321010331132100-1111331101132032-2102011312012203-1301132220133301-2212023121221300-1311331320200031-2332233222113212-0111022211020333)
-- [virtual_server.immediate_action_on_service_down](data-sources--application_profiles--reference--group-003.md#canonical-2300123112133033-1303100333113302-3231112332130213-3210001021212130-0303103023020132-3211232333100212-1030102323131320-3023101112213320)
-- [virtual_server.last_hop_pool](data-sources--application_profiles--reference--group-003.md#canonical-0000301021323203-1003301002002311-0310011213320313-0102003200331211-3103021001233200-3212113122100001-3320222320102111-3313223020133023)
-- [virtual_server.nat64](data-sources--application_profiles--reference--group-003.md#canonical-3320001111230010-0321322131120330-1030210203213223-1310133111230310-1101021300130220-2333001002233033-0302123321201121-2333013113030122)
-- [virtual_server.port_translation](data-sources--application_profiles--reference--group-003.md#canonical-1033032133123230-2203033131231333-2313120131311332-1121301201221211-1321320320100030-3030133220301332-1312323030311221-3002302202301220)
-- [virtual_server.request_logging_profile](data-sources--application_profiles--reference--group-003.md#canonical-3232320301212213-2201233011223222-1121012211011023-1212323111231033-1300332330213333-1302020033323222-1223102122223230-1103311321323132)
-- [virtual_server.source_port](data-sources--application_profiles--reference--group-003.md#canonical-1000133010120020-1221212220013310-3203232303131320-2201230212112001-3230003001002030-0010312331212203-2010213211021213-0221332122203203)
-- [virtual_server.statistics_profile](data-sources--application_profiles--reference--group-003.md#canonical-0230033123202003-3221010301120301-1321302111033133-3300013133310233-0333313030302000-0200200313230110-2223320101301232-1322122301001122)
-- [virtual_server.tcp](data-sources--application_profiles--reference--group-003.md#canonical-1332122030012230-3112023330232023-3120100021202202-2130120302110303-1003010002323020-0300001302111033-2112323013011103-3321010030001101)
-- [virtual_server.udp](data-sources--application_profiles--reference--group-003.md#canonical-3111012112013331-0210230112200321-2133130123230231-2102200122231133-2202101332332032-3132132213230031-3232202101331130-1313232102312102)
-- [virtual_server.virtual_server_state](data-sources--application_profiles--reference--group-003.md#canonical-0300001203202301-3231100101123312-2010220203023303-2030320120111312-3201010231210333-1312201331313222-1321111320032321-3200132220130130)
-- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
-
 <a id="canonical-0330111230021223-2331322222210021-0000010131012030-0313133000321011-2023010031313221-0130003120311221-1211320111201111-0220033231131332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3122310022033003-1031010100112321-1001321131312230-2122300200130020-1310022301322201-2020212101130233-3012003333300333-3332032330121313"></a>
-
-## virtual_server.access_profile — access_profile / 033103010200 / 2
+## `virtual_server.access_profile` properties
 
 Breadcrumbs:
 
@@ -1626,25 +1462,23 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2113233302331033-2132230033103301-1100103003213203-2113031233332303-1002200130020311-0123212322011101-2303002331123203-1021203311303332"></a>
+<a id="canonical-3122310022033003-1031010100112321-1001321131312230-2122300200130020-1310022301322201-2020212101130233-3012003333300333-3332032330121313"></a>
 
-## Direct properties — access_profile / 033103010200 / 3
+### Direct properties for `virtual_server.access_profile`
 
 <a id="canonical-2231313103100123-1012223020200132-2030112321133131-0220311323301323-0220203233301110-2311102001232002-0233002222132323-3322222210121110"></a>
 
-<a id="canonical-2211330201201310-3331321311233332-1131303021113111-1112332113012303-2102033313113003-0002330220022302-1310001221131332-2111211112031131"></a>
-
-## kind property — access_profile / 033103010200 / 4
+#### `virtual_server.access_profile.kind` property
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
 referred object's kind (e.g. 'route').
 
-Upstream description:
+Additional upstream details:
 
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
-referred object's kind (e.g. "route")
+Virtual\_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g.
+"route")
 
 Receipt-pinned upstream constraints:
 
@@ -1671,16 +1505,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1001030002331213-1200220200021021-3201311020122131-2212313223210133-3122313001223220-1120130322012302-2333031103020103-2011310110121310"></a>
 
-<a id="canonical-0130030011020000-2013202022223032-1130110322032330-3232320030232320-2131003221113113-3333233330000322-1330133332301210-0110320211300030"></a>
+<a id="canonical-2113233302331033-2132230033103301-1100103003213203-2113031233332303-1002200130020311-0123212322011101-2303002331123203-1021203311303332"></a>
 
-## name property — access_profile / 033103010200 / 5
+#### `virtual_server.access_profile.name` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
@@ -1710,16 +1539,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1202313233310023-2303312323211101-2001001313003333-2120023100022020-1122211022133301-1210121203322231-2313120300100021-0322132303033111"></a>
 
-<a id="canonical-0222023300001212-3331322211201223-1320330012312212-2021333110223122-1300101031003301-1301032330322101-2132021120022110-2002022121213001"></a>
+<a id="canonical-2211330201201310-3331321311233332-1131303021113111-1112332113012303-2102033313113003-0002330220022302-1310001221131332-2111211112031131"></a>
 
-## namespace property — access_profile / 033103010200 / 6
+#### `virtual_server.access_profile.namespace` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -1764,16 +1588,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3213211300012100-2020000321031102-3033213323022002-2210033232122303-2333200332120001-2311200303030333-0303332210131321-2021223102113003"></a>
 
-<a id="canonical-3130310211313120-1323323100232330-3032110032032122-1321310233321201-3103231233213232-1120223113200012-1203310021202331-0310202233313231"></a>
+<a id="canonical-0130030011020000-2013202022223032-1130110322032330-3232320030232320-2131003221113113-3333233330000322-1330133332301210-0110320211300030"></a>
 
-## tenant property — access_profile / 033103010200 / 7
+#### `virtual_server.access_profile.tenant` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
@@ -1803,16 +1622,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2233312101133310-1111313233121311-0123002303310202-3332331102213102-1331030031323222-0302203002201213-2310321013022120-0310323012123132"></a>
 
-<a id="canonical-0010001323020211-0232221012313321-2002112333312220-3003111011230331-0132230002313201-3112022330130010-3333201003013233-3120301123223311"></a>
+<a id="canonical-0222023300001212-3331322211201223-1320330012312212-2021333110223122-1300101031003301-1301032330322101-2132021120022110-2002022121213001"></a>
 
-## uid property — access_profile / 033103010200 / 8
+#### `virtual_server.access_profile.uid` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
-referred object's(e.g. Route's) uid.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
 referred object's(e.g. Route's) uid.
@@ -1840,22 +1654,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0330031000110130-3131130032032201-3112222121110311-2131311012333313-2102302022310103-3133123102011100-1133032012202131-1131030330122322"></a>
-
-## Next pages — access_profile / 033103010200 / 9
-
-- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
-
 <a id="canonical-1331202223132031-0030211010012330-0023312023321130-1130322230022331-1311131323321212-0122132311013200-3032201032200000-2221121310313101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1020222013221300-3001211331100332-2211111020320111-1331311120122221-0223012321023110-2311202100201012-3111311003123301-1303120212000130"></a>
-
-## virtual_server.address_translation — address_translation / 223303012230 / 2
+## `virtual_server.address_translation` properties
 
 Breadcrumbs:
 
@@ -1867,12 +1672,6 @@ Breadcrumbs:
 <a id="canonical-3111302313230133-2200011021210113-0023331013233300-3132021121122301-2010330222212230-1300230031112223-0210130111031012-1012132131033200"></a>
 
 Type: `"single"`. Computed.
-
-Specifies, when checked (enabled), that the system translates the address of the virtual server.
-When cleared (disabled), specifies that the system uses the address without translation. This option
-is useful when the system is load balancing devices that have the same IP address.
-
-Upstream description:
 
 Specifies, when checked (enabled), that the system translates the address of the virtual server.
 When cleared (disabled), specifies that the system uses the address without translation. This option
@@ -1893,22 +1692,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0233330021202013-2211331331110310-0233131013102030-3101321211111011-2221030031111211-1023021200213011-2330303312012222-3203303211231322"></a>
+<a id="canonical-1020222013221300-3001211331100332-2211111020320111-1331311120122221-0223012321023110-2311202100201012-3111311003123301-1303120212000130"></a>
 
-## Direct properties — address_translation / 223303012230 / 3
+### Direct properties for `virtual_server.address_translation`
 
 - [address_translation_disable](data-sources--application_profiles--reference--group-001.md#canonical-2111011230102001-3320020103022322-0133110333221222-1230203000020200-3132321322311123-0220122330020331-2001023001122333-3030031230012122): complete subsection reference.
 
 - [address_translation_enable](data-sources--application_profiles--reference--group-001.md#canonical-1111333211113101-0010211023033132-2012210122112210-0233012120223020-1013122223223102-3002213121301212-1321012330310103-1110033330320331): complete subsection reference.
-
-<a id="canonical-3321212323202233-0001202200123322-1213111220221012-0000001000011311-2310001221222231-1112331230021201-0223102120312012-2322333020101330"></a>
-
-## Next pages — address_translation / 223303012230 / 4
-
-- [virtual_server.address_translation.address_translation_disable](data-sources--application_profiles--reference--group-001.md#canonical-2111011230102001-3320020103022322-0133110333221222-1230203000020200-3132321322311123-0220122330020331-2001023001122333-3030031230012122)
-- [virtual_server.address_translation.address_translation_enable](data-sources--application_profiles--reference--group-001.md#canonical-1111333211113101-0010211023033132-2012210122112210-0233012120223020-1013122223223102-3002213121301212-1321012330310103-1110033330320331)
-- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
 <a id="canonical-2111011230102001-3320020103022322-0133110333221222-1230203000020200-3132321322311123-0220122330020331-2001023001122333-3030031230012122"></a>
 
@@ -1916,9 +1706,7 @@ Receipt-pinned upstream constraints:
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1032223332310031-2313312322013011-2020000321111112-2213220000010100-2010000100231122-2101031103121230-3310320003010222-1021021310231001"></a>
-
-## virtual_server.address_translation.address_translation_disable — address_translation_disable / 221333323110 / 2
+## `virtual_server.address_translation.address_translation_disable` properties
 
 Breadcrumbs:
 
@@ -1934,7 +1722,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1951,18 +1739,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2223300201032333-3233033233000023-1221100330222112-0133132103210221-3222300113112031-3231023131110331-0030300012233023-2012313331320022"></a>
-
-## Direct properties — address_translation_disable / 221333323110 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3031231201312332-1220303320032200-2220210010331313-2321021030323311-2230300121010303-3102100123332220-0333303122223130-0221003230211131"></a>
-
-## Next pages — address_translation_disable / 221333323110 / 4
-
-- [virtual_server.address_translation](data-sources--application_profiles--reference--group-001.md#canonical-1331202223132031-0030211010012330-0023312023321130-1130322230022331-1311131323321212-0122132311013200-3032201032200000-2221121310313101)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
 <a id="canonical-1111333211113101-0010211023033132-2012210122112210-0233012120223020-1013122223223102-3002213121301212-1321012330310103-1110033330320331"></a>
 
@@ -1970,9 +1747,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1303303321111231-1333010213102312-2130113001032233-1211300231130001-0023000312022102-3322312101233312-2022321010222030-3222010322302100"></a>
-
-## virtual_server.address_translation.address_translation_enable — address_translation_enable / 022012321222 / 2
+## `virtual_server.address_translation.address_translation_enable` properties
 
 Breadcrumbs:
 
@@ -1988,7 +1763,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -2005,18 +1780,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2332223330032022-0000311022320230-3112222102101013-0202321021033103-3330300232002033-3201331232313020-0130032110211020-2223203303121012"></a>
-
-## Direct properties — address_translation_enable / 022012321222 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1212010203303013-2122022111232220-0131223112323102-0210201332132110-0231131010113300-1030202313001030-0233232211203100-0201203330201302"></a>
-
-## Next pages — address_translation_enable / 022012321222 / 4
-
-- [virtual_server.address_translation](data-sources--application_profiles--reference--group-001.md#canonical-1331202223132031-0030211010012330-0023312023321130-1130322230022331-1311131323321212-0122132311013200-3032201032200000-2221121310313101)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
 
 <a id="canonical-1213231221312103-2101111203001231-0201213300231211-0313012112021033-1012200101220121-2101220302131103-3212333133311002-3200300331321033"></a>
 
@@ -2024,9 +1788,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1202210222201202-2130211301023323-3003201311110303-1102110213133000-2313213132130230-1112231012300000-0201232300120023-2331033311313223"></a>
-
-## virtual_server.auto_last_hop — auto_last_hop / 030303023232 / 2
+## `virtual_server.auto_last_hop` properties
 
 Breadcrumbs:
 
@@ -2038,13 +1800,6 @@ Breadcrumbs:
 <a id="canonical-2103132212111120-2202120331300033-1000221003232103-0010001000132330-3301310123322201-1332000011200121-2121211201322111-1000123012312330"></a>
 
 Type: `"single"`. Computed.
-
-When enabled, allows the system to send return traffic to the MAC address that transmitted the
-request, even if the routing table points to a different network or interface. As a result, the
-system can send return traffic to clients even when there is no matching route. For example, if
-the..
-
-Upstream description:
 
 When enabled, allows the system to send return traffic to the MAC address that transmitted the
 request, even if the routing table points to a different network or interface. As a result, the
@@ -2074,25 +1829,15 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1210003011201211-3330223003321101-1223310211322121-1320203010332330-1011133020111301-3121032212331310-0130132112312312-3201112231231222"></a>
+<a id="canonical-1202210222201202-2130211301023323-3003201311110303-1102110213133000-2313213132130230-1112231012300000-0201232300120023-2331033311313223"></a>
 
-## Direct properties — auto_last_hop / 030303023232 / 3
+### Direct properties for `virtual_server.auto_last_hop`
 
 - [auto_last_hop_default](data-sources--application_profiles--reference--group-001.md#canonical-2022202003321202-0000232233101313-1132023331313010-2010231221333133-3230131322101322-3033101310123031-3233122211121121-2210132301101013): complete subsection reference.
 
-- [auto_last_hop_disable](data-sources--application_profiles--reference--group-002.md#canonical-3023333310000330-2311322123300120-1330121020233003-1023110322110203-3230211030203320-3333121111331332-2330233202203201-1013122232123220): complete subsection reference.
+- [auto_last_hop_disable](data-sources--application_profiles--reference--group-001.md#canonical-3023333310000330-2311322123300120-1330121020233003-1023110322110203-3230211030203320-3333121111331332-2330233202203201-1013122232123220): complete subsection reference.
 
-- [auto_last_hop_enable](data-sources--application_profiles--reference--group-002.md#canonical-2010131201000311-3023001133332320-2011000031201313-0300000013003111-0133020120331113-2203133021110213-2010213130332333-1302102022032200): complete subsection reference.
-
-<a id="canonical-3100003211311121-3330222333300230-2220122201311232-3133002100100120-2312223321023101-3030002021000202-0121023021031201-1321011322320011"></a>
-
-## Next pages — auto_last_hop / 030303023232 / 4
-
-- [virtual_server.auto_last_hop.auto_last_hop_default](data-sources--application_profiles--reference--group-001.md#canonical-2022202003321202-0000232233101313-1132023331313010-2010231221333133-3230131322101322-3033101310123031-3233122211121121-2210132301101013)
-- [virtual_server.auto_last_hop.auto_last_hop_disable](data-sources--application_profiles--reference--group-002.md#canonical-3023333310000330-2311322123300120-1330121020233003-1023110322110203-3230211030203320-3333121111331332-2330233202203201-1013122232123220)
-- [virtual_server.auto_last_hop.auto_last_hop_enable](data-sources--application_profiles--reference--group-002.md#canonical-2010131201000311-3023001133332320-2011000031201313-0300000013003111-0133020120331113-2203133021110213-2010213130332333-1302102022032200)
-- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [auto_last_hop_enable](data-sources--application_profiles--reference--group-001.md#canonical-2010131201000311-3023001133332320-2011000031201313-0300000013003111-0133020120331113-2203133021110213-2010213130332333-1302102022032200): complete subsection reference.
 
 <a id="canonical-2022202003321202-0000232233101313-1132023331313010-2010231221333133-3230131322101322-3033101310123031-3233122211121121-2210132301101013"></a>
 
@@ -2100,9 +1845,7 @@ Receipt-pinned upstream constraints:
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2113210302010102-0001121000032230-3313132311210100-3320111102301320-2020002312130112-0202222221003003-1321111033321111-0212103220312220"></a>
-
-## virtual_server.auto_last_hop.auto_last_hop_default — auto_last_hop_default / 203122210102 / 2
+## `virtual_server.auto_last_hop.auto_last_hop_default` properties
 
 Breadcrumbs:
 
@@ -2118,7 +1861,7 @@ Type: `["object", {}]`. Computed.
 
 Configuration parameter for auto last hop default.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -2135,8 +1878,959 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2031322322212332-2221031131011012-2323011002102101-0131110022102300-0000312233202113-0013311300323030-1000123230133130-1002032103022100"></a>
+This is an empty object or choice marker. It has no direct properties.
 
-## Direct properties — auto_last_hop_default / 203122210102 / 3
+<a id="canonical-3023333310000330-2311322123300120-1330121020233003-1023110322110203-3230211030203320-3333121111331332-2330233202203201-1013122232123220"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `virtual_server.auto_last_hop.auto_last_hop_disable` properties
+
+Breadcrumbs:
+
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
+- [virtual_server.auto_last_hop](data-sources--application_profiles--reference--group-001.md#canonical-1213231221312103-2101111203001231-0201213300231211-0313012112021033-1012200101220121-2101220302131103-3212333133311002-3200300331321033)
+- virtual_server.auto_last_hop.auto_last_hop_disable
+
+<a id="canonical-3310122322320331-1011030232231333-3303321213223210-2323130100230010-3212012213201132-0113312033230321-3322202001332131-2311100302011303"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for auto last hop disable.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2010131201000311-3023001133332320-2011000031201313-0300000013003111-0133020120331113-2203133021110213-2010213130332333-1302102022032200"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `virtual_server.auto_last_hop.auto_last_hop_enable` properties
+
+Breadcrumbs:
+
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
+- [virtual_server.auto_last_hop](data-sources--application_profiles--reference--group-001.md#canonical-1213231221312103-2101111203001231-0201213300231211-0313012112021033-1012200101220121-2101220302131103-3212333133311002-3200300331321033)
+- virtual_server.auto_last_hop.auto_last_hop_enable
+
+<a id="canonical-2002020012330323-0233012113113230-1000323110103211-1133012112003332-2112110100330132-3021310202232111-1110121030233113-0000021223223323"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for auto last hop enable.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1131130303011232-1131010213131200-0320213310313203-0333203302302103-2233202003023320-3210231020011110-2312132120031031-1033111000202213"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `virtual_server.clone_pool_client` properties
+
+Breadcrumbs:
+
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
+- virtual_server.clone_pool_client
+
+<a id="canonical-1133020132233211-2310110101220011-0012011332002321-1013213132313033-2101320220311103-3111012322101121-0030230000333132-3232002121221313"></a>
+
+Type: `"list"`. Computed.
+
+Replicates client-side traffic (that is, prior to address translation) to a member of the specified
+pool.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 1,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-1332031133212321-3333023023311323-0011320211122122-0333023322312202-0032232120323101-3310103211330101-0110102123113123-3232132320102023"></a>
+
+### Direct properties for `virtual_server.clone_pool_client`
+
+<a id="canonical-3213032121001202-0030120300231013-1122132212012331-0213111222032330-0231101222112200-0021300203313331-2021101022032200-3003233111333003"></a>
+
+#### `virtual_server.clone_pool_client.kind` property
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
+referred object's kind (e.g. 'route').
+
+Additional upstream details:
+
+Virtual\_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g.
+"route")
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1321303301323112-3232331030023023-3022333311103010-3213223013313322-0301310112122133-0213021320332213-1321011203112101-3020013230120201"></a>
+
+<a id="canonical-1212302130220311-0022113121011020-2023230211212230-2001013030203001-2002100202302013-2031333101232132-3002322022032301-0231033312003200"></a>
+
+#### `virtual_server.clone_pool_client.name` property
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2211231222223111-2013313312230333-2230101323231222-3310030032031122-1311333213212023-3001220311021101-2201003010330230-3331023313321232"></a>
+
+<a id="canonical-2211123012122013-0111033320130110-2032121003202211-3100013030111120-2000202133031210-1310021013121131-3022331322333301-0332332110120013"></a>
+
+#### `virtual_server.clone_pool_client.namespace` property
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "naming",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2010332203320110-3211023123321223-2220230012123321-3220030210210222-1120021002013323-3013300001130013-1222022213222021-1102013303321332"></a>
+
+<a id="canonical-3111020002022200-0232332320033032-1030220210323331-0321202120220131-3101300102201002-2230003303101211-1021331200211330-0212200220221213"></a>
+
+#### `virtual_server.clone_pool_client.tenant` property
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1233111210320002-1132132001131321-3331021232002313-3213030003001313-0100233223131310-0101033102133302-1212313112300010-3321322311312100"></a>
+
+<a id="canonical-2302031123122231-3110102321233202-1222231201103103-0111221010112220-0330211011320030-3202033211201100-1312121121330013-3103112102110000"></a>
+
+#### `virtual_server.clone_pool_client.uid` property
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
+referred object's(e.g. Route's) uid.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2032302013033112-3013031031321102-0211223022023110-2100203132130112-2020020003012330-2030002012033001-3131021200201022-3303102003112033"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `virtual_server.clone_pool_server` properties
+
+Breadcrumbs:
+
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
+- virtual_server.clone_pool_server
+
+<a id="canonical-0221313111003203-0222221132312111-2113212313313121-3203223020221012-0120231221323112-2032123110022222-2323131330111332-3112223023201220"></a>
+
+Type: `"list"`. Computed.
+
+Replicates server-side traffic (that is, prior to address translation) to a member of the specified
+pool.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 1,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-1330321302331311-3232320031020203-3333003332332013-0001131002313111-2301212211102001-3333232120131301-0123303102200010-0022030133032023"></a>
+
+### Direct properties for `virtual_server.clone_pool_server`
+
+<a id="canonical-1233112111102023-0311022121101203-1103103012100323-3002011000102131-2303210030131133-0232113013121110-0210132133322212-3222003200112331"></a>
+
+#### `virtual_server.clone_pool_server.kind` property
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
+referred object's kind (e.g. 'route').
+
+Additional upstream details:
+
+Virtual\_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g.
+"route")
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2303031121211220-1001230213300030-1230003332311032-2020100332231213-2002002231020011-1210302022002120-3131131320031001-0031001203220231"></a>
+
+<a id="canonical-2220130130333121-0003032203321012-1233200010321003-0320010001312230-2003100001321101-3032303131212000-2322220310323020-0300111122330200"></a>
+
+#### `virtual_server.clone_pool_server.name` property
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2101320312013231-0223313033130100-2303200330132312-1032011011320301-3201333231101301-0303122123311321-0010020112230332-3320033113030101"></a>
+
+<a id="canonical-0200212003222322-0231020021130313-1131231300200232-3003221110230223-2113000021233322-2203332310110011-0200323331320030-0303102303313003"></a>
+
+#### `virtual_server.clone_pool_server.namespace` property
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "naming",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0032333022002101-1013203220103012-2001022001111112-1223202313132122-0230230300111130-2222232131103130-3002310012201213-0113010322130101"></a>
+
+<a id="canonical-2322112300013010-0311333102213011-3102000113000233-1033211000203333-0332301100221100-1302030221110003-0300033332222312-3001113310020020"></a>
+
+#### `virtual_server.clone_pool_server.tenant` property
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1213233212200103-0311132031101102-1310100010321021-2230013220132230-1202213133313003-3222020310320312-3333231200201320-3203202321303212"></a>
+
+<a id="canonical-3301003013312223-0130220203320032-3123030010121003-2120033012223132-3323333332032111-1333101022101023-2021110112011133-2201300002302312"></a>
+
+#### `virtual_server.clone_pool_server.uid` property
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
+referred object's(e.g. Route's) uid.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0033330122013310-3003120310012330-3211000223223221-0223111311312230-0022202003132033-0321011121003210-1210122112102020-2213303203301133"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `virtual_server.connection_rate_limit_mode` properties
+
+Breadcrumbs:
+
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
+- virtual_server.connection_rate_limit_mode
+
+<a id="canonical-3131301032310212-2101213001120020-1230322302233022-3233223330230310-3120121330213030-1101103200302113-0112333012303230-0113213203012130"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for connection rate limit mode.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-connection_rate_limit_mode_choice": "[\"per_destination_address\",\"per_source_address\",\"per_source_destination_address\",\"per_virtual_server\",\"per_virtual_server_destination_address\",\"per_virtual_server_source_address\",\"per_virtual_server_source_destination_address\"]"
+}
+```
+
+<a id="canonical-1111212110213200-1002333111311302-3222131220112132-2313310322313202-3223103301132023-3031322103103203-1113320232123231-0001100100302132"></a>
+
+### Direct properties for `virtual_server.connection_rate_limit_mode`
+
+- [per_destination_address](data-sources--application_profiles--reference--group-001.md#canonical-1002013231330223-0210311011222020-0200121110332311-3322011022001233-1013111003000130-0032320001012112-2201213212310310-3101222331022232): complete subsection reference.
+
+- [per_source_address](data-sources--application_profiles--reference--group-001.md#canonical-1113223020303102-3013133000002220-2223331001100031-0021102011132320-3121321313300031-0222001230303320-0323021203100011-3222002200123223): complete subsection reference.
+
+- [per_source_destination_address](data-sources--application_profiles--reference--group-001.md#canonical-3330032322333222-0102301301210031-1303211030222203-1011111011221201-0201131101002113-0322122120130331-3322302200001000-1031202013332002): complete subsection reference.
+
+- [per_virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-1211300320020032-2332220233313232-1323310232111231-1112301311010201-0031313130123310-2313110331332002-3100233322000311-2120000323231021): complete subsection reference.
+
+- [per_virtual_server_destination_address](data-sources--application_profiles--reference--group-002.md#canonical-0022023203222223-2233310313211013-3231110112311020-0302220001032013-2123020333021102-2010333100122021-3300132022010222-2001210102010202): complete subsection reference.
+
+- [per_virtual_server_source_address](data-sources--application_profiles--reference--group-002.md#canonical-1203000232222321-0022300313030100-1233122111223210-1013001222300302-3030121231032212-1011223211131230-0322211311210331-2212223232333230): complete subsection reference.
+
+- [per_virtual_server_source_destination_address](data-sources--application_profiles--reference--group-002.md#canonical-1022121021032130-3303223311200321-3023112202000010-2312212012233102-1313112211301022-3100031320321011-1110221300212230-0022333003220131): complete subsection reference.
+
+<a id="canonical-1002013231330223-0210311011222020-0200121110332311-3322011022001233-1013111003000130-0032320001012112-2201213212310310-3101222331022232"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `virtual_server.connection_rate_limit_mode.per_destination_address` properties
+
+Breadcrumbs:
+
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
+- [virtual_server.connection_rate_limit_mode](data-sources--application_profiles--reference--group-001.md#canonical-0033330122013310-3003120310012330-3211000223223221-0223111311312230-0022202003132033-0321011121003210-1210122112102020-2213303203301133)
+- virtual_server.connection_rate_limit_mode.per_destination_address
+
+<a id="canonical-3232212303310231-3321200231301300-3113023011023311-3313110003322033-3033323201110311-1020200001001221-2000001212031120-1222302330103002"></a>
+
+Type: `"single"`. Computed.
+
+Destination Address Mask.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0333211210221211-2330033011021121-0212203132212321-1100023302112330-1101102021003223-1032032030232011-1332131203320230-0100023022020213"></a>
+
+### Direct properties for `virtual_server.connection_rate_limit_mode.per_destination_address`
+
+<a id="canonical-1001012133322200-0221033223121133-2331121003312111-2331010112133332-2213231123033330-2303322333300222-3202213011302123-2332321302033223"></a>
+
+#### `virtual_server.connection_rate_limit_mode.per_destination_address.destination_mask` property
+
+Type: `"number"`. Computed.
+
+Configuration parameter for destination mask.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 600000,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 0
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "0",
+    "ves.io.schema.rules.uint32.lte": "600000"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "0",
+    "ves.io.schema.rules.uint32.lte": "600000"
+  }
+}
+```
+
+<a id="canonical-1113223020303102-3013133000002220-2223331001100031-0021102011132320-3121321313300031-0222001230303320-0323021203100011-3222002200123223"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `virtual_server.connection_rate_limit_mode.per_source_address` properties
+
+Breadcrumbs:
+
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
+- [virtual_server.connection_rate_limit_mode](data-sources--application_profiles--reference--group-001.md#canonical-0033330122013310-3003120310012330-3211000223223221-0223111311312230-0022202003132033-0321011121003210-1210122112102020-2213303203301133)
+- virtual_server.connection_rate_limit_mode.per_source_address
+
+<a id="canonical-0222220332310221-3031030011221323-1011011023211200-3200123213223121-3232010100021321-1301303022330301-2133102203321113-1013302001231120"></a>
+
+Type: `"single"`. Computed.
+
+Source Address Mask.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0112233101230000-3112323123111023-3321233011331030-1320222313233130-1300111000332103-2322210023012213-0200003320011211-0131201120013000"></a>
+
+### Direct properties for `virtual_server.connection_rate_limit_mode.per_source_address`
+
+<a id="canonical-3231311131311102-0231202211132103-2303012002111113-2330022230301011-0030001031300231-1310220303210001-3022302002212130-3121310330023200"></a>
+
+#### `virtual_server.connection_rate_limit_mode.per_source_address.source_mask` property
+
+Type: `"number"`. Computed.
+
+Configuration parameter for source mask.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 600000,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 0
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "0",
+    "ves.io.schema.rules.uint32.lte": "600000"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "0",
+    "ves.io.schema.rules.uint32.lte": "600000"
+  }
+}
+```
+
+<a id="canonical-3330032322333222-0102301301210031-1303211030222203-1011111011221201-0201131101002113-0322122120130331-3322302200001000-1031202013332002"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `virtual_server.connection_rate_limit_mode.per_source_destination_address` properties
+
+Breadcrumbs:
+
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
+- [virtual_server.connection_rate_limit_mode](data-sources--application_profiles--reference--group-001.md#canonical-0033330122013310-3003120310012330-3211000223223221-0223111311312230-0022202003132033-0321011121003210-1210122112102020-2213303203301133)
+- virtual_server.connection_rate_limit_mode.per_source_destination_address
+
+<a id="canonical-1031201331123121-2000310300021002-3311103012020003-0212333312222020-0230130220020202-2233323312133112-0233212223003233-1102110103323223"></a>
+
+Type: `"single"`. Computed.
+
+Destination and Source Address Mask.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0002021111023013-0111201131030112-0322333210212302-0302101121102231-1331002303231002-0000001303200122-1203323021200131-1333233230033002"></a>
+
+### Direct properties for `virtual_server.connection_rate_limit_mode.per_source_destination_address`
+
+<a id="canonical-2012310123231112-1103313101030133-1301112222002121-2033330023011110-1022331020330012-3231001300131133-3032133330112032-1212002012211230"></a>
+
+#### `virtual_server.connection_rate_limit_mode.per_source_destination_address.destination_mask` property
+
+Type: `"number"`. Computed.
+
+Configuration parameter for destination mask.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 600000,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 0
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "0",
+    "ves.io.schema.rules.uint32.lte": "600000"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "0",
+    "ves.io.schema.rules.uint32.lte": "600000"
+  }
+}
+```
+
+<a id="canonical-2032010011100310-3330311012133302-2122031000123320-0321121311231120-3121120001110123-0103102332131030-1120003131321032-3300220100223020"></a>
+
+<a id="canonical-1203310210132321-1302210102303202-0333312323001302-3333211223121031-2313301300313200-2100122121013131-3302030132332203-3031031030032222"></a>
+
+#### `virtual_server.connection_rate_limit_mode.per_source_destination_address.source_mask` property
+
+Type: `"number"`. Computed.
+
+Configuration parameter for source mask.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 600000,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 0
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "0",
+    "ves.io.schema.rules.uint32.lte": "600000"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "0",
+    "ves.io.schema.rules.uint32.lte": "600000"
+  }
+}
+```
+
+<a id="canonical-1211300320020032-2332220233313232-1323310232111231-1112301311010201-0031313130123310-2313110331332002-3100233322000311-2120000323231021"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `virtual_server.connection_rate_limit_mode.per_virtual_server` properties
+
+Breadcrumbs:
+
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+- [Property reference](data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
+- [virtual_server.connection_rate_limit_mode](data-sources--application_profiles--reference--group-001.md#canonical-0033330122013310-3003120310012330-3211000223223221-0223111311312230-0022202003132033-0321011121003210-1210122112102020-2213303203301133)
+- virtual_server.connection_rate_limit_mode.per_virtual_server
+
+<a id="canonical-1331330110210211-0333212231000230-0110321023330032-0102230332332312-3201232310221002-2210232211210120-2112233221213103-0120230211021302"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for per virtual server.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
 
 This is an empty object or choice marker. It has no direct properties.

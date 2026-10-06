@@ -2,7 +2,7 @@
 page_title: "simple_service.container.readiness_check.http_health_check.port"
 subcategory: "Container"
 description: "Port"
-xcsh_docs: {"aliases": ["simple service container readiness check http health check port"], "body_bytes": 4792, "body_sha256": "sha256:63b1289947335e10d735d5778aa2f52c330a09999c551dcbb974e4b775a11cea", "capabilities": ["container"], "category": "container", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:workload:collection", "completeness": "complete", "id": "xcsh-docs:resources:workload:properties:simple_service:container:readiness_check:http_health_check:port", "parent_id": "xcsh-docs:resources:workload:properties:simple_service:container:readiness_check:http_health_check", "path": "documentation/resources/workload/properties/simple_service/container/readiness_check/http_health_check/port/index.md", "product": "distributed-cloud", "provider_name": "workload", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2100330323023130-0012320000123300-1222011220120312-0102120120210020-1210331021123232-3230110113032102-3310002103203322-3121033003300200", "registry_path": "docs/guides/resources--workload--reference--group-017.md", "relationships": [{"anchor": "schema-simple_service--container--readiness_check--http_health_check--port--name", "enforcement": "provider-schema", "group": "simple_service.container.readiness_check.http_health_check.port:ConflictingObjectAttributes:name,num", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:workload:properties:simple_service:container:readiness_check:http_health_check:port", "type": "conflicts"}, {"anchor": "schema-simple_service--container--readiness_check--http_health_check--port--num", "enforcement": "provider-schema", "group": "simple_service.container.readiness_check.http_health_check.port:ConflictingObjectAttributes:name,num", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:workload:properties:simple_service:container:readiness_check:http_health_check:port", "type": "conflicts"}], "retrieval_version": 1, "role": "properties", "schema_path": ["simple_service", "container", "readiness_check", "http_health_check", "port"], "schema_version": 1, "sections": [{"aliases": ["simple service container readiness check http health check port name"], "anchor": "schema-simple_service--container--readiness_check--http_health_check--port--name", "description": "Exclusive with Port Name.", "document_id": "xcsh-docs:resources:workload:properties:simple_service:container:readiness_check:http_health_check:port", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["simple_service", "container", "readiness_check", "http_health_check", "port", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["simple service container readiness check http health check port num"], "anchor": "schema-simple_service--container--readiness_check--http_health_check--port--num", "description": "Exclusive with Port number.", "document_id": "xcsh-docs:resources:workload:properties:simple_service:container:readiness_check:http_health_check:port", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["simple_service", "container", "readiness_check", "http_health_check", "port", "num"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/workload/properties/simple_service/container/readiness_check/http_health_check/port/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Port", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["workloadCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["simple service container readiness check http health check port"], "body_bytes": 4323, "body_sha256": "sha256:34c6133d5b3edf6cf26efd9b6ae059bc93cf2005ab929ce62af237d236a83188", "capabilities": ["container"], "category": "container", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:workload:collection", "completeness": "complete", "id": "xcsh-docs:resources:workload:properties:simple_service:container:readiness_check:http_health_check:port", "parent_id": "xcsh-docs:resources:workload:properties:simple_service:container:readiness_check:http_health_check", "path": "documentation/resources/workload/properties/simple_service/container/readiness_check/http_health_check/port/index.md", "product": "distributed-cloud", "provider_name": "workload", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2100330323023130-0012320000123300-1222011220120312-0102120120210020-1210331021123232-3230110113032102-3310002103203322-3121033003300200", "registry_path": "docs/guides/resources--workload--reference--group-017.md", "relationships": [{"anchor": "schema-simple_service--container--readiness_check--http_health_check--port--name", "enforcement": "provider-schema", "group": "simple_service.container.readiness_check.http_health_check.port:ConflictingObjectAttributes:name,num", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:workload:properties:simple_service:container:readiness_check:http_health_check:port", "type": "conflicts"}, {"anchor": "schema-simple_service--container--readiness_check--http_health_check--port--num", "enforcement": "provider-schema", "group": "simple_service.container.readiness_check.http_health_check.port:ConflictingObjectAttributes:name,num", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:workload:properties:simple_service:container:readiness_check:http_health_check:port", "type": "conflicts"}], "retrieval_version": 1, "role": "properties", "schema_path": ["simple_service", "container", "readiness_check", "http_health_check", "port"], "schema_version": 1, "sections": [{"aliases": ["simple service container readiness check http health check port name"], "anchor": "schema-simple_service--container--readiness_check--http_health_check--port--name", "description": "Exclusive with Port Name.", "document_id": "xcsh-docs:resources:workload:properties:simple_service:container:readiness_check:http_health_check:port", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["simple_service", "container", "readiness_check", "http_health_check", "port", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["simple service container readiness check http health check port num"], "anchor": "schema-simple_service--container--readiness_check--http_health_check--port--num", "description": "Exclusive with Port number.", "document_id": "xcsh-docs:resources:workload:properties:simple_service:container:readiness_check:http_health_check:port", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["simple_service", "container", "readiness_check", "http_health_check", "port", "num"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/workload/properties/simple_service/container/readiness_check/http_health_check/port/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Port", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["workloadCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -26,10 +26,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Port. Port
-
-Upstream description:
-
-Port
 
 Provider validators and defaults (from schema source):
 
@@ -69,10 +65,6 @@ port {
 Type: `"string"`. Optional.
 
 Port Name. Exclusive with \[num\] Port Name.
-
-Upstream description:
-
-Exclusive with \[num\] Port Name.
 
 Provider validators and defaults (from schema source):
 
@@ -136,10 +128,6 @@ Type: `"number"`. Optional.
 
 Port Number. Exclusive with \[name\] Port number.
 
-Upstream description:
-
-Exclusive with \[name\] Port number.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -180,8 +168,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [simple_service.container.readiness_check.http_health_check](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/simple_service/container/readiness_check/http_health_check/)
-- [xcsh_workload](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/)

@@ -12,31 +12,22 @@ description: "Complete grouped canonical reference for xcsh_nfv_service referenc
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1122223321213020-1322011321022330-0120001222130201-3212110301312321-0102301113222223-2100332200120010-3031111233112210-1303323320330112"></a>
-
-## Property reference — Property reference / 113221030303 / 2
+## Property reference
 
 Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - Property reference
 
-<a id="canonical-0210002133221010-0330333113322010-2033021301230313-2232032003131211-1301022003231310-3200020003233133-2333030011100012-0101311130232131"></a>
+<a id="canonical-1122223321213020-1322011321022330-0120001222130201-3212110301312321-0102301113222223-2100332200120010-3031111233112210-1303323320330112"></a>
 
-## Direct properties — Property reference / 113221030303 / 3
+### Direct properties for `xcsh_nfv_service`
 
 <a id="canonical-2302211320202112-2313200123201322-0333333303023201-0332201111311323-0013223331220222-1001210110123132-1203302311302003-2311031222123020"></a>
 
-<a id="canonical-3223031011312030-0010230012133313-2130102333120113-0331302130220023-0032010231002231-1033113220113023-2310011221003000-2232311110233220"></a>
-
-## annotations property — Property reference / 113221030303 / 4
+#### `annotations` property
 
 Type: `["map", "string"]`. Optional.
-
-Annotations is an unstructured key-value map stored with a resource that may be set by external
-tools to store and retrieve arbitrary metadata.
-
-Upstream description:
 
 Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
@@ -90,9 +81,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0232102132103133-1132310132021202-3011032120101230-3233031303103311-0100111301323301-1211202021102011-0313122010001123-3012233031112003"></a>
 
-<a id="canonical-2332000131213002-1201012330032012-1011233020323130-2013320002032310-3002002230230223-3301300310230223-1203313310322203-3210301133011323"></a>
+<a id="canonical-0210002133221010-0330333113322010-2033021301230313-2232032003131211-1301022003231310-3200020003233133-2333030011100012-0101311130232131"></a>
 
-## description property — Property reference / 113221030303 / 5
+#### `description` property
 
 Type: `"string"`. Optional.
 
@@ -138,15 +129,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0220012000221310-2132221022010120-0303223003121311-2320313320121122-1301211123023001-3232332100032331-0302200121123130-1001331122201202"></a>
 
-<a id="canonical-3100102312113213-3001212113202100-2010320120110101-3213022010203323-3332011332322303-1032311232212132-0133100030121002-2032002320110210"></a>
+<a id="canonical-3223031011312030-0010230012133313-2130102333120113-0331302130220023-0032010231002231-1033113220113023-2310011221003000-2232311110233220"></a>
 
-## disable property — Property reference / 113221030303 / 6
+#### `disable` property
 
 Type: `"bool"`. Optional.
 
 A value of true administratively disables the object.
 
-Upstream description:
+Additional upstream details:
 
 A value of true will administratively disable the object.
 
@@ -171,13 +162,13 @@ Receipt-pinned upstream constraints:
 
 - [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210): complete subsection reference.
 
-- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101): complete subsection reference.
+- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101): complete subsection reference.
 
 <a id="canonical-2202210003230021-2123331330221213-2220013231110122-0233313101232312-2132301010233111-3331221220311002-3100330200012101-3230310003211130"></a>
 
-<a id="canonical-2302110101023213-0012102102232322-3202110121122001-1220200032003322-0212230203221132-2022333133111323-1013230311320023-3303213122110000"></a>
+<a id="canonical-2332000131213002-1201012330032012-1011233020323130-2013320002032310-3002002230230223-3301300310230223-1203313310322203-3210301133011323"></a>
 
-## ID property — Property reference / 113221030303 / 7
+#### `id` property
 
 Type: `"string"`. Computed.
 
@@ -185,16 +176,16 @@ Unique identifier for the resource.
 
 <a id="canonical-3123203312302020-1021113033213221-3110100013022111-1202032011011331-1202010201312110-3011233013030200-1102102033300321-0130311301000210"></a>
 
-<a id="canonical-3320130022200023-2113301213023323-2132130023113120-1122003232221031-0312011131023112-0131230311313200-3213330323313022-3221201210023202"></a>
+<a id="canonical-3100102312113213-3001212113202100-2010320120110101-3213022010203323-3332011332322303-1032311232212132-0133100030121002-2032002320110210"></a>
 
-## labels property — Property reference / 113221030303 / 8
+#### `labels` property
 
 Type: `["map", "string"]`. Optional.
 
 Labels is a user defined key-value map that can be attached to resources for organization and
 filtering.
 
-Upstream description:
+Additional upstream details:
 
 Map of string keys and values that can be used to organize and categorize (scope and select) objects
 as chosen by the user. Values specified here will be used by selector expression.
@@ -214,15 +205,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0113312013100323-3001203330313203-2130221120123200-2133232231013333-2131013222231223-0001230333223222-1113001322233220-3311213231123230"></a>
 
-<a id="canonical-1301132232301133-3303213000202200-2222211103122001-0322332233313333-3023011113110303-1122323333101230-0303123213203020-3313310033010122"></a>
+<a id="canonical-2302110101023213-0012102102232322-3202110121122001-1220200032003322-0212230203221132-2022333133111323-1013230311320023-3303213122110000"></a>
 
-## name property — Property reference / 113221030303 / 9
+#### `name` property
 
 Type: `"string"`. Required.
 
 Name of the Nfv Service. Must be unique within the namespace.
 
-Upstream description:
+Additional upstream details:
 
 This is the name of configuration object. It has to be unique within the namespace. It can only be
 specified during create API and cannot be changed during replace API. The value of name has to
@@ -282,15 +273,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2132211332310221-0321032100122201-0031303002231002-1333110022202310-2030213001222303-0001030222111003-3232120313210031-2300300123223022"></a>
 
-<a id="canonical-3011020030031101-3232202001022210-1322322213012131-2200213102213301-1220213312010011-2210303111302330-3111223320121130-2301000022203112"></a>
+<a id="canonical-3320130022200023-2113301213023323-2132130023113120-1122003232221031-0312011131023112-0131230311313200-3213330323313022-3221201210023202"></a>
 
-## namespace property — Property reference / 113221030303 / 10
+#### `namespace` property
 
 Type: `"string"`. Required.
 
 Namespace where the Nfv Service is created.
 
-Upstream description:
+Additional upstream details:
 
 This defines the workspace within which each the configuration object is to be created. Must be a
 DNS\_LABEL format. For a namespace object itself, namespace value will be ""
@@ -341,13 +332,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [palo_alto_fw_service](resources--nfv_service--reference--group-003.md#canonical-1220032300320010-0322310310320112-3102020032000031-0230002231133113-1321103031132221-2112211003001211-2001103020013300-3102213200033033): complete subsection reference.
+- [palo_alto_fw_service](resources--nfv_service--reference--group-004.md#canonical-1220032300320010-0322310310320112-3102020032000031-0230002231133113-1321103031132221-2112211003001211-2001103020013300-3102213200033033): complete subsection reference.
 
 - [timeouts](resources--nfv_service--reference--group-004.md#canonical-0202232021221122-0000133111310212-2020203112302000-1210111320033230-0001031130310130-3231013003311031-0221323010300330-3130003223303201): complete subsection reference.
 
-<a id="canonical-2300033221120202-3033302310313123-0322131010220000-2221221200222212-1233031311022311-1223203102103101-1113112132021013-0112121323312003"></a>
+<a id="canonical-1301132232301133-3303213000202200-2222211103122001-0322332233313333-3023011113110303-1122323333101230-0303123213203020-3313310033010122"></a>
 
-## All schema paths — Property reference / 113221030303 / 11
+### All schema paths for `xcsh_nfv_service`
 
 Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
@@ -394,25 +385,25 @@ Each exact path has one authoritative reference destination. Collection element 
 | `f5_big_ip_aws_service.endpoint_service.disable_advertise_on_slo_ip` | [f5_big_ip_aws_service.endpoint_service.disable_advertise_on_slo_ip](resources--nfv_service--reference--group-001.md#canonical-3102223111322131-1130121300023132-2000322232100321-1131123113213121-0302333021013002-0012023130133023-3321221211133301-3101120031020230) |
 | `f5_big_ip_aws_service.endpoint_service.http_port` | [f5_big_ip_aws_service.endpoint_service.http_port](resources--nfv_service--reference--group-001.md#canonical-0122010213002333-2131130211001233-2002311002230223-3322212201210133-2002012110231301-1023101000231223-2331131302102202-0230022101212003) |
 | `f5_big_ip_aws_service.endpoint_service.https_port` | [f5_big_ip_aws_service.endpoint_service.https_port](resources--nfv_service--reference--group-001.md#canonical-3213200002230332-1112000033222310-2121220020110031-0313333130213222-1320131011223201-1113022013000112-2032221032220100-2322323031100132) |
-| `f5_big_ip_aws_service.endpoint_service.no_tcp_ports` | [f5_big_ip_aws_service.endpoint_service.no_tcp_ports](resources--nfv_service--reference--group-002.md#canonical-0031203113313320-2000021332233113-0133122032103002-0021122020111311-3132031120321221-2031132223103012-0313332012111212-3032122211300012) |
-| `f5_big_ip_aws_service.endpoint_service.no_udp_ports` | [f5_big_ip_aws_service.endpoint_service.no_udp_ports](resources--nfv_service--reference--group-002.md#canonical-2302111331330122-3120022132102213-2012020331132031-3101313032303321-3300210000112122-1320123212313210-0132221032312033-3012022030210131) |
-| `f5_big_ip_aws_service.market_place_image` | [f5_big_ip_aws_service.market_place_image](resources--nfv_service--reference--group-002.md#canonical-0130301203100302-3320011222113103-2233202312103233-1121212120332021-0100201102103322-1132210222233310-0300113210112121-3300112100033101) |
-| `f5_big_ip_aws_service.market_place_image.awafpay_g200_mbps` | [f5_big_ip_aws_service.market_place_image.awafpay_g200_mbps](resources--nfv_service--reference--group-002.md#canonical-3013002010302031-0223121012302313-0203311033210231-0012031111210212-1332120130131022-3313200110102232-1112000311101220-1320102333212013) |
-| `f5_big_ip_aws_service.market_place_image.awafpay_g3_gbps` | [f5_big_ip_aws_service.market_place_image.awafpay_g3_gbps](resources--nfv_service--reference--group-002.md#canonical-0313103233111113-1301101000002302-0010330233101313-3303031321330022-0101012032023131-0103211222203211-1110103303020001-3311121303001011) |
-| `f5_big_ip_aws_service.nodes` | [f5_big_ip_aws_service.nodes](resources--nfv_service--reference--group-002.md#canonical-3322312331030022-2323331220311230-3322211311333031-1010031133322100-2101112112010002-0032031213032211-3121323132132102-3000001312210133) |
-| `f5_big_ip_aws_service.nodes.automatic_prefix` | [f5_big_ip_aws_service.nodes.automatic_prefix](resources--nfv_service--reference--group-002.md#canonical-0321222210300212-1313321302213310-3212131023020201-1313312203001232-0200011011002330-1023311023023001-0020023023022302-3030031332331323) |
-| `f5_big_ip_aws_service.nodes.aws_az_name` | [f5_big_ip_aws_service.nodes.aws_az_name](resources--nfv_service--reference--group-002.md#canonical-2130312031100011-1223332112201300-2232111031010121-0102002030201230-3022331220301002-3230220001312022-0333100301020311-0321233203103222) |
-| `f5_big_ip_aws_service.nodes.mgmt_subnet` | [f5_big_ip_aws_service.nodes.mgmt_subnet](resources--nfv_service--reference--group-002.md#canonical-0122002030110001-1122012022001111-3131220223022030-3231330121100020-3323322303220102-3000332012003230-1021003002122212-2221213011232103) |
-| `f5_big_ip_aws_service.nodes.mgmt_subnet.existing_subnet_id` | [f5_big_ip_aws_service.nodes.mgmt_subnet.existing_subnet_id](resources--nfv_service--reference--group-002.md#canonical-3211101130211131-0011331031322321-1102023110023331-2320001321303010-1322301000133102-3222220110020013-2202030032131113-2320311021011230) |
-| `f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param` | [f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param](resources--nfv_service--reference--group-002.md#canonical-0113312113022013-3003211103033221-1310021323023311-2200310023003223-2012100212032013-2112223103022220-0232031203002222-1203331022030101) |
-| `f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param.ipv4` | [f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param.ipv4](resources--nfv_service--reference--group-002.md#canonical-0331210223320322-1033003000220102-1110333302210302-1230232212022133-1302201122121312-0112330333310301-2323120322002131-1103222113112102) |
-| `f5_big_ip_aws_service.nodes.node_name` | [f5_big_ip_aws_service.nodes.node_name](resources--nfv_service--reference--group-002.md#canonical-3023030020220322-0212220021110223-3203030132120230-0101321102012132-1013312033222321-3010320102301120-0233313212112212-1323233123113323) |
-| `f5_big_ip_aws_service.nodes.reserved_mgmt_subnet` | [f5_big_ip_aws_service.nodes.reserved_mgmt_subnet](resources--nfv_service--reference--group-002.md#canonical-0311323132002111-2221023212113103-2131311303120213-3121302331113023-3333100003322230-2013133111321133-0132131002331333-1010312031103321) |
-| `f5_big_ip_aws_service.nodes.tunnel_prefix` | [f5_big_ip_aws_service.nodes.tunnel_prefix](resources--nfv_service--reference--group-002.md#canonical-1003211130213231-3220103110102213-1102323030303311-2220213012301221-2230111303001031-3030120113021321-2130203330023333-1333212311302120) |
+| `f5_big_ip_aws_service.endpoint_service.no_tcp_ports` | [f5_big_ip_aws_service.endpoint_service.no_tcp_ports](resources--nfv_service--reference--group-001.md#canonical-0031203113313320-2000021332233113-0133122032103002-0021122020111311-3132031120321221-2031132223103012-0313332012111212-3032122211300012) |
+| `f5_big_ip_aws_service.endpoint_service.no_udp_ports` | [f5_big_ip_aws_service.endpoint_service.no_udp_ports](resources--nfv_service--reference--group-001.md#canonical-2302111331330122-3120022132102213-2012020331132031-3101313032303321-3300210000112122-1320123212313210-0132221032312033-3012022030210131) |
+| `f5_big_ip_aws_service.market_place_image` | [f5_big_ip_aws_service.market_place_image](resources--nfv_service--reference--group-001.md#canonical-0130301203100302-3320011222113103-2233202312103233-1121212120332021-0100201102103322-1132210222233310-0300113210112121-3300112100033101) |
+| `f5_big_ip_aws_service.market_place_image.awafpay_g200_mbps` | [f5_big_ip_aws_service.market_place_image.awafpay_g200_mbps](resources--nfv_service--reference--group-001.md#canonical-3013002010302031-0223121012302313-0203311033210231-0012031111210212-1332120130131022-3313200110102232-1112000311101220-1320102333212013) |
+| `f5_big_ip_aws_service.market_place_image.awafpay_g3_gbps` | [f5_big_ip_aws_service.market_place_image.awafpay_g3_gbps](resources--nfv_service--reference--group-001.md#canonical-0313103233111113-1301101000002302-0010330233101313-3303031321330022-0101012032023131-0103211222203211-1110103303020001-3311121303001011) |
+| `f5_big_ip_aws_service.nodes` | [f5_big_ip_aws_service.nodes](resources--nfv_service--reference--group-001.md#canonical-3322312331030022-2323331220311230-3322211311333031-1010031133322100-2101112112010002-0032031213032211-3121323132132102-3000001312210133) |
+| `f5_big_ip_aws_service.nodes.automatic_prefix` | [f5_big_ip_aws_service.nodes.automatic_prefix](resources--nfv_service--reference--group-001.md#canonical-0321222210300212-1313321302213310-3212131023020201-1313312203001232-0200011011002330-1023311023023001-0020023023022302-3030031332331323) |
+| `f5_big_ip_aws_service.nodes.aws_az_name` | [f5_big_ip_aws_service.nodes.aws_az_name](resources--nfv_service--reference--group-001.md#canonical-2130312031100011-1223332112201300-2232111031010121-0102002030201230-3022331220301002-3230220001312022-0333100301020311-0321233203103222) |
+| `f5_big_ip_aws_service.nodes.mgmt_subnet` | [f5_big_ip_aws_service.nodes.mgmt_subnet](resources--nfv_service--reference--group-001.md#canonical-0122002030110001-1122012022001111-3131220223022030-3231330121100020-3323322303220102-3000332012003230-1021003002122212-2221213011232103) |
+| `f5_big_ip_aws_service.nodes.mgmt_subnet.existing_subnet_id` | [f5_big_ip_aws_service.nodes.mgmt_subnet.existing_subnet_id](resources--nfv_service--reference--group-001.md#canonical-3211101130211131-0011331031322321-1102023110023331-2320001321303010-1322301000133102-3222220110020013-2202030032131113-2320311021011230) |
+| `f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param` | [f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param](resources--nfv_service--reference--group-001.md#canonical-0113312113022013-3003211103033221-1310021323023311-2200310023003223-2012100212032013-2112223103022220-0232031203002222-1203331022030101) |
+| `f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param.ipv4` | [f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param.ipv4](resources--nfv_service--reference--group-001.md#canonical-0331210223320322-1033003000220102-1110333302210302-1230232212022133-1302201122121312-0112330333310301-2323120322002131-1103222113112102) |
+| `f5_big_ip_aws_service.nodes.node_name` | [f5_big_ip_aws_service.nodes.node_name](resources--nfv_service--reference--group-001.md#canonical-3023030020220322-0212220021110223-3203030132120230-0101321102012132-1013312033222321-3010320102301120-0233313212112212-1323233123113323) |
+| `f5_big_ip_aws_service.nodes.reserved_mgmt_subnet` | [f5_big_ip_aws_service.nodes.reserved_mgmt_subnet](resources--nfv_service--reference--group-001.md#canonical-0311323132002111-2221023212113103-2131311303120213-3121302331113023-3333100003322230-2013133111321133-0132131002331333-1010312031103321) |
+| `f5_big_ip_aws_service.nodes.tunnel_prefix` | [f5_big_ip_aws_service.nodes.tunnel_prefix](resources--nfv_service--reference--group-001.md#canonical-1003211130213231-3220103110102213-1102323030303311-2220213012301221-2230111303001031-3030120113021321-2130203330023333-1333212311302120) |
 | `f5_big_ip_aws_service.ssh_key` | [f5_big_ip_aws_service.ssh_key](resources--nfv_service--reference--group-001.md#canonical-2122322100020010-0233231112003322-1100330013212030-1031310200022000-0023300112302121-3230133231122000-3021020020303103-3002313323100011) |
 | `f5_big_ip_aws_service.tags` | [f5_big_ip_aws_service.tags](resources--nfv_service--reference--group-001.md#canonical-2300122213223130-2322121232230202-1121102110030323-0233022121232321-3120330012222113-2201303223211330-2200201322003010-1322232110123021) |
-| `https_management` | [https_management](resources--nfv_service--reference--group-002.md#canonical-2310110120210321-0011122021130100-1020101231210333-1001101201002320-3213323313112230-0312000102310210-1113012113122222-1223202310021130) |
-| `https_management.advertise_on_internet` | [https_management.advertise_on_internet](resources--nfv_service--reference--group-002.md#canonical-0323010000210110-1011321220101213-3302313013003100-3101320312130203-3020110132002010-2121301212013103-3112021220132330-0311003300231200) |
+| `https_management` | [https_management](resources--nfv_service--reference--group-001.md#canonical-2310110120210321-0011122021130100-1020101231210333-1001101201002320-3213323313112230-0312000102310210-1113012113122222-1223202310021130) |
+| `https_management.advertise_on_internet` | [https_management.advertise_on_internet](resources--nfv_service--reference--group-001.md#canonical-0323010000210110-1011321220101213-3302313013003100-3101320312130203-3020110132002010-2121301212013103-3112021220132330-0311003300231200) |
 | `https_management.advertise_on_internet.public_ip` | [https_management.advertise_on_internet.public_ip](resources--nfv_service--reference--group-002.md#canonical-1320022302320301-0301323112111020-0012221032212033-1121313221310031-3111210222023102-1211122200200303-0212322333301221-2200310112030020) |
 | `https_management.advertise_on_internet.public_ip.name` | [https_management.advertise_on_internet.public_ip.name](resources--nfv_service--reference--group-002.md#canonical-2102211110131331-0031231300331000-3223132133302211-0121311233011100-2333023102113303-0023202021210101-0203210322121200-3020031011101323) |
 | `https_management.advertise_on_internet.public_ip.namespace` | [https_management.advertise_on_internet.public_ip.namespace](resources--nfv_service--reference--group-002.md#canonical-3103012222010303-3300122000000203-0133133311121300-1133132131331110-3310310002212023-2330130111330012-2221002133313223-2001011220220002) |
@@ -480,21 +471,21 @@ Each exact path has one authoritative reference destination. Collection element 
 | `https_management.advertise_on_slo_internet_vip.tls_config.custom_security.cipher_suites` | [https_management.advertise_on_slo_internet_vip.tls_config.custom_security.cipher_suites](resources--nfv_service--reference--group-002.md#canonical-2201132011011232-3111211002233201-3223300323000121-2131002003333323-3102222211110231-0021023210023032-1330032300233203-2131220120110021) |
 | `https_management.advertise_on_slo_internet_vip.tls_config.custom_security.max_version` | [https_management.advertise_on_slo_internet_vip.tls_config.custom_security.max_version](resources--nfv_service--reference--group-002.md#canonical-0101023300312311-1303202012010120-2101231121302302-0323233113221003-2121003121210320-0003012333002322-2302232210003302-0321212222021103) |
 | `https_management.advertise_on_slo_internet_vip.tls_config.custom_security.min_version` | [https_management.advertise_on_slo_internet_vip.tls_config.custom_security.min_version](resources--nfv_service--reference--group-002.md#canonical-1030303032300000-2113132130001330-2110210002203021-0102132031212110-2222130101203120-3032320030232212-3301331330010330-2200332131330003) |
-| `https_management.advertise_on_slo_internet_vip.tls_config.default_security` | [https_management.advertise_on_slo_internet_vip.tls_config.default_security](resources--nfv_service--reference--group-002.md#canonical-2111021302020010-1212233132030233-3033202030220223-1123310233232202-2133023300010023-0233111032020020-3212130022102102-0220103103013121) |
-| `https_management.advertise_on_slo_internet_vip.tls_config.low_security` | [https_management.advertise_on_slo_internet_vip.tls_config.low_security](resources--nfv_service--reference--group-002.md#canonical-1233103000320302-0301003332100021-2000232131123320-3333132020020002-3221202311310333-3002301221010220-0303103131123132-0311321102000223) |
-| `https_management.advertise_on_slo_internet_vip.tls_config.medium_security` | [https_management.advertise_on_slo_internet_vip.tls_config.medium_security](resources--nfv_service--reference--group-002.md#canonical-0232022330032012-1320012332332331-3202210121333312-3230011333201001-1303210011231011-3331333033113001-3021033312312003-2031223103221202) |
-| `https_management.advertise_on_slo_internet_vip.use_mtls` | [https_management.advertise_on_slo_internet_vip.use_mtls](resources--nfv_service--reference--group-002.md#canonical-0203200203212321-2132002301201203-0313000213332021-2310211333332113-3201321010032332-2111233132100032-0030012210220233-2313210003013012) |
-| `https_management.advertise_on_slo_internet_vip.use_mtls.client_certificate_optional` | [https_management.advertise_on_slo_internet_vip.use_mtls.client_certificate_optional](resources--nfv_service--reference--group-002.md#canonical-2211002013323210-0013323113233123-1300332312231102-2132323331213003-2303223101100311-0103321113231302-1221123101111300-3112331321012032) |
-| `https_management.advertise_on_slo_internet_vip.use_mtls.crl` | [https_management.advertise_on_slo_internet_vip.use_mtls.crl](resources--nfv_service--reference--group-002.md#canonical-3030101113312111-2003312332110222-0313222332010033-3202333010003123-2003132310023121-1012121032302320-0101001103221112-3322013030332022) |
-| `https_management.advertise_on_slo_internet_vip.use_mtls.crl.name` | [https_management.advertise_on_slo_internet_vip.use_mtls.crl.name](resources--nfv_service--reference--group-002.md#canonical-0030133212103232-2211333103032311-1321102002312000-3313312033130220-0301202023223203-1020010233111130-0220032201111011-0131101211222331) |
-| `https_management.advertise_on_slo_internet_vip.use_mtls.crl.namespace` | [https_management.advertise_on_slo_internet_vip.use_mtls.crl.namespace](resources--nfv_service--reference--group-002.md#canonical-1033110012030301-1330212313012300-0202123011030022-2123212320200231-1011303322121003-1331323233301303-1012000320103321-0233031212331202) |
+| `https_management.advertise_on_slo_internet_vip.tls_config.default_security` | [https_management.advertise_on_slo_internet_vip.tls_config.default_security](resources--nfv_service--reference--group-003.md#canonical-2111021302020010-1212233132030233-3033202030220223-1123310233232202-2133023300010023-0233111032020020-3212130022102102-0220103103013121) |
+| `https_management.advertise_on_slo_internet_vip.tls_config.low_security` | [https_management.advertise_on_slo_internet_vip.tls_config.low_security](resources--nfv_service--reference--group-003.md#canonical-1233103000320302-0301003332100021-2000232131123320-3333132020020002-3221202311310333-3002301221010220-0303103131123132-0311321102000223) |
+| `https_management.advertise_on_slo_internet_vip.tls_config.medium_security` | [https_management.advertise_on_slo_internet_vip.tls_config.medium_security](resources--nfv_service--reference--group-003.md#canonical-0232022330032012-1320012332332331-3202210121333312-3230011333201001-1303210011231011-3331333033113001-3021033312312003-2031223103221202) |
+| `https_management.advertise_on_slo_internet_vip.use_mtls` | [https_management.advertise_on_slo_internet_vip.use_mtls](resources--nfv_service--reference--group-003.md#canonical-0203200203212321-2132002301201203-0313000213332021-2310211333332113-3201321010032332-2111233132100032-0030012210220233-2313210003013012) |
+| `https_management.advertise_on_slo_internet_vip.use_mtls.client_certificate_optional` | [https_management.advertise_on_slo_internet_vip.use_mtls.client_certificate_optional](resources--nfv_service--reference--group-003.md#canonical-2211002013323210-0013323113233123-1300332312231102-2132323331213003-2303223101100311-0103321113231302-1221123101111300-3112331321012032) |
+| `https_management.advertise_on_slo_internet_vip.use_mtls.crl` | [https_management.advertise_on_slo_internet_vip.use_mtls.crl](resources--nfv_service--reference--group-003.md#canonical-3030101113312111-2003312332110222-0313222332010033-3202333010003123-2003132310023121-1012121032302320-0101001103221112-3322013030332022) |
+| `https_management.advertise_on_slo_internet_vip.use_mtls.crl.name` | [https_management.advertise_on_slo_internet_vip.use_mtls.crl.name](resources--nfv_service--reference--group-003.md#canonical-0030133212103232-2211333103032311-1321102002312000-3313312033130220-0301202023223203-1020010233111130-0220032201111011-0131101211222331) |
+| `https_management.advertise_on_slo_internet_vip.use_mtls.crl.namespace` | [https_management.advertise_on_slo_internet_vip.use_mtls.crl.namespace](resources--nfv_service--reference--group-003.md#canonical-1033110012030301-1330212313012300-0202123011030022-2123212320200231-1011303322121003-1331323233301303-1012000320103321-0233031212331202) |
 | `https_management.advertise_on_slo_internet_vip.use_mtls.crl.tenant` | [https_management.advertise_on_slo_internet_vip.use_mtls.crl.tenant](resources--nfv_service--reference--group-003.md#canonical-1102002020022313-3002213222313030-2122200132033223-2020322321000131-2302231201313313-1221233032013320-3103322231322132-2110312132131301) |
 | `https_management.advertise_on_slo_internet_vip.use_mtls.no_crl` | [https_management.advertise_on_slo_internet_vip.use_mtls.no_crl](resources--nfv_service--reference--group-003.md#canonical-0131033311220010-0111221133010001-3013200000202122-2103123033323133-3200032303132331-3102220030203012-3020231213211231-2111122120210021) |
 | `https_management.advertise_on_slo_internet_vip.use_mtls.trusted_ca` | [https_management.advertise_on_slo_internet_vip.use_mtls.trusted_ca](resources--nfv_service--reference--group-003.md#canonical-3212200110222312-2321131210222313-0321011000130032-0132302100212101-2332033032103311-1311011031113112-1220032102033323-2130201311123212) |
 | `https_management.advertise_on_slo_internet_vip.use_mtls.trusted_ca.name` | [https_management.advertise_on_slo_internet_vip.use_mtls.trusted_ca.name](resources--nfv_service--reference--group-003.md#canonical-3212120022223222-3323031213022133-2330220203100002-0332121310012230-3122133121100003-3003222331313311-2331321300310332-1132031122320200) |
 | `https_management.advertise_on_slo_internet_vip.use_mtls.trusted_ca.namespace` | [https_management.advertise_on_slo_internet_vip.use_mtls.trusted_ca.namespace](resources--nfv_service--reference--group-003.md#canonical-2030202333213210-1003313111010211-3322033331322103-1330321133302020-1101112213111001-0113001121213312-1211100212211121-2131030200121321) |
 | `https_management.advertise_on_slo_internet_vip.use_mtls.trusted_ca.tenant` | [https_management.advertise_on_slo_internet_vip.use_mtls.trusted_ca.tenant](resources--nfv_service--reference--group-003.md#canonical-3030112230010031-2102221330322332-1331103202310132-1202210200111200-3112222202203120-3310100031220003-1331221212102212-1200331033122301) |
-| `https_management.advertise_on_slo_internet_vip.use_mtls.trusted_ca_url` | [https_management.advertise_on_slo_internet_vip.use_mtls.trusted_ca_url](resources--nfv_service--reference--group-002.md#canonical-1210221023303021-1333310000102202-0012003221023203-0302201332013210-1021223300210313-1100311023103210-0020112302210330-1121122220201302) |
+| `https_management.advertise_on_slo_internet_vip.use_mtls.trusted_ca_url` | [https_management.advertise_on_slo_internet_vip.use_mtls.trusted_ca_url](resources--nfv_service--reference--group-003.md#canonical-1210221023303021-1333310000102202-0012003221023203-0302201332013210-1021223300210313-1100311023103210-0020112302210330-1121122220201302) |
 | `https_management.advertise_on_slo_internet_vip.use_mtls.xfcc_disabled` | [https_management.advertise_on_slo_internet_vip.use_mtls.xfcc_disabled](resources--nfv_service--reference--group-003.md#canonical-3132303122120001-2322032211030112-2133320303120223-1113203331002120-2033212003130223-2210110300121130-0330022321112210-2122012223331113) |
 | `https_management.advertise_on_slo_internet_vip.use_mtls.xfcc_options` | [https_management.advertise_on_slo_internet_vip.use_mtls.xfcc_options](resources--nfv_service--reference--group-003.md#canonical-3212211231012230-0230223010133130-2030210000303021-2300303312011203-0132123010231213-0031113032111122-1013031112222301-0210023022120133) |
 | `https_management.advertise_on_slo_internet_vip.use_mtls.xfcc_options.xfcc_header_elements` | [https_management.advertise_on_slo_internet_vip.use_mtls.xfcc_options.xfcc_header_elements](resources--nfv_service--reference--group-003.md#canonical-2110300210103203-1200312202131301-1030000130232011-1130002233201310-2210033223021203-1313032132011213-3003010333022333-1032102101221011) |
@@ -547,46 +538,46 @@ Each exact path has one authoritative reference destination. Collection element 
 | `https_management.advertise_on_slo_vip.tls_certificates.description_spec` | [https_management.advertise_on_slo_vip.tls_certificates.description_spec](resources--nfv_service--reference--group-003.md#canonical-1301110230122310-3000311233031332-3121111031002000-3010230001301101-1101203131321121-0213110012203131-2323323311220321-3023322223020220) |
 | `https_management.advertise_on_slo_vip.tls_certificates.disable_ocsp_stapling` | [https_management.advertise_on_slo_vip.tls_certificates.disable_ocsp_stapling](resources--nfv_service--reference--group-003.md#canonical-0221121130213003-0221302100231011-1332330232032013-0000321233021313-2212103103133210-1013212211333213-1330112012111233-0323300330223112) |
 | `https_management.advertise_on_slo_vip.tls_certificates.private_key` | [https_management.advertise_on_slo_vip.tls_certificates.private_key](resources--nfv_service--reference--group-003.md#canonical-2123010121130221-0131130220001200-3011012221222210-1103000020112311-0111030031330223-0332201202131330-1311331301232212-1201221111331100) |
-| `https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info` | [https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info](resources--nfv_service--reference--group-003.md#canonical-1331111321322033-3212131212031310-2231023021332322-3333003101202020-1330132302130321-1120321003203012-2230023111111213-3203033111022323) |
-| `https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info.decryption_provider` | [https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info.decryption_provider](resources--nfv_service--reference--group-003.md#canonical-3211033203210233-3021100103321211-0113213303233220-2003022202221211-0131122331222331-0001221303201332-1211021233013131-0331103213300132) |
-| `https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info.location` | [https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info.location](resources--nfv_service--reference--group-003.md#canonical-1132213331011100-0301000132302203-0023301313312020-1213300103201230-0330321011302011-0132002122101302-2301212231130310-0123001202102303) |
-| `https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info.store_provider` | [https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info.store_provider](resources--nfv_service--reference--group-003.md#canonical-0330221101110201-1233332133032021-1133101120321202-2210102203220330-2123132220100123-1213332132202002-2013002223331020-3232100021301030) |
-| `https_management.advertise_on_slo_vip.tls_certificates.private_key.clear_secret_info` | [https_management.advertise_on_slo_vip.tls_certificates.private_key.clear_secret_info](resources--nfv_service--reference--group-003.md#canonical-3112202333130320-2010030322332211-3130233201012322-1221302032101201-2202113231331232-1101111313303330-3321210023100121-3320231101000232) |
-| `https_management.advertise_on_slo_vip.tls_certificates.private_key.clear_secret_info.provider_ref` | [https_management.advertise_on_slo_vip.tls_certificates.private_key.clear_secret_info.provider_ref](resources--nfv_service--reference--group-003.md#canonical-2330310221230030-2033003003301231-3220231311230301-1221311302303332-3010131220222321-3123321302330211-2023320220201312-3330012011300301) |
-| `https_management.advertise_on_slo_vip.tls_certificates.private_key.clear_secret_info.url` | [https_management.advertise_on_slo_vip.tls_certificates.private_key.clear_secret_info.url](resources--nfv_service--reference--group-003.md#canonical-1330000113003310-1221211232022200-3332313231310121-2133222211303223-1220312220022113-1201230200203233-2022301023033230-1311032121212121) |
-| `https_management.advertise_on_slo_vip.tls_certificates.use_system_defaults` | [https_management.advertise_on_slo_vip.tls_certificates.use_system_defaults](resources--nfv_service--reference--group-003.md#canonical-2031012322002012-2010113222110322-2201220223000202-2103121223311322-0010210210332020-0210210031002211-1021230010011103-0021120103201102) |
-| `https_management.advertise_on_slo_vip.tls_config` | [https_management.advertise_on_slo_vip.tls_config](resources--nfv_service--reference--group-003.md#canonical-1313201200001300-0122302203303021-1011222313013121-3222212101023200-2202310100223220-2320332211322110-1030330332233120-0000220030000031) |
-| `https_management.advertise_on_slo_vip.tls_config.custom_security` | [https_management.advertise_on_slo_vip.tls_config.custom_security](resources--nfv_service--reference--group-003.md#canonical-1101323212030332-1010223232300102-2033332330332011-2033111302131100-3233012310013022-3031312022211032-0021311300033323-1212103303312230) |
-| `https_management.advertise_on_slo_vip.tls_config.custom_security.cipher_suites` | [https_management.advertise_on_slo_vip.tls_config.custom_security.cipher_suites](resources--nfv_service--reference--group-003.md#canonical-0331230020232022-1200003320012120-0033031001113120-1202021230311210-1312302013230323-2320030211223320-0312110303110230-0010022033212131) |
-| `https_management.advertise_on_slo_vip.tls_config.custom_security.max_version` | [https_management.advertise_on_slo_vip.tls_config.custom_security.max_version](resources--nfv_service--reference--group-003.md#canonical-3222200121010012-0330230200120233-1230200100000201-3130001333130330-3320212330103012-0330033220330233-2113110113232331-2312100012301030) |
-| `https_management.advertise_on_slo_vip.tls_config.custom_security.min_version` | [https_management.advertise_on_slo_vip.tls_config.custom_security.min_version](resources--nfv_service--reference--group-003.md#canonical-2321001301201123-2233213212103110-2222201000022123-1202123011102330-2330201003211002-0232030323211122-2122212133110311-1330102023331302) |
-| `https_management.advertise_on_slo_vip.tls_config.default_security` | [https_management.advertise_on_slo_vip.tls_config.default_security](resources--nfv_service--reference--group-003.md#canonical-3332030021111030-1113101321222033-0201230203232021-2213021300313011-2211121121031031-2223003300211230-1012300212211330-2122330213231131) |
-| `https_management.advertise_on_slo_vip.tls_config.low_security` | [https_management.advertise_on_slo_vip.tls_config.low_security](resources--nfv_service--reference--group-003.md#canonical-1000233322232110-0231303001213012-3003210203323132-0103012001221131-1023320201112120-0112310313321313-0033200012313231-2132031312203211) |
-| `https_management.advertise_on_slo_vip.tls_config.medium_security` | [https_management.advertise_on_slo_vip.tls_config.medium_security](resources--nfv_service--reference--group-003.md#canonical-0023303013333212-1123100113313230-2200121022202303-2320303332321100-2100003333121222-3231121301313320-0130303121200011-3300111302033322) |
-| `https_management.advertise_on_slo_vip.use_mtls` | [https_management.advertise_on_slo_vip.use_mtls](resources--nfv_service--reference--group-003.md#canonical-2200112003032112-1010021111303003-1023010233101132-0112120202101103-3020221312010011-0211211303333131-0011021310102020-1321233302210010) |
-| `https_management.advertise_on_slo_vip.use_mtls.client_certificate_optional` | [https_management.advertise_on_slo_vip.use_mtls.client_certificate_optional](resources--nfv_service--reference--group-003.md#canonical-2313330321013002-3202013002330222-3233113013221101-2033331002030032-3230000132200021-2200023131323111-2221032030201302-2223312202000202) |
-| `https_management.advertise_on_slo_vip.use_mtls.crl` | [https_management.advertise_on_slo_vip.use_mtls.crl](resources--nfv_service--reference--group-003.md#canonical-2130002231333210-1313222133110302-1202303320213031-1120222210010333-2113311301133022-0223110211302332-2001012300332310-1033230133111202) |
-| `https_management.advertise_on_slo_vip.use_mtls.crl.name` | [https_management.advertise_on_slo_vip.use_mtls.crl.name](resources--nfv_service--reference--group-003.md#canonical-0002321323323132-1010301303030231-2320113002130013-1020301220023133-2300320200323312-1103232022122330-1120113221331012-0210120301132230) |
-| `https_management.advertise_on_slo_vip.use_mtls.crl.namespace` | [https_management.advertise_on_slo_vip.use_mtls.crl.namespace](resources--nfv_service--reference--group-003.md#canonical-3312212220211032-3201123022211330-2033303213322312-3012001011302233-3003213023103321-3032313312200223-2302301132032330-2122321210231301) |
-| `https_management.advertise_on_slo_vip.use_mtls.crl.tenant` | [https_management.advertise_on_slo_vip.use_mtls.crl.tenant](resources--nfv_service--reference--group-003.md#canonical-3103200223220101-1112312121012233-0212111223230112-2201232200331020-3211311233032203-0100303010200010-3313313320032223-0311302320002003) |
-| `https_management.advertise_on_slo_vip.use_mtls.no_crl` | [https_management.advertise_on_slo_vip.use_mtls.no_crl](resources--nfv_service--reference--group-003.md#canonical-2132332003300103-3113011002312213-2031132200002102-0302130103313111-3131111110203310-2011221310312122-2021223021121012-0233230210033201) |
-| `https_management.advertise_on_slo_vip.use_mtls.trusted_ca` | [https_management.advertise_on_slo_vip.use_mtls.trusted_ca](resources--nfv_service--reference--group-003.md#canonical-3031030100112003-0123312130332120-0323100223200332-3030021200122113-0301100330022102-2000230112110033-2212000300220000-3103211000022320) |
-| `https_management.advertise_on_slo_vip.use_mtls.trusted_ca.name` | [https_management.advertise_on_slo_vip.use_mtls.trusted_ca.name](resources--nfv_service--reference--group-003.md#canonical-1303103011321322-0323212111022331-0022330123211002-2313223001032311-3011001302302133-2331333300310021-2221313131312021-3030300103002333) |
-| `https_management.advertise_on_slo_vip.use_mtls.trusted_ca.namespace` | [https_management.advertise_on_slo_vip.use_mtls.trusted_ca.namespace](resources--nfv_service--reference--group-003.md#canonical-3211013020303230-3011013233210033-2320303320023312-1213303231321100-0131013113021300-2130002332112020-3011333130202031-1003321110012002) |
-| `https_management.advertise_on_slo_vip.use_mtls.trusted_ca.tenant` | [https_management.advertise_on_slo_vip.use_mtls.trusted_ca.tenant](resources--nfv_service--reference--group-003.md#canonical-1222311001323310-0121022013112311-0013233000120121-2100230230001020-0333223301123233-0221313310332013-2023012013013330-1012222331123021) |
-| `https_management.advertise_on_slo_vip.use_mtls.trusted_ca_url` | [https_management.advertise_on_slo_vip.use_mtls.trusted_ca_url](resources--nfv_service--reference--group-003.md#canonical-0133012010033123-2120131301102210-3100311011020003-1313322222022022-2122121310010311-1112131121303110-0200320302330311-1203223223113322) |
-| `https_management.advertise_on_slo_vip.use_mtls.xfcc_disabled` | [https_management.advertise_on_slo_vip.use_mtls.xfcc_disabled](resources--nfv_service--reference--group-003.md#canonical-2032322113310033-0223322130231333-2230312000123322-0031311111333312-2212331330110232-0010301130023102-2331310031032011-0103221310211302) |
-| `https_management.advertise_on_slo_vip.use_mtls.xfcc_options` | [https_management.advertise_on_slo_vip.use_mtls.xfcc_options](resources--nfv_service--reference--group-003.md#canonical-2333231231323323-2133022210030203-3003200312100312-3300210313131010-2220111223223331-3213223302002320-1123000021321320-1010110330311303) |
-| `https_management.advertise_on_slo_vip.use_mtls.xfcc_options.xfcc_header_elements` | [https_management.advertise_on_slo_vip.use_mtls.xfcc_options.xfcc_header_elements](resources--nfv_service--reference--group-003.md#canonical-2233231322021022-3003020210323122-3331331121100030-0211132331301002-0203020201333001-0201010101210222-1110113202032020-2000010000132101) |
-| `https_management.default_https_port` | [https_management.default_https_port](resources--nfv_service--reference--group-003.md#canonical-0320211030330020-2221000001121023-2100203330232133-3311230331201001-0322003221233200-2022031033323333-0112023223112111-3022322032020002) |
-| `https_management.domain_suffix` | [https_management.domain_suffix](resources--nfv_service--reference--group-002.md#canonical-3131321201111130-3033222200321231-1201202313023231-1333112310130303-0322120131011100-3120231222222200-3012213001122230-2023330133221023) |
-| `https_management.https_port` | [https_management.https_port](resources--nfv_service--reference--group-002.md#canonical-0123023032232303-0323211001202133-2013003322001322-1032312221231232-2112222313233021-0230202320231133-3133101222220000-2000332000110001) |
+| `https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info` | [https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info](resources--nfv_service--reference--group-004.md#canonical-1331111321322033-3212131212031310-2231023021332322-3333003101202020-1330132302130321-1120321003203012-2230023111111213-3203033111022323) |
+| `https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info.decryption_provider` | [https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info.decryption_provider](resources--nfv_service--reference--group-004.md#canonical-3211033203210233-3021100103321211-0113213303233220-2003022202221211-0131122331222331-0001221303201332-1211021233013131-0331103213300132) |
+| `https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info.location` | [https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info.location](resources--nfv_service--reference--group-004.md#canonical-1132213331011100-0301000132302203-0023301313312020-1213300103201230-0330321011302011-0132002122101302-2301212231130310-0123001202102303) |
+| `https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info.store_provider` | [https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info.store_provider](resources--nfv_service--reference--group-004.md#canonical-0330221101110201-1233332133032021-1133101120321202-2210102203220330-2123132220100123-1213332132202002-2013002223331020-3232100021301030) |
+| `https_management.advertise_on_slo_vip.tls_certificates.private_key.clear_secret_info` | [https_management.advertise_on_slo_vip.tls_certificates.private_key.clear_secret_info](resources--nfv_service--reference--group-004.md#canonical-3112202333130320-2010030322332211-3130233201012322-1221302032101201-2202113231331232-1101111313303330-3321210023100121-3320231101000232) |
+| `https_management.advertise_on_slo_vip.tls_certificates.private_key.clear_secret_info.provider_ref` | [https_management.advertise_on_slo_vip.tls_certificates.private_key.clear_secret_info.provider_ref](resources--nfv_service--reference--group-004.md#canonical-2330310221230030-2033003003301231-3220231311230301-1221311302303332-3010131220222321-3123321302330211-2023320220201312-3330012011300301) |
+| `https_management.advertise_on_slo_vip.tls_certificates.private_key.clear_secret_info.url` | [https_management.advertise_on_slo_vip.tls_certificates.private_key.clear_secret_info.url](resources--nfv_service--reference--group-004.md#canonical-1330000113003310-1221211232022200-3332313231310121-2133222211303223-1220312220022113-1201230200203233-2022301023033230-1311032121212121) |
+| `https_management.advertise_on_slo_vip.tls_certificates.use_system_defaults` | [https_management.advertise_on_slo_vip.tls_certificates.use_system_defaults](resources--nfv_service--reference--group-004.md#canonical-2031012322002012-2010113222110322-2201220223000202-2103121223311322-0010210210332020-0210210031002211-1021230010011103-0021120103201102) |
+| `https_management.advertise_on_slo_vip.tls_config` | [https_management.advertise_on_slo_vip.tls_config](resources--nfv_service--reference--group-004.md#canonical-1313201200001300-0122302203303021-1011222313013121-3222212101023200-2202310100223220-2320332211322110-1030330332233120-0000220030000031) |
+| `https_management.advertise_on_slo_vip.tls_config.custom_security` | [https_management.advertise_on_slo_vip.tls_config.custom_security](resources--nfv_service--reference--group-004.md#canonical-1101323212030332-1010223232300102-2033332330332011-2033111302131100-3233012310013022-3031312022211032-0021311300033323-1212103303312230) |
+| `https_management.advertise_on_slo_vip.tls_config.custom_security.cipher_suites` | [https_management.advertise_on_slo_vip.tls_config.custom_security.cipher_suites](resources--nfv_service--reference--group-004.md#canonical-0331230020232022-1200003320012120-0033031001113120-1202021230311210-1312302013230323-2320030211223320-0312110303110230-0010022033212131) |
+| `https_management.advertise_on_slo_vip.tls_config.custom_security.max_version` | [https_management.advertise_on_slo_vip.tls_config.custom_security.max_version](resources--nfv_service--reference--group-004.md#canonical-3222200121010012-0330230200120233-1230200100000201-3130001333130330-3320212330103012-0330033220330233-2113110113232331-2312100012301030) |
+| `https_management.advertise_on_slo_vip.tls_config.custom_security.min_version` | [https_management.advertise_on_slo_vip.tls_config.custom_security.min_version](resources--nfv_service--reference--group-004.md#canonical-2321001301201123-2233213212103110-2222201000022123-1202123011102330-2330201003211002-0232030323211122-2122212133110311-1330102023331302) |
+| `https_management.advertise_on_slo_vip.tls_config.default_security` | [https_management.advertise_on_slo_vip.tls_config.default_security](resources--nfv_service--reference--group-004.md#canonical-3332030021111030-1113101321222033-0201230203232021-2213021300313011-2211121121031031-2223003300211230-1012300212211330-2122330213231131) |
+| `https_management.advertise_on_slo_vip.tls_config.low_security` | [https_management.advertise_on_slo_vip.tls_config.low_security](resources--nfv_service--reference--group-004.md#canonical-1000233322232110-0231303001213012-3003210203323132-0103012001221131-1023320201112120-0112310313321313-0033200012313231-2132031312203211) |
+| `https_management.advertise_on_slo_vip.tls_config.medium_security` | [https_management.advertise_on_slo_vip.tls_config.medium_security](resources--nfv_service--reference--group-004.md#canonical-0023303013333212-1123100113313230-2200121022202303-2320303332321100-2100003333121222-3231121301313320-0130303121200011-3300111302033322) |
+| `https_management.advertise_on_slo_vip.use_mtls` | [https_management.advertise_on_slo_vip.use_mtls](resources--nfv_service--reference--group-004.md#canonical-2200112003032112-1010021111303003-1023010233101132-0112120202101103-3020221312010011-0211211303333131-0011021310102020-1321233302210010) |
+| `https_management.advertise_on_slo_vip.use_mtls.client_certificate_optional` | [https_management.advertise_on_slo_vip.use_mtls.client_certificate_optional](resources--nfv_service--reference--group-004.md#canonical-2313330321013002-3202013002330222-3233113013221101-2033331002030032-3230000132200021-2200023131323111-2221032030201302-2223312202000202) |
+| `https_management.advertise_on_slo_vip.use_mtls.crl` | [https_management.advertise_on_slo_vip.use_mtls.crl](resources--nfv_service--reference--group-004.md#canonical-2130002231333210-1313222133110302-1202303320213031-1120222210010333-2113311301133022-0223110211302332-2001012300332310-1033230133111202) |
+| `https_management.advertise_on_slo_vip.use_mtls.crl.name` | [https_management.advertise_on_slo_vip.use_mtls.crl.name](resources--nfv_service--reference--group-004.md#canonical-0002321323323132-1010301303030231-2320113002130013-1020301220023133-2300320200323312-1103232022122330-1120113221331012-0210120301132230) |
+| `https_management.advertise_on_slo_vip.use_mtls.crl.namespace` | [https_management.advertise_on_slo_vip.use_mtls.crl.namespace](resources--nfv_service--reference--group-004.md#canonical-3312212220211032-3201123022211330-2033303213322312-3012001011302233-3003213023103321-3032313312200223-2302301132032330-2122321210231301) |
+| `https_management.advertise_on_slo_vip.use_mtls.crl.tenant` | [https_management.advertise_on_slo_vip.use_mtls.crl.tenant](resources--nfv_service--reference--group-004.md#canonical-3103200223220101-1112312121012233-0212111223230112-2201232200331020-3211311233032203-0100303010200010-3313313320032223-0311302320002003) |
+| `https_management.advertise_on_slo_vip.use_mtls.no_crl` | [https_management.advertise_on_slo_vip.use_mtls.no_crl](resources--nfv_service--reference--group-004.md#canonical-2132332003300103-3113011002312213-2031132200002102-0302130103313111-3131111110203310-2011221310312122-2021223021121012-0233230210033201) |
+| `https_management.advertise_on_slo_vip.use_mtls.trusted_ca` | [https_management.advertise_on_slo_vip.use_mtls.trusted_ca](resources--nfv_service--reference--group-004.md#canonical-3031030100112003-0123312130332120-0323100223200332-3030021200122113-0301100330022102-2000230112110033-2212000300220000-3103211000022320) |
+| `https_management.advertise_on_slo_vip.use_mtls.trusted_ca.name` | [https_management.advertise_on_slo_vip.use_mtls.trusted_ca.name](resources--nfv_service--reference--group-004.md#canonical-1303103011321322-0323212111022331-0022330123211002-2313223001032311-3011001302302133-2331333300310021-2221313131312021-3030300103002333) |
+| `https_management.advertise_on_slo_vip.use_mtls.trusted_ca.namespace` | [https_management.advertise_on_slo_vip.use_mtls.trusted_ca.namespace](resources--nfv_service--reference--group-004.md#canonical-3211013020303230-3011013233210033-2320303320023312-1213303231321100-0131013113021300-2130002332112020-3011333130202031-1003321110012002) |
+| `https_management.advertise_on_slo_vip.use_mtls.trusted_ca.tenant` | [https_management.advertise_on_slo_vip.use_mtls.trusted_ca.tenant](resources--nfv_service--reference--group-004.md#canonical-1222311001323310-0121022013112311-0013233000120121-2100230230001020-0333223301123233-0221313310332013-2023012013013330-1012222331123021) |
+| `https_management.advertise_on_slo_vip.use_mtls.trusted_ca_url` | [https_management.advertise_on_slo_vip.use_mtls.trusted_ca_url](resources--nfv_service--reference--group-004.md#canonical-0133012010033123-2120131301102210-3100311011020003-1313322222022022-2122121310010311-1112131121303110-0200320302330311-1203223223113322) |
+| `https_management.advertise_on_slo_vip.use_mtls.xfcc_disabled` | [https_management.advertise_on_slo_vip.use_mtls.xfcc_disabled](resources--nfv_service--reference--group-004.md#canonical-2032322113310033-0223322130231333-2230312000123322-0031311111333312-2212331330110232-0010301130023102-2331310031032011-0103221310211302) |
+| `https_management.advertise_on_slo_vip.use_mtls.xfcc_options` | [https_management.advertise_on_slo_vip.use_mtls.xfcc_options](resources--nfv_service--reference--group-004.md#canonical-2333231231323323-2133022210030203-3003200312100312-3300210313131010-2220111223223331-3213223302002320-1123000021321320-1010110330311303) |
+| `https_management.advertise_on_slo_vip.use_mtls.xfcc_options.xfcc_header_elements` | [https_management.advertise_on_slo_vip.use_mtls.xfcc_options.xfcc_header_elements](resources--nfv_service--reference--group-004.md#canonical-2233231322021022-3003020210323122-3331331121100030-0211132331301002-0203020201333001-0201010101210222-1110113202032020-2000010000132101) |
+| `https_management.default_https_port` | [https_management.default_https_port](resources--nfv_service--reference--group-004.md#canonical-0320211030330020-2221000001121023-2100203330232133-3311230331201001-0322003221233200-2022031033323333-0112023223112111-3022322032020002) |
+| `https_management.domain_suffix` | [https_management.domain_suffix](resources--nfv_service--reference--group-001.md#canonical-3131321201111130-3033222200321231-1201202313023231-1333112310130303-0322120131011100-3120231222222200-3012213001122230-2023330133221023) |
+| `https_management.https_port` | [https_management.https_port](resources--nfv_service--reference--group-001.md#canonical-0123023032232303-0323211001202133-2013003322001322-1032312221231232-2112222313233021-0230202320231133-3133101222220000-2000332000110001) |
 | `id` | [ID](resources--nfv_service--reference--group-001.md#canonical-2202210003230021-2123331330221213-2220013231110122-0233313101232312-2132301010233111-3331221220311002-3100330200012101-3230310003211130) |
 | `labels` | [labels](resources--nfv_service--reference--group-001.md#canonical-3123203312302020-1021113033213221-3110100013022111-1202032011011331-1202010201312110-3011233013030200-1102102033300321-0130311301000210) |
 | `name` | [name](resources--nfv_service--reference--group-001.md#canonical-0113312013100323-3001203330313203-2130221120123200-2133232231013333-2131013222231223-0001230333223222-1113001322233220-3311213231123230) |
 | `namespace` | [namespace](resources--nfv_service--reference--group-001.md#canonical-2132211332310221-0321032100122201-0031303002231002-1333110022202310-2030213001222303-0001030222111003-3232120313210031-2300300123223022) |
-| `palo_alto_fw_service` | [palo_alto_fw_service](resources--nfv_service--reference--group-003.md#canonical-1000211303110321-2132033102233220-3202330310311301-1011321010001303-2002102233013002-0110203131021011-1312303320302102-2012032301010010) |
-| `palo_alto_fw_service.auto_setup` | [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-003.md#canonical-3310302012302032-0132011203023101-1302100100013130-1010111331312131-2232100232203002-1131312233001023-3132321131020132-0022132333300322) |
+| `palo_alto_fw_service` | [palo_alto_fw_service](resources--nfv_service--reference--group-004.md#canonical-1000211303110321-2132033102233220-3202330310311301-1011321010001303-2002102233013002-0110203131021011-1312303320302102-2012032301010010) |
+| `palo_alto_fw_service.auto_setup` | [palo_alto_fw_service.auto_setup](resources--nfv_service--reference--group-004.md#canonical-3310302012302032-0132011203023101-1302100100013130-1010111331312131-2232100232203002-1131312233001023-3132321131020132-0022132333300322) |
 | `palo_alto_fw_service.auto_setup.admin_password` | [palo_alto_fw_service.auto_setup.admin_password](resources--nfv_service--reference--group-004.md#canonical-2133330101012003-3220110310231233-0121210023200111-1002312202212001-3001330023110033-2330311203202123-3221100300133330-0231000331331011) |
 | `palo_alto_fw_service.auto_setup.admin_password.blindfold_secret_info` | [palo_alto_fw_service.auto_setup.admin_password.blindfold_secret_info](resources--nfv_service--reference--group-004.md#canonical-3312321002331313-0321112300220131-1222100300200220-0131201330212003-2312113203330022-3220333111110133-3232102011322122-0001001301230310) |
 | `palo_alto_fw_service.auto_setup.admin_password.blindfold_secret_info.decryption_provider` | [palo_alto_fw_service.auto_setup.admin_password.blindfold_secret_info.decryption_provider](resources--nfv_service--reference--group-004.md#canonical-3322323302230030-3023223200122013-1110200033331311-2030321202301232-3300213330133200-1302232202313101-1021112213231303-0200310310311332) |
@@ -595,7 +586,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `palo_alto_fw_service.auto_setup.admin_password.clear_secret_info` | [palo_alto_fw_service.auto_setup.admin_password.clear_secret_info](resources--nfv_service--reference--group-004.md#canonical-3230020201102003-2021032330122033-2311223332112133-2200023321023203-3201300223320020-2201113113022210-0313223121122011-2030300031323033) |
 | `palo_alto_fw_service.auto_setup.admin_password.clear_secret_info.provider_ref` | [palo_alto_fw_service.auto_setup.admin_password.clear_secret_info.provider_ref](resources--nfv_service--reference--group-004.md#canonical-3211013132311310-1000323123220322-3313231010331110-3330310111113311-2223310303022001-2213102321110222-2012101231313301-1222230211131132) |
 | `palo_alto_fw_service.auto_setup.admin_password.clear_secret_info.url` | [palo_alto_fw_service.auto_setup.admin_password.clear_secret_info.url](resources--nfv_service--reference--group-004.md#canonical-0132311130023313-0333011032233031-2212112101110311-1221320102203033-2130300103212203-2003033101103231-3103331122101111-0233121120222032) |
-| `palo_alto_fw_service.auto_setup.admin_username` | [palo_alto_fw_service.auto_setup.admin_username](resources--nfv_service--reference--group-003.md#canonical-2000103103321101-3101320102231022-0310121132320223-2021323230002232-1301322031210000-3013100302223002-2032310312033030-2010023002232300) |
+| `palo_alto_fw_service.auto_setup.admin_username` | [palo_alto_fw_service.auto_setup.admin_username](resources--nfv_service--reference--group-004.md#canonical-2000103103321101-3101320102231022-0310121132320223-2021323230002232-1301322031210000-3013100302223002-2032310312033030-2010023002232300) |
 | `palo_alto_fw_service.auto_setup.manual_ssh_keys` | [palo_alto_fw_service.auto_setup.manual_ssh_keys](resources--nfv_service--reference--group-004.md#canonical-0233122221112122-2121000312332323-0210133332122101-3131322212331211-3322102301130031-1333313202212332-1001210012012320-1022303302302113) |
 | `palo_alto_fw_service.auto_setup.manual_ssh_keys.private_key` | [palo_alto_fw_service.auto_setup.manual_ssh_keys.private_key](resources--nfv_service--reference--group-004.md#canonical-2332213020122031-2210303020333031-0231323012200101-1013100333121130-2123022022301132-3312311231223300-0122213032331233-0221101031102201) |
 | `palo_alto_fw_service.auto_setup.manual_ssh_keys.private_key.blindfold_secret_info` | [palo_alto_fw_service.auto_setup.manual_ssh_keys.private_key.blindfold_secret_info](resources--nfv_service--reference--group-004.md#canonical-1223221033213103-0320031310222133-3233330101313111-1023120120332102-1320303212210223-3100031013232012-1332230300100003-0021230222311211) |
@@ -611,7 +602,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `palo_alto_fw_service.aws_tgw_site.namespace` | [palo_alto_fw_service.aws_tgw_site.namespace](resources--nfv_service--reference--group-004.md#canonical-3122310033303300-2130021021220211-3331120031233000-3231023212221200-2210213110100121-1032121012110103-2221100123231321-0101002330032112) |
 | `palo_alto_fw_service.aws_tgw_site.tenant` | [palo_alto_fw_service.aws_tgw_site.tenant](resources--nfv_service--reference--group-004.md#canonical-2122313220212011-1122203033130303-3001030133311020-3032212213333113-2323011312302010-2310122003122122-3022313123300033-3101112313021121) |
 | `palo_alto_fw_service.disable_panaroma` | [palo_alto_fw_service.disable_panaroma](resources--nfv_service--reference--group-004.md#canonical-3002013203212303-1231321022023203-1113203102303113-2220333121002030-3102123003003201-3102033131320002-0302310223121031-3000223212121300) |
-| `palo_alto_fw_service.instance_type` | [palo_alto_fw_service.instance_type](resources--nfv_service--reference--group-003.md#canonical-2213122313101232-3203212022110121-3113222323130102-1332110123031000-1321203232212032-3010311012231201-3130032232010011-1003302030223131) |
+| `palo_alto_fw_service.instance_type` | [palo_alto_fw_service.instance_type](resources--nfv_service--reference--group-004.md#canonical-2213122313101232-3203212022110121-3113222323130102-1332110123031000-1321203232212032-3010311012231201-3130032232010011-1003302030223131) |
 | `palo_alto_fw_service.pan_ami_bundle1` | [palo_alto_fw_service.pan_ami_bundle1](resources--nfv_service--reference--group-004.md#canonical-1322111223223220-1200112101001320-3213321113212023-2111020123103132-0110211002031300-0321112200201223-0003223230011200-3113033102023213) |
 | `palo_alto_fw_service.pan_ami_bundle2` | [palo_alto_fw_service.pan_ami_bundle2](resources--nfv_service--reference--group-004.md#canonical-1122011022100102-3223030111002132-0211100321303211-0212120111031321-2331113023322213-0002303202323120-1012022233331310-3123312112302312) |
 | `palo_alto_fw_service.panorama_server` | [palo_alto_fw_service.panorama_server](resources--nfv_service--reference--group-004.md#canonical-3103121332133303-2123033121010032-2301130103230033-3210111033023111-1130030220000033-2321220010112202-1313313032031300-1012210333022122) |
@@ -635,27 +626,14 @@ Each exact path has one authoritative reference destination. Collection element 
 | `palo_alto_fw_service.service_nodes.nodes.mgmt_subnet.subnet_param.ipv4` | [palo_alto_fw_service.service_nodes.nodes.mgmt_subnet.subnet_param.ipv4](resources--nfv_service--reference--group-004.md#canonical-2231301202103133-2302103323312212-2230003210333200-3310001200132120-1122102101133210-1203120333111320-0213111002011020-2033333003311322) |
 | `palo_alto_fw_service.service_nodes.nodes.node_name` | [palo_alto_fw_service.service_nodes.nodes.node_name](resources--nfv_service--reference--group-004.md#canonical-2321023313313102-3323210311131300-2212100330310232-0011111301010312-2112222101213213-1122130030200212-2311110011022222-2131130010323213) |
 | `palo_alto_fw_service.service_nodes.nodes.reserved_mgmt_subnet` | [palo_alto_fw_service.service_nodes.nodes.reserved_mgmt_subnet](resources--nfv_service--reference--group-004.md#canonical-3213003231222112-2333030130012231-0233132333121220-1202133030113230-1102002001023102-2120121322111033-2032313103103121-3310203032113132) |
-| `palo_alto_fw_service.ssh_key` | [palo_alto_fw_service.ssh_key](resources--nfv_service--reference--group-003.md#canonical-0012322131130123-0120023232110303-0000302311232212-2101211230330313-0021311112213233-0111102100133301-3320122002203211-0103111331231221) |
-| `palo_alto_fw_service.tags` | [palo_alto_fw_service.tags](resources--nfv_service--reference--group-003.md#canonical-2222200222102312-2213202200002330-2322120223121012-0211010210303330-1331120313221203-3213032211211020-3002123130003131-1110320202331232) |
-| `palo_alto_fw_service.version` | [palo_alto_fw_service.version](resources--nfv_service--reference--group-003.md#canonical-3133201303322112-3200103333121012-2123130323122010-0300222021211033-1022111311000133-1210121113303002-1212230303100230-2231000130111310) |
+| `palo_alto_fw_service.ssh_key` | [palo_alto_fw_service.ssh_key](resources--nfv_service--reference--group-004.md#canonical-0012322131130123-0120023232110303-0000302311232212-2101211230330313-0021311112213233-0111102100133301-3320122002203211-0103111331231221) |
+| `palo_alto_fw_service.tags` | [palo_alto_fw_service.tags](resources--nfv_service--reference--group-004.md#canonical-2222200222102312-2213202200002330-2322120223121012-0211010210303330-1331120313221203-3213032211211020-3002123130003131-1110320202331232) |
+| `palo_alto_fw_service.version` | [palo_alto_fw_service.version](resources--nfv_service--reference--group-004.md#canonical-3133201303322112-3200103333121012-2123130323122010-0300222021211033-1022111311000133-1210121113303002-1212230303100230-2231000130111310) |
 | `timeouts` | [timeouts](resources--nfv_service--reference--group-004.md#canonical-2232213200300031-0231011230212012-2030223133101200-3212212323011330-2132013202023300-3200300330113012-3333321303101212-3332213233102122) |
 | `timeouts.create` | [timeouts.create](resources--nfv_service--reference--group-004.md#canonical-3222232213020000-2113233003111233-0132003233332011-1003013312011030-2000121310103022-1331033313331031-2330020320223021-2100322221223012) |
 | `timeouts.delete` | [timeouts.delete](resources--nfv_service--reference--group-004.md#canonical-2000013102223211-2110323122200231-3332122233130011-1113222222023000-0120010230202233-2331332033022313-2230303023200321-3133313220110321) |
 | `timeouts.read` | [timeouts.read](resources--nfv_service--reference--group-004.md#canonical-1303103300312222-2332033231033211-0011323303023333-3230002311302303-3001110303202133-1201113231302103-0022123020301201-2122022232232323) |
 | `timeouts.update` | [timeouts.update](resources--nfv_service--reference--group-004.md#canonical-2232323323112011-2100000222330312-2220130221023302-0101231132103333-3022311232331110-2230112110031201-3023120213302111-3023232122133100) |
-
-<a id="canonical-3332210232021333-1332211311213110-1001201122330321-1111031321203200-2133212231020330-1223033022113021-0322200210023000-1322002333302013"></a>
-
-## Next pages — Property reference / 113221030303 / 12
-
-- [disable_https_management](resources--nfv_service--reference--group-001.md#canonical-1213021122302111-2303132302331132-2033120022132312-0232210233303323-2001032101312213-3131012003332023-0101021121323031-2100213002233100)
-- [disable_ssh_access](resources--nfv_service--reference--group-001.md#canonical-1121230113200220-3301032102311323-1313313310300012-0131301302121233-3323233302031130-1303122223201233-3332210000021300-3200231130103032)
-- [enabled_ssh_access](resources--nfv_service--reference--group-001.md#canonical-1233323310221201-2110101010301322-3301231231110303-1003102112121320-1012103233232011-0000232331110323-2202130110221200-1133311203200010)
-- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
-- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
-- [palo_alto_fw_service](resources--nfv_service--reference--group-003.md#canonical-1220032300320010-0322310310320112-3102020032000031-0230002231133113-1321103031132221-2112211003001211-2001103020013300-3102213200033033)
-- [timeouts](resources--nfv_service--reference--group-004.md#canonical-0202232021221122-0000133111310212-2020203112302000-1210111320033230-0001031130310130-3231013003311031-0221323010300330-3130003223303201)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 
 <a id="canonical-1213021122302111-2303132302331132-2033120022132312-0232210233303323-2001032101312213-3131012003332023-0101021121323031-2100213002233100"></a>
 
@@ -663,9 +641,7 @@ Each exact path has one authoritative reference destination. Collection element 
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0123023012112030-1122200332113331-1103012130323123-2211003332002033-3320100123233012-2330021030223013-3110323331220122-2123112313102031"></a>
-
-## disable_https_management — disable_https_management / 023113123021 / 2
+## `disable_https_management` properties
 
 Breadcrumbs:
 
@@ -680,7 +656,7 @@ Type: `["object", {}]`. Optional.
 \[OneOf: disable\_https\_management, https\_management; Default: disable\_https\_management\]
 Configuration parameter for disable https management.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -700,7 +676,7 @@ Receipt-pinned upstream constraints:
 OneOf alternatives in this subsection:
 
 - [disable_https_management](resources--nfv_service--reference--group-001.md#canonical-3112312130013010-0213122301312322-1233230202121013-2232313130212030-0022130101301033-0101103110230133-2130301211211102-1301123223121110)
-- [https_management](resources--nfv_service--reference--group-002.md#canonical-2310110120210321-0011122021130100-1020101231210333-1001101201002320-3213323313112230-0312000102310210-1113012113122222-1223202310021130)
+- [https_management](resources--nfv_service--reference--group-001.md#canonical-2310110120210321-0011122021130100-1020101231210333-1001101201002320-3213323313112230-0312000102310210-1113012113122222-1223202310021130)
 
 Select alternatives according to the provider validators above.
 
@@ -710,18 +686,7 @@ Terraform syntax:
 disable_https_management = {}
 ```
 
-<a id="canonical-1020102030321320-1333321333210100-1230103201223110-2220321323011213-0011100221110203-1131120002123033-2302023002212222-1331233132302200"></a>
-
-## Direct properties — disable_https_management / 023113123021 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3013133223000203-3130302330131210-3020332130100120-2012320001333200-1012002233033223-3001323011112020-1303213002302030-2311012222212210"></a>
-
-## Next pages — disable_https_management / 023113123021 / 4
-
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 
 <a id="canonical-1121230113200220-3301032102311323-1313313310300012-0131301302121233-3323233302031130-1303122223201233-3332210000021300-3200231130103032"></a>
 
@@ -729,9 +694,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0011013222101131-2233221302103033-2113012232030312-1011302023313220-2231013232021020-0002333210310030-0033323313022133-3230222100131102"></a>
-
-## disable_ssh_access — disable_ssh_access / 120202302333 / 2
+## `disable_ssh_access` properties
 
 Breadcrumbs:
 
@@ -746,7 +709,7 @@ Type: `["object", {}]`. Optional.
 \[OneOf: disable\_ssh\_access, enabled\_ssh\_access; Default: disable\_ssh\_access\] Configuration
 parameter for disable SSH access.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -776,18 +739,7 @@ Terraform syntax:
 disable_ssh_access = {}
 ```
 
-<a id="canonical-2323110220123000-2130133010200332-1201301030313201-0131022233233213-1202312330230132-3113232013110110-3130220021321032-3312003103210022"></a>
-
-## Direct properties — disable_ssh_access / 120202302333 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0033223133023220-0011232222300112-3123230003111320-0022121031120120-1220010020112313-3123222331013033-2210001302120121-1231333113111031"></a>
-
-## Next pages — disable_ssh_access / 120202302333 / 4
-
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 
 <a id="canonical-1233323310221201-2110101010301322-3301231231110303-1003102112121320-1012103233232011-0000232331110323-2202130110221200-1133311203200010"></a>
 
@@ -795,9 +747,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1313013133021212-3330102103202133-2001002122101002-1321103300112233-2001123332210310-1301013011332232-3131312121011200-1200300130320021"></a>
-
-## enabled_ssh_access — enabled_ssh_access / 331312123300 / 2
+## `enabled_ssh_access` properties
 
 Breadcrumbs:
 
@@ -811,7 +761,7 @@ Type: `"object"`. single nested block, Optional.
 
 Configuration parameter for enabled SSH access.
 
-Upstream description:
+Additional upstream details:
 
 SSH based configuration.
 
@@ -850,9 +800,9 @@ enabled_ssh_access {
 }
 ```
 
-<a id="canonical-1013010032003313-3233100200301033-2112010122230320-1131010002102102-0111311110131201-1233303322303320-2103221010121020-2032001200132003"></a>
+<a id="canonical-1313013133021212-3330102103202133-2001002122101002-1321103300112233-2001123332210310-1301013011332232-3131312121011200-1200300130320021"></a>
 
-## Direct properties — enabled_ssh_access / 331312123300 / 3
+### Direct properties for `enabled_ssh_access`
 
 - [advertise_on_sli](resources--nfv_service--reference--group-001.md#canonical-0101102232222113-3100331132213111-3122201012102230-2202321122003010-0213100122100312-3013032200113102-3203020232232331-1112200321321030): complete subsection reference.
 
@@ -862,9 +812,9 @@ enabled_ssh_access {
 
 <a id="canonical-2020201313303300-1010202033210223-2101120030023332-1023230302232323-3300231213122233-1000113021111020-0111233220213221-2210102333012311"></a>
 
-<a id="canonical-2111203031303303-2130100311233221-1312001002321023-3230230113212101-2230201102233031-3320212303202000-2320210231221122-0022303122030130"></a>
+<a id="canonical-1013010032003313-3233100200301033-2112010122230320-1131010002102102-0111311110131201-1233303322303320-2103221010121020-2032001200132003"></a>
 
-## domain_suffix property — enabled_ssh_access / 331312123300 / 4
+#### `enabled_ssh_access.domain_suffix` property
 
 Type: `"string"`. Optional.
 
@@ -913,26 +863,13 @@ Receipt-pinned upstream constraints:
 
 - [node_ssh_ports](resources--nfv_service--reference--group-001.md#canonical-2320112001132030-0303302223332210-2023201233202012-2031021302200221-0121132101211303-2310102103021322-3032220021132123-3120320302212102): complete subsection reference.
 
-<a id="canonical-1211130102100112-1021311212222132-2312101000331231-0211202013021322-3202320023311003-0202123322231010-2233302330010020-2113201322121030"></a>
-
-## Next pages — enabled_ssh_access / 331312123300 / 5
-
-- [enabled_ssh_access.advertise_on_sli](resources--nfv_service--reference--group-001.md#canonical-0101102232222113-3100331132213111-3122201012102230-2202321122003010-0213100122100312-3013032200113102-3203020232232331-1112200321321030)
-- [enabled_ssh_access.advertise_on_slo](resources--nfv_service--reference--group-001.md#canonical-2313122330330301-1103203312101213-2021113003033113-3132003130032233-2232202322123113-1100211322010032-0033123213103232-1320011203300200)
-- [enabled_ssh_access.advertise_on_slo_sli](resources--nfv_service--reference--group-001.md#canonical-1330031012210003-2220302330022203-3123300332223001-0102312202232013-1111022003030130-0013021223322033-3013230111113303-0003330222120032)
-- [enabled_ssh_access.node_ssh_ports](resources--nfv_service--reference--group-001.md#canonical-2320112001132030-0303302223332210-2023201233202012-2031021302200221-0121132101211303-2310102103021322-3032220021132123-3120320302212102)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-
 <a id="canonical-0101102232222113-3100331132213111-3122201012102230-2202321122003010-0213100122100312-3013032200113102-3203020232232331-1112200321321030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0121002311020012-0232331112200131-2312233030121312-1322030002320312-3001110330220322-2113300032333112-1011011011102313-3230230032223210"></a>
-
-## enabled_ssh_access.advertise_on_sli — advertise_on_sli / 133223122333 / 2
+## `enabled_ssh_access.advertise_on_sli` properties
 
 Breadcrumbs:
 
@@ -947,7 +884,7 @@ Type: `["object", {}]`. Optional.
 
 Configuration parameter for advertise on sli.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -970,18 +907,7 @@ Terraform syntax:
 advertise_on_sli = {}
 ```
 
-<a id="canonical-2310222311331330-2000122102202011-0010220233033113-1213303303031010-3311133011100323-0311313330312223-3213020033203100-3333100010011121"></a>
-
-## Direct properties — advertise_on_sli / 133223122333 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2332303212131311-0323321202023213-2331333113221102-3011220001203322-2112012102001211-1001320313113001-1030200012311033-3030111112133010"></a>
-
-## Next pages — advertise_on_sli / 133223122333 / 4
-
-- [enabled_ssh_access](resources--nfv_service--reference--group-001.md#canonical-1233323310221201-2110101010301322-3301231231110303-1003102112121320-1012103233232011-0000232331110323-2202130110221200-1133311203200010)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 
 <a id="canonical-2313122330330301-1103203312101213-2021113003033113-3132003130032233-2232202322123113-1100211322010032-0033123213103232-1320011203300200"></a>
 
@@ -989,9 +915,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0230220301023211-2321300220112300-0013222213102021-0031113222212120-3030202110121013-1300303130332003-2301123310310010-1110203201201032"></a>
-
-## enabled_ssh_access.advertise_on_slo — advertise_on_slo / 120110133322 / 2
+## `enabled_ssh_access.advertise_on_slo` properties
 
 Breadcrumbs:
 
@@ -1006,7 +930,7 @@ Type: `["object", {}]`. Optional.
 
 Configuration parameter for advertise on slo.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1029,18 +953,7 @@ Terraform syntax:
 advertise_on_slo = {}
 ```
 
-<a id="canonical-0100033310332311-3230231002203223-3301033130013032-0020201003023000-1200200013330331-1210101210303231-3230220202313022-1323201010013312"></a>
-
-## Direct properties — advertise_on_slo / 120110133322 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0112230013130131-1103002023212120-3033110303223123-2131020320032023-2123002322210201-3023333233211102-2110010003012023-0010232203213113"></a>
-
-## Next pages — advertise_on_slo / 120110133322 / 4
-
-- [enabled_ssh_access](resources--nfv_service--reference--group-001.md#canonical-1233323310221201-2110101010301322-3301231231110303-1003102112121320-1012103233232011-0000232331110323-2202130110221200-1133311203200010)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 
 <a id="canonical-1330031012210003-2220302330022203-3123300332223001-0102312202232013-1111022003030130-0013021223322033-3013230111113303-0003330222120032"></a>
 
@@ -1048,9 +961,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0013333011322033-3213133213111201-2230332202003300-1203101223133122-2023003132311203-1030203023302321-1012111323100211-3231031020331332"></a>
-
-## enabled_ssh_access.advertise_on_slo_sli — advertise_on_slo_sli / 311211202221 / 2
+## `enabled_ssh_access.advertise_on_slo_sli` properties
 
 Breadcrumbs:
 
@@ -1065,7 +976,7 @@ Type: `["object", {}]`. Optional.
 
 Configuration parameter for advertise on slo sli.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1088,18 +999,7 @@ Terraform syntax:
 advertise_on_slo_sli = {}
 ```
 
-<a id="canonical-0112323221023232-1013113331312213-2033123000101113-2220233313303032-1233233222322320-1111211213122200-1013313232323212-2101320230112013"></a>
-
-## Direct properties — advertise_on_slo_sli / 311211202221 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0312201020001013-3302322331012231-2103002030000101-3300202002212112-2001101023313320-2323233323300220-1322031311013202-0020302223231323"></a>
-
-## Next pages — advertise_on_slo_sli / 311211202221 / 4
-
-- [enabled_ssh_access](resources--nfv_service--reference--group-001.md#canonical-1233323310221201-2110101010301322-3301231231110303-1003102112121320-1012103233232011-0000232331110323-2202130110221200-1133311203200010)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 
 <a id="canonical-2320112001132030-0303302223332210-2023201233202012-2031021302200221-0121132101211303-2310102103021322-3032220021132123-3120320302212102"></a>
 
@@ -1107,9 +1007,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2033331121231211-0102020132132231-0000021001330233-1302222231122111-3030303102130303-2201101222111220-2210221021320213-2130311121011213"></a>
-
-## enabled_ssh_access.node_ssh_ports — node_ssh_ports / 000223313202 / 2
+## `enabled_ssh_access.node_ssh_ports` properties
 
 Breadcrumbs:
 
@@ -1123,10 +1021,6 @@ Breadcrumbs:
 Type: `"object"`. list nested block, Optional.
 
 Management Node SSH Port. Enter TCP port and node name per node.
-
-Upstream description:
-
-Enter TCP port and node name per node.
 
 Provider validators and defaults (from schema source):
 
@@ -1176,15 +1070,13 @@ node_ssh_ports {
 }
 ```
 
-<a id="canonical-3303222312332101-1202220320220201-1231013130002003-0233231012201220-2012301020220220-2212230212231002-1122223131312130-3223310011121000"></a>
+<a id="canonical-2033331121231211-0102020132132231-0000021001330233-1302222231122111-3030303102130303-2201101222111220-2210221021320213-2130311121011213"></a>
 
-## Direct properties — node_ssh_ports / 000223313202 / 3
+### Direct properties for `enabled_ssh_access.node_ssh_ports`
 
 <a id="canonical-0311023330222223-2231312201023331-1310102133100122-3323001122303210-2221201003011301-0013011013323001-0331130103231201-1302311300110220"></a>
 
-<a id="canonical-2122231030312133-0003202312213231-3321000022011021-1020220120100200-3230320100212002-2332102230112133-3131023202311202-3113231231101113"></a>
-
-## node_name property — node_ssh_ports / 000223313202 / 4
+#### `enabled_ssh_access.node_ssh_ports.node_name` property
 
 Type: `"string"`. Optional.
 
@@ -1240,17 +1132,13 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3213021100333102-0320320221303020-2011100001021130-3322000022023233-0103300220122031-1221211101011311-0311030210021112-1130322030113320"></a>
 
-<a id="canonical-2310213201112303-0110230012030230-3020123210112011-2103310311100233-3023303223331211-1103231323323210-0100003230330322-3312000222321102"></a>
+<a id="canonical-3303222312332101-1202220320220201-1231013130002003-0233231012201220-2012301020220220-2212230212231002-1122223131312130-3223310011121000"></a>
 
-## ssh_port property — node_ssh_ports / 000223313202 / 5
+#### `enabled_ssh_access.node_ssh_ports.ssh_port` property
 
 Type: `"number"`. Optional.
 
 SSH Port. Enter TCP port per node.
-
-Upstream description:
-
-Enter TCP port per node.
 
 Provider validators and defaults (from schema source):
 
@@ -1295,22 +1183,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2200200332010222-0200011131133311-1301113213233021-1211032220133312-0311330131313303-2012111222013303-2001302302012201-0312323332102121"></a>
-
-## Next pages — node_ssh_ports / 000223313202 / 6
-
-- [enabled_ssh_access](resources--nfv_service--reference--group-001.md#canonical-1233323310221201-2110101010301322-3301231231110303-1003102112121320-1012103233232011-0000232331110323-2202130110221200-1133311203200010)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-
 <a id="canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1130200220213113-1110101312012330-3213323122310332-3011233211031221-1112031230320230-3203310233111131-3322321333022202-1303122230233330"></a>
-
-## f5_big_ip_aws_service — f5_big_ip_aws_service / 200120020330 / 2
+## `f5_big_ip_aws_service` properties
 
 Breadcrumbs:
 
@@ -1324,10 +1203,6 @@ Type: `"object"`. single nested block, Optional.
 
 \[OneOf: f5\_big\_ip\_aws\_service, palo\_alto\_fw\_service\] Virtual BIG-IP AWS. Virtual BIG-IP
 specification for AWS.
-
-Upstream description:
-
-Virtual BIG-IP specification for AWS.
 
 Provider validators and defaults (from schema source):
 
@@ -1355,7 +1230,7 @@ Receipt-pinned upstream constraints:
 OneOf alternatives in this subsection:
 
 - [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-0201100230223303-2001123313212330-0023112220313003-3331311211332102-0202122111230001-2232111322331013-1010031220331333-3331233032322321)
-- [palo_alto_fw_service](resources--nfv_service--reference--group-003.md#canonical-1000211303110321-2132033102233220-3202330310311301-1011321010001303-2002102233013002-0110203131021011-1312303320302102-2012032301010010)
+- [palo_alto_fw_service](resources--nfv_service--reference--group-004.md#canonical-1000211303110321-2132033102233220-3202330310311301-1011321010001303-2002102233013002-0110203131021011-1312303320302102-2012032301010010)
 
 Select alternatives according to the provider validators above.
 
@@ -1367,25 +1242,21 @@ f5_big_ip_aws_service {
 }
 ```
 
-<a id="canonical-0103310013010323-0300022100231233-0321222222220023-1013000212202023-3122210101103202-3210133130112330-2030112222122321-1303313020111032"></a>
+<a id="canonical-1130200220213113-1110101312012330-3213323122310332-3011233211031221-1112031230320230-3203310233111131-3322321333022202-1303122230233330"></a>
 
-## Direct properties — f5_big_ip_aws_service / 200120020330 / 3
+### Direct properties for `f5_big_ip_aws_service`
 
 - [admin_password](resources--nfv_service--reference--group-001.md#canonical-0010020132110202-2302301000230121-0033122013301323-3131210223203001-1001122123130133-0302231311112103-2111303003131303-1322011213213130): complete subsection reference.
 
 <a id="canonical-0303303210230013-0010231111233233-3000013023023101-1112213102230002-2303033320012311-3320331223211221-3021300202321023-3012121221222220"></a>
 
-<a id="canonical-3103121233211222-2101132230330130-1011001001232302-2003200321231220-2100121032033030-0231011103231232-2230000002202132-3302210002100331"></a>
+<a id="canonical-0103310013010323-0300022100231233-0321222222220023-1013000212202023-3122210101103202-3210133130112330-2030112222122321-1303313020111032"></a>
 
-## admin_username property — f5_big_ip_aws_service / 200120020330 / 4
+#### `f5_big_ip_aws_service.admin_username` property
 
 Type: `"string"`. Optional.
 
 Admin Username. Admin Username for BIG-IP.
-
-Upstream description:
-
-Admin Username for BIG-IP.
 
 Provider validators and defaults (from schema source):
 
@@ -1432,15 +1303,15 @@ Receipt-pinned upstream constraints:
 
 - [endpoint_service](resources--nfv_service--reference--group-001.md#canonical-1010032200210212-2313121332112310-0110323222301213-2211012302000323-2311222030300112-0122023013313002-3223113221233302-2201323331331100): complete subsection reference.
 
-- [market_place_image](resources--nfv_service--reference--group-002.md#canonical-3121221100302221-2312112212213100-2300030203321033-0023133210013231-0322231123223011-1213333100111231-1001202332212022-3001113302213202): complete subsection reference.
+- [market_place_image](resources--nfv_service--reference--group-001.md#canonical-3121221100302221-2312112212213100-2300030203321033-0023133210013231-0322231123223011-1213333100111231-1001202332212022-3001113302213202): complete subsection reference.
 
-- [nodes](resources--nfv_service--reference--group-002.md#canonical-0303213133011232-0201322132022131-1321023330330310-0032213003120332-3011101310033312-2030333102020323-2111032131310203-3332013322121201): complete subsection reference.
+- [nodes](resources--nfv_service--reference--group-001.md#canonical-0303213133011232-0201322132022131-1321023330330310-0032213003120332-3011101310033312-2030333102020323-2111032131310203-3332013322121201): complete subsection reference.
 
 <a id="canonical-2122322100020010-0233231112003322-1100330013212030-1031310200022000-0023300112302121-3230133231122000-3021020020303103-3002313323100011"></a>
 
-<a id="canonical-1121202133330123-3001033001122211-0132100112102132-2331001022103201-0132021002001200-0111302332201002-1202220332003321-0201233001003032"></a>
+<a id="canonical-3103121233211222-2101132230330130-1011001001232302-2003200321231220-2100121032033030-0231011103231232-2230000002202132-3302210002100331"></a>
 
-## ssh_key property — f5_big_ip_aws_service / 200120020330 / 5
+#### `f5_big_ip_aws_service.ssh_key` property
 
 Type: `"string"`. Optional.
 
@@ -1493,16 +1364,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2300122213223130-2322121232230202-1121102110030323-0233022121232321-3120330012222113-2201303223211330-2200201322003010-1322232110123021"></a>
 
-<a id="canonical-1122233313023222-0223103232321221-2320300212121120-3232012213110122-3030013103311220-3302202221202322-0121102311301020-1312010110131020"></a>
+<a id="canonical-1121202133330123-3001033001122211-0132100112102132-2331001022103201-0132021002001200-0111302332201002-1202220332003321-0201233001003032"></a>
 
-## tags property — f5_big_ip_aws_service / 200120020330 / 6
+#### `f5_big_ip_aws_service.tags` property
 
 Type: `["map", "string"]`. Optional.
-
-AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify,
-organize, search for, and filter resources in AWS console.
-
-Upstream description:
 
 AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify,
 organize, search for, and filter resources in AWS console.
@@ -1557,27 +1423,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1332310020322012-1323012213313102-2023113132030221-1212132312212222-3131033013231010-2333230011201020-2122223211101010-1123221003010210"></a>
-
-## Next pages — f5_big_ip_aws_service / 200120020330 / 7
-
-- [f5_big_ip_aws_service.admin_password](resources--nfv_service--reference--group-001.md#canonical-0010020132110202-2302301000230121-0033122013301323-3131210223203001-1001122123130133-0302231311112103-2111303003131303-1322011213213130)
-- [f5_big_ip_aws_service.aws_tgw_site_params](resources--nfv_service--reference--group-001.md#canonical-2233311222002000-2100133010320202-2122321003331003-0221303030313102-0120212003100213-2113310222000310-3130123003223212-1021001222122210)
-- [f5_big_ip_aws_service.endpoint_service](resources--nfv_service--reference--group-001.md#canonical-1010032200210212-2313121332112310-0110323222301213-2211012302000323-2311222030300112-0122023013313002-3223113221233302-2201323331331100)
-- [f5_big_ip_aws_service.market_place_image](resources--nfv_service--reference--group-002.md#canonical-3121221100302221-2312112212213100-2300030203321033-0023133210013231-0322231123223011-1213333100111231-1001202332212022-3001113302213202)
-- [f5_big_ip_aws_service.nodes](resources--nfv_service--reference--group-002.md#canonical-0303213133011232-0201322132022131-1321023330330310-0032213003120332-3011101310033312-2030333102020323-2111032131310203-3332013322121201)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-
 <a id="canonical-0010020132110202-2302301000230121-0033122013301323-3131210223203001-1001122123130133-0302231311112103-2111303003131303-1322011213213130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0130322223020100-0221323203000211-2021322100031210-1301303120211132-1210121223333313-1022202001001002-0202002120031123-2121023201033022"></a>
-
-## f5_big_ip_aws_service.admin_password — admin_password / 001313002033 / 2
+## `f5_big_ip_aws_service.admin_password` properties
 
 Breadcrumbs:
 
@@ -1621,22 +1473,13 @@ admin_password {
 }
 ```
 
-<a id="canonical-3301322232032323-2313333101223112-3101030102222313-2013330233021320-3330012113101102-2001312031120010-2200311122232101-0031230221223111"></a>
+<a id="canonical-0130322223020100-0221323203000211-2021322100031210-1301303120211132-1210121223333313-1022202001001002-0202002120031123-2121023201033022"></a>
 
-## Direct properties — admin_password / 001313002033 / 3
+### Direct properties for `f5_big_ip_aws_service.admin_password`
 
 - [blindfold_secret_info](resources--nfv_service--reference--group-001.md#canonical-2331000332201331-3301321303213111-3201321310302320-0131002130303003-3101210121103302-3213322231203321-3311212012200011-0112013303012213): complete subsection reference.
 
 - [clear_secret_info](resources--nfv_service--reference--group-001.md#canonical-2220212232310031-3023101212201003-3322202012303003-1302113031202022-0332031222230332-1302010002013330-0233332012031020-1302011101010002): complete subsection reference.
-
-<a id="canonical-0313003131211303-0133303310020110-3011120001230300-3233301133102130-3033103233202201-1011121021312200-0210200323311303-0121031131002203"></a>
-
-## Next pages — admin_password / 001313002033 / 4
-
-- [f5_big_ip_aws_service.admin_password.blindfold_secret_info](resources--nfv_service--reference--group-001.md#canonical-2331000332201331-3301321303213111-3201321310302320-0131002130303003-3101210121103302-3213322231203321-3311212012200011-0112013303012213)
-- [f5_big_ip_aws_service.admin_password.clear_secret_info](resources--nfv_service--reference--group-001.md#canonical-2220212232310031-3023101212201003-3322202012303003-1302113031202022-0332031222230332-1302010002013330-0233332012031020-1302011101010002)
-- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 
 <a id="canonical-2331000332201331-3301321303213111-3201321310302320-0131002130303003-3101210121103302-3213322231203321-3311212012200011-0112013303012213"></a>
 
@@ -1644,9 +1487,7 @@ admin_password {
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3102321331123020-2031030311230020-1133032101100222-0033201103222032-1232131232130100-3232123023123223-2323321212321132-0230103232132310"></a>
-
-## f5_big_ip_aws_service.admin_password.blindfold_secret_info — blindfold_secret_info / 030211320112 / 2
+## `f5_big_ip_aws_service.admin_password.blindfold_secret_info` properties
 
 Breadcrumbs:
 
@@ -1689,15 +1530,13 @@ blindfold_secret_info {
 }
 ```
 
-<a id="canonical-2031201003300212-2230330122332022-3231011021310101-1012103010222303-3220302233122301-3223110023332201-0021313203000333-3300000300210233"></a>
+<a id="canonical-3102321331123020-2031030311230020-1133032101100222-0033201103222032-1232131232130100-3232123023123223-2323321212321132-0230103232132310"></a>
 
-## Direct properties — blindfold_secret_info / 030211320112 / 3
+### Direct properties for `f5_big_ip_aws_service.admin_password.blindfold_secret_info`
 
 <a id="canonical-2321300332103030-2323111232301113-2202003220003121-0302121112122102-0113131322320101-0022103312220333-1230113231302133-0220203300110330"></a>
 
-<a id="canonical-2020311101032030-3130021013221311-3311130221013122-1112102333230031-2000212230211133-3330101300022223-0020101330320231-2211023222331332"></a>
-
-## decryption_provider property — blindfold_secret_info / 030211320112 / 4
+#### `f5_big_ip_aws_service.admin_password.blindfold_secret_info.decryption_provider` property
 
 Type: `"string"`. Optional.
 
@@ -1729,16 +1568,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3311303232101323-3130320010021320-3332011001012212-0131000323200013-1220100031022101-2230010020130113-3003203203202220-2320230320323001"></a>
 
-<a id="canonical-1100030203223311-1202132330013203-2120131212101212-1021203312230102-3110023111033300-3233131331213032-3121300101031312-1101103200300221"></a>
+<a id="canonical-2031201003300212-2230330122332022-3231011021310101-1012103010222303-3220302233122301-3223110023332201-0021313203000333-3300000300210233"></a>
 
-## location property — blindfold_secret_info / 030211320112 / 5
+#### `f5_big_ip_aws_service.admin_password.blindfold_secret_info.location` property
 
 Type: `"string"`. Optional, Sensitive.
-
-Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
-store provider is an HTTP/HTTPS location.
-
-Upstream description:
 
 Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
@@ -1790,16 +1624,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2310103312222302-3132133201331103-1321123300002201-3212313320121213-3023023111211220-1201220230110221-3303233122333130-3000100322001131"></a>
 
-<a id="canonical-3122322102132132-1023333300111010-1131230031210021-2113022322001103-2311203312001330-1213300001011313-0200201202013331-2021211321331101"></a>
+<a id="canonical-2020311101032030-3130021013221311-3311130221013122-1112102333230031-2000212230211133-3330101300022223-0020101330320231-2211023222331332"></a>
 
-## store_provider property — blindfold_secret_info / 030211320112 / 6
+#### `f5_big_ip_aws_service.admin_password.blindfold_secret_info.store_provider` property
 
 Type: `"string"`. Optional.
-
-Name of the Secret Management Access object that contains information about the store to GET
-encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
-
-Upstream description:
 
 Name of the Secret Management Access object that contains information about the store to GET
 encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
@@ -1827,22 +1656,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0322213301121100-3301313010111200-2010310021211130-0221212200003200-0230330203133012-0130201210000210-1220211000223031-1322100332321000"></a>
-
-## Next pages — blindfold_secret_info / 030211320112 / 7
-
-- [f5_big_ip_aws_service.admin_password](resources--nfv_service--reference--group-001.md#canonical-0010020132110202-2302301000230121-0033122013301323-3131210223203001-1001122123130133-0302231311112103-2111303003131303-1322011213213130)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-
 <a id="canonical-2220212232310031-3023101212201003-3322202012303003-1302113031202022-0332031222230332-1302010002013330-0233332012031020-1302011101010002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1332230232320321-2302301022003320-0230001310031133-1303210300100210-1101200001212223-1200110020230112-0033122230033201-3122301230000200"></a>
-
-## f5_big_ip_aws_service.admin_password.clear_secret_info — clear_secret_info / 130020011123 / 2
+## `f5_big_ip_aws_service.admin_password.clear_secret_info` properties
 
 Breadcrumbs:
 
@@ -1885,15 +1705,13 @@ clear_secret_info {
 }
 ```
 
-<a id="canonical-0021201111330012-2311202033132131-1131103000132311-3231023320301113-3020232012320301-2012021033320100-3023021202101303-2300103110320211"></a>
+<a id="canonical-1332230232320321-2302301022003320-0230001310031133-1303210300100210-1101200001212223-1200110020230112-0033122230033201-3122301230000200"></a>
 
-## Direct properties — clear_secret_info / 130020011123 / 3
+### Direct properties for `f5_big_ip_aws_service.admin_password.clear_secret_info`
 
 <a id="canonical-2323202200030121-1000333130332100-0122030331233120-1131323222303220-3322321130010322-3102332223302030-3132011203313312-1303202220231201"></a>
 
-<a id="canonical-3323001010321232-2321223200310001-2003113013123120-1322231000133121-2300132212013313-3011123020000321-1302320113321001-2300013010013321"></a>
-
-## provider_ref property — clear_secret_info / 130020011123 / 4
+#### `f5_big_ip_aws_service.admin_password.clear_secret_info.provider_ref` property
 
 Type: `"string"`. Optional.
 
@@ -1902,17 +1720,11 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 
 <a id="canonical-1033213333031230-3023320130220111-0210002233210013-0132023210312332-2131031103222220-0133022322130021-0013212302020120-0011333001110300"></a>
 
-<a id="canonical-1100131030213133-3102330223213200-0313031302331110-3121032203223311-2010133001313331-1111003230223330-1323302032312323-1320122032033031"></a>
+<a id="canonical-0021201111330012-2311202033132131-1131103000132311-3231023320301113-3020232012320301-2012021033320100-3023021202101303-2300103110320211"></a>
 
-## URL property — clear_secret_info / 130020011123 / 5
+#### `f5_big_ip_aws_service.admin_password.clear_secret_info.url` property
 
 Type: `"string"`. Optional, Sensitive.
-
-URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
-base64 decoding.
-
-Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
 needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
@@ -1972,22 +1784,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0001312010333023-1001300002101110-1120012202313001-0210220101221331-1032021133222133-3213102020123222-0232121301300311-2011201133233202"></a>
-
-## Next pages — clear_secret_info / 130020011123 / 6
-
-- [f5_big_ip_aws_service.admin_password](resources--nfv_service--reference--group-001.md#canonical-0010020132110202-2302301000230121-0033122013301323-3131210223203001-1001122123130133-0302231311112103-2111303003131303-1322011213213130)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-
 <a id="canonical-2233311222002000-2100133010320202-2122321003331003-0221303030313102-0120212003100213-2113310222000310-3130123003223212-1021001222122210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3232112001333120-3333033230130001-1300220333300103-1102022332233201-1010221330133012-2012331123321013-2333112101113203-0000001113211020"></a>
-
-## f5_big_ip_aws_service.aws_tgw_site_params — aws_tgw_site_params / 110321313121 / 2
+## `f5_big_ip_aws_service.aws_tgw_site_params` properties
 
 Breadcrumbs:
 
@@ -2001,10 +1804,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 BIG-IP AWS TGW Site. BIG-IP AWS TGW site specification.
-
-Upstream description:
-
-BIG-IP AWS TGW site specification.
 
 Receipt-pinned upstream constraints:
 
@@ -2027,19 +1826,11 @@ aws_tgw_site_params {
 }
 ```
 
-<a id="canonical-0321223210232133-0202021220031310-3102010220132031-1310231203131012-1311131231032033-2333031020312203-1221320220002101-3013010322112021"></a>
+<a id="canonical-3232112001333120-3333033230130001-1300220333300103-1102022332233201-1010221330133012-2012331123321013-2333112101113203-0000001113211020"></a>
 
-## Direct properties — aws_tgw_site_params / 110321313121 / 3
+### Direct properties for `f5_big_ip_aws_service.aws_tgw_site_params`
 
 - [aws_tgw_site](resources--nfv_service--reference--group-001.md#canonical-1300102203120232-0232232122011313-1301020010010310-2332200230120321-1331000100232212-0031313231033012-2221132102223233-3313110210032323): complete subsection reference.
-
-<a id="canonical-2303110331023130-1112110301133022-3121020330322100-3010320102312103-3223013300001323-1323322233130322-0232330133323002-0022012021113332"></a>
-
-## Next pages — aws_tgw_site_params / 110321313121 / 4
-
-- [f5_big_ip_aws_service.aws_tgw_site_params.aws_tgw_site](resources--nfv_service--reference--group-001.md#canonical-1300102203120232-0232232122011313-1301020010010310-2332200230120321-1331000100232212-0031313231033012-2221132102223233-3313110210032323)
-- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 
 <a id="canonical-1300102203120232-0232232122011313-1301020010010310-2332200230120321-1331000100232212-0031313231033012-2221132102223233-3313110210032323"></a>
 
@@ -2047,9 +1838,7 @@ aws_tgw_site_params {
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1111211003321333-1310102200012223-2113111100130222-1323210332010203-1201112323202101-2133010221333220-0101321313131323-3132021221203112"></a>
-
-## f5_big_ip_aws_service.aws_tgw_site_params.aws_tgw_site — aws_tgw_site / 303032021010 / 2
+## `f5_big_ip_aws_service.aws_tgw_site_params.aws_tgw_site` properties
 
 Breadcrumbs:
 
@@ -2062,11 +1851,6 @@ Breadcrumbs:
 <a id="canonical-0003032121222113-0011112101002302-2301303213332311-0110221102323033-1033022110331321-1232332133211020-1113312321331210-2112101100020220"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
-reference is in form of tenant/namespace/name.
-
-Upstream description:
 
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
@@ -2098,22 +1882,15 @@ aws_tgw_site {
 }
 ```
 
-<a id="canonical-0303302210320030-0001220121013233-0303301030032323-3021212100102033-0200210023121121-3233221123102133-0112100033323212-1312103013032213"></a>
+<a id="canonical-1111211003321333-1310102200012223-2113111100130222-1323210332010203-1201112323202101-2133010221333220-0101321313131323-3132021221203112"></a>
 
-## Direct properties — aws_tgw_site / 303032021010 / 3
+### Direct properties for `f5_big_ip_aws_service.aws_tgw_site_params.aws_tgw_site`
 
 <a id="canonical-1010331213000212-2221032202201100-1020122332020122-1321312121310021-3223131031131020-2023120022023130-3223301320323103-0030030210112312"></a>
 
-<a id="canonical-2323232303100321-3223112312013231-3100023132212012-2010230110102233-2001332203103203-2201132201001120-2223022302231110-3112032033200132"></a>
-
-## name property — aws_tgw_site / 303032021010 / 4
+#### `f5_big_ip_aws_service.aws_tgw_site_params.aws_tgw_site.name` property
 
 Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
@@ -2169,16 +1946,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0311223030320111-2331221013210111-0222200302220102-1212313101302221-0010212231303100-0122210313220220-2022301220113120-1021032320133212"></a>
 
-<a id="canonical-3223221323201023-3000101010210101-0312012210230203-2322003203220213-0122310011010123-1133303131133123-2220030222333231-1103201000200321"></a>
+<a id="canonical-0303302210320030-0001220121013233-0303301030032323-3021212100102033-0200210023121121-3233221123102133-0112100033323212-1312103013032213"></a>
 
-## namespace property — aws_tgw_site / 303032021010 / 5
+#### `f5_big_ip_aws_service.aws_tgw_site_params.aws_tgw_site.namespace` property
 
 Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -2241,16 +2013,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2130333010312310-2122231331023013-1203010000232020-3020113331310320-3302001002000130-1331132211111103-3033321223133312-2111131332222222"></a>
 
-<a id="canonical-3213301122230030-0300311001031131-0113203313312231-1100133202331021-3112020301203123-3031213331002102-0312323011231121-1323021032320201"></a>
+<a id="canonical-2323232303100321-3223112312013231-3100023132212012-2010230110102233-2001332203103203-2201132201001120-2223022302231110-3112032033200132"></a>
 
-## tenant property — aws_tgw_site / 303032021010 / 6
+#### `f5_big_ip_aws_service.aws_tgw_site_params.aws_tgw_site.tenant` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
@@ -2297,22 +2064,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2112130232332321-0111300023333200-1313100232221213-1010132110300012-2221023312010301-1302220110300232-2000001001030130-1013202022213311"></a>
-
-## Next pages — aws_tgw_site / 303032021010 / 7
-
-- [f5_big_ip_aws_service.aws_tgw_site_params](resources--nfv_service--reference--group-001.md#canonical-2233311222002000-2100133010320202-2122321003331003-0221303030313102-0120212003100213-2113310222000310-3130123003223212-1021001222122210)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-
 <a id="canonical-1010032200210212-2313121332112310-0110323222301213-2211012302000323-2311222030300112-0122023013313002-3223113221233302-2201323331331100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0230122032113023-2221313121001212-1200231233231233-2031210332203322-3331200122122210-3202110202113313-3031310201320333-1023223022211220"></a>
-
-## f5_big_ip_aws_service.endpoint_service — endpoint_service / 202302210222 / 2
+## `f5_big_ip_aws_service.endpoint_service` properties
 
 Breadcrumbs:
 
@@ -2324,11 +2082,6 @@ Breadcrumbs:
 <a id="canonical-1032321201122030-3112023110013020-2120212102023120-1301023013310313-1323131301203220-1231311320221303-3203101100210331-2002323023100113"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Endpoint Service is a type of NFV service where the packets are destined to NFV and service modifies
-the destination with a new destination address.
-
-Upstream description:
 
 Endpoint Service is a type of NFV service where the packets are destined to NFV and service modifies
 the destination with a new destination address.
@@ -2393,9 +2146,9 @@ endpoint_service {
 }
 ```
 
-<a id="canonical-3113301103232203-3033303123102321-0030222220012011-0233100022313301-2113132000120033-2120212232011112-0102312322031230-0212321000102332"></a>
+<a id="canonical-0230122032113023-2221313121001212-1200231233231233-2031210332203322-3331200122122210-3202110202113313-3031310201320333-1023223022211220"></a>
 
-## Direct properties — endpoint_service / 202302210222 / 3
+### Direct properties for `f5_big_ip_aws_service.endpoint_service`
 
 - [advertise_on_slo_ip](resources--nfv_service--reference--group-001.md#canonical-2002023200130011-3221031100321323-1023033331122313-3230213010102032-2121211120330320-2103303103132200-3323232000311320-1022321130223012): complete subsection reference.
 
@@ -2405,15 +2158,11 @@ endpoint_service {
 
 <a id="canonical-2002310120303123-0122223120010230-1331303022213130-1111000013013311-1231112322001123-2300220000333111-1011331130031102-1323301311233223"></a>
 
-<a id="canonical-3222013132313001-2020110120032031-0123312322331130-1221321012132000-2321201201103012-0222331102301303-1122331120002231-3032022322002110"></a>
+<a id="canonical-3113301103232203-3033303123102321-0030222220012011-0233100022313301-2113132000120033-2120212232011112-0102312322031230-0212321000102332"></a>
 
-## configured_vip property — endpoint_service / 202302210222 / 4
+#### `f5_big_ip_aws_service.endpoint_service.configured_vip` property
 
 Type: `"string"`. Optional.
-
-Exclusive with \[automatic\_vip\] Enter IP address for the default VIP.
-
-Upstream description:
 
 Exclusive with \[automatic\_vip\] Enter IP address for the default VIP.
 
@@ -2473,25 +2222,7 @@ Receipt-pinned upstream constraints:
 
 - [no_tcp_ports](resources--nfv_service--reference--group-001.md#canonical-2323230322303213-2133022201311333-0013103330033033-3122301030103131-2303322233110330-3002113230113033-0230331312202212-1232301203313133): complete subsection reference.
 
-- [no_udp_ports](resources--nfv_service--reference--group-002.md#canonical-0032211122030020-3003323212002133-2120003300011011-1012223010030013-1022302100113132-3330231031213131-3320022302013010-0110001302110001): complete subsection reference.
-
-<a id="canonical-2230221131033130-0103121020331130-3201020201232220-3311101211133011-0210012231201003-2122002322233021-0132220223131323-1332112210130031"></a>
-
-## Next pages — endpoint_service / 202302210222 / 5
-
-- [f5_big_ip_aws_service.endpoint_service.advertise_on_slo_ip](resources--nfv_service--reference--group-001.md#canonical-2002023200130011-3221031100321323-1023033331122313-3230213010102032-2121211120330320-2103303103132200-3323232000311320-1022321130223012)
-- [f5_big_ip_aws_service.endpoint_service.advertise_on_slo_ip_external](resources--nfv_service--reference--group-001.md#canonical-1330300133332010-2213201212020232-2201233300010002-2200203110002302-1122333112303322-1110111013131122-1030231200003221-2022230211320202)
-- [f5_big_ip_aws_service.endpoint_service.automatic_vip](resources--nfv_service--reference--group-001.md#canonical-0213220001313030-3333031231203323-2320020210123302-1123231021030102-1223213312002023-2100333303212210-3222112130330302-0023202210300010)
-- [f5_big_ip_aws_service.endpoint_service.custom_tcp_ports](resources--nfv_service--reference--group-001.md#canonical-2020332122210210-0210202110120033-2323010311113002-3020202302003220-3131110333231313-2030202323331202-2201320212203332-0021203122323213)
-- [f5_big_ip_aws_service.endpoint_service.custom_udp_ports](resources--nfv_service--reference--group-001.md#canonical-3121301132011211-1100200303020202-2312221303312103-3211230311330023-3210031301110131-0023030101213312-2102223221231013-1101322112212331)
-- [f5_big_ip_aws_service.endpoint_service.default_tcp_ports](resources--nfv_service--reference--group-001.md#canonical-0220032001130202-2121033210102332-0021210100021000-3321012202131002-0333333323320303-3311031213001020-3033110131121012-2331200332230113)
-- [f5_big_ip_aws_service.endpoint_service.disable_advertise_on_slo_ip](resources--nfv_service--reference--group-001.md#canonical-1133012012021202-1130332102023111-0002320121202131-3023123223110123-2221322121201022-0003100103303331-0030211232030110-2313312110230331)
-- [f5_big_ip_aws_service.endpoint_service.http_port](resources--nfv_service--reference--group-001.md#canonical-3320223321311023-3330032333213303-2231201320223001-2111101011102332-0131203102203200-0221001032103310-0112313113120020-2120000231003131)
-- [f5_big_ip_aws_service.endpoint_service.https_port](resources--nfv_service--reference--group-001.md#canonical-1113221322000011-1313031012002033-2123303222033131-1023101101330233-1222020101023123-2130012102302313-0302322023032013-3110122331011130)
-- [f5_big_ip_aws_service.endpoint_service.no_tcp_ports](resources--nfv_service--reference--group-001.md#canonical-2323230322303213-2133022201311333-0013103330033033-3122301030103131-2303322233110330-3002113230113033-0230331312202212-1232301203313133)
-- [f5_big_ip_aws_service.endpoint_service.no_udp_ports](resources--nfv_service--reference--group-002.md#canonical-0032211122030020-3003323212002133-2120003300011011-1012223010030013-1022302100113132-3330231031213131-3320022302013010-0110001302110001)
-- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [no_udp_ports](resources--nfv_service--reference--group-001.md#canonical-0032211122030020-3003323212002133-2120003300011011-1012223010030013-1022302100113132-3330231031213131-3320022302013010-0110001302110001): complete subsection reference.
 
 <a id="canonical-2002023200130011-3221031100321323-1023033331122313-3230213010102032-2121211120330320-2103303103132200-3323232000311320-1022321130223012"></a>
 
@@ -2499,9 +2230,7 @@ Receipt-pinned upstream constraints:
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3321232301000100-2321031222132131-2303330011013322-1210121002002302-0300002313330310-1113323012011010-3113332201322031-3132023303103300"></a>
-
-## f5_big_ip_aws_service.endpoint_service.advertise_on_slo_ip — advertise_on_slo_ip / 331223301013 / 2
+## `f5_big_ip_aws_service.endpoint_service.advertise_on_slo_ip` properties
 
 Breadcrumbs:
 
@@ -2517,7 +2246,7 @@ Type: `["object", {}]`. Optional.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -2540,18 +2269,7 @@ Terraform syntax:
 advertise_on_slo_ip = {}
 ```
 
-<a id="canonical-0313131002033330-1302302231323111-1012210332320303-1021313133133031-0030320132310300-2133302333331000-1133202300222210-1221302001232332"></a>
-
-## Direct properties — advertise_on_slo_ip / 331223301013 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3033012000120320-3122100332301232-1120312120232113-0130323030032001-0231122023010112-2110311003311223-2021132120112012-0033133313330221"></a>
-
-## Next pages — advertise_on_slo_ip / 331223301013 / 4
-
-- [f5_big_ip_aws_service.endpoint_service](resources--nfv_service--reference--group-001.md#canonical-1010032200210212-2313121332112310-0110323222301213-2211012302000323-2311222030300112-0122023013313002-3223113221233302-2201323331331100)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 
 <a id="canonical-1330300133332010-2213201212020232-2201233300010002-2200203110002302-1122333112303322-1110111013131122-1030231200003221-2022230211320202"></a>
 
@@ -2559,9 +2277,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2312012013003302-0323323223020120-3231323111231033-1020321331202003-0020020323030013-1001210120001001-3300332202320102-3021021202311332"></a>
-
-## f5_big_ip_aws_service.endpoint_service.advertise_on_slo_ip_external — advertise_on_slo_ip_external / 210330130133 / 2
+## `f5_big_ip_aws_service.endpoint_service.advertise_on_slo_ip_external` properties
 
 Breadcrumbs:
 
@@ -2577,7 +2293,7 @@ Type: `["object", {}]`. Optional.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -2600,18 +2316,7 @@ Terraform syntax:
 advertise_on_slo_ip_external = {}
 ```
 
-<a id="canonical-1121022101333213-0223333221211101-1232032023310133-3210110001011223-3130201230301123-2130321023213201-2322010231131011-2321300123123311"></a>
-
-## Direct properties — advertise_on_slo_ip_external / 210330130133 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2012112312103102-1203102310102222-1300000000221203-3332112210112021-1213112331213212-2213121333033222-3122232321102102-3030010030201300"></a>
-
-## Next pages — advertise_on_slo_ip_external / 210330130133 / 4
-
-- [f5_big_ip_aws_service.endpoint_service](resources--nfv_service--reference--group-001.md#canonical-1010032200210212-2313121332112310-0110323222301213-2211012302000323-2311222030300112-0122023013313002-3223113221233302-2201323331331100)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 
 <a id="canonical-0213220001313030-3333031231203323-2320020210123302-1123231021030102-1223213312002023-2100333303212210-3222112130330302-0023202210300010"></a>
 
@@ -2619,9 +2324,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2222031300131332-3013233130200220-0112033203121311-0021320002221323-0230310202130332-2103032100223201-2320221022301302-0001221301213131"></a>
-
-## f5_big_ip_aws_service.endpoint_service.automatic_vip — automatic_vip / 132110031213 / 2
+## `f5_big_ip_aws_service.endpoint_service.automatic_vip` properties
 
 Breadcrumbs:
 
@@ -2637,7 +2340,7 @@ Type: `["object", {}]`. Optional.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -2660,18 +2363,7 @@ Terraform syntax:
 automatic_vip = {}
 ```
 
-<a id="canonical-1332101000331103-3001113331321120-2301211312210033-0133331011110222-3123133003202220-2123100012332331-1233000232023313-2201333301230030"></a>
-
-## Direct properties — automatic_vip / 132110031213 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3123130231322101-1320200333032000-0210320301211031-0301312223221121-1320021320011001-1113313310232110-2230310313230202-1232203200323021"></a>
-
-## Next pages — automatic_vip / 132110031213 / 4
-
-- [f5_big_ip_aws_service.endpoint_service](resources--nfv_service--reference--group-001.md#canonical-1010032200210212-2313121332112310-0110323222301213-2211012302000323-2311222030300112-0122023013313002-3223113221233302-2201323331331100)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 
 <a id="canonical-2020332122210210-0210202110120033-2323010311113002-3020202302003220-3131110333231313-2030202323331202-2201320212203332-0021203122323213"></a>
 
@@ -2679,9 +2371,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0103322111031113-2111113120122123-0133301101132220-1213001032231003-1001212310233021-1100200112233320-0130220132113310-2231101321101022"></a>
-
-## f5_big_ip_aws_service.endpoint_service.custom_tcp_ports — custom_tcp_ports / 121101220111 / 2
+## `f5_big_ip_aws_service.endpoint_service.custom_tcp_ports` properties
 
 Breadcrumbs:
 
@@ -2696,10 +2386,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Port Range List. List of port ranges.
-
-Upstream description:
-
-List of port ranges.
 
 Provider validators and defaults (from schema source):
 
@@ -2728,15 +2414,13 @@ custom_tcp_ports {
 }
 ```
 
-<a id="canonical-3230003222131300-2113231322023321-1030221222003221-2002333322303211-0302101303001312-2311100300322212-3130310333003130-2203231230312332"></a>
+<a id="canonical-0103322111031113-2111113120122123-0133301101132220-1213001032231003-1001212310233021-1100200112233320-0130220132113310-2231101321101022"></a>
 
-## Direct properties — custom_tcp_ports / 121101220111 / 3
+### Direct properties for `f5_big_ip_aws_service.endpoint_service.custom_tcp_ports`
 
 <a id="canonical-0000120102002302-2201133012233123-1230220122301302-1230003031013320-0111023310200223-1101200332310333-2031202100131312-3000113233001212"></a>
 
-<a id="canonical-0230120112201111-3320000021111131-0303113131213231-3221320000310113-0330303221131300-1011020333112230-2000032321102123-1000030120110212"></a>
-
-## ports property — custom_tcp_ports / 121101220111 / 4
+#### `f5_big_ip_aws_service.endpoint_service.custom_tcp_ports.ports` property
 
 Type: `["list", "string"]`. Optional.
 
@@ -2785,22 +2469,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2002332020330132-2223220100013112-3232113212232221-3113331330202013-1200200032302010-3220101323303022-3232130111231233-1233011212103003"></a>
-
-## Next pages — custom_tcp_ports / 121101220111 / 5
-
-- [f5_big_ip_aws_service.endpoint_service](resources--nfv_service--reference--group-001.md#canonical-1010032200210212-2313121332112310-0110323222301213-2211012302000323-2311222030300112-0122023013313002-3223113221233302-2201323331331100)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-
 <a id="canonical-3121301132011211-1100200303020202-2312221303312103-3211230311330023-3210031301110131-0023030101213312-2102223221231013-1101322112212331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3302311320100022-1310301331033311-2202331232201200-2333210201003122-1201221133302112-0320220322312210-3102320120011112-2301321203330311"></a>
-
-## f5_big_ip_aws_service.endpoint_service.custom_udp_ports — custom_udp_ports / 312012203021 / 2
+## `f5_big_ip_aws_service.endpoint_service.custom_udp_ports` properties
 
 Breadcrumbs:
 
@@ -2815,10 +2490,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Port Range List. List of port ranges.
-
-Upstream description:
-
-List of port ranges.
 
 Provider validators and defaults (from schema source):
 
@@ -2847,15 +2518,13 @@ custom_udp_ports {
 }
 ```
 
-<a id="canonical-2332301110231113-1010200212022111-2032112022311031-1202003113233131-1112132001321211-0033011301231103-2331200310330003-2101302103132232"></a>
+<a id="canonical-3302311320100022-1310301331033311-2202331232201200-2333210201003122-1201221133302112-0320220322312210-3102320120011112-2301321203330311"></a>
 
-## Direct properties — custom_udp_ports / 312012203021 / 3
+### Direct properties for `f5_big_ip_aws_service.endpoint_service.custom_udp_ports`
 
 <a id="canonical-1012021101223321-3223310022000022-3032110012001230-2333231232021122-3331213302133102-2302311202031300-0213103303313231-1330023100222032"></a>
 
-<a id="canonical-3303013021330120-1331020232111023-0212123102101212-2130011332233233-3001122222210301-1033032303112231-1021003210110120-0013110331322022"></a>
-
-## ports property — custom_udp_ports / 312012203021 / 4
+#### `f5_big_ip_aws_service.endpoint_service.custom_udp_ports.ports` property
 
 Type: `["list", "string"]`. Optional.
 
@@ -2904,22 +2573,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0032223103121100-0221331323031313-3013002002330333-2222132112130310-0121132113012101-0013121231220033-3321011021203303-0202221123223002"></a>
-
-## Next pages — custom_udp_ports / 312012203021 / 5
-
-- [f5_big_ip_aws_service.endpoint_service](resources--nfv_service--reference--group-001.md#canonical-1010032200210212-2313121332112310-0110323222301213-2211012302000323-2311222030300112-0122023013313002-3223113221233302-2201323331331100)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-
 <a id="canonical-0220032001130202-2121033210102332-0021210100021000-3321012202131002-0333333323320303-3311031213001020-3033110131121012-2331200332230113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3001311322310200-3131222312220332-3113111123301200-1033003231100101-1111230210022101-3023212202000012-0003123313301012-2132031233320003"></a>
-
-## f5_big_ip_aws_service.endpoint_service.default_tcp_ports — default_tcp_ports / 301131131023 / 2
+## `f5_big_ip_aws_service.endpoint_service.default_tcp_ports` properties
 
 Breadcrumbs:
 
@@ -2935,7 +2595,7 @@ Type: `["object", {}]`. Optional.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -2958,18 +2618,7 @@ Terraform syntax:
 default_tcp_ports = {}
 ```
 
-<a id="canonical-1313202030333100-1200230321220302-3033223220012001-0320303320121110-0313222121200131-3022322011301121-2310310303112221-3201022113030031"></a>
-
-## Direct properties — default_tcp_ports / 301131131023 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2220220010210222-3033110210130323-1000120013131331-0220331122210013-2133302010102010-3121202112100031-0030222030211023-0033223033002121"></a>
-
-## Next pages — default_tcp_ports / 301131131023 / 4
-
-- [f5_big_ip_aws_service.endpoint_service](resources--nfv_service--reference--group-001.md#canonical-1010032200210212-2313121332112310-0110323222301213-2211012302000323-2311222030300112-0122023013313002-3223113221233302-2201323331331100)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 
 <a id="canonical-1133012012021202-1130332102023111-0002320121202131-3023123223110123-2221322121201022-0003100103303331-0030211232030110-2313312110230331"></a>
 
@@ -2977,9 +2626,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1120210021331002-1231230112131011-0301332023310313-2012331010003221-0210303220033113-3112110032030120-3301130110332120-0103003013112211"></a>
-
-## f5_big_ip_aws_service.endpoint_service.disable_advertise_on_slo_ip — disable_advertise_on_slo_ip / 101023201323 / 2
+## `f5_big_ip_aws_service.endpoint_service.disable_advertise_on_slo_ip` properties
 
 Breadcrumbs:
 
@@ -2995,7 +2642,7 @@ Type: `["object", {}]`. Optional.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -3018,18 +2665,7 @@ Terraform syntax:
 disable_advertise_on_slo_ip = {}
 ```
 
-<a id="canonical-3020101230103020-2023103133223101-2002313323023101-3323221201300233-1113320122201301-3103020323013021-1100022131332311-3111122211213131"></a>
-
-## Direct properties — disable_advertise_on_slo_ip / 101023201323 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2020102210201230-3102213132021110-2011230220233221-0033202212212202-3323010002203322-2221322201112221-2331312321223211-1130201111130320"></a>
-
-## Next pages — disable_advertise_on_slo_ip / 101023201323 / 4
-
-- [f5_big_ip_aws_service.endpoint_service](resources--nfv_service--reference--group-001.md#canonical-1010032200210212-2313121332112310-0110323222301213-2211012302000323-2311222030300112-0122023013313002-3223113221233302-2201323331331100)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 
 <a id="canonical-3320223321311023-3330032333213303-2231201320223001-2111101011102332-0131203102203200-0221001032103310-0112313113120020-2120000231003131"></a>
 
@@ -3037,9 +2673,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3033030023210220-0012301031130320-0202231100201103-1003203100221210-0321333121130110-1300221223032331-1332310323011203-0020001002001101"></a>
-
-## f5_big_ip_aws_service.endpoint_service.http_port — http_port / 003030030133 / 2
+## `f5_big_ip_aws_service.endpoint_service.http_port` properties
 
 Breadcrumbs:
 
@@ -3055,7 +2689,7 @@ Type: `["object", {}]`. Optional.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -3078,18 +2712,7 @@ Terraform syntax:
 http_port = {}
 ```
 
-<a id="canonical-3202200100310222-2121032030102201-1100320002311023-2211230023302033-0013220212301312-3331013003022232-3221122010200302-1122112031301210"></a>
-
-## Direct properties — http_port / 003030030133 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0202103211320303-0210020103330332-1211201333001221-2020103302132230-2023323102013032-3322110021333132-0213222022031123-0300101222111130"></a>
-
-## Next pages — http_port / 003030030133 / 4
-
-- [f5_big_ip_aws_service.endpoint_service](resources--nfv_service--reference--group-001.md#canonical-1010032200210212-2313121332112310-0110323222301213-2211012302000323-2311222030300112-0122023013313002-3223113221233302-2201323331331100)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 
 <a id="canonical-1113221322000011-1313031012002033-2123303222033131-1023101101330233-1222020101023123-2130012102302313-0302322023032013-3110122331011130"></a>
 
@@ -3097,9 +2720,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1200221223210101-2031012030210110-3233323110213030-3102133023001103-0231133113330111-1301301312203312-0200201031301322-3030011302230110"></a>
-
-## f5_big_ip_aws_service.endpoint_service.https_port — https_port / 013011011111 / 2
+## `f5_big_ip_aws_service.endpoint_service.https_port` properties
 
 Breadcrumbs:
 
@@ -3115,7 +2736,7 @@ Type: `["object", {}]`. Optional.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -3138,21 +2759,1008 @@ Terraform syntax:
 https_port = {}
 ```
 
-<a id="canonical-1001323313031103-3021112110132303-1220220120333020-1121301210320232-1112311031321312-1320303232200233-0321330301011100-3001122232221233"></a>
-
-## Direct properties — https_port / 013011011111 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3120213301323222-3321213112301130-2313301010001102-3100210000120123-0200301020133122-0222021330230101-0033131233202023-2111230111123122"></a>
-
-## Next pages — https_port / 013011011111 / 4
-
-- [f5_big_ip_aws_service.endpoint_service](resources--nfv_service--reference--group-001.md#canonical-1010032200210212-2313121332112310-0110323222301213-2211012302000323-2311222030300112-0122023013313002-3223113221233302-2201323331331100)
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 
 <a id="canonical-2323230322303213-2133022201311333-0013103330033033-3122301030103131-2303322233110330-3002113230113033-0230331312202212-1232301203313133"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
+
+## `f5_big_ip_aws_service.endpoint_service.no_tcp_ports` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
+- [f5_big_ip_aws_service.endpoint_service](resources--nfv_service--reference--group-001.md#canonical-1010032200210212-2313121332112310-0110323222301213-2211012302000323-2311222030300112-0122023013313002-3223113221233302-2201323331331100)
+- f5_big_ip_aws_service.endpoint_service.no_tcp_ports
+
+<a id="canonical-0031203113313320-2000021332233113-0133122032103002-0021122020111311-3132031120321221-2031132223103012-0313332012111212-3032122211300012"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_tcp_ports = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0032211122030020-3003323212002133-2120003300011011-1012223010030013-1022302100113132-3330231031213131-3320022302013010-0110001302110001"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `f5_big_ip_aws_service.endpoint_service.no_udp_ports` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
+- [f5_big_ip_aws_service.endpoint_service](resources--nfv_service--reference--group-001.md#canonical-1010032200210212-2313121332112310-0110323222301213-2211012302000323-2311222030300112-0122023013313002-3223113221233302-2201323331331100)
+- f5_big_ip_aws_service.endpoint_service.no_udp_ports
+
+<a id="canonical-2302111331330122-3120022132102213-2012020331132031-3101313032303321-3300210000112122-1320123212313210-0132221032312033-3012022030210131"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_udp_ports = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3121221100302221-2312112212213100-2300030203321033-0023133210013231-0322231123223011-1213333100111231-1001202332212022-3001113302213202"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `f5_big_ip_aws_service.market_place_image` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
+- f5_big_ip_aws_service.market_place_image
+
+<a id="canonical-0130301203100302-3320011222113103-2233202312103233-1121212120332021-0100201102103322-1132210222233310-0300113210112121-3300112100033101"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+BIG-IP AWS Pay as You Go Image Selection.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.ConflictingObjectAttributes("awafpay_g200_mbps",
+    "awafpay_g3_gbps")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-ami_choice": "[\"AWAFPayG200Mbps\",\"AWAFPayG3Gbps\",\"BestPlusPayG200Mbps\",\"best_plus_payg_1gbps\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+market_place_image {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2110211022210013-0330012110213003-0221330111013110-0311321031333123-0111031220322322-1203000212132210-3023112233323003-2232222333020001"></a>
+
+### Direct properties for `f5_big_ip_aws_service.market_place_image`
+
+- [awafpay_g200_mbps](resources--nfv_service--reference--group-001.md#canonical-3311231311003000-2031121323311100-0331220313322022-1203201010200030-0232111332331122-2002302212312010-1321212203111331-0002303130000202): complete subsection reference.
+
+- [awafpay_g3_gbps](resources--nfv_service--reference--group-001.md#canonical-3303221122123120-0330230111223322-1021231332330022-3313202301212031-0201230313031302-1121133212211002-0312013330003213-2112113330311011): complete subsection reference.
+
+<a id="canonical-3311231311003000-2031121323311100-0331220313322022-1203201010200030-0232111332331122-2002302212312010-1321212203111331-0002303130000202"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `f5_big_ip_aws_service.market_place_image.awafpay_g200_mbps` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
+- [f5_big_ip_aws_service.market_place_image](resources--nfv_service--reference--group-001.md#canonical-3121221100302221-2312112212213100-2300030203321033-0023133210013231-0322231123223011-1213333100111231-1001202332212022-3001113302213202)
+- f5_big_ip_aws_service.market_place_image.awafpay_g200_mbps
+
+<a id="canonical-3013002010302031-0223121012302313-0203311033210231-0012031111210212-1332120130131022-3313200110102232-1112000311101220-1320102333212013"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for AWAFPayG200Mbps.
+
+Terraform syntax:
+
+```terraform
+awafpay_g200_mbps = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3303221122123120-0330230111223322-1021231332330022-3313202301212031-0201230313031302-1121133212211002-0312013330003213-2112113330311011"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `f5_big_ip_aws_service.market_place_image.awafpay_g3_gbps` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
+- [f5_big_ip_aws_service.market_place_image](resources--nfv_service--reference--group-001.md#canonical-3121221100302221-2312112212213100-2300030203321033-0023133210013231-0322231123223011-1213333100111231-1001202332212022-3001113302213202)
+- f5_big_ip_aws_service.market_place_image.awafpay_g3_gbps
+
+<a id="canonical-0313103233111113-1301101000002302-0010330233101313-3303031321330022-0101012032023131-0103211222203211-1110103303020001-3311121303001011"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for AWAFPayG3Gbps.
+
+Terraform syntax:
+
+```terraform
+awafpay_g3_gbps = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0303213133011232-0201322132022131-1321023330330310-0032213003120332-3011101310033312-2030333102020323-2111032131310203-3332013322121201"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `f5_big_ip_aws_service.nodes` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
+- f5_big_ip_aws_service.nodes
+
+<a id="canonical-3322312331030022-2323331220311230-3322211311333031-1010031133322100-2101112112010002-0032031213032211-3121323132132102-3000001312210133"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+Specify how and where the service nodes are spawned.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.List{validators.RequiredListObjectAttributes("aws_az_name",
+    "node_name"),
+  validators.ConflictingListObjectAttributes("automatic_prefix",
+    "tunnel_prefix"),
+  validators.ConflictingListObjectAttributes("mgmt_subnet",
+    "reserved_mgmt_subnet")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 2,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 2,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minItems": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "2",
+    "ves.io.schema.rules.repeated.min_items": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "2",
+    "ves.io.schema.rules.repeated.min_items": "1"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+nodes {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0203312102031122-3212331322210213-1020321130000311-1232311330302003-1212203102010110-1311000300023312-1110021113030100-0100331120213111"></a>
+
+### Direct properties for `f5_big_ip_aws_service.nodes`
+
+- [automatic_prefix](resources--nfv_service--reference--group-001.md#canonical-1001003122322020-2222302032321213-3021110030120031-2311010120113300-0121000200200303-3230122300122323-3003212023130110-2203011222202223): complete subsection reference.
+
+<a id="canonical-2130312031100011-1223332112201300-2232111031010121-0102002030201230-3022331220301002-3230220001312022-0333100301020311-0321233203103222"></a>
+
+<a id="canonical-3311231320101120-0002020012123033-2212212231303001-2020230330122220-0332011200203022-3000203121312303-3312331221302011-3302113111121300"></a>
+
+#### `f5_big_ip_aws_service.nodes.aws_az_name` property
+
+Type: `"string"`. Optional.
+
+The AWS Availability Zone must be consistent with the AWS Region chosen. Please select an AZ in the
+same Region as your TGW Site.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(1024),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "pattern": "^([a-z]{2})-([a-z0-9]{4,20})-([a-z0-9]{2})$"
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.pattern": "^([a-z]{2})-([a-z0-9]{4,20})-([a-z0-9]{2})$"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.pattern": "^([a-z]{2})-([a-z0-9]{4,20})-([a-z0-9]{2})$"
+  }
+}
+```
+
+- [mgmt_subnet](resources--nfv_service--reference--group-001.md#canonical-1133221000222000-2213120123130103-0130203310131333-2133112220333331-0003003001130320-0222323310321220-1321013301112222-3310100211322021): complete subsection reference.
+
+<a id="canonical-3023030020220322-0212220021110223-3203030132120230-0101321102012132-1013312033222321-3010320102301120-0233313212112212-1323233123113323"></a>
+
+<a id="canonical-1221112313212332-1102323132113103-1123213000131300-2230301101030312-3121220220002103-1330002131033103-0021030102212133-3030132202001133"></a>
+
+#### `f5_big_ip_aws_service.nodes.node_name` property
+
+Type: `"string"`. Optional.
+
+Node Name will be used to assign as hostname to the service.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "hostname",
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.hostname": "true",
+    "ves.io.schema.rules.string.max_len": "256",
+    "ves.io.schema.rules.string.min_len": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.hostname": "true",
+    "ves.io.schema.rules.string.max_len": "256",
+    "ves.io.schema.rules.string.min_len": "1"
+  }
+}
+```
+
+- [reserved_mgmt_subnet](resources--nfv_service--reference--group-001.md#canonical-2010110231023102-2320103003311321-1331301001120003-0133203323300021-2331102311120021-1311331010010103-1221300133122101-2113331113111133): complete subsection reference.
+
+<a id="canonical-1003211130213231-3220103110102213-1102323030303311-2220213012301221-2230111303001031-3030120113021321-2130203330023333-1333212311302120"></a>
+
+<a id="canonical-2330211020220300-3230223320001230-1120112301010332-3112212321112233-0323021122013102-2012230203222331-3021121333300333-1223020123120312"></a>
+
+#### `f5_big_ip_aws_service.nodes.tunnel_prefix` property
+
+Type: `"string"`. Optional.
+
+Exclusive with \[automatic\_prefix\] Enter IP prefix for the tunnel, it has to be /30.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv4_prefix": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv4_prefix": "true"
+  }
+}
+```
+
+<a id="canonical-1001003122322020-2222302032321213-3021110030120031-2311010120113300-0121000200200303-3230122300122323-3003212023130110-2203011222202223"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `f5_big_ip_aws_service.nodes.automatic_prefix` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
+- [f5_big_ip_aws_service.nodes](resources--nfv_service--reference--group-001.md#canonical-0303213133011232-0201322132022131-1321023330330310-0032213003120332-3011101310033312-2030333102020323-2111032131310203-3332013322121201)
+- f5_big_ip_aws_service.nodes.automatic_prefix
+
+<a id="canonical-0321222210300212-1313321302213310-3212131023020201-1313312203001232-0200011011002330-1023311023023001-0020023023022302-3030031332331323"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for automatic prefix.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+automatic_prefix = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1133221000222000-2213120123130103-0130203310131333-2133112220333331-0003003001130320-0222323310321220-1321013301112222-3310100211322021"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `f5_big_ip_aws_service.nodes.mgmt_subnet` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
+- [f5_big_ip_aws_service.nodes](resources--nfv_service--reference--group-001.md#canonical-0303213133011232-0201322132022131-1321023330330310-0032213003120332-3011101310033312-2030333102020323-2111032131310203-3332013322121201)
+- f5_big_ip_aws_service.nodes.mgmt_subnet
+
+<a id="canonical-0122002030110001-1122012022001111-3131220223022030-3231330121100020-3323322303220102-3000332012003230-1021003002122212-2221213011232103"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configuration parameter for mgmt subnet.
+
+Additional upstream details:
+
+Parameters for AWS subnet.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.ConflictingObjectAttributes("existing_subnet_id",
+    "subnet_param")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-choice": "[\"existing_subnet_id\",\"subnet_param\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+mgmt_subnet {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1320031022301112-2103201200330021-3013020002222102-0101122323232103-1332211021233303-0220211123223232-2001113332020010-0122133013120302"></a>
+
+### Direct properties for `f5_big_ip_aws_service.nodes.mgmt_subnet`
+
+<a id="canonical-3211101130211131-0011331031322321-1102023110023331-2320001321303010-1322301000133102-3222220110020013-2202030032131113-2320311021011230"></a>
+
+#### `f5_big_ip_aws_service.nodes.mgmt_subnet.existing_subnet_id` property
+
+Type: `"string"`. Optional.
+
+Exclusive with \[subnet\_param\] Information about existing subnet ID.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(64),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "pattern": "^(subnet-)([a-z0-9]{8}|[a-z0-9]{17})$"
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "64",
+    "ves.io.schema.rules.string.pattern": "^(subnet-)([a-z0-9]{8}|[a-z0-9]{17})$"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "64",
+    "ves.io.schema.rules.string.pattern": "^(subnet-)([a-z0-9]{8}|[a-z0-9]{17})$"
+  }
+}
+```
+
+- [subnet_param](resources--nfv_service--reference--group-001.md#canonical-2300131333210103-3201113223231000-2311112203311130-1011120033203123-1233123133122113-3101002102330100-0002233130122002-0312232221033011): complete subsection reference.
+
+<a id="canonical-2300131333210103-3201113223231000-2311112203311130-1011120033203123-1233123133122113-3101002102330100-0002233130122002-0312232221033011"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
+- [f5_big_ip_aws_service.nodes](resources--nfv_service--reference--group-001.md#canonical-0303213133011232-0201322132022131-1321023330330310-0032213003120332-3011101310033312-2030333102020323-2111032131310203-3332013322121201)
+- [f5_big_ip_aws_service.nodes.mgmt_subnet](resources--nfv_service--reference--group-001.md#canonical-1133221000222000-2213120123130103-0130203310131333-2133112220333331-0003003001130320-0222323310321220-1321013301112222-3310100211322021)
+- f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param
+
+<a id="canonical-0113312113022013-3003211103033221-1310021323023311-2200310023003223-2012100212032013-2112223103022220-0232031203002222-1203331022030101"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Parameters for creating a new cloud subnet.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.RequiredObjectAttributes("ipv4")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+subnet_param {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1232222212203203-3030213313202120-3230130032110202-1003200021021113-1312230221122222-3023321023121213-0011020103201231-3230030201132302"></a>
+
+### Direct properties for `f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param`
+
+<a id="canonical-0331210223320322-1033003000220102-1110333302210302-1230232212022133-1302201122121312-0112330333310301-2323120322002131-1103222113112102"></a>
+
+#### `f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param.ipv4` property
+
+Type: `"string"`. Optional.
+
+IPv4 Subnet. IPv4 subnet prefix for this subnet.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "format": "ipv4",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.ipv4_prefix": "true",
+    "ves.io.schema.rules.string.max_ip_prefix_length": "28"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.ipv4_prefix": "true",
+    "ves.io.schema.rules.string.max_ip_prefix_length": "28"
+  }
+}
+```
+
+<a id="canonical-2010110231023102-2320103003311321-1331301001120003-0133203323300021-2331102311120021-1311331010010103-1221300133122101-2113331113111133"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `f5_big_ip_aws_service.nodes.reserved_mgmt_subnet` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
+- [f5_big_ip_aws_service.nodes](resources--nfv_service--reference--group-001.md#canonical-0303213133011232-0201322132022131-1321023330330310-0032213003120332-3011101310033312-2030333102020323-2111032131310203-3332013322121201)
+- f5_big_ip_aws_service.nodes.reserved_mgmt_subnet
+
+<a id="canonical-0311323132002111-2221023212113103-2131311303120213-3121302331113023-3333100003322230-2013133111321133-0132131002331333-1010312031103321"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for reserved mgmt subnet.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+reserved_mgmt_subnet = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `https_management` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- https_management
+
+<a id="canonical-2310110120210321-0011122021130100-1020101231210333-1001101201002320-3213323313112230-0312000102310210-1113012113122222-1223202310021130"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configuration parameter for https management.
+
+Additional upstream details:
+
+HTTPS based configuration.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.RequiredObjectAttributes("domain_suffix"),
+  validators.ConflictingObjectAttributes("advertise_on_internet",
+    "advertise_on_internet_default_vip"),
+  validators.ConflictingObjectAttributes("advertise_on_internet",
+    "advertise_on_sli_vip"),
+  validators.ConflictingObjectAttributes("advertise_on_internet",
+    "advertise_on_slo_internet_vip"),
+  validators.ConflictingObjectAttributes("advertise_on_internet",
+    "advertise_on_slo_sli"),
+  validators.ConflictingObjectAttributes("advertise_on_internet",
+    "advertise_on_slo_vip"),
+  validators.ConflictingObjectAttributes("advertise_on_internet_default_vip",
+    "advertise_on_sli_vip"),
+  validators.ConflictingObjectAttributes("advertise_on_internet_default_vip",
+    "advertise_on_slo_internet_vip"),
+  validators.ConflictingObjectAttributes("advertise_on_internet_default_vip",
+    "advertise_on_slo_sli"),
+  validators.ConflictingObjectAttributes("advertise_on_internet_default_vip",
+    "advertise_on_slo_vip"),
+  validators.ConflictingObjectAttributes("advertise_on_sli_vip",
+    "advertise_on_slo_internet_vip"),
+  validators.ConflictingObjectAttributes("advertise_on_sli_vip",
+    "advertise_on_slo_sli"),
+  validators.ConflictingObjectAttributes("advertise_on_sli_vip",
+    "advertise_on_slo_vip"),
+  validators.ConflictingObjectAttributes("advertise_on_slo_internet_vip",
+    "advertise_on_slo_sli"),
+  validators.ConflictingObjectAttributes("advertise_on_slo_internet_vip",
+    "advertise_on_slo_vip"),
+  validators.ConflictingObjectAttributes("advertise_on_slo_sli",
+    "advertise_on_slo_vip"),
+  validators.ConflictingObjectAttributes("default_https_port",
+    "https_port")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-advertise_choice": "[\"advertise_on_internet\",\"advertise_on_internet_default_vip\",\"advertise_on_sli_vip\",\"advertise_on_slo_internet_vip\",\"advertise_on_slo_sli\",\"advertise_on_slo_vip\"]",
+  "x-ves-oneof-field-internet_choice": "[]",
+  "x-ves-oneof-field-port_choice": "[\"default_https_port\",\"https_port\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+https_management {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0021330103130213-0200330132132022-2303311233300030-1303030132222023-2220111102013313-1213212010130220-0312120323033112-2102020230020020"></a>
+
+### Direct properties for `https_management`
+
+- [advertise_on_internet](resources--nfv_service--reference--group-001.md#canonical-0120200112111003-3331321000320321-3001301020110212-2233312213000030-3121001203022212-2312200333022211-2120220200002130-3331131211211023): complete subsection reference.
+
+- [advertise_on_internet_default_vip](resources--nfv_service--reference--group-002.md#canonical-2111023221103101-0221221100321122-1133132330200200-2021112233223332-3131313223011311-3201013031123012-2130013033112113-0311013010100122): complete subsection reference.
+
+- [advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302): complete subsection reference.
+
+- [advertise_on_slo_internet_vip](resources--nfv_service--reference--group-002.md#canonical-3031132200011022-1313221310121032-3200012331302121-0120313212301311-1101211132233033-2113333100000023-0121110203223213-0303202010232130): complete subsection reference.
+
+- [advertise_on_slo_sli](resources--nfv_service--reference--group-003.md#canonical-0300000202230320-1330311113123300-3013200231333023-2210113332222133-1202010133200331-1103103321101332-1311010232212102-3002120020221012): complete subsection reference.
+
+- [advertise_on_slo_vip](resources--nfv_service--reference--group-003.md#canonical-3123232331313231-1003300030030012-0013233023203203-0221011121303133-2002120310330210-0313012223300221-2030131203030100-3230303033112000): complete subsection reference.
+
+- [default_https_port](resources--nfv_service--reference--group-004.md#canonical-1031033213022103-1023333001002003-1001122010332122-2120200101013131-3210333031311132-3130212220330310-3120322302022212-0102303131310332): complete subsection reference.
+
+<a id="canonical-3131321201111130-3033222200321231-1201202313023231-1333112310130303-0322120131011100-3120231222222200-3012213001122230-2023330133221023"></a>
+
+<a id="canonical-1001013303213100-2110310031313302-3123031003030023-1223233200012010-3321331133003111-3320332300212013-1123212313330201-2323321131301012"></a>
+
+#### `https_management.domain_suffix` property
+
+Type: `"string"`. Optional.
+
+Domain suffix will be used along with node name to form URL to access node management.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(1024),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "hostname",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.hostname": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.hostname": "true"
+  }
+}
+```
+
+<a id="canonical-0123023032232303-0323211001202133-2013003322001322-1032312221231232-2112222313233021-0230202320231133-3133101222220000-2000332000110001"></a>
+
+<a id="canonical-2120300001113211-1132320000001200-3310032301121002-0001003100203103-2100002023030221-2311101221111120-3022303323120301-3301131231323130"></a>
+
+#### `https_management.https_port` property
+
+Type: `"number"`. Optional.
+
+Exclusive with \[default\_https\_port\] Enter TCP port number.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Int64{
+  int64validator.Between(1, 65535),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 65535,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "65535"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "65535"
+  }
+}
+```
+
+<a id="canonical-0120200112111003-3331321000320321-3001301020110212-2233312213000030-3121001203022212-2312200333022211-2120220200002130-3331131211211023"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `https_management.advertise_on_internet` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- https_management.advertise_on_internet
+
+<a id="canonical-0323010000210110-1011321220101213-3302313013003100-3101320312130203-3020110132002010-2121301212013103-3112021220132330-0311003300231200"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+This defines a way to advertise a load balancer on public. If optional public\_ip is provided, it
+will only be advertised on RE sites where that public\_ip is available.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+advertise_on_internet {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2330300311000311-3031023210321000-1132002313112231-1201131303003223-2300310031302001-2100121020022202-3300301323212311-1130110313212231"></a>
+
+### Direct properties for `https_management.advertise_on_internet`
+
+- [public_ip](resources--nfv_service--reference--group-002.md#canonical-0100132113311101-3231330300000220-3223211013111100-1133012230033333-3131132022031312-0023012203321222-1010313330223321-3220232020001122): complete subsection reference.

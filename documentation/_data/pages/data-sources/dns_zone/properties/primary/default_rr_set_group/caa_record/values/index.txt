@@ -2,7 +2,7 @@
 page_title: "primary.default_rr_set_group.caa_record.values"
 subcategory: "DNS"
 description: "Configuration parameter for values"
-xcsh_docs: {"aliases": ["primary default rr set group caa record values"], "body_bytes": 4939, "body_sha256": "sha256:a9ecf6c6299653d999585dfcb197ed61a62b85ee6bd333b60270d510c0dd2dc6", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:dns_zone:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:caa_record:values", "parent_id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:caa_record", "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/caa_record/values/index.md", "product": "distributed-cloud", "provider_name": "dns_zone", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1003010210202332-3333202023033313-3202310332302023-0113323111021000-0323333203102112-2302123311023320-0110332132200102-3322102013001203", "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["primary", "default_rr_set_group", "caa_record", "values"], "schema_version": 1, "sections": [{"aliases": ["primary default rr set group caa record values flags"], "anchor": "schema-primary--default_rr_set_group--caa_record--values--flags", "description": "This flag should be an integer between 0 and 255.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:caa_record:values", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "caa_record", "values", "flags"], "syntax": "attribute", "type": "number"}, {"aliases": ["primary default rr set group caa record values tag"], "anchor": "schema-primary--default_rr_set_group--caa_record--values--tag", "description": "Tag for categorization and filtering", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:caa_record:values", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "caa_record", "values", "tag"], "syntax": "attribute", "type": "string"}, {"aliases": ["primary default rr set group caa record values value"], "anchor": "schema-primary--default_rr_set_group--caa_record--values--value", "description": "Configuration parameter for value", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:caa_record:values", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "caa_record", "values", "value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/caa_record/values/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Configuration parameter for values", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["dns_zoneCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["primary default rr set group caa record values"], "body_bytes": 4403, "body_sha256": "sha256:7e75efb7d29c7003b27d44c53dbe9886be179abffe97e38d55f7c7632f4295ca", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:dns_zone:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:caa_record:values", "parent_id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:caa_record", "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/caa_record/values/index.md", "product": "distributed-cloud", "provider_name": "dns_zone", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1003010210202332-3333202023033313-3202310332302023-0113323111021000-0323333203102112-2302123311023320-0110332132200102-3322102013001203", "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["primary", "default_rr_set_group", "caa_record", "values"], "schema_version": 1, "sections": [{"aliases": ["primary default rr set group caa record values flags"], "anchor": "schema-primary--default_rr_set_group--caa_record--values--flags", "description": "This flag should be an integer between 0 and 255.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:caa_record:values", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "caa_record", "values", "flags"], "syntax": "attribute", "type": "number"}, {"aliases": ["primary default rr set group caa record values tag"], "anchor": "schema-primary--default_rr_set_group--caa_record--values--tag", "description": "Tag for categorization and filtering", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:caa_record:values", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "caa_record", "values", "tag"], "syntax": "attribute", "type": "string"}, {"aliases": ["primary default rr set group caa record values value"], "anchor": "schema-primary--default_rr_set_group--caa_record--values--value", "description": "Configuration parameter for value", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:caa_record:values", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "caa_record", "values", "value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/caa_record/values/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Configuration parameter for values", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["dns_zoneCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -25,10 +25,6 @@ Breadcrumbs:
 Type: `"list"`. Computed.
 
 CAA Record Value. Configuration parameter for values
-
-Upstream description:
-
-Configuration parameter for values
 
 Receipt-pinned upstream constraints:
 
@@ -68,10 +64,6 @@ Receipt-pinned upstream constraints:
 ### flags property
 
 Type: `"number"`. Computed.
-
-Flag should be an integer between 0 and 255.
-
-Upstream description:
 
 This flag should be an integer between 0 and 255.
 
@@ -117,10 +109,6 @@ Type: `"string"`. Computed.
 \[Enum: issue|issuewild|iodef\] Tag. Tag for categorization and filtering. Possible values are
 \`issue\`, \`issuewild\`, \`iodef\`.
 
-Upstream description:
-
-Tag for categorization and filtering
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -163,10 +151,6 @@ Type: `"string"`. Computed.
 
 Value. Configuration parameter for value
 
-Upstream description:
-
-Configuration parameter for value
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -201,8 +185,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [primary.default_rr_set_group.caa_record](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/properties/primary/default_rr_set_group/caa_record/)
-- [xcsh_dns_zone](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/)

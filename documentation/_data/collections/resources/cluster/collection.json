@@ -707,8 +707,8 @@
   "pages": [
     {
       "aliases": ["cluster"],
-      "body_bytes": 1575,
-      "body_sha256": "sha256:e468791ad036faebbc9114a56b57e31a0dfa256a0f499cba8b0fe0a7faf801ac",
+      "body_bytes": 1588,
+      "body_sha256": "sha256:0eff26f3070c1b5c8b440035611e612919c0c8dff8b9af3c5505dd45aa857af4",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -753,8 +753,8 @@
     },
     {
       "aliases": ["cluster"],
-      "body_bytes": 54212,
-      "body_sha256": "sha256:6995f21fe963a08366ce656962cb3c5ecffe05c8885e91bde0b94d593dd01a0c",
+      "body_bytes": 51075,
+      "body_sha256": "sha256:72b25fd65f2dc8a932c3d7977828f0d27a5f1b757302ea1261b0ae7d0a345164",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1385,8 +1385,8 @@
     },
     {
       "aliases": ["auto http config"],
-      "body_bytes": 1613,
-      "body_sha256": "sha256:ca7aa9f9d1f80210889d12b9bd1c672a7c404291dc2aa370fff462137fb4d44e",
+      "body_bytes": 1379,
+      "body_sha256": "sha256:081c5c4fcf0aee52ff83882316804a8a2d5e58621870c66cb5e2291cf5780712",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1425,8 +1425,8 @@
     },
     {
       "aliases": ["circuit breaker"],
-      "body_bytes": 8583,
-      "body_sha256": "sha256:91e35483b2e635c4c4bdb78627f13a5239099bfba2043d610c0a346017f2c39d",
+      "body_bytes": 6760,
+      "body_sha256": "sha256:90cc5b613fb78dcf928f7301a9feed085624f1c051cda6e4c2059e49798185d0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1536,8 +1536,8 @@
     },
     {
       "aliases": ["default subset"],
-      "body_bytes": 1780,
-      "body_sha256": "sha256:cb4fd4af0fc6bf001ce00e406567be624558b380624a24f9dd393353dfc9612b",
+      "body_bytes": 1323,
+      "body_sha256": "sha256:12ca02d7d0d01f8e5d11b6599c417587adad48009a0fa144792741a2369f2cf8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1576,8 +1576,8 @@
     },
     {
       "aliases": ["disable proxy protocol"],
-      "body_bytes": 1746,
-      "body_sha256": "sha256:8e3fb9558db4695706d421796d6596bcd5cf1ae23f8e874d10f7165d7bfe485e",
+      "body_bytes": 1512,
+      "body_sha256": "sha256:814c722319f6746c3bef348acfa53fe54e7bca7f9a7583ded5c269da75230ded",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1616,8 +1616,8 @@
     },
     {
       "aliases": ["endpoint subsets"],
-      "body_bytes": 4966,
-      "body_sha256": "sha256:57ea070390a80fa528fdcd3db60d1925bda8c2f6d5de6c16005c0faa25700c5e",
+      "body_bytes": 4758,
+      "body_sha256": "sha256:acb4e05a9aea282ce27e5eef5d38225c816e0f2d446dd0ef2982cbbc859c1109",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1680,8 +1680,8 @@
     },
     {
       "aliases": ["endpoints"],
-      "body_bytes": 6361,
-      "body_sha256": "sha256:8055932bdff32089ef07f2387ba96ec58495331e0deeaea7ad4e53641a8b2cc4",
+      "body_bytes": 5459,
+      "body_sha256": "sha256:c9088668d32eeb1043c68d298d2cb92d32f3299f77c47db17d2b1b9db49a3c4a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1791,8 +1791,8 @@
     },
     {
       "aliases": ["health checks"],
-      "body_bytes": 6346,
-      "body_sha256": "sha256:56ed92dd5ae86a7bd0ffbc71f0fa520c03a2d355179621f6217ac7936aa9ddba",
+      "body_bytes": 5444,
+      "body_sha256": "sha256:ced89a131b22f1e64cb0b5cff8268f1fe60f0c320b5e1077f923dde57213f233",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1902,8 +1902,8 @@
     },
     {
       "aliases": ["http1 config"],
-      "body_bytes": 1330,
-      "body_sha256": "sha256:a3f72ba7126e6dd74e9acc3d37093caaed9cc9a8bac171d651a1fac2f2e0594a",
+      "body_bytes": 950,
+      "body_sha256": "sha256:d6e74e40855ccd63d9326cd0556b66c0baaa613d1ae4588e2ab04ea99f488ef2",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:cluster:properties:http1_config:header_transformation"],
@@ -2006,8 +2006,8 @@
     },
     {
       "aliases": ["http1 config header transformation"],
-      "body_bytes": 3163,
-      "body_sha256": "sha256:984cd654bea29207351bac957236971453bde3729a087e3db4f1c7dd3ed809b5",
+      "body_bytes": 2254,
+      "body_sha256": "sha256:233ccfebbed37757105a46261b95d429632c6d03e0c3a05f84338c85cca27838",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2142,8 +2142,8 @@
     },
     {
       "aliases": ["http1 config header transformation default header transformation"],
-      "body_bytes": 1470,
-      "body_sha256": "sha256:5ae3e3a5e23530dc75a6d6e518a6c74d35bf94e61b5c7f99011097af2769d4f8",
+      "body_bytes": 1178,
+      "body_sha256": "sha256:4b3b2f3382a90ee9d94980caa5b7a1e6a6a8dfabda4006dc779d9097eb00c668",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2182,8 +2182,8 @@
     },
     {
       "aliases": ["http1 config header transformation preserve case header transformation"],
-      "body_bytes": 1489,
-      "body_sha256": "sha256:3522d3977d3cfe70035af494baac6d29ce9d467a83b25adfba2512f59e06b526",
+      "body_bytes": 1197,
+      "body_sha256": "sha256:4204d368a12c11dadeb2f97151b6bd326e7be2e86e7ba4056cf59d526caeb321",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2222,8 +2222,8 @@
     },
     {
       "aliases": ["http1 config header transformation proper case header transformation"],
-      "body_bytes": 1495,
-      "body_sha256": "sha256:6ed7a39b8e046bcaec5d89acfc284c619ddeafae4a7c91786433d26029e35d71",
+      "body_bytes": 1203,
+      "body_sha256": "sha256:49fed306c07c5b313d90c666ad908dd1128944742644dc67cc9590edb487164a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2262,8 +2262,8 @@
     },
     {
       "aliases": ["http2 options"],
-      "body_bytes": 1313,
-      "body_sha256": "sha256:3702971a6446d81ff4ea64dc45ad2d41ef0d6b611850e7e105914d5f3e081056",
+      "body_bytes": 1094,
+      "body_sha256": "sha256:0b330123160e1c26faf22f2b9f05fe356165b2d9b97dee4e56dcc72c0083829a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2317,8 +2317,8 @@
     },
     {
       "aliases": ["no panic threshold"],
-      "body_bytes": 1550,
-      "body_sha256": "sha256:8f62c683b5d6a26b95443f6f326cf0b6b48b39a211264af0545224e7d549eb8d",
+      "body_bytes": 1316,
+      "body_sha256": "sha256:38b1f08511cba1194ba8c0d3be6884cb3ab04f73f97a32125825b442189aca20",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2357,8 +2357,8 @@
     },
     {
       "aliases": ["no request limit per connection"],
-      "body_bytes": 1148,
-      "body_sha256": "sha256:d78272890e3883b891bc2d9539ed0a1b24ea482f876965c1507090a3b2dddafb",
+      "body_bytes": 914,
+      "body_sha256": "sha256:ec74f19f1c8e690fc843bdfb9368816656ccee0f747c9ce698da4a71b6ff6456",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2397,8 +2397,8 @@
     },
     {
       "aliases": ["outlier detection"],
-      "body_bytes": 9453,
-      "body_sha256": "sha256:4484596908460dadf945cab163ba93f5089f383539f071bc1f4112a9d837981d",
+      "body_bytes": 7918,
+      "body_sha256": "sha256:32432412ded9701f7029ade33559d923104a02e4f4d02ac15d4d68f3d0b5483f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2508,8 +2508,8 @@
     },
     {
       "aliases": ["proxy protocol v1"],
-      "body_bytes": 1092,
-      "body_sha256": "sha256:092c8067f0384e8596643aac8f54658b4b04dd328df09128ce83f371a4c69c94",
+      "body_bytes": 858,
+      "body_sha256": "sha256:53c3a50ec73383416dfa3d31e6a45db9b6fc73f228549c2f8e349644c6afc452",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2548,8 +2548,8 @@
     },
     {
       "aliases": ["proxy protocol v2"],
-      "body_bytes": 1092,
-      "body_sha256": "sha256:fd2abacff2630ee53b55905499597de66a39a208dd8852f70dcd8bde7449abb9",
+      "body_bytes": 858,
+      "body_sha256": "sha256:5d6b79b188c509fb77b6e403c54c62d1ec2f389427349ecf1dbd09bd052fab5e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2588,8 +2588,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2201,
-      "body_sha256": "sha256:5ae7a74011582a2844ab2fa87368dbccbabc4a1c5c89ca6e1ce9dcddc10b7d05",
+      "body_bytes": 1982,
+      "body_sha256": "sha256:b33b0f380e0889163b16aebccdf449584e0664705d128c58ebcfc45eec16dd74",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2720,8 +2720,8 @@
     },
     {
       "aliases": ["tls parameters"],
-      "body_bytes": 6409,
-      "body_sha256": "sha256:ff25f93433cbe8a0a68ad19ca4ecfb7cd30b33a52c0466f41c79d6bdfed20006",
+      "body_bytes": 4979,
+      "body_sha256": "sha256:2525b7538bda0e91bf556b66270d095454ae374b790000a279f19bd27b50ba73",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -3050,8 +3050,8 @@
     },
     {
       "aliases": ["tls parameters cert params"],
-      "body_bytes": 9101,
-      "body_sha256": "sha256:92ea525de22c9fe6686e2a8d128ff64bba99f1bbc93bf1b60ad81210b7055caf",
+      "body_bytes": 7500,
+      "body_sha256": "sha256:d45c9f206412dbfe05c6e752c84cb91d028ca916ba5ef744f1ef468c4c5dcf65",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -3076,7 +3076,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1100203002130122-0022303002220133-3103111323222000-2330331223110031-2130313221330022-3031012100210311-2322023011022002-1201200201010022",
-      "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
+      "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -3280,8 +3280,8 @@
         "tls certificates",
         "tls parameters cert params certificates"
       ],
-      "body_bytes": 6667,
-      "body_sha256": "sha256:b2bdbcd92234dcbaafae861792f59284ea7a26ba4cda495cf2ff48a06b4cd537",
+      "body_bytes": 5723,
+      "body_sha256": "sha256:badb3d20908ee38c8d9207c75ec0fa3e4e4895c2d0a7147b1c56b408c771d36c",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -3301,7 +3301,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3231221112110221-2222223230122221-0123030212331110-3102133330132221-1323200221220213-2331121203031321-2322013132001213-1231033011033303",
-      "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
+      "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -3391,8 +3391,8 @@
     },
     {
       "aliases": ["tls parameters cert params skip server verification"],
-      "body_bytes": 1440,
-      "body_sha256": "sha256:daf6515f0164d4edf87a5a0fab93cfc611547b94c1ab84a5e7fcaba98229ff2a",
+      "body_bytes": 1171,
+      "body_sha256": "sha256:88490a8aa9d1e6dee39770efc9d3fde007af7597b86c055f94dd1a64a0a57daf",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -3412,7 +3412,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3230113212220110-1311312112103302-1122313301110122-2300101023102300-2311300223331201-3302320331023023-1100030020113322-2020202131030311",
-      "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
+      "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -3431,8 +3431,8 @@
     },
     {
       "aliases": ["tls parameters cert params tls validation params"],
-      "body_bytes": 4948,
-      "body_sha256": "sha256:cc277bee75a40b883c4e1c1a5c73c0156eab987bf19c3dd3a8283a954b2c5bbb",
+      "body_bytes": 3846,
+      "body_sha256": "sha256:dfee2786d1847daed9d0910000bc28d403ce0e328697718e710cea23859076c5",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -3454,7 +3454,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2101011001120302-3311230102233231-2123132022111332-1330332321231133-2303000103200231-1130103300133322-3102220332233122-0200233112023111",
-      "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
+      "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-tls_parameters--cert_params--tls_validation_params--trusted_ca_url",
@@ -3547,8 +3547,8 @@
     },
     {
       "aliases": ["tls parameters cert params tls validation params trusted ca"],
-      "body_bytes": 2144,
-      "body_sha256": "sha256:814046876ebdf832cb94971a143e455c74207cbb010cdc4565f2f49dd2b75b07",
+      "body_bytes": 1545,
+      "body_sha256": "sha256:83bed7ad472064d104665205e8fbd82c6f358c8536c461e73b12c64fdcfd084d",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -3570,7 +3570,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2021030210210031-1231023013013102-0122320101032012-2302332333111113-0333210230330213-3302100001131133-3133303313021330-3103133220131322",
-      "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
+      "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -3604,8 +3604,8 @@
     },
     {
       "aliases": ["tls parameters cert params tls validation params trusted ca trusted ca list"],
-      "body_bytes": 7558,
-      "body_sha256": "sha256:f0a06b7459a3893578163a99d0ee08d088136f0a40befa0f69d93e9ddaf88969",
+      "body_bytes": 6490,
+      "body_sha256": "sha256:3d1aa6014e43a65bf4ceb5d869ca8d73daf7167ef12355ce9fd34cac25c8d81b",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -3625,7 +3625,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3210202012233222-2222111012311100-0302200210313202-1110231121211201-2133310310320312-1123123022220111-1311011101003222-2302030122313211",
-      "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
+      "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -3750,8 +3750,8 @@
     },
     {
       "aliases": ["tls parameters cert params volterra trusted ca"],
-      "body_bytes": 1455,
-      "body_sha256": "sha256:dfa990e38d484d004a9e5c224db2948e8afc3cdbbfb5d824b04369372181e26a",
+      "body_bytes": 1186,
+      "body_sha256": "sha256:b723a74a8030250fd4b66a64c93514ac60964900b3f6941b04f7aae92c17e205",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -3771,7 +3771,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0232001101331213-3011133133010213-0313330030310323-1311002133300112-1300011211333120-3323002231113130-0300100332301033-0311100310121120",
-      "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
+      "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -3790,8 +3790,8 @@
     },
     {
       "aliases": ["tls parameters common params"],
-      "body_bytes": 7943,
-      "body_sha256": "sha256:5e233b854cfb50e445d5305bffcb886ecee7fc9940f394448931fa5bc700c616",
+      "body_bytes": 6584,
+      "body_sha256": "sha256:74a07cfcbfb257db0a2689834ab03c7eeaa432100de8ea467517ab279fc1eaf3",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -3814,7 +3814,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3000332102231031-2232112022123031-0211133232202112-0032122020002033-2212122300111002-2302023030003012-0222333220103023-0320013312123031",
-      "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
+      "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -3990,8 +3990,8 @@
         "tls certificates",
         "tls parameters common params tls certificates"
       ],
-      "body_bytes": 5329,
-      "body_sha256": "sha256:0dcc1b176206bcef10cba48913222f5ed89da9740a3cc755f0b74e529cc133e6",
+      "body_bytes": 4021,
+      "body_sha256": "sha256:e4f523d808802cfe1c2656d7639cfcb175a8c6a203e3fd7a9f53d496761efb5a",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -4016,7 +4016,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0131010103112232-3231212333021030-2003223122303221-0310132121203233-1133132000120130-0020110303123221-1122130221010233-3121233100221002",
-      "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
+      "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -4209,8 +4209,8 @@
     },
     {
       "aliases": ["tls parameters common params tls certificates custom hash algorithms"],
-      "body_bytes": 3357,
-      "body_sha256": "sha256:c9ed448a6d2442bd0a8595f541203eaf84a35a2258180aa2481a4d427fc557e5",
+      "body_bytes": 2997,
+      "body_sha256": "sha256:32704277d8fe73fda58cfc2489c32bcc7118690254a9eede2afa075f29e04c9a",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -4230,7 +4230,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3100030202202023-3332102123210012-3211221011112033-1010201322312023-3201300103121021-3032033210313123-1010332231032003-2220333022212312",
-      "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
+      "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-tls_parameters--common_params--tls_certificates--custom_hash_algorithms--hash_algorithms",
@@ -4279,8 +4279,8 @@
     },
     {
       "aliases": ["tls parameters common params tls certificates disable ocsp stapling"],
-      "body_bytes": 1726,
-      "body_sha256": "sha256:7a586420a2098d9c71ba2709edff519d68313798dae64da2b1428d0786204f8a",
+      "body_bytes": 1419,
+      "body_sha256": "sha256:94a2116685c36a3bdad2bd66d51be42dbcc51e16a8938819364399aac97f2b1c",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -4300,7 +4300,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1113012131322320-0302131123233120-3101220102133203-2113133101130003-2232130312102120-0013123302000011-3200201321123120-3032320120001011",
-      "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
+      "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4319,8 +4319,8 @@
     },
     {
       "aliases": ["tls parameters common params tls certificates private key"],
-      "body_bytes": 2847,
-      "body_sha256": "sha256:fd8e478f3ed216671c3191f32cbd25a9e4da64b97d3514d9e68887ad4b994eae",
+      "body_bytes": 2061,
+      "body_sha256": "sha256:f37674efbf8e2436281e7c0285b4fbc621a71c7dbdd8482188cc9beeeb73d82d",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -4343,7 +4343,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0112322121010113-2232031323011101-1331110203332032-1103021020010321-1303003331100031-1100121002230200-0112002301111132-2220220321333331",
-      "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
+      "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -4432,8 +4432,8 @@
     },
     {
       "aliases": ["tls parameters common params tls certificates private key blindfold secret info"],
-      "body_bytes": 5446,
-      "body_sha256": "sha256:f8189b071190deb9e48779f547231a5457808a721cdcc5f4f6ca918813af7e08",
+      "body_bytes": 4761,
+      "body_sha256": "sha256:54d6f1dbc29e5c3325976e42f0d5eb89d12bd180a2d89ed95e2470313851b438",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -4453,7 +4453,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1111201001212120-2100030320133102-3113220213330111-2312322131330022-1100301011312201-0210323001212333-3322202132011012-0132330022213300",
-      "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
+      "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--blindfold_secret_info--location",
@@ -4547,8 +4547,8 @@
     },
     {
       "aliases": ["tls parameters common params tls certificates private key clear secret info"],
-      "body_bytes": 4297,
-      "body_sha256": "sha256:b270eb9e0045cd2f9b8aca6508b3b08f82841219aa8f6db19ddf7bd7ffdb9e40",
+      "body_bytes": 3746,
+      "body_sha256": "sha256:d04801d9dd78f19e10b4aa3bca890e12c790c5016b4e97a3386715d51116bd2d",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -4568,7 +4568,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1003030120101221-1132033110233013-2333213312110121-0201233200102312-3032112003002113-2132331313311002-2101032023032311-3121200103302010",
-      "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
+      "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--clear_secret_info--url",
@@ -4639,8 +4639,8 @@
     },
     {
       "aliases": ["tls parameters common params tls certificates use system defaults"],
-      "body_bytes": 1718,
-      "body_sha256": "sha256:8dfade64e16c549978bf4dd62320252420fca91dce8dae06e52cf5923be0f12f",
+      "body_bytes": 1411,
+      "body_sha256": "sha256:219407488cf8d84b286308807cece7b3ab0e555972dbf373c2bfe7571051ebf3",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -4660,7 +4660,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3312123133213002-2033110322000311-1233120302113100-3332231330331002-2223313020333233-3322023210233300-1001131001321311-3210320211002102",
-      "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
+      "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4679,8 +4679,8 @@
     },
     {
       "aliases": ["tls parameters common params validation params"],
-      "body_bytes": 4936,
-      "body_sha256": "sha256:fa8d23f8e7e9b7c2fc7f92fbcf47d14ccfe5f461796b20bdb6c3a2dfd89b3017",
+      "body_bytes": 3834,
+      "body_sha256": "sha256:2aab0d0cc524503bdead50735f6d61725133d06683aea14fdda50248ec337875",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": ["xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca"],
@@ -4793,8 +4793,8 @@
     },
     {
       "aliases": ["tls parameters common params validation params trusted ca"],
-      "body_bytes": 2130,
-      "body_sha256": "sha256:71d5d86a615aa1976edf5ceadd05e4cf3487fe133967a79bfd58a70b9d494f6c",
+      "body_bytes": 1539,
+      "body_sha256": "sha256:c56e04c0be30aadf101ffcf99ad7c27ce7df8a3c2fcc92ebcf7e090976697d4d",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -4850,8 +4850,8 @@
     },
     {
       "aliases": ["tls parameters common params validation params trusted ca trusted ca list"],
-      "body_bytes": 7536,
-      "body_sha256": "sha256:1df54a218a5108ceadc84ccd1265a661f4214d502f509a60192ecf17a5c9851b",
+      "body_bytes": 6472,
+      "body_sha256": "sha256:98569aade4f59fa20517f078e568fe743d6081bf660f3f806632dc60a16ec340",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -4996,8 +4996,8 @@
     },
     {
       "aliases": ["tls parameters default session key caching"],
-      "body_bytes": 1294,
-      "body_sha256": "sha256:9a8af434ab8cef51a6104e677fdbfb4d39a87f5b1782427c682c6612bfa36349",
+      "body_bytes": 1049,
+      "body_sha256": "sha256:61e60d4d2fe95d1e61be1ae30198662115e35552453c63163d547c9bd3789cc9",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -5036,8 +5036,8 @@
     },
     {
       "aliases": ["tls parameters disable session key caching"],
-      "body_bytes": 1294,
-      "body_sha256": "sha256:6bff1ef0062defa3ad2b147d9a6270fd8b73a2ddc5c1425f8e8c2f4ca4adf084",
+      "body_bytes": 1049,
+      "body_sha256": "sha256:514bb3a541f53029c448b9071837b68a45b043fbc6fb3c6cfe3a609a2a9767dd",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -5076,8 +5076,8 @@
     },
     {
       "aliases": ["tls parameters disable sni"],
-      "body_bytes": 1230,
-      "body_sha256": "sha256:f1e93076b9b47afe6562fbb57e404bd3a7a0e72ca9c77154313b57ab98fe46c8",
+      "body_bytes": 985,
+      "body_sha256": "sha256:d1ea90ccd4af11bd9db27d804484c507a4dcf78aaa802f57699c0ece53eec41f",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -5116,8 +5116,8 @@
     },
     {
       "aliases": ["tls parameters use host header as sni"],
-      "body_bytes": 1241,
-      "body_sha256": "sha256:480bfd1563c58421e8fc456a0e6a460afed116a440f801e4dadb6d8ddfd3677a",
+      "body_bytes": 996,
+      "body_sha256": "sha256:98cb62c621f6fe691cd8e2c5919410f7be23f95af62ae8d8108adff071ab5420",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -5156,8 +5156,8 @@
     },
     {
       "aliases": ["upstream conn pool reuse type"],
-      "body_bytes": 2232,
-      "body_sha256": "sha256:e46850483de14b365698931491f1354355a044a2e5542c7085f3cf1fb3722cdb",
+      "body_bytes": 1617,
+      "body_sha256": "sha256:a00748cd3fed3b077a7eed8dde5782797a9d2ac260ac4cbe2879294481a4faa0",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -5245,8 +5245,8 @@
     },
     {
       "aliases": ["upstream conn pool reuse type disable conn pool reuse"],
-      "body_bytes": 1368,
-      "body_sha256": "sha256:cdc4d5b03cfe20f3cd83f79b360e222b8d1ca1eb680a04d34eeddf7b144babcf",
+      "body_bytes": 1093,
+      "body_sha256": "sha256:da26948fd67c8721ccb3730d65cfb4545840d76a2dc11551c3f49ebd83c90413",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5285,8 +5285,8 @@
     },
     {
       "aliases": ["upstream conn pool reuse type enable conn pool reuse"],
-      "body_bytes": 1364,
-      "body_sha256": "sha256:7be797d134c221798f6d4d11c632e86ef830622511e22eb844d44ba7cf86300e",
+      "body_bytes": 1089,
+      "body_sha256": "sha256:98e563ab4887badcdc2e9adb9286ab54e4860974bf0b70c1321a2dde525f4afd",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5325,8 +5325,8 @@
     },
     {
       "aliases": ["cluster"],
-      "body_bytes": 603,
-      "body_sha256": "sha256:a4ea261b07b80ae64d0a9f79d4f222bcf856d152ca45616ca9180aa7f0502293",
+      "body_bytes": 387,
+      "body_sha256": "sha256:b71fd882a75500438a5b969d02577915adab30eb884a8a842dbb21643205de31",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:cluster:example:resource"],
@@ -5365,8 +5365,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1243,
-      "body_sha256": "sha256:404a53c4714302c76dea96edc280bcd44966c3fd4cdf39cd53a01614f39f4375",
+      "body_bytes": 1036,
+      "body_sha256": "sha256:0a149a88b604c85d68382b7851a9d7d0854431b33b74cb478cf1f37f634d91b0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5412,8 +5412,8 @@
     },
     {
       "aliases": ["cluster"],
-      "body_bytes": 455,
-      "body_sha256": "sha256:a12ed44c01d644c1bd8395f32fdc6cbacde501078fa39fef51a081a86d444e97",
+      "body_bytes": 346,
+      "body_sha256": "sha256:cdea630709763ca55e57539d9c7a30ff178cfa93d8314cf8b45aaa9014eca33e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5453,8 +5453,8 @@
     },
     {
       "aliases": ["cluster"],
-      "body_bytes": 543,
-      "body_sha256": "sha256:05b5f55b7963f298874729aa0b226c1b4349d5105712befe4cbefbeffb1215af",
+      "body_bytes": 434,
+      "body_sha256": "sha256:8ff1492e7164114d3bc85796b7391e262bbb879a83d529d4b1bce39d1476e9e0",
       "capabilities": [],
       "category": null,
       "child_ids": [],

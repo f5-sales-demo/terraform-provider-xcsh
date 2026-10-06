@@ -2,7 +2,7 @@
 page_title: "peers.external.interface_list.interfaces"
 subcategory: ""
 description: "List of network interfaces."
-xcsh_docs: {"aliases": ["peers external interface list interfaces"], "body_bytes": 6920, "body_sha256": "sha256:b87152d68827996599f93f2a01db07c99c08a09ba2fad44edcb483462d9c52b3", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:bgp:collection", "completeness": "complete", "id": "xcsh-docs:resources:bgp:properties:peers:external:interface_list:interfaces", "parent_id": "xcsh-docs:resources:bgp:properties:peers:external:interface_list", "path": "documentation/resources/bgp/properties/peers/external/interface_list/interfaces/index.md", "product": "distributed-cloud", "provider_name": "bgp", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0203222020113313-3333130022100002-3010001001331332-2333231321233111-2033211032302211-2031103132320120-2211013011202231-2312102111100000", "registry_path": "docs/guides/resources--bgp--reference--group-001.md", "relationships": [{"anchor": "schema-peers--external--interface_list--interfaces--name", "enforcement": "provider-schema", "group": "peers.external.interface_list.interfaces:RequiredListObjectAttributes:name", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:bgp:properties:peers:external:interface_list:interfaces", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["peers", "external", "interface_list", "interfaces"], "schema_version": 1, "sections": [{"aliases": ["peers external interface list interfaces name"], "anchor": "schema-peers--external--interface_list--interfaces--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:bgp:properties:peers:external:interface_list:interfaces", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "interface_list", "interfaces", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["peers external interface list interfaces namespace"], "anchor": "schema-peers--external--interface_list--interfaces--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:bgp:properties:peers:external:interface_list:interfaces", "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "interface_list", "interfaces", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["peers external interface list interfaces tenant"], "anchor": "schema-peers--external--interface_list--interfaces--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:bgp:properties:peers:external:interface_list:interfaces", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "interface_list", "interfaces", "tenant"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bgp/properties/peers/external/interface_list/interfaces/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of network interfaces.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["bgpCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["peers external interface list interfaces"], "body_bytes": 6117, "body_sha256": "sha256:bcbd4cc33c660582c9297ace6ddfcb290cf9aed4e8a7238674498b95793e1bb1", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:bgp:collection", "completeness": "complete", "id": "xcsh-docs:resources:bgp:properties:peers:external:interface_list:interfaces", "parent_id": "xcsh-docs:resources:bgp:properties:peers:external:interface_list", "path": "documentation/resources/bgp/properties/peers/external/interface_list/interfaces/index.md", "product": "distributed-cloud", "provider_name": "bgp", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-0203222020113313-3333130022100002-3010001001331332-2333231321233111-2033211032302211-2031103132320120-2211013011202231-2312102111100000", "registry_path": "docs/guides/resources--bgp--reference--group-002.md", "relationships": [{"anchor": "schema-peers--external--interface_list--interfaces--name", "enforcement": "provider-schema", "group": "peers.external.interface_list.interfaces:RequiredListObjectAttributes:name", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:bgp:properties:peers:external:interface_list:interfaces", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["peers", "external", "interface_list", "interfaces"], "schema_version": 1, "sections": [{"aliases": ["peers external interface list interfaces name"], "anchor": "schema-peers--external--interface_list--interfaces--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:bgp:properties:peers:external:interface_list:interfaces", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "interface_list", "interfaces", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["peers external interface list interfaces namespace"], "anchor": "schema-peers--external--interface_list--interfaces--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:bgp:properties:peers:external:interface_list:interfaces", "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "interface_list", "interfaces", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["peers external interface list interfaces tenant"], "anchor": "schema-peers--external--interface_list--interfaces--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:bgp:properties:peers:external:interface_list:interfaces", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "interface_list", "interfaces", "tenant"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bgp/properties/peers/external/interface_list/interfaces/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of network interfaces.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["bgpCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -25,10 +25,6 @@ Breadcrumbs:
 Type: `"object"`. list nested block, Optional.
 
 Interface List. List of network interfaces.
-
-Upstream description:
-
-List of network interfaces.
 
 Provider validators and defaults (from schema source):
 
@@ -95,11 +91,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -154,11 +145,6 @@ Receipt-pinned upstream constraints:
 ### namespace property
 
 Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -228,11 +214,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -274,8 +255,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [peers.external.interface_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/bgp/properties/peers/external/interface_list/)
-- [xcsh_bgp](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/bgp/)

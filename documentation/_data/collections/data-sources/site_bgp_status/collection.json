@@ -146,8 +146,8 @@
   "pages": [
     {
       "aliases": ["site bgp status"],
-      "body_bytes": 2267,
-      "body_sha256": "sha256:35fae35b271d4a143c2757fc2046e2a93d62d858c129b410e9b8a56ca9e38f09",
+      "body_bytes": 2280,
+      "body_sha256": "sha256:92e2115b877e60ded9d12a550d4c5c1f52f53926a3de28a4a8f4c3b478de9c2e",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -190,8 +190,8 @@
     },
     {
       "aliases": ["site bgp status"],
-      "body_bytes": 7430,
-      "body_sha256": "sha256:12b90ee1e89d4c764f11c3aed2dc5a25b25906cf97ae5fb6c1693b620b5c6141",
+      "body_bytes": 7056,
+      "body_sha256": "sha256:8239226161aebce24ebae0292c901768b4acc8fb282aeb87fe3746841f0e29d3",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -402,8 +402,8 @@
     },
     {
       "aliases": ["expected peers"],
-      "body_bytes": 1434,
-      "body_sha256": "sha256:829feba6e0ad7797f89f3c2eca3d89770fce8c3fd823a711038d47af5be4d394",
+      "body_bytes": 1185,
+      "body_sha256": "sha256:24e27fd79ebf0f4447d0bdc0ae787e60b1368589ac410b48b5b974cd022e9620",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -513,8 +513,8 @@
     },
     {
       "aliases": ["peers"],
-      "body_bytes": 1636,
-      "body_sha256": "sha256:5dcb12685c3b893e3d7e389c60f854c6b70e31f804effb8aa975c857953a305a",
+      "body_bytes": 1387,
+      "body_sha256": "sha256:f34ac1918396701c3094a4d9c7f015631160ae1eba98765254da07f22a761371",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -694,8 +694,8 @@
     },
     {
       "aliases": ["site bgp status"],
-      "body_bytes": 675,
-      "body_sha256": "sha256:0abc6754fa5253723488e6b3c18d2626c8fe520cb6761a59bbe6339f5c5200c2",
+      "body_bytes": 423,
+      "body_sha256": "sha256:911716d7226b1e55c1ee1a6892fa3d9905b860a80df6cd63e84b5bc69c1544a0",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:site_bgp_status:example:data-source"],
@@ -734,8 +734,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 2160,
-      "body_sha256": "sha256:9598a7c740d77e6b63c3fcca24f102822dc60b9781c82753e7055391da836e62",
+      "body_bytes": 1923,
+      "body_sha256": "sha256:c948705f9748ccfac7f973ea49774c42018073d0fa8d7b3d506a36370c677f25",
       "capabilities": [],
       "category": null,
       "child_ids": [],

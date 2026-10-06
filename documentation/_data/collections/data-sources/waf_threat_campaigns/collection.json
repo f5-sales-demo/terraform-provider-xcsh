@@ -81,8 +81,8 @@
   "pages": [
     {
       "aliases": ["waf threat campaigns"],
-      "body_bytes": 1222,
-      "body_sha256": "sha256:2793f77cad1fbf6186431c1b8c54b1ed0efb11d42c8b02973dc668327f904954",
+      "body_bytes": 1271,
+      "body_sha256": "sha256:c76229e74eb4f1a1e82e09c976d124890363bc2b73a0a59bcd0a1a90efc13c7a",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -113,7 +113,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_threat_campaigns/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource retrieval operation.",
+      "summary": "Reads WAF Threat Campaigns information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_waf_threat_campaigns",
       "unresolved_relationships": [],
@@ -125,8 +125,8 @@
     },
     {
       "aliases": ["waf threat campaigns"],
-      "body_bytes": 4272,
-      "body_sha256": "sha256:137e1524c8447300e1711fd72ec8ec3fb792ed55edb095552697449d9b173d8b",
+      "body_bytes": 3993,
+      "body_sha256": "sha256:b451c714d21925a1d86dd207bc29a1556e09734a4fd108ad2e908dce38f6c45b",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:waf_threat_campaigns:properties:threat_campaigns"],
@@ -222,8 +222,8 @@
     },
     {
       "aliases": ["threat campaigns"],
-      "body_bytes": 2460,
-      "body_sha256": "sha256:22ccb0c1241cee757e5ca9f60e579a8ddc5b2200d81a52fa031f34fa25f59479",
+      "body_bytes": 2196,
+      "body_sha256": "sha256:e9918257845d87c7d7c827313c7277afc860e5be7947afa8105b214bb9a76ed4",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -403,8 +403,8 @@
     },
     {
       "aliases": ["waf threat campaigns"],
-      "body_bytes": 705,
-      "body_sha256": "sha256:1321c6ec3e537257a005cd19a10affdbf677035f5e542b7ee7a4765a7bcc1b92",
+      "body_bytes": 438,
+      "body_sha256": "sha256:69c82736c2038622efa4fb2b53dbf5d169dd17d11f5248fec7c272333df6a816",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:waf_threat_campaigns:example:data-source"],
@@ -443,8 +443,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1264,
-      "body_sha256": "sha256:ced1462f159ad6c859f4ec482fdc9b71fce509120d2417f784d6e2d087e3b440",
+      "body_bytes": 1012,
+      "body_sha256": "sha256:2f85f3f474fe39aa99f53e0690a1a75e684a3b2aaacc8850de955c7ca654074e",
       "capabilities": [],
       "category": null,
       "child_ids": [],

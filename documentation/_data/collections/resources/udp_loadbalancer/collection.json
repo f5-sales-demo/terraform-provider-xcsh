@@ -542,8 +542,8 @@
   "pages": [
     {
       "aliases": ["udp loadbalancer"],
-      "body_bytes": 1649,
-      "body_sha256": "sha256:7834c1db1fd1857842978bc3e981778c2ae464246b3fbcb2cf144771d0a14dfb",
+      "body_bytes": 1662,
+      "body_sha256": "sha256:3fcf6e6ce2a1c3ada71ceb6805f3a6042271218aa5d15c606c30f9393e3a461b",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -588,8 +588,8 @@
     },
     {
       "aliases": ["udp loadbalancer"],
-      "body_bytes": 46070,
-      "body_sha256": "sha256:9742e65e8790ae1f5c308b50e28aae923db125aae1b569a074696dc0d65ee1ba",
+      "body_bytes": 43356,
+      "body_sha256": "sha256:32adb108fc113b3d28050c848c41adec8248af20a7dbc3e1802e9667c7dc46a7",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -1028,8 +1028,8 @@
     },
     {
       "aliases": ["active service policies"],
-      "body_bytes": 2324,
-      "body_sha256": "sha256:825b38901b0df562768361a7e38b8e9ff1ab083aca81bae03d971a60805bd9f4",
+      "body_bytes": 1919,
+      "body_sha256": "sha256:9f41700913d3f5b77cca62d596fad5c2b5aa429ae99e6b6fd9e3b045ff872f5f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:udp_loadbalancer:properties:active_service_policies:policies"],
@@ -1101,8 +1101,8 @@
     },
     {
       "aliases": ["active service policies policies"],
-      "body_bytes": 7569,
-      "body_sha256": "sha256:46ffee6e61d1191ca515cb4410152dff14c808483fc3f5cc4eedc6e768e45644",
+      "body_bytes": 6478,
+      "body_sha256": "sha256:c32acfdb2be51877e9e6a1d1fe9b04305b891956735bd292564b1dbb63f83f55",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -1193,8 +1193,8 @@
     },
     {
       "aliases": ["advertise custom"],
-      "body_bytes": 2502,
-      "body_sha256": "sha256:163ce345fff2187cc85cce21b9334ec5df63c7930bd95bb1d1bb99deb49c213e",
+      "body_bytes": 2097,
+      "body_sha256": "sha256:44cc14ebe573b592c583f4e329551db48b5056963acdb2957cdc2defa3825f55",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where"],
@@ -1754,8 +1754,8 @@
     },
     {
       "aliases": ["advertise custom advertise where"],
-      "body_bytes": 11321,
-      "body_sha256": "sha256:8d2f2b889ac22a606c5779e54b2c1db45c54e32ed87788a2ad153166f6304b8d",
+      "body_bytes": 9062,
+      "body_sha256": "sha256:e4f63a0b1c4f9275e330e42026e6740f93b2be69569f46df3a32ff77db826d97",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -2506,8 +2506,8 @@
     },
     {
       "aliases": ["advertise custom advertise where advertise dualstack on public"],
-      "body_bytes": 2275,
-      "body_sha256": "sha256:8d3b043339e52f7ee25afcaea5c7e2289b372e1fd330e06df02b2e9901c2e8ce",
+      "body_bytes": 1547,
+      "body_sha256": "sha256:9cc25a7cdbadae5434ec4f1f74225a703b65ee81feea17cace078c1a4ad24fa6",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -2572,8 +2572,8 @@
     },
     {
       "aliases": ["advertise custom advertise where advertise dualstack on public public ip"],
-      "body_bytes": 6792,
-      "body_sha256": "sha256:d53a24a22f1fe83081d68649fe996d5cb87e681ce51856e4dedfd86f28f00d37",
+      "body_bytes": 5766,
+      "body_sha256": "sha256:abe8d0588df8900fdf187d0e5c5ec41eabaa57263cc1c1f9df410f296ab13478",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -2676,8 +2676,8 @@
     },
     {
       "aliases": ["advertise custom advertise where advertise on public"],
-      "body_bytes": 2215,
-      "body_sha256": "sha256:7a93b6049e55e70fae7941b456e124fb5c250b3c7d99db670d98e5704646c513",
+      "body_bytes": 1507,
+      "body_sha256": "sha256:4fa43bd419519c5fa9358f5f6781a4a31754c20ab71389d07e665d5a3a37df9e",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -2742,8 +2742,8 @@
     },
     {
       "aliases": ["advertise custom advertise where advertise on public public ip"],
-      "body_bytes": 6702,
-      "body_sha256": "sha256:d8c327b1f868123ff2f42587768da7ace5dbc3335960e83745db6480a0b654f7",
+      "body_bytes": 5696,
+      "body_sha256": "sha256:4b79b5def1d3ae91f1fded6ad82a3e4396303db04598b86f1ecaa84f2f6bfe7b",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -2834,8 +2834,8 @@
     },
     {
       "aliases": ["advertise custom advertise where advertise v6 on public"],
-      "body_bytes": 2233,
-      "body_sha256": "sha256:fd68cf28bf00214f74730f2fd4f3e2584f495b87e7c9f1277945cf94835cdfda",
+      "body_bytes": 1519,
+      "body_sha256": "sha256:32a7b8ee61abaf35c4931383010f8d241d7f76865dd5b915315fe1976eb95184",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -2900,8 +2900,8 @@
     },
     {
       "aliases": ["advertise custom advertise where advertise v6 on public public ip"],
-      "body_bytes": 6729,
-      "body_sha256": "sha256:828ceed062624bea09fa83981dc7dbf456ab9052795ae9adc7d8ff906b454750",
+      "body_bytes": 5717,
+      "body_sha256": "sha256:3bcca405fae39b6fbd1dc5bd8704d395854c111cd53231bb06c5fc25ff8e4e04",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -2992,8 +2992,8 @@
     },
     {
       "aliases": ["advertise custom advertise where site"],
-      "body_bytes": 5186,
-      "body_sha256": "sha256:0eec4a7cbaa6b6418086f327b3bca3b419200b847a80d6122958fff34f3df1f6",
+      "body_bytes": 4483,
+      "body_sha256": "sha256:22d51021f96e8723c8dd4ec6305a2cfe972049ffd81ecf488db51290b7c63783",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:site:site"],
@@ -3084,8 +3084,8 @@
     },
     {
       "aliases": ["advertise custom advertise where site site"],
-      "body_bytes": 6537,
-      "body_sha256": "sha256:44e5633905c720cee97171690358798acfb2831bcc4c06ecb61d24d5e3dfa454",
+      "body_bytes": 5561,
+      "body_sha256": "sha256:f909b66adee94188116c1501bb5bb2aa0868b0d6569d4f32a3501243adbc846b",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3176,8 +3176,8 @@
     },
     {
       "aliases": ["advertise custom advertise where use default port"],
-      "body_bytes": 1528,
-      "body_sha256": "sha256:8330289c83fa2b85065512ea27caee9ce11a9f4199bb172031f3d42e98324779",
+      "body_bytes": 1220,
+      "body_sha256": "sha256:415fe6ad616e775d5cf90e061d05b8b9912c6a8e3ea2ab70fb7ca4d09d972c77",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3216,8 +3216,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual network"],
-      "body_bytes": 5449,
-      "body_sha256": "sha256:b6895aacf6237254d0b7992ec16ac83cd6b7315c58521d5ec89b5eb520585cbd",
+      "body_bytes": 4260,
+      "body_sha256": "sha256:97be01b88dc0424c3ff5456f7a24bd2e043fef4c184aed79aead48121335ad3e",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -3373,8 +3373,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual network default v6 vip"],
-      "body_bytes": 1784,
-      "body_sha256": "sha256:8a00a8eb08070319d4bcb218619fedb2730ad723f12686e82a0ec3a0226964e3",
+      "body_bytes": 1444,
+      "body_sha256": "sha256:b5b1798f41ddefa84e2882cd0cce1174bd45ad53d88ad3140716a0257fd38b64",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3413,8 +3413,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual network default vip"],
-      "body_bytes": 1775,
-      "body_sha256": "sha256:bf777fac176ef868c3e92f4e1229d5e7916a18c3f0ea5f20ccd4f54c86d3b800",
+      "body_bytes": 1435,
+      "body_sha256": "sha256:edcbec758a43ee576f8894ef35056539dd7ac8b5e7ccbb7d8aa31b6658f1ad9f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3453,8 +3453,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual network virtual network"],
-      "body_bytes": 6702,
-      "body_sha256": "sha256:850c3d574b10f626a75460021157675248eaf61de31a5f4965a6290f1ef950d5",
+      "body_bytes": 5704,
+      "body_sha256": "sha256:ffcd13f22223a85a27909c29359f96c0baa6c6dc49b2ead5ad0f0021bff2783b",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3474,7 +3474,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1301113323003210-1312131333020111-0112323001330313-0221011000012112-3112232300320223-3302332320201332-3210311213230221-0120230133031303",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-advertise_custom--advertise_where--virtual_network--virtual_network--name",
@@ -3545,8 +3545,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual site"],
-      "body_bytes": 4311,
-      "body_sha256": "sha256:b4ed04a58b6332e3a8b36bad976b9c90e2a224fd1473dce5673de5b5638d608b",
+      "body_bytes": 3584,
+      "body_sha256": "sha256:ec6d4453a98d990a77e2f411c92aa71e15dce30111ee3a51175f724a3f9d74e5",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -3568,7 +3568,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3131233030200102-3231332321203303-2131331231102231-3123031211331102-0330311312320223-0211131322113002-1301003222212320-0133033112320330",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -3625,8 +3625,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual site virtual site"],
-      "body_bytes": 6657,
-      "body_sha256": "sha256:df3f59975608abbfa5521f8719a69ef0385f2d0cd9318fea0cd6f89350a82431",
+      "body_bytes": 5665,
+      "body_sha256": "sha256:bd8fa4fb2742595272359c19ba982c3643269a22736deb2298c3488b30aba1e2",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3646,7 +3646,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0111130203111312-1122321221330023-0201202202031212-1333213330023212-2032012130122000-0322131300231212-3201132310231011-3013012313311012",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-advertise_custom--advertise_where--virtual_site--virtual_site--name",
@@ -3717,8 +3717,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual site with vip"],
-      "body_bytes": 4296,
-      "body_sha256": "sha256:1689d6d7dd2479277b85139204d8ff15c4c2496de1df8bb1fd5cd6eab75d3854",
+      "body_bytes": 3603,
+      "body_sha256": "sha256:17dd74118d3d415601800738a02ffeb0eb713fca9c2cf68e21b8c965fba464ad",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -3740,7 +3740,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1330330132111001-0030320120001011-3212231113031321-3110223330010000-0031121013222333-3332120333023202-1002100000320323-2202310313121302",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -3811,8 +3811,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual site with vip virtual site"],
-      "body_bytes": 6738,
-      "body_sha256": "sha256:25fdf4498976176c57093e829038d567b4dddf469132c1c699228e6b65939a78",
+      "body_bytes": 5728,
+      "body_sha256": "sha256:9159216e464b462b44b85314ef6533d837f79a25db6bbb662f89ff675c56eec6",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3832,7 +3832,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3123302233210231-3010220233231133-1221200233132313-0333331022023131-1231021211001233-3213112313233033-0312002020013211-3110021312011213",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-advertise_custom--advertise_where--virtual_site_with_vip--virtual_site--name",
@@ -3903,8 +3903,8 @@
     },
     {
       "aliases": ["advertise custom advertise where vk8s service"],
-      "body_bytes": 2713,
-      "body_sha256": "sha256:f80284a13e8494bcb18f21ce0f282fea63470103ecfc72faa55ba5d529201e11",
+      "body_bytes": 1856,
+      "body_sha256": "sha256:4980c393878c70ce8fd109530c0ad4ff61bb702f10ef207a2d6ff1eaf97ecdc6",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -3927,7 +3927,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2232212230000120-0322332002012300-3333033310100111-2200103130322111-0201003320021310-2012001031200230-2132203111211221-2311133212111222",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -4010,8 +4010,8 @@
     },
     {
       "aliases": ["advertise custom advertise where vk8s service site"],
-      "body_bytes": 6609,
-      "body_sha256": "sha256:15138c1ec3eefa443e0a1a0e9f34e71d3d89ec628af9a0011e039644aa6b4c6f",
+      "body_bytes": 5617,
+      "body_sha256": "sha256:ba2d21cf4191008e5d844faa14250906d0939173fa499253dba816432063f257",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4031,7 +4031,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1112113301102202-1230111313132310-0322132212302230-1130021121332023-0222032232032023-1102330301210232-3230212103331020-0030333010102321",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-advertise_custom--advertise_where--vk8s_service--site--name",
@@ -4102,8 +4102,8 @@
     },
     {
       "aliases": ["advertise custom advertise where vk8s service virtual site"],
-      "body_bytes": 6657,
-      "body_sha256": "sha256:139f47c48ed26d9f2e43e581b804f3e1e0ceeebef6f84a92eee94388a6d318bf",
+      "body_bytes": 5665,
+      "body_sha256": "sha256:719a57f8ffb4dfa184d3ed3b46ff9ccb92676ef9683e4169054d9809dd3dcea9",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4123,7 +4123,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2230000221313203-0213310122302020-0102233032203313-1032213113001322-1232013231220300-1212022021301230-1213011111230033-2202013012331133",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-advertise_custom--advertise_where--vk8s_service--virtual_site--name",
@@ -4194,8 +4194,8 @@
     },
     {
       "aliases": ["advertise on public"],
-      "body_bytes": 1703,
-      "body_sha256": "sha256:e8cc76045349e8791fc7e61e15a79c2a2b41c1611e78c5ef5ba65f4b03b0ed42",
+      "body_bytes": 1108,
+      "body_sha256": "sha256:1da5da536fc774407702ba06692f8b20d7c0943cc1f530634a3ed3bbea627f37",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:udp_loadbalancer:properties:advertise_on_public:public_ip"],
@@ -4215,7 +4215,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3121001210223201-0002101322213023-2213011332023133-0223131303332232-0202230121130203-0330221122033201-1300103332030211-1301020220301201",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4258,8 +4258,8 @@
     },
     {
       "aliases": ["advertise on public public ip"],
-      "body_bytes": 6099,
-      "body_sha256": "sha256:452ff0c79100dca1cac88aed2201889f2792e2fc2790fcad9840c0080c75a08f",
+      "body_bytes": 5159,
+      "body_sha256": "sha256:7ab8c01f30298cf6d53349cf6ad94339a26cb3cea587c85bb232304f4746cb90",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4279,7 +4279,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0100211213221202-3130330222231033-1022322320031300-3212313220311332-0012331220312312-0121320232111233-0331033323331122-1313212022200103",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-advertise_on_public--public_ip--name",
@@ -4350,8 +4350,8 @@
     },
     {
       "aliases": ["advertise on public default vip"],
-      "body_bytes": 1160,
-      "body_sha256": "sha256:71c3f2805c8f83da54f8769497f5997010be4236f064a906c01e61e0ae1947b9",
+      "body_bytes": 899,
+      "body_sha256": "sha256:e1d7b009b94795b92506b0e38d0c7aba8fea59b8cddc03c97ecea1f6e4001c25",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4371,7 +4371,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1032133030103213-0020211103223323-3100222332020210-1003331202302203-3333101310331003-1200101122201012-2332103110302022-2333031032112103",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4390,8 +4390,8 @@
     },
     {
       "aliases": ["do not advertise"],
-      "body_bytes": 1142,
-      "body_sha256": "sha256:564e4067d2df650ccd7f6e348a3e08885227890bf4e569437e4e22cb9584778b",
+      "body_bytes": 881,
+      "body_sha256": "sha256:61e68696afc416ea237345570230bce4dd5e45a2c9e5db3bd9504b891f101127",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4411,7 +4411,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2021012000001001-1013233020022212-1310012310002230-0213221320021221-3313312011223103-0233332113202000-2001321301000221-1032223300220320",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4430,8 +4430,8 @@
     },
     {
       "aliases": ["hash policy choice random"],
-      "body_bytes": 1924,
-      "body_sha256": "sha256:41943cc3a120f422ff94ad876dc3ddcec5b1aa61fe91824b32e84576e44852ee",
+      "body_bytes": 1663,
+      "body_sha256": "sha256:cb5d308b11bf86481eab6898e8bf367b5eed0034e1d09da17b2a5c086bb0f7c9",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4451,7 +4451,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2130020320231110-2310332213003130-2103302031122120-2101333103230022-2103002230301132-0101132133321211-1003113021330223-1110002031002313",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4470,8 +4470,8 @@
     },
     {
       "aliases": ["hash policy choice round robin"],
-      "body_bytes": 1198,
-      "body_sha256": "sha256:ba7caa846f1af95b123b41741bf85c847407a5e411bb25ff28899bed1b225348",
+      "body_bytes": 937,
+      "body_sha256": "sha256:d2fdd4d2e469b9ae75ed1be24a980bdd3b19554126f03c23333b2efa347e489d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4491,7 +4491,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0033000022201003-1303032013200210-1033221223122313-1001020223133221-0221333001113000-1302131100323201-0111021013101131-1302332010012121",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4510,8 +4510,8 @@
     },
     {
       "aliases": ["hash policy choice source ip stickiness"],
-      "body_bytes": 1184,
-      "body_sha256": "sha256:750048ed583b432d34d38097055a9241d1c635071dab361c0f5a32c094044d41",
+      "body_bytes": 923,
+      "body_sha256": "sha256:a28100ca1a98780b8c114549bf1ec88e54ce277234ad7eb4dca6c2fcc176e3d6",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4531,7 +4531,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1232202330301332-2233232122032300-3311123230120100-0221111330223031-0212333133112002-2320202110313302-2212102131223121-2130011100002212",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4550,8 +4550,8 @@
     },
     {
       "aliases": ["no service policies"],
-      "body_bytes": 1154,
-      "body_sha256": "sha256:41d55190fee1cc3176928fe0a5b3733e27671429c9b46df869995a15ffa689c0",
+      "body_bytes": 893,
+      "body_sha256": "sha256:5457e1797a14b754431516c821fc7da5dc59b9241b9860863e801c2da645f22b",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4571,7 +4571,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2222312133022213-1230023330021312-1132323131113230-2333332022331122-2130002003301133-2032133133210033-3100313020020301-0031233232230012",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4590,8 +4590,8 @@
     },
     {
       "aliases": ["backend servers", "origin pools weights", "origin servers", "upstream servers"],
-      "body_bytes": 4988,
-      "body_sha256": "sha256:a2706bc21560dd4cf3419d07c0819439ea9357d142eb674e58833c0f831d44a9",
+      "body_bytes": 3940,
+      "body_sha256": "sha256:03d48f57ff5d3ba6bc58f27f07f4f5c956bd3611e8532f851f2d8ff1aed71d30",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -4615,7 +4615,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0032213313100301-3212011112101330-1011333321321000-2333033310333031-2321102233211130-2001102232222211-1021030023313221-2023031320303303",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -4740,8 +4740,8 @@
     },
     {
       "aliases": ["origin pools weights cluster"],
-      "body_bytes": 6096,
-      "body_sha256": "sha256:e8cf40c0778e562785997d4a30e2632034a5fd13162bacc349f277c11ffa5e84",
+      "body_bytes": 5154,
+      "body_sha256": "sha256:088d298652f2d3b23b942174d549dd8b6fb1a9bc4e6e3c8f53bc1409b5fabd57",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4761,7 +4761,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2100203212332021-0123200211033303-0311231121030010-1303112033201300-0120110221003033-2122011111202030-2203022113120221-1310003321312301",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-origin_pools_weights--cluster--name",
@@ -4832,8 +4832,8 @@
     },
     {
       "aliases": ["origin pools weights endpoint subsets"],
-      "body_bytes": 2696,
-      "body_sha256": "sha256:65b0b2dd694f53bbe0240cd88835ea36d909e82b7e0c011a6b3e7ccc94acab05",
+      "body_bytes": 2082,
+      "body_sha256": "sha256:abd91b449ce12b5ebf7a8539bdb85ebad786e9ba4bc8e1b4ea7eaaeb4c71ef71",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4853,7 +4853,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2212331323003111-1030313120020032-3212012123121133-3300233100322002-3130033121132002-1011101220202303-0200122133211232-2021002122220331",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4872,8 +4872,8 @@
     },
     {
       "aliases": ["origin pools weights pool"],
-      "body_bytes": 6078,
-      "body_sha256": "sha256:5f218b664266476869c7e51165b4ff91a6fedb0749e18e997b9b5162a520b622",
+      "body_bytes": 5136,
+      "body_sha256": "sha256:4107957dda8f9987ffaf649783c9263f9a5968bba47f3040a8f332589df73ca8",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4964,8 +4964,8 @@
     },
     {
       "aliases": ["service policies from namespace"],
-      "body_bytes": 1160,
-      "body_sha256": "sha256:f87ab2fb5db8becbea0c033ee839e48c3e673692590db7c5fc4177df1bcc81ab",
+      "body_bytes": 899,
+      "body_sha256": "sha256:c03562b3973ae4a25e7b88d66e1d47f499a543a1b3bec406ccdff71c97429f62",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5004,8 +5004,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2255,
-      "body_sha256": "sha256:33c1a9a00d2d1c2e8fe9a56f406a2a22725cbce58ec9da41849a2bcfe10dbcc8",
+      "body_bytes": 2009,
+      "body_sha256": "sha256:a7b6a20a1293da01b0e6e260d1b1b820624ce40810f457f69073e529d1e73d36",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5136,8 +5136,8 @@
     },
     {
       "aliases": ["udp"],
-      "body_bytes": 1089,
-      "body_sha256": "sha256:9cd00b98602812127eeb79b5782c62ffcba84a522664ba1febd5404f3a63b109",
+      "body_bytes": 828,
+      "body_sha256": "sha256:4d74d53062429a28931d721725fa8044bbc2f150acf586dd9bfcd6cd38e6ab2d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5176,8 +5176,8 @@
     },
     {
       "aliases": ["udp loadbalancer"],
-      "body_bytes": 657,
-      "body_sha256": "sha256:e4fb7e25e0b73e651178639216e29199cd3f261ab73351e2c3a3322ef723cf84",
+      "body_bytes": 414,
+      "body_sha256": "sha256:76320fbfa88c4ef7a8b8509b3812d29f30dbdddc0390da2a40a46f27e42ff849",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:udp_loadbalancer:example:resource"],
@@ -5216,8 +5216,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1333,
-      "body_sha256": "sha256:e31f06a391fdcab63f64a533c48fa063ab8567cda315198f5da94c04f195e7ec",
+      "body_bytes": 1099,
+      "body_sha256": "sha256:077eb92f0012f68419124f7a603a27bb3127903a9aea0b3774ad494ad55933fc",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5263,8 +5263,8 @@
     },
     {
       "aliases": ["udp loadbalancer"],
-      "body_bytes": 500,
-      "body_sha256": "sha256:e166dd9f3ccf1628c00f4aecdabc76b0457949b97d3a34e73db3d5cbf39af90b",
+      "body_bytes": 373,
+      "body_sha256": "sha256:dc0a7074163a2d6086dd54498df8fca83f986c94c74b155887c09e04d3e340f9",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5304,8 +5304,8 @@
     },
     {
       "aliases": ["udp loadbalancer"],
-      "body_bytes": 588,
-      "body_sha256": "sha256:4720a9e97457279a751467757e5a83e28a1c02b6628fddb544026d36d5fae501",
+      "body_bytes": 461,
+      "body_sha256": "sha256:f4e6f8b5061c21b9c9270b59409659dee310228c535f050addd598feba05195c",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],

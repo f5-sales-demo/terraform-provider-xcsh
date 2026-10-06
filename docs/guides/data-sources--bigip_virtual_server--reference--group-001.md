@@ -12,24 +12,20 @@ description: "Complete grouped canonical reference for xcsh_bigip_virtual_server
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1321003033332320-2331010000301303-1030112132222100-1102320220000310-1112200103031322-2331221102323002-0130230232010000-1300231120212132"></a>
-
-## Property reference — Property reference / 122131020300 / 2
+## Property reference
 
 Breadcrumbs:
 
 - [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 - Property reference
 
-<a id="canonical-3233020201021002-0220331131311300-2330230123223000-2230231331322301-0333031213031212-0132033201321013-3233331120020332-0010331113113101"></a>
+<a id="canonical-1321003033332320-2331010000301303-1030112132222100-1102320220000310-1112200103031322-2331221102323002-0130230232010000-1300231120212132"></a>
 
-## Direct properties — Property reference / 122131020300 / 3
+### Direct properties for `xcsh_bigip_virtual_server`
 
 <a id="canonical-2110121312002223-2120022220100203-0031021233131121-3121333231101132-3332202331312101-1202133123003101-1111323003233331-3031211032230101"></a>
 
-<a id="canonical-1212203032221311-0021131011111002-2321332100300200-3221332221130001-2002121102023133-0031200132230121-1231112031021221-0203320002102202"></a>
-
-## annotations property — Property reference / 122131020300 / 4
+#### `annotations` property
 
 Type: `["map", "string"]`. Computed.
 
@@ -39,9 +35,9 @@ Annotations.
 
 <a id="canonical-0130132022232213-1101331011033032-2231120300221321-3023330210302301-1303203201003201-1211122002202220-0130101033203223-0223000121310031"></a>
 
-<a id="canonical-1320301310220312-0213202212212231-3001121312032211-1333101130223203-1222323010233121-0222212031002032-2310210323313231-1100033233111002"></a>
+<a id="canonical-3233020201021002-0220331131311300-2330230123223000-2230231331322301-0333031213031212-0132033201321013-3233331120020332-0010331113113101"></a>
 
-## bigip_hostname property — Property reference / 122131020300 / 5
+#### `bigip_hostname` property
 
 Type: `"string"`. Computed.
 
@@ -49,9 +45,9 @@ Hostname. BIG-IP Hostname.
 
 <a id="canonical-3123032323313211-3033020321010201-1120002332031201-3200002321213310-2230011000211212-1233200200033303-2321101200211230-1302303301130211"></a>
 
-<a id="canonical-0032022320103131-1221200213113132-2301011202220322-2230323230231101-3113233213002131-0223230011120233-2321012132112332-3002010322012031"></a>
+<a id="canonical-1212203032221311-0021131011111002-2321332100300200-3221332221130001-2002121102023133-0031200132230121-1231112031021221-0203320002102202"></a>
 
-## bigip_version property — Property reference / 122131020300 / 6
+#### `bigip_version` property
 
 Type: `"string"`. Computed.
 
@@ -59,9 +55,9 @@ Version of the BIG-IP which hosts the virtual server.
 
 <a id="canonical-2310120132001322-1331013231211120-3322310101311120-1121032121220032-0210330320303311-1010232013330211-1213033132330220-1022231000101311"></a>
 
-<a id="canonical-2103031323102332-0130210330033030-1302101220032202-1122021101221123-3330103331300311-1131123230011101-0300202311012131-0122103120112332"></a>
+<a id="canonical-1320301310220312-0213202212212231-3001121312032211-1333101130223203-1222323010233121-0222212031002032-2310210323313231-1100033233111002"></a>
 
-## bigip_vs_description property — Property reference / 122131020300 / 7
+#### `bigip_vs_description` property
 
 Type: `"string"`. Computed.
 
@@ -71,9 +67,9 @@ Description. BIG-IP Virtual Server Description.
 
 <a id="canonical-0223212210000121-2032222200200120-0112222231013320-3231203032301021-2333033112003310-3221023022130000-1232323320131321-2333310303332122"></a>
 
-<a id="canonical-0301231211203210-0032103012331122-2301012103230222-3331331200210210-2233003010022122-2032301012311120-2013022222210330-2331331220133222"></a>
+<a id="canonical-0032022320103131-1221200213113132-2301011202220322-2230323230231101-3113233213002131-0223230011120233-2321012132112332-3002010322012031"></a>
 
-## description property — Property reference / 122131020300 / 8
+#### `description` property
 
 Type: `"string"`. Computed.
 
@@ -87,9 +83,9 @@ Description.
 
 <a id="canonical-0003003210123213-1300000320111220-0200023332220102-3033001201222122-3201121022231132-2111221321113222-1302032231130003-1210023122200130"></a>
 
-<a id="canonical-3102332101112120-0300000313323220-0000102002221232-2313320013021110-2310312111220212-1231333021212101-0003012222120310-1013002233023001"></a>
+<a id="canonical-2103031323102332-0130210330033030-1302101220032202-1122021101221123-3330103331300311-1131123230011101-0300202311012131-0122103120112332"></a>
 
-## ID property — Property reference / 122131020300 / 9
+#### `id` property
 
 Type: `"string"`. Computed.
 
@@ -97,9 +93,9 @@ Unique identifier.
 
 <a id="canonical-1022203310313032-3210211311131011-3101201103231220-1101000330102303-1201132032013012-0221233333310002-2003203321200310-1310132332110313"></a>
 
-<a id="canonical-3302112100221301-2001310031112010-2120231001133201-0220031320113003-3222303211020233-0100320113231003-0310130331010033-2011231113022131"></a>
+<a id="canonical-0301231211203210-0032103012331122-2301012103230222-3331331200210210-2233003010022122-2032301012311120-2013022222210330-2331331220133222"></a>
 
-## labels property — Property reference / 122131020300 / 10
+#### `labels` property
 
 Type: `["map", "string"]`. Computed.
 
@@ -107,9 +103,9 @@ Labels.
 
 <a id="canonical-2300102211212221-1211213233330301-3232311113220331-3222103000101322-1310031122202133-2312332231003003-0232003331221020-2122101001332223"></a>
 
-<a id="canonical-3321330000010002-2122300133030123-0020321230003132-2310233121001033-1113213223021103-1021212221200320-0133022223032103-0202200301232310"></a>
+<a id="canonical-3102332101112120-0300000313323220-0000102002221232-2313320013021110-2310312111220212-1231333021212101-0003012222120310-1013002233023001"></a>
 
-## name property — Property reference / 122131020300 / 11
+#### `name` property
 
 Type: `"string"`. Required.
 
@@ -117,9 +113,9 @@ Name of the BigIPVirtualServer to look up.
 
 <a id="canonical-3200011211312201-1213022133320031-0322322100023031-1301202130313122-3230122003021030-1322223130222031-3023003323123121-2020110333212103"></a>
 
-<a id="canonical-0132121123031123-2123031211113223-3001331320220320-3221021313233303-1300331302312112-0032012012320023-3302322131333003-3131013213112103"></a>
+<a id="canonical-3302112100221301-2001310031112010-2120231001133201-0220031320113003-3222303211020233-0100320113231003-0310130331010033-2011231113022131"></a>
 
-## namespace property — Property reference / 122131020300 / 12
+#### `namespace` property
 
 Type: `"string"`. Required.
 
@@ -129,9 +125,9 @@ Namespace of the BigIPVirtualServer.
 
 <a id="canonical-1302123320320332-3112021013322011-0202311113002102-2231021210030303-0210311100302222-0011213002210002-0232301203110311-3332122330203113"></a>
 
-<a id="canonical-2100220013030020-2123123123233213-2202220013113310-2102000121232312-1023211102201013-2013101233310223-2110012102032132-3330121001202330"></a>
+<a id="canonical-3321330000010002-2122300133030123-0020321230003132-2310233121001033-1113213223021103-1021212221200320-0133022223032103-0202200301232310"></a>
 
-## server_name property — Property reference / 122131020300 / 13
+#### `server_name` property
 
 Type: `"string"`. Computed.
 
@@ -141,9 +137,9 @@ Server Name. Virtual Server name.
 
 <a id="canonical-3321130013312210-1113103313122202-0221031213331230-1302032311101313-1322231333031010-1322123322120130-1121210113113233-1231211312310031"></a>
 
-<a id="canonical-0332231230110133-1112301032330212-0210012333113321-1332002333031120-2011023021333002-3333232233011011-1003023121003330-1221201133201022"></a>
+<a id="canonical-0132121123031123-2123031211113223-3001331320220320-3221021313233303-1300331302312112-0032012012320023-3302322131333003-3131013213112103"></a>
 
-## type property — Property reference / 122131020300 / 14
+#### `type` property
 
 Type: `"string"`. Computed.
 
@@ -152,9 +148,9 @@ BIG-IP or BIG-IP-NEXT. BIG-IP-NEXT will be added later. Specifies the virtual se
 Virtual Server Type Classic BIG-IP Virtual Server. Possible values are \`INVALID\_VIRTUAL\_SERVER\`,
 \`BIGIP\_VIRTUAL\_SERVER\`. Defaults to \`INVALID\_VIRTUAL\_SERVER\`.
 
-<a id="canonical-0223300311222210-2013131012301132-0130231120330100-0031230303112120-1010311313320302-3121123223203100-3223032321333220-2230101023321332"></a>
+<a id="canonical-2100220013030020-2123123123233213-2202220013113310-2102000121232312-1023211102201013-2013101233310223-2110012102032132-3330121001202330"></a>
 
-## All schema paths — Property reference / 122131020300 / 15
+### All schema paths for `xcsh_bigip_virtual_server`
 
 Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
 
@@ -207,38 +203,38 @@ Each exact path has one authoritative reference destination. Collection element 
 | `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom` | [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2102013331333010-0000232100301333-1320333100331011-2211331233223222-3111302112232322-1022323223212020-2020212231021212-2330011312212321) |
 | `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules` | [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0333211120202231-1012212331333002-0103312220321311-0330332200113231-2322313211001022-0102331023212211-2122330323022211-0202131121331200) |
 | `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_block` | [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_block](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3030230011112021-1310032233120311-3133322332113323-1010123121001020-2033022312300002-3131233200330230-3002023101311131-1222221003010132) |
-| `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_report` | [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_report](data-sources--bigip_virtual_server--reference--group-002.md#canonical-3002012122011230-0022013102123310-2100310301303100-0021303030033103-0033330032313232-3311031322221320-2033203133320002-3222312022112310) |
-| `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_skip` | [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_skip](data-sources--bigip_virtual_server--reference--group-002.md#canonical-3122332010202010-3002231211003022-1230232203213001-0020322000012313-1103220312311313-1321300031222123-2302300100322332-0211113112221122) |
-| `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint` | [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint](data-sources--bigip_virtual_server--reference--group-002.md#canonical-3300202030020012-3003311032201023-3330132020211103-3032101133230202-3111320220032002-0323033300200222-0120213210331333-3323111302001022) |
-| `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint.methods` | [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint.methods](data-sources--bigip_virtual_server--reference--group-002.md#canonical-2103333301132210-1310020201302211-0023211033210112-1222301103302221-1210320323033033-1131103111012230-2021321300303032-1002011332300321) |
-| `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint.path` | [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint.path](data-sources--bigip_virtual_server--reference--group-002.md#canonical-0321321033112012-3030022331131033-3101230322222101-1200232121113230-0200022321231313-0232122123321113-0011111031202223-0203300033331010) |
+| `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_report` | [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_report](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3002012122011230-0022013102123310-2100310301303100-0021303030033103-0033330032313232-3311031322221320-2033203133320002-3222312022112310) |
+| `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_skip` | [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_skip](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3122332010202010-3002231211003022-1230232203213001-0020322000012313-1103220312311313-1321300031222123-2302300100322332-0211113112221122) |
+| `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint` | [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3300202030020012-3003311032201023-3330132020211103-3032101133230202-3111320220032002-0323033300200222-0120213210331333-3323111302001022) |
+| `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint.methods` | [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint.methods](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2103333301132210-1310020201302211-0023211033210112-1222301103302221-1210320323033033-1131103111012230-2021321300303032-1002011332300321) |
+| `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint.path` | [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint.path](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0321321033112012-3030022331131033-3101230322222101-1200232121113230-0200022321231313-0232122123321113-0011111031202223-0203300033331010) |
 | `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_group` | [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_group](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1013012023203013-0330222001323110-0300222021231220-2103230300213101-3332303231000200-1201130013212211-2310311300322132-0123332100230031) |
 | `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.base_path` | [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.base_path](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1202202131303100-0321311030001112-1001032013321002-3310103202000232-0122113211031221-2300010332013210-1201010330210120-3331120131110032) |
-| `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata` | [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata](data-sources--bigip_virtual_server--reference--group-002.md#canonical-0301003212102232-1221333333320322-0000312112211332-2203001330333221-2211330103111200-1212113100031323-1022122331223231-1200101010033212) |
-| `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata.description_spec` | [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata.description_spec](data-sources--bigip_virtual_server--reference--group-002.md#canonical-1323102102312321-0103003331322121-2320231130231212-3312212330303312-2033220102020121-1101122121133113-0013333201011113-2221112003202301) |
-| `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata.name` | [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata.name](data-sources--bigip_virtual_server--reference--group-002.md#canonical-1312213232132320-3222211203002310-1221003310212322-3010013123221100-2330330223232211-2101110231010333-1000030321222103-3302221230002121) |
-| `api_specification.validation_custom_list.open_api_validation_rules` | [api_specification.validation_custom_list.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-002.md#canonical-3312021130001212-2211131013233130-0212113322232313-3103130021001001-2310013222002212-3000211113011010-3313030013033132-2300111003023333) |
-| `api_specification.validation_custom_list.open_api_validation_rules.any_domain` | [api_specification.validation_custom_list.open_api_validation_rules.any_domain](data-sources--bigip_virtual_server--reference--group-002.md#canonical-3121313213210231-1230210233030201-0122021032220303-2013123203132002-3300310300100321-3030202033311101-0303332331101010-1232021110310031) |
-| `api_specification.validation_custom_list.open_api_validation_rules.api_endpoint` | [api_specification.validation_custom_list.open_api_validation_rules.api_endpoint](data-sources--bigip_virtual_server--reference--group-002.md#canonical-3132013200012333-1301131220131302-0221200303233121-3302331213121330-3001220011031223-3032212020313300-2313313003302103-2131112332222022) |
-| `api_specification.validation_custom_list.open_api_validation_rules.api_endpoint.methods` | [api_specification.validation_custom_list.open_api_validation_rules.api_endpoint.methods](data-sources--bigip_virtual_server--reference--group-002.md#canonical-0020200233322021-0200230322332013-3213100002033032-1203311320222112-1001223023122102-3000112112001113-0320120020102220-3011310310133202) |
-| `api_specification.validation_custom_list.open_api_validation_rules.api_endpoint.path` | [api_specification.validation_custom_list.open_api_validation_rules.api_endpoint.path](data-sources--bigip_virtual_server--reference--group-002.md#canonical-1211312021010223-0111201002031023-2301003221111323-3200200231011220-3230302112012322-0312221132332000-2223121300320012-3021303312212133) |
-| `api_specification.validation_custom_list.open_api_validation_rules.api_group` | [api_specification.validation_custom_list.open_api_validation_rules.api_group](data-sources--bigip_virtual_server--reference--group-002.md#canonical-2112030320101001-1230211101023203-3001131332212030-1013301132320002-2110113020201230-2320000221021332-3310001332331113-3032111120102023) |
-| `api_specification.validation_custom_list.open_api_validation_rules.base_path` | [api_specification.validation_custom_list.open_api_validation_rules.base_path](data-sources--bigip_virtual_server--reference--group-002.md#canonical-3231301022310213-2200312013311123-3031013113011321-3101110210010311-0220230113031321-1102020020133232-1010333302301020-1112312103212012) |
-| `api_specification.validation_custom_list.open_api_validation_rules.metadata` | [api_specification.validation_custom_list.open_api_validation_rules.metadata](data-sources--bigip_virtual_server--reference--group-002.md#canonical-2021221213200002-1112033031103322-3321210233021133-3302112211002302-3222012211002132-1212122323321101-2000003223313012-1322112033020302) |
-| `api_specification.validation_custom_list.open_api_validation_rules.metadata.description_spec` | [api_specification.validation_custom_list.open_api_validation_rules.metadata.description_spec](data-sources--bigip_virtual_server--reference--group-002.md#canonical-2221022110130121-1131120333133223-2102230312312121-3301003031213022-0131333102213200-1111320132032231-1232001132212313-2131011101000231) |
-| `api_specification.validation_custom_list.open_api_validation_rules.metadata.name` | [api_specification.validation_custom_list.open_api_validation_rules.metadata.name](data-sources--bigip_virtual_server--reference--group-002.md#canonical-2021230110033202-2100001012023131-1213121220033203-3130311000113103-0220130023333130-3321012133113121-3230321100313211-2121120013213031) |
-| `api_specification.validation_custom_list.open_api_validation_rules.specific_domain` | [api_specification.validation_custom_list.open_api_validation_rules.specific_domain](data-sources--bigip_virtual_server--reference--group-002.md#canonical-2130001310312332-2221322223103022-3120101201103100-1302311032000321-0322131321222203-1232110310230202-1012200121120203-1101200010211300) |
-| `api_specification.validation_custom_list.open_api_validation_rules.validation_mode` | [api_specification.validation_custom_list.open_api_validation_rules.validation_mode](data-sources--bigip_virtual_server--reference--group-002.md#canonical-1112110313032113-2021200200202030-3110011122110310-1123210300322012-2030103330033311-0121023120130122-2033200203111232-1201000011232103) |
-| `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active` | [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active](data-sources--bigip_virtual_server--reference--group-002.md#canonical-1122232033111203-3012322100311202-1213200010202321-3020021223230032-1013301301213322-3021032223201223-1013333310331220-3300000102110120) |
-| `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active.enforcement_block` | [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active.enforcement_block](data-sources--bigip_virtual_server--reference--group-002.md#canonical-1203210300100213-3201112100300123-0222203110331101-1032203122233033-2110203013233312-3021310311021102-2120002302322333-2003323113102033) |
-| `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active.enforcement_report` | [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active.enforcement_report](data-sources--bigip_virtual_server--reference--group-002.md#canonical-1121200230023220-1230130010302123-0311233333302131-3203300203312132-1132023021113320-3031130010022121-1211300231232333-2001230003011122) |
-| `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active.response_validation_properties` | [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active.response_validation_properties](data-sources--bigip_virtual_server--reference--group-002.md#canonical-0202031310121320-1221231000333212-1101321322213102-3310122133112102-2032222011031333-3222023120020021-0002231211322023-3311133103311010) |
-| `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.skip_response_validation` | [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.skip_response_validation](data-sources--bigip_virtual_server--reference--group-002.md#canonical-0333113233231200-1230102012232321-1001300000122323-0012333011030321-0333023210001003-3022232221322220-0303102220101133-3320212032031221) |
-| `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.skip_validation` | [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.skip_validation](data-sources--bigip_virtual_server--reference--group-002.md#canonical-0230201211303012-1003120303230122-2311103202011033-0311310302031022-0213211001302011-3332202022233312-0020110022021101-1232230112233031) |
-| `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active` | [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active](data-sources--bigip_virtual_server--reference--group-002.md#canonical-2210100030332232-3122012131300233-3021321100303033-0112222212120230-2112100303020020-2332010002312112-0121313230130131-1300021103323222) |
-| `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active.enforcement_block` | [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active.enforcement_block](data-sources--bigip_virtual_server--reference--group-002.md#canonical-3133101232333112-2302221122030122-2203131212231033-0303222331012110-0300311032321110-3023021321203120-2303031330311301-0312310212302120) |
-| `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active.enforcement_report` | [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active.enforcement_report](data-sources--bigip_virtual_server--reference--group-002.md#canonical-0131022013203232-2011311203301310-2330332130230321-0130133123323102-0220310313032132-1120300301333113-3311221103022200-0202222310203232) |
-| `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active.request_validation_properties` | [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active.request_validation_properties](data-sources--bigip_virtual_server--reference--group-002.md#canonical-3212100121202213-0100131022002113-0100333033323133-2030111130233002-3102333001010223-0112000032033032-0232110112113312-1223212031223123) |
+| `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata` | [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0301003212102232-1221333333320322-0000312112211332-2203001330333221-2211330103111200-1212113100031323-1022122331223231-1200101010033212) |
+| `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata.description_spec` | [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata.description_spec](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1323102102312321-0103003331322121-2320231130231212-3312212330303312-2033220102020121-1101122121133113-0013333201011113-2221112003202301) |
+| `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata.name` | [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata.name](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1312213232132320-3222211203002310-1221003310212322-3010013123221100-2330330223232211-2101110231010333-1000030321222103-3302221230002121) |
+| `api_specification.validation_custom_list.open_api_validation_rules` | [api_specification.validation_custom_list.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3312021130001212-2211131013233130-0212113322232313-3103130021001001-2310013222002212-3000211113011010-3313030013033132-2300111003023333) |
+| `api_specification.validation_custom_list.open_api_validation_rules.any_domain` | [api_specification.validation_custom_list.open_api_validation_rules.any_domain](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3121313213210231-1230210233030201-0122021032220303-2013123203132002-3300310300100321-3030202033311101-0303332331101010-1232021110310031) |
+| `api_specification.validation_custom_list.open_api_validation_rules.api_endpoint` | [api_specification.validation_custom_list.open_api_validation_rules.api_endpoint](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3132013200012333-1301131220131302-0221200303233121-3302331213121330-3001220011031223-3032212020313300-2313313003302103-2131112332222022) |
+| `api_specification.validation_custom_list.open_api_validation_rules.api_endpoint.methods` | [api_specification.validation_custom_list.open_api_validation_rules.api_endpoint.methods](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0020200233322021-0200230322332013-3213100002033032-1203311320222112-1001223023122102-3000112112001113-0320120020102220-3011310310133202) |
+| `api_specification.validation_custom_list.open_api_validation_rules.api_endpoint.path` | [api_specification.validation_custom_list.open_api_validation_rules.api_endpoint.path](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1211312021010223-0111201002031023-2301003221111323-3200200231011220-3230302112012322-0312221132332000-2223121300320012-3021303312212133) |
+| `api_specification.validation_custom_list.open_api_validation_rules.api_group` | [api_specification.validation_custom_list.open_api_validation_rules.api_group](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2112030320101001-1230211101023203-3001131332212030-1013301132320002-2110113020201230-2320000221021332-3310001332331113-3032111120102023) |
+| `api_specification.validation_custom_list.open_api_validation_rules.base_path` | [api_specification.validation_custom_list.open_api_validation_rules.base_path](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3231301022310213-2200312013311123-3031013113011321-3101110210010311-0220230113031321-1102020020133232-1010333302301020-1112312103212012) |
+| `api_specification.validation_custom_list.open_api_validation_rules.metadata` | [api_specification.validation_custom_list.open_api_validation_rules.metadata](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2021221213200002-1112033031103322-3321210233021133-3302112211002302-3222012211002132-1212122323321101-2000003223313012-1322112033020302) |
+| `api_specification.validation_custom_list.open_api_validation_rules.metadata.description_spec` | [api_specification.validation_custom_list.open_api_validation_rules.metadata.description_spec](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2221022110130121-1131120333133223-2102230312312121-3301003031213022-0131333102213200-1111320132032231-1232001132212313-2131011101000231) |
+| `api_specification.validation_custom_list.open_api_validation_rules.metadata.name` | [api_specification.validation_custom_list.open_api_validation_rules.metadata.name](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2021230110033202-2100001012023131-1213121220033203-3130311000113103-0220130023333130-3321012133113121-3230321100313211-2121120013213031) |
+| `api_specification.validation_custom_list.open_api_validation_rules.specific_domain` | [api_specification.validation_custom_list.open_api_validation_rules.specific_domain](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2130001310312332-2221322223103022-3120101201103100-1302311032000321-0322131321222203-1232110310230202-1012200121120203-1101200010211300) |
+| `api_specification.validation_custom_list.open_api_validation_rules.validation_mode` | [api_specification.validation_custom_list.open_api_validation_rules.validation_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1112110313032113-2021200200202030-3110011122110310-1123210300322012-2030103330033311-0121023120130122-2033200203111232-1201000011232103) |
+| `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active` | [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1122232033111203-3012322100311202-1213200010202321-3020021223230032-1013301301213322-3021032223201223-1013333310331220-3300000102110120) |
+| `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active.enforcement_block` | [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active.enforcement_block](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1203210300100213-3201112100300123-0222203110331101-1032203122233033-2110203013233312-3021310311021102-2120002302322333-2003323113102033) |
+| `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active.enforcement_report` | [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active.enforcement_report](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1121200230023220-1230130010302123-0311233333302131-3203300203312132-1132023021113320-3031130010022121-1211300231232333-2001230003011122) |
+| `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active.response_validation_properties` | [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active.response_validation_properties](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0202031310121320-1221231000333212-1101321322213102-3310122133112102-2032222011031333-3222023120020021-0002231211322023-3311133103311010) |
+| `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.skip_response_validation` | [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.skip_response_validation](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0333113233231200-1230102012232321-1001300000122323-0012333011030321-0333023210001003-3022232221322220-0303102220101133-3320212032031221) |
+| `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.skip_validation` | [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.skip_validation](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0230201211303012-1003120303230122-2311103202011033-0311310302031022-0213211001302011-3332202022233312-0020110022021101-1232230112233031) |
+| `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active` | [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2210100030332232-3122012131300233-3021321100303033-0112222212120230-2112100303020020-2332010002312112-0121313230130131-1300021103323222) |
+| `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active.enforcement_block` | [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active.enforcement_block](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3133101232333112-2302221122030122-2203131212231033-0303222331012110-0300311032321110-3023021321203120-2303031330311301-0312310212302120) |
+| `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active.enforcement_report` | [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active.enforcement_report](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0131022013203232-2011311203301310-2330332130230321-0130133123323102-0220310313032132-1120300301333113-3311221103022200-0202222310203232) |
+| `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active.request_validation_properties` | [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active.request_validation_properties](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3212100121202213-0100131022002113-0100333033323133-2030111130233002-3102333001010223-0112000032033032-0232110112113312-1223212031223123) |
 | `api_specification.validation_custom_list.settings` | [api_specification.validation_custom_list.settings](data-sources--bigip_virtual_server--reference--group-002.md#canonical-0022301012003213-2121313003020222-0303123103012132-1310210032033333-1030010203213211-1110213311132300-2212003121333121-0000310031031001) |
 | `api_specification.validation_custom_list.settings.oversized_body_fail_validation` | [api_specification.validation_custom_list.settings.oversized_body_fail_validation](data-sources--bigip_virtual_server--reference--group-002.md#canonical-1220231312122123-0213122302311303-2112210312130331-3103302113231232-2120302230030010-3222330201022102-2303320331112321-1121202000202013) |
 | `api_specification.validation_custom_list.settings.oversized_body_skip_validation` | [api_specification.validation_custom_list.settings.oversized_body_skip_validation](data-sources--bigip_virtual_server--reference--group-002.md#canonical-2120322321232022-1313202002203001-1310112023132113-0102100103121332-1123221213232113-2021203011020331-0212300123311220-1333223023022022) |
@@ -306,28 +302,13 @@ Each exact path has one authoritative reference destination. Collection element 
 | `service_discovery.tenant` | [service_discovery.tenant](data-sources--bigip_virtual_server--reference--group-002.md#canonical-3213300323000020-1211000021220211-3230130131101300-2031312202003322-3001311111232332-2331101102130023-3101333233132021-2003131002131301) |
 | `type` | [type](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3321130013312210-1113103313122202-0221031213331230-1302032311101313-1322231333031010-1322123322120130-1121210113113233-1231211312310031) |
 
-<a id="canonical-0323101101301010-2232111231200113-0200302333221132-1010022131010110-2000213031133120-3002021320133100-2203013321112310-0203331112133112"></a>
-
-## Next pages — Property reference / 122131020300 / 16
-
-- [api_specification](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2213121213201103-1311331110220313-3223333313332233-2301330300100331-1322321323010131-2310201211203221-1033320121012323-1332031232323233)
-- [default_sensitive_data_policy](data-sources--bigip_virtual_server--reference--group-002.md#canonical-1232312210023130-1220032120223112-0333332110320300-3132130330312231-2033102002112032-1230012301323010-0122303322121012-3103030331213132)
-- [disable_api_definition](data-sources--bigip_virtual_server--reference--group-002.md#canonical-1003330000101213-2100011103311102-3300203212303201-0321301123210302-3131222020103000-1021013332231023-0312323211102220-1332332321233021)
-- [disable_api_discovery](data-sources--bigip_virtual_server--reference--group-002.md#canonical-3313021001221101-2310322313211232-2013110012112310-2211032301321230-1003321020302303-3322230312103103-0220010303310103-1213222010102332)
-- [enable_api_discovery](data-sources--bigip_virtual_server--reference--group-002.md#canonical-0001002021111200-0333132000032121-1023102021010301-0203133320001211-3112101020020232-1131113012120022-1200301130131133-1322012223013213)
-- [sensitive_data_policy](data-sources--bigip_virtual_server--reference--group-002.md#canonical-2200133221322310-2103221330110233-1133322012300011-0201001030023301-2332230202101311-3332330102212221-3013311120003033-1310211003320332)
-- [service_discovery](data-sources--bigip_virtual_server--reference--group-002.md#canonical-0020021332321131-1210122111231312-1330210032131303-0112000330211333-2121102030010330-0002202321120302-1112233123033012-3110022301301012)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
-
 <a id="canonical-2213121213201103-1311331110220313-3223333313332233-2301330300100331-1322321323010131-2310201211203221-1033320121012323-1332031232323233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1103133010302200-3232231320001330-2111202013030032-0230003330102112-3232221223100133-3133012022012003-0331010130131222-3113213001131021"></a>
-
-## api_specification — api_specification / 222003230111 / 2
+## `api_specification` properties
 
 Breadcrumbs:
 
@@ -341,9 +322,9 @@ Type: `"single"`. Computed.
 
 Settings for API specification (API definition, OpenAPI validation, etc.).
 
-<a id="canonical-3013203311321210-3230112322311111-1101013000313011-1333331330122223-2310221311000220-3232112300313101-0221123001000220-0011010321022213"></a>
+<a id="canonical-1103133010302200-3232231320001330-2111202013030032-0230003330102112-3232221223100133-3133012022012003-0331010130131222-3113213001131021"></a>
 
-## Direct properties — api_specification / 222003230111 / 3
+### Direct properties for `api_specification`
 
 - [api_definition](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3312033331303033-1122001013113203-1232222103312030-1312131200213032-0311113111022332-1332111233330011-0312303300202120-2221321010233000): complete subsection reference.
 
@@ -353,26 +334,13 @@ Settings for API specification (API definition, OpenAPI validation, etc.).
 
 - [validation_disabled](data-sources--bigip_virtual_server--reference--group-002.md#canonical-3311230010113310-0323031102330132-2002110311202322-2322320102300221-0232132203132303-2031311332231222-2301221110313221-2233313223030203): complete subsection reference.
 
-<a id="canonical-2100312231231320-2032213222222110-1131231020102230-2103033103031320-3212002220112103-1130031333203111-1223203011302022-1003300331212233"></a>
-
-## Next pages — api_specification / 222003230111 / 4
-
-- [api_specification.api_definition](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3312033331303033-1122001013113203-1232222103312030-1312131200213032-0311113111022332-1332111233330011-0312303300202120-2221321010233000)
-- [api_specification.validation_all_spec_endpoints](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3301110110012032-3220203300202303-0201103332211020-0212003103000302-3031313231231221-3211331322000212-2222001230232123-2120202203300330)
-- [api_specification.validation_custom_list](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0000323113031202-1122223233210022-2210320221111332-1023122223003200-0322110333010111-2200212103322213-1211312021302323-2302100032323221)
-- [api_specification.validation_disabled](data-sources--bigip_virtual_server--reference--group-002.md#canonical-3311230010113310-0323031102330132-2002110311202322-2322320102300221-0232132203132303-2031311332231222-2301221110313221-2233313223030203)
-- [Property reference](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0330103300101033-0110313212121312-2131323221121012-0122222202113110-1131132021023000-3330131201331123-1312102120012011-0302013001211333)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
-
 <a id="canonical-3312033331303033-1122001013113203-1232222103312030-1312131200213032-0311113111022332-1332111233330011-0312303300202120-2221321010233000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0122223311323113-1212033121133021-1012313102111001-2123023223023131-3023020103312113-2330121232123013-1032012233001133-0222210111320130"></a>
-
-## api_specification.api_definition — api_definition / 221113002212 / 2
+## `api_specification.api_definition` properties
 
 Breadcrumbs:
 
@@ -388,15 +356,13 @@ Type: `"single"`. Computed.
 Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
 reference is in form of tenant/namespace/name.
 
-<a id="canonical-3001300131120121-3122033333323310-2221223111130000-0123010112002010-2332032212033112-1132222212000023-0003313220022330-3300011200021023"></a>
+<a id="canonical-0122223311323113-1212033121133021-1012313102111001-2123023223023131-3023020103312113-2330121232123013-1032012233001133-0222210111320130"></a>
 
-## Direct properties — api_definition / 221113002212 / 3
+### Direct properties for `api_specification.api_definition`
 
 <a id="canonical-0332101210021332-3231311321323120-1213232213300313-2022320122001130-0001213222332221-1021202130212123-1332120200032200-3221331133212103"></a>
 
-<a id="canonical-0322332220012323-0303323032323310-0002330110010003-0312011223312011-1233332011121330-3121311213132132-2131132331332010-1111020010301032"></a>
-
-## name property — api_definition / 221113002212 / 4
+#### `api_specification.api_definition.name` property
 
 Type: `"string"`. Computed.
 
@@ -405,9 +371,9 @@ referred object's(e.g. Route's) name.
 
 <a id="canonical-2200231112232210-3110021123303122-2230130211203230-3201333300202100-3202320100111301-2112120030320111-1011103030123033-1210301233331031"></a>
 
-<a id="canonical-1113221112110021-2233313310111002-0231200222133011-1320201321111010-2220222303032321-2010330203002013-3321230211030013-2322220222130100"></a>
+<a id="canonical-3001300131120121-3122033333323310-2221223111130000-0123010112002010-2332032212033112-1132222212000023-0003313220022330-3300011200021023"></a>
 
-## namespace property — api_definition / 221113002212 / 5
+#### `api_specification.api_definition.namespace` property
 
 Type: `"string"`. Computed.
 
@@ -416,21 +382,14 @@ hold the referred object's(e.g. Route's) namespace.
 
 <a id="canonical-2031321000200032-0133030123022213-3132001323003020-1201101130030002-0010332300232210-2032030001203211-0122233000210312-1201223311321302"></a>
 
-<a id="canonical-2000222012311021-3030330332003010-3300310023111321-1333001223323312-3100110123323103-2121232210201321-2133131330332331-1121210003203020"></a>
+<a id="canonical-0322332220012323-0303323032323310-0002330110010003-0312011223312011-1233332011121330-3121311213132132-2131132331332010-1111020010301032"></a>
 
-## tenant property — api_definition / 221113002212 / 6
+#### `api_specification.api_definition.tenant` property
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
-
-<a id="canonical-0330033202003110-0013031020212020-3203330323231122-1320120220332112-3201220331303010-0332022332213000-2100033113313323-2032031030112112"></a>
-
-## Next pages — api_definition / 221113002212 / 7
-
-- [api_specification](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2213121213201103-1311331110220313-3223333313332233-2301330300100331-1322321323010131-2310201211203221-1033320121012323-1332031232323233)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-3301110110012032-3220203300202303-0201103332211020-0212003103000302-3031313231231221-3211331322000212-2222001230232123-2120202203300330"></a>
 
@@ -438,9 +397,7 @@ the referred object's(e.g. Route's) tenant.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1020321313100131-2033223211200301-2221111001110032-3032020233331332-1231011320211330-0332303320313132-3003213212112013-0223332133312201"></a>
-
-## api_specification.validation_all_spec_endpoints — validation_all_spec_endpoints / 022032003330 / 2
+## `api_specification.validation_all_spec_endpoints` properties
 
 Breadcrumbs:
 
@@ -455,9 +412,9 @@ Type: `"single"`. Computed.
 
 API Inventory. Settings for API Inventory validation.
 
-<a id="canonical-2301210032200232-1300122003031100-3323010022131331-1113201223110301-0312302012203011-0110111031223110-0232200210003302-1200321223002000"></a>
+<a id="canonical-1020321313100131-2033223211200301-2221111001110032-3032020233331332-1231011320211330-0332303320313132-3003213212112013-0223332133312201"></a>
 
-## Direct properties — validation_all_spec_endpoints / 022032003330 / 3
+### Direct properties for `api_specification.validation_all_spec_endpoints`
 
 - [fall_through_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1213021133030030-0103033130031320-1223300001031302-3313000100331020-1331221203011002-0102121113121203-1121220012210102-2023030312013130): complete subsection reference.
 
@@ -465,25 +422,13 @@ API Inventory. Settings for API Inventory validation.
 
 - [validation_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1110303231100213-2230111001022032-3131132121001310-1300221202112103-2030000112013323-2131212223111031-0210332201213100-3020300231211301): complete subsection reference.
 
-<a id="canonical-0213220231023123-2310010202003333-2201332230203000-3003202322003022-2201011102312320-3101010331233023-0301213111013030-0300220332033001"></a>
-
-## Next pages — validation_all_spec_endpoints / 022032003330 / 4
-
-- [api_specification.validation_all_spec_endpoints.fall_through_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1213021133030030-0103033130031320-1223300001031302-3313000100331020-1331221203011002-0102121113121203-1121220012210102-2023030312013130)
-- [api_specification.validation_all_spec_endpoints.settings](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3311220020032133-3000201111210133-0321112310321021-2102221123011323-0103220011020332-2021023122320130-1223133102300110-2330100200223021)
-- [api_specification.validation_all_spec_endpoints.validation_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1110303231100213-2230111001022032-3131132121001310-1300221202112103-2030000112013323-2131212223111031-0210332201213100-3020300231211301)
-- [api_specification](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2213121213201103-1311331110220313-3223333313332233-2301330300100331-1322321323010131-2310201211203221-1033320121012323-1332031232323233)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
-
 <a id="canonical-1213021133030030-0103033130031320-1223300001031302-3313000100331020-1331221203011002-0102121113121203-1121220012210102-2023030312013130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2030002310103011-0322210013221312-1332223023230120-0032200212113132-3211010120020001-0332120211112030-0322132103113112-3103113002021001"></a>
-
-## api_specification.validation_all_spec_endpoints.fall_through_mode — fall_through_mode / 102122333020 / 2
+## `api_specification.validation_all_spec_endpoints.fall_through_mode` properties
 
 Breadcrumbs:
 
@@ -500,22 +445,13 @@ Type: `"single"`. Computed.
 Determine what to do with unprotected endpoints (not in the OpenAPI specification file (a.k.a.
 Swagger) or doesn't have a specific rule in custom rules).
 
-<a id="canonical-2312002203111321-1203302303233213-0101110233022133-0210002232201232-1100302230332212-0033113123300210-0222223200303323-3300233203231023"></a>
+<a id="canonical-2030002310103011-0322210013221312-1332223023230120-0032200212113132-3211010120020001-0332120211112030-0322132103113112-3103113002021001"></a>
 
-## Direct properties — fall_through_mode / 102122333020 / 3
+### Direct properties for `api_specification.validation_all_spec_endpoints.fall_through_mode`
 
 - [fall_through_mode_allow](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3330301110212003-2001310021012023-2303102002011130-3331030303132330-1312030232230222-0030132132221023-1312312012223010-3212133122023300): complete subsection reference.
 
 - [fall_through_mode_custom](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3212222102300030-1200201032202303-1210102010332233-3113120022103231-0231020210011103-2133230002333311-2122003232210220-0003303321220113): complete subsection reference.
-
-<a id="canonical-3131311023200201-0301300000132211-3230011321332021-1212010133332000-2122303021003123-2223220130022203-0001302312331100-2103210232330220"></a>
-
-## Next pages — fall_through_mode / 102122333020 / 4
-
-- [api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_allow](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3330301110212003-2001310021012023-2303102002011130-3331030303132330-1312030232230222-0030132132221023-1312312012223010-3212133122023300)
-- [api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3212222102300030-1200201032202303-1210102010332233-3113120022103231-0231020210011103-2133230002333311-2122003232210220-0003303321220113)
-- [api_specification.validation_all_spec_endpoints](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3301110110012032-3220203300202303-0201103332211020-0212003103000302-3031313231231221-3211331322000212-2222001230232123-2120202203300330)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-3330301110212003-2001310021012023-2303102002011130-3331030303132330-1312030232230222-0030132132221023-1312312012223010-3212133122023300"></a>
 
@@ -523,9 +459,7 @@ Swagger) or doesn't have a specific rule in custom rules).
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0312323212030132-3200333011011030-1200323101001333-0023121131022310-3010113102010233-3230310033330332-2222020331220320-2221233123210203"></a>
-
-## api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_allow — fall_through_mode_allow / 131113321032 / 2
+## `api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_allow` properties
 
 Breadcrumbs:
 
@@ -542,18 +476,7 @@ Type: `["object", {}]`. Computed.
 
 Configuration parameter for fall through mode allow.
 
-<a id="canonical-0022000311312221-3202001001303021-3003213333130121-3323100111011332-1323233020113012-1022223000321100-2123032212301323-0102233033102323"></a>
-
-## Direct properties — fall_through_mode_allow / 131113321032 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1222211202030310-3233332021232113-3312312202003103-1213212103230223-2031211320332310-0333001201021212-3221221300120111-0110233200000101"></a>
-
-## Next pages — fall_through_mode_allow / 131113321032 / 4
-
-- [api_specification.validation_all_spec_endpoints.fall_through_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1213021133030030-0103033130031320-1223300001031302-3313000100331020-1331221203011002-0102121113121203-1121220012210102-2023030312013130)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-3212222102300030-1200201032202303-1210102010332233-3113120022103231-0231020210011103-2133230002333311-2122003232210220-0003303321220113"></a>
 
@@ -561,9 +484,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3031233001321232-1211331233031021-3300233331210030-0301023122112100-2102013202333123-2210020021012322-2202323310011113-0301102230232013"></a>
-
-## api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom — fall_through_mode_custom / 033111330213 / 2
+## `api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom` properties
 
 Breadcrumbs:
 
@@ -580,19 +501,11 @@ Type: `"single"`. Computed.
 
 Configuration parameter for fall through mode custom.
 
-<a id="canonical-2233121023200302-1103103121232110-3022202131311131-1231110022121102-2031323131031320-3300032110130303-0233302110230323-3112211300003133"></a>
+<a id="canonical-3031233001321232-1211331233031021-3300233331210030-0301023122112100-2102013202333123-2210020021012322-2202323310011113-0301102230232013"></a>
 
-## Direct properties — fall_through_mode_custom / 033111330213 / 3
+### Direct properties for `api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom`
 
 - [open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2103300213131333-1031213021331132-0200032103022120-1201330002112231-1111030030020212-2022202322013000-2301311023001032-0000211122221121): complete subsection reference.
-
-<a id="canonical-3122123100301131-1321212303012023-1013232312232102-0030103033021230-2321311112303022-3121100112210100-2123210302212001-2311321122300321"></a>
-
-## Next pages — fall_through_mode_custom / 033111330213 / 4
-
-- [api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2103300213131333-1031213021331132-0200032103022120-1201330002112231-1111030030020212-2022202322013000-2301311023001032-0000211122221121)
-- [api_specification.validation_all_spec_endpoints.fall_through_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1213021133030030-0103033130031320-1223300001031302-3313000100331020-1331221203011002-0102121113121203-1121220012210102-2023030312013130)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-2103300213131333-1031213021331132-0200032103022120-1201330002112231-1111030030020212-2022202322013000-2301311023001032-0000211122221121"></a>
 
@@ -600,9 +513,7 @@ Configuration parameter for fall through mode custom.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2331312231223122-3321213112233033-3200021112021112-0321232323213010-2322001222212222-1210322320032330-3221002320112032-1113222201223022"></a>
-
-## api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules — open_api_validation_rules / 200033101321 / 2
+## `api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules` properties
 
 Breadcrumbs:
 
@@ -620,9 +531,9 @@ Type: `"list"`. Computed.
 
 Custom Fall Through Rule List. Rule or policy definition
 
-<a id="canonical-2112030220132033-0333300323022211-1211201132231313-2302023321301012-1103210020221012-2023301012002121-3323032010023122-0312220100301203"></a>
+<a id="canonical-2331312231223122-3321213112233033-3200021112021112-0321232323213010-2322001222212222-1210322320032330-3221002320112032-1113222201223022"></a>
 
-## Direct properties — open_api_validation_rules / 200033101321 / 3
+### Direct properties for `api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules`
 
 - [action_block](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2231020210200020-3012132301111313-1220200032030133-0020211322100031-1020010121331203-2122121321211203-0022230301200232-2101301231320223): complete subsection reference.
 
@@ -634,9 +545,9 @@ Custom Fall Through Rule List. Rule or policy definition
 
 <a id="canonical-2310002322013201-2132231110002310-3110111201303101-0013201312120333-2210311131102122-2111122231301301-1111220300322001-0121220333132110"></a>
 
-<a id="canonical-0133332201020222-1300212231222102-3122113121032300-2032021100302001-2002311110202300-0200321230123303-2123202312103212-1331103133021320"></a>
+<a id="canonical-2112030220132033-0333300323022211-1211201132231313-2302023321301012-1103210020221012-2023301012002121-3323032010023122-0312220100301203"></a>
 
-## api_group property — open_api_validation_rules / 200033101321 / 4
+#### `api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_group` property
 
 Type: `"string"`. Computed.
 
@@ -644,9 +555,9 @@ Exclusive with \[api\_endpoint base\_path\] The API group which this validation 
 
 <a id="canonical-3302223002331212-2310221120301121-3111313122011310-3011303210021213-0113232232331030-3010333303310033-0312000311211322-2133231113031021"></a>
 
-<a id="canonical-3012131313002013-0102130023303230-2313230202113031-2201332111100010-2331120011313220-2003130223203013-2322232322230300-3123130132122011"></a>
+<a id="canonical-0133332201020222-1300212231222102-3122113121032300-2032021100302001-2002311110202300-0200321230123303-2123202312103212-1331103133021320"></a>
 
-## base_path property — open_api_validation_rules / 200033101321 / 5
+#### `api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.base_path` property
 
 Type: `"string"`. Computed.
 
@@ -654,27 +565,13 @@ Exclusive with \[api\_endpoint api\_group\] The base path which this validation 
 
 - [metadata](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3020213320013113-2323010010220202-0322022102001321-3020332110032012-2312332032101020-0110320132330133-0300110300203103-3330231202233303): complete subsection reference.
 
-<a id="canonical-2030130102101301-1012101110003122-2123110333120011-1010331303332120-3331102122221112-0020233010303203-3033033132333001-2203121101033223"></a>
-
-## Next pages — open_api_validation_rules / 200033101321 / 6
-
-- [api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_block](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2231020210200020-3012132301111313-1220200032030133-0020211322100031-1020010121331203-2122121321211203-0022230301200232-2101301231320223)
-- [api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_report](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0033321132200223-0111111201221101-2102031120211230-3103302032323201-0212211013003203-0021301130331110-2203010130212121-3023332301131330)
-- [api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_skip](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2123333300222332-0201233313122110-1330231122021213-0100213331333210-2301133312021223-2333102300131310-1001023100310310-2013331211122020)
-- [api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1331012330122133-3201230312013203-2033210001201123-1321131030210003-0211110211230011-3212102310122301-1001221202223120-0230222312001103)
-- [api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3020213320013113-2323010010220202-0322022102001321-3020332110032012-2312332032101020-0110320132330133-0300110300203103-3330231202233303)
-- [api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3212222102300030-1200201032202303-1210102010332233-3113120022103231-0231020210011103-2133230002333311-2122003232210220-0003303321220113)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
-
 <a id="canonical-2231020210200020-3012132301111313-1220200032030133-0020211322100031-1020010121331203-2122121321211203-0022230301200232-2101301231320223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3303131010100313-2000133230013101-2003110023230031-1113213203333202-2323303203101011-1033310132000103-0131110311123302-2123031202003220"></a>
-
-## api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_block — action_block / 130010021033 / 2
+## `api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_block` properties
 
 Breadcrumbs:
 
@@ -693,18 +590,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-1211131230033320-3330121021323030-1301002022223333-0210321020321121-0120132131202022-0003222112103331-1133120113011100-0203101233110012"></a>
-
-## Direct properties — action_block / 130010021033 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0113230210110322-1333013103200122-0202330022112000-3012031212001231-3131001231330231-2323112213321020-1330103221032011-1202321011132011"></a>
-
-## Next pages — action_block / 130010021033 / 4
-
-- [api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2103300213131333-1031213021331132-0200032103022120-1201330002112231-1111030030020212-2022202322013000-2301311023001032-0000211122221121)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-0033321132200223-0111111201221101-2102031120211230-3103302032323201-0212211013003203-0021301130331110-2203010130212121-3023332301131330"></a>
 
@@ -712,9 +598,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3113303232330111-3130202233023332-2203030210132000-0123211100311311-2311323131310213-0332010101200200-1102203202211131-0231101101301201"></a>
-
-## api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_report — action_report / 322222313110 / 2
+## `api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_report` properties
 
 Breadcrumbs:
 
@@ -733,18 +617,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-3120123122301123-3031031113130113-2030301333103320-0010000323213321-0302123320131332-3200101220101033-0300320211121032-3313321322202232"></a>
-
-## Direct properties — action_report / 322222313110 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3032222102232030-1121320312023010-0030331212200102-2311031110320122-1322330101231033-1000103210221213-2231033300313232-3102213300212322"></a>
-
-## Next pages — action_report / 322222313110 / 4
-
-- [api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2103300213131333-1031213021331132-0200032103022120-1201330002112231-1111030030020212-2022202322013000-2301311023001032-0000211122221121)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-2123333300222332-0201233313122110-1330231122021213-0100213331333210-2301133312021223-2333102300131310-1001023100310310-2013331211122020"></a>
 
@@ -752,9 +625,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1121130323323300-2230013101330032-0233031300101220-0102032020223323-0231030213102201-0320021232012101-0311003230031330-0102223220022210"></a>
-
-## api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_skip — action_skip / 033122300222 / 2
+## `api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_skip` properties
 
 Breadcrumbs:
 
@@ -773,18 +644,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-1230111201311131-2201120101132303-1323320202203200-0201223122123212-0102001310032132-3111022100330111-3322100300320211-3132010132010123"></a>
-
-## Direct properties — action_skip / 033122300222 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1220221331333021-2120232123210201-3222320311102133-1130322000311332-2313111022303133-3322312003201321-1203130200123211-3030013202310012"></a>
-
-## Next pages — action_skip / 033122300222 / 4
-
-- [api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2103300213131333-1031213021331132-0200032103022120-1201330002112231-1111030030020212-2022202322013000-2301311023001032-0000211122221121)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-1331012330122133-3201230312013203-2033210001201123-1321131030210003-0211110211230011-3212102310122301-1001221202223120-0230222312001103"></a>
 
@@ -792,9 +652,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3300223130111302-0321313333330232-2120203133022323-2010223333220103-3100110130302012-0331132223311302-1022002111022213-2221332101233303"></a>
-
-## api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint — api_endpoint / 333012331231 / 2
+## `api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint` properties
 
 Breadcrumbs:
 
@@ -813,15 +671,13 @@ Type: `"single"`. Computed.
 
 API Endpoint. This defines API endpoint.
 
-<a id="canonical-1132302010223311-0320102230223302-3303022033300020-2213011120321113-0210231321112301-1221011122322231-2300330222020200-3330230220103301"></a>
+<a id="canonical-3300223130111302-0321313333330232-2120203133022323-2010223333220103-3100110130302012-0331132223311302-1022002111022213-2221332101233303"></a>
 
-## Direct properties — api_endpoint / 333012331231 / 3
+### Direct properties for `api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint`
 
 <a id="canonical-0320013000123313-0233002133122321-3333230230131312-2122320011032223-1220322113222000-0133110120102231-0230332303112013-3323102020231013"></a>
 
-<a id="canonical-3003212133111322-1313220312203202-0121101311010302-3203232302200221-3311111301310020-2113133010131113-2032213031123222-0331012010000033"></a>
-
-## methods property — api_endpoint / 333012331231 / 4
+#### `api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint.methods` property
 
 Type: `["list", "string"]`. Computed.
 
@@ -831,20 +687,13 @@ matched. Possible values are \`ANY\`, \`GET\`, \`HEAD\`, \`POST\`, \`PUT\`, \`DE
 
 <a id="canonical-0100323111311321-1310210213300322-3001122202202033-1120301233310222-2130202103330100-3313320102200333-0030032221011023-0010323130301212"></a>
 
-<a id="canonical-0230303212321313-1302313220330212-0103220312221001-3010222013333013-3121122132231210-1010032201122310-1310333111220313-3000202212110232"></a>
+<a id="canonical-1132302010223311-0320102230223302-3303022033300020-2213011120321113-0210231321112301-1221011122322231-2300330222020200-3330230220103301"></a>
 
-## path property — api_endpoint / 333012331231 / 5
+#### `api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint.path` property
 
 Type: `"string"`. Computed.
 
 Path. Path to be matched.
-
-<a id="canonical-0113231212321030-1303001311012121-1203131322120221-0101303131211203-0320330103002332-2211121121023030-0303100312101212-1203321323021020"></a>
-
-## Next pages — api_endpoint / 333012331231 / 6
-
-- [api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2103300213131333-1031213021331132-0200032103022120-1201330002112231-1111030030020212-2022202322013000-2301311023001032-0000211122221121)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-3020213320013113-2323010010220202-0322022102001321-3020332110032012-2312332032101020-0110320132330133-0300110300203103-3330231202233303"></a>
 
@@ -852,9 +701,7 @@ Path. Path to be matched.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0203131032112011-2332122233021031-1020321033221021-1230013012322312-1333032220032233-3121200011100003-2112303231312133-2012301112331301"></a>
-
-## api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata — metadata / 200100211112 / 2
+## `api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata` properties
 
 Breadcrumbs:
 
@@ -876,15 +723,13 @@ information is propagated to the metadata of a child object that gets created fr
 message during view processing. The information in this type can be specified by user during
 create..
 
-<a id="canonical-3001200131010011-1010232301101332-3130201031321130-2022133321031030-3013103213232210-3233323102122001-1000331210300110-0312201032012300"></a>
+<a id="canonical-0203131032112011-2332122233021031-1020321033221021-1230013012322312-1333032220032233-3121200011100003-2112303231312133-2012301112331301"></a>
 
-## Direct properties — metadata / 200100211112 / 3
+### Direct properties for `api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata`
 
 <a id="canonical-3201330000332301-0311323320132021-1333222221121333-2213031000030203-0213310221122333-2021003031300101-0000322031123110-2032220223222310"></a>
 
-<a id="canonical-3131331222230201-0302122330000301-0111123312021221-2023030220302303-1313122311130103-0000232120233320-3003300131322022-2223321301120133"></a>
-
-## description_spec property — metadata / 200100211112 / 4
+#### `api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata.description_spec` property
 
 Type: `"string"`. Computed.
 
@@ -892,20 +737,13 @@ Description. Human readable description.
 
 <a id="canonical-3301120100012203-0122323223101222-3221232323221022-1203222012312011-1220131112220020-3233110201033223-1301123322211123-3131112311303030"></a>
 
-<a id="canonical-2221310002232121-3030021223112232-3121213103102301-2100223210110302-1210102030311133-1222222012320020-3131013023010222-0201320021030001"></a>
+<a id="canonical-3001200131010011-1010232301101332-3130201031321130-2022133321031030-3013103213232210-3233323102122001-1000331210300110-0312201032012300"></a>
 
-## name property — metadata / 200100211112 / 5
+#### `api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata.name` property
 
 Type: `"string"`. Computed.
 
 Name of the message. The value of name has to follow DNS-1035 format.
-
-<a id="canonical-3223020023102321-3211120232011303-1102110313213200-3222113010131031-3331233323200120-0310232221310021-3220331323010211-1202020322113211"></a>
-
-## Next pages — metadata / 200100211112 / 6
-
-- [api_specification.validation_all_spec_endpoints.fall_through_mode.fall_through_mode_custom.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2103300213131333-1031213021331132-0200032103022120-1201330002112231-1111030030020212-2022202322013000-2301311023001032-0000211122221121)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-3311220020032133-3000201111210133-0321112310321021-2102221123011323-0103220011020332-2021023122320130-1223133102300110-2330100200223021"></a>
 
@@ -913,9 +751,7 @@ Name of the message. The value of name has to follow DNS-1035 format.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1320030121110130-2202121330131213-1021302213331002-2221011233232233-3020103020202331-3312132333230201-2222332311000331-1131323120220222"></a>
-
-## api_specification.validation_all_spec_endpoints.settings — settings / 011302033111 / 2
+## `api_specification.validation_all_spec_endpoints.settings` properties
 
 Breadcrumbs:
 
@@ -932,9 +768,9 @@ Type: `"single"`. Computed.
 OpenAPI specification validation settings relevant for 'API Inventory' enforcement and for 'Custom
 list' enforcement.
 
-<a id="canonical-2313003333200131-0031321001102123-0300301310021101-1020201231103322-3022103113122121-2222230311020310-3110012002311301-3101121322212333"></a>
+<a id="canonical-1320030121110130-2202121330131213-1021302213331002-2221011233232233-3020103020202331-3312132333230201-2222332311000331-1131323120220222"></a>
 
-## Direct properties — settings / 011302033111 / 3
+### Direct properties for `api_specification.validation_all_spec_endpoints.settings`
 
 - [oversized_body_fail_validation](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3002211231000323-1022101011233102-1233023130132320-2030212012001320-1033030002002310-0302003010001121-0003031030332010-3200210010313121): complete subsection reference.
 
@@ -944,26 +780,13 @@ list' enforcement.
 
 - [property_validation_settings_default](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2012221321103233-1303011231133201-0121313331112001-2320120221213132-2203203302220003-3231003000322312-2301113022212202-1002322032312120): complete subsection reference.
 
-<a id="canonical-0322122221023230-2331111300132111-0030312103312331-0321131210331330-3001303122323131-0320112113111122-1130023101021222-0313221032230133"></a>
-
-## Next pages — settings / 011302033111 / 4
-
-- [api_specification.validation_all_spec_endpoints.settings.oversized_body_fail_validation](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3002211231000323-1022101011233102-1233023130132320-2030212012001320-1033030002002310-0302003010001121-0003031030332010-3200210010313121)
-- [api_specification.validation_all_spec_endpoints.settings.oversized_body_skip_validation](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2002123021132001-0023203101021123-3123122111232030-3320130001121320-3212223011320102-3010123123033321-3233313022233221-3303333131133210)
-- [api_specification.validation_all_spec_endpoints.settings.property_validation_settings_custom](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0220113121102133-2132021321001121-0013130331130211-1220321220101101-0301120010222310-3100123131322231-0111231110000310-1313131133210323)
-- [api_specification.validation_all_spec_endpoints.settings.property_validation_settings_default](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2012221321103233-1303011231133201-0121313331112001-2320120221213132-2203203302220003-3231003000322312-2301113022212202-1002322032312120)
-- [api_specification.validation_all_spec_endpoints](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3301110110012032-3220203300202303-0201103332211020-0212003103000302-3031313231231221-3211331322000212-2222001230232123-2120202203300330)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
-
 <a id="canonical-3002211231000323-1022101011233102-1233023130132320-2030212012001320-1033030002002310-0302003010001121-0003031030332010-3200210010313121"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1232233022332300-3121112332012200-0322231122113130-0101020032301220-2122011211201000-3331331322302332-3300031212113100-1301210023120332"></a>
-
-## api_specification.validation_all_spec_endpoints.settings.oversized_body_fail_validation — oversized_body_fail_validation / 022022323112 / 2
+## `api_specification.validation_all_spec_endpoints.settings.oversized_body_fail_validation` properties
 
 Breadcrumbs:
 
@@ -980,18 +803,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-0001320331001333-2301132131233021-2121302103330113-3022211333210222-2203101220023300-3322130301030001-0221333330020311-0020222120022211"></a>
-
-## Direct properties — oversized_body_fail_validation / 022022323112 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3102033301230321-3322233300012102-3110000231003132-3010313133332110-0133012013300203-2220322121020221-2022132322010030-1221310013333323"></a>
-
-## Next pages — oversized_body_fail_validation / 022022323112 / 4
-
-- [api_specification.validation_all_spec_endpoints.settings](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3311220020032133-3000201111210133-0321112310321021-2102221123011323-0103220011020332-2021023122320130-1223133102300110-2330100200223021)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-2002123021132001-0023203101021123-3123122111232030-3320130001121320-3212223011320102-3010123123033321-3233313022233221-3303333131133210"></a>
 
@@ -999,9 +811,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3223013310330231-0123301300332000-3201210322022321-2221221030010213-1112003312323112-0212000033103331-3233003021301132-3203130232123222"></a>
-
-## api_specification.validation_all_spec_endpoints.settings.oversized_body_skip_validation — oversized_body_skip_validation / 320221302301 / 2
+## `api_specification.validation_all_spec_endpoints.settings.oversized_body_skip_validation` properties
 
 Breadcrumbs:
 
@@ -1018,18 +828,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-0210312002130303-2212221020302121-2232322123032210-1231300212110303-2220011111021123-0013320310110331-2331031232120231-0301231302320202"></a>
-
-## Direct properties — oversized_body_skip_validation / 320221302301 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2300232032121112-1023012123230113-1233301301110032-3132333000331003-3300002121211200-3132130010203230-1002321001302222-1020020113232301"></a>
-
-## Next pages — oversized_body_skip_validation / 320221302301 / 4
-
-- [api_specification.validation_all_spec_endpoints.settings](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3311220020032133-3000201111210133-0321112310321021-2102221123011323-0103220011020332-2021023122320130-1223133102300110-2330100200223021)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-0220113121102133-2132021321001121-0013130331130211-1220321220101101-0301120010222310-3100123131322231-0111231110000310-1313131133210323"></a>
 
@@ -1037,9 +836,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0210333332032013-2021203203333111-2210100201102111-0021232233122021-2100022230113320-1010013320103222-2212022230130122-3100301222300310"></a>
-
-## api_specification.validation_all_spec_endpoints.settings.property_validation_settings_custom — property_validation_settings_custom / 123130022310 / 2
+## `api_specification.validation_all_spec_endpoints.settings.property_validation_settings_custom` properties
 
 Breadcrumbs:
 
@@ -1056,19 +853,11 @@ Type: `"single"`. Computed.
 
 Configuration parameter for property validation settings custom.
 
-<a id="canonical-1221331231102302-0210300320313112-0311301201022201-3320311323100330-0103113132102331-1133323313313221-2300100322102303-2200122033213221"></a>
+<a id="canonical-0210333332032013-2021203203333111-2210100201102111-0021232233122021-2100022230113320-1010013320103222-2212022230130122-3100301222300310"></a>
 
-## Direct properties — property_validation_settings_custom / 123130022310 / 3
+### Direct properties for `api_specification.validation_all_spec_endpoints.settings.property_validation_settings_custom`
 
 - [query_parameters](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1303011303021203-2121100112111003-0123001332132122-1332132332131323-1012202302200321-1202311020033330-2133013320012132-1302130313100130): complete subsection reference.
-
-<a id="canonical-0231213003012311-1233222331003130-2102312331211133-2221031320331003-3000030321031001-2212210102113130-2031310112011222-0033230131013231"></a>
-
-## Next pages — property_validation_settings_custom / 123130022310 / 4
-
-- [api_specification.validation_all_spec_endpoints.settings.property_validation_settings_custom.query_parameters](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1303011303021203-2121100112111003-0123001332132122-1332132332131323-1012202302200321-1202311020033330-2133013320012132-1302130313100130)
-- [api_specification.validation_all_spec_endpoints.settings](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3311220020032133-3000201111210133-0321112310321021-2102221123011323-0103220011020332-2021023122320130-1223133102300110-2330100200223021)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-1303011303021203-2121100112111003-0123001332132122-1332132332131323-1012202302200321-1202311020033330-2133013320012132-1302130313100130"></a>
 
@@ -1076,9 +865,7 @@ Configuration parameter for property validation settings custom.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2223121131010003-0332132010332332-0012220333032101-1331312320232132-3203030201311023-3020231220020230-2210330000323022-3203112331110312"></a>
-
-## api_specification.validation_all_spec_endpoints.settings.property_validation_settings_custom.query_parameters — query_parameters / 303122020001 / 2
+## `api_specification.validation_all_spec_endpoints.settings.property_validation_settings_custom.query_parameters` properties
 
 Breadcrumbs:
 
@@ -1096,22 +883,13 @@ Type: `"single"`. Computed.
 
 Custom settings for query parameters validation.
 
-<a id="canonical-2120311103212330-3330021323121323-3111230231212223-2102311202132110-1003103011300320-1111033101102022-3323121120210220-1101220112331333"></a>
+<a id="canonical-2223121131010003-0332132010332332-0012220333032101-1331312320232132-3203030201311023-3020231220020230-2210330000323022-3203112331110312"></a>
 
-## Direct properties — query_parameters / 303122020001 / 3
+### Direct properties for `api_specification.validation_all_spec_endpoints.settings.property_validation_settings_custom.query_parameters`
 
 - [allow_additional_parameters](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0031313030121030-0131012201202110-2133000100322112-2211133003110103-0313101112231001-1331312030003033-3320322101101101-2321320222030320): complete subsection reference.
 
 - [disallow_additional_parameters](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0003003003222031-3132230101001032-3021120303023311-1102313112322122-1103110213021223-2121030030000100-3123320132210230-2033021013132022): complete subsection reference.
-
-<a id="canonical-1131231133330212-2201100030020202-1130233011321002-0223310310131101-2120132232210231-0002020000112202-1310233000001330-3013122130230102"></a>
-
-## Next pages — query_parameters / 303122020001 / 4
-
-- [api_specification.validation_all_spec_endpoints.settings.property_validation_settings_custom.query_parameters.allow_additional_parameters](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0031313030121030-0131012201202110-2133000100322112-2211133003110103-0313101112231001-1331312030003033-3320322101101101-2321320222030320)
-- [api_specification.validation_all_spec_endpoints.settings.property_validation_settings_custom.query_parameters.disallow_additional_parameters](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0003003003222031-3132230101001032-3021120303023311-1102313112322122-1103110213021223-2121030030000100-3123320132210230-2033021013132022)
-- [api_specification.validation_all_spec_endpoints.settings.property_validation_settings_custom](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0220113121102133-2132021321001121-0013130331130211-1220321220101101-0301120010222310-3100123131322231-0111231110000310-1313131133210323)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-0031313030121030-0131012201202110-2133000100322112-2211133003110103-0313101112231001-1331312030003033-3320322101101101-2321320222030320"></a>
 
@@ -1119,9 +897,7 @@ Custom settings for query parameters validation.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0100003303020323-3132223122032210-3323033101033232-1202003120003330-1103210201320010-0010313301221222-3210223210023032-3100123231023103"></a>
-
-## api_specification.validation_all_spec_endpoints.settings.property_validation_settings_custom.query_parameters.allow_additional_parameters — allow_additional_parameters / 223131001023 / 2
+## `api_specification.validation_all_spec_endpoints.settings.property_validation_settings_custom.query_parameters.allow_additional_parameters` properties
 
 Breadcrumbs:
 
@@ -1140,18 +916,7 @@ Type: `["object", {}]`. Computed.
 
 Configuration parameter for allow additional parameters.
 
-<a id="canonical-3211021000023013-2321320122212101-1010100211020320-0203133131012203-0221020023311112-3033133331131232-1011211120220212-3201320002130313"></a>
-
-## Direct properties — allow_additional_parameters / 223131001023 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1021222322202213-1311103213303232-1223321213102120-3222230020300313-3010002121213020-0132333310223211-2222123211233031-2212002001032302"></a>
-
-## Next pages — allow_additional_parameters / 223131001023 / 4
-
-- [api_specification.validation_all_spec_endpoints.settings.property_validation_settings_custom.query_parameters](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1303011303021203-2121100112111003-0123001332132122-1332132332131323-1012202302200321-1202311020033330-2133013320012132-1302130313100130)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-0003003003222031-3132230101001032-3021120303023311-1102313112322122-1103110213021223-2121030030000100-3123320132210230-2033021013132022"></a>
 
@@ -1159,9 +924,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1232031012220222-3301321212013020-2303210301122221-3130200012020232-3232100212031011-3331110302332303-3331313310330133-0331313000133023"></a>
-
-## api_specification.validation_all_spec_endpoints.settings.property_validation_settings_custom.query_parameters.disallow_additional_parameters — disallow_additional_parameters / 320211122022 / 2
+## `api_specification.validation_all_spec_endpoints.settings.property_validation_settings_custom.query_parameters.disallow_additional_parameters` properties
 
 Breadcrumbs:
 
@@ -1180,18 +943,7 @@ Type: `["object", {}]`. Computed.
 
 Configuration parameter for disallow additional parameters.
 
-<a id="canonical-0002323203101211-2111311020200112-0332110103332300-1132203133110223-1112012033112313-1320333030321211-1203010103201313-2321333233323020"></a>
-
-## Direct properties — disallow_additional_parameters / 320211122022 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0020131131212213-3230132123033312-3302133121203223-1303131110011203-2220313131113330-2210331301032131-3332312001231123-3133202301220003"></a>
-
-## Next pages — disallow_additional_parameters / 320211122022 / 4
-
-- [api_specification.validation_all_spec_endpoints.settings.property_validation_settings_custom.query_parameters](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1303011303021203-2121100112111003-0123001332132122-1332132332131323-1012202302200321-1202311020033330-2133013320012132-1302130313100130)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-2012221321103233-1303011231133201-0121313331112001-2320120221213132-2203203302220003-3231003000322312-2301113022212202-1002322032312120"></a>
 
@@ -1199,9 +951,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0110222230232100-2332021223231211-0230102021032300-3113201012320010-2120110032020222-0021223313312321-0100320101311001-2000013001211112"></a>
-
-## api_specification.validation_all_spec_endpoints.settings.property_validation_settings_default — property_validation_settings_default / 221010223133 / 2
+## `api_specification.validation_all_spec_endpoints.settings.property_validation_settings_default` properties
 
 Breadcrumbs:
 
@@ -1218,18 +968,7 @@ Type: `["object", {}]`. Computed.
 
 Configuration parameter for property validation settings default.
 
-<a id="canonical-3021130123023221-0012202101303101-0231012322022010-1311021321230113-1201133002220332-3003121310202133-3000121120312301-0021221310321020"></a>
-
-## Direct properties — property_validation_settings_default / 221010223133 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1102123321302203-3210021323111203-3103123022212323-2320320111231301-0132111012233033-1200130310213330-2300122001122311-0013211331203131"></a>
-
-## Next pages — property_validation_settings_default / 221010223133 / 4
-
-- [api_specification.validation_all_spec_endpoints.settings](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3311220020032133-3000201111210133-0321112310321021-2102221123011323-0103220011020332-2021023122320130-1223133102300110-2330100200223021)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-1110303231100213-2230111001022032-3131132121001310-1300221202112103-2030000112013323-2131212223111031-0210332201213100-3020300231211301"></a>
 
@@ -1237,9 +976,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0023113112103031-1333330322021031-2012102110120011-0111033330332201-3330102233001331-1231302102000331-1302211013013022-3231122213313310"></a>
-
-## api_specification.validation_all_spec_endpoints.validation_mode — validation_mode / 122310102303 / 2
+## `api_specification.validation_all_spec_endpoints.validation_mode` properties
 
 Breadcrumbs:
 
@@ -1256,9 +993,9 @@ Type: `"single"`. Computed.
 Validation mode of OpenAPI specification. When a validation mismatch occurs on a request to one of
 the endpoints listed on the OpenAPI specification file (a.k.a. Swagger).
 
-<a id="canonical-0313012012123131-3102330301002021-1230003223311130-2200232011313101-3111010233202123-0322302302002230-2311102020311322-1331002220233201"></a>
+<a id="canonical-0023113112103031-1333330322021031-2012102110120011-0111033330332201-3330102233001331-1231302102000331-1302211013013022-3231122213313310"></a>
 
-## Direct properties — validation_mode / 122310102303 / 3
+### Direct properties for `api_specification.validation_all_spec_endpoints.validation_mode`
 
 - [response_validation_mode_active](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0122300021121231-0000102301301221-2310022130331311-0232332313211231-2102333102322311-2232301102210010-0220132113310221-2300110112020220): complete subsection reference.
 
@@ -1268,26 +1005,13 @@ the endpoints listed on the OpenAPI specification file (a.k.a. Swagger).
 
 - [validation_mode_active](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0033030122220122-3302100321223023-0322321322320011-2000202021130113-2211323233331301-3130032301113233-0312113232201013-1330201203301120): complete subsection reference.
 
-<a id="canonical-3312320021301231-3213201233221322-2121002130130300-1002130000230311-0032213323112121-2033030001022100-1002332311331230-2312011321033321"></a>
-
-## Next pages — validation_mode / 122310102303 / 4
-
-- [api_specification.validation_all_spec_endpoints.validation_mode.response_validation_mode_active](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0122300021121231-0000102301301221-2310022130331311-0232332313211231-2102333102322311-2232301102210010-0220132113310221-2300110112020220)
-- [api_specification.validation_all_spec_endpoints.validation_mode.skip_response_validation](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0033300332020210-1301222220033312-2112211212110013-1223333101101300-3331133131301332-0232320122313233-3213212231220212-2133123300203313)
-- [api_specification.validation_all_spec_endpoints.validation_mode.skip_validation](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3121220213003203-0203012322013122-3131132332021133-3013111110313221-3021221003212323-3220210210223212-0132010123220210-2331020003321022)
-- [api_specification.validation_all_spec_endpoints.validation_mode.validation_mode_active](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0033030122220122-3302100321223023-0322321322320011-2000202021130113-2211323233331301-3130032301113233-0312113232201013-1330201203301120)
-- [api_specification.validation_all_spec_endpoints](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3301110110012032-3220203300202303-0201103332211020-0212003103000302-3031313231231221-3211331322000212-2222001230232123-2120202203300330)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
-
 <a id="canonical-0122300021121231-0000102301301221-2310022130331311-0232332313211231-2102333102322311-2232301102210010-0220132113310221-2300110112020220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1030011113011222-3202013133120030-2201133023210313-0300022232030002-2202211223130112-2232020022312020-1033223110022003-3203312212223233"></a>
-
-## api_specification.validation_all_spec_endpoints.validation_mode.response_validation_mode_active — response_validation_mode_active / 020323313012 / 2
+## `api_specification.validation_all_spec_endpoints.validation_mode.response_validation_mode_active` properties
 
 Breadcrumbs:
 
@@ -1304,9 +1028,9 @@ Type: `"single"`. Computed.
 
 Open API Validation Mode Active. Validation mode properties of response.
 
-<a id="canonical-0033200111132330-1010013320303121-2220023232202232-2211130120323331-1222321013320213-0011031310312303-0301220233033120-2121132110203113"></a>
+<a id="canonical-1030011113011222-3202013133120030-2201133023210313-0300022232030002-2202211223130112-2232020022312020-1033223110022003-3203312212223233"></a>
 
-## Direct properties — response_validation_mode_active / 020323313012 / 3
+### Direct properties for `api_specification.validation_all_spec_endpoints.validation_mode.response_validation_mode_active`
 
 - [enforcement_block](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0233001003033003-3313230031132221-1232310110003211-0303012033331003-1321023311220102-0333021130122111-2300320130222323-3030201132222103): complete subsection reference.
 
@@ -1314,9 +1038,9 @@ Open API Validation Mode Active. Validation mode properties of response.
 
 <a id="canonical-1122310110033320-2232312231001021-2022230322313032-0113030132110122-0133113112301021-3230013022103012-3022300312211023-1333102312021000"></a>
 
-<a id="canonical-2123003000013113-2100100222033332-2001312221023302-2100213133232303-1000203100012212-1210332112010012-0202101200131013-2013111313023303"></a>
+<a id="canonical-0033200111132330-1010013320303121-2220023232202232-2211130120323331-1222321013320213-0011031310312303-0301220233033120-2121132110203113"></a>
 
-## response_validation_properties property — response_validation_mode_active / 020323313012 / 4
+#### `api_specification.validation_all_spec_endpoints.validation_mode.response_validation_mode_active.response_validation_properties` property
 
 Type: `["list", "string"]`. Computed.
 
@@ -1328,24 +1052,13 @@ Swagger). Possible values are \`PROPERTY\_QUERY\_PARAMETERS\`, \`PROPERTY\_PATH\
 \`PROPERTY\_HTTP\_BODY\`, \`PROPERTY\_SECURITY\_SCHEMA\`, \`PROPERTY\_RESPONSE\_CODE\`. Defaults to
 \`PROPERTY\_QUERY\_PARAMETERS\`.
 
-<a id="canonical-1301233301230303-0232003313030201-1102012100003100-1121031023100103-0021313111312233-3112131030210203-2033213023111120-1222110300332112"></a>
-
-## Next pages — response_validation_mode_active / 020323313012 / 5
-
-- [api_specification.validation_all_spec_endpoints.validation_mode.response_validation_mode_active.enforcement_block](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0233001003033003-3313230031132221-1232310110003211-0303012033331003-1321023311220102-0333021130122111-2300320130222323-3030201132222103)
-- [api_specification.validation_all_spec_endpoints.validation_mode.response_validation_mode_active.enforcement_report](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1301321312300003-0000220212232311-2010122002123013-3110123233211031-1331031232312133-0302101323230202-1333121200022011-1213321201210033)
-- [api_specification.validation_all_spec_endpoints.validation_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1110303231100213-2230111001022032-3131132121001310-1300221202112103-2030000112013323-2131212223111031-0210332201213100-3020300231211301)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
-
 <a id="canonical-0233001003033003-3313230031132221-1232310110003211-0303012033331003-1321023311220102-0333021130122111-2300320130222323-3030201132222103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2131221001020111-3030302020313323-2323223010202212-2132302103000032-0213100311211011-1323033212312002-1332321322122110-0221000022130103"></a>
-
-## api_specification.validation_all_spec_endpoints.validation_mode.response_validation_mode_active.enforcement_block — enforcement_block / 100221102201 / 2
+## `api_specification.validation_all_spec_endpoints.validation_mode.response_validation_mode_active.enforcement_block` properties
 
 Breadcrumbs:
 
@@ -1364,18 +1077,7 @@ Type: `["object", {}]`. Computed.
 Blocking validation: reject traffic that violates the selected OpenAPI validation properties.
 Invalid requests are returned as HTTP 403.
 
-<a id="canonical-0020130212010222-2131133222222133-2213323230331011-2302110312212010-2130012021211121-0122010322110323-3023033321102230-3311113130220301"></a>
-
-## Direct properties — enforcement_block / 100221102201 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2011033300232301-1310300312130133-0011223322131313-3100023330001322-2311211123201303-1200020321202313-2301210122312033-0022230333020302"></a>
-
-## Next pages — enforcement_block / 100221102201 / 4
-
-- [api_specification.validation_all_spec_endpoints.validation_mode.response_validation_mode_active](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0122300021121231-0000102301301221-2310022130331311-0232332313211231-2102333102322311-2232301102210010-0220132113310221-2300110112020220)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-1301321312300003-0000220212232311-2010122002123013-3110123233211031-1331031232312133-0302101323230202-1333121200022011-1213321201210033"></a>
 
@@ -1383,9 +1085,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3002233210110130-2310203231330212-3030010323033010-3123230230023130-1000112002123233-1330313000332123-1203333033312333-1211003111302332"></a>
-
-## api_specification.validation_all_spec_endpoints.validation_mode.response_validation_mode_active.enforcement_report — enforcement_report / 002320032131 / 2
+## `api_specification.validation_all_spec_endpoints.validation_mode.response_validation_mode_active.enforcement_report` properties
 
 Breadcrumbs:
 
@@ -1404,18 +1104,7 @@ Type: `["object", {}]`. Computed.
 Report-only validation: record OpenAPI violations while allowing the request or response to
 continue.
 
-<a id="canonical-3332100223312330-1020332311322322-3013331332122003-2331323112223003-2330021220210103-0310303020030312-1133202111023320-3213003110220320"></a>
-
-## Direct properties — enforcement_report / 002320032131 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3203301130321213-3210020101002022-3021003012031022-3132301032001332-1223003213111022-3121102221023333-3102311300021103-3321111312331112"></a>
-
-## Next pages — enforcement_report / 002320032131 / 4
-
-- [api_specification.validation_all_spec_endpoints.validation_mode.response_validation_mode_active](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0122300021121231-0000102301301221-2310022130331311-0232332313211231-2102333102322311-2232301102210010-0220132113310221-2300110112020220)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-0033300332020210-1301222220033312-2112211212110013-1223333101101300-3331133131301332-0232320122313233-3213212231220212-2133123300203313"></a>
 
@@ -1423,9 +1112,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1201212033020012-3320103003013322-2231332231232220-1312300233202001-0231030023133120-0310211031211332-3133211203131123-0231301221203033"></a>
-
-## api_specification.validation_all_spec_endpoints.validation_mode.skip_response_validation — skip_response_validation / 001220302130 / 2
+## `api_specification.validation_all_spec_endpoints.validation_mode.skip_response_validation` properties
 
 Breadcrumbs:
 
@@ -1442,18 +1129,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-3302001210203000-3112032331220222-0012310011323303-1022221102130103-0133203110330212-2003033302002203-1320320023311210-1002323201003003"></a>
-
-## Direct properties — skip_response_validation / 001220302130 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3302212123032332-1133332020221311-1103200122121330-0103133321111202-3230002032202012-3230311030320313-0303130012303101-1102002111313320"></a>
-
-## Next pages — skip_response_validation / 001220302130 / 4
-
-- [api_specification.validation_all_spec_endpoints.validation_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1110303231100213-2230111001022032-3131132121001310-1300221202112103-2030000112013323-2131212223111031-0210332201213100-3020300231211301)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-3121220213003203-0203012322013122-3131132332021133-3013111110313221-3021221003212323-3220210210223212-0132010123220210-2331020003321022"></a>
 
@@ -1461,9 +1137,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2301000103001013-2101022101011230-3310313320120223-3002222030201323-0222013030223202-2233003130201213-1112331213022101-3101232032133221"></a>
-
-## api_specification.validation_all_spec_endpoints.validation_mode.skip_validation — skip_validation / 311132021210 / 2
+## `api_specification.validation_all_spec_endpoints.validation_mode.skip_validation` properties
 
 Breadcrumbs:
 
@@ -1480,18 +1154,7 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-1212121221203021-3003113003303220-1121200230112000-0011332302211201-0010310101222300-2231011213031133-1301211122132100-3213001231120212"></a>
-
-## Direct properties — skip_validation / 311132021210 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1022200000032231-2301233310221122-2032110013123222-0313100123010030-3002231130000323-0100331223023012-3021222101331310-2131310200311331"></a>
-
-## Next pages — skip_validation / 311132021210 / 4
-
-- [api_specification.validation_all_spec_endpoints.validation_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1110303231100213-2230111001022032-3131132121001310-1300221202112103-2030000112013323-2131212223111031-0210332201213100-3020300231211301)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-0033030122220122-3302100321223023-0322321322320011-2000202021130113-2211323233331301-3130032301113233-0312113232201013-1330201203301120"></a>
 
@@ -1499,9 +1162,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0213213301100120-0203302103113011-0233003223000232-2101220203313030-3013321002001211-0100002232010133-2022322111221323-2200131332131313"></a>
-
-## api_specification.validation_all_spec_endpoints.validation_mode.validation_mode_active — validation_mode_active / 101332110100 / 2
+## `api_specification.validation_all_spec_endpoints.validation_mode.validation_mode_active` properties
 
 Breadcrumbs:
 
@@ -1519,9 +1180,9 @@ Type: `"single"`. Computed.
 Enable OpenAPI validation and explicitly select enforcement\_report to allow and log invalid
 traffic, or enforcement\_block to reject invalid requests with HTTP 403.
 
-<a id="canonical-2120210333033103-2023032003002100-1302022123331123-2300101110301321-3131323130212312-0322313110123022-2330120003322123-3203323031002221"></a>
+<a id="canonical-0213213301100120-0203302103113011-0233003223000232-2101220203313030-3013321002001211-0100002232010133-2022322111221323-2200131332131313"></a>
 
-## Direct properties — validation_mode_active / 101332110100 / 3
+### Direct properties for `api_specification.validation_all_spec_endpoints.validation_mode.validation_mode_active`
 
 - [enforcement_block](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0133133222122131-3110333123112232-1323212003012103-3000213003001230-0223303232230331-3310220232233230-2331021031212131-2221100122222330): complete subsection reference.
 
@@ -1529,9 +1190,9 @@ traffic, or enforcement\_block to reject invalid requests with HTTP 403.
 
 <a id="canonical-1222130313132302-3210300201210310-0322312222231233-3122001111201223-3323220033100232-1002112222323222-3211221303200011-2113221133233220"></a>
 
-<a id="canonical-2030322010230002-2330131201013122-3203001213333210-0322131230010221-0300130300103330-3112132023213210-1030033113003131-1210000033133023"></a>
+<a id="canonical-2120210333033103-2023032003002100-1302022123331123-2300101110301321-3131323130212312-0322313110123022-2330120003322123-3203323031002221"></a>
 
-## request_validation_properties property — validation_mode_active / 101332110100 / 4
+#### `api_specification.validation_all_spec_endpoints.validation_mode.validation_mode_active.request_validation_properties` property
 
 Type: `["list", "string"]`. Computed.
 
@@ -1543,24 +1204,13 @@ Swagger). Possible values are \`PROPERTY\_QUERY\_PARAMETERS\`, \`PROPERTY\_PATH\
 \`PROPERTY\_HTTP\_BODY\`, \`PROPERTY\_SECURITY\_SCHEMA\`, \`PROPERTY\_RESPONSE\_CODE\`. Defaults to
 \`PROPERTY\_QUERY\_PARAMETERS\`.
 
-<a id="canonical-1203021120112020-3320330003332321-3132013132301322-2303103231033032-0202331000102231-0213313001033101-2100102030002302-2322123201210212"></a>
-
-## Next pages — validation_mode_active / 101332110100 / 5
-
-- [api_specification.validation_all_spec_endpoints.validation_mode.validation_mode_active.enforcement_block](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0133133222122131-3110333123112232-1323212003012103-3000213003001230-0223303232230331-3310220232233230-2331021031212131-2221100122222330)
-- [api_specification.validation_all_spec_endpoints.validation_mode.validation_mode_active.enforcement_report](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1222300030320103-0301121231020002-0033122302331233-3301122310012300-2121031322223222-2002300300131012-2331302212332231-2303203130121002)
-- [api_specification.validation_all_spec_endpoints.validation_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1110303231100213-2230111001022032-3131132121001310-1300221202112103-2030000112013323-2131212223111031-0210332201213100-3020300231211301)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
-
 <a id="canonical-0133133222122131-3110333123112232-1323212003012103-3000213003001230-0223303232230331-3310220232233230-2331021031212131-2221100122222330"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1032110130110130-0303031232112203-2133101310231202-3322010221322002-0233103312020111-0331330221022330-0012021310222300-0312032110330230"></a>
-
-## api_specification.validation_all_spec_endpoints.validation_mode.validation_mode_active.enforcement_block — enforcement_block / 312022010131 / 2
+## `api_specification.validation_all_spec_endpoints.validation_mode.validation_mode_active.enforcement_block` properties
 
 Breadcrumbs:
 
@@ -1579,18 +1229,7 @@ Type: `["object", {}]`. Computed.
 Blocking validation: reject traffic that violates the selected OpenAPI validation properties.
 Invalid requests are returned as HTTP 403.
 
-<a id="canonical-2312013203302010-1312133121333121-3031231233032101-3201032202320200-0333120133303312-3320332030312131-0221020120003221-1121102120002120"></a>
-
-## Direct properties — enforcement_block / 312022010131 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1030230200000231-1301032110200332-0220012223232111-0312022222313210-0003011203031203-2323222223310233-1212233321210023-2311221301120103"></a>
-
-## Next pages — enforcement_block / 312022010131 / 4
-
-- [api_specification.validation_all_spec_endpoints.validation_mode.validation_mode_active](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0033030122220122-3302100321223023-0322321322320011-2000202021130113-2211323233331301-3130032301113233-0312113232201013-1330201203301120)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-1222300030320103-0301121231020002-0033122302331233-3301122310012300-2121031322223222-2002300300131012-2331302212332231-2303203130121002"></a>
 
@@ -1598,9 +1237,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3233310103313123-3200103103200003-0330001010302130-1001322222003210-2222233300230010-1102201032120010-3103210211313003-2132310223103213"></a>
-
-## api_specification.validation_all_spec_endpoints.validation_mode.validation_mode_active.enforcement_report — enforcement_report / 222111122203 / 2
+## `api_specification.validation_all_spec_endpoints.validation_mode.validation_mode_active.enforcement_report` properties
 
 Breadcrumbs:
 
@@ -1619,18 +1256,7 @@ Type: `["object", {}]`. Computed.
 Report-only validation: record OpenAPI violations while allowing the request or response to
 continue.
 
-<a id="canonical-3230220010301330-0133223332022320-2201132112112232-3333211233013220-0313331020101022-1031222332210202-1023203112122012-2312302032221320"></a>
-
-## Direct properties — enforcement_report / 222111122203 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2012133211222330-2331333333013222-0210013203022230-0311330220012133-3020131010310223-1023332102020231-2322331220213312-3103321311021030"></a>
-
-## Next pages — enforcement_report / 222111122203 / 4
-
-- [api_specification.validation_all_spec_endpoints.validation_mode.validation_mode_active](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0033030122220122-3302100321223023-0322321322320011-2000202021130113-2211323233331301-3130032301113233-0312113232201013-1330201203301120)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-0000323113031202-1122223233210022-2210320221111332-1023122223003200-0322110333010111-2200212103322213-1211312021302323-2302100032323221"></a>
 
@@ -1638,9 +1264,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3011013030331001-2300002221022111-0321122100030301-0211001103033023-1133123032333203-2023012323123313-0130001111221020-2023311032211302"></a>
-
-## api_specification.validation_custom_list — validation_custom_list / 113132231123 / 2
+## `api_specification.validation_custom_list` properties
 
 Breadcrumbs:
 
@@ -1656,25 +1280,15 @@ Type: `"single"`. Computed.
 Define API groups, base paths, or API endpoints and their OpenAPI validation modes. Any other
 API-endpoint not listed will act according to 'Fall Through Mode'.
 
-<a id="canonical-0102203102203232-3202311331332330-0131232311123233-0011112301121123-2210020112220321-0210333011233010-3323302302322230-0001020031000210"></a>
+<a id="canonical-3011013030331001-2300002221022111-0321122100030301-0211001103033023-1133123032333203-2023012323123313-0130001111221020-2023311032211302"></a>
 
-## Direct properties — validation_custom_list / 113132231123 / 3
+### Direct properties for `api_specification.validation_custom_list`
 
 - [fall_through_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1203203121111030-0010121322013103-2210101322101031-0001112231033223-1320002223232310-2013321323302002-1320111112102322-1130232323130213): complete subsection reference.
 
-- [open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-002.md#canonical-3303022033120320-3222033323013231-2323320012102220-2331322001311010-0213130223311213-1310100032021101-2032022111033323-1103102002321211): complete subsection reference.
+- [open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3303022033120320-3222033323013231-2323320012102220-2331322001311010-0213130223311213-1310100032021101-2032022111033323-1103102002321211): complete subsection reference.
 
 - [settings](data-sources--bigip_virtual_server--reference--group-002.md#canonical-2232231203111203-0101002211312100-3201203212203232-3313300323022210-0112311110010002-0222331000301230-3112332102320131-0000223222211300): complete subsection reference.
-
-<a id="canonical-1210200311002230-1331330222031312-2230111113000223-1033301313203212-0103232001021322-1313300300303131-0131303233312133-2210322320130101"></a>
-
-## Next pages — validation_custom_list / 113132231123 / 4
-
-- [api_specification.validation_custom_list.fall_through_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1203203121111030-0010121322013103-2210101322101031-0001112231033223-1320002223232310-2013321323302002-1320111112102322-1130232323130213)
-- [api_specification.validation_custom_list.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-002.md#canonical-3303022033120320-3222033323013231-2323320012102220-2331322001311010-0213130223311213-1310100032021101-2032022111033323-1103102002321211)
-- [api_specification.validation_custom_list.settings](data-sources--bigip_virtual_server--reference--group-002.md#canonical-2232231203111203-0101002211312100-3201203212203232-3313300323022210-0112311110010002-0222331000301230-3112332102320131-0000223222211300)
-- [api_specification](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2213121213201103-1311331110220313-3223333313332233-2301330300100331-1322321323010131-2310201211203221-1033320121012323-1332031232323233)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-1203203121111030-0010121322013103-2210101322101031-0001112231033223-1320002223232310-2013321323302002-1320111112102322-1130232323130213"></a>
 
@@ -1682,9 +1296,7 @@ API-endpoint not listed will act according to 'Fall Through Mode'.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0223033023300310-0133321331302101-0133011331312110-1221023301020300-1333121111032231-2312001223220001-2232203321312210-3221133110122013"></a>
-
-## api_specification.validation_custom_list.fall_through_mode — fall_through_mode / 311223100201 / 2
+## `api_specification.validation_custom_list.fall_through_mode` properties
 
 Breadcrumbs:
 
@@ -1701,22 +1313,13 @@ Type: `"single"`. Computed.
 Determine what to do with unprotected endpoints (not in the OpenAPI specification file (a.k.a.
 Swagger) or doesn't have a specific rule in custom rules).
 
-<a id="canonical-3331212322101203-1301013210301223-1013213332320010-2302320133033213-2201321100003302-1013323003231002-0023000321003200-3121132123211312"></a>
+<a id="canonical-0223033023300310-0133321331302101-0133011331312110-1221023301020300-1333121111032231-2312001223220001-2232203321312210-3221133110122013"></a>
 
-## Direct properties — fall_through_mode / 311223100201 / 3
+### Direct properties for `api_specification.validation_custom_list.fall_through_mode`
 
 - [fall_through_mode_allow](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1211133032321001-2001103020031020-1200332101210010-1313313321232231-2232313333110023-1321103231002131-3203320102003320-1220120101213211): complete subsection reference.
 
 - [fall_through_mode_custom](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3303333123023222-1030332011200323-2030202133002102-0321121303212313-0301311131032222-3121313101333032-0300103323301110-2033130101030203): complete subsection reference.
-
-<a id="canonical-1300110323021002-1220212232110220-2120320310330211-1300103001212023-0103210130323133-0221112312123103-2012133132213101-0311133110331110"></a>
-
-## Next pages — fall_through_mode / 311223100201 / 4
-
-- [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_allow](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1211133032321001-2001103020031020-1200332101210010-1313313321232231-2232313333110023-1321103231002131-3203320102003320-1220120101213211)
-- [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3303333123023222-1030332011200323-2030202133002102-0321121303212313-0301311131032222-3121313101333032-0300103323301110-2033130101030203)
-- [api_specification.validation_custom_list](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0000323113031202-1122223233210022-2210320221111332-1023122223003200-0322110333010111-2200212103322213-1211312021302323-2302100032323221)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-1211133032321001-2001103020031020-1200332101210010-1313313321232231-2232313333110023-1321103231002131-3203320102003320-1220120101213211"></a>
 
@@ -1724,9 +1327,7 @@ Swagger) or doesn't have a specific rule in custom rules).
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3102222113310131-0011123300211112-3123133332031231-2202132320133200-2032010020203321-3112320321323310-3322100121212102-0211213331333222"></a>
-
-## api_specification.validation_custom_list.fall_through_mode.fall_through_mode_allow — fall_through_mode_allow / 012230311211 / 2
+## `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_allow` properties
 
 Breadcrumbs:
 
@@ -1743,18 +1344,7 @@ Type: `["object", {}]`. Computed.
 
 Configuration parameter for fall through mode allow.
 
-<a id="canonical-2023332203013001-2233121202003121-3103022101312020-3113030321332330-1103222211313230-1030131120123221-0023223203302123-3022023023012023"></a>
-
-## Direct properties — fall_through_mode_allow / 012230311211 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1321110022020320-3201012213302003-2332301312013123-1101203112302003-2333100112212320-1000021233233120-0312011023131310-1111220032012102"></a>
-
-## Next pages — fall_through_mode_allow / 012230311211 / 4
-
-- [api_specification.validation_custom_list.fall_through_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1203203121111030-0010121322013103-2210101322101031-0001112231033223-1320002223232310-2013321323302002-1320111112102322-1130232323130213)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-3303333123023222-1030332011200323-2030202133002102-0321121303212313-0301311131032222-3121313101333032-0300103323301110-2033130101030203"></a>
 
@@ -1762,9 +1352,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0332002311022113-0133301011222031-0213010233033112-2313012110121301-3220210333132220-3101023221323212-0321120333131033-3330131223303302"></a>
-
-## api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom — fall_through_mode_custom / 233010031101 / 2
+## `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom` properties
 
 Breadcrumbs:
 
@@ -1781,19 +1369,11 @@ Type: `"single"`. Computed.
 
 Configuration parameter for fall through mode custom.
 
-<a id="canonical-0331202103300220-3110331122213112-3020211111300212-2212131031230331-3003020300111123-2202201111122023-2220300212100031-0003000010021111"></a>
+<a id="canonical-0332002311022113-0133301011222031-0213010233033112-2313012110121301-3220210333132220-3101023221323212-0321120333131033-3330131223303302"></a>
 
-## Direct properties — fall_through_mode_custom / 233010031101 / 3
+### Direct properties for `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom`
 
 - [open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1132011132303033-1310321012230322-3310001022131212-0110012121111122-3313330122210121-0102021223203232-2200221000032120-3302300130231003): complete subsection reference.
-
-<a id="canonical-0210322211313111-0310221012203311-2333020131033301-0310031111132202-0231123311112131-2002031020011031-0212230003320130-0203333300302030"></a>
-
-## Next pages — fall_through_mode_custom / 233010031101 / 4
-
-- [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1132011132303033-1310321012230322-3310001022131212-0110012121111122-3313330122210121-0102021223203232-2200221000032120-3302300130231003)
-- [api_specification.validation_custom_list.fall_through_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1203203121111030-0010121322013103-2210101322101031-0001112231033223-1320002223232310-2013321323302002-1320111112102322-1130232323130213)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-1132011132303033-1310321012230322-3310001022131212-0110012121111122-3313330122210121-0102021223203232-2200221000032120-3302300130231003"></a>
 
@@ -1801,9 +1381,7 @@ Configuration parameter for fall through mode custom.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3010000030133002-0122221223111111-3103222323021223-2332200331213022-1010132301113330-3111120130113002-1131222033333010-2323003212131121"></a>
-
-## api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules — open_api_validation_rules / 023212223200 / 2
+## `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules` properties
 
 Breadcrumbs:
 
@@ -1821,23 +1399,23 @@ Type: `"list"`. Computed.
 
 Custom Fall Through Rule List. Rule or policy definition
 
-<a id="canonical-1211010120023102-0230213201002002-0113301111231102-2102320102123223-3200132200323303-0302033311210212-2313332203200203-3311302223312203"></a>
+<a id="canonical-3010000030133002-0122221223111111-3103222323021223-2332200331213022-1010132301113330-3111120130113002-1131222033333010-2323003212131121"></a>
 
-## Direct properties — open_api_validation_rules / 023212223200 / 3
+### Direct properties for `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules`
 
 - [action_block](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0220010223312132-2221311203010123-2031331031113121-3232321312223000-2223310103220233-1100231101003020-1111102132222333-0130203033303010): complete subsection reference.
 
 - [action_report](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3213332032333210-2222311120000323-1201230102303030-1100233220112121-2101330320211320-1323203233122311-0222120231332233-1100111003323323): complete subsection reference.
 
-- [action_skip](data-sources--bigip_virtual_server--reference--group-002.md#canonical-1333222323030202-2300131122030030-0220121312013012-2011301110300022-3010103003101301-0210020203131311-0102303330203010-1331220021300013): complete subsection reference.
+- [action_skip](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1333222323030202-2300131122030030-0220121312013012-2011301110300022-3010103003101301-0210020203131311-0102303330203010-1331220021300013): complete subsection reference.
 
-- [api_endpoint](data-sources--bigip_virtual_server--reference--group-002.md#canonical-0103323102013133-2211000332231113-1133101301020010-0010333221222330-2302222331321103-0301111130000010-1320213201112113-2112130233031221): complete subsection reference.
+- [api_endpoint](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0103323102013133-2211000332231113-1133101301020010-0010333221222330-2302222331321103-0301111130000010-1320213201112113-2112130233031221): complete subsection reference.
 
 <a id="canonical-1013012023203013-0330222001323110-0300222021231220-2103230300213101-3332303231000200-1201130013212211-2310311300322132-0123332100230031"></a>
 
-<a id="canonical-3031033102022220-0010131230131332-1132013000203030-1112223103232322-1110323020032312-1113011023213221-1331031231100213-1220122003211111"></a>
+<a id="canonical-1211010120023102-0230213201002002-0113301111231102-2102320102123223-3200132200323303-0302033311210212-2313332203200203-3311302223312203"></a>
 
-## api_group property — open_api_validation_rules / 023212223200 / 4
+#### `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_group` property
 
 Type: `"string"`. Computed.
 
@@ -1845,27 +1423,15 @@ Exclusive with \[api\_endpoint base\_path\] The API group which this validation 
 
 <a id="canonical-1202202131303100-0321311030001112-1001032013321002-3310103202000232-0122113211031221-2300010332013210-1201010330210120-3331120131110032"></a>
 
-<a id="canonical-0021023010021130-0231122031131003-3123020212031321-2200330212202121-0203111311101311-2101212222311331-0031032112023213-2120032223313100"></a>
+<a id="canonical-3031033102022220-0010131230131332-1132013000203030-1112223103232322-1110323020032312-1113011023213221-1331031231100213-1220122003211111"></a>
 
-## base_path property — open_api_validation_rules / 023212223200 / 5
+#### `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.base_path` property
 
 Type: `"string"`. Computed.
 
 Exclusive with \[api\_endpoint api\_group\] The base path which this validation applies to.
 
-- [metadata](data-sources--bigip_virtual_server--reference--group-002.md#canonical-1102102031313022-2202133323022102-2011103202131030-3111203011003300-3212121211311212-3323221011022322-2212323300210331-1221213331201132): complete subsection reference.
-
-<a id="canonical-0203320013201030-2230121323320301-1001102322120000-2312022012103111-1303201132313211-1132302110232111-0302132103331120-3311211220331302"></a>
-
-## Next pages — open_api_validation_rules / 023212223200 / 6
-
-- [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_block](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0220010223312132-2221311203010123-2031331031113121-3232321312223000-2223310103220233-1100231101003020-1111102132222333-0130203033303010)
-- [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_report](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3213332032333210-2222311120000323-1201230102303030-1100233220112121-2101330320211320-1323203233122311-0222120231332233-1100111003323323)
-- [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_skip](data-sources--bigip_virtual_server--reference--group-002.md#canonical-1333222323030202-2300131122030030-0220121312013012-2011301110300022-3010103003101301-0210020203131311-0102303330203010-1331220021300013)
-- [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint](data-sources--bigip_virtual_server--reference--group-002.md#canonical-0103323102013133-2211000332231113-1133101301020010-0010333221222330-2302222331321103-0301111130000010-1320213201112113-2112130233031221)
-- [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata](data-sources--bigip_virtual_server--reference--group-002.md#canonical-1102102031313022-2202133323022102-2011103202131030-3111203011003300-3212121211311212-3323221011022322-2212323300210331-1221213331201132)
-- [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3303333123023222-1030332011200323-2030202133002102-0321121303212313-0301311131032222-3121313101333032-0300103323301110-2033130101030203)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
+- [metadata](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1102102031313022-2202133323022102-2011103202131030-3111203011003300-3212121211311212-3323221011022322-2212323300210331-1221213331201132): complete subsection reference.
 
 <a id="canonical-0220010223312132-2221311203010123-2031331031113121-3232321312223000-2223310103220233-1100231101003020-1111102132222333-0130203033303010"></a>
 
@@ -1873,9 +1439,7 @@ Exclusive with \[api\_endpoint api\_group\] The base path which this validation 
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3012312100212200-3213021023122312-0103010110330311-3003233032230020-3000103033101133-1311223231203113-2212231222003120-0321232332022113"></a>
-
-## api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_block — action_block / 303001200020 / 2
+## `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_block` properties
 
 Breadcrumbs:
 
@@ -1894,21 +1458,638 @@ Type: `["object", {}]`. Computed.
 
 Enable this option
 
-<a id="canonical-2032103212033332-0331003203323032-1321312102010301-3200001203100300-0111320033332110-3112211233221002-3012101132232320-3201300002101023"></a>
-
-## Direct properties — action_block / 303001200020 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1021033230231311-0330021211321200-2321313023312010-2333202213121003-1123221030233310-0202030230311010-3221230223231102-3200013221220110"></a>
-
-## Next pages — action_block / 303001200020 / 4
-
-- [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1132011132303033-1310321012230322-3310001022131212-0110012121111122-3313330122210121-0102021223203232-2200221000032120-3302300130231003)
-- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
 
 <a id="canonical-3213332032333210-2222311120000323-1201230102303030-1100233220112121-2101330320211320-1323203233122311-0222120231332233-1100111003323323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
+
+## `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_report` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
+- [Property reference](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0330103300101033-0110313212121312-2131323221121012-0122222202113110-1131132021023000-3330131201331123-1312102120012011-0302013001211333)
+- [api_specification](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2213121213201103-1311331110220313-3223333313332233-2301330300100331-1322321323010131-2310201211203221-1033320121012323-1332031232323233)
+- [api_specification.validation_custom_list](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0000323113031202-1122223233210022-2210320221111332-1023122223003200-0322110333010111-2200212103322213-1211312021302323-2302100032323221)
+- [api_specification.validation_custom_list.fall_through_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1203203121111030-0010121322013103-2210101322101031-0001112231033223-1320002223232310-2013321323302002-1320111112102322-1130232323130213)
+- [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3303333123023222-1030332011200323-2030202133002102-0321121303212313-0301311131032222-3121313101333032-0300103323301110-2033130101030203)
+- [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1132011132303033-1310321012230322-3310001022131212-0110012121111122-3313330122210121-0102021223203232-2200221000032120-3302300130231003)
+- api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_report
+
+<a id="canonical-3002012122011230-0022013102123310-2100310301303100-0021303030033103-0033330032313232-3311031322221320-2033203133320002-3222312022112310"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1333222323030202-2300131122030030-0220121312013012-2011301110300022-3010103003101301-0210020203131311-0102303330203010-1331220021300013"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_skip` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
+- [Property reference](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0330103300101033-0110313212121312-2131323221121012-0122222202113110-1131132021023000-3330131201331123-1312102120012011-0302013001211333)
+- [api_specification](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2213121213201103-1311331110220313-3223333313332233-2301330300100331-1322321323010131-2310201211203221-1033320121012323-1332031232323233)
+- [api_specification.validation_custom_list](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0000323113031202-1122223233210022-2210320221111332-1023122223003200-0322110333010111-2200212103322213-1211312021302323-2302100032323221)
+- [api_specification.validation_custom_list.fall_through_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1203203121111030-0010121322013103-2210101322101031-0001112231033223-1320002223232310-2013321323302002-1320111112102322-1130232323130213)
+- [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3303333123023222-1030332011200323-2030202133002102-0321121303212313-0301311131032222-3121313101333032-0300103323301110-2033130101030203)
+- [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1132011132303033-1310321012230322-3310001022131212-0110012121111122-3313330122210121-0102021223203232-2200221000032120-3302300130231003)
+- api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.action_skip
+
+<a id="canonical-3122332010202010-3002231211003022-1230232203213001-0020322000012313-1103220312311313-1321300031222123-2302300100322332-0211113112221122"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0103323102013133-2211000332231113-1133101301020010-0010333221222330-2302222331321103-0301111130000010-1320213201112113-2112130233031221"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
+- [Property reference](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0330103300101033-0110313212121312-2131323221121012-0122222202113110-1131132021023000-3330131201331123-1312102120012011-0302013001211333)
+- [api_specification](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2213121213201103-1311331110220313-3223333313332233-2301330300100331-1322321323010131-2310201211203221-1033320121012323-1332031232323233)
+- [api_specification.validation_custom_list](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0000323113031202-1122223233210022-2210320221111332-1023122223003200-0322110333010111-2200212103322213-1211312021302323-2302100032323221)
+- [api_specification.validation_custom_list.fall_through_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1203203121111030-0010121322013103-2210101322101031-0001112231033223-1320002223232310-2013321323302002-1320111112102322-1130232323130213)
+- [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3303333123023222-1030332011200323-2030202133002102-0321121303212313-0301311131032222-3121313101333032-0300103323301110-2033130101030203)
+- [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1132011132303033-1310321012230322-3310001022131212-0110012121111122-3313330122210121-0102021223203232-2200221000032120-3302300130231003)
+- api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint
+
+<a id="canonical-3300202030020012-3003311032201023-3330132020211103-3032101133230202-3111320220032002-0323033300200222-0120213210331333-3323111302001022"></a>
+
+Type: `"single"`. Computed.
+
+API Endpoint. This defines API endpoint.
+
+<a id="canonical-0100302312000032-0002322321013203-0321032230210011-2001322101130230-1131103320310301-3301202311230311-0032013322313111-3120113022200121"></a>
+
+### Direct properties for `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint`
+
+<a id="canonical-2103333301132210-1310020201302211-0023211033210112-1222301103302221-1210320323033033-1131103111012230-2021321300303032-1002011332300321"></a>
+
+#### `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint.methods` property
+
+Type: `["list", "string"]`. Computed.
+
+\[Enum: ANY|GET|HEAD|POST|PUT|DELETE|CONNECT|OPTIONS|TRACE|PATCH|COPY\] Methods. Methods to be
+matched. Possible values are \`ANY\`, \`GET\`, \`HEAD\`, \`POST\`, \`PUT\`, \`DELETE\`, \`CONNECT\`,
+\`OPTIONS\`, \`TRACE\`, \`PATCH\`, \`COPY\`. Defaults to \`ANY\`.
+
+<a id="canonical-0321321033112012-3030022331131033-3101230322222101-1200232121113230-0200022321231313-0232122123321113-0011111031202223-0203300033331010"></a>
+
+<a id="canonical-1223003132113233-2301222001100011-0023000322320300-1323133202211103-1331132202103010-2311221312003212-3031232223132033-2021133233330121"></a>
+
+#### `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.api_endpoint.path` property
+
+Type: `"string"`. Computed.
+
+Path. Path to be matched.
+
+<a id="canonical-1102102031313022-2202133323022102-2011103202131030-3111203011003300-3212121211311212-3323221011022322-2212323300210331-1221213331201132"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
+- [Property reference](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0330103300101033-0110313212121312-2131323221121012-0122222202113110-1131132021023000-3330131201331123-1312102120012011-0302013001211333)
+- [api_specification](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2213121213201103-1311331110220313-3223333313332233-2301330300100331-1322321323010131-2310201211203221-1033320121012323-1332031232323233)
+- [api_specification.validation_custom_list](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0000323113031202-1122223233210022-2210320221111332-1023122223003200-0322110333010111-2200212103322213-1211312021302323-2302100032323221)
+- [api_specification.validation_custom_list.fall_through_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1203203121111030-0010121322013103-2210101322101031-0001112231033223-1320002223232310-2013321323302002-1320111112102322-1130232323130213)
+- [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3303333123023222-1030332011200323-2030202133002102-0321121303212313-0301311131032222-3121313101333032-0300103323301110-2033130101030203)
+- [api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1132011132303033-1310321012230322-3310001022131212-0110012121111122-3313330122210121-0102021223203232-2200221000032120-3302300130231003)
+- api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata
+
+<a id="canonical-0301003212102232-1221333333320322-0000312112211332-2203001330333221-2211330103111200-1212113100031323-1022122331223231-1200101010033212"></a>
+
+Type: `"single"`. Computed.
+
+MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
+information is propagated to the metadata of a child object that gets created from the containing
+message during view processing. The information in this type can be specified by user during
+create..
+
+<a id="canonical-3212000303020333-0332310131110210-3302333211112103-1103233022323321-2223300112102101-3033203232200003-0123122011220012-0010233010120223"></a>
+
+### Direct properties for `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata`
+
+<a id="canonical-1323102102312321-0103003331322121-2320231130231212-3312212330303312-2033220102020121-1101122121133113-0013333201011113-2221112003202301"></a>
+
+#### `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata.description_spec` property
+
+Type: `"string"`. Computed.
+
+Description. Human readable description.
+
+<a id="canonical-1312213232132320-3222211203002310-1221003310212322-3010013123221100-2330330223232211-2101110231010333-1000030321222103-3302221230002121"></a>
+
+<a id="canonical-3121221113011023-0210123021110032-3133222012220221-2313111233133210-0301133233100131-3021100331232322-0312111022131012-3022201213323201"></a>
+
+#### `api_specification.validation_custom_list.fall_through_mode.fall_through_mode_custom.open_api_validation_rules.metadata.name` property
+
+Type: `"string"`. Computed.
+
+Name of the message. The value of name has to follow DNS-1035 format.
+
+<a id="canonical-3303022033120320-3222033323013231-2323320012102220-2331322001311010-0213130223311213-1310100032021101-2032022111033323-1103102002321211"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `api_specification.validation_custom_list.open_api_validation_rules` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
+- [Property reference](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0330103300101033-0110313212121312-2131323221121012-0122222202113110-1131132021023000-3330131201331123-1312102120012011-0302013001211333)
+- [api_specification](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2213121213201103-1311331110220313-3223333313332233-2301330300100331-1322321323010131-2310201211203221-1033320121012323-1332031232323233)
+- [api_specification.validation_custom_list](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0000323113031202-1122223233210022-2210320221111332-1023122223003200-0322110333010111-2200212103322213-1211312021302323-2302100032323221)
+- api_specification.validation_custom_list.open_api_validation_rules
+
+<a id="canonical-3312021130001212-2211131013233130-0212113322232313-3103130021001001-2310013222002212-3000211113011010-3313030013033132-2300111003023333"></a>
+
+Type: `"list"`. Computed.
+
+Validation List. Rule or policy definition
+
+<a id="canonical-2111030110031023-1021230033203030-3302110201000030-2022001012021222-1003112000132101-2301303021321012-1003112023032302-1210121220001032"></a>
+
+### Direct properties for `api_specification.validation_custom_list.open_api_validation_rules`
+
+- [any_domain](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3233210312110323-0023233320203232-2030022200013331-0110313032020133-2322121220100302-0130121211232020-1332131120303013-2021113202320200): complete subsection reference.
+
+- [api_endpoint](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3212033202223010-1022002030122221-2021031203333123-1200213123322120-2102111110300020-1303213300022330-0003021012331022-3122302331203232): complete subsection reference.
+
+<a id="canonical-2112030320101001-1230211101023203-3001131332212030-1013301132320002-2110113020201230-2320000221021332-3310001332331113-3032111120102023"></a>
+
+<a id="canonical-0311133321220112-2001232310232123-0102220023332020-3222111033221033-1221130011030010-1110030312313013-0132032132231220-2303313313213200"></a>
+
+#### `api_specification.validation_custom_list.open_api_validation_rules.api_group` property
+
+Type: `"string"`. Computed.
+
+Exclusive with \[api\_endpoint base\_path\] The API group which this validation applies to.
+
+<a id="canonical-3231301022310213-2200312013311123-3031013113011321-3101110210010311-0220230113031321-1102020020133232-1010333302301020-1112312103212012"></a>
+
+<a id="canonical-2000303231210011-3020010321202323-0022310333002200-0330101223132133-0012232202200311-0302101211231221-0131122212200312-3220020031333010"></a>
+
+#### `api_specification.validation_custom_list.open_api_validation_rules.base_path` property
+
+Type: `"string"`. Computed.
+
+Exclusive with \[api\_endpoint api\_group\] The base path which this validation applies to.
+
+- [metadata](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0330210000302313-3003002232332102-1002123100212313-1102100313022312-1131001102020302-3120303310223011-2033130230133213-3020230003022010): complete subsection reference.
+
+<a id="canonical-2130001310312332-2221322223103022-3120101201103100-1302311032000321-0322131321222203-1232110310230202-1012200121120203-1101200010211300"></a>
+
+<a id="canonical-1220220002221302-2232121203230222-1113013120333323-3132330122012301-0303210003313003-3320122213202201-3302203132131132-3203303013323303"></a>
+
+#### `api_specification.validation_custom_list.open_api_validation_rules.specific_domain` property
+
+Type: `"string"`. Computed.
+
+Exclusive with \[any\_domain\] The rule will apply for a specific domain.
+
+- [validation_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0021131021112122-1322011300310321-1130202020310313-2020303020323331-1113111333131312-2021003301321201-3012230111012000-1113123103132210): complete subsection reference.
+
+<a id="canonical-3233210312110323-0023233320203232-2030022200013331-0110313032020133-2322121220100302-0130121211232020-1332131120303013-2021113202320200"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `api_specification.validation_custom_list.open_api_validation_rules.any_domain` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
+- [Property reference](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0330103300101033-0110313212121312-2131323221121012-0122222202113110-1131132021023000-3330131201331123-1312102120012011-0302013001211333)
+- [api_specification](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2213121213201103-1311331110220313-3223333313332233-2301330300100331-1322321323010131-2310201211203221-1033320121012323-1332031232323233)
+- [api_specification.validation_custom_list](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0000323113031202-1122223233210022-2210320221111332-1023122223003200-0322110333010111-2200212103322213-1211312021302323-2302100032323221)
+- [api_specification.validation_custom_list.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3303022033120320-3222033323013231-2323320012102220-2331322001311010-0213130223311213-1310100032021101-2032022111033323-1103102002321211)
+- api_specification.validation_custom_list.open_api_validation_rules.any_domain
+
+<a id="canonical-3121313213210231-1230210233030201-0122021032220303-2013123203132002-3300310300100321-3030202033311101-0303332331101010-1232021110310031"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3212033202223010-1022002030122221-2021031203333123-1200213123322120-2102111110300020-1303213300022330-0003021012331022-3122302331203232"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `api_specification.validation_custom_list.open_api_validation_rules.api_endpoint` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
+- [Property reference](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0330103300101033-0110313212121312-2131323221121012-0122222202113110-1131132021023000-3330131201331123-1312102120012011-0302013001211333)
+- [api_specification](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2213121213201103-1311331110220313-3223333313332233-2301330300100331-1322321323010131-2310201211203221-1033320121012323-1332031232323233)
+- [api_specification.validation_custom_list](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0000323113031202-1122223233210022-2210320221111332-1023122223003200-0322110333010111-2200212103322213-1211312021302323-2302100032323221)
+- [api_specification.validation_custom_list.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3303022033120320-3222033323013231-2323320012102220-2331322001311010-0213130223311213-1310100032021101-2032022111033323-1103102002321211)
+- api_specification.validation_custom_list.open_api_validation_rules.api_endpoint
+
+<a id="canonical-3132013200012333-1301131220131302-0221200303233121-3302331213121330-3001220011031223-3032212020313300-2313313003302103-2131112332222022"></a>
+
+Type: `"single"`. Computed.
+
+API Endpoint. This defines API endpoint.
+
+<a id="canonical-0001312331200121-3313213012012123-1303323222211222-3332023222231020-3231113310121010-2030132302223131-2011230212122313-1012133230101231"></a>
+
+### Direct properties for `api_specification.validation_custom_list.open_api_validation_rules.api_endpoint`
+
+<a id="canonical-0020200233322021-0200230322332013-3213100002033032-1203311320222112-1001223023122102-3000112112001113-0320120020102220-3011310310133202"></a>
+
+#### `api_specification.validation_custom_list.open_api_validation_rules.api_endpoint.methods` property
+
+Type: `["list", "string"]`. Computed.
+
+\[Enum: ANY|GET|HEAD|POST|PUT|DELETE|CONNECT|OPTIONS|TRACE|PATCH|COPY\] Methods. Methods to be
+matched. Possible values are \`ANY\`, \`GET\`, \`HEAD\`, \`POST\`, \`PUT\`, \`DELETE\`, \`CONNECT\`,
+\`OPTIONS\`, \`TRACE\`, \`PATCH\`, \`COPY\`. Defaults to \`ANY\`.
+
+<a id="canonical-1211312021010223-0111201002031023-2301003221111323-3200200231011220-3230302112012322-0312221132332000-2223121300320012-3021303312212133"></a>
+
+<a id="canonical-0232030111123120-3301202030022132-0003330033201121-0203100130311002-0013132003230301-1330110023331032-1122320030100333-3111223101030210"></a>
+
+#### `api_specification.validation_custom_list.open_api_validation_rules.api_endpoint.path` property
+
+Type: `"string"`. Computed.
+
+Path. Path to be matched.
+
+<a id="canonical-0330210000302313-3003002232332102-1002123100212313-1102100313022312-1131001102020302-3120303310223011-2033130230133213-3020230003022010"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `api_specification.validation_custom_list.open_api_validation_rules.metadata` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
+- [Property reference](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0330103300101033-0110313212121312-2131323221121012-0122222202113110-1131132021023000-3330131201331123-1312102120012011-0302013001211333)
+- [api_specification](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2213121213201103-1311331110220313-3223333313332233-2301330300100331-1322321323010131-2310201211203221-1033320121012323-1332031232323233)
+- [api_specification.validation_custom_list](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0000323113031202-1122223233210022-2210320221111332-1023122223003200-0322110333010111-2200212103322213-1211312021302323-2302100032323221)
+- [api_specification.validation_custom_list.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3303022033120320-3222033323013231-2323320012102220-2331322001311010-0213130223311213-1310100032021101-2032022111033323-1103102002321211)
+- api_specification.validation_custom_list.open_api_validation_rules.metadata
+
+<a id="canonical-2021221213200002-1112033031103322-3321210233021133-3302112211002302-3222012211002132-1212122323321101-2000003223313012-1322112033020302"></a>
+
+Type: `"single"`. Computed.
+
+MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
+information is propagated to the metadata of a child object that gets created from the containing
+message during view processing. The information in this type can be specified by user during
+create..
+
+<a id="canonical-3201320031103102-0032203003310312-2222332003301031-0233313203212032-0110310333210001-0023200130311000-1222011002010012-3201211003331111"></a>
+
+### Direct properties for `api_specification.validation_custom_list.open_api_validation_rules.metadata`
+
+<a id="canonical-2221022110130121-1131120333133223-2102230312312121-3301003031213022-0131333102213200-1111320132032231-1232001132212313-2131011101000231"></a>
+
+#### `api_specification.validation_custom_list.open_api_validation_rules.metadata.description_spec` property
+
+Type: `"string"`. Computed.
+
+Description. Human readable description.
+
+<a id="canonical-2021230110033202-2100001012023131-1213121220033203-3130311000113103-0220130023333130-3321012133113121-3230321100313211-2121120013213031"></a>
+
+<a id="canonical-3322212200233223-0303012331213231-2130031330121330-2231033122112320-2011321031031231-3332032222313001-1123122121112320-0132022001023211"></a>
+
+#### `api_specification.validation_custom_list.open_api_validation_rules.metadata.name` property
+
+Type: `"string"`. Computed.
+
+Name of the message. The value of name has to follow DNS-1035 format.
+
+<a id="canonical-0021131021112122-1322011300310321-1130202020310313-2020303020323331-1113111333131312-2021003301321201-3012230111012000-1113123103132210"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `api_specification.validation_custom_list.open_api_validation_rules.validation_mode` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
+- [Property reference](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0330103300101033-0110313212121312-2131323221121012-0122222202113110-1131132021023000-3330131201331123-1312102120012011-0302013001211333)
+- [api_specification](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2213121213201103-1311331110220313-3223333313332233-2301330300100331-1322321323010131-2310201211203221-1033320121012323-1332031232323233)
+- [api_specification.validation_custom_list](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0000323113031202-1122223233210022-2210320221111332-1023122223003200-0322110333010111-2200212103322213-1211312021302323-2302100032323221)
+- [api_specification.validation_custom_list.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3303022033120320-3222033323013231-2323320012102220-2331322001311010-0213130223311213-1310100032021101-2032022111033323-1103102002321211)
+- api_specification.validation_custom_list.open_api_validation_rules.validation_mode
+
+<a id="canonical-1112110313032113-2021200200202030-3110011122110310-1123210300322012-2030103330033311-0121023120130122-2033200203111232-1201000011232103"></a>
+
+Type: `"single"`. Computed.
+
+Validation mode of OpenAPI specification. When a validation mismatch occurs on a request to one of
+the endpoints listed on the OpenAPI specification file (a.k.a. Swagger).
+
+<a id="canonical-2011323102101332-0301200013100012-2221202120330022-2222223101222212-0110323232032203-3321320133023320-2100103113012021-1320213233113201"></a>
+
+### Direct properties for `api_specification.validation_custom_list.open_api_validation_rules.validation_mode`
+
+- [response_validation_mode_active](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1210103103123102-1113132131001221-1111100312100011-2200112212020333-0310301320111103-1232230031033322-3310211212233233-3233122122001011): complete subsection reference.
+
+- [skip_response_validation](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0201120102113310-3111130022121032-1312013101132101-0112101211111013-0333022303020311-0003202000010210-1032310012213220-1303001331310323): complete subsection reference.
+
+- [skip_validation](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3302333033002031-3332322020331132-3310012023303322-0211321103201132-2120200313013033-3233210020033133-2303001123203212-3200021232120100): complete subsection reference.
+
+- [validation_mode_active](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0311201000120233-1330132132110021-0030000330000211-3133310331011311-3333010102113312-3233102312001332-0201231231030321-3310330200120013): complete subsection reference.
+
+<a id="canonical-1210103103123102-1113132131001221-1111100312100011-2200112212020333-0310301320111103-1232230031033322-3310211212233233-3233122122001011"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
+- [Property reference](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0330103300101033-0110313212121312-2131323221121012-0122222202113110-1131132021023000-3330131201331123-1312102120012011-0302013001211333)
+- [api_specification](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2213121213201103-1311331110220313-3223333313332233-2301330300100331-1322321323010131-2310201211203221-1033320121012323-1332031232323233)
+- [api_specification.validation_custom_list](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0000323113031202-1122223233210022-2210320221111332-1023122223003200-0322110333010111-2200212103322213-1211312021302323-2302100032323221)
+- [api_specification.validation_custom_list.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3303022033120320-3222033323013231-2323320012102220-2331322001311010-0213130223311213-1310100032021101-2032022111033323-1103102002321211)
+- [api_specification.validation_custom_list.open_api_validation_rules.validation_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0021131021112122-1322011300310321-1130202020310313-2020303020323331-1113111333131312-2021003301321201-3012230111012000-1113123103132210)
+- api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active
+
+<a id="canonical-1122232033111203-3012322100311202-1213200010202321-3020021223230032-1013301301213322-3021032223201223-1013333310331220-3300000102110120"></a>
+
+Type: `"single"`. Computed.
+
+Open API Validation Mode Active. Validation mode properties of response.
+
+<a id="canonical-2122113212331211-1111322122123231-0222331300113231-2213322222333021-2313220001231001-0022000020221111-1013332101213032-0122313121221100"></a>
+
+### Direct properties for `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active`
+
+- [enforcement_block](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1100303321020033-0322121211013021-3233231320123330-2322312232212113-3312220100000000-3032203032002131-0323333001001201-2333000311200111): complete subsection reference.
+
+- [enforcement_report](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1313102201223030-3000302221331311-2110131023210322-2110300132022002-3122333231232233-1131331020111321-3101200330223012-1000012032020002): complete subsection reference.
+
+<a id="canonical-0202031310121320-1221231000333212-1101321322213102-3310122133112102-2032222011031333-3222023120020021-0002231211322023-3311133103311010"></a>
+
+<a id="canonical-0100200302011331-1032012030223010-2313132223332320-1001212220120212-0021301201002212-0030333130331133-2202132001231102-0122130000302220"></a>
+
+#### `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active.response_validation_properties` property
+
+Type: `["list", "string"]`. Computed.
+
+\[Enum:
+PROPERTY\_QUERY\_PARAMETERS|PROPERTY\_PATH\_PARAMETERS|PROPERTY\_CONTENT\_TYPE|PROPERTY\_COOKIE\_PARAMETERS|PROPERTY\_HTTP\_HEADERS|PROPERTY\_HTTP\_BODY|PROPERTY\_SECURITY\_SCHEMA|PROPERTY\_RESPONSE\_CODE\]
+List of properties of the response to validate according to the OpenAPI specification file (a.k.a.
+Swagger). Possible values are \`PROPERTY\_QUERY\_PARAMETERS\`, \`PROPERTY\_PATH\_PARAMETERS\`,
+\`PROPERTY\_CONTENT\_TYPE\`, \`PROPERTY\_COOKIE\_PARAMETERS\`, \`PROPERTY\_HTTP\_HEADERS\`,
+\`PROPERTY\_HTTP\_BODY\`, \`PROPERTY\_SECURITY\_SCHEMA\`, \`PROPERTY\_RESPONSE\_CODE\`. Defaults to
+\`PROPERTY\_QUERY\_PARAMETERS\`.
+
+<a id="canonical-1100303321020033-0322121211013021-3233231320123330-2322312232212113-3312220100000000-3032203032002131-0323333001001201-2333000311200111"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active.enforcement_block` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
+- [Property reference](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0330103300101033-0110313212121312-2131323221121012-0122222202113110-1131132021023000-3330131201331123-1312102120012011-0302013001211333)
+- [api_specification](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2213121213201103-1311331110220313-3223333313332233-2301330300100331-1322321323010131-2310201211203221-1033320121012323-1332031232323233)
+- [api_specification.validation_custom_list](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0000323113031202-1122223233210022-2210320221111332-1023122223003200-0322110333010111-2200212103322213-1211312021302323-2302100032323221)
+- [api_specification.validation_custom_list.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3303022033120320-3222033323013231-2323320012102220-2331322001311010-0213130223311213-1310100032021101-2032022111033323-1103102002321211)
+- [api_specification.validation_custom_list.open_api_validation_rules.validation_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0021131021112122-1322011300310321-1130202020310313-2020303020323331-1113111333131312-2021003301321201-3012230111012000-1113123103132210)
+- [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1210103103123102-1113132131001221-1111100312100011-2200112212020333-0310301320111103-1232230031033322-3310211212233233-3233122122001011)
+- api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active.enforcement_block
+
+<a id="canonical-1203210300100213-3201112100300123-0222203110331101-1032203122233033-2110203013233312-3021310311021102-2120002302322333-2003323113102033"></a>
+
+Type: `["object", {}]`. Computed.
+
+Blocking validation: reject traffic that violates the selected OpenAPI validation properties.
+Invalid requests are returned as HTTP 403.
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1313102201223030-3000302221331311-2110131023210322-2110300132022002-3122333231232233-1131331020111321-3101200330223012-1000012032020002"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active.enforcement_report` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
+- [Property reference](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0330103300101033-0110313212121312-2131323221121012-0122222202113110-1131132021023000-3330131201331123-1312102120012011-0302013001211333)
+- [api_specification](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2213121213201103-1311331110220313-3223333313332233-2301330300100331-1322321323010131-2310201211203221-1033320121012323-1332031232323233)
+- [api_specification.validation_custom_list](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0000323113031202-1122223233210022-2210320221111332-1023122223003200-0322110333010111-2200212103322213-1211312021302323-2302100032323221)
+- [api_specification.validation_custom_list.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3303022033120320-3222033323013231-2323320012102220-2331322001311010-0213130223311213-1310100032021101-2032022111033323-1103102002321211)
+- [api_specification.validation_custom_list.open_api_validation_rules.validation_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0021131021112122-1322011300310321-1130202020310313-2020303020323331-1113111333131312-2021003301321201-3012230111012000-1113123103132210)
+- [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active](data-sources--bigip_virtual_server--reference--group-001.md#canonical-1210103103123102-1113132131001221-1111100312100011-2200112212020333-0310301320111103-1232230031033322-3310211212233233-3233122122001011)
+- api_specification.validation_custom_list.open_api_validation_rules.validation_mode.response_validation_mode_active.enforcement_report
+
+<a id="canonical-1121200230023220-1230130010302123-0311233333302131-3203300203312132-1132023021113320-3031130010022121-1211300231232333-2001230003011122"></a>
+
+Type: `["object", {}]`. Computed.
+
+Report-only validation: record OpenAPI violations while allowing the request or response to
+continue.
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0201120102113310-3111130022121032-1312013101132101-0112101211111013-0333022303020311-0003202000010210-1032310012213220-1303001331310323"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.skip_response_validation` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
+- [Property reference](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0330103300101033-0110313212121312-2131323221121012-0122222202113110-1131132021023000-3330131201331123-1312102120012011-0302013001211333)
+- [api_specification](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2213121213201103-1311331110220313-3223333313332233-2301330300100331-1322321323010131-2310201211203221-1033320121012323-1332031232323233)
+- [api_specification.validation_custom_list](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0000323113031202-1122223233210022-2210320221111332-1023122223003200-0322110333010111-2200212103322213-1211312021302323-2302100032323221)
+- [api_specification.validation_custom_list.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3303022033120320-3222033323013231-2323320012102220-2331322001311010-0213130223311213-1310100032021101-2032022111033323-1103102002321211)
+- [api_specification.validation_custom_list.open_api_validation_rules.validation_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0021131021112122-1322011300310321-1130202020310313-2020303020323331-1113111333131312-2021003301321201-3012230111012000-1113123103132210)
+- api_specification.validation_custom_list.open_api_validation_rules.validation_mode.skip_response_validation
+
+<a id="canonical-0333113233231200-1230102012232321-1001300000122323-0012333011030321-0333023210001003-3022232221322220-0303102220101133-3320212032031221"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3302333033002031-3332322020331132-3310012023303322-0211321103201132-2120200313013033-3233210020033133-2303001123203212-3200021232120100"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.skip_validation` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
+- [Property reference](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0330103300101033-0110313212121312-2131323221121012-0122222202113110-1131132021023000-3330131201331123-1312102120012011-0302013001211333)
+- [api_specification](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2213121213201103-1311331110220313-3223333313332233-2301330300100331-1322321323010131-2310201211203221-1033320121012323-1332031232323233)
+- [api_specification.validation_custom_list](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0000323113031202-1122223233210022-2210320221111332-1023122223003200-0322110333010111-2200212103322213-1211312021302323-2302100032323221)
+- [api_specification.validation_custom_list.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3303022033120320-3222033323013231-2323320012102220-2331322001311010-0213130223311213-1310100032021101-2032022111033323-1103102002321211)
+- [api_specification.validation_custom_list.open_api_validation_rules.validation_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0021131021112122-1322011300310321-1130202020310313-2020303020323331-1113111333131312-2021003301321201-3012230111012000-1113123103132210)
+- api_specification.validation_custom_list.open_api_validation_rules.validation_mode.skip_validation
+
+<a id="canonical-0230201211303012-1003120303230122-2311103202011033-0311310302031022-0213211001302011-3332202022233312-0020110022021101-1232230112233031"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0311201000120233-1330132132110021-0030000330000211-3133310331011311-3333010102113312-3233102312001332-0201231231030321-3310330200120013"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
+- [Property reference](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0330103300101033-0110313212121312-2131323221121012-0122222202113110-1131132021023000-3330131201331123-1312102120012011-0302013001211333)
+- [api_specification](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2213121213201103-1311331110220313-3223333313332233-2301330300100331-1322321323010131-2310201211203221-1033320121012323-1332031232323233)
+- [api_specification.validation_custom_list](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0000323113031202-1122223233210022-2210320221111332-1023122223003200-0322110333010111-2200212103322213-1211312021302323-2302100032323221)
+- [api_specification.validation_custom_list.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3303022033120320-3222033323013231-2323320012102220-2331322001311010-0213130223311213-1310100032021101-2032022111033323-1103102002321211)
+- [api_specification.validation_custom_list.open_api_validation_rules.validation_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0021131021112122-1322011300310321-1130202020310313-2020303020323331-1113111333131312-2021003301321201-3012230111012000-1113123103132210)
+- api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active
+
+<a id="canonical-2210100030332232-3122012131300233-3021321100303033-0112222212120230-2112100303020020-2332010002312112-0121313230130131-1300021103323222"></a>
+
+Type: `"single"`. Computed.
+
+Enable OpenAPI validation and explicitly select enforcement\_report to allow and log invalid
+traffic, or enforcement\_block to reject invalid requests with HTTP 403.
+
+<a id="canonical-0110223312313321-0201201132330130-2222303003330221-0123312130012032-0003011322110012-2323022113102110-3103231001302122-0102320120221301"></a>
+
+### Direct properties for `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active`
+
+- [enforcement_block](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2033202213332020-1111310222032030-2113023022012312-1100320113033001-1003330232331130-0212220333202223-3302121203223210-0311012010311331): complete subsection reference.
+
+- [enforcement_report](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3321120220223122-0122312010323203-3331323330203000-1103200032000210-3030222012102302-0223200221122002-1011231303033031-0131100233331200): complete subsection reference.
+
+<a id="canonical-3212100121202213-0100131022002113-0100333033323133-2030111130233002-3102333001010223-0112000032033032-0232110112113312-1223212031223123"></a>
+
+<a id="canonical-1332103221101221-3233220022021331-0031222000032233-1020022333131012-2021333001122133-0012101111230111-1333320001010313-3102310221121112"></a>
+
+#### `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active.request_validation_properties` property
+
+Type: `["list", "string"]`. Computed.
+
+\[Enum:
+PROPERTY\_QUERY\_PARAMETERS|PROPERTY\_PATH\_PARAMETERS|PROPERTY\_CONTENT\_TYPE|PROPERTY\_COOKIE\_PARAMETERS|PROPERTY\_HTTP\_HEADERS|PROPERTY\_HTTP\_BODY|PROPERTY\_SECURITY\_SCHEMA|PROPERTY\_RESPONSE\_CODE\]
+List of properties of the request to validate according to the OpenAPI specification file (a.k.a.
+Swagger). Possible values are \`PROPERTY\_QUERY\_PARAMETERS\`, \`PROPERTY\_PATH\_PARAMETERS\`,
+\`PROPERTY\_CONTENT\_TYPE\`, \`PROPERTY\_COOKIE\_PARAMETERS\`, \`PROPERTY\_HTTP\_HEADERS\`,
+\`PROPERTY\_HTTP\_BODY\`, \`PROPERTY\_SECURITY\_SCHEMA\`, \`PROPERTY\_RESPONSE\_CODE\`. Defaults to
+\`PROPERTY\_QUERY\_PARAMETERS\`.
+
+<a id="canonical-2033202213332020-1111310222032030-2113023022012312-1100320113033001-1003330232331130-0212220333202223-3302121203223210-0311012010311331"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active.enforcement_block` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
+- [Property reference](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0330103300101033-0110313212121312-2131323221121012-0122222202113110-1131132021023000-3330131201331123-1312102120012011-0302013001211333)
+- [api_specification](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2213121213201103-1311331110220313-3223333313332233-2301330300100331-1322321323010131-2310201211203221-1033320121012323-1332031232323233)
+- [api_specification.validation_custom_list](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0000323113031202-1122223233210022-2210320221111332-1023122223003200-0322110333010111-2200212103322213-1211312021302323-2302100032323221)
+- [api_specification.validation_custom_list.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3303022033120320-3222033323013231-2323320012102220-2331322001311010-0213130223311213-1310100032021101-2032022111033323-1103102002321211)
+- [api_specification.validation_custom_list.open_api_validation_rules.validation_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0021131021112122-1322011300310321-1130202020310313-2020303020323331-1113111333131312-2021003301321201-3012230111012000-1113123103132210)
+- [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0311201000120233-1330132132110021-0030000330000211-3133310331011311-3333010102113312-3233102312001332-0201231231030321-3310330200120013)
+- api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active.enforcement_block
+
+<a id="canonical-3133101232333112-2302221122030122-2203131212231033-0303222331012110-0300311032321110-3023021321203120-2303031330311301-0312310212302120"></a>
+
+Type: `["object", {}]`. Computed.
+
+Blocking validation: reject traffic that violates the selected OpenAPI validation properties.
+Invalid requests are returned as HTTP 403.
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3321120220223122-0122312010323203-3331323330203000-1103200032000210-3030222012102302-0223200221122002-1011231303033031-0131100233331200"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active.enforcement_report` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_virtual_server](../data-sources/bigip_virtual_server.md#canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020)
+- [Property reference](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0330103300101033-0110313212121312-2131323221121012-0122222202113110-1131132021023000-3330131201331123-1312102120012011-0302013001211333)
+- [api_specification](data-sources--bigip_virtual_server--reference--group-001.md#canonical-2213121213201103-1311331110220313-3223333313332233-2301330300100331-1322321323010131-2310201211203221-1033320121012323-1332031232323233)
+- [api_specification.validation_custom_list](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0000323113031202-1122223233210022-2210320221111332-1023122223003200-0322110333010111-2200212103322213-1211312021302323-2302100032323221)
+- [api_specification.validation_custom_list.open_api_validation_rules](data-sources--bigip_virtual_server--reference--group-001.md#canonical-3303022033120320-3222033323013231-2323320012102220-2331322001311010-0213130223311213-1310100032021101-2032022111033323-1103102002321211)
+- [api_specification.validation_custom_list.open_api_validation_rules.validation_mode](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0021131021112122-1322011300310321-1130202020310313-2020303020323331-1113111333131312-2021003301321201-3012230111012000-1113123103132210)
+- [api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active](data-sources--bigip_virtual_server--reference--group-001.md#canonical-0311201000120233-1330132132110021-0030000330000211-3133310331011311-3333010102113312-3233102312001332-0201231231030321-3310330200120013)
+- api_specification.validation_custom_list.open_api_validation_rules.validation_mode.validation_mode_active.enforcement_report
+
+<a id="canonical-0131022013203232-2011311203301310-2330332130230321-0130133123323102-0220310313032132-1120300301333113-3311221103022200-0202222310203232"></a>
+
+Type: `["object", {}]`. Computed.
+
+Report-only validation: record OpenAPI violations while allowing the request or response to
+continue.
+
+This is an empty object or choice marker. It has no direct properties.

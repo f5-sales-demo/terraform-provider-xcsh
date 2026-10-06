@@ -81,8 +81,8 @@
   "pages": [
     {
       "aliases": ["access active session"],
-      "body_bytes": 1303,
-      "body_sha256": "sha256:cfcbb138b9afeb9b1afda55d5b3172e8483b79e83a2b73fb7ecb0205be94a45c",
+      "body_bytes": 1353,
+      "body_sha256": "sha256:bc2e86045d189470a0f8565d4dcf5d364df58596fd5d4a09a8e010a9e9245981",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -113,7 +113,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/access_active_session/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource retrieval operation.",
+      "summary": "Reads active access session information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_access_active_session",
       "unresolved_relationships": [],
@@ -125,8 +125,8 @@
     },
     {
       "aliases": ["access active session"],
-      "body_bytes": 4900,
-      "body_sha256": "sha256:567908b9e490c2e5fecfb2ff9314f749b5a18ebe0431d382192e456fa103daaa",
+      "body_bytes": 4632,
+      "body_sha256": "sha256:cbeb9ac4e23907b76654674c72a7a1a8aebe3c2a8aedbf50804c79f948369ffa",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:access_active_session:properties:variables"],
@@ -334,8 +334,8 @@
     },
     {
       "aliases": ["variables"],
-      "body_bytes": 1059,
-      "body_sha256": "sha256:40e979577a1130e141154130bee585033e95d6bf4a48e549ee4c8ada43cfe0dd",
+      "body_bytes": 792,
+      "body_sha256": "sha256:0d4d80f605076e9846efa22360c00a46f713efc23729439bd666996290200aa6",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -403,8 +403,8 @@
     },
     {
       "aliases": ["access active session"],
-      "body_bytes": 711,
-      "body_sha256": "sha256:3300384637c6e18b4ccf109dd03a6d05d6f99e1fd70c557827b10067c41f80f2",
+      "body_bytes": 441,
+      "body_sha256": "sha256:251e79a7a58e416d5d5adde00eac15d5d906778eb0be01a30dac4970ff69f866",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:access_active_session:example:data-source"],
@@ -443,8 +443,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1335,
-      "body_sha256": "sha256:4b26854b1eff47d813a5102641534b1228ac7dab91faf2e7bfa84835c48a4fc3",
+      "body_bytes": 1080,
+      "body_sha256": "sha256:212c07030a805997fea950b187aa95b83137f8dec5e70890183a332235e96d7c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
